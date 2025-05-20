@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "target": "esnext",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "include": [
+      "docs/**/*.ts",
+      "docs/**/*.d.ts",
+      "docs/**/*.tsx",
+      "docs/**/*.vue",
+      "docs/**/*.jsx",
+      "docs/**/*.js",
+      "server/**/*.js",
+      "server/**/*.ts"
+    ]
+  }
+}
