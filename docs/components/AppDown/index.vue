@@ -100,11 +100,11 @@
   const { lang } = useData()
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.11/FlyEnv.Setup.4.9.11.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.12/FlyEnv.Setup.4.9.12.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.11/FlyEnv.Portable.4.9.11.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.11/FlyEnv-4.9.11.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.11/FlyEnv-4.9.11-arm64.dmg'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.12/FlyEnv.Portable.4.9.12.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.12/FlyEnv-4.9.12.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.9.12/FlyEnv-4.9.12-arm64.dmg'
   }
 
   const title = computed(() => {

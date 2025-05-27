@@ -18,6 +18,11 @@
 
 感谢每一个喜欢我项目的朋友。
 
+**特别致谢:**
+
+**F4nniu**, [FastAdmin](https://www.fastadmin.net/)的创始人, 大佬给予了项目很多帮助并赞助了flyenv.com域名.
+
+
 <script setup>
 import AppIframe from '../components/AppSponsor/index.vue';
 </script>

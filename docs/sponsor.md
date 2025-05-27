@@ -16,7 +16,11 @@ If you are an international friend, please sponsor from the ko-fi platform. If y
 
 ## Thanks
 
-Thank you to every friend who likes my project.
+Thank you to every friend who likes FlyEnv project.
+
+**Special thanks to:**
+
+**F4nniu**, founder of [FastAdmin](https://www.fastadmin.net/), for sponsoring the flyenv.com domain.
 
 <script setup>
 import AppIframe from './components/AppSponsor/index.vue';
