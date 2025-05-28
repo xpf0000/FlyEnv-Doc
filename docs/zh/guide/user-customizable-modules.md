@@ -8,6 +8,8 @@ FlyEnv 已经内置了大量常用模块，但开发者可能需要更多功能�
 
 本指南以 [etcd](https://github.com/etcd-io/etcd) 为例进行说明。截至本文撰写时，FlyEnv 尚未内置 etcd 模块（已有相关需求 #307）。感谢所有提出建议的用户，您的反馈让 FlyEnv 变得更好, 最终回馈到更多用户.
 
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?isOutside=true&aid=114585751325264&bvid=BV1XxjzzdE3e&cid=30199056820&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## 添加自定义模块
 
 ### 第一步：准备二进制文件

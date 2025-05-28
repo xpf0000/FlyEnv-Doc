@@ -8,6 +8,8 @@ To address this need, FlyEnv now introduces Custom Modules - allowing users to a
 
 This guide demonstrates the process using [etcd](https://github.com/etcd-io/etcd) as an example. As of this writing, FlyEnv doesn't include a native etcd module, though there's already an open request (#307). We appreciate all user feedback - every suggestion helps improve FlyEnv for everyone.
 
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/ViKMVkh3TL8?si=whaQ5nXE1fhiT5gw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Adding a Custom Module
 
 ### Step 1: Prepare the Binary
