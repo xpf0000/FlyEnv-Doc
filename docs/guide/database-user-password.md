@@ -20,7 +20,7 @@ The initial account password for the MongoDB is null. No initial account passwor
 
 ## Database Client
 
-For MySQL and MariaDB. FlyEnv has built-in PhoMyAdmin
+For MySQL and MariaDB. FlyEnv has built-in phpMyAdmin
 
 <img src="https://oss.macphpstudy.com/image/30d01fec0e6a.png" data-x-image-preview="">
 <p/>
