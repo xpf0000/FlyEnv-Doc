@@ -15,8 +15,8 @@ FlyEnv offers **one-click installation** for a wide range of software, including
 
 - **Web Servers**: Apache, Caddy, Nginx, Tomcat, Static Document Server.
 - **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB.
-- **Programming Languages**: PHP, Java, NodeJS, Python, Go, Erlang.
-- **Data Queue & Cache**: Redis, RabbitMQ, Memcached.
+- **Programming Languages**: PHP, Java, NodeJS, Python, Go, Erlang, Bun, Deno.
+- **Data Queue & Cache**: Redis, RabbitMQ, Memcached, etcd.
 - **Email Server**: Mailpit.
 
 All software supports **multi-version installation**. For example:

@@ -15,8 +15,8 @@ FlyEnv 提供 **一键安装** 功能，支持多种软件，包括：
 
 - **Web 服务器**：Apache、Caddy、Nginx、Tomcat、静态文档服务器。
 - **数据库**：MySQL、MariaDB、PostgreSQL、MongoDB。
-- **编程语言**：PHP、Java、NodeJS、Python、Go、Erlang。
-- **数据队列与缓存**：Redis、RabbitMQ、Memcached。
+- **编程语言**：PHP、Java、NodeJS、Python、Go、Erlang、Bun、Deno。
+- **数据队列与缓存**：Redis、RabbitMQ、Memcached、etcd。
 - **邮件服务器**：Mailpit。
 
 所有软件均支持 **多版本安装**。例如：
