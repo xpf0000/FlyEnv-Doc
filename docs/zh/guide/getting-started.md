@@ -49,11 +49,11 @@ brew update && brew install flyenv
 支持 Debian / Ubuntu / Red Hat / Fedora / SUSE / CentOS 系统，x86_64 和 arm64 架构。
 
 | 架构                             | 文件                  | GitHub 发布 | 百度网盘   |
-|:---------------------------------|:----------------------|:-----------:|:--------:| 
-| Debian/Ubuntu x86_64             | {version}_amd64.deb   |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS x86_64| {version}.x86_64.rpm  | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
-| Debian/Ubuntu arm64              | {version}_arm64.deb   |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS arm64 | {version}.aarch64.rpm | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
+|:---------------------------------|:--------------------|:-----------:|:--------:| 
+| Debian/Ubuntu x86_64             | {version}-x64.deb   |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+| Red Hat/Fedora/SUSE/CentOS x86_64| {version}-x64.rpm   | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
+| Debian/Ubuntu arm64              | {version}-arm64.deb |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+| Red Hat/Fedora/SUSE/CentOS arm64 | {version}-arm64.rpm | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
 
 ## 启动前准备
 

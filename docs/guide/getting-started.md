@@ -50,10 +50,10 @@ Supports Debian / Ubuntu / Red Hat / Fedora / SUSE / CentOS systems, x86_64 and 
 
 | Architecture                             | File                  | GitHub Release | Baidu Netdisk   |
 |:-----------------------------------------|:----------------------|:--------------:|:--------------:| 
-| Debian/Ubuntu x86_64                     | {version}_amd64.deb   |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS x86_64        | {version}.x86_64.rpm  | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
-| Debian/Ubuntu arm64                      | {version}_arm64.deb   |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS arm64          | {version}.aarch64.rpm | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
+| Debian/Ubuntu x86_64                     | {version}-x64.deb     |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+| Red Hat/Fedora/SUSE/CentOS x86_64        | {version}-x64.rpm     | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
+| Debian/Ubuntu arm64                      | {version}-arm64.deb   |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+| Red Hat/Fedora/SUSE/CentOS arm64          | {version}-arm64.rpm | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
 
 ## Pre-Launch Preparation
 
