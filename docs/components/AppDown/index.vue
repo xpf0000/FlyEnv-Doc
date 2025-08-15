@@ -395,19 +395,19 @@
   const { lang } = useData()
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-Setup-4.10.5.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-Setup-4.10.6.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-Portable-4.10.5.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-4.10.5.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-4.10.5-arm64.dmg',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-Portable-4.10.6.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-4.10.6.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-4.10.6-arm64.dmg',
     linuxDebX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-4.10.5-x64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-4.10.6-x64.deb',
     linuxDebArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-4.10.5-arm64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-4.10.6-arm64.deb',
     linuxRpmX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-4.10.5-x64.rpm',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-4.10.6-x64.rpm',
     linuxRpmArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.5/FlyEnv-4.10.5-arm64.rpm'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-4.10.6-arm64.rpm'
   }
 
   const title = computed(() => {
