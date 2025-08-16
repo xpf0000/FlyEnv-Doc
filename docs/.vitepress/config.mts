@@ -90,6 +90,7 @@ export default defineConfigWithTheme({
             {
               text: 'Module Reference',
               items: [
+                { text: 'Code Playground & Code Library', link: '/guide/code-playground-and-code-library.md' },
                 { text: 'User Customizable Modules', link: '/guide/user-customizable-modules' },
                 { text: 'Load I18n Language Packs', link: '/guide/dynamically-load-I18n-language-packs' },
                 { text: 'Local Offline AI Agent', link: '/guide/build-local-offline-ai-agent' },
@@ -153,6 +154,7 @@ export default defineConfigWithTheme({
             {
               text: '功能参考',
               items: [
+                { text: '代码演练场 & 代码图书馆', link: '/zh/guide/code-playground-and-code-library.md' },
                 { text: '自定义模块使用指南', link: '/zh/guide/user-customizable-modules' },
                 { text: '动态加载I18n语言包', link: '/zh/guide/dynamically-load-I18n-language-packs' },
                 { text: '本地离线AI智能体', link: '/zh/guide/build-local-offline-ai-agent' },
