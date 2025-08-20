@@ -13,11 +13,15 @@ FlyEnv 是一款一体化全栈环境管理工具。帮助开发者快速设置�
 ### 软件安装
 FlyEnv 提供 **一键安装** 功能，支持多种软件，包括：
 
-- **Web 服务器**：Apache、Caddy、Nginx、Tomcat、静态文档服务器。
-- **数据库**：MySQL、MariaDB、PostgreSQL、MongoDB。
-- **编程语言**：PHP、Java、NodeJS、Python、Go、Erlang、Bun、Deno。
-- **数据队列与缓存**：Redis、RabbitMQ、Memcached、etcd。
-- **邮件服务器**：Mailpit。
+- **AI 集成**: Ollama.
+- **Web 服务器**: Apache, Nginx, Caddy, Tomcat, Consul.
+- **数据库**: MySQL, MariaDB, PostgreSQL, MongoDB.
+- **邮件服务器**: Mailpit.
+- **编程语言 & 运行时**: PHP (Composer), Java (Maven), NodeJS, Python, Go, Erlang, Ruby, Rust (Rustup), Bun, Deno, Gradle.
+- **数据队列与缓存**: Redis, Memcached, RabbitMQ, etcd.
+- **搜索引擎**: Elasticsearch, Meilisearch, Typesense
+- **对象存储**: Minio.
+- **其他**: DNS Server, FTP Server, Static HTTP Server.
 
 所有软件均支持 **多版本安装**。例如：
 - PHP：支持 5.x 到最新的 8.x 版本。
