@@ -395,9 +395,9 @@
   const { lang } = useData()
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-Setup-4.10.6.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.7/FlyEnv-Setup-4.10.7.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.6/FlyEnv-Portable-4.10.6.exe',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.7/FlyEnv-Portable-4.10.7.exe',
     macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.7/FlyEnv-4.10.7.dmg',
     macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.10.7/FlyEnv-4.10.7-arm64.dmg',
     linuxDebX64:

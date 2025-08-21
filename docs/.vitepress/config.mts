@@ -108,6 +108,7 @@ export default defineConfigWithTheme({
             {
               text: 'Other',
               items: [
+                { text: 'Windows Website Performance Optimization', link: '/guide/windows-site-performance-optimization.md' },
                 { text: 'Run Laravel Use FlyEnv', link: '/guide/run-laravel-use-flyenv' },
                 { text: 'PHP icu4c issues', link: '/guide/php-icu4c-issues' },
                 { text: 'Apache parse .html file to php', link: '/guide/apache-html-to-php' },
@@ -172,6 +173,7 @@ export default defineConfigWithTheme({
             {
               text: '其他',
               items: [
+                { text: 'Windows站点访问速度优化', link: '/zh/guide/windows-site-performance-optimization.md' },
                 { text: '运行Laravel', link: '/zh/guide/run-laravel-use-flyenv' },
                 { text: 'PHP icu4c 问题', link: '/zh/guide/php-icu4c-issues' },
                 { text: 'Apache解析.html文件为php', link: '/zh/guide/apache-html-to-php' },
