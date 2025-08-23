@@ -158,3 +158,7 @@ FlyEnv代码演练场和代码图书馆组成了一套高效的代码管理解�
 ✓ 建立个人/团队的代码知识库
 
 ✓ 减少重复劳动，专注核心开发
+
+## 视频教程
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?isOutside=true&aid=115078313545240&bvid=BV14Je6zhECW&cid=31896635236&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
