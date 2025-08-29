@@ -20,7 +20,7 @@ MongoDB 的初始账号密码为空, 无初始账号密码
 
 ## 数据库客户端工具
 
-对于 MySQL 和 MariaDB. FlyEnv内置了PhoMyAdmin
+对于 MySQL 和 MariaDB. FlyEnv内置了phpMyAdmin
 
 <img src="https://oss.macphpstudy.com/image/30d01fec0e6a.png" data-x-image-preview="">
 <p/>
