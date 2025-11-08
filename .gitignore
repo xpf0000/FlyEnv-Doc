@@ -40,3 +40,4 @@ package.lock.json
 /docsZH/.vitepress/cache/*
 /docsZH/.vitepress/dist/*
 /out
+.env
