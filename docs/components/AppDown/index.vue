@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-100 flex flex-col items-center pt-10"
+    class="flex flex-col items-center pt-10"
     style="min-height: calc(100vh - 64px - 89px)"
   >
     <div
@@ -9,7 +9,7 @@
       <h1 class="text-center text-5xl font-bold">{{ title }}</h1>
       <h4 class="text-center text-xl mb-6">{{ subtitle }}</h4>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             class="icon mx-auto mb-4 max-w-[100px]"
             viewBox="0 0 1024 1024"
@@ -29,7 +29,7 @@
             >{{ down }}</a
           >
         </div>
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             class="icon mx-auto mb-4 max-w-[100px]"
             viewBox="0 0 1024 1024"
@@ -49,7 +49,7 @@
             >{{ down }}</a
           >
         </div>
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             class="icon mx-auto mb-4 max-w-[100px]"
             viewBox="0 0 1024 1024"
@@ -69,7 +69,7 @@
             >{{ down }}</a
           >
         </div>
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             class="icon mx-auto mb-4 max-w-[100px]"
             viewBox="0 0 1024 1024"
@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             viewBox="0 0 1024 1024"
             version="1.1"
@@ -164,7 +164,7 @@
             >{{ down }}</a
           >
         </div>
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             viewBox="0 0 1024 1024"
             version="1.1"
@@ -237,7 +237,7 @@
             >{{ down }}</a
           >
         </div>
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             viewBox="0 0 1024 1024"
             version="1.1"
@@ -310,7 +310,7 @@
             >{{ down }}</a
           >
         </div>
-        <div class="text-center bg-white px-6 py-8 rounded-lg shadow-lg">
+        <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
             viewBox="0 0 1024 1024"
             version="1.1"

@@ -43,8 +43,12 @@ export default defineConfigWithTheme({
       host: '0.0.0.0',
       port: 4000
     },
+    optimizeDeps: {
+      exclude: ['number-flow']
+    },
     ssr: {
-      noExternal: ['element-plus', '*/AppFeedback/*']
+      // external: ['number-flow'],
+      noExternal: ['number-flow', 'element-plus', '*/AppFeedback/*']
     }
   },
   sitemap: {

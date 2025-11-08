@@ -1,5 +1,7 @@
 <template>
-  <NumberFlow ref="dom" :value="useValue" />
+  <ClientOnly>
+    <NumberFlow ref="dom" :value="useValue" />
+  </ClientOnly>
 </template>
 <script setup lang="ts">
   import { type Ref, ref, onMounted, onUnmounted, watch } from 'vue'
