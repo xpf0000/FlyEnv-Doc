@@ -58,6 +58,10 @@
     word-break: break-all;
 }
 
+.floatingchat-container {
+    color-scheme: none !important;
+}
+
 @media (min-width: 500px) {
     .live-app-block .h2 {
         font-size: 2rem;
