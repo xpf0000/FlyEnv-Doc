@@ -132,6 +132,9 @@ FlyEnv 的配置旨在**贴近真实的生产环境**，让您的开发到部署
 ### 🤖 AI 助手
 <AppModules :type="7" />
 
+### 🐳 容器
+<AppModules :type="9" />
+
 ### 🌐 网络服务器
 <AppModules :type="0" />
 

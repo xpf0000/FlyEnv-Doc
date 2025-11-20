@@ -53,6 +53,10 @@ FlyEnv lets you manage the start and stop of services for all installed software
 - Add any supported software to environment variables with one click.
 - Set aliases (e.g., PHP74, PHP82) for easy terminal use.
 
+### Container/Image/Docker-Compose Management
+For scenarios where conventional methods fall short, FlyEnv also offers a container-based solution. This allows you to manage images and containers, as well as quickly build and run Docker Compose configurations.
+[Podman Module User Guide](/guide/podman-module)
+
 ### Additional Tools
 FlyEnv includes many practical features for developers, such as:
 1. **JSON Parsing**: Convert between JSON, JavaScript objects, PHP arrays, XML, YAML, and more.

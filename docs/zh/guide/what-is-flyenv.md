@@ -53,6 +53,10 @@ FlyEnv 允许你管理所有已安装软件服务的启动和停止。例如：
 - 一键将任何支持的软件添加到环境变量中。
 - 设置别名（如 PHP74、PHP82），方便在终端中使用。
 
+### 容器/镜像/Docker-Compose管理
+对于部分需求难以通过常规方式满足的情况, FlyEnv还提供了容器解决方案. 可以管理镜像, 容器, 快速构建和运行docker-compose.
+[Podman模块使用指南](/zh/guide/podman-module)
+
 ### 其他工具
 FlyEnv 包含许多实用的开发者工具，例如：
 1. **JSON 解析**：支持 JSON、JavaScript 对象、PHP 数组、XML、YAML 等格式的相互转换。

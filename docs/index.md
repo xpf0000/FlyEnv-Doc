@@ -132,6 +132,9 @@ FlyEnv configurations mirror **real production environments**, smoothing the dev
 ### 🤖 AI Assistant
 <AppModules :type="7" />
 
+### 🐳 Containers
+<AppModules :type="9" />
+
 ### 🌐 Web Servers
 <AppModules :type="0" />
 

@@ -90,6 +90,7 @@ export default defineConfigWithTheme({
             {
               text: 'Module Reference',
               items: [
+                { text: 'Podman Module User Guide', link: '/guide/podman-module' },
                 { text: 'Code Playground & Code Library', link: '/guide/code-playground-and-code-library.md' },
                 { text: 'User Customizable Modules', link: '/guide/user-customizable-modules' },
                 { text: 'Load I18n Language Packs', link: '/guide/dynamically-load-I18n-language-packs' },
@@ -155,6 +156,7 @@ export default defineConfigWithTheme({
             {
               text: '功能参考',
               items: [
+                { text: 'Podman模块使用指南', link: '/zh/guide/podman-module' },
                 { text: '代码演练场 & 代码图书馆', link: '/zh/guide/code-playground-and-code-library.md' },
                 { text: '自定义模块使用指南', link: '/zh/guide/user-customizable-modules' },
                 { text: '动态加载I18n语言包', link: '/zh/guide/dynamically-load-I18n-language-packs' },
