@@ -395,19 +395,19 @@
   const { lang } = useData()
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-Setup-4.12.1.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-Setup-4.12.2.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-Portable-4.12.1.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-4.12.1.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-4.12.1-arm64.dmg',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-Portable-4.12.2.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-arm64.dmg',
     linuxDebX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-4.12.1-x64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-x64.deb',
     linuxDebArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-4.12.1-arm64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-arm64.deb',
     linuxRpmX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-4.12.1-x64.rpm',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-x64.rpm',
     linuxRpmArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.1/FlyEnv-4.12.1-arm64.rpm'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-arm64.rpm'
   }
 
   const title = computed(() => {
