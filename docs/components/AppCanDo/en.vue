@@ -1,7 +1,7 @@
 <template>
   <div class="my-24 px-4">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="text-3xl md:text-[40px] font-bold mb-4">What can FlyEnv do</div>
+    <div class="text-center mx-auto mb-12">
+      <h2 id="what-can-flyenv-do" tabindex="-1">What can FlyEnv do <a class="header-anchor" href="#what-can-flyenv-do" aria-label="Permalink to &quot;What can FlyEnv do&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
         More than just a version manager. A complete, native ecosystem for full-stack development.
       </p>

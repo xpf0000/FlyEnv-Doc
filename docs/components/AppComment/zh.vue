@@ -1,8 +1,8 @@
 <template>
   <div class="my-16 py-16">
-    <h2 class="text-center" id="loved-by-developers-worldwide" tabindex="-1">Loved by Developers Worldwide <a class="header-anchor" href="#loved-by-developers-worldwide" aria-label="Permalink to &quot;Loved by Developers Worldwide&quot;">​</a></h2>
+    <h2 class="text-center" id="loved-by-developers-worldwide" tabindex="-1">深受全球开发者的信赖<a class="header-anchor" href="#loved-by-developers-worldwide" aria-label="Permalink to &quot;Loved by Developers Worldwide&quot;">​</a></h2>
     <p class="text-lg text-gray-500 text-center">
-      See why developer choose FlyEnv.
+      看看开发者为什么选择FlyEnv
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-12">

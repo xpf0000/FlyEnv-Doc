@@ -1,13 +1,13 @@
 <template>
   <div class="my-16 px-4">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="text-3xl md:text-[40px] font-bold mb-4">公平灵活的许可</div>
+    <div class="text-center mx-auto mb-12">
+      <h2 id="公平灵活的许可" tabindex="-1">公平灵活的许可 <a class="header-anchor" href="#公平灵活的许可" aria-label="Permalink to &quot;公平灵活的许可&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
         FlyEnv 可免费下载和使用。我们相信公平交换——支持项目以解锁无限潜力。
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
       <div class="border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex flex-col">
         <h3 class="text-2xl font-bold mb-2">社区版</h3>
         <div class="text-4xl font-bold mb-6">$0 <span class="text-lg font-normal text-gray-500">/ 永久免费</span></div>

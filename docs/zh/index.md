@@ -47,15 +47,17 @@ features:
 ---
 
 <script setup>
-import AppModules from '../components/AppModules/index.vue';
+import AppCoreModule from '../components/AppCoreModule/zh.vue';
 import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue';
 import AppGitHubModules from '../components/AppGithub/zh.vue';
-import AppCommentModules from '../components/AppComment/index.vue';
+import AppCommentModules from '../components/AppComment/zh.vue';
 import AppCanDoModules from '../components/AppCanDo/zh.vue';
 import AppPriceModules from '../components/AppPrice/zh.vue';
 </script>
 
 <AppCanDoModules />
+
+<AppCoreModule />
 
 <AppGitHubModules />
 

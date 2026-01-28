@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center my-16 py-16">
-    <div class="text-3xl md:text-[40px] font-bold mb-6 text-center">100% Open Source & Community Driven</div>
-    <p class="text-lg text-gray-500 max-w-2xl text-center mb-8">
+  <div class="flex flex-col items-center justify-center my-16">
+    <h2 class="w-full text-center" id="_100-open-source-community-driven" tabindex="-1">100% Open Source &amp; Community Driven <a class="header-anchor" href="#_100-open-source-community-driven" aria-label="Permalink to &quot;100% Open Source &amp; Community Driven&quot;">​</a></h2>
+    <p class="text-lg text-gray-500 text-center mb-8">
       Transparent, auditable, and built by developers for developers. Join us on GitHub.
     </p>
 
@@ -23,4 +23,5 @@
     </a>
   </div>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+</script>

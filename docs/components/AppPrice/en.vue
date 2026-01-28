@@ -1,13 +1,13 @@
 <template>
   <div class="my-16 px-4">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="text-3xl md:text-[40px] font-bold mb-4">Fair & Flexible Licensing</div>
+    <div class="text-center mx-auto mb-12">
+      <h2 class="w-full text-center" id="fair-flexible-licensing" tabindex="-1">Fair &amp; Flexible Licensing <a class="header-anchor" href="#fair-flexible-licensing" aria-label="Permalink to &quot;Fair &amp; Flexible Licensing&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
         FlyEnv is free to download and use. We believe in fair exchange—support the project to unlock unlimited potential.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
       <div class="border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex flex-col">
         <h3 class="text-2xl font-bold mb-2">Community Edition</h3>
         <div class="text-4xl font-bold mb-6">$0 <span class="text-lg font-normal text-gray-500">/ forever</span></div>
