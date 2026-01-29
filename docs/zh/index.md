@@ -48,6 +48,7 @@ features:
 
 <script setup>
 import AppCoreModule from '../components/AppCoreModule/zh.vue';
+import AppToolModule from '../components/AppToolModule/zh.vue';
 import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue';
 import AppGitHubModules from '../components/AppGithub/zh.vue';
 import AppCommentModules from '../components/AppComment/zh.vue';
@@ -58,6 +59,8 @@ import AppPriceModules from '../components/AppPrice/zh.vue';
 <AppCanDoModules />
 
 <AppCoreModule />
+
+<AppToolModule />
 
 <AppGitHubModules />
 

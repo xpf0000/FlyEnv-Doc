@@ -48,6 +48,7 @@ features:
 
 <script setup>
 import AppCoreModule from './components/AppCoreModule/en.vue';
+import AppToolsModule from './components/AppToolModule/en.vue';
 import AppNoFountTipsModules from './components/AppNoFoundTips/index.vue';
 import AppGitHubModules from './components/AppGithub/en.vue';
 import AppCommentModules from './components/AppComment/index.vue';
@@ -58,6 +59,8 @@ import AppPriceModules from './components/AppPrice/en.vue';
 <AppCanDoModules />
 
 <AppCoreModule />
+
+<AppToolsModule />
 
 <AppGitHubModules />
 
