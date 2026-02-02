@@ -15,9 +15,9 @@ FlyEnv 提供 **一键安装** 功能，支持多种软件，包括：
 
 - **AI 集成**: Ollama.
 - **Web 服务器**: Apache, Nginx, Caddy, Tomcat, Consul.
-- **数据库**: MySQL, MariaDB, PostgreSQL, MongoDB.
+- **数据库**: MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant.
 - **邮件服务器**: Mailpit.
-- **编程语言 & 运行时**: PHP (Composer), Java (Maven), NodeJS, Python, Go, Erlang, Ruby, Rust (Rustup), Bun, Deno, Gradle.
+- **编程语言 & 运行时**: PHP (Composer), Java (Maven, Gradle), NodeJS, Python, Go, Erlang, Ruby, Rust (Rustup), Zig, Bun, Deno.
 - **数据队列与缓存**: Redis, Memcached, RabbitMQ, etcd.
 - **搜索引擎**: Elasticsearch, Meilisearch, Typesense
 - **对象存储**: Minio.

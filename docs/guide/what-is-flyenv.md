@@ -15,9 +15,9 @@ FlyEnv offers **one-click installation** for a wide range of software, including
 
 - **AI Integration**: Ollama, DeepSeek, Chatbox.
 - **Web Servers**: Apache, Nginx, Caddy, Tomcat, Consul.
-- **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB.
+- **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant.
 - **Email Server**: Mailpit.
-- **Programming Languages & Runtime**: PHP (Composer), Java (Maven), NodeJS, Python, Go, Erlang, Ruby, Rust (Rustup), Bun, Deno, Gradle.
+- **Programming Languages & Runtime**: PHP (Composer), Java (Maven, Gradle), Node.js, Python, Go, Erlang, Ruby, Rust (Rustup), Zig, Bun, Deno.
 - **Data Queue & Cache**: Redis, Memcached, RabbitMQ, etcd.
 - **Search Engine**: Elasticsearch, Meilisearch, Typesense
 - **Object Storage**: Minio.
