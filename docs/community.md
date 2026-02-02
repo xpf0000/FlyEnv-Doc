@@ -4,6 +4,10 @@
 
 [https://github.com/xpf0000/FlyEnv/discussions](https://github.com/xpf0000/FlyEnv/discussions)
 
+## Facebook Group
+
+[https://www.facebook.com/groups/908637655411162](https://www.facebook.com/groups/908637655411162)
+
 ## <span style="display:flex;align-items:center;gap: 12px;"><img style="width: 48px;" src="https://oss.macphpstudy.com/image/discord.png"/> Discord</span> 
 
 [https://discord.gg/u5SuMGxjPE](https://discord.gg/u5SuMGxjPE)

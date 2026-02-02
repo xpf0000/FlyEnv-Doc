@@ -73,6 +73,8 @@ It is recommended to install Homebrew to ensure the latest versions of services 
 ### Notes
 Before using FlyEnv, it is recommended to close other applications that may use the same ports (e.g., Apache/Nginx/MySQL) to avoid port conflicts.
 
+During the first run, the FlyEnv helper program needs to be installed. If Windows users encounter an installation failure prompt, they can try launching FlyEnv with administrator privileges. Once the installation is successful, administrator privileges will not be required for subsequent use.
+
 ### Interface Setup
 After opening FlyEnv, all functional modules are displayed on the left by default. You can hide unnecessary modules in the settings.
 
