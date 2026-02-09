@@ -7,7 +7,29 @@
       class="max-w-screen-xl container flex flex-col items-center justify-between gap-7 mx-auto p-5 py-8"
     >
       <h1 class="text-center text-5xl font-bold">{{ title }}</h1>
-      <h4 class="text-center text-xl mb-6">{{ subtitle }}</h4>
+      <h4 class="text-center text-xl mb-5">{{ subtitle }}</h4>
+
+      <template v-if="lang === 'zh-CN'">
+        <div class="w-full flex items-center justify-center gap-10 mb-6">
+          <div class="flex items-center justify-center p-2">
+            <a class="text-blue-500" href="https://github.com/xpf0000/FlyEnv/releases" target="_blank">查看更新日志</a>
+          </div>
+          <div class="flex items-center justify-center p-2">
+            <a class="text-blue-500" href="https://github.com/xpf0000/FlyEnv/actions" target="_blank">查看构建记录</a>
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <div class="w-full flex items-center justify-center gap-10 mb-6">
+          <div class="flex items-center justify-center p-2">
+            <a class="text-blue-500" href="https://github.com/xpf0000/FlyEnv/releases" target="_blank">View Release Notes</a>
+          </div>
+          <div class="flex items-center justify-center p-2">
+            <a class="text-blue-500" href="https://github.com/xpf0000/FlyEnv/actions" target="_blank">View Build Action</a>
+          </div>
+        </div>
+      </template>
+
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
         <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
           <svg
@@ -21,7 +43,12 @@
               fill="#0078D7"
             ></path>
           </svg>
-          <p class="mb-7 text-sm">Windows Installer</p>
+          <template v-if="lang === 'zh-CN'">
+            <p class="mb-7 text-sm">Windows安装版</p>
+          </template>
+          <template v-else>
+            <p class="mb-7 text-sm">Windows Installer</p>
+          </template>
           <a
             :href="urls.win"
             :download="name(urls.win)"
@@ -41,7 +68,12 @@
               fill="#0078D7"
             ></path>
           </svg>
-          <p class="mb-7 text-sm">Windows Portable</p>
+          <template v-if="lang === 'zh-CN'">
+            <p class="mb-7 text-sm">Windows便携版</p>
+          </template>
+          <template v-else>
+            <p class="mb-7 text-sm">Windows Portable</p>
+          </template>
           <a
             :href="urls.winPortable"
             :download="name(urls.winPortable)"
@@ -395,19 +427,19 @@
   const { lang } = useData()
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-Setup-4.12.2.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-Setup-4.13.1.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-Portable-4.12.2.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-arm64.dmg',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-Portable-4.13.1.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-4.13.1.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-4.13.1-arm64.dmg',
     linuxDebX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-x64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-4.13.1-x64.deb',
     linuxDebArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-arm64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-4.13.1-arm64.deb',
     linuxRpmX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-x64.rpm',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-4.13.1-x64.rpm',
     linuxRpmArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.12.2/FlyEnv-4.12.2-arm64.rpm'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.13.1/FlyEnv-4.13.1-arm64.rpm'
   }
 
   const title = computed(() => {
@@ -416,8 +448,8 @@
 
   const subtitle = computed(() => {
     return lang.value === 'zh-CN'
-      ? '免费，建立在开源之上。强大的Web服务器和环境管理器'
-      : 'Free and built on open source.Powerful Web Server and Environment Manager'
+      ? '免费，建立在开源之上，且 100% 透明的构建过程。'
+      : 'Free, open-source, and 100% transparent builds.'
   })
 
   const down = computed(() => {
