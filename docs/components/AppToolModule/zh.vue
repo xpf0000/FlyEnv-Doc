@@ -223,23 +223,29 @@
       </div>
 
       <!-- 图片处理类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv「屏幕截图」工具：遮挡窗口捕获+内置编辑+无损色彩+全自定义"
+        href="https://www.bilibili.com/video/BV1mdcuzfE2p/"
+        target="_blank"
+        class="no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
           <img class="max-w-[64px]" src="../SVG/screenshot.svg" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">屏幕截图</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">屏幕截图</span>
+      </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv 不只是开发环境！全新批量图处理工具，裁剪、压缩、水印一键搞定"
+        href="https://www.bilibili.com/video/BV12ccgzxEE1/"
+        target="_blank"
+        class="no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
           <img class="max-w-[64px]" src="../SVG/imagecompress.svg" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">图片压缩</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">图片压缩</span>
+      </a>
 
       <!-- 文件处理类 -->
       <div

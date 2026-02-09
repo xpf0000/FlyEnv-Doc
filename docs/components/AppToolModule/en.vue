@@ -223,23 +223,29 @@
       </div>
 
       <!-- 图片处理类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv New Screen Capture Tool (Even Hidden Windows). Capture Anything, Anywhere!"
+        href="https://youtu.be/cCXvWoJ4ayM"
+        target="_blank"
+        class="no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
           <img class="max-w-[64px]" src="../SVG/screenshot.svg" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Screenshot</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Screenshot</span>
+      </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv’s New Batch Image Processor is Here. Resize, Compress & Watermark in Seconds"
+        href="https://youtu.be/MqjFsqrpI0I"
+        target="_blank"
+        class="no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
           <img class="max-w-[64px]" src="../SVG/imagecompress.svg" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Image Compression</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Image Compression</span>
+      </a>
 
       <!-- 文件处理类 -->
       <div
