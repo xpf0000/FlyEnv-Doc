@@ -47,6 +47,7 @@ features:
 ---
 
 <script setup>
+import AppSvgIcon from '../components/VueSvgIcon/svg.vue';
 import AppCoreModule from '../components/AppCoreModule/zh.vue';
 import AppToolModule from '../components/AppToolModule/zh.vue';
 import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue';
@@ -55,6 +56,8 @@ import AppCommentModules from '../components/AppComment/zh.vue';
 import AppCanDoModules from '../components/AppCanDo/zh.vue';
 import AppPriceModules from '../components/AppPrice/zh.vue';
 </script>
+
+<AppSvgIcon />
 
 <AppCanDoModules />
 
