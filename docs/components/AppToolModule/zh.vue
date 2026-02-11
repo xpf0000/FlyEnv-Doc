@@ -8,23 +8,35 @@
     </div>
     <div class="grid grid-cols-2 gap-5 md:grid-cols-4 xl:grid-cols-6 select-none">
       <!-- 编码/解码类 -->
-      <div
-        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Base64 编解码] 工具：字符串实时双向转换，告别在线加载 | FlyEnv 工具箱 | Base64 编解码神器"
+        href="https://www.bilibili.com/video/BV1fPc4ztEL6/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/base64-string.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/base64-string.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Base64 字符串编码/解码</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Base64 字符串编码/解码</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Base64 文件转换器] 工具: 图片与 Base64 互转神器：实时预览、一键编码，开发者必备工具"
+        href="https://www.bilibili.com/video/BV1yzcbzGEer/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/base64-string.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/base64-string.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Base64 文件转换器</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Base64 文件转换器</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <div
         class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
@@ -54,14 +66,20 @@
         <span class="shrink-0 max-w-full select-text text-center">字符串加密/解密</span>
       </div>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [RSA密钥对生成器] 工具: RSA 公私钥一键生成神器：支持 512-4096位，安全高效免命令行"
+        href="https://www.bilibili.com/video/BV11icbz5EWs/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/rsa.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/rsa.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">RSA 密钥对生成器</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">RSA 密钥对生成器</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <div
         class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
@@ -73,33 +91,51 @@
       </div>
 
       <!-- 哈希/散列类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Hash 文本] 工具: 全能哈希计算神器：支持MD5、SHA1、SHA3、RIPEMD160 及多种编码格式 | FlyEnv 工具箱"
+        href="https://www.bilibili.com/video/BV1AZcxzYEKY/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/hash-text.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/hash-text.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">字符串哈希计算</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">字符串哈希计算</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Token生成器] 工具: 安全随机字符串生成器, 1-512位长度随心定义，开发必备秘钥神器"
+        href="https://www.bilibili.com/video/BV1W9cxzKEmM/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/tokenmake.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/tokenmake.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">令牌生成器</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">令牌生成器</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 二维码类 -->
-      <div
-        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [二维码生成] 工具. 自定义颜色, 实时预览, 下载高清大图"
+        href="https://www.bilibili.com/video/BV1MSFdz4EDC/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/qrcodemake.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/qrcodemake.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">二维码生成器</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">二维码生成器</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <div
         class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
@@ -122,7 +158,7 @@
         </div>
         <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">JSON 解析</span>
         <div class="absolute inset-0 flex items-center justify-center z-20">
-          <SVGUse class="w-16 opacity-0 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
         </div>
       </a>
 
@@ -146,7 +182,7 @@
         </div>
         <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">代码演练场</span>
         <div class="absolute inset-0 flex items-center justify-center z-20">
-          <SVGUse class="w-16 opacity-0 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
         </div>
       </a>
 
@@ -161,7 +197,7 @@
         </div>
         <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">代码库</span>
         <div class="absolute inset-0 flex items-center justify-center z-20">
-          <SVGUse class="w-16 opacity-0 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
         </div>
       </a>
 
@@ -176,7 +212,7 @@
         </div>
         <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">系统环境变量</span>
         <div class="absolute inset-0 flex items-center justify-center z-20">
-          <SVGUse class="w-16 opacity-0 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
         </div>
       </a>
 
@@ -200,14 +236,20 @@
       </div>
 
       <!-- 时间日期类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Unix时间戳转换] 工具: 获取当前时间/任意时间的时间戳, 时间戳和日期时间互相转换"
+        href="https://www.bilibili.com/video/BV1XJc4z7ENe/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/time.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/time.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">时间戳转换</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">时间戳转换</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <div
         class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
@@ -258,7 +300,7 @@
         </div>
         <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">屏幕截图</span>
         <div class="absolute inset-0 flex items-center justify-center z-20">
-          <SVGUse class="w-16 opacity-0 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
         </div>
       </a>
 
@@ -273,19 +315,25 @@
         </div>
         <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">图片压缩</span>
         <div class="absolute inset-0 flex items-center justify-center z-20">
-          <SVGUse class="w-16 opacity-0 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
         </div>
       </a>
 
       <!-- 文件处理类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [MIME类型] 工具: MIME Type 与文件后缀名互转神器：开发者必备的媒体类型速查表"
+        href="https://www.bilibili.com/video/BV1r1cbzMEBm/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/mime-types.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/mime-types.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">MIME 类型</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">MIME 类型</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <div
         class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
