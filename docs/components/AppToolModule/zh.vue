@@ -47,24 +47,36 @@
         <span class="shrink-0 max-w-full select-text text-center">URL 编码/解码</span>
       </div>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [HTML 实体编解码] 工具: HTML 实体编解码神器，实时转义HTML特殊字符，告别乱码与 XSS"
+        href="https://www.bilibili.com/video/BV1XbcYzvEmg/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/code.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/code.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">HTML 实体编码/解码</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">HTML 实体编码/解码</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 加密/安全类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [字符串加解密] 工具: 字符串加解密神器：支持 AES、TripleDES、Rabbit 及 RC4 实时转换"
+        href="https://www.bilibili.com/video/BV1UBcYzbE2M/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/encrypt.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/encrypt.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">字符串加密/解密</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">字符串加密/解密</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <a
         title="FlyEnv [RSA密钥对生成器] 工具: RSA 公私钥一键生成神器：支持 512-4096位，安全高效免命令行"
@@ -81,14 +93,20 @@
         </div>
       </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [SSL证书生成] 工具: 本地 SSL 证书神器：一键生成根证书与任意域名证书，支持泛域名, 彻底告别 HTTPS 报错"
+        href="https://www.bilibili.com/video/BV1GhcYzNEyw/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/sslmake.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/sslmake.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">SSL 证书生成器</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">SSL 证书生成器</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 哈希/散列类 -->
       <a
@@ -279,14 +297,20 @@
         <span class="shrink-0 max-w-full select-text text-center">进程终结</span>
       </div>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Chmod 计算器] 工具: 可视化 Chmod 计算器. 一键搞定 Linux/macOS 文件权限，再也不用算加法"
+        href="https://www.bilibili.com/video/BV1Q7ciz6ELv/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/chmod.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/chmod.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Chmod 计算器</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Chmod 计算器</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 图片处理类 -->
       <a

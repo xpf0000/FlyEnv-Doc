@@ -47,24 +47,36 @@
         <span class="shrink-0 max-w-full select-text text-center">URL Encode/Decode</span>
       </div>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [HTML Entity Encoder/Decoder] Tool: Real-Time HTML Entity Encoder & Decoder, Prevent XSS"
+        href="https://youtu.be/LFazRyd_G3o"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/code.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/code.svg?raw')" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">HTML Entity Encode/Decode</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">HTML Entity Encode/Decode</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 加密/安全类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Encrypt/Decrypt String] Tool: Real-Time String Encryption Tool: AES, TripleDES, Rabbit & RC4"
+        href="https://youtu.be/NiJW09NCa_0"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/encrypt.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/encrypt.svg?raw')" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Encrypt/Decrypt String</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Encrypt/Decrypt String</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <a
         title="FlyEnv [RSA Key Pair Generator] Tool: Secure 512-4096 bit RSA Key Pair in Seconds"
@@ -81,14 +93,20 @@
         </div>
       </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [SSL Certificate Generator] Tool: Local SSL Made Easy. Wildcard Certificates Instantly"
+        href="https://youtu.be/X8W1FcwWc00"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/sslmake.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/sslmake.svg?raw')" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">SSL Certificate Generator</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">SSL Certificate Generator</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 哈希/散列类 -->
       <a
@@ -279,14 +297,20 @@
         <span class="shrink-0 max-w-full select-text text-center">Process Kill</span>
       </div>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Chmod Calculator] Tool: Visual Chmod Calculator. Master Linux File Permissions Instantly"
+        href="https://youtu.be/2QxmRRVR15Q"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/chmod.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/chmod.svg?raw')" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Chmod Calculator</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Chmod Calculator</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <!-- 图片处理类 -->
       <a
