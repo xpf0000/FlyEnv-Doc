@@ -279,23 +279,35 @@
       </div>
 
       <!-- 系统管理类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Port Kill] Tool: Kill Port Conflicts Instantly: Find & Stop Apps Occupying Your Ports"
+        href="https://youtu.be/4kyrX0-QPgM"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/portkill.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/portkill.svg?raw')" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Port Kill</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Port Kill</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [Process Kill]: Advanced Process Killer. Search, Inspect, and Terminate Processes Like a Pro"
+        href="https://youtu.be/Y17Tvrc9fsQ"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/process.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/process.svg?raw')" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">Process Kill</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">Process Kill</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <a
         title="FlyEnv [Chmod Calculator] Tool: Visual Chmod Calculator. Master Linux File Permissions Instantly"

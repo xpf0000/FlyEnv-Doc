@@ -279,23 +279,35 @@
       </div>
 
       <!-- 系统管理类 -->
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [端口查杀] 工具: 彻底解决端口占用！一键查杀顽固进程，告别 Address Already In Use"
+        href="https://www.bilibili.com/video/BV117cEz2Ens/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/portkill.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/portkill.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">端口终结</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">端口终结</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
-      <div
-        class="overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
+      <a
+        title="FlyEnv [进程查杀] 工具: 进阶版进程管理神器：模糊搜索与详细参数查看，精准查杀顽固进程"
+        href="https://www.bilibili.com/video/BV1SMcEzXEX6/"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 pt-1 dark:bg-slate-800 justify-between"
       >
         <div class="flex shrink-0 overflow-hidden items-center justify-center w-full px-7 py-1 aspect-square">
-          <img class="max-w-[64px]" src="../SVG/process.svg" />
+          <SVGUse class="max-w-[64px] text-[#3c3c43] dark:text-[#dfdff6]" :svg="import('../SVG/process.svg?raw')" :raw-color="true" />
         </div>
-        <span class="shrink-0 max-w-full select-text text-center">进程终结</span>
-      </div>
+        <span class="shrink-0 max-w-full select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">进程终结</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
 
       <a
         title="FlyEnv [Chmod 计算器] 工具: 可视化 Chmod 计算器. 一键搞定 Linux/macOS 文件权限，再也不用算加法"
