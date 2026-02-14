@@ -84,6 +84,7 @@ export default defineConfigWithTheme({
               items: [
                 { text: 'What is FlyEnv?', link: '/guide/what-is-flyenv' },
                 { text: 'Getting Started', link: '/guide/getting-started' },
+                { text: 'About License', link: '/guide/about-license' },
               ],
               collapsed: true
             },
@@ -150,6 +151,7 @@ export default defineConfigWithTheme({
               items: [
                 { text: '什么是FlyEnv?', link: '/zh/guide/what-is-flyenv' },
                 { text: '快速开始', link: '/zh/guide/getting-started' },
+                { text: '关于许可证', link: '/zh/guide/about-license' },
               ],
               collapsed: true
             },

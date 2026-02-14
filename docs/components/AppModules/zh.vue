@@ -1,14 +1,21 @@
 <template>
   <template v-if="type === 0">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="FlyEnv [Apache] 模块. Windows/macOS/Linux原生运行 Apache：一键安装、极速响应、可视化管理 | FlyEnv"
+      href="https://www.bilibili.com/video/BV1wqZ7BNErL/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">网络服务器</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">网络服务器</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-4">
         <img src="https://oss.macphpstudy.com/image/apache.png" />
       </div>
-      <span class="shrink-0 select-text">Apache</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Apache</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -94,15 +101,22 @@
     </div>
   </template>
   <template v-else-if="type === 2">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="FlyEnv [PHP] 模块: Windows/macOS/Linux多版本 PHP 同时运行. 本地开发环境的极简开箱即用方案 | FlyEnv"
+      href="https://www.bilibili.com/video/BV1r6Z7BwE8p/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">语言</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center">
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">语言</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-1">
         <img src="https://oss.macphpstudy.com/image/php.png" />
       </div>
-      <span class="shrink-0 select-text">PHP</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">PHP</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -364,6 +378,8 @@
 </template>
 
 <script lang="ts" setup>
+  import SVGUse from '../VueSvgIcon/use.vue'
+
   defineProps<{
     type: number
   }>()

@@ -63,6 +63,7 @@ FlyEnv includes many practical features for developers, such as:
 2. **Port & Process Management**: Kill processes by port number or command.
 3. **Project Templates**: Quickly create projects for Laravel, WordPress, Yii2, Next.js, Vue, NestJS, and more.
 
+**[View Module Video Demo](https://flyenv.com/#%F0%9F%9A%80-core-modules)** **[View Tools Video Demo](https://flyenv.com/#tools-modules)**
 
 ## Why Choose FlyEnv?
 

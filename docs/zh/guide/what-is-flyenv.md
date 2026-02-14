@@ -63,6 +63,8 @@ FlyEnv 包含许多实用的开发者工具，例如：
 2. **端口与进程管理**：通过端口号或命令终止进程。
 3. **项目模板**：快速创建 Laravel、WordPress、Yii2、Next.js、Vue、NestJS 等项目。
 
+**[查看模块视频演示](https://flyenv.com/zh/#%F0%9F%9A%80-core-modules)** **[查看工具视频演示](https://flyenv.com/zh/#tools-modules)**
+
 ## 为什么选择 FlyEnv？
 
 ### 与 Docker 相比

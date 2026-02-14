@@ -1,14 +1,21 @@
 <template>
   <template v-if="type === 0">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Run Apache Natively on Windows/macOS/Linux: No Docker, Full Speed! | FlyEnv"
+      href="https://youtu.be/t7nKL45FdVk"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Web Server</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Web Server</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-4">
         <img src="https://oss.macphpstudy.com/image/apache.png" />
       </div>
-      <span class="shrink-0 select-text">Apache</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Apache</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -94,15 +101,22 @@
     </div>
   </template>
   <template v-else-if="type === 2">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Run Multiple PHP Versions Simultaneously: The Ultimate PHP Manager for Modern Devs | FlyEnv"
+      href="https://youtu.be/OYP1IOoJOtI"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Language</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center">
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Language</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-1">
         <img src="https://oss.macphpstudy.com/image/php.png" />
       </div>
-      <span class="shrink-0 select-text">PHP</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">PHP</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -364,6 +378,8 @@
 </template>
 
 <script lang="ts" setup>
+  import SVGUse from '../VueSvgIcon/use.vue'
+
   defineProps<{
     type: number
   }>()

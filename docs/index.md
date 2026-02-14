@@ -2,12 +2,12 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
-titleTemplate: 'Full-Stack Development Environment Management Tool. The Native Alternative to Docker/XAMPP for Windows & macOS'
+titleTemplate: 'Native Alternative to Docker/XAMPP | Your Local Dev Toolbox, Simplified.'
 
 hero:
   name: "FlyEnv"
-  text: "Full-Stack Development Environment Manager"
-  tagline: "Supports macOS/Windows/Linux. One-click setup, instant development"
+  text: "Your Local Dev Toolbox, Simplified."
+  tagline: "Native performance for Python, PHP, Node.js, and Databases. Built-in pro tools. One-click setup, instant development."
   image:
     src: 'https://oss.macphpstudy.com/image/app-icon.png'
     alt: 'FlyEnv App Icon'

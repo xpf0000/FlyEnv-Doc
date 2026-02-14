@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <a href="/sponsor" class="mt-5 block no-underline text-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 py-3 rounded-lg font-semibold transition">获取专业版许可</a>
+        <a href="/zh/guide/about-license" class="mt-5 block no-underline text-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 py-3 rounded-lg font-semibold transition">关于许可证</a>
       </div>
     </div>
   </div>

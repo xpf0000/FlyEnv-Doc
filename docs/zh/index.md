@@ -2,12 +2,12 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
-titleTemplate: '全栈开发环境管理工具。Windows 和 macOS 上 Docker/XAMPP 的原生替代方案'
+titleTemplate: 'Docker/XAMPP 的原生替代方案 | 您的本地开发工具箱，化繁为简'
 
 hero:
   name: "FlyEnv"
-  text: "全栈开发环境管理器"
-  tagline: "支持 macOS/Windows/Linux。一键启动，即刻开发"
+  text: "本地开发工具箱，化繁为简。"
+  tagline: "原生支持 PHP, Node.js, Python 及主流数据库。内置专业开发工具。一键配置，即刻开发"
   image:
     src: 'https://oss.macphpstudy.com/image/app-icon.png'
     alt: 'FlyEnv 应用图标'
@@ -31,7 +31,7 @@ features:
       width: '32px'
       height: '32px'
     title: 通用原生技术栈
-    details: 统一替代 <strong>NVM + XAMPP + Docker Desktop</strong>。即刻运行 PHP、Node、Java、Python、Go、MySQL、Redis 等——秒级配置。
+    details: 完美替代 <strong>NVM + XAMPP + Docker Desktop</strong>。即刻运行 PHP、Node、Java、Python、Go、MySQL、Redis 等多种环境。
   - icon:
       src: 'https://oss.macphpstudy.com/image/deep.svg'
       width: '32px'
@@ -43,7 +43,7 @@ features:
       width: '32px'
       height: '32px'
     title: 项目级隔离
-    details: 当您 cd 进入项目时自动切换 Node/PHP/Python 版本。不再有全局版本冲突。
+    details: 切换项目目录时自动匹配对应的 Node/PHP/Python 版本。彻底告别全局版本冲突带来的困扰。
 ---
 
 <script setup>
