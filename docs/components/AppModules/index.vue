@@ -16,15 +16,22 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="FlyEnv [Nginx] Module: High-Performance Nginx Made Simple. Native Setup & One-Click Management"
+      href="https://youtu.be/zfdNZFRt3k4"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Web Server</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center">
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Web Server</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-1">
         <img src="https://oss.macphpstudy.com/image/nginx.png" />
       </div>
-      <span class="shrink-0 select-text">Nginx</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Nginx</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -54,15 +61,22 @@
     </div>
   </template>
   <template v-else-if="type === 1">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Master Local MySQL: Native Performance, Root Password Reset & Database Management | FlyEnv"
+      href="https://youtu.be/uWWHAqxhVyk"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Database</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Database</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-1">
         <img src="https://oss.macphpstudy.com/image/mysql.png" />
       </div>
-      <span class="shrink-0 select-text">MySQL</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">MySQL</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -135,15 +149,23 @@
       </div>
       <span class="shrink-0 select-text">NodeJS</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+
+    <a
+      title="Python Version Management on Windows, Simplified: No More Environment Variable Mess! | FlyEnv"
+      href="https://youtu.be/dhy0nJYsfQQ"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Language</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Language</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/Python.svg" />
       </div>
-      <span class="shrink-0 select-text">Python</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Python</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -218,15 +240,22 @@
     </div>
   </template>
   <template v-else-if="type === 3">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="FlyEnv [Redis] Module: High-Performance Native Redis for Developers. Instant Setup & Easy Management"
+      href="https://youtu.be/u9xjPN-VWT4"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Data Queues</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-5">
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Data Queues</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="https://oss.macphpstudy.com/image/redis.png" />
       </div>
-      <span class="shrink-0 select-text">Redis</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Redis</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
