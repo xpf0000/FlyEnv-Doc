@@ -9,6 +9,7 @@
     <div class="grid grid-cols-2 gap-5 md:grid-cols-4 xl:grid-cols-6 select-none">
       <AppModules :type="7" />
       <AppModules :type="9" />
+      <AppModules :type="10" />
       <AppModules :type="0" />
       <AppModules :type="1" />
       <AppModules :type="6" />

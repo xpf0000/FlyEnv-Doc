@@ -14,6 +14,7 @@ In short, FlyEnv provides a complete operating environment, helping users develo
 FlyEnv offers **one-click installation** for a wide range of software, including:
 
 - **AI Integration**: Ollama, DeepSeek, Chatbox.
+- **Network Tunnel**: Cloudflared.
 - **Web Servers**: Apache, Nginx, Caddy, Tomcat, Consul.
 - **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant.
 - **Email Server**: Mailpit.
