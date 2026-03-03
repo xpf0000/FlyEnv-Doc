@@ -14,10 +14,10 @@ hero:
   actions:
     - theme: brand
       text: 了解FlyEnv
-      link: /guide/getting-started
+      link: /zh/guide/what-is-flyenv
     - theme: alt
       text: 快速上手
-      link: /guide/what-is-flyenv
+      link: /zh/guide/getting-started
 
 features:
   - icon:
