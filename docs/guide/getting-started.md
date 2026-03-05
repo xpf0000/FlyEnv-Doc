@@ -73,6 +73,8 @@ It is recommended to install Homebrew to ensure the latest versions of services 
 ### Notes
 Before using FlyEnv, it is recommended to close other applications that may use the same ports (e.g., Apache/Nginx/MySQL) to avoid port conflicts.
 
+During the first run, the FlyEnv helper program needs to be installed. If Windows users encounter an installation failure prompt, they can try launching FlyEnv with administrator privileges. Once the installation is successful, administrator privileges will not be required for subsequent use.
+
 ### Interface Setup
 After opening FlyEnv, all functional modules are displayed on the left by default. You can hide unnecessary modules in the settings.
 
@@ -145,9 +147,13 @@ FlyEnv has a built-in auto-upgrade feature. If the upgrade fails, manually downl
 Use the system's default uninstallation method to uninstall FlyEnv. Data folders will not be deleted unless a third-party tool (e.g., CleanMyMac) is used and the data folder is selected.
 
 ### Data Folder Locations
-- **macOS**: `~/Library/PhpWebStudy`
-- **Windows**: Located in the same directory as the FlyEnv installation folder, named `PhpWebStudy-Data`.
-- **Linux**: `~/.config/PhpWebStudy`
+- **macOS**: `~/Library/PhpWebStudy` or `~/Library/FlyEnv`
+- **Windows**: Located in the same directory as the FlyEnv installation folder, named `PhpWebStudy-Data` or `FlyEnv-Data`.
+- **Linux**: `~/.config/PhpWebStudy` or `~/.config/FlyEnv`
+
+### Uninstall FlyEnv Helper
+
+See: [about-flyenv-helper](./about-flyenv-helper#_2-installation-and-uninstallation-guide)
 
 ## Frequently Asked Questions (FAQ)
 

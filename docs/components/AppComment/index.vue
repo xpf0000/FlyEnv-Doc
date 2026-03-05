@@ -1,8 +1,11 @@
 <template>
   <div class="my-16 py-16">
-    <div class="text-3xl md:text-[40px] font-bold text-center mb-16">Loved by Developers Worldwide</div>
+    <h2 class="text-center" id="loved-by-developers-worldwide" tabindex="-1">Loved by Developers Worldwide <a class="header-anchor" href="#loved-by-developers-worldwide" aria-label="Permalink to &quot;Loved by Developers Worldwide&quot;">​</a></h2>
+    <p class="text-lg text-gray-500 text-center">
+      See why developer choose FlyEnv.
+    </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-12">
 
       <div class="p-6 rounded-2xl bg-gray-50 dark:bg-white/5 flex flex-col h-full">
         <div class="flex items-center text-yellow-500 text-sm">⭐⭐⭐⭐⭐</div>

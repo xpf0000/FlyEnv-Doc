@@ -58,6 +58,10 @@
     word-break: break-all;
 }
 
+.vp-doc a.no-underline {
+    text-decoration: none;
+}
+
 .floatingchat-container {
     color-scheme: none !important;
 }

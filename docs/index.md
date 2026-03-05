@@ -2,9 +2,9 @@
 # 针对 SEO 优化的 VitePress 首页配置
 layout: home
 
+titleTemplate: 'Native Alternative to Docker/XAMPP | Your Local Dev Toolbox, Simplified.'
 # 优化后的标题：将核心关键词前置，增加搜索权重
 title: FlyEnv | Native PHP & Node.js Environment Manager | Best Docker Alternative
-titleTemplate: 'Fast, Native, and Lightweight Local Development Toolbox'
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
@@ -61,7 +61,9 @@ features:
 ---
 
 <script setup>
-import AppModules from './components/AppModules/index.vue';
+import AppSvgIcon from './components/VueSvgIcon/svg.vue';
+import AppCoreModule from './components/AppCoreModule/en.vue';
+import AppToolsModule from './components/AppToolModule/en.vue';
 import AppNoFountTipsModules from './components/AppNoFoundTips/index.vue';
 import AppGitHubModules from './components/AppGithub/en.vue';
 import AppCommentModules from './components/AppComment/index.vue';
@@ -69,7 +71,13 @@ import AppCanDoModules from './components/AppCanDo/en.vue';
 import AppPriceModules from './components/AppPrice/en.vue';
 </script>
 
+<AppSvgIcon />
+
 <AppCanDoModules />
+
+<AppCoreModule />
+
+<AppToolsModule />
 
 <AppGitHubModules />
 

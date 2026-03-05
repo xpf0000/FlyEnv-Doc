@@ -14,10 +14,11 @@ In short, FlyEnv provides a complete operating environment, helping users develo
 FlyEnv offers **one-click installation** for a wide range of software, including:
 
 - **AI Integration**: Ollama, DeepSeek, Chatbox.
+- **Network Tunnel**: Cloudflared.
 - **Web Servers**: Apache, Nginx, Caddy, Tomcat, Consul.
-- **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB.
+- **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant.
 - **Email Server**: Mailpit.
-- **Programming Languages & Runtime**: PHP (Composer), Java (Maven), NodeJS, Python, Go, Erlang, Ruby, Rust (Rustup), Bun, Deno, Gradle.
+- **Programming Languages & Runtime**: PHP (Composer), Java (Maven, Gradle), Node.js, Python, Go, Erlang, Ruby, Rust (Rustup), Zig, Bun, Deno.
 - **Data Queue & Cache**: Redis, Memcached, RabbitMQ, etcd.
 - **Search Engine**: Elasticsearch, Meilisearch, Typesense
 - **Object Storage**: Minio.
@@ -63,6 +64,7 @@ FlyEnv includes many practical features for developers, such as:
 2. **Port & Process Management**: Kill processes by port number or command.
 3. **Project Templates**: Quickly create projects for Laravel, WordPress, Yii2, Next.js, Vue, NestJS, and more.
 
+**[View Module Video Demo](https://flyenv.com/#%F0%9F%9A%80-core-modules)** **[View Tools Video Demo](https://flyenv.com/#tools-modules)**
 
 ## Why Choose FlyEnv?
 

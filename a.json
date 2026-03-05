@@ -1,0 +1,2284 @@
+{
+  "id": "bbeefe70-c467-4d70-b7b9-0b9610873c65",
+  "params": {},
+  "privateStyle": {
+    "id": "",
+    "mark": "",
+    "private": true,
+    "style": ".style-smcJLvpt{}\n",
+    "className": ".style-smcJLvpt",
+    "LG": {
+      "normal": {
+        "css": {},
+        "private": true
+      }
+    },
+    "classList": [],
+    "boxStyleStr": "",
+    "lgStyleStr": ""
+  },
+  "props": {
+    "tag": "",
+    "id": "",
+    "attr": {},
+    "type": "page",
+    "nv_color": "rgba(255,255,255,1)",
+    "text_color": "black"
+  },
+  "sub": [
+    {
+      "id": "a917b03b-3934-49ee-8a7a-f3e0d6166114",
+      "privateStyle": {
+        "id": "",
+        "mark": "",
+        "private": false,
+        "style": ".style-kcERAkvJ{position:static;height:auto;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}\n",
+        "className": ".style-kcERAkvJ",
+        "LG": {
+          "normal": {
+            "css": {
+              "position": "static",
+              "height": "",
+              "heightUtil": "auto",
+              "margin": "0px 0px 0px 0px",
+              "padding": "0px 0px 0px 0px"
+            },
+            "private": false
+          }
+        },
+        "classList": [],
+        "boxStyleStr": "",
+        "lgStyleStr": "position:static;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px"
+      },
+      "props": {
+        "id": "",
+        "classList": [],
+        "className": "",
+        "attr": {},
+        "tag": "div",
+        "_title": "容器",
+        "single": {
+          "sort": "",
+          "ids": "",
+          "class_id": "",
+          "sort_flag": ""
+        },
+        "bind_source": {
+          "data_source_id": 100010,
+          "data_source_method_id": 100250,
+          "data_source_variable": {},
+          "variable": {
+            "code": {
+              "type": "number",
+              "value": "$source.code",
+              "default": ""
+            },
+            "data": {
+              "type": "object",
+              "value": "$source.data",
+              "default": {},
+              "sub": {
+                "id": {
+                  "type": "number",
+                  "value": "$source.data.id",
+                  "default": ""
+                },
+                "tmpl_id": {
+                  "type": "number",
+                  "value": "$source.data.tmpl_id",
+                  "default": ""
+                },
+                "field_data": {
+                  "type": "text",
+                  "value": "$source.data.field_data",
+                  "default": ""
+                },
+                "is_company": {
+                  "type": "number",
+                  "value": "$source.data.is_company",
+                  "default": ""
+                },
+                "is_main": {
+                  "type": "number",
+                  "value": "$source.data.is_main",
+                  "default": ""
+                },
+                "card_id": {
+                  "type": "number",
+                  "value": "$source.data.card_id",
+                  "default": ""
+                },
+                "user_id": {
+                  "type": "number",
+                  "value": "$source.data.user_id",
+                  "default": ""
+                },
+                "diy_type": {
+                  "type": "number",
+                  "value": "$source.data.diy_type",
+                  "default": ""
+                },
+                "is_open_share": {
+                  "type": "number",
+                  "value": "$source.data.is_open_share",
+                  "default": ""
+                },
+                "button_style_id": {
+                  "type": "text",
+                  "value": "$source.data.button_style_id",
+                  "default": ""
+                },
+                "is_style_video": {
+                  "type": "number",
+                  "value": "$source.data.is_style_video",
+                  "default": ""
+                },
+                "user_name": {
+                  "type": "text",
+                  "value": "$source.data.user_name",
+                  "default": ""
+                },
+                "avatar": {
+                  "type": "text",
+                  "value": "$source.data.avatar",
+                  "default": ""
+                },
+                "position": {
+                  "type": "text",
+                  "value": "$source.data.position",
+                  "default": ""
+                },
+                "phone": {
+                  "type": "text",
+                  "value": "$source.data.phone",
+                  "default": ""
+                },
+                "wx_num": {
+                  "type": "text",
+                  "value": "$source.data.wx_num",
+                  "default": ""
+                },
+                "view_times": {
+                  "type": "number",
+                  "value": "$source.data.view_times",
+                  "default": ""
+                },
+                "view_times_repeat": {
+                  "type": "number",
+                  "value": "$source.data.view_times_repeat",
+                  "default": ""
+                },
+                "thumb_times": {
+                  "type": "number",
+                  "value": "$source.data.thumb_times",
+                  "default": ""
+                },
+                "style": {
+                  "type": "number",
+                  "value": "$source.data.style",
+                  "default": ""
+                },
+                "voice": {
+                  "type": "text",
+                  "value": "$source.data.voice",
+                  "default": ""
+                },
+                "area_code": {
+                  "type": "text",
+                  "value": "$source.data.area_code",
+                  "default": ""
+                },
+                "address": {
+                  "type": "text",
+                  "value": "$source.data.address",
+                  "default": ""
+                },
+                "introduce": {
+                  "type": "text",
+                  "value": "$source.data.introduce",
+                  "default": ""
+                },
+                "introduce_title": {
+                  "type": "text",
+                  "value": "$source.data.introduce_title",
+                  "default": ""
+                },
+                "staff_id": {
+                  "type": "number",
+                  "value": "$source.data.staff_id",
+                  "default": ""
+                },
+                "data": {
+                  "type": "text",
+                  "value": "$source.data.data",
+                  "default": ""
+                },
+                "poster": {
+                  "type": "text",
+                  "value": "$source.data.poster",
+                  "default": ""
+                },
+                "wx_qrcode": {
+                  "type": "text",
+                  "value": "$source.data.wx_qrcode",
+                  "default": ""
+                },
+                "location": {
+                  "type": "object",
+                  "value": "$source.data.location",
+                  "default": {},
+                  "sub": {
+                    "latitude": {
+                      "type": "number",
+                      "value": "$source.data.location.latitude",
+                      "default": ""
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "value": "$source.data.location.longitude",
+                      "default": ""
+                    },
+                    "address": {
+                      "type": "text",
+                      "value": "$source.data.location.address",
+                      "default": ""
+                    },
+                    "name": {
+                      "type": "text",
+                      "value": "$source.data.location.name",
+                      "default": ""
+                    }
+                  }
+                },
+                "shop_id": {
+                  "type": "number",
+                  "value": "$source.data.shop_id",
+                  "default": ""
+                },
+                "email": {
+                  "type": "text",
+                  "value": "$source.data.email",
+                  "default": ""
+                },
+                "style_default": {
+                  "type": "number",
+                  "value": "$source.data.style_default",
+                  "default": ""
+                },
+                "style_data": {
+                  "type": "text",
+                  "value": "$source.data.style_data",
+                  "default": ""
+                },
+                "font_color": {
+                  "type": "text",
+                  "value": "$source.data.font_color",
+                  "default": ""
+                },
+                "style_id": {
+                  "type": "text",
+                  "value": "$source.data.style_id",
+                  "default": ""
+                },
+                "show_phone": {
+                  "type": "text",
+                  "value": "$source.data.show_phone",
+                  "default": ""
+                },
+                "company_logo": {
+                  "type": "text",
+                  "value": "$source.data.company_logo",
+                  "default": ""
+                },
+                "company_name": {
+                  "type": "text",
+                  "value": "$source.data.company_name",
+                  "default": ""
+                },
+                "company_website": {
+                  "type": "text",
+                  "value": "$source.data.company_website",
+                  "default": ""
+                },
+                "company_telephone": {
+                  "type": "text",
+                  "value": "$source.data.company_telephone",
+                  "default": ""
+                },
+                "company_zip_code": {
+                  "type": "text",
+                  "value": "$source.data.company_zip_code",
+                  "default": ""
+                },
+                "company_fax": {
+                  "type": "text",
+                  "value": "$source.data.company_fax",
+                  "default": ""
+                },
+                "gzh_qrcode": {
+                  "type": "text",
+                  "value": "$source.data.gzh_qrcode",
+                  "default": ""
+                },
+                "card_title": {
+                  "type": "text",
+                  "value": "$source.data.card_title",
+                  "default": ""
+                },
+                "card_cover": {
+                  "type": "text",
+                  "value": "$source.data.card_cover",
+                  "default": ""
+                },
+                "style_type": {
+                  "type": "number",
+                  "value": "$source.data.style_type",
+                  "default": ""
+                },
+                "style_video_data": {
+                  "type": "text",
+                  "value": "$source.data.style_video_data",
+                  "default": ""
+                },
+                "attent_times": {
+                  "type": "number",
+                  "value": "$source.data.attent_times",
+                  "default": ""
+                },
+                "share_id": {
+                  "type": "number",
+                  "value": "$source.data.share_id",
+                  "default": ""
+                },
+                "is_show_popular_like_follow": {
+                  "type": "number",
+                  "value": "$source.data.is_show_popular_like_follow",
+                  "default": ""
+                },
+                "company_info": {
+                  "type": "object",
+                  "value": "$source.data.company_info",
+                  "default": {},
+                  "sub": {
+                    "name": {
+                      "type": "text",
+                      "value": "$source.data.company_info.name",
+                      "default": ""
+                    },
+                    "full_name": {
+                      "type": "text",
+                      "value": "$source.data.company_info.full_name",
+                      "default": ""
+                    },
+                    "logo": {
+                      "type": "text",
+                      "value": "$source.data.company_info.logo",
+                      "default": ""
+                    },
+                    "website": {
+                      "type": "text",
+                      "value": "$source.data.company_info.website",
+                      "default": ""
+                    },
+                    "zip_code": {
+                      "type": "text",
+                      "value": "$source.data.company_info.zip_code",
+                      "default": ""
+                    },
+                    "gzh_qrcode": {
+                      "type": "text",
+                      "value": "$source.data.company_info.gzh_qrcode",
+                      "default": ""
+                    },
+                    "fax": {
+                      "type": "text",
+                      "value": "$source.data.company_info.fax",
+                      "default": ""
+                    },
+                    "telephone": {
+                      "type": "text",
+                      "value": "$source.data.company_info.telephone",
+                      "default": ""
+                    },
+                    "company_name": {
+                      "type": "text",
+                      "value": "$source.data.company_info.company_name",
+                      "default": ""
+                    },
+                    "company_logo": {
+                      "type": "text",
+                      "value": "$source.data.company_info.company_logo",
+                      "default": ""
+                    },
+                    "company_website": {
+                      "type": "text",
+                      "value": "$source.data.company_info.company_website",
+                      "default": ""
+                    },
+                    "company_zip_code": {
+                      "type": "text",
+                      "value": "$source.data.company_info.company_zip_code",
+                      "default": ""
+                    },
+                    "company_fax": {
+                      "type": "text",
+                      "value": "$source.data.company_info.company_fax",
+                      "default": ""
+                    },
+                    "company_telephone": {
+                      "type": "text",
+                      "value": "$source.data.company_info.company_telephone",
+                      "default": ""
+                    }
+                  }
+                },
+                "style_name": {
+                  "type": "text",
+                  "value": "$source.data.style_name",
+                  "default": ""
+                },
+                "card_style": {
+                  "type": "array",
+                  "value": "$source.data.card_style",
+                  "default": []
+                },
+                "is_service_diy": {
+                  "type": "number",
+                  "value": "$source.data.is_service_diy",
+                  "default": ""
+                },
+                "card_flag_txt": {
+                  "type": "text",
+                  "value": "$source.data.card_flag_txt",
+                  "default": ""
+                },
+                "card_company_type": {
+                  "type": "number",
+                  "value": "$source.data.card_company_type",
+                  "default": ""
+                },
+                "button_style_name": {
+                  "type": "text",
+                  "value": "$source.data.button_style_name",
+                  "default": ""
+                },
+                "button_card_style": {
+                  "type": "array",
+                  "value": "$source.data.button_card_style",
+                  "default": []
+                },
+                "is_attent": {
+                  "type": "number",
+                  "value": "$source.data.is_attent",
+                  "default": ""
+                },
+                "is_thumb": {
+                  "type": "number",
+                  "value": "$source.data.is_thumb",
+                  "default": ""
+                },
+                "visit_log": {
+                  "type": "array",
+                  "value": "$source.data.visit_log",
+                  "default": []
+                },
+                "last_visit": {
+                  "type": "array",
+                  "value": "$source.data.last_visit",
+                  "default": []
+                },
+                "is_make_card": {
+                  "type": "number",
+                  "value": "$source.data.is_make_card",
+                  "default": ""
+                },
+                "is_show_mycard": {
+                  "type": "number",
+                  "value": "$source.data.is_show_mycard",
+                  "default": ""
+                },
+                "is_expire": {
+                  "type": "number",
+                  "value": "$source.data.is_expire",
+                  "default": ""
+                },
+                "diy_data": {
+                  "type": "object",
+                  "value": "$source.data.diy_data",
+                  "default": {},
+                  "sub": {
+                    "is_service_diy": {
+                      "type": "number",
+                      "value": "$source.data.diy_data.is_service_diy",
+                      "default": ""
+                    },
+                    "mch_id": {
+                      "type": "text",
+                      "value": "$source.data.diy_data.mch_id",
+                      "default": ""
+                    },
+                    "open_sys_page": {
+                      "type": "array",
+                      "value": "$source.data.diy_data.open_sys_page",
+                      "default": [],
+                      "sub": {
+                        "id": {
+                          "type": "number",
+                          "value": "$for.id",
+                          "default": ""
+                        },
+                        "tmpl_type": {
+                          "type": "number",
+                          "value": "$for.tmpl_type",
+                          "default": ""
+                        }
+                      }
+                    },
+                    "auth_info": {
+                      "type": "object",
+                      "value": "$source.data.diy_data.auth_info",
+                      "default": {},
+                      "sub": {
+                        "forceauth_phone_page": {
+                          "type": "array",
+                          "value": "$source.data.diy_data.auth_info.forceauth_phone_page",
+                          "default": []
+                        },
+                        "auth_phone_page": {
+                          "type": "array",
+                          "value": "$source.data.diy_data.auth_info.auth_phone_page",
+                          "default": []
+                        },
+                        "auth_user_page": {
+                          "type": "array",
+                          "value": "$source.data.diy_data.auth_info.auth_user_page",
+                          "default": []
+                        }
+                      }
+                    }
+                  }
+                },
+                "staff_card_id": {
+                  "type": "number",
+                  "value": "$source.data.staff_card_id",
+                  "default": ""
+                },
+                "is_exist_card": {
+                  "type": "number",
+                  "value": "$source.data.is_exist_card",
+                  "default": ""
+                }
+              }
+            },
+            "msg": {
+              "type": "text",
+              "value": "$source.msg",
+              "default": ""
+            }
+          }
+        },
+        "style_type": "system",
+        "style_id": 100116,
+        "style_image": "https://diy-1256746889.cos.ap-shanghai.myqcloud.com/public/upload/diy_new/1/100009/3762aaf8a12d1b05bf025172345027b5.png"
+      },
+      "sub": [
+        {
+          "id": "f99ea5ab-347c-46e1-af3a-7e0f93a8ab6c",
+          "privateStyle": {
+            "id": "",
+            "mark": "",
+            "private": false,
+            "style": ".style-I3mTHRVW{margin:12px 12px 0px 12px;border-radius:8px;height:210auto;min-height:px;padding:0px 0px 0px 0px;box-shadow:0px 0px 4px 0px rgba(0,0,0,0.2)}\n",
+            "className": ".style-I3mTHRVW",
+            "LG": {
+              "normal": {
+                "css": {
+                  "margin": "12px 12px 0px 12px",
+                  "border-radius": "8px",
+                  "height": "210",
+                  "min-height": "",
+                  "padding": "0px 0px 0px 0px",
+                  "box-shadow": "0px 0px 4px 0px rgba(0,0,0,0.2)",
+                  "heightUtil": "auto",
+                  "min-heightUtil": "auto"
+                },
+                "private": false
+              }
+            },
+            "classList": [],
+            "boxStyleStr": "",
+            "lgStyleStr": "margin:12.48px 12px 0px 12px;border-radius:8.32px;height:210auto;padding:0px 0px 0px 0px;box-shadow:0px 0px 4px 0px rgba(0,0,0,0.2)"
+          },
+          "props": {
+            "id": "",
+            "classList": [],
+            "className": "",
+            "attr": {},
+            "tag": "div",
+            "_title": "容器"
+          },
+          "sub": [
+            {
+              "id": "f97fd8ad-135b-4502-999c-7a058fae4b74",
+              "privateStyle": {
+                "id": "",
+                "mark": "",
+                "private": false,
+                "style": ".style-omWt1DXH{margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;height:210px;position:relative;border-radius:8px;min-height:210px}\n",
+                "className": ".style-omWt1DXH",
+                "LG": {
+                  "normal": {
+                    "css": {
+                      "margin": "0px 0px 0px 0px",
+                      "padding": "0px 0px 0px 0px",
+                      "height": "210",
+                      "heightUtil": "px",
+                      "position": "relative",
+                      "border-radius": "8px",
+                      "min-height": "210"
+                    },
+                    "private": false
+                  }
+                },
+                "classList": [],
+                "boxStyleStr": "",
+                "lgStyleStr": "margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;height:218.4px;position:relative;border-radius:8.32px;min-height:218.4px"
+              },
+              "props": {
+                "id": "",
+                "classList": [],
+                "className": "",
+                "attr": {},
+                "tag": "div",
+                "_title": "容器"
+              },
+              "sub": [
+                {
+                  "id": "510e63b3-13fc-4194-8fdd-3c646f90c1a4",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": false,
+                    "style": ".style-83crfZF8{position:absolute;border-radius:8px;height:210px;min-height:210px;right:185px}\n",
+                    "className": ".style-83crfZF8",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "position": "absolute",
+                          "border-radius": "8px",
+                          "heightUtil": "px",
+                          "height": "210",
+                          "min-height": "210",
+                          "right": "185"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "",
+                    "lgStyleStr": "position:absolute;border-radius:8.32px;height:218.4px;min-height:218.4px;right:192.4px"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "div",
+                    "_title": "容器",
+                    "bindContent": {},
+                    "is_show": "$global.card.style_data.show_data.avatar"
+                  },
+                  "sub": [
+                    {
+                      "id": "9ace2e66-b72e-4398-9979-1e06a6f4e8b5",
+                      "privateStyle": {
+                        "id": "",
+                        "mark": "",
+                        "private": true,
+                        "style": ".style-XOtcXA0O{object-fit:cover;width:174px;max-height:100%;height:210px;min-height:210px;border-radius:8px}\n",
+                        "className": ".style-XOtcXA0O",
+                        "LG": {
+                          "normal": {
+                            "css": {
+                              "object-fit": "cover",
+                              "width": "174",
+                              "widthUtil": "px",
+                              "max-height": 100,
+                              "max-heightUtil": "%",
+                              "height": "210",
+                              "min-height": "210",
+                              "border-radius": "8px"
+                            },
+                            "private": false
+                          }
+                        },
+                        "classList": [],
+                        "boxStyleStr": "",
+                        "lgStyleStr": "object-fit:cover;width:180.96px;max-height:100%;height:218.4px;min-height:218.4px;border-radius:8.32px"
+                      },
+                      "props": {
+                        "id": "",
+                        "classList": [],
+                        "className": "",
+                        "attr": {},
+                        "tag": "img",
+                        "_title": "图片",
+                        "src": "$component.data.avatar",
+                        "mode": "scaleToFill",
+                        "bindContent": {}
+                      },
+                      "sub": [],
+                      "type": "image",
+                      "origin_type": "",
+                      "global": {
+                        "id": "",
+                        "name": ""
+                      },
+                      "parent": "510e63b3-13fc-4194-8fdd-3c646f90c1a4"
+                    }
+                  ],
+                  "type": "view",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "f97fd8ad-135b-4502-999c-7a058fae4b74"
+                },
+                {
+                  "id": "c5dc4096-9244-485e-8940-ed8ae07b6937",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": false,
+                    "style": ".style-9yWcK20q{height:210px;background:rgba(255,255,255,0) url(https://diy-1256746889.cos.ap-shanghai.myqcloud.com/public/upload/diy/5/347/d0c710a3b7aad08f7cefe0fc23ad0eef.png) no-repeat 0% 0% / cover;position:absolute;width:100%;border-radius:8px;padding:0px 0px 0px 0px;min-height:210px}\n",
+                    "className": ".style-9yWcK20q",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "height": "210",
+                          "background": "rgba(255,255,255,0) url(https://diy-1256746889.cos.ap-shanghai.myqcloud.com/public/upload/diy/5/347/d0c710a3b7aad08f7cefe0fc23ad0eef.png) no-repeat 0% 0% / cover",
+                          "position": "absolute",
+                          "width": 100,
+                          "widthUtil": "%",
+                          "border-radius": "8px",
+                          "padding": "0px 0px 0px 0px",
+                          "min-height": "210"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "width: 100%;",
+                    "lgStyleStr": "height:218.4px;background:rgba(255,255,255,0) url(https://diy-1256746889.cos.ap-shanghai.myqcloud.com/public/upload/diy/5/347/d0c710a3b7aad08f7cefe0fc23ad0eef.png) no-repeat 0% 0% / cover;position:absolute;width:100%;border-radius:8.32px;padding:0px 0px 0px 0px;min-height:218.4px"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "div",
+                    "_title": "容器",
+                    "bindContent": {},
+                    "bindBg": "$global.card.style_data.card_background_image"
+                  },
+                  "sub": [
+                    {
+                      "id": "324f065c-d244-47f1-b731-773f0dd3b183",
+                      "privateStyle": {
+                        "id": "",
+                        "mark": "",
+                        "private": false,
+                        "style": ".style-kY7YNbZv{height:210px;flex-direction:column;display:flex;align-items:flex-end;position:relative;border-radius:8px;padding:0px 12px 0px 186px;justify-content:center;min-height:210px}\n",
+                        "className": ".style-kY7YNbZv",
+                        "LG": {
+                          "normal": {
+                            "css": {
+                              "height": "210",
+                              "flex-direction": "column",
+                              "display": "flex",
+                              "align-items": "flex-end",
+                              "position": "relative",
+                              "border-radius": "8px",
+                              "padding": "0px 12px 0px 186px",
+                              "justify-content": "center",
+                              "min-height": "210"
+                            },
+                            "private": false
+                          }
+                        },
+                        "classList": [],
+                        "boxStyleStr": "",
+                        "lgStyleStr": "height:218.4px;flex-direction:column;display:flex;align-items:flex-end;position:relative;border-radius:8.32px;padding:0px 12px 0px 186px;justify-content:center;min-height:218.4px"
+                      },
+                      "props": {
+                        "id": "",
+                        "classList": [],
+                        "className": "",
+                        "attr": {},
+                        "tag": "div",
+                        "_title": "容器",
+                        "bsVisbility": [
+                          "lg",
+                          "md",
+                          "sm",
+                          "xs",
+                          "breakpoint"
+                        ],
+                        "visbilityClass": []
+                      },
+                      "sub": [
+                        {
+                          "id": "9d0eb0a8-deac-4922-adfd-e3de411aa673",
+                          "privateStyle": {
+                            "id": "",
+                            "mark": "",
+                            "private": false,
+                            "style": ".style-HkX9oDxf{flex-direction:column;display:flex;align-items:flex-start;width:100%;padding:4px 0px 4px 0px;margin:0px 0px 0px 0px;color:rgba(254, 240, 223, 1) }\n",
+                            "className": ".style-HkX9oDxf",
+                            "LG": {
+                              "normal": {
+                                "css": {
+                                  "flex-direction": "column",
+                                  "display": "flex",
+                                  "align-items": "flex-start",
+                                  "width": 100,
+                                  "padding": "4px 0px 4px 0px",
+                                  "margin": "0px 0px 0px 0px",
+                                  "widthUtil": "%",
+                                  "color": "rgba(254, 240, 223, 1) "
+                                },
+                                "private": false
+                              }
+                            },
+                            "classList": [],
+                            "boxStyleStr": "width: 100%;",
+                            "lgStyleStr": "flex-direction:column;display:flex;align-items:flex-start;width:100%;padding:4.16px 0px 4px 0px;margin:0px 0px 0px 0px;color:rgba(254, 240, 223, 1)"
+                          },
+                          "props": {
+                            "id": "",
+                            "classList": [],
+                            "className": "",
+                            "attr": {},
+                            "tag": "div",
+                            "_title": "容器"
+                          },
+                          "sub": [
+                            {
+                              "id": "776cd744-07c1-479e-b89d-e2fed1926726",
+                              "privateStyle": {
+                                "id": "",
+                                "mark": "",
+                                "private": false,
+                                "style": ".style-EF9yVQFy{font-size:20px;font-weight:700;margin:0px 0px 4px 0px}\n",
+                                "className": ".style-EF9yVQFy",
+                                "LG": {
+                                  "normal": {
+                                    "css": {
+                                      "font-size": "20",
+                                      "font-weight": "700",
+                                      "margin": "0px 0px 4px 0px"
+                                    },
+                                    "private": false
+                                  }
+                                },
+                                "classList": [],
+                                "boxStyleStr": "font-size:0;font-size: 0;",
+                                "lgStyleStr": "font-size:20.8px;font-weight:700;margin:0px 0px 4px 0px"
+                              },
+                              "props": {
+                                "id": "",
+                                "classList": [],
+                                "className": "",
+                                "attr": {},
+                                "tag": "span",
+                                "textContent": "$component.data.user_name",
+                                "_title": "文字",
+                                "bindContent": {}
+                              },
+                              "sub": [],
+                              "type": "text",
+                              "origin_type": "",
+                              "global": {
+                                "id": "",
+                                "name": ""
+                              },
+                              "parent": "9d0eb0a8-deac-4922-adfd-e3de411aa673"
+                            },
+                            {
+                              "id": "1e009d74-4f4e-40eb-a1f9-d1fc546f0127",
+                              "privateStyle": {
+                                "id": "",
+                                "mark": "",
+                                "private": false,
+                                "style": ".style-w2R6WEsv{font-size:11px;font-weight:400;line-height:10px;margin:0px 0px 0px 0px}\n",
+                                "className": ".style-w2R6WEsv",
+                                "LG": {
+                                  "normal": {
+                                    "css": {
+                                      "font-size": "11",
+                                      "font-weight": "400",
+                                      "line-height": "10",
+                                      "margin": "0px 0px 0px 0px"
+                                    },
+                                    "private": false
+                                  }
+                                },
+                                "classList": [],
+                                "boxStyleStr": "font-size:0;font-size: 0;",
+                                "lgStyleStr": "font-size:11.440000000000001px;font-weight:400;line-height:10.4px;margin:0px 0px 0px 0px"
+                              },
+                              "props": {
+                                "id": "",
+                                "classList": [],
+                                "className": "",
+                                "attr": {},
+                                "tag": "span",
+                                "textContent": "$component.data.position",
+                                "_title": "文字",
+                                "bindContent": {},
+                                "is_show": "$global.card.style_data.show_data.position"
+                              },
+                              "sub": [],
+                              "type": "text",
+                              "origin_type": "",
+                              "global": {
+                                "id": "",
+                                "name": ""
+                              },
+                              "parent": "9d0eb0a8-deac-4922-adfd-e3de411aa673"
+                            },
+                            {
+                              "id": "792810e3-ca7a-4801-8b69-8ae72232a553",
+                              "privateStyle": {
+                                "id": "",
+                                "mark": "",
+                                "private": false,
+                                "style": ".style-tHCktDZr{font-size:11px;margin:6px 20px 0px 0px;color:null}\n",
+                                "className": ".style-tHCktDZr",
+                                "LG": {
+                                  "normal": {
+                                    "css": {
+                                      "font-size": "11",
+                                      "margin": "6px 20px 0px 0px",
+                                      "color": null
+                                    },
+                                    "private": false
+                                  }
+                                },
+                                "classList": [],
+                                "boxStyleStr": "font-size:0;font-size: 0;",
+                                "lgStyleStr": "font-size:11.440000000000001px;margin:6.24px 20px 0px 0px;color:null"
+                              },
+                              "props": {
+                                "id": "",
+                                "classList": [],
+                                "className": "",
+                                "attr": {},
+                                "tag": "span",
+                                "textContent": "$component.data.company_info.name",
+                                "_title": "文字",
+                                "bindContent": {},
+                                "is_show": "$global.card.style_data.show_data.company_name"
+                              },
+                              "sub": [],
+                              "type": "text",
+                              "origin_type": "",
+                              "global": {
+                                "id": "",
+                                "name": ""
+                              },
+                              "parent": "9d0eb0a8-deac-4922-adfd-e3de411aa673"
+                            }
+                          ],
+                          "type": "view",
+                          "origin_type": "",
+                          "global": {
+                            "id": "",
+                            "name": ""
+                          },
+                          "parent": "324f065c-d244-47f1-b731-773f0dd3b183"
+                        },
+                        {
+                          "id": "d6803864-4b53-42d8-b909-56805b41b3a1",
+                          "privateStyle": {
+                            "id": "",
+                            "mark": "",
+                            "private": false,
+                            "style": ".style-qPNdKAde{margin:20px 0px 0px 0px;padding:0px 0px 0px 0px;font-size:10px;width:100%;color:rgba(254, 240, 223, 1) }\n",
+                            "className": ".style-qPNdKAde",
+                            "LG": {
+                              "normal": {
+                                "css": {
+                                  "margin": "20px 0px 0px 0px",
+                                  "padding": "0px 0px 0px 0px",
+                                  "font-size": "10",
+                                  "widthUtil": "%",
+                                  "width": 100,
+                                  "color": "rgba(254, 240, 223, 1) "
+                                },
+                                "private": false
+                              }
+                            },
+                            "classList": [],
+                            "boxStyleStr": "width: 100%;",
+                            "lgStyleStr": "margin:20.8px 0px 0px 0px;padding:0px 0px 0px 0px;font-size:10.4px;width:100%;color:rgba(254, 240, 223, 1)"
+                          },
+                          "props": {
+                            "id": "",
+                            "classList": [],
+                            "className": "",
+                            "attr": {},
+                            "tag": "div",
+                            "_title": "容器"
+                          },
+                          "sub": [
+                            {
+                              "id": "3e69bb50-29bf-4b83-8a32-84b88bc34b30",
+                              "privateStyle": {
+                                "id": "",
+                                "mark": "",
+                                "private": false,
+                                "style": ".style-jYrFLF54{color:null;margin:0px 0px 4px 0px}\n",
+                                "className": ".style-jYrFLF54",
+                                "LG": {
+                                  "normal": {
+                                    "css": {
+                                      "color": null,
+                                      "margin": "0px 0px 4px 0px"
+                                    },
+                                    "private": false
+                                  }
+                                },
+                                "classList": [],
+                                "boxStyleStr": "",
+                                "lgStyleStr": "color:null;margin:0px 0px 4px 0px"
+                              },
+                              "props": {
+                                "id": "",
+                                "classList": [],
+                                "className": "",
+                                "attr": {},
+                                "tag": "div",
+                                "_title": "容器",
+                                "bindContent": {},
+                                "is_show": "$global.card.style_data.show_data.phone"
+                              },
+                              "sub": [
+                                {
+                                  "id": "7fb3e072-5e0b-4640-bade-3ffd279744ff",
+                                  "privateStyle": {
+                                    "id": "",
+                                    "mark": "",
+                                    "private": true,
+                                    "style": ".style-cJwY6upZ{object-fit:cover;width:12px;max-height:100%;height:12px}\n",
+                                    "className": ".style-cJwY6upZ",
+                                    "LG": {
+                                      "normal": {
+                                        "css": {
+                                          "object-fit": "cover",
+                                          "width": "12",
+                                          "widthUtil": "px",
+                                          "max-height": 100,
+                                          "max-heightUtil": "%",
+                                          "height": "12"
+                                        },
+                                        "private": false
+                                      }
+                                    },
+                                    "classList": [],
+                                    "boxStyleStr": "",
+                                    "lgStyleStr": "object-fit:cover;width:12.48px;max-height:100%;height:12.48px"
+                                  },
+                                  "props": {
+                                    "id": "",
+                                    "classList": [],
+                                    "className": "",
+                                    "attr": {},
+                                    "tag": "img",
+                                    "_title": "图片",
+                                    "src": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM8.55156 7.32791C8.98807 7.65642 9.1246 7.98475 8.87811 8.41223C8.68446 8.74675 8.47149 8.8559 8.47149 8.8559C8.02969 9.12121 7.40214 8.99042 6.84345 8.70471L6.45391 8.48765C5.72576 8.09059 4.56867 6.89779 4.56867 6.89779C3.80774 6.11772 2.30273 4.11157 3.37006 3.25717C3.92394 2.81381 4.30976 2.97697 4.69168 3.49247C4.70832 3.51493 4.72479 3.53706 4.74102 3.55888C5.09744 4.03786 5.34329 4.36824 4.90771 4.80463C4.90771 4.80463 4.35814 5.2458 5.6676 6.48971C6.79369 7.55202 7.17636 7.09806 7.17636 7.09806C7.53694 6.68195 8.03842 6.94172 8.55156 7.32791Z\" fill=\"#333333\"/>\n</svg>\n",
+                                    "mode": "aspectFit"
+                                  },
+                                  "sub": [],
+                                  "type": "image",
+                                  "origin_type": "",
+                                  "global": {
+                                    "id": "",
+                                    "name": ""
+                                  },
+                                  "parent": "3e69bb50-29bf-4b83-8a32-84b88bc34b30"
+                                },
+                                {
+                                  "id": "43f91d5d-28fd-45a6-8752-7f69f97f6f33",
+                                  "privateStyle": {
+                                    "id": "",
+                                    "mark": "",
+                                    "private": false,
+                                    "style": ".style-GEFdgbj8{font-size:10px;margin:0px 0px 0px 6px;color:null}\n",
+                                    "className": ".style-GEFdgbj8",
+                                    "LG": {
+                                      "normal": {
+                                        "css": {
+                                          "font-size": "10",
+                                          "margin": "0px 0px 0px 6px",
+                                          "color": null
+                                        },
+                                        "private": false
+                                      }
+                                    },
+                                    "classList": [],
+                                    "boxStyleStr": "font-size:0;font-size: 0;",
+                                    "lgStyleStr": "font-size:10.4px;margin:0px 0px 0px 6px;color:null"
+                                  },
+                                  "props": {
+                                    "id": "",
+                                    "classList": [],
+                                    "className": "",
+                                    "attr": {},
+                                    "tag": "span",
+                                    "textContent": "$component.data.phone",
+                                    "_title": "文字",
+                                    "bindContent": {}
+                                  },
+                                  "sub": [],
+                                  "type": "text",
+                                  "origin_type": "",
+                                  "global": {
+                                    "id": "",
+                                    "name": ""
+                                  },
+                                  "parent": "3e69bb50-29bf-4b83-8a32-84b88bc34b30"
+                                }
+                              ],
+                              "type": "view",
+                              "origin_type": "",
+                              "global": {
+                                "id": "",
+                                "name": ""
+                              },
+                              "parent": "d6803864-4b53-42d8-b909-56805b41b3a1"
+                            },
+                            {
+                              "id": "6520e6ec-5304-4d31-b4ed-12cf9f83640f",
+                              "privateStyle": {
+                                "id": "",
+                                "mark": "",
+                                "private": false,
+                                "style": ".style-2hOdA8gD{color:null;margin:0px 0px 4px 0px}\n",
+                                "className": ".style-2hOdA8gD",
+                                "LG": {
+                                  "normal": {
+                                    "css": {
+                                      "color": null,
+                                      "margin": "0px 0px 4px 0px"
+                                    },
+                                    "private": false
+                                  }
+                                },
+                                "classList": [],
+                                "boxStyleStr": "",
+                                "lgStyleStr": "color:null;margin:0px 0px 4px 0px"
+                              },
+                              "props": {
+                                "id": "",
+                                "classList": [],
+                                "className": "",
+                                "attr": {},
+                                "tag": "div",
+                                "_title": "容器",
+                                "bindContent": {},
+                                "is_show": "$global.card.style_data.show_data.email"
+                              },
+                              "sub": [
+                                {
+                                  "id": "79f86d90-1c15-493d-9661-28d4620f9ace",
+                                  "privateStyle": {
+                                    "id": "",
+                                    "mark": "",
+                                    "private": true,
+                                    "style": ".style-zUtNCN5z{object-fit:cover;width:12px;max-height:100%;height:12px}\n",
+                                    "className": ".style-zUtNCN5z",
+                                    "LG": {
+                                      "normal": {
+                                        "css": {
+                                          "object-fit": "cover",
+                                          "width": "12",
+                                          "widthUtil": "px",
+                                          "max-height": 100,
+                                          "max-heightUtil": "%",
+                                          "height": "12"
+                                        },
+                                        "private": false
+                                      }
+                                    },
+                                    "classList": [],
+                                    "boxStyleStr": "",
+                                    "lgStyleStr": "object-fit:cover;width:12.48px;max-height:100%;height:12.48px"
+                                  },
+                                  "props": {
+                                    "id": "",
+                                    "classList": [],
+                                    "className": "",
+                                    "attr": {},
+                                    "tag": "img",
+                                    "_title": "图片",
+                                    "src": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM8.81751 4.66374C8.91936 4.56123 8.97876 4.43189 8.99499 4.29751C8.99813 4.32314 9 4.34876 9 4.37501V7.62499C9 7.96874 8.71873 8.25 8.37502 8.25H3.62502C3.28123 8.25 3 7.96874 3 7.62499V4.37501C3 4.34876 3.00187 4.32314 3.00501 4.29751C3.02062 4.43123 3.07999 4.56123 3.18249 4.66374L5.55812 7.03935C5.80126 7.28249 6.19874 7.28249 6.44188 7.03935L8.81751 4.66374ZM8.93251 4.09374L6.44188 6.58437C6.19874 6.8275 5.80123 6.8275 5.55812 6.58437L3.06752 4.09374C3.17061 3.89 3.38253 3.75 3.62502 3.75H8.37502C8.61751 3.75 8.82936 3.89 8.93251 4.09374Z\" fill=\"#333333\"/>\n</svg>\n",
+                                    "mode": "aspectFit"
+                                  },
+                                  "sub": [],
+                                  "type": "image",
+                                  "origin_type": "",
+                                  "global": {
+                                    "id": "",
+                                    "name": ""
+                                  },
+                                  "parent": "6520e6ec-5304-4d31-b4ed-12cf9f83640f"
+                                },
+                                {
+                                  "id": "12444457-a784-4c58-8d17-a00e849548e0",
+                                  "privateStyle": {
+                                    "id": "",
+                                    "mark": "",
+                                    "private": false,
+                                    "style": ".style-8yP36RBb{font-size:10px;margin:0px 0px 0px 6px;color:null}\n",
+                                    "className": ".style-8yP36RBb",
+                                    "LG": {
+                                      "normal": {
+                                        "css": {
+                                          "font-size": "10",
+                                          "margin": "0px 0px 0px 6px",
+                                          "color": null
+                                        },
+                                        "private": false
+                                      }
+                                    },
+                                    "classList": [],
+                                    "boxStyleStr": "font-size:0;font-size: 0;",
+                                    "lgStyleStr": "font-size:10.4px;margin:0px 0px 0px 6px;color:null"
+                                  },
+                                  "props": {
+                                    "id": "",
+                                    "classList": [],
+                                    "className": "",
+                                    "attr": {},
+                                    "tag": "span",
+                                    "textContent": "$component.data.email",
+                                    "_title": "文字",
+                                    "bindContent": {}
+                                  },
+                                  "sub": [],
+                                  "type": "text",
+                                  "origin_type": "",
+                                  "global": {
+                                    "id": "",
+                                    "name": ""
+                                  },
+                                  "parent": "6520e6ec-5304-4d31-b4ed-12cf9f83640f"
+                                }
+                              ],
+                              "type": "view",
+                              "origin_type": "",
+                              "global": {
+                                "id": "",
+                                "name": ""
+                              },
+                              "parent": "d6803864-4b53-42d8-b909-56805b41b3a1"
+                            },
+                            {
+                              "id": "cd50d912-e17e-4efd-81c5-2019f5b08306",
+                              "privateStyle": {
+                                "id": "",
+                                "mark": "",
+                                "private": false,
+                                "style": ".style-Bmn2THld{color:null;margin:0px 0px 0px 0px;flex-direction:row;display:flex;align-items:flex-start}\n",
+                                "className": ".style-Bmn2THld",
+                                "LG": {
+                                  "normal": {
+                                    "css": {
+                                      "color": null,
+                                      "margin": "0px 0px 0px 0px",
+                                      "flex-direction": "row",
+                                      "display": "flex",
+                                      "align-items": "flex-start"
+                                    },
+                                    "private": false
+                                  }
+                                },
+                                "classList": [],
+                                "boxStyleStr": "",
+                                "lgStyleStr": "color:null;margin:0px 0px 0px 0px;flex-direction:row;display:flex;align-items:flex-start"
+                              },
+                              "props": {
+                                "id": "",
+                                "classList": [],
+                                "className": "",
+                                "attr": {},
+                                "tag": "div",
+                                "_title": "容器",
+                                "bindContent": {},
+                                "is_show": "$global.card.style_data.show_data.address"
+                              },
+                              "sub": [
+                                {
+                                  "id": "d3826e82-7e7d-45d9-9542-b4ab0f225da8",
+                                  "privateStyle": {
+                                    "id": "",
+                                    "mark": "",
+                                    "private": true,
+                                    "style": ".style-OajVOVAg{}\n",
+                                    "className": ".style-OajVOVAg",
+                                    "LG": {
+                                      "normal": {
+                                        "css": {},
+                                        "private": true
+                                      }
+                                    },
+                                    "classList": [],
+                                    "boxStyleStr": "",
+                                    "lgStyleStr": ""
+                                  },
+                                  "props": {
+                                    "id": "",
+                                    "classList": [],
+                                    "className": "",
+                                    "attr": {},
+                                    "tag": "div",
+                                    "_title": "容器"
+                                  },
+                                  "sub": [
+                                    {
+                                      "id": "c7ded9e1-33d6-449c-874a-86d29ba9bb2f",
+                                      "privateStyle": {
+                                        "id": "",
+                                        "mark": "",
+                                        "private": true,
+                                        "style": ".style-t246t9SM{object-fit:cover;width:12px;max-height:100%;height:12px;flex-shrink:0}\n",
+                                        "className": ".style-t246t9SM",
+                                        "LG": {
+                                          "normal": {
+                                            "css": {
+                                              "object-fit": "cover",
+                                              "width": "12",
+                                              "widthUtil": "px",
+                                              "max-height": 100,
+                                              "max-heightUtil": "%",
+                                              "height": "12",
+                                              "flex-shrink": 0
+                                            },
+                                            "private": false
+                                          }
+                                        },
+                                        "classList": [],
+                                        "boxStyleStr": "",
+                                        "lgStyleStr": "object-fit:cover;width:12.48px;max-height:100%;height:12.48px;flex-shrink:0"
+                                      },
+                                      "props": {
+                                        "id": "",
+                                        "classList": [],
+                                        "className": "",
+                                        "attr": {},
+                                        "tag": "img",
+                                        "_title": "图片",
+                                        "src": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M6.90914 6.1947C6.66802 6.45213 6.34099 6.59675 6 6.59675C5.65901 6.59675 5.33198 6.45213 5.09086 6.1947C4.84974 5.93728 4.71429 5.58814 4.71429 5.22409C4.71429 4.86004 4.84974 4.5109 5.09086 4.25347C5.33198 3.99605 5.65901 3.85143 6 3.85143C6.34099 3.85143 6.66802 3.99605 6.90914 4.25347C7.15025 4.5109 7.28571 4.86004 7.28571 5.22409C7.28571 5.58814 7.15025 5.93728 6.90914 6.1947Z\" fill=\"#333333\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM6 9.75C6.04401 9.75 6.08696 9.73553 6.123 9.70856C8.04107 8.27367 9 6.85526 9 5.45287C9 3.30489 7.5 2.25 6 2.25C4.5 2.25 3 3.30489 3 5.45287C3 6.85526 3.95914 8.27367 5.877 9.70856C5.91304 9.73553 5.95599 9.75 6 9.75Z\" fill=\"#333333\"/>\n</svg>\n",
+                                        "mode": "aspectFit"
+                                      },
+                                      "sub": [],
+                                      "type": "image",
+                                      "origin_type": "",
+                                      "global": {
+                                        "id": "",
+                                        "name": ""
+                                      },
+                                      "parent": "d3826e82-7e7d-45d9-9542-b4ab0f225da8"
+                                    }
+                                  ],
+                                  "type": "view",
+                                  "origin_type": "",
+                                  "global": {
+                                    "id": "",
+                                    "name": ""
+                                  },
+                                  "parent": "cd50d912-e17e-4efd-81c5-2019f5b08306"
+                                },
+                                {
+                                  "id": "50b5a656-db53-4af8-a591-98dda99b376b",
+                                  "privateStyle": {
+                                    "id": "",
+                                    "mark": "",
+                                    "private": false,
+                                    "style": ".style-NAHBdDKh{font-size:10px;margin:0px 0px 0px 6px;color:null}\n",
+                                    "className": ".style-NAHBdDKh",
+                                    "LG": {
+                                      "normal": {
+                                        "css": {
+                                          "font-size": "10",
+                                          "margin": "0px 0px 0px 6px",
+                                          "color": null
+                                        },
+                                        "private": false
+                                      }
+                                    },
+                                    "classList": [],
+                                    "boxStyleStr": "font-size:0;font-size: 0;",
+                                    "lgStyleStr": "font-size:10.4px;margin:0px 0px 0px 6px;color:null"
+                                  },
+                                  "props": {
+                                    "id": "",
+                                    "classList": [],
+                                    "className": "",
+                                    "attr": {},
+                                    "tag": "span",
+                                    "textContent": "$component.data.location.address",
+                                    "_title": "文字",
+                                    "bindContent": {}
+                                  },
+                                  "sub": [],
+                                  "type": "text",
+                                  "origin_type": "",
+                                  "global": {
+                                    "id": "",
+                                    "name": ""
+                                  },
+                                  "parent": "cd50d912-e17e-4efd-81c5-2019f5b08306"
+                                }
+                              ],
+                              "type": "view",
+                              "origin_type": "",
+                              "global": {
+                                "id": "",
+                                "name": ""
+                              },
+                              "parent": "d6803864-4b53-42d8-b909-56805b41b3a1"
+                            }
+                          ],
+                          "type": "view",
+                          "origin_type": "",
+                          "global": {
+                            "id": "",
+                            "name": ""
+                          },
+                          "parent": "324f065c-d244-47f1-b731-773f0dd3b183"
+                        }
+                      ],
+                      "type": "view",
+                      "origin_type": "",
+                      "global": {
+                        "id": "",
+                        "name": ""
+                      },
+                      "parent": "c5dc4096-9244-485e-8940-ed8ae07b6937"
+                    }
+                  ],
+                  "type": "view",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "f97fd8ad-135b-4502-999c-7a058fae4b74"
+                }
+              ],
+              "type": "view",
+              "origin_type": "",
+              "global": {
+                "id": "",
+                "name": ""
+              },
+              "parent": "f99ea5ab-347c-46e1-af3a-7e0f93a8ab6c"
+            }
+          ],
+          "type": "view",
+          "origin_type": "",
+          "global": {
+            "id": "",
+            "name": ""
+          },
+          "parent": "a917b03b-3934-49ee-8a7a-f3e0d6166114"
+        }
+      ],
+      "type": "business_card",
+      "origin_type": "view",
+      "global": {
+        "id": "",
+        "name": ""
+      },
+      "parent": "bbeefe70-c467-4d70-b7b9-0b9610873c65"
+    },
+    {
+      "id": "593b903e-52be-4052-b149-97c8aa700d02",
+      "privateStyle": {
+        "id": "",
+        "mark": "",
+        "private": false,
+        "style": ".style-s8hkmEqz{padding:12px 12px 12px 12px;width:100%}\n",
+        "className": ".style-s8hkmEqz",
+        "LG": {
+          "normal": {
+            "css": {
+              "padding": "12px 12px 12px 12px",
+              "width": 100,
+              "widthUtil": "%"
+            },
+            "private": false
+          }
+        },
+        "classList": [],
+        "boxStyleStr": "width: 100%;",
+        "lgStyleStr": "padding:12.48px 12px 12px 12px;width:100%"
+      },
+      "props": {
+        "id": "",
+        "classList": [],
+        "className": "",
+        "attr": {},
+        "tag": "div",
+        "_title": "容器",
+        "single": {
+          "sort": "",
+          "ids": "",
+          "class_id": "",
+          "sort_flag": ""
+        },
+        "style_type": "custom",
+        "style_id": 100098,
+        "style_image": "https://diy-1256746889.cos.ap-shanghai.myqcloud.com/public/upload/diy_new/1/100009/948a703f5b85a3833555242e18c9114d.png"
+      },
+      "sub": [
+        {
+          "id": "d7672859-816f-4de7-b1ff-ec830827071b",
+          "privateStyle": {
+            "id": "",
+            "mark": "",
+            "private": false,
+            "style": ".style-voUg2SAd{flex-direction:row;display:flex;justify-content:space-around;min-width:px;max-width:100%}\n",
+            "className": ".style-voUg2SAd",
+            "LG": {
+              "normal": {
+                "css": {
+                  "flex-direction": "row",
+                  "display": "flex",
+                  "justify-content": "space-around",
+                  "min-width": "",
+                  "max-width": "100",
+                  "min-widthUtil": "auto",
+                  "max-widthUtil": "%"
+                },
+                "private": false
+              }
+            },
+            "classList": [],
+            "boxStyleStr": "",
+            "lgStyleStr": "flex-direction:row;display:flex;justify-content:space-around;max-width:100%"
+          },
+          "props": {
+            "id": "",
+            "classList": [],
+            "className": "",
+            "attr": {},
+            "tag": "div",
+            "_title": "容器"
+          },
+          "sub": [
+            {
+              "id": "47d5af40-45f4-44d3-b941-655f04ff667f",
+              "privateStyle": {
+                "id": "",
+                "mark": "",
+                "private": false,
+                "style": ".style-ntvxcmNx{flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12px;color:#ED5D29;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12px 16px 12px 16px;border-radius:4px;max-width:84px;width:84px}\n",
+                "className": ".style-ntvxcmNx",
+                "LG": {
+                  "normal": {
+                    "css": {
+                      "flex-direction": "column",
+                      "display": "flex",
+                      "align-items": "center",
+                      "justify-content": "center",
+                      "font-size": "12",
+                      "color": "globalColor",
+                      "background": "rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%",
+                      "padding": "12px 16px 12px 16px",
+                      "border-radius": "4px",
+                      "max-width": "84",
+                      "widthUtil": "px",
+                      "width": "84",
+                      "max-widthUtil": "px"
+                    },
+                    "private": false
+                  }
+                },
+                "classList": [],
+                "boxStyleStr": "",
+                "lgStyleStr": "flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12.48px;color:#3470b6;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12.48px 16px 12px 16px;border-radius:4.16px;max-width:87.36px;width:87.36px"
+              },
+              "props": {
+                "id": "",
+                "classList": [],
+                "className": "",
+                "attr": {},
+                "tag": "div",
+                "_title": "容器",
+                "event": {
+                  "name": "自定义",
+                  "desc": "",
+                  "type": "add_phone_contact",
+                  "code": "",
+                  "param": [],
+                  "from": 2,
+                  "limit": ""
+                }
+              },
+              "sub": [
+                {
+                  "id": "84e6be7e-6fc4-43ee-a3b1-8f6dbabc7927",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": true,
+                    "style": ".style-rANZzvUX{object-fit:cover;width:26px;max-height:100%;height:26px}\n",
+                    "className": ".style-rANZzvUX",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "object-fit": "cover",
+                          "width": "26",
+                          "widthUtil": "px",
+                          "max-height": 100,
+                          "max-heightUtil": "%",
+                          "height": "26"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "",
+                    "lgStyleStr": "object-fit:cover;width:27.04px;max-height:100%;height:27.04px"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "img",
+                    "_title": "图片",
+                    "src": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M1.86238 10.1221V7.87792C1.364 7.71428 1 7.23638 1 6.66674C1 6.0971 1.364 5.61995 1.86238 5.45556V2.55909C1.86355 2.14596 2.02254 1.7501 2.30463 1.45798C2.58671 1.16585 2.96896 1.00121 3.36788 1H15.4945C15.8934 1.00121 16.2757 1.16586 16.5578 1.45798C16.8398 1.75011 16.9988 2.14596 17 2.55909V15.4409C17 16.2988 16.3229 17 15.4945 17H3.36788C2.96902 16.9986 2.58688 16.8339 2.30484 16.5418C2.0228 16.2497 1.86375 15.854 1.86238 15.4409V12.5437C1.364 12.3801 1 11.9022 1 11.3325C1 10.7629 1.364 10.2865 1.86238 10.1221V10.1221ZM3.60858 6.15211H2.23008C1.95763 6.15211 1.73465 6.38303 1.73465 6.6652C1.73465 6.94737 1.95763 7.17826 2.23009 7.17826H3.60858C3.88103 7.17826 4.10402 6.94733 4.10402 6.66518C4.10402 6.38303 3.88103 6.15211 3.60858 6.15211ZM14.3279 11.4227C14.3279 9.81548 13.2411 8.47432 11.7658 8.05453C12.0194 7.88961 12.2284 7.66077 12.3732 7.38944C12.5181 7.1181 12.5942 6.81314 12.5943 6.50308C12.5943 6.01516 12.4071 5.54722 12.074 5.20221C11.7408 4.8572 11.289 4.66337 10.8178 4.66337C10.3467 4.66337 9.89481 4.8572 9.56166 5.20221C9.22851 5.54722 9.04134 6.01516 9.04134 6.50308C9.04157 6.81134 9.11677 7.11456 9.26001 7.38478C9.40325 7.65499 9.60991 7.88349 9.86091 8.04918C8.37683 8.4636 7.28187 9.8086 7.28187 11.422C7.28187 13.3649 14.3279 13.3649 14.3279 11.4227ZM2.23082 11.8464H3.60932C3.88178 11.8464 4.10475 11.6154 4.10475 11.3333C4.10475 11.0511 3.88178 10.8202 3.60931 10.8202H2.23082C1.95837 10.8202 1.73538 11.0511 1.73538 11.3333C1.73538 11.6155 1.95837 11.8464 2.23082 11.8464Z\" fill=\"#BA9151\"/>\n</svg>\n",
+                    "mode": "scaleToFill"
+                  },
+                  "sub": [],
+                  "type": "image",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "47d5af40-45f4-44d3-b941-655f04ff667f"
+                },
+                {
+                  "id": "be26fe06-ab08-4192-8600-1aca313677b4",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": false,
+                    "style": ".style-fMsFpMuL{margin:4px 0px 0px 0px;color:rgba(51, 51, 51, 1) ;width:52px;text-align:center}\n",
+                    "className": ".style-fMsFpMuL",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "margin": "4px 0px 0px 0px",
+                          "color": "rgba(51, 51, 51, 1) ",
+                          "width": "52",
+                          "text-align": "center"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "font-size:0;font-size: 0;",
+                    "lgStyleStr": "margin:4.16px 0px 0px 0px;color:rgba(51, 51, 51, 1);width:54.08px;text-align:center"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "span",
+                    "textContent": "存通讯录",
+                    "_title": "文字"
+                  },
+                  "sub": [],
+                  "type": "text",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "47d5af40-45f4-44d3-b941-655f04ff667f"
+                }
+              ],
+              "type": "view",
+              "origin_type": "",
+              "global": {
+                "id": "",
+                "name": ""
+              },
+              "parent": "d7672859-816f-4de7-b1ff-ec830827071b"
+            },
+            {
+              "id": "53045802-a484-4f52-8a70-881b2d6cb1bf",
+              "privateStyle": {
+                "id": "",
+                "mark": "",
+                "private": false,
+                "style": ".style-41rCT8Pp{flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12px;color:#ED5D29;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12px 16px 12px 16px;border-radius:4px;margin:0px 0px 0px 5px;max-width:84px;width:84px}\n",
+                "className": ".style-41rCT8Pp",
+                "LG": {
+                  "normal": {
+                    "css": {
+                      "flex-direction": "column",
+                      "display": "flex",
+                      "align-items": "center",
+                      "justify-content": "center",
+                      "font-size": "12",
+                      "color": "globalColor",
+                      "background": "rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%",
+                      "padding": "12px 16px 12px 16px",
+                      "border-radius": "4px",
+                      "margin": "0px 0px 0px 5px",
+                      "max-width": "84",
+                      "widthUtil": "px",
+                      "width": "84"
+                    },
+                    "private": false
+                  }
+                },
+                "classList": [],
+                "boxStyleStr": "",
+                "lgStyleStr": "flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12.48px;color:#3470b6;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12.48px 16px 12px 16px;border-radius:4.16px;margin:0px 0px 0px 5px;max-width:87.36px;width:87.36px"
+              },
+              "props": {
+                "id": "",
+                "classList": [],
+                "className": "",
+                "attr": {},
+                "tag": "div",
+                "_title": "容器",
+                "event": {
+                  "name": "拨打电话",
+                  "desc": "传递一个电话号码拨打",
+                  "type": "phone",
+                  "from": 1,
+                  "code": "",
+                  "param": [
+                    {
+                      "name": "电话号码",
+                      "key": "phone",
+                      "desc": "",
+                      "type": "text",
+                      "value": "$global.card.phone"
+                    }
+                  ],
+                  "limit": ""
+                }
+              },
+              "sub": [
+                {
+                  "id": "e92025e2-b4a2-4193-ab10-25d5d1eaf671",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": true,
+                    "style": ".style-f3jbipnS{object-fit:cover;width:26px;max-height:100%;height:26px}\n",
+                    "className": ".style-f3jbipnS",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "object-fit": "cover",
+                          "width": "26",
+                          "widthUtil": "px",
+                          "max-height": 100,
+                          "max-heightUtil": "%",
+                          "height": "26"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "",
+                    "lgStyleStr": "object-fit:cover;width:27.04px;max-height:100%;height:27.04px"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "img",
+                    "_title": "图片",
+                    "src": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M17.675 16.4326C18.3323 15.2927 17.9682 14.4171 16.8042 13.5411C15.4358 12.5113 14.0985 11.8185 13.137 12.9282C13.137 12.9282 12.1165 14.1387 9.1136 11.3059C5.62171 7.9888 7.08723 6.81235 7.08723 6.81235C8.30168 5.59563 7.52969 4.68795 6.51115 3.31326C5.49269 1.93859 4.46385 1.5035 2.98684 2.68579C0.14061 4.96419 4.15396 10.3139 6.18312 12.3941C6.18312 12.3941 9.2687 15.5749 11.2104 16.6337L12.2492 17.2126C13.739 17.9745 15.4125 18.3232 16.5907 17.6157C16.5907 17.6158 17.1586 17.3247 17.675 16.4326Z\" fill=\"#0084FF\"/>\n</svg>\n",
+                    "mode": "scaleToFill"
+                  },
+                  "sub": [],
+                  "type": "image",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "53045802-a484-4f52-8a70-881b2d6cb1bf"
+                },
+                {
+                  "id": "8a894e0d-6dfd-4577-9277-0d40fd6852f9",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": false,
+                    "style": ".style-kcX5EoeJ{margin:4px 0px 0px 0px;color:rgba(51, 51, 51, 1) ;width:52px;text-align:center}\n",
+                    "className": ".style-kcX5EoeJ",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "margin": "4px 0px 0px 0px",
+                          "color": "rgba(51, 51, 51, 1) ",
+                          "width": "52",
+                          "text-align": "center"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "font-size:0;font-size: 0;",
+                    "lgStyleStr": "margin:4.16px 0px 0px 0px;color:rgba(51, 51, 51, 1);width:54.08px;text-align:center"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "span",
+                    "textContent": "拨打电话",
+                    "_title": "文字"
+                  },
+                  "sub": [],
+                  "type": "text",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "53045802-a484-4f52-8a70-881b2d6cb1bf"
+                }
+              ],
+              "type": "view",
+              "origin_type": "",
+              "global": {
+                "id": "",
+                "name": ""
+              },
+              "parent": "d7672859-816f-4de7-b1ff-ec830827071b"
+            },
+            {
+              "id": "c0568f12-dc04-4d87-8a70-81cd64df61b2",
+              "privateStyle": {
+                "id": "",
+                "mark": "",
+                "private": false,
+                "style": ".style-Np7qjKPr{flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12px;color:#ED5D29;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12px 16px 12px 16px;border-radius:4px;margin:0px 0px 0px 5px;max-width:84px;width:84px}\n",
+                "className": ".style-Np7qjKPr",
+                "LG": {
+                  "normal": {
+                    "css": {
+                      "flex-direction": "column",
+                      "display": "flex",
+                      "align-items": "center",
+                      "justify-content": "center",
+                      "font-size": "12",
+                      "color": "globalColor",
+                      "background": "rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%",
+                      "padding": "12px 16px 12px 16px",
+                      "border-radius": "4px",
+                      "margin": "0px 0px 0px 5px",
+                      "max-width": "84",
+                      "widthUtil": "px",
+                      "width": "84"
+                    },
+                    "private": false
+                  }
+                },
+                "classList": [],
+                "boxStyleStr": "",
+                "lgStyleStr": "flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12.48px;color:#3470b6;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12.48px 16px 12px 16px;border-radius:4.16px;margin:0px 0px 0px 5px;max-width:87.36px;width:87.36px"
+              },
+              "props": {
+                "id": "",
+                "classList": [],
+                "className": "",
+                "attr": {},
+                "tag": "div",
+                "_title": "容器",
+                "event": {
+                  "name": "自定义",
+                  "desc": "",
+                  "type": "preview_wxqrcode",
+                  "code": "",
+                  "param": [],
+                  "from": 2,
+                  "limit": ""
+                }
+              },
+              "sub": [
+                {
+                  "id": "e39c5a4f-49ca-4a9c-9c0d-f181dd44d8b9",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": true,
+                    "style": ".style-Jw9oFLSg{object-fit:cover;width:26px;max-height:100%;height:26px}\n",
+                    "className": ".style-Jw9oFLSg",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "object-fit": "cover",
+                          "width": "26",
+                          "widthUtil": "px",
+                          "max-height": 100,
+                          "max-heightUtil": "%",
+                          "height": "26"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "",
+                    "lgStyleStr": "object-fit:cover;width:27.04px;max-height:100%;height:27.04px"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "img",
+                    "_title": "图片",
+                    "src": "<svg width=\"22\" height=\"22\" viewBox=\"0 0 22 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M18.2087 18.3334C18.1414 18.3334 18.0628 18.3112 17.9955 18.2779L16.8169 17.6668C15.9751 18.1001 15.0322 18.3334 14.0557 18.3334C11.0251 18.3334 8.55566 16.1446 8.55566 13.4446C8.55566 10.7446 11.0251 8.55566 14.0557 8.55566C17.0863 8.55566 19.5557 10.7446 19.5557 13.4446C19.5557 14.5223 19.1516 15.5779 18.4108 16.4334L18.6465 17.8223C18.6802 17.989 18.6016 18.1557 18.4669 18.2557C18.3883 18.3001 18.2985 18.3334 18.2087 18.3334ZM12.2227 12.8333C12.2226 12.9135 12.2384 12.993 12.2691 13.0671C12.2998 13.1413 12.3449 13.2086 12.4016 13.2654C12.4584 13.3221 12.5257 13.3672 12.5999 13.3979C12.674 13.4286 12.7535 13.4444 12.8338 13.4444C12.914 13.4444 12.9935 13.4286 13.0677 13.3979C13.1418 13.3672 13.2092 13.3221 13.2659 13.2654C13.3227 13.2086 13.3677 13.1413 13.3984 13.0671C13.4291 12.993 13.4449 12.9135 13.4449 12.8333C13.4449 12.753 13.4291 12.6736 13.3984 12.5994C13.3677 12.5253 13.3227 12.4579 13.2659 12.4012C13.2092 12.3444 13.1418 12.2994 13.0677 12.2687C12.9935 12.238 12.914 12.2222 12.8338 12.2222C12.7535 12.2222 12.674 12.238 12.5999 12.2687C12.5257 12.2994 12.4584 12.3444 12.4016 12.4012C12.3449 12.4579 12.2998 12.5253 12.2691 12.5994C12.2384 12.6736 12.2226 12.753 12.2227 12.8333ZM16.0677 13.2654C15.9531 13.1508 15.8887 12.9954 15.8887 12.8333C15.8887 12.6712 15.9531 12.5158 16.0677 12.4012C16.1823 12.2866 16.3377 12.2222 16.4998 12.2222C16.6619 12.2222 16.8173 12.2866 16.9319 12.4012C17.0465 12.5158 17.1109 12.6712 17.1109 12.8333C17.1109 12.9954 17.0465 13.1508 16.9319 13.2654C16.8173 13.38 16.6619 13.4444 16.4998 13.4444C16.3377 13.4444 16.1823 13.38 16.0677 13.2654Z\" fill=\"#BA9151\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3.87371 14.6564C3.79085 14.6564 3.69763 14.6252 3.62513 14.5733C3.50083 14.4798 3.43869 14.324 3.4594 14.1682L3.73906 12.5478C2.90008 11.5818 2.44434 10.3872 2.44434 9.16155C2.44434 6.1285 5.18916 3.66675 8.55545 3.66675C10.1609 3.66675 11.6731 4.21727 12.8229 5.23521C13.9829 6.25315 14.6355 7.61387 14.6666 9.07846C14.6666 9.19272 14.6251 9.30697 14.5423 9.39007C14.5 9.4325 14.4765 9.3788 14.4486 9.31469C14.4218 9.25323 14.3909 9.18222 14.3351 9.17714C14.2315 9.16675 14.1383 9.16675 14.0554 9.16675C11.7146 9.16675 9.28401 11.2494 9.28401 13.3164C9.28401 13.5969 9.32544 13.8877 9.39794 14.1682C9.42901 14.2824 9.4083 14.4071 9.34615 14.5109C9.30264 14.5837 9.4402 14.5953 9.4875 14.5993C9.50775 14.601 9.51146 14.6013 9.47729 14.6044C9.17692 14.646 8.87654 14.6667 8.57616 14.6667C7.46788 14.6667 6.40102 14.3967 5.45846 13.8981L4.09123 14.6252C4.05856 14.6293 4.02751 14.635 3.99807 14.6404L3.99804 14.6404L3.99803 14.6404L3.99801 14.6404C3.95278 14.6487 3.91135 14.6564 3.87371 14.6564ZM6.11133 7.94436C6.11131 8.02461 6.12711 8.10407 6.15782 8.17822C6.18852 8.25236 6.23353 8.31973 6.29028 8.37648C6.34703 8.43323 6.4144 8.47824 6.48855 8.50895C6.5627 8.53967 6.64218 8.55547 6.72244 8.55547C6.8027 8.55547 6.88217 8.53967 6.95633 8.50895C7.03047 8.47824 7.09785 8.43323 7.1546 8.37648C7.21134 8.31973 7.25636 8.25236 7.28706 8.17822C7.31777 8.10407 7.33356 8.02461 7.33355 7.94436C7.33356 7.86412 7.31777 7.78465 7.28706 7.71051C7.25636 7.63637 7.21134 7.569 7.1546 7.51225C7.09785 7.4555 7.03047 7.41048 6.95633 7.37977C6.88217 7.34906 6.8027 7.33325 6.72244 7.33325C6.64218 7.33325 6.5627 7.34906 6.48855 7.37977C6.4144 7.41048 6.34703 7.4555 6.29028 7.51225C6.23353 7.569 6.18852 7.63637 6.15782 7.71051C6.12711 7.78465 6.11131 7.86412 6.11133 7.94436ZM9.82386 8.17823C9.79315 8.10408 9.77734 8.02462 9.77734 7.94436C9.77734 7.86411 9.79315 7.78464 9.82386 7.7105C9.85457 7.63636 9.89959 7.56899 9.95633 7.51224C10.0131 7.4555 10.0804 7.41048 10.1546 7.37977C10.2287 7.34906 10.3082 7.33325 10.3885 7.33325C10.4687 7.33325 10.5482 7.34906 10.6223 7.37977C10.6965 7.41048 10.7638 7.4555 10.8206 7.51224C10.8773 7.56899 10.9223 7.63636 10.953 7.7105C10.9838 7.78464 10.9996 7.86411 10.9996 7.94436C10.9996 8.02462 10.9838 8.10408 10.953 8.17823C10.9223 8.25237 10.8773 8.31974 10.8206 8.37648C10.7638 8.43323 10.6965 8.47825 10.6223 8.50896C10.5482 8.53967 10.4687 8.55547 10.3885 8.55547C10.3082 8.55547 10.2287 8.53967 10.1546 8.50896C10.0804 8.47825 10.0131 8.43323 9.95633 8.37648C9.89959 8.31974 9.85457 8.25237 9.82386 8.17823Z\" fill=\"#BA9151\"/>\n</svg>\n",
+                    "mode": "scaleToFill"
+                  },
+                  "sub": [],
+                  "type": "image",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "c0568f12-dc04-4d87-8a70-81cd64df61b2"
+                },
+                {
+                  "id": "f0f155de-25ff-4bfc-bd74-784227011e5a",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": false,
+                    "style": ".style-iExO1ElI{margin:4px 0px 0px 0px;color:rgba(51, 51, 51, 1) ;width:52px;text-align:center}\n",
+                    "className": ".style-iExO1ElI",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "margin": "4px 0px 0px 0px",
+                          "color": "rgba(51, 51, 51, 1) ",
+                          "width": "52",
+                          "text-align": "center"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "font-size:0;font-size: 0;",
+                    "lgStyleStr": "margin:4.16px 0px 0px 0px;color:rgba(51, 51, 51, 1);width:54.08px;text-align:center"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "span",
+                    "textContent": "加我微信",
+                    "_title": "文字"
+                  },
+                  "sub": [],
+                  "type": "text",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "c0568f12-dc04-4d87-8a70-81cd64df61b2"
+                }
+              ],
+              "type": "view",
+              "origin_type": "",
+              "global": {
+                "id": "",
+                "name": ""
+              },
+              "parent": "d7672859-816f-4de7-b1ff-ec830827071b"
+            },
+            {
+              "id": "5466382c-da76-4737-97a2-bf88f1f5c3c9",
+              "privateStyle": {
+                "id": "",
+                "mark": "",
+                "private": false,
+                "style": ".style-4tYQU86A{flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12px;color:#ED5D29;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12px 16px 12px 16px;border-radius:4px;margin:0px 0px 0px 5px;max-width:84px;width:84px}\n",
+                "className": ".style-4tYQU86A",
+                "LG": {
+                  "normal": {
+                    "css": {
+                      "flex-direction": "column",
+                      "display": "flex",
+                      "align-items": "center",
+                      "justify-content": "center",
+                      "font-size": "12",
+                      "color": "globalColor",
+                      "background": "rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%",
+                      "padding": "12px 16px 12px 16px",
+                      "border-radius": "4px",
+                      "margin": "0px 0px 0px 5px",
+                      "max-width": "84",
+                      "widthUtil": "px",
+                      "width": "84"
+                    },
+                    "private": false
+                  }
+                },
+                "classList": [],
+                "boxStyleStr": "",
+                "lgStyleStr": "flex-direction:column;display:flex;align-items:center;justify-content:center;font-size:12.48px;color:#3470b6;background:rgba(255, 255, 255, 1) url() no-repeat 50% 50% / 100%;padding:12.48px 16px 12px 16px;border-radius:4.16px;margin:0px 0px 0px 5px;max-width:87.36px;width:87.36px"
+              },
+              "props": {
+                "id": "",
+                "classList": [],
+                "className": "",
+                "attr": {},
+                "tag": "div",
+                "_title": "容器",
+                "event": {
+                  "name": "自定义",
+                  "desc": "",
+                  "type": "open_location",
+                  "code": "",
+                  "param": [],
+                  "from": 2,
+                  "limit": ""
+                }
+              },
+              "sub": [
+                {
+                  "id": "6b564ba7-b853-42fe-a84a-34030de7af96",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": true,
+                    "style": ".style-UTZfFCl8{object-fit:cover;width:26px;max-height:100%;height:26px}\n",
+                    "className": ".style-UTZfFCl8",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "object-fit": "cover",
+                          "width": "26",
+                          "widthUtil": "px",
+                          "max-height": 100,
+                          "max-heightUtil": "%",
+                          "height": "26"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "",
+                    "lgStyleStr": "object-fit:cover;width:27.04px;max-height:100%;height:27.04px"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "img",
+                    "_title": "图片",
+                    "src": "<svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M5.1435 8.9558C5.10145 8.98457 5.05135 9 5 9C4.94865 9 4.89855 8.98457 4.8565 8.9558C2.619 7.42525 1.5 5.91228 1.5 4.41639C1.5 2.12521 3.25 1 5 1C6.75 1 8.5 2.12521 8.5 4.41639C8.5 5.91228 7.38125 7.42525 5.1435 8.9558ZM5 5.63653C5.39782 5.63653 5.77936 5.48227 6.06066 5.20768C6.34196 4.9331 6.5 4.56068 6.5 4.17236C6.5 3.78404 6.34196 3.41162 6.06066 3.13704C5.77936 2.86245 5.39782 2.70819 5 2.70819C4.60218 2.70819 4.22064 2.86245 3.93934 3.13704C3.65804 3.41162 3.5 3.78404 3.5 4.17236C3.5 4.56068 3.65804 4.9331 3.93934 5.20768C4.22064 5.48227 4.60218 5.63653 5 5.63653Z\" fill=\"#DFDFDF\"/>\n</svg>\n",
+                    "mode": "scaleToFill"
+                  },
+                  "sub": [],
+                  "type": "image",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "5466382c-da76-4737-97a2-bf88f1f5c3c9"
+                },
+                {
+                  "id": "d3d26ace-538d-48aa-94dd-d0bcb6d37817",
+                  "privateStyle": {
+                    "id": "",
+                    "mark": "",
+                    "private": false,
+                    "style": ".style-OhcNm8Xb{margin:4px 0px 0px 0px;color:rgba(51, 51, 51, 1) ;width:52px;text-align:center}\n",
+                    "className": ".style-OhcNm8Xb",
+                    "LG": {
+                      "normal": {
+                        "css": {
+                          "margin": "4px 0px 0px 0px",
+                          "color": "rgba(51, 51, 51, 1) ",
+                          "width": "52",
+                          "text-align": "center"
+                        },
+                        "private": false
+                      }
+                    },
+                    "classList": [],
+                    "boxStyleStr": "font-size:0;font-size: 0;",
+                    "lgStyleStr": "margin:4.16px 0px 0px 0px;color:rgba(51, 51, 51, 1);width:54.08px;text-align:center"
+                  },
+                  "props": {
+                    "id": "",
+                    "classList": [],
+                    "className": "",
+                    "attr": {},
+                    "tag": "span",
+                    "textContent": "导航地址",
+                    "_title": "文字"
+                  },
+                  "sub": [],
+                  "type": "text",
+                  "origin_type": "",
+                  "global": {
+                    "id": "",
+                    "name": ""
+                  },
+                  "parent": "5466382c-da76-4737-97a2-bf88f1f5c3c9"
+                }
+              ],
+              "type": "view",
+              "origin_type": "",
+              "global": {
+                "id": "",
+                "name": ""
+              },
+              "parent": "d7672859-816f-4de7-b1ff-ec830827071b"
+            }
+          ],
+          "type": "view",
+          "origin_type": "",
+          "global": {
+            "id": "",
+            "name": ""
+          },
+          "parent": "593b903e-52be-4052-b149-97c8aa700d02"
+        },
+        {
+          "id": "18cacf20-b164-4b26-93d3-0682935fa603",
+          "privateStyle": {
+            "id": "",
+            "mark": "",
+            "private": true,
+            "style": ".style-6sPN4QaA{font-size:15px;color:#ffffff;text-align:center;justify-content:center;word-break:break-all;width:100%;height:40px;border-radius:8px;margin:12px 0px 0px 0px;background:#ED5D29 url() no-repeat 50% 50% / 100%;flex-grow:1}\n.style-6sPN4QaA:hover{background-color:rgba(58, 130, 248, 0.9);color:rgba(255, 255, 255, 1);display:inline-flex;align-items:center;justify-content:center}\n",
+            "className": ".style-6sPN4QaA",
+            "LG": {
+              "normal": {
+                "css": {
+                  "font-size": 15,
+                  "font-sizeUtils": "px",
+                  "color": "#ffffff",
+                  "text-align": "center",
+                  "justify-content": "center",
+                  "word-break": "break-all",
+                  "width": 100,
+                  "widthUtils": "px",
+                  "height": 40,
+                  "heightUtils": "px",
+                  "border-radius": "8px",
+                  "margin": "12px 0px 0px 0px",
+                  "background": "globalColor url() no-repeat 50% 50% / 100%",
+                  "widthUtil": "%",
+                  "flex-grow": 1
+                },
+                "private": false
+              },
+              "hover": {
+                "css": {
+                  "background-color": "rgba(58, 130, 248, 0.9)",
+                  "color": "rgba(255, 255, 255, 1)",
+                  "display": "inline-flex",
+                  "align-items": "center",
+                  "justify-content": "center"
+                },
+                "private": false
+              }
+            },
+            "classList": [],
+            "boxStyleStr": "flex-grow: 1;width: 100%;",
+            "lgStyleStr": "font-size:15.600000000000001px;color:#ffffff;text-align:center;justify-content:center;word-break:break-all;width:100%;height:41.6px;border-radius:8.32px;margin:12.48px 0px 0px 0px;background:#3470b6 url() no-repeat 50% 50% / 100%;flex-grow:1"
+          },
+          "props": {
+            "id": "",
+            "classList": [],
+            "className": "",
+            "attr": {},
+            "_title": "按钮",
+            "textContent": "分享名片",
+            "type": "button",
+            "content": "button",
+            "staticClass": [
+              "btn"
+            ],
+            "openType": "",
+            "event": {
+              "name": "分享",
+              "desc": "传入标题和图片进行分享当前页面",
+              "type": "page_share",
+              "from": 1,
+              "code": "",
+              "param": [
+                {
+                  "name": "页面标题",
+                  "key": "title",
+                  "desc": "",
+                  "type": "text",
+                  "value": "$global.card.card_title"
+                },
+                {
+                  "name": "封面图",
+                  "key": "image",
+                  "desc": "",
+                  "type": "image",
+                  "value": "$global.card.card_cover"
+                }
+              ],
+              "limit": ""
+            }
+          },
+          "sub": [],
+          "type": "button",
+          "origin_type": "",
+          "global": {
+            "id": "",
+            "name": ""
+          },
+          "parent": "593b903e-52be-4052-b149-97c8aa700d02"
+        }
+      ],
+      "type": "business_card_function",
+      "origin_type": "view",
+      "global": {
+        "id": "",
+        "name": ""
+      },
+      "parent": "bbeefe70-c467-4d70-b7b9-0b9610873c65"
+    }
+  ],
+  "type": "page",
+  "origin_type": "",
+  "global": {
+    "id": "",
+    "name": "页面"
+  },
+  "parent": null
+}
