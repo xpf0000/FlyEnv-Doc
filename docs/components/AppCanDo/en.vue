@@ -1,58 +1,58 @@
 <template>
   <div class="my-24 px-4">
     <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="text-3xl md:text-[40px] font-bold mb-4">What can FlyEnv do</div>
+      <div class="text-3xl md:text-[40px] font-bold mb-4">Beyond Development: Your All-in-One Native Ecosystem</div>
       <p class="text-lg text-gray-500">
-        More than just a version manager. A complete, native ecosystem for full-stack development.
+        More than just a version manager. A high-performance, native replacement for Docker, XAMPP, and NVM.
       </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
       <div class="flex flex-col">
         <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">💻</span> Native Multi-Language Support
+          <span class="text-2xl mr-3">🚀</span> Native Performance (No Docker)
         </h3>
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          FlyEnv supports mainstream languages like <strong>PHP, Node.js, Python, Go, Java, Rust, and Ruby</strong>. Unlike Docker, these run as <strong>native binaries</strong> for maximum performance. You can install legacy versions (e.g., PHP 5.6) alongside modern ones (PHP 8.3) and run them simultaneously without interference.
+          FlyEnv runs <strong>PHP, Node.js, Python, Go, and Java</strong> as <strong>native static binaries</strong>. Unlike Docker Desktop, it starts in milliseconds and consumes 80% less RAM. Switch between versions (e.g., PHP 5.6 to 8.4) instantly without container overhead.
         </p>
       </div>
       <div class="flex flex-col">
         <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🛡️</span> Project-Level Isolation
+          <span class="text-2xl mr-3">🔒</span> Privacy-First Offline AI Agent
         </h3>
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Stop fighting with global version conflicts. FlyEnv allows you to specify runtime versions per project. Simply <code>cd</code> into your project directory, and FlyEnv <strong>automatically switches</strong> to the correct Node.js, PHP, or Python version. It's magic for agencies working on multiple client projects.
+          <strong>Run AI Agents locally & offline.</strong> FlyEnv integrates <strong>Ollama</strong> to support the latest models like <strong>Qwen 3.5, Gemma 3, and GLM-5</strong>. Build AI-powered apps with zero latency and 100% data privacy—no API keys or internet required.
         </p>
       </div>
       <div class="flex flex-col">
         <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🔒</span> Local Domains & Automatic SSL
+          <span class="text-2xl mr-3">🌐</span> Auto DNS & Zero-Config SSL
         </h3>
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Forget editing <code>/etc/hosts</code> manually. FlyEnv includes a built-in DNS server that lets you assign custom domains (like <code>myapp.test</code>) to your local projects. Plus, it issues <strong>trusted SSL certificates</strong> automatically, so you can develop with HTTPS enabled just like in production.
+          Stop editing <code>/etc/hosts</code>. FlyEnv includes a built-in DNS server for custom domains (like <code>myapp.test</code>). It automatically issues <strong>trusted SSL certificates</strong>, providing a production-like HTTPS environment for local development.
         </p>
       </div>
       <div class="flex flex-col">
         <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">💾</span> Instant Database Instances
+          <span class="text-2xl mr-3">📂</span> Smart Project-Level Isolation
         </h3>
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Spin up <strong>MySQL, MariaDB, PostgreSQL, MongoDB, Redis, and Memcached</strong> in seconds. No Docker containers consuming gigabytes of RAM. FlyEnv manages data directories and configurations for you, supporting multi-version coexistence so you can test data compatibility effortlessly.
+          A superior alternative to <strong>NVM and PHP Monitor</strong>. FlyEnv detects your project settings and <strong>automatically switches</strong> to the required Node.js or PHP version when you <code>cd</code> into a directory. Eliminate global version conflicts forever.
         </p>
       </div>
       <div class="flex flex-col">
         <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">📧</span> Integrated Mail & Testing Tools
+          <span class="text-2xl mr-3">🛠️</span> Professional Developer Toolbox
         </h3>
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Test email workflows locally without spamming real users. FlyEnv integrates <strong>Mailpit</strong> to capture and view outgoing emails via a web interface. It also includes essential utilities like an FTP Server, Static HTTP Server, and DNS Server to cover all your development needs.
+          Built-in <strong>PHP Obfuscator</strong>, Mailpit for email testing, and <strong>Cloudflare Tunnel</strong> for instant public URL exposure. Everything a full-stack developer needs is pre-configured and ready to use in one click.
         </p>
       </div>
       <div class="flex flex-col">
         <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🤖</span> Local AI Integration
+          <span class="text-2xl mr-3">🗄️</span> Multi-Version Database Manager
         </h3>
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          <strong>Future-proof your workflow.</strong> FlyEnv is one of the first environment tools to integrate <strong>Ollama and DeepSeek</strong> directly. Run large language models locally for code generation or analysis, keeping your data private and your latency zero.
+          Instantly deploy <strong>MySQL, MariaDB, PostgreSQL, MongoDB, and Redis</strong>. FlyEnv supports running multiple versions of the same database simultaneously, making it easy to test migrations and data compatibility across different environments.
         </p>
       </div>
     </div>
