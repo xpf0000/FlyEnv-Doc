@@ -1,99 +1,186 @@
-# 什么是 FlyEnv？
+---
+title: '什么是 FlyEnv？2026 年完整的开发环境管理器'
+head:
+  - - meta
+    - name: description
+      content: 'FlyEnv 是适用于 PHP、Node.js、Python、Go 和 Java 的一体化开发环境管理器。原生性能，比 Docker 节省 80% 内存，支持 macOS、Windows 和 Linux 自动版本切换。'
+---
 
-FlyEnv 是一款一体化全栈环境管理工具。帮助开发者快速设置本地开发环境。
+# 什么是 FlyEnv？2026 年完整的开发环境管理器
 
-它通过 **极速多版本切换**、**全栈技术支持** 和 **无缝跨平台体验**，简化开发流程。无论你是使用 PHP、NodeJS、Java、Go 还是 Python，FlyEnv 都能通过一条命令集成所有必要工具，消除配置烦恼，让你专注于真正重要的事情——**创造，而非调试**。
+搭建本地开发环境曾经很简单。安装 PHP、MySQL，可能再加个 Apache——就完成了。但现代全栈开发改变了一切。现在你需要 Node.js 来构建前端，Python 来编写脚本，Redis 来做缓存，Elasticsearch 来做搜索，还有十几种其他服务。
 
-简而言之，FlyEnv 提供了一个完整的运行环境，帮助用户开发和调试诸如 Laravel、WordPress、Yii2、FastAdmin、NestJS、SpringBoot、Gin、Beego、Django、Flask 等应用程序。
+不知不觉中，你就在 juggling Docker 容器，与版本冲突作斗争，看着你的笔记本电脑变得慢如蜗牛。**一定有更好的方法。**
 
-**项目详细分析和技术细节**: [https://deepwiki.com/xpf0000/FlyEnv](https://deepwiki.com/xpf0000/FlyEnv)
+FlyEnv 应运而生：一个原生的、一体化的环境管理器，让你在无容器开销的情况下拥有现代开发技术栈的所有强大功能。
 
-## 核心功能
+## 是什么让 FlyEnv 与众不同？
 
-### 软件安装
-FlyEnv 提供 **一键安装** 功能，支持多种软件，包括：
+### 原生二进制文件，而非容器
 
-- **AI 集成**: Ollama.
-- **网络隧道**: Cloudflared.
-- **Web 服务器**: Apache, Nginx, Caddy, Tomcat, Consul.
-- **数据库**: MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant.
-- **邮件服务器**: Mailpit.
-- **编程语言 & 运行时**: PHP (Composer), Java (Maven, Gradle), NodeJS, Python, Go, Erlang, Ruby, Rust (Rustup), Zig, Bun, Deno.
-- **数据队列与缓存**: Redis, Memcached, RabbitMQ, etcd.
-- **搜索引擎**: Elasticsearch, Meilisearch, Typesense
-- **对象存储**: Minio.
-- **其他**: DNS Server, FTP Server, Static HTTP Server.
+Docker 为每个服务运行一个完整的操作系统。在一个典型的 Laravel 技术栈上：
+- **Docker Desktop**：2-4GB 内存，启动需要 30 多秒
+- **FlyEnv**：200-400MB 内存，即时启动
 
-所有软件均支持 **多版本安装**。例如：
-- PHP：支持 5.x 到最新的 8.x 版本。
-- MySQL：支持 5.x 到 9.x 版本。
+FlyEnv 直接在你的机器上安装和运行官方二进制文件——PHP 来自 php.net，Node.js 来自 nodejs.org，MySQL 来自 mysql.com。没有虚拟化开销，没有文件共享延迟，只有原生速度。
 
-新版本发布后，无需等待 FlyEnv 更新即可自动使用。
+### 自动版本切换
 
-#### 平台特定安装
-- **Windows**：所有软件均从官方源下载。
-- **macOS**：FlyEnv 提供三种安装方式：
-    1. 官方安装包（如果可用）。
-    2. 使用 Homebrew 安装。
-    3. 使用 Macports 安装。
+你是否已经第一百次输入 `nvm use 18` 或 `brew switch php@8.1`？FlyEnv 通过**项目级隔离**完全消除了版本管理。
 
-对于已本地安装的软件，FlyEnv 允许添加自定义路径，避免重复下载。同时，它会自动检测 Homebrew 和 Macports 的安装。
+```bash
+cd ~/projects/legacy-wordpress
+php -v  # PHP 7.4 (自动加载)
 
-### 软件服务管理
-FlyEnv 允许你管理所有已安装软件服务的启动和停止。例如：
-- 启动/停止 PHP-FPM、MySQL、Apache、Redis 等服务。
-- 直接在 FlyEnv 的内置编辑器中修改配置文件。
-- 快速定位并打开配置文件。
+cd ~/projects/modern-laravel
+php -v  # PHP 8.3 (自动切换)
+```
 
-### 本地网站托管
-- **一键创建站点**：FlyEnv 自动为 Apache、Nginx、Tomcat 等 Web 服务器生成配置文件。
-- **自定义域名**：使用任意域名访问本地站点，并支持 HTTPS。
-- **日志管理**：轻松查看和分析站点访问日志。
+你的环境适应你的项目，而不是相反。
 
-### 环境变量设置
-- 一键将任何支持的软件添加到环境变量中。
-- 设置别名（如 PHP74、PHP82），方便在终端中使用。
+### 一个界面搞定一切
 
-### 容器/镜像/Docker-Compose管理
-对于部分需求难以通过常规方式满足的情况, FlyEnv还提供了容器解决方案. 可以管理镜像, 容器, 快速构建和运行docker-compose.
-[Podman模块使用指南](/zh/guide/podman-module)
+| 类别 | 包含工具 |
+|------|---------|
+| **AI 与机器学习** | Ollama, DeepSeek, Chatbox |
+| **Web 服务器** | Apache, Nginx, Caddy, Tomcat |
+| **数据库** | MySQL, MariaDB, PostgreSQL, MongoDB |
+| **编程语言** | PHP, Node.js, Python, Go, Java, Ruby, Rust |
+| **缓存/队列** | Redis, Memcached, RabbitMQ |
+| **搜索** | Elasticsearch, Meilisearch, Typesense |
+| **邮件测试** | Mailpit (现代 Mailhog 替代品) |
+| **网络** | Cloudflare Tunnel, DNS Server |
 
-### 其他工具
-FlyEnv 包含许多实用的开发者工具，例如：
-1. **JSON 解析**：支持 JSON、JavaScript 对象、PHP 数组、XML、YAML 等格式的相互转换。
-2. **端口与进程管理**：通过端口号或命令终止进程。
-3. **项目模板**：快速创建 Laravel、WordPress、Yii2、Next.js、Vue、NestJS 等项目。
+再也不用到处找安装包或与 Homebrew 搏斗了。
 
-**[查看模块视频演示](https://flyenv.com/zh/#%F0%9F%9A%80-core-modules)** **[查看工具视频演示](https://flyenv.com/zh/#tools-modules)**
+## 解决实际问题的关键功能
 
-## 为什么选择 FlyEnv？
+### 1. 一键安装
 
-### 与 Docker 相比
-Docker 功能强大，但许多开发者只需要一个开箱即用的 PHP、NodeJS、Java、Go 或 Python 运行环境。FlyEnv **更直观、更轻量**：
-- 无需虚拟容器——所有模块均以原生静态二进制运行。
-- 性能更快，资源占用更低（尤其在 macOS 和 Windows 上）。
-- 配置文件和日志文件更易于查看和修改。
+几秒钟内安装任何版本的任何软件：
 
-### 与 MAMP Pro、Laravel Herd、XAMPP 等相比
-FlyEnv **更灵活、更新更及时**：
-- 支持多种安装源（Homebrew、Macports、APT、DNF、官方二进制文件等）。
-- 版本更新及时——无需等待 FlyEnv 升级。
-- 配置文件和设置更接近实际生产环境，便于部署。
+1. 打开 FlyEnv
+2. 选择模块（PHP、Node.js 等）
+3. 选择版本
+4. 点击安装
 
-## 自定义与优化
-- **隐藏未使用的模块**：FlyEnv 允许在设置中隐藏不需要的模块，减少界面杂乱。
-- **网络问题**：如果因网络限制导致安装缓慢，可以手动安装软件，并在 FlyEnv 中添加自定义路径。
-- **配置优化**：FlyEnv 默认使用通用配置。如果项目需要特定模块或扩展，请提交 GitHub Issue 或留言反馈，我们将进行优化。
+FlyEnv 下载官方二进制文件——无需编译，没有依赖地狱。
 
-## 社区驱动的改进
-FlyEnv 的设计理念是与社区共同成长。许多功能旨在覆盖基础需求，高级用户的反馈对我们非常重要。通过共同努力，我们可以：
-- 增加更多软件支持。
-- 改进工具和性能。
-- 让开发更轻松，让你有更多时间陪伴家人，实现人生目标。
+### 2. 多版本管理
 
-## 开始使用 FlyEnv
-[立即下载](/zh/download) FlyEnv，体验全新的开发效率。
+无限版本并行运行：
+- **PHP**: 5.6 到 8.4+
+- **Node.js**: 10.x 到 22.x
+- **MySQL**: 5.7, 8.0, 8.4
+- **Python**: 2.7, 3.6 到 3.12
 
-## 讨论
+按项目或按终端会话在它们之间切换。
 
-[相较于同类软件，FlyEnv有哪些技术层面的局限性?](https://github.com/xpf0000/FlyEnv/discussions/262)
+### 3. 带 SSL 的本地 Web 托管
+
+创建专业的本地开发站点：
+- 自定义域名（project.test, api.local）
+- 自动 SSL 证书（浏览器信任）
+- 无端口号的干净 URL
+- 访问日志和错误日志
+
+### 4. 内置 AI 助手
+
+FlyEnv 包含 Ollama 集成，用于离线 AI：
+- 本地运行 Llama, DeepSeek, Qwen
+- 无 API 费用，数据不会离开你的机器
+- 非常适合代码辅助和学习
+
+### 5. 项目模板
+
+即时启动新项目：
+- Laravel, WordPress, Yii2
+- Next.js, Vue, React
+- NestJS, Express
+- Django, Flask
+
+## FlyEnv 与替代方案对比
+
+| 功能 | Docker Desktop | XAMPP | MAMP Pro | **FlyEnv** |
+|------|---------------|-------|----------|------------|
+| 内存使用 | 2-4GB | 500MB | 500MB | **200-400MB** |
+| 启动时间 | 30-60秒 | 5-10秒 | 5-10秒 | **即时** |
+| 多版本 PHP | 复杂 | 否 | 否 | **一键切换** |
+| Node.js 版本切换 | 否 | 否 | 否 | **自动** |
+| 内置 SSL | 手动配置 | 否 | 是 | **自动生成** |
+| AI 工具 | 否 | 否 | 否 | **内置** |
+| 价格 | 免费/$5月 | 免费 | $99 | **免费** |
+
+## FlyEnv 适合谁？
+
+### Web 开发者
+
+管理完整的 PHP/Node.js 技术栈，在客户项目之间自动切换版本。
+
+### 全栈工程师
+
+运行前端构建工具、后端 API、数据库和缓存服务器——全部经过优化且为原生运行。
+
+### 代理团队
+
+在整个团队标准化环境的同时，让每个开发者自定义自己的技术栈。
+
+### 自由职业者
+
+在 Laravel、WordPress、Django 和 Express 项目之间切换，无需配置烦恼。
+
+### 学生与学习者
+
+试验不同技术，而不会破坏系统或学习复杂的 DevOps。
+
+## 平台支持
+
+FlyEnv 原生运行于：
+- **macOS** (Intel 和 Apple Silicon)
+- **Windows** (x64)
+- **Linux** (Debian, Ubuntu, Red Hat, Fedora, SUSE, CentOS)
+
+## 开始使用
+
+准备好简化你的开发环境了吗？
+
+1. [下载 FlyEnv](/download) 适用于你的平台
+2. 跟随[快速入门指南](/guide/getting-started)
+3. 在 5 分钟内创建你的第一个站点
+
+## 常见问题 (FAQ)
+
+**Q: FlyEnv 真的免费吗？**
+
+A: 是的。完全免费且开源。没有付费层级锁定基本功能。
+
+**Q: 它能替代 Docker 吗？**
+
+A: 对于本地开发，绝对可以。对于复杂的微服务编排，你可能仍然需要在生产环境使用 Docker，同时在本地享受 FlyEnv 的简单性。
+
+**Q: 它会与我现有的 Homebrew 安装冲突吗？**
+
+A: 不会。FlyEnv 可以检测并使用现有的 Homebrew/Macports 安装，或者安装自己的隔离版本。
+
+**Q: 我的数据安全吗？**
+
+A: 是的。一切都在你的机器上本地运行。没有云依赖，没有数据收集。
+
+**Q: 与 Laravel Herd 相比如何？**
+
+A: Herd 仅支持 Mac 且专注于 PHP。FlyEnv 支持所有平台和所有语言（PHP、Node、Python、Go、Java 等）。
+
+**Q: 我可以将它用于生产环境吗？**
+
+A: FlyEnv 专为本地开发设计。生产部署应使用适当的服务器配置或容器化。
+
+## 准备好改变你的工作流程了吗？
+
+停止与环境设置作斗争。开始构建吧。
+
+[免费下载 FlyEnv](/download) — 适用于 macOS、Windows 和 Linux
+
+了解更多：
+- [快速入门指南](/guide/getting-started)
+- [FlyEnv 与 Docker 和 XAMPP 对比](/guide/flyenv-vs-docker-xampp)
+- [项目级版本隔离](/guide/project-level-runtime-environment)

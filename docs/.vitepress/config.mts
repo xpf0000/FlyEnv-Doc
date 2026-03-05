@@ -80,47 +80,66 @@ export default defineConfigWithTheme({
         sidebar: {
           '/guide/': [
             {
-              text: 'Introduction',
+              text: 'Getting Started',
               items: [
                 { text: 'What is FlyEnv?', link: '/guide/what-is-flyenv' },
-                { text: 'Getting Started', link: '/guide/getting-started' },
-                { text: 'About License', link: '/guide/about-license' },
+                // 新增：专门吃“对比类”长尾搜索词，提升转化率
+                { text: 'FlyEnv vs Docker & XAMPP', link: '/guide/flyenv-vs-docker-xampp' },
+                { text: 'Quick Start Guide', link: '/guide/getting-started' },
                 { text: 'About FlyEnv Helper', link: '/guide/about-flyenv-helper' },
-              ],
-              collapsed: true
-            },
-            {
-              text: 'Module Reference',
-              items: [
-                { text: 'Podman Module User Guide', link: '/guide/podman-module' },
-                { text: 'Code Playground & Code Library', link: '/guide/code-playground-and-code-library.md' },
-                { text: 'User Customizable Modules', link: '/guide/user-customizable-modules' },
-                { text: 'Load I18n Language Packs', link: '/guide/dynamically-load-I18n-language-packs' },
-                { text: 'Local Offline AI Agent', link: '/guide/build-local-offline-ai-agent' },
-                { text: 'Use Proxy', link: '/guide/use-proxy' },
-                { text: 'Host', link: '/guide/host' },
-                { text: 'Database Account Password', link: '/guide/database-user-password' },
-                { text: 'PHP Extensions Install', link: '/guide/php-extensions-install' },
-                { text: 'PHP Debug With Xdebug', link: '/guide/php-debug-with-xdebug' },
-                { text: 'Set Up Java Environment', link: '/guide/set-up-java-development-environment.md' },
-                { text: 'System Path Environment', link: '/guide/setup-system-path-environment.md' },
-                { text: 'Project-Level Environment Isolation', link: '/guide/project-level-runtime-environment.md' },
+                { text: 'License & Support', link: '/guide/about-license' },
               ],
               collapsed: false
             },
             {
-              text: 'Other',
+              text: 'Core Environment Setup',
+              // SEO意图：覆盖语言安装、多版本管理、扩展配置等高频基础需求
               items: [
-                { text: 'Windows Website Performance Optimization', link: '/guide/windows-site-performance-optimization.md' },
-                { text: 'Run Laravel Use FlyEnv', link: '/guide/run-laravel-use-flyenv' },
-                { text: 'PHP icu4c issues', link: '/guide/php-icu4c-issues' },
-                { text: 'Apache parse .html file to php', link: '/guide/apache-html-to-php' },
-                { text: 'Nginx parse .html file to php', link: '/guide/nginx-html-to-php' },
-                { text: 'Caddy parse .html file to php', link: '/guide/caddy-html-to-php' },
-                { text: 'Apache Reverse Proxy NestJS', link: '/guide/apache-reverse-proxy-nestjs' },
-                { text: 'Nginx Reverse Proxy NestJS', link: '/guide/nginx-reverse-proxy-nestjs' },
-                { text: 'Caddy Reverse Proxy NestJS', link: '/guide/caddy-reverse-proxy-nestjs' },
-                { text: 'PHP Code Obfuscation', link: '/guide/php-code-obfuscation' },
+                { text: 'Project-Level Version Isolation', link: '/guide/project-level-runtime-environment' },
+                { text: 'Manage Node.js & PHP Versions', link: '/guide/manage-multiple-node-php-versions' }, // 新增：截留搜 NVM / PHP Monitor 的流量
+                { text: 'System Path Management', link: '/guide/setup-system-path-environment' },
+                { text: 'Set Up Java Environment', link: '/guide/set-up-java-development-environment' },
+                { text: 'Install PHP Extensions', link: '/guide/php-extensions-install' },
+                { text: 'Database & Security Settings', link: '/guide/database-user-password' },
+              ],
+              collapsed: false
+            },
+            {
+              text: 'AI & Pro Productivity Tools',
+              // SEO意图：最高优的引流板块，直接把GSC里跑出来的词前置
+              items: [
+                { text: 'Build Local Offline AI Agent', link: '/guide/build-local-offline-ai-agent' },
+                { text: 'PHP Code Obfuscation Tool', link: '/guide/php-code-obfuscation' },
+                // 新增：利用你刚集成的 Cloudflare 功能，截取 ngrok alternative 流量
+                { text: 'Expose Localhost with Cloudflare Tunnel', link: '/guide/cloudflare-tunnel-local-development' },
+                // 新增：截取 mailhog alternative 流量
+                { text: 'Local Email Testing (Mailpit)', link: '/guide/local-email-testing-mailpit' },
+                { text: 'Code Playground & Library', link: '/guide/code-playground-and-code-library' },
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Web Server & Reverse Proxy',
+              // SEO意图：把原来分散的 Apache/Nginx/Caddy 合并，提升单页面权重
+              items: [
+                { text: 'Custom Domains & Auto SSL', link: '/guide/host' }, // 原来的 host，改名增加吸引力
+                { text: 'Parse HTML as PHP (Nginx/Apache/Caddy)', link: '/guide/parse-html-as-php-multi-servers' }, // 合并原有3个文件
+                { text: 'Reverse Proxy Setup (NestJS/Node.js)', link: '/guide/reverse-proxy-nestjs-multi-servers' }, // 合并原有3个文件
+                { text: 'Network & Proxy Settings', link: '/guide/use-proxy' },
+                { text: 'User Customizable Modules', link: '/guide/user-customizable-modules' },
+                { text: 'Podman Module User Guide', link: '/guide/podman-module' },
+              ],
+              collapsed: false // 进阶配置可以默认折叠
+            },
+            {
+              text: 'Troubleshooting & Optimization',
+              // SEO意图：解答长尾报错词，增加在 Google 上的精选摘要曝光
+              items: [
+                { text: 'Windows Site Performance Tuning', link: '/guide/windows-site-performance-optimization' },
+                { text: 'Run Laravel on FlyEnv', link: '/guide/run-laravel-use-flyenv' },
+                { text: 'PHP Debugging with Xdebug', link: '/guide/php-debug-with-xdebug' }, // 移到排障这里更合理
+                { text: 'Fix Common PHP Issues (icu4c)', link: '/guide/php-icu4c-issues' },
+                { text: 'Dynamically Load I18n Packs', link: '/guide/dynamically-load-I18n-language-packs' },
               ],
               collapsed: false
             }
@@ -148,47 +167,59 @@ export default defineConfigWithTheme({
         sidebar: {
           '/zh/guide/': [
             {
-              text: '简介',
+              text: '开始使用',
               items: [
                 { text: '什么是FlyEnv?', link: '/zh/guide/what-is-flyenv' },
+                { text: 'FlyEnv vs Docker & XAMPP', link: '/zh/guide/flyenv-vs-docker-xampp' },
                 { text: '快速开始', link: '/zh/guide/getting-started' },
                 { text: '关于许可证', link: '/zh/guide/about-license' },
                 { text: '关于FlyEnv帮助程序', link: '/zh/guide/about-flyenv-helper' },
               ],
-              collapsed: true
+              collapsed: false
             },
             {
-              text: '功能参考',
+              text: '核心环境配置',
               items: [
-                { text: 'Podman模块使用指南', link: '/zh/guide/podman-module' },
-                { text: '代码演练场 & 代码图书馆', link: '/zh/guide/code-playground-and-code-library.md' },
-                { text: '自定义模块使用指南', link: '/zh/guide/user-customizable-modules' },
-                { text: '动态加载I18n语言包', link: '/zh/guide/dynamically-load-I18n-language-packs' },
-                { text: '本地离线AI智能体', link: '/zh/guide/build-local-offline-ai-agent' },
-                { text: '使用代理', link: '/zh/guide/use-proxy' },
-                { text: '站点', link: '/zh/guide/host' },
-                { text: '数据库账号密码', link: '/zh/guide/database-user-password' },
-                { text: 'PHP扩展安装', link: '/zh/guide/php-extensions-install' },
-                { text: '使用Xdebug调试PHP', link: '/zh/guide/php-debug-with-xdebug' },
-                { text: '搭建Java开发环境', link: '/zh/guide/set-up-java-development-environment.md' },
-                { text: '设置系统PATH环境变量', link: '/zh/guide/setup-system-path-environment.md' },
                 { text: '项目级环境隔离', link: '/zh/guide/project-level-runtime-environment.md' },
+                { text: '管理 Node.js & PHP 版本', link: '/zh/guide/manage-multiple-node-php-versions' },
+                { text: '设置系统PATH环境变量', link: '/zh/guide/setup-system-path-environment.md' },
+                { text: '搭建Java开发环境', link: '/zh/guide/set-up-java-development-environment.md' },
+                { text: 'PHP扩展安装', link: '/zh/guide/php-extensions-install' },
+                { text: '数据库账号密码管理', link: '/zh/guide/database-user-password' },
               ],
               collapsed: false
             },
             {
-              text: '其他',
+              text: 'AI & 高效开发工具',
+              items: [
+                { text: '本地离线AI智能体', link: '/zh/guide/build-local-offline-ai-agent' },
+                { text: 'PHP代码混淆工具', link: '/zh/guide/php-code-obfuscation' },
+                { text: 'Cloudflare Tunnel 内网穿透', link: '/zh/guide/cloudflare-tunnel-local-development' },
+                { text: '本地邮件测试 (Mailpit)', link: '/zh/guide/local-email-testing-mailpit' },
+                { text: '代码演练场 & 代码图书馆', link: '/zh/guide/code-playground-and-code-library.md' },
+              ],
+              collapsed: false
+            },
+            {
+              text: '网络服务器与反向代理',
+              items: [
+                { text: '自定义域名与自动SSL', link: '/zh/guide/host' },
+                { text: '解析HTML为PHP', link: '/zh/guide/parse-html-as-php-multi-servers' },
+                { text: '反向代理设置', link: '/zh/guide/reverse-proxy-nestjs-multi-servers' },
+                { text: '网络与代理设置', link: '/zh/guide/use-proxy' },
+                { text: '自定义模块', link: '/zh/guide/user-customizable-modules' },
+                { text: 'Podman模块', link: '/zh/guide/podman-module' },
+              ],
+              collapsed: false
+            },
+            {
+              text: '故障排除与优化',
               items: [
                 { text: 'Windows站点访问速度优化', link: '/zh/guide/windows-site-performance-optimization.md' },
                 { text: '运行Laravel', link: '/zh/guide/run-laravel-use-flyenv' },
+                { text: 'PHP Xdebug 调试', link: '/zh/guide/php-debug-with-xdebug' },
                 { text: 'PHP icu4c 问题', link: '/zh/guide/php-icu4c-issues' },
-                { text: 'Apache解析.html文件为php', link: '/zh/guide/apache-html-to-php' },
-                { text: 'Nginx解析.html文件为php', link: '/zh/guide/nginx-html-to-php' },
-                { text: 'Caddy解析.html文件为php', link: '/zh/guide/caddy-html-to-php' },
-                { text: 'Apache反向代理NestJS', link: '/zh/guide/apache-reverse-proxy-nestjs' },
-                { text: 'Nginx反向代理NestJS', link: '/zh/guide/nginx-reverse-proxy-nestjs' },
-                { text: 'Caddy反向代理NestJS', link: '/zh/guide/caddy-reverse-proxy-nestjs' },
-                { text: 'PHP代码混淆', link: '/zh/guide/php-code-obfuscation' },
+                { text: '动态加载I18n语言包', link: '/zh/guide/dynamically-load-I18n-language-packs' },
               ],
               collapsed: false
             }

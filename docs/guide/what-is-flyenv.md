@@ -1,99 +1,181 @@
-# What is FlyEnv?
+---
+title: 'What is FlyEnv? The Complete Development Environment Manager for 2026'
+head:
+  - - meta
+    - name: description
+      content: 'FlyEnv is the all-in-one development environment manager for PHP, Node.js, Python, Go, and Java. Native performance, 80% less RAM than Docker, automatic version switching on macOS, Windows, and Linux.'
+---
 
-FlyEnv is an all-in-one full-stack environment management tool. Help developers quickly set up a local development environment.
+# What is FlyEnv? The Complete Development Environment Manager for 2026
 
-It simplifies development by offering **swift multi-version switching**, **full-stack technology support**, and a **seamless cross-platform experience**. Whether you're working with PHP, NodeJS, Java, Go, or Python, FlyEnv integrates all necessary tools with a single command, eliminating configuration headaches and letting you focus on what truly matters—**creation, not debugging**.
+Setting up a local development environment used to be simple. Install PHP, MySQL, maybe Apache—and you were done. But modern full-stack development changed everything. Now you need Node.js for frontend builds, Python for scripts, Redis for caching, Elasticsearch for search, and a dozen other services.
 
-In short, FlyEnv provides a complete operating environment, helping users develop and debug applications like Laravel, WordPress, Yii2, FastAdmin, NestJS, SpringBoot, Gin, Beego, Django, Flask, and more.
+Before you know it, you are juggling Docker containers, fighting with version conflicts, and watching your laptop slow to a crawl. **There has to be a better way.**
 
-**In-Depth Project Analysis and Technical Details**: [https://deepwiki.com/xpf0000/FlyEnv](https://deepwiki.com/xpf0000/FlyEnv)
+Enter FlyEnv: the native, all-in-one environment manager that gives you all the power of modern development stacks without the container overhead.
 
-## Key Features
+## What Makes FlyEnv Different?
 
-### Software Installation
-FlyEnv offers **one-click installation** for a wide range of software, including:
+### Native Binaries, Not Containers
 
-- **AI Integration**: Ollama, DeepSeek, Chatbox.
-- **Network Tunnel**: Cloudflared.
-- **Web Servers**: Apache, Nginx, Caddy, Tomcat, Consul.
-- **Databases**: MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant.
-- **Email Server**: Mailpit.
-- **Programming Languages & Runtime**: PHP (Composer), Java (Maven, Gradle), Node.js, Python, Go, Erlang, Ruby, Rust (Rustup), Zig, Bun, Deno.
-- **Data Queue & Cache**: Redis, Memcached, RabbitMQ, etcd.
-- **Search Engine**: Elasticsearch, Meilisearch, Typesense
-- **Object Storage**: Minio.
-- **Utilities**: DNS Server, FTP Server, Static HTTP Server.
+Docker runs a complete operating system for every service. On a typical Laravel stack:
+- **Docker Desktop**: 2-4GB RAM, 30+ seconds to start
+- **FlyEnv**: 200-400MB RAM, instant startup
 
-All software supports **multi-version installation**. For example:
-- PHP: Versions 5.x to the latest 8.x.
-- MySQL: Versions 5.x to 9.x.
+FlyEnv installs and runs official binaries directly on your machine—PHP from php.net, Node.js from nodejs.org, MySQL from mysql.com. No virtualization overhead. No file sharing slowdowns. Just native speed.
 
-New versions are automatically available without waiting for FlyEnv updates.
+### Automatic Version Switching
 
-#### Platform-Specific Installation
-- **Windows**: All software is downloaded from official sources.
-- **macOS**: FlyEnv provides three installation methods:
-   1. Official installation packages (if available).
-   2. Homebrew.
-   3. Macports.
+Ever typed `nvm use 18` or `brew switch php@8.1` for the hundredth time? FlyEnv eliminates version management entirely through **project-level isolation**.
 
-For users with locally installed software, FlyEnv allows adding custom paths, avoiding redundant downloads. It also automatically detects Homebrew and Macports installations.
+```bash
+cd ~/projects/legacy-wordpress
+php -v  # PHP 7.4 (auto-loaded)
 
-### Software Service Management
-FlyEnv lets you manage the start and stop of services for all installed software. For example:
-- Start/stop PHP-FPM, MySQL, Apache, Redis, and more.
-- Edit configuration files directly within FlyEnv's built-in editor.
-- Quickly locate and open configuration files.
+cd ~/projects/modern-laravel
+php -v  # PHP 8.3 (auto-switched)
+```
 
-### Local Web Hosting
-- **One-Click Site Creation**: FlyEnv automatically generates configuration files for web servers like Apache, Nginx, and Tomcat.
-- **Custom Domains**: Access local sites using any domain name, with HTTPS support.
-- **Log Management**: Easily view and analyze site access logs.
+Your environment adapts to your project, not the other way around.
 
-### Environment Variables
-- Add any supported software to environment variables with one click.
-- Set aliases (e.g., PHP74, PHP82) for easy terminal use.
+### Everything in One Interface
 
-### Container/Image/Docker-Compose Management
-For scenarios where conventional methods fall short, FlyEnv also offers a container-based solution. This allows you to manage images and containers, as well as quickly build and run Docker Compose configurations.
-[Podman Module User Guide](/guide/podman-module)
+| Category | Tools Included |
+|----------|---------------|
+| **AI & ML** | Ollama, DeepSeek, Chatbox |
+| **Web Servers** | Apache, Nginx, Caddy, Tomcat |
+| **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB |
+| **Languages** | PHP, Node.js, Python, Go, Java, Ruby, Rust |
+| **Cache/Queue** | Redis, Memcached, RabbitMQ |
+| **Search** | Elasticsearch, Meilisearch, Typesense |
+| **Email Testing** | Mailpit (modern Mailhog alternative) |
+| **Networking** | Cloudflare Tunnel, DNS Server |
 
-### Additional Tools
-FlyEnv includes many practical features for developers, such as:
-1. **JSON Parsing**: Convert between JSON, JavaScript objects, PHP arrays, XML, YAML, and more.
-2. **Port & Process Management**: Kill processes by port number or command.
-3. **Project Templates**: Quickly create projects for Laravel, WordPress, Yii2, Next.js, Vue, NestJS, and more.
+No more hunting for installers or fighting with Homebrew.
 
-**[View Module Video Demo](https://flyenv.com/#%F0%9F%9A%80-core-modules)** **[View Tools Video Demo](https://flyenv.com/#tools-modules)**
+## Key Features That Solve Real Problems
 
-## Why Choose FlyEnv?
+### 1. One-Click Installation
 
-### Compared to Docker
-Docker is powerful, but many developers just want a ready-to-use environment for PHP, NodeJS, Java, Go, or Python. FlyEnv is **more intuitive and lightweight**:
-- No virtual containers—all modules run as native static binaries.
-- Faster performance and lower resource usage (especially on macOS and Windows).
-- Easier to view and modify configuration and log files.
+Install any version of any software in seconds:
 
-### Compared to MAMP Pro, Laravel Herd, XAMPP, etc.
-FlyEnv is **more flexible and up-to-date**:
-- Supports multiple installation sources (Homebrew, Macports, APT, DNF, official binaries, etc.).
-- Timely version updates—no need to wait for FlyEnv upgrades.
-- Configuration files and settings are closer to real production environments, making deployment easier.
+1. Open FlyEnv
+2. Select module (PHP, Node.js, etc.)
+3. Choose version
+4. Click Install
 
-## Customization and Optimization
-- **Hide Unused Modules**: FlyEnv allows you to hide unnecessary modules in the settings, reducing clutter.
-- **Network Issues**: If installation is slow due to network limitations, you can install software manually and add custom paths to FlyEnv.
-- **Configuration Optimization**: FlyEnv uses general configurations by default. If specific modules or extensions are needed for your project, submit a GitHub Issue or leave feedback for optimization.
+FlyEnv downloads official binaries—no compilation, no dependency hell.
 
-## Community-Driven Improvement
-FlyEnv is designed to grow with the help of its community. Many features are built to cover basic functionality, and feedback from advanced users is highly valued. Together, we can:
-- Add support for more software.
-- Improve tools and performance.
-- Make development easier, so you can spend more time with your family and achieve your goals.
+### 2. Multi-Version Management
 
-## Get Started with FlyEnv
-[Download](/download) FlyEnv today and experience a new level of development efficiency.
+Run unlimited versions side-by-side:
+- **PHP**: 5.6 through 8.4+
+- **Node.js**: 10.x through 22.x
+- **MySQL**: 5.7, 8.0, 8.4
+- **Python**: 2.7, 3.6 through 3.12
 
-## Discussions
+Switch between them per project or per terminal session.
 
-[What technical limitations does FlyEnv have compared to similar tools?](https://github.com/xpf0000/FlyEnv/discussions/262)
+### 3. Local Web Hosting with SSL
+
+Create professional local development sites:
+- Custom domains (project.test, api.local)
+- Automatic SSL certificates (trusted by browsers)
+- Clean URLs without port numbers
+- Access and error logs
+
+### 4. Built-In AI Assistant
+
+FlyEnv includes Ollama integration for offline AI:
+- Run Llama, DeepSeek, Qwen locally
+- No API costs, no data leaving your machine
+- Perfect for code assistance and learning
+
+### 5. Project Templates
+
+Start new projects instantly:
+- Laravel, WordPress, Yii2
+- Next.js, Vue, React
+- NestJS, Express
+- Django, Flask
+
+## FlyEnv vs The Alternatives
+
+| Feature | Docker Desktop | XAMPP | MAMP Pro | **FlyEnv** |
+|---------|---------------|-------|----------|------------|
+| Memory usage | 2-4GB | 500MB | 500MB | **200-400MB** |
+| Startup time | 30-60s | 5-10s | 5-10s | **Instant** |
+| Multi-version PHP | Complex | No | No | **One-click** |
+| Node.js version switching | No | No | No | **Automatic** |
+| Built-in SSL | Manual | No | Yes | **Auto-generated** |
+| AI tools | No | No | No | **Built-in** |
+| Price | Free/$5mo | Free | $99 | **Free** |
+
+## Who Is FlyEnv For?
+
+### Web Developers
+Manage complete PHP/Node.js stacks with automatic version switching between client projects.
+
+### Full-Stack Engineers
+Run frontend build tools, backend APIs, databases, and cache servers—all optimized and native.
+
+### Agency Teams
+Standardize environments across the team while letting each developer customize their stack.
+
+### Freelancers
+Switch between Laravel, WordPress, Django, and Express projects without configuration headaches.
+
+### Students & Learners
+Experiment with different technologies without breaking your system or learning complex DevOps.
+
+## Platform Support
+
+FlyEnv runs natively on:
+- **macOS** (Intel & Apple Silicon)
+- **Windows** (x64)
+- **Linux** (Debian, Ubuntu, Red Hat, Fedora, SUSE, CentOS)
+
+## Getting Started
+
+Ready to streamline your development environment?
+
+1. [Download FlyEnv](/download) for your platform
+2. Follow the [Quick Start Guide](/guide/getting-started)
+3. Create your first site in under 5 minutes
+
+## Frequently Asked Questions (FAQ)
+
+**Q: Is FlyEnv really free?**
+
+A: Yes. Completely free and open-source. No paid tier locks essential features.
+
+**Q: Does it replace Docker?**
+
+A: For local development, absolutely. For complex microservices orchestration, you might still use Docker in production while enjoying FlyEnv's simplicity locally.
+
+**Q: Will it conflict with my existing Homebrew installations?**
+
+A: No. FlyEnv can detect and use existing Homebrew/Macports installations, or install its own isolated versions.
+
+**Q: Is my data safe?**
+
+A: Yes. Everything runs locally on your machine. No cloud dependencies, no data collection.
+
+**Q: How does it compare to Laravel Herd?**
+
+A: Herd is Mac-only and PHP-focused. FlyEnv supports all platforms and all languages (PHP, Node, Python, Go, Java, etc.).
+
+**Q: Can I use it for production?**
+
+A: FlyEnv is designed for local development. Production deployments should use proper server configuration or containerization.
+
+## Ready to Transform Your Workflow?
+
+Stop fighting with environment setup. Start building.
+
+[Download FlyEnv Free](/download) — Available for macOS, Windows, and Linux
+
+Learn more:
+- [Quick Start Guide](/guide/getting-started)
+- [FlyEnv vs Docker & XAMPP](/guide/flyenv-vs-docker-xampp)
+- [Project-Level Version Isolation](/guide/project-level-runtime-environment)

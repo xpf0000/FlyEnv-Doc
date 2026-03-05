@@ -2,15 +2,14 @@
 # 针对 SEO 优化的 VitePress 首页配置
 layout: home
 
-titleTemplate: 'Native Alternative to Docker/XAMPP | Your Local Dev Toolbox, Simplified.'
-# 优化后的标题：将核心关键词前置，增加搜索权重
-title: FlyEnv | Native PHP & Node.js Environment Manager | Best Docker Alternative
+title: 'FlyEnv | Native PHP & Node.js Environment Manager | Best Docker Alternative'
+titleTemplate: 'Fast, Native, and Lightweight Local Development Toolbox'
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
   - - meta
     - name: description
-      content: FlyEnv is a lightning-fast native alternative to Docker and XAMPP. Run PHP, Node.js, and Python with zero config. Includes built-in Offline AI Agent (Ollama, DeepSeek 3.2, Qwen 3.5, Gemma 3), PHP Obfuscator, and automatic SSL.
+      content: 'FlyEnv is a lightning-fast native alternative to Docker and XAMPP. Run PHP, Node.js, and Python with zero config. Includes built-in Offline AI Agent (Ollama, DeepSeek 3.2, Qwen 3.5, Gemma 3), PHP Obfuscator, and automatic SSL.'
 
 hero:
   name: "FlyEnv"
@@ -23,10 +22,10 @@ hero:
     alt: 'FlyEnv - Native PHP and AI Development Environment'
   actions:
     - theme: brand
-      text: Get Started Free
+      text: 'Get Started Free'
       link: /guide/getting-started
     - theme: alt
-      text: Explore Features
+      text: 'Explore Features'
       link: /guide/what-is-flyenv
 
 features:

@@ -1,175 +1,324 @@
-# FlyEnv Quick Start Guide
+---
+title: 'FlyEnv Quick Start Guide: Get Running in 5 Minutes'
+head:
+  - - meta
+    - name: description
+      content: 'Complete FlyEnv setup guide for macOS, Windows, and Linux. Install, configure your first site, and start developing in under 5 minutes with automatic version management.'
+---
 
-## Table of Contents
-- [Installation](#installation)
-    - [macOS](#macos)
-    - [Windows](#windows)
-    - [Linux](#linux)
-- [Pre-Launch Preparation](#pre-launch-preparation)
-- [Getting Started](#getting-started)
-    - [Interface Setup](#interface-setup)
-    - [Module Initialization](#module-initialization)
-    - [Module Service Launch](#module-service-launch)
-    - [Adding a Site](#adding-a-site)
-    - [Setting Environment Variables](#setting-environment-variables)
-- [Upgrading FlyEnv](#upgrading-flyenv)
-- [Uninstallation](#uninstallation)
-- [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
-- [Community and Support](#community-and-support)
+# FlyEnv Quick Start Guide: Get Running in 5 Minutes
+
+You have downloaded FlyEnv. Now what? This guide gets you from installation to a running local website in under five minutes—no terminal wizardry required.
 
 ## Installation
 
 ### macOS
 
-#### Install via Homebrew
-```zsh
+**Option 1: Homebrew (Recommended)**
+```bash
 brew update && brew install flyenv
 ```
 
-#### Download and Install
-| Architecture | File                | GitHub Release | Baidu Netdisk   |
-|:-------------|:--------------------|:--------------:|:--------------:| 
-| Intel X86_64 | {version}.dmg       |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Apple Silicon | {version}-arm64.dmg | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
+**Option 2: Download DMG**
 
-**Note**: If you only need a simple PHP and web server, you can try FlyEnv's derivative product: [FlyPHPServer](/zh/flyphpserver), available on the [Mac App Store](https://apps.apple.com/us/app/flyphpserver/id1506384441).
+| Architecture | Download |
+|-------------|----------|
+| Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+
+**Note for macOS users:** If you only need simple PHP hosting, check out [FlyPHPServer](/flyphpserver) on the Mac App Store—a lightweight companion app.
 
 ### Windows
 
-#### Download and Install
-Currently, only x86_64 architecture is supported.
+Download and extract the ZIP file:
 
-| Architecture | File                  | GitHub Release | Baidu Netdisk   |
-|:-------------|:----------------------|:--------------:|:--------------:| 
-| X86_64       | {version}-Windows.zip |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+| Download Source | Link |
+|----------------|------|
+| GitHub Release | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Baidu Netdisk | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
 
-### Linux
-
-#### Download and Install
-Supports Debian / Ubuntu / Red Hat / Fedora / SUSE / CentOS systems, x86_64 and arm64 architectures.
-
-| Architecture                             | File                  | GitHub Release | Baidu Netdisk   |
-|:-----------------------------------------|:----------------------|:--------------:|:--------------:| 
-| Debian/Ubuntu x86_64                     | {version}-x64.deb     |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS x86_64        | {version}-x64.rpm     | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
-| Debian/Ubuntu arm64                      | {version}-arm64.deb   |  [Download](https://github.com/xpf0000/FlyEnv/releases/latest)  | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS arm64          | {version}-arm64.rpm | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |  [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
-
-## Pre-Launch Preparation
-
-### macOS
-FlyEnv relies on Homebrew or Macports to manage services. Ensure you have one of the following tools installed:
-- [Homebrew](https://brew.sh/)
-- [Macports](https://www.macports.org/install.php)
-
-**For Chinese users**: You can refer to [HomebrewCN](https://gitee.com/cunkai/HomebrewCN) for installation.
+Run `FlyEnv.exe` after extraction.
 
 ### Linux
-It is recommended to install Homebrew to ensure the latest versions of services are used:
-- [Homebrew](https://brew.sh/)
 
-## Getting Started
+Supports Debian/Ubuntu (.deb) and Red Hat/Fedora/SUSE/CentOS (.rpm):
 
-### Notes
-Before using FlyEnv, it is recommended to close other applications that may use the same ports (e.g., Apache/Nginx/MySQL) to avoid port conflicts.
+| Distribution | Architecture | Package |
+|-------------|-------------|---------|
+| Debian/Ubuntu | x86_64 | .deb |
+| Debian/Ubuntu | arm64 | .deb |
+| Red Hat/Fedora | x86_64 | .rpm |
+| Red Hat/Fedora | arm64 | .rpm |
 
-During the first run, the FlyEnv helper program needs to be installed. If Windows users encounter an installation failure prompt, they can try launching FlyEnv with administrator privileges. Once the installation is successful, administrator privileges will not be required for subsequent use.
+Download from [GitHub Releases](https://github.com/xpf0000/FlyEnv/releases/latest).
 
-### Interface Setup
-After opening FlyEnv, all functional modules are displayed on the left by default. You can hide unnecessary modules in the settings.
+## First Launch Setup
 
-![Interface Setup](https://oss.macphpstudy.com/image/get-start-1.png)
+### 1. Install FlyEnv Helper
 
-![Interface Setup](https://oss.macphpstudy.com/image/get-start-2.png)
+On first launch, FlyEnv installs a helper program for system integration:
+- **macOS/Linux**: May prompt for password
+- **Windows**: Run as Administrator if installation fails
 
-For example, if you are only doing PHP development, you can display only Apache, PHP, MySQL, and Redis modules.
+This helper manages services and system paths. It is required only once.
 
-![PHP Development Interface Setup Example](https://oss.macphpstudy.com/image/get-start-3.png)
+### 2. Customize Your Interface
 
-### Module Initialization
-FlyEnv modules do not come with preset versions. Users need to select and install the required versions themselves. FlyEnv automatically detects modules installed via Homebrew or Macports.
+FlyEnv shows all modules by default. Simplify your view:
 
-1. On the module version interface, select and install the required version.
-   ![Install Required Version](https://oss.macphpstudy.com/image/get-start-4.png)
-2. After installation, the installed version will be displayed on the module service interface.
-   ![Installed Version](https://oss.macphpstudy.com/image/get-start-5.png)
-3. You can also add a custom module version path.
-   ![Add Custom Module Version Path](https://oss.macphpstudy.com/image/get-start-6.png)
+1. Click **Settings** (gear icon)
+2. Toggle modules you do NOT need off
+3. Reorder remaining modules by drag-and-drop
 
-### Module Service Launch
-There are two ways to launch module services:
+**Recommended for PHP developers:** Keep Apache/Nginx, PHP, MySQL, Redis visible.
 
-1. **Launch a Single Module**: On the module service interface, select the version and click the launch button.
-   ![Launch Single Module](https://oss.macphpstudy.com/image/get-start-7.png)
-2. **Launch All Modules**: Click the "Launch All Modules" switch to start all displayed modules.
-   ![Launch All Modules](https://oss.macphpstudy.com/image/get-start-8.png)
+**Recommended for Node.js developers:** Keep Node.js, Nginx, MongoDB visible.
 
-* You can set whether modules should launch together in the `GroupStart` column on the service interface.
-  ![GroupStart](https://oss.macphpstudy.com/image/get-start-9.png)
+![Interface Setup](https://oss.macphpstudy.com/image/quick-start-1.webp)
 
-If a module fails to launch, you can check the failure reason in the module logs.
-![Module Service Launch Logs](https://oss.macphpstudy.com/image/get-start-10.png)
+### 3. Install Your First Version
 
-### Adding a Site
-On the site interface, create a new site and configure the domain, SSL, etc. After the web server is launched, click the site link to access it.
+Each module needs at least one version installed:
 
-![Add Site](https://oss.macphpstudy.com/image/get-start-11.png)
+1. Click a module (e.g., **PHP**)
+2. Switch to the **Versions** tab
+3. Select a version (e.g., PHP 8.3)
+4. Click **Install**
 
-![Site List](https://oss.macphpstudy.com/image/get-start-12.png)
+FlyEnv downloads and configures the version automatically.
 
-**Notes**:
-1. It is recommended to close web servers not launched by FlyEnv (e.g., Apache/Nginx/Caddy) to avoid port conflicts.
-2. Ensure the correct PHP version for the site is launched.
-3. If DNS software is used, it may prevent the domain from resolving correctly to `127.0.0.1`.
+![Version Installation](https://oss.macphpstudy.com/image/quick-start-2.webp)
 
-### Setting Environment Variables
-FlyEnv supports one-click environment variable setup:
+**Pro tip:** Install multiple versions if you work on different projects. They coexist peacefully.
 
-- **macOS**: Adds `export PATH="xxx:$PATH"` to the `~/.zshrc` file.
-- **Windows**: Adds the path to the system environment variables.
+## Create Your First Website
 
-![Set Environment Variables](https://oss.macphpstudy.com/image/get-start-13.png)
+### Step 1: Start Required Services
 
-You can also set aliases for different PHP versions (e.g., `php82`, `php83`) for easier use in the terminal.
+Before creating a site, start your web server and PHP:
 
-![Set Aliases](https://oss.macphpstudy.com/image/get-start-14.png)
+1. Open **Apache** or **Nginx** module
+2. Select your installed version
+3. Click the **Start** button
 
-![Set Aliases](https://oss.macphpstudy.com/image/get-start-15.png)
+Do the same for **PHP** and **MySQL** if needed.
 
-After setup, if the terminal does not reflect the changes, restart the terminal.
+![Service Start](https://oss.macphpstudy.com/image/quick-start-3.webp)
+
+### Step 2: Create a Site
+
+1. Open the **Host** module
+2. Click **"Add Site"**
+3. Fill in the details:
+   - **Domain**: `myproject.test` (any domain works)
+   - **Root Path**: `/Users/you/projects/myproject`
+   - **PHP Version**: Select your installed version
+   - **Port**: 80 (default)
+
+4. Enable **Auto SSL** for HTTPS access
+5. Click **Save**
+
+![Add Site Form](https://oss.macphpstudy.com/image/quick-start-4.webp)
+
+### Step 3: Access Your Site
+
+After saving:
+1. Start your web server (if not already running)
+2. Click the site link in the Host list
+3. Or open `https://myproject.test` in your browser
+
+The SSL certificate is automatically trusted by your system.
+
+## Setting Up Environment Variables
+
+FlyEnv can manage your system PATH for terminal access:
+
+1. Open any module
+2. Click **"Set to System Path"**
+3. Choose versions to add
+
+For PHP, you can also create aliases:
+- `php74` -> PHP 7.4
+- `php83` -> PHP 8.3
+
+![Environment Variables](https://oss.macphpstudy.com/image/get-start-13.png)
+![Environment Variables Aliases](https://oss.macphpstudy.com/image/get-start-15.png)
+
+**Restart your terminal** after setting PATH for changes to take effect.
+
+## Quick Project Setup Examples
+
+### Laravel Project
+
+```bash
+# Create project
+composer create-project laravel/laravel myproject
+
+# In FlyEnv Host module
+# - Domain: myproject.test
+# - Root: /path/to/myproject/public
+# - PHP: 8.2 or 8.3
+# - Nginx rewrite: Select "Laravel" template
+```
+
+### WordPress Site
+
+```bash
+# Download WordPress
+curl -O https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+
+# In FlyEnv
+# - Create database in MySQL module
+# - Domain: wordpress.test
+# - Root: /path/to/wordpress
+# - Enable URL rewrite
+```
+
+### Static HTML Site
+
+```bash
+# Create folder
+mkdir mystaticsite
+echo "<h1>Hello FlyEnv</h1>" > mystaticsite/index.html
+
+# In FlyEnv
+# - Domain: static.test
+# - Root: /path/to/mystaticsite
+# - Set as "Static Site" (no PHP)
+```
+
+### Node.js/NestJS Project
+
+```bash
+# Create NestJS app
+npm i -g @nestjs/cli
+nest new myapi
+
+# In FlyEnv
+# - Start Node.js service
+# - Use Nginx reverse proxy to port 3000
+# - See reverse proxy guide for details
+```
+
+## Managing Services
+
+### Start All at Once
+
+Enable **GroupStart** for modules you want to launch together:
+
+1. Open module service panel
+2. Check **GroupStart** checkbox
+3. Use the main "Start All" switch
+
+![GroupStart Setting](https://oss.macphpstudy.com/image/get-start-8.png)
+
+### Check Logs
+
+If a service fails to start:
+
+1. Click the **Logs** button in the module
+2. Review error messages
+3. Common issues: port conflicts, missing dependencies
 
 ## Upgrading FlyEnv
-FlyEnv has a built-in auto-upgrade feature. If the upgrade fails, manually download and install the latest version.
 
-**Note**: FlyEnv's program files and data files are separate, so upgrading will not cause data loss.
+FlyEnv includes auto-update functionality:
+
+1. Check **Settings** -> **About** for updates
+2. Or download the latest release manually
+
+**Your data is safe:** Program files and data are stored separately. Upgrading never deletes your sites or databases.
 
 ## Uninstallation
-Use the system's default uninstallation method to uninstall FlyEnv. Data folders will not be deleted unless a third-party tool (e.g., CleanMyMac) is used and the data folder is selected.
 
-### Data Folder Locations
-- **macOS**: `~/Library/PhpWebStudy` or `~/Library/FlyEnv`
-- **Windows**: Located in the same directory as the FlyEnv installation folder, named `PhpWebStudy-Data` or `FlyEnv-Data`.
-- **Linux**: `~/.config/PhpWebStudy` or `~/.config/FlyEnv`
+Should you need to remove FlyEnv:
 
-### Uninstall FlyEnv Helper
+### macOS
+```bash
+# Remove app
+rm -rf /Applications/FlyEnv.app
 
-See: [about-flyenv-helper](./about-flyenv-helper#_2-installation-and-uninstallation-guide)
+# Remove data (optional)
+rm -rf ~/Library/FlyEnv
+rm -rf ~/Library/PhpWebStudy
+```
+
+### Windows
+1. Delete the FlyEnv folder
+2. Data folder is `FlyEnv-Data` in the same directory
+
+### Linux
+```bash
+# Remove package
+sudo apt remove flyenv  # or rpm equivalent
+
+# Remove data
+rm -rf ~/.config/FlyEnv
+```
+
+## Troubleshooting
+
+### "Port already in use" errors
+
+**Cause**: Another application using port 80, 443, or 3306
+
+**Solution**:
+```bash
+# Find process using port 80
+sudo lsof -i :80
+
+# Or change FlyEnv ports in settings
+```
+
+### "Permission denied" on macOS
+
+**Solution**: Grant Full Disk Access to FlyEnv in System Preferences -> Security & Privacy
+
+### Site shows "502 Bad Gateway"
+
+**Causes**:
+1. PHP-FPM not running
+2. Wrong PHP version selected for site
+3. Incorrect nginx/apache configuration
+
+**Solution**: Check PHP-FPM is started and logs for errors.
+
+### Changes not reflecting
+
+**Solution**: 
+1. Clear browser cache
+2. Restart web server
+3. Check file permissions
 
 ## Frequently Asked Questions (FAQ)
 
-**Q: What should I do if a module fails to launch?**
-- A: Check if other applications are using the same ports (e.g., 80, 3306) and close them. The module logs will also contain error details.
+**Q: Do I need to know command line to use FlyEnv?**
 
-**Q: What should I do if a site is inaccessible?**
-- A: Ensure the web server is launched. For PHP sites, ensure the correct PHP version is launched. Some frameworks require specific PHP extensions, so make sure they are installed. If non-standard ports (e.g., not 80 or 443) are used, include the port number when accessing the site.
+A: No. While terminal access is available, everything can be done through the GUI.
 
-**Q: How to access a site using IP + port?**
-- A: Set an alias for the site. For example, `127.0.0.1`, `192.168.1.101`. Then specify the port.
-  For different sites, do not use the same port. Otherwise, you may access the wrong site.
+**Q: Can I use my existing Homebrew installations?**
 
-## Community and Support
-- **GitHub Repository**: [FlyEnv GitHub](https://github.com/xpf0000/FlyEnv)
-- **Issue Reporting**: [GitHub Issues](https://github.com/xpf0000/FlyEnv/issues)
-- **Official Community**: [Discord Community](https://discord.gg/u5SuMGxjPE) | [GitHub Discussions](https://github.com/xpf0000/FlyEnv/discussions)
+A: Yes. FlyEnv detects Homebrew and Macports installations automatically.
 
-By following these steps, you can quickly get started with FlyEnv and configure your development environment as needed.
+**Q: How do I backup my sites?**
+
+A: Your project files are in your chosen directories. Database exports can be done through the MySQL module.
+
+**Q: Can I import an existing project?**
+
+A: Absolutely. Just point the Host root path to your existing project folder.
+
+**Q: What domains can I use?**
+
+A: Any domain ending in .test, .local, .dev, or custom TLDs. Avoid .local on some networks due to mDNS conflicts.
+
+## Next Steps
+
+Now that you are running, explore these features:
+
+- [Project-Level Version Isolation](/guide/project-level-runtime-environment) — Automatic version switching
+- [Custom Domains & SSL](/guide/host) — Professional local development
+- [Build Local AI Agent](/guide/build-local-offline-ai-agent) — Offline AI with Ollama
+
+[Download FlyEnv](/download) if you haven't already, and happy coding!

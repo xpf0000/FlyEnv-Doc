@@ -1,71 +1,316 @@
-# Quickly Build a Local Offline AI Agent
+---
+title: 'Build a Privacy-First Offline AI Agent Locally (Qwen, DeepSeek, Llama)'
+head:
+  - - meta
+    - name: description
+      content: 'Run AI models locally without cloud APIs or data privacy concerns. Learn how to set up Ollama with FlyEnv for offline coding assistance using Qwen, DeepSeek, and Llama models.'
+---
 
-Building a local offline AI agent typically involves complex steps such as data preparation, model training, optimization, and deployment. However, with FlyEnv, you can set up a local offline AI agent in just a few minutes, without the need for data preparation or training. Here’s a detailed guide:
+# Build a Privacy-First Offline AI Agent Locally (Qwen, DeepSeek, Llama)
 
-## 1. Install Ollama
+Every line of code you send to ChatGPT or GitHub Copilot leaves your machine. For proprietary codebases, healthcare applications, or financial systems, this is a dealbreaker. But running AI locally used to require a PhD in machine learning.
 
-Install Ollama in the Ollama module.
+**Not anymore.** With Ollama and FlyEnv, you can run state-of-the-art language models entirely offline—in minutes, not days.
 
-![Ollama Installation Interface](https://oss.macphpstudy.com/image/ollama-1.png)
+## Why Offline AI Matters
 
-## 2. Start the Ollama Service
+### The Cloud AI Privacy Problem
 
-Start the Ollama service in the Ollama module.
+When you use cloud-based AI coding assistants:
+- Your proprietary code travels to external servers
+- Training data may retain sensitive snippets
+- Compliance violations (HIPAA, GDPR, SOC2)
+- Network latency slows responses
+- API costs accumulate
 
-![Ollama Service Startup Interface](https://oss.macphpstudy.com/image/ollama-2.png)
+### The Offline AI Advantage
 
-## 3. Install Models
+| Aspect | Cloud AI | Local AI (Ollama) |
+|--------|----------|-------------------|
+| Data privacy | Sent to third parties | Never leaves your machine |
+| Internet required | Yes | No |
+| Response speed | 500ms-2s | 50-500ms (local) |
+| Monthly cost | $10-20/user | Free |
+| Customization | Limited | Full model control |
+| Compliance | Complex | Straightforward |
 
-Install the models you want to use in the Ollama module, such as deepseek-r1, llama3.3, phi4, qwen2.5, and mixtral. It is recommended to choose a model size that is approximately half of your computer’s memory.
+## What You Will Build
 
-![Model Installation Interface](https://oss.macphpstudy.com/image/ollama-3.png)
+A fully local AI assistant that can:
+- Answer coding questions
+- Explain complex functions
+- Generate code snippets
+- Review pull requests
+- All without internet connection
 
-## 4. Enable AI Assistant Display
+## Prerequisites
 
-Enable the AI Assistant display in the settings.
+### Hardware Requirements
 
-![AI Assistant Display Settings](https://oss.macphpstudy.com/image/ollama-4.png)
+| Model Size | RAM Required | Best For |
+|------------|--------------|----------|
+| 3B parameters | 4GB | Basic coding help |
+| 7B parameters | 8GB | General development |
+| 13B parameters | 16GB | Complex reasoning |
+| 70B parameters | 64GB+ | Enterprise-grade |
 
-## 5. Enter the AI Assistant Interface
+**Recommended**: 16GB+ RAM for versatile coding assistance
 
-Click the AI Assistant icon in the bottom right corner to enter the AI Assistant interface.
+### Software
 
-![AI Assistant Interface](https://oss.macphpstudy.com/image/ollama-5.png)
+- FlyEnv installed (macOS, Windows, or Linux)
+- ~10GB free disk space for models
 
-## 6. Configure Ollama Service
+## Step-by-Step Setup
 
-Click the settings button to configure the API address for the Ollama service. This can be a local address or a LAN/public network address. After setting the address, all installed models at this address will be retrieved, and you can select the model to use.
+### Step 1: Install Ollama
 
-For teams, a high-performance computer can be used as the host for the Ollama service. Other team members can use this host address for better performance.
+FlyEnv makes this one-click simple:
 
-![Ollama Service Configuration](https://oss.macphpstudy.com/image/ollama-6.png)
+1. Open FlyEnv
+2. Navigate to **Ollama** module
+3. Click **Install**
 
-## 7. Start a New Chat
+![Ollama Installation](https://oss.macphpstudy.com/image/ollama-1.webp)
 
-After completing the setup, click the "New Chat" button to start a new conversation.
+Ollama installs as a native service—no Docker containers, no Python environments to configure.
 
-![New Chat Interface](https://oss.macphpstudy.com/image/ollama-7.png)
-![Chat Interface](https://oss.macphpstudy.com/image/ollama-8.png)
+### Step 2: Start Ollama Service
 
-## 8. AI Assistant Response Actions
+In the Ollama module:
 
-The content replied by the AI Assistant can be read aloud or copied.
+1. Click the **Start** button
+2. Verify service status shows "Running"
 
-![AI Assistant Response Actions](https://oss.macphpstudy.com/image/ollama-9.png)
+![Ollama Service](https://oss.macphpstudy.com/image/ollama-2.png)
 
-## 9. Change AI Assistant Role Settings
+The Ollama API is now available at `http://127.0.0.1:11434`
 
-Click the icon here to change the role settings of the AI Assistant. The system comes with many preset roles, and users can also add custom roles.
+### Step 3: Download AI Models
 
-![AI Assistant Role Settings](https://oss.macphpstudy.com/image/ollama-10.png)
+FlyEnv provides easy access to popular models:
 
-## Summary
+| Model | Size | Strengths |
+|-------|------|-----------|
+| **DeepSeek-R1** | 7B-70B | Code generation, reasoning |
+| **Llama 3.3** | 8B-70B | General purpose, balanced |
+| **Qwen 2.5** | 7B-72B | Multilingual, coding |
+| **Phi-4** | 14B | Microsoft research model |
+| **Mixtral** | 8x7B | Mixture of experts |
 
-With FlyEnv, you can quickly set up a local offline AI agent without the need for data preparation or model training, allowing you to easily experience the power of AI and step into the intelligent era.
+**To install a model:**
 
-### Key Advantages Recap:
-- **Quick Setup**: Build an AI agent in just a few minutes.
-- **No Data or Training Required**: Use pre-trained models directly, saving time and resources.
-- **Fully Offline**: Protects data privacy, ideal for high-security scenarios.
+1. In Ollama module, switch to **Models** tab
+2. Select a model (start with 7B for 16GB RAM)
+3. Click **Pull**
 
-Try FlyEnv now and embark on your AI journey!
+Download progress displays in real-time. First download may take 10-30 minutes depending on model size and connection.
+
+![Model Installation](https://oss.macphpstudy.com/image/ollama-3.png)
+
+**Pro tip**: Start with Qwen 2.5 7B or DeepSeek-R1 7B for excellent coding assistance without massive resource usage.
+
+### Step 4: Enable AI Assistant Interface
+
+1. Open FlyEnv **Settings**
+2. Find **AI Assistant** section
+3. Toggle **Enable AI Assistant**
+
+![AI Assistant Settings](https://oss.macphpstudy.com/image/ollama-4.png)
+
+### Step 5: Open the Chat Interface
+
+Click the **AI Assistant** icon in the bottom-right corner:
+
+![AI Assistant Icon](https://oss.macphpstudy.com/image/ollama-5.png)
+
+The chat interface opens, ready for interaction.
+
+### Step 6: Configure Ollama Connection
+
+In the AI Assistant panel:
+
+1. Click **Settings** (gear icon)
+2. Set API URL: `http://127.0.0.1:11434`
+3. Select your installed model from dropdown
+4. Click **Save**
+
+![Ollama Configuration](https://oss.macphpstudy.com/image/ollama-6.png)
+
+**Team setup**: For shared AI resources, enter a colleague's Ollama server IP. One powerful workstation can serve the whole team.
+
+### Step 7: Start Your First Chat
+
+Click **New Chat** and ask anything:
+
+```
+You: Explain this PHP function: array_reduce()
+AI: array_reduce() iteratively reduces an array to a single value using a callback function...
+
+You: Generate a React component for a modal dialog
+AI: [Generates complete, styled component code]
+```
+
+![Chat Interface](https://oss.macphpstudy.com/image/ollama-7.png)
+
+![Chat Interface 2](https://oss.macphpstudy.com/image/ollama-8.png)
+
+## Using AI for Development Workflows
+
+### Code Explanation
+
+Paste complex code and ask for explanation:
+```
+"Explain what this Laravel Eloquent query does..."
+"What is the time complexity of this algorithm?"
+"How does this recursive function work?"
+```
+
+### Code Generation
+
+Generate boilerplate quickly:
+```
+"Create a NestJS controller for user CRUD operations"
+"Write a Python script to parse CSV and insert to MySQL"
+"Generate a Docker Compose file for PHP, MySQL, Redis"
+```
+
+### Code Review
+
+Paste code for instant feedback:
+```
+"Review this function for security issues"
+"How can I optimize this database query?"
+"Is this the idiomatic way to do this in Go?"
+```
+
+### Learning Assistance
+
+```
+"Explain React hooks like I'm 5"
+"What's the difference between var, let, and const?"
+"Teach me about dependency injection in PHP"
+```
+
+## Advanced Features
+
+### Role-Based Prompts
+
+The AI Assistant supports different personas:
+
+1. Click the **Role** selector
+2. Choose from presets:
+   - **Code Reviewer**: Critical analysis of code quality
+   - **Teacher**: Patient explanations of concepts
+   - **Architect**: High-level system design advice
+   - **Debugger**: Focus on finding and fixing bugs
+
+3. Or create custom roles:
+   ```
+   Role: Laravel Expert
+   Prompt: You are a senior Laravel developer with 10 years experience. 
+   Provide best-practice solutions and explain the "Laravel way."
+   ```
+
+![Role Selection](https://oss.macphpstudy.com/image/ollama-10.png)
+
+### Response Actions
+
+Every AI response offers:
+- **Copy**: Copy code blocks or entire response
+- **Read Aloud**: Text-to-speech for accessibility
+- **Regenerate**: Try a different response
+- **Continue**: Expand on partial answers
+
+![Response Actions](https://oss.macphpstudy.com/image/ollama-9.png)
+
+### Multiple Model Comparison
+
+Run different models side-by-side:
+
+1. Open multiple chat tabs
+2. Configure each with different models
+3. Ask the same question
+4. Compare responses
+
+This helps identify which model works best for your specific use case.
+
+## Optimizing Performance
+
+### Model Size vs Quality
+
+| Use Case | Recommended Model | Response Time |
+|----------|------------------|---------------|
+| Quick lookups | Qwen 2.5 3B | <100ms |
+| Daily coding | DeepSeek-R1 7B | 200-500ms |
+| Complex architecture | Llama 3.3 13B | 500ms-1s |
+| Code review | Qwen 2.5 32B | 1-3s |
+
+### GPU Acceleration
+
+On macOS, Ollama automatically uses Apple Silicon Neural Engine.
+
+On Linux/Windows with NVIDIA GPU:
+```bash
+# Ollama uses CUDA automatically if available
+# Verify GPU usage:
+ogpu-smi  # or nvidia-smi
+```
+
+### Model Management
+
+Free disk space by removing unused models:
+
+```bash
+# In terminal
+ollama rm llama2:13b  # Remove specific model
+ollama list            # See installed models
+```
+
+## Frequently Asked Questions (FAQ)
+
+**Q: Is this really completely offline?**
+
+A: Yes. Once models are downloaded, no internet connection is required. Your data never leaves your machine.
+
+**Q: How does this compare to GitHub Copilot?**
+
+A: Copilot offers IDE integration and training on public code. Local AI offers privacy and zero cost. Many developers use both: Copilot for public projects, local AI for proprietary work.
+
+**Q: Can I use my own fine-tuned models?**
+
+A: Yes. Ollama supports GGUF format models. Place them in Ollama's models directory.
+
+**Q: Why is response quality lower than ChatGPT?**
+
+A: Local 7B models are smaller than GPT-4. For coding tasks, they are surprisingly capable. For complex reasoning, larger models (13B-70B) close the gap significantly.
+
+**Q: Can the AI access my project files?**
+
+A: Not automatically. You paste code into the chat. Future FlyEnv versions may add IDE integration.
+
+**Q: Is this legal for commercial use?**
+
+A: Yes. Models like Llama, Qwen, and DeepSeek have permissive licenses for commercial applications.
+
+**Q: How much electricity does this use?**
+
+A: Minimal. CPU inference uses ~10-30W. GPU inference uses 50-150W during active use only.
+
+## Privacy-First Development Workflow
+
+1. **Proprietary code**: Use local AI exclusively
+2. **Open source projects**: Can use either
+3. **Client work**: Always use local AI for their code
+4. **Learning**: Local AI for documentation and tutorials
+
+## Ready to Code with AI Privacy?
+
+Take control of your development data. Set up your offline AI assistant in minutes.
+
+[Download FlyEnv](/download) with built-in Ollama support
+
+Explore more productivity tools:
+- [PHP Code Obfuscation](/guide/php-code-obfuscation) — Protect your code
+- [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development) — Secure sharing
+- [Project Version Management](/guide/manage-multiple-node-php-versions) — Streamlined workflows

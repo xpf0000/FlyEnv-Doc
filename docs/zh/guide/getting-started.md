@@ -1,177 +1,324 @@
-# FlyEnv 快速开始指南
+---
+title: 'FlyEnv 快速入门指南：5 分钟快速上手'
+head:
+  - - meta
+    - name: description
+      content: '完整的 FlyEnv 安装配置指南，支持 macOS、Windows 和 Linux。在 5 分钟内完成安装、配置第一个站点并开始开发，支持自动版本管理。'
+---
 
-## 目录
-- [安装](#安装)
-    - [macOS](#macos)
-    - [Windows](#windows)
-    - [Linux](#linux)
-- [启动前准备](#启动前准备)
-- [启动并运行](#启动并运行)
-    - [界面设置](#界面设置)
-    - [模块初始化](#模块初始化)
-    - [模块服务启动](#模块服务启动)
-    - [添加站点](#添加站点)
-    - [设置环境变量](#设置环境变量)
-- [升级 FlyEnv](#升级-flyenv)
-- [卸载](#卸载)
-- [常见问题解答（FAQ）](#常见问题解答faq)
-- [社区与支持](#社区与支持)
+# FlyEnv 快速入门指南：5 分钟快速上手
+
+你已经下载了 FlyEnv，接下来呢？本指南帮助你在 5 分钟内完成从安装到运行本地网站的整个过程——无需复杂的终端操作。
 
 ## 安装
 
 ### macOS
 
-#### 使用 Homebrew 安装
-```zsh
+**选项 1：Homebrew（推荐）**
+```bash
 brew update && brew install flyenv
 ```
 
-#### 下载安装
-| 架构         | 文件                | GitHub 发布 | 百度网盘   |
-|:-------------|:--------------------|:-----------:|:--------:| 
-| Intel X86_64 | {version}.dmg       |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Apple Silicon | {version}-arm64.dmg | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
+**选项 2：下载 DMG**
 
-**提示**：如果你只需要一个简单的 PHP 服务和 Web 服务，可以尝试 FlyEnv 的衍生产品：[FlyPHPServer](/zh/flyphpserver)，已上架 [Mac App Store](https://apps.apple.com/us/app/flyphpserver/id1506384441)，可直接下载使用。
+| 架构 | 下载 |
+|-------------|----------|
+| Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+
+**macOS 用户注意：** 如果你只需要简单的 PHP 托管环境，可以在 Mac App Store 查看 [FlyPHPServer](/flyphpserver)——这是一个轻量级配套应用。
 
 ### Windows
 
-#### 下载安装
-当前仅支持 x86_64 架构。
+下载并解压 ZIP 文件：
 
-| 架构         | 文件                  | GitHub 发布 | 百度网盘   |
-|:-------------|:----------------------|:-----------:|:--------:| 
-| X86_64       | {version}-Windows.zip |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+| 下载源 | 链接 |
+|----------------|------|
+| GitHub Release | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| 百度网盘 | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
 
-### Linux
-
-#### 下载安装
-支持 Debian / Ubuntu / Red Hat / Fedora / SUSE / CentOS 系统，x86_64 和 arm64 架构。
-
-| 架构                             | 文件                  | GitHub 发布 | 百度网盘   |
-|:---------------------------------|:--------------------|:-----------:|:--------:| 
-| Debian/Ubuntu x86_64             | {version}-x64.deb   |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS x86_64| {version}-x64.rpm   | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
-| Debian/Ubuntu arm64              | {version}-arm64.deb |  [下载](https://github.com/xpf0000/FlyEnv/releases/latest)  | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-| Red Hat/Fedora/SUSE/CentOS arm64 | {version}-arm64.rpm | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |  [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)  |
-
-## 启动前准备
-
-### macOS
-FlyEnv 依赖 Homebrew 或 Macports 来管理服务。请确保已安装以下工具之一：
-- [Homebrew](https://brew.sh/)
-- [Macports](https://www.macports.org/install.php)
-
-**中国用户**：可以参考 [HomebrewCN](https://gitee.com/cunkai/HomebrewCN) 进行安装。
+解压后运行 `FlyEnv.exe`。
 
 ### Linux
-建议安装 Homebrew，以确保使用最新版本的服务：
-- [Homebrew](https://brew.sh/)
 
-## 启动并运行
+支持 Debian/Ubuntu (.deb) 和 Red Hat/Fedora/SUSE/CentOS (.rpm)：
 
-### 注意事项
-在使用 FlyEnv 之前，建议关闭其他可能占用相同端口的应用程序（如 Apache/Nginx/MySQL 等），以避免端口冲突。
+| 发行版 | 架构 | 包类型 |
+|-------------|-------------|---------|
+| Debian/Ubuntu | x86_64 | .deb |
+| Debian/Ubuntu | arm64 | .deb |
+| Red Hat/Fedora | x86_64 | .rpm |
+| Red Hat/Fedora | arm64 | .rpm |
 
-第一次运行, 会需要安装FlyEnv帮助程序. Windows用户如果提示安装失败的话, 可以尝试先使用管理员权限启动FlyEnv. 安装成功后, 后续就不需要使用管理员权限了
+从 [GitHub Releases](https://github.com/xpf0000/FlyEnv/releases/latest) 下载。
 
-### 界面设置
-打开 FlyEnv 后，所有功能模块默认显示在左侧。你可以根据需求在设置中隐藏不需要的模块。
+## 首次启动设置
 
-![界面设置](https://oss.macphpstudy.com/image/get-start-1.png)
+### 1. 安装 FlyEnv 助手
 
-![界面设置](https://oss.macphpstudy.com/image/get-start-2.png)
+首次启动时，FlyEnv 会安装一个用于系统集成的助手程序：
+- **macOS/Linux**：可能会提示输入密码
+- **Windows**：如果安装失败，请以管理员身份运行
 
-例如，如果你仅进行 PHP 开发，可以只显示 Apache、PHP、MySQL 和 Redis 模块。
+此助手用于管理服务和管理系统路径，只需安装一次。
 
-![PHP开发界面设置示例](https://oss.macphpstudy.com/image/get-start-3.png)
+### 2. 自定义界面
 
-### 模块初始化
-FlyEnv 的模块不包含预设版本，用户需自行选择并安装所需版本。FlyEnv 会自动检索 Homebrew 或 Macports 已安装的模块。
+FlyEnv 默认显示所有模块，你可以简化视图：
 
-1. 在模块的版本界面，选择并安装所需版本。
-   ![安装所需版本](https://oss.macphpstudy.com/image/get-start-4.png)
-2. 安装完成后，模块的服务界面会显示已安装的版本。
-   ![已安装的版本](https://oss.macphpstudy.com/image/get-start-5.png)
-3. 你也可以添加自定义模块版本路径。
-![添加自定义模块版本路径](https://oss.macphpstudy.com/image/get-start-6.png)
+1. 点击 **设置**（齿轮图标）
+2. 关闭你不需要的模块
+3. 通过拖放重新排列剩余模块
 
-### 模块服务启动
-有两种方式启动模块服务：
+**推荐给 PHP 开发者：** 保持 Apache/Nginx、PHP、MySQL、Redis 可见。
 
-1. **启动单个模块**：在模块的服务界面，选择版本并点击启动按钮。
-   ![启动单个模块](https://oss.macphpstudy.com/image/get-start-7.png)
-2. **启动全部模块**：点击启动全部模块的开关，启动所有显示的模块。
-   ![启动单个模块](https://oss.macphpstudy.com/image/get-start-8.png)
+**推荐给 Node.js 开发者：** 保持 Node.js、Nginx、MongoDB 可见。
 
- * 你可以在服务界面的 `GroupStart` 列中设置模块是否一起启动。
-   ![GroupStart](https://oss.macphpstudy.com/image/get-start-9.png)
+![界面设置](https://oss.macphpstudy.com/image/quick-start-1.webp)
 
-如果模块启动失败，可以在模块日志中查看失败原因并进行处理。
-![模块服务启动日志](https://oss.macphpstudy.com/image/get-start-10.png)
+### 3. 安装第一个版本
 
-### 添加站点
-在站点界面，新建站点并设置域名、SSL 等。Web 服务器启动后，点击站点链接即可访问。
+每个模块至少需要一个已安装的版本：
 
-![添加站点](https://oss.macphpstudy.com/image/get-start-11.png)
+1. 点击一个模块（例如 **PHP**）
+2. 切换到 **版本** 标签页
+3. 选择一个版本（例如 PHP 8.3）
+4. 点击 **安装**
 
-![站点列表](https://oss.macphpstudy.com/image/get-start-12.png)
+FlyEnv 会自动下载并配置该版本。
 
-**注意事项**：
-1. 建议关闭非 FlyEnv 启动的 Web 服务器（如 Apache/Nginx/Caddy 等），以避免端口冲突。
-2. 确保站点使用的 PHP 版本正确启动。
-3. 如果使用 DNS 软件，可能会导致域名无法正确解析到本机 `127.0.0.1`。
+![版本安装](https://oss.macphpstudy.com/image/quick-start-2.webp)
 
-### 设置环境变量
-FlyEnv 支持一键设置环境变量：
+**专业提示：** 如果你在不同的项目中工作，可以安装多个版本，它们可以和平共存。
 
-- **macOS**：将 `export PATH="xxx:$PATH"` 添加到 `~/.zshrc` 文件中。
-- **Windows**：将路径添加到系统环境变量中。
+## 创建你的第一个网站
 
-![设置环境变量](https://oss.macphpstudy.com/image/get-start-13.png)
+### 步骤 1：启动所需服务
 
-你还可以为不同版本的 PHP 设置别名（如 `php82`、`php83`），方便在终端中使用。
+在创建站点之前，先启动 Web 服务器和 PHP：
 
-![设置别名](https://oss.macphpstudy.com/image/get-start-14.png)
+1. 打开 **Apache** 或 **Nginx** 模块
+2. 选择你安装的版本
+3. 点击 **启动** 按钮
 
-![设置别名](https://oss.macphpstudy.com/image/get-start-15.png)
+如果需要，对 **PHP** 和 **MySQL** 执行相同操作。
 
-设置完成后，如果终端未生效，请重启终端。
+![服务启动](https://oss.macphpstudy.com/image/quick-start-3.webp)
+
+### 步骤 2：创建站点
+
+1. 打开 **Host** 模块
+2. 点击 **"添加站点"**
+3. 填写详细信息：
+   - **域名**：`myproject.test`（任何域名都可以）
+   - **根目录**：`/Users/you/projects/myproject`
+   - **PHP 版本**：选择你安装的版本
+   - **端口**：80（默认）
+
+4. 启用 **自动 SSL** 以获得 HTTPS 访问
+5. 点击 **保存**
+
+![添加站点表单](https://oss.macphpstudy.com/image/quick-start-4.webp)
+
+### 步骤 3：访问你的站点
+
+保存后：
+1. 启动你的 Web 服务器（如果尚未运行）
+2. 点击 Host 列表中的站点链接
+3. 或在浏览器中打开 `https://myproject.test`
+
+SSL 证书会被你的系统自动信任。
+
+## 设置环境变量
+
+FlyEnv 可以管理你的系统 PATH 以支持终端访问：
+
+1. 打开任意模块
+2. 点击 **"设置到系统路径"**
+3. 选择要添加的版本
+
+对于 PHP，你还可以创建别名：
+- `php74` -> PHP 7.4
+- `php83` -> PHP 8.3
+
+![环境变量](https://oss.macphpstudy.com/image/get-start-13.png)
+![环境变量别名](https://oss.macphpstudy.com/image/get-start-15.png)
+
+设置 PATH 后**重启终端**，更改才能生效。
+
+## 快速项目设置示例
+
+### Laravel 项目
+
+```bash
+# 创建项目
+composer create-project laravel/laravel myproject
+
+# 在 FlyEnv Host 模块中
+# - 域名: myproject.test
+# - 根目录: /path/to/myproject/public
+# - PHP: 8.2 或 8.3
+# - Nginx 重写规则: 选择 "Laravel" 模板
+```
+
+### WordPress 站点
+
+```bash
+# 下载 WordPress
+curl -O https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+
+# 在 FlyEnv 中
+# - 在 MySQL 模块中创建数据库
+# - 域名: wordpress.test
+# - 根目录: /path/to/wordpress
+# - 启用 URL 重写
+```
+
+### 静态 HTML 站点
+
+```bash
+# 创建文件夹
+mkdir mystaticsite
+echo "<h1>Hello FlyEnv</h1>" > mystaticsite/index.html
+
+# 在 FlyEnv 中
+# - 域名: static.test
+# - 根目录: /path/to/mystaticsite
+# - 设置为 "静态站点"（无 PHP）
+```
+
+### Node.js/NestJS 项目
+
+```bash
+# 创建 NestJS 应用
+npm i -g @nestjs/cli
+nest new myapi
+
+# 在 FlyEnv 中
+# - 启动 Node.js 服务
+# - 使用 Nginx 反向代理到 3000 端口
+# - 查看反向代理指南了解详情
+```
+
+## 管理服务
+
+### 一键启动
+
+为需要一起启动的模块启用 **GroupStart**：
+
+1. 打开模块服务面板
+2. 勾选 **GroupStart** 复选框
+3. 使用主界面上的 "全部启动" 开关
+
+![GroupStart 设置](https://oss.macphpstudy.com/image/get-start-8.png)
+
+### 查看日志
+
+如果服务启动失败：
+
+1. 点击模块中的 **日志** 按钮
+2. 查看错误信息
+3. 常见问题：端口冲突、缺少依赖
 
 ## 升级 FlyEnv
-FlyEnv 内置了自动升级功能。如果升级失败，请手动下载最新版本安装。
 
-**注意**：FlyEnv 的程序文件和数据文件是分开的，升级不会导致数据丢失。
+FlyEnv 包含自动更新功能：
+
+1. 在 **设置** -> **关于** 中检查更新
+2. 或手动下载最新版本
+
+**你的数据是安全的：** 程序文件和数据分开存储，升级不会删除你的站点或数据库。
 
 ## 卸载
-使用系统默认的卸载方法即可卸载 FlyEnv。数据文件夹不会被删除，除非使用第三方工具（如 CleanMyMac）并勾选了数据文件夹。
 
-### 数据文件夹位置
-- **macOS**：`~/Library/PhpWebStudy` 或 `~/Library/FlyEnv`
-- **Windows**：与 FlyEnv 安装文件夹同目录，文件夹名为 `PhpWebStudy-Data` 或 `FlyEnv-Data`。
-- **Linux**：`~/.config/PhpWebStudy` 或 `~/.config/FlyEnv`
+如果你需要移除 FlyEnv：
 
-### 移除FlyEnv帮助程序
+### macOS
+```bash
+# 移除应用
+rm -rf /Applications/FlyEnv.app
 
-查看: [about-flyenv-helper](./about-flyenv-helper#_2-安装与卸载指南)
+# 移除数据（可选）
+rm -rf ~/Library/FlyEnv
+rm -rf ~/Library/PhpWebStudy
+```
 
-## 常见问题解答（FAQ）
+### Windows
+1. 删除 FlyEnv 文件夹
+2. 数据文件夹位于同一目录下的 `FlyEnv-Data`
 
-**Q: 启动模块失败怎么办？**
-- A: 请检查是否有其他应用程序占用了相同的端口（如 80、3306 等），并关闭这些应用程序。
-模块的日志里也会有错误原因. 可以在模块日志中查看失败原因并进行处理
+### Linux
+```bash
+# 移除包
+sudo apt remove flyenv  # 或 rpm 等效命令
 
-**Q: 站点无法访问怎么办？**
-- A: 请确保 Web 服务器已启动. PHP站点确保站点使用的PHP版本已正确启动. 
-有些框架需要特定的PHP扩展, 请确保已正确安装. 使用了非80,443端口的, 需要携带端口号访问.
+# 移除数据
+rm -rf ~/.config/FlyEnv
+```
 
-**Q: 如何使用IP+端口访问站点？**
-- A: 设置站点的别名. 例如 `127.0.0.1`, `192.168.1.101`. 然后再设置指定的端口.
-  不同的站点, 端口不要重复. 否则会访问到错误的站点.
+## 故障排除
 
-## 社区与支持
-- **GitHub 仓库**: [FlyEnv GitHub](https://github.com/xpf0000/FlyEnv)
-- **问题反馈**: [GitHub Issues](https://github.com/xpf0000/FlyEnv/issues)
-- **官方社区**: [Discord Community](https://discord.gg/u5SuMGxjPE) [GitHub Discussions](https://github.com/xpf0000/FlyEnv/discussions)
+### "端口已被占用" 错误
 
-通过以上步骤，你可以快速上手 FlyEnv，并根据需求灵活配置开发环境。
+**原因**：其他应用程序正在使用 80、443 或 3306 端口
+
+**解决方案**：
+```bash
+# 查找使用 80 端口的进程
+sudo lsof -i :80
+
+# 或在设置中更改 FlyEnv 端口
+```
+
+### macOS 上出现 "权限被拒绝"
+
+**解决方案**：在系统偏好设置 -> 安全性与隐私中，授予 FlyEnv 完全磁盘访问权限
+
+### 站点显示 "502 Bad Gateway"
+
+**原因**：
+1. PHP-FPM 未运行
+2. 为站点选择了错误的 PHP 版本
+3. Nginx/Apache 配置不正确
+
+**解决方案**：检查 PHP-FPM 是否已启动，并查看日志中的错误。
+
+### 更改未生效
+
+**解决方案**：
+1. 清除浏览器缓存
+2. 重启 Web 服务器
+3. 检查文件权限
+
+## 常见问题 (FAQ)
+
+**Q：使用 FlyEnv 需要了解命令行吗？**
+
+A：不需要。虽然提供终端访问，但所有操作都可以通过 GUI 完成。
+
+**Q：我可以使用现有的 Homebrew 安装吗？**
+
+A：可以。FlyEnv 会自动检测 Homebrew 和 MacPorts 安装。
+
+**Q：如何备份我的站点？**
+
+A：你的项目文件在你选择的目录中。数据库导出可以通过 MySQL 模块完成。
+
+**Q：我可以导入现有项目吗？**
+
+A：当然可以。只需将 Host 根目录路径指向你现有的项目文件夹。
+
+**Q：我可以使用哪些域名？**
+
+A：任何以 .test、.local、.dev 结尾的域名或自定义 TLD。在某些网络上避免使用 .local，因为可能存在 mDNS 冲突。
+
+## 下一步
+
+现在你已经运行起来了，探索这些功能：
+
+- [项目级版本隔离](/guide/project-level-runtime-environment) — 自动版本切换
+- [自定义域名和 SSL](/guide/host) — 专业本地开发
+- [构建本地 AI 代理](/guide/build-local-offline-ai-agent) — 使用 Ollama 的离线 AI
+
+如果还没有 [下载 FlyEnv](/download)，祝你编码愉快！
