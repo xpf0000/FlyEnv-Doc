@@ -242,6 +242,6 @@ A：可以。FlyEnv 中的项目配置不会干扰队友使用其他工具。
 
 收回在 Node 和 PHP 版本之间切换所花费的时间。让你的环境适应你的工作，而不是相反。
 
-[免费下载 FlyEnv](/download) — 适用于 macOS、Windows 和 Linux
+[免费下载 FlyEnv](/zh/download) — 适用于 macOS、Windows 和 Linux
 
-了解更多关于[项目级环境隔离](/guide/project-level-runtime-environment)的内容，或直接跳入[快速入门指南](/guide/getting-started)。
+了解更多关于[项目级环境隔离](/zh/guide/project-level-runtime-environment)的内容，或直接跳入[快速入门指南](/zh/guide/getting-started)。

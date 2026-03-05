@@ -227,6 +227,6 @@ A：可以。Mailpit 处理高流量的能力比 Mailhog 强得多。
 
 不要再与遗弃的软件作斗争了。FlyEnv 中的 Mailpit 为你提供现代化、可靠的邮件测试，开箱即用。
 
-[下载 FlyEnv](/download) 开始使用内置的 Mailpit 支持。
+[下载 FlyEnv](/zh/download) 开始使用内置的 Mailpit 支持。
 
-在我们的 [AI 与生产力工具](/guide/build-local-offline-ai-agent) 部分探索更多开发工具。
+在我们的 [AI 与生产力工具](/zh/guide/build-local-offline-ai-agent) 部分探索更多开发工具。

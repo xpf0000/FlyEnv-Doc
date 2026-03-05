@@ -313,6 +313,6 @@ A: 是的。Tunnel 通过 FlyEnv 的 Cloudflare Tunnel 模块运行。关闭 Fly
 
 停止为基本 tunneling 功能付费。Cloudflare Tunnel 与 FlyEnv 集成，为您提供企业级网络，一键即可使用。
 
-[下载 FlyEnv](/download) 开始使用内置的 Cloudflare Tunnel 支持。
+[下载 FlyEnv](/zh/download) 开始使用内置的 Cloudflare Tunnel 支持。
 
-想要探索更多网络功能？查看我们的指南 [反向代理设置](/guide/reverse-proxy-nestjs-multi-servers) 或 [自定义域名和自动 SSL](/guide/host)。
+想要探索更多网络功能？查看我们的指南 [反向代理设置](/zh/guide/reverse-proxy-nestjs-multi-servers) 或 [自定义域名和自动 SSL](/zh/guide/host)。

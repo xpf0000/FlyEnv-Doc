@@ -151,6 +151,6 @@ A: FlyEnv 的版本管理更加直观。不需要使用 `nvm use 18`，只需 `c
 
 加入成千上万已经回收内存并简化工作流程的开发者行列。
 
-[免费下载 FlyEnv](/download) — 适用于 macOS、Windows 和 Linux
+[免费下载 FlyEnv](/zh/download) — 适用于 macOS、Windows 和 Linux
 
-想看到 FlyEnv 的实际效果吗？查看我们的[快速入门指南](/guide/getting-started)，在 5 分钟内运行您的第一个项目。
+想看到 FlyEnv 的实际效果吗？查看我们的[快速入门指南](/zh/guide/getting-started)，在 5 分钟内运行您的第一个项目。

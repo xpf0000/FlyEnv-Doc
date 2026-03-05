@@ -559,6 +559,6 @@ A: 增加 Nginx 中的 `client_max_body_size` 或 Apache 中的 `LimitRequestBod
 | **学习曲线** | 中等 | 中等 | 低 |
 | **PHP 集成** | FastCGI | mod_php | FastCGI |
 
-准备好设置你的第一个反向代理了吗？从 [FlyEnv 的 Host 配置](/guide/host) 开始创建你的站点，然后应用上述配置。
+准备好设置你的第一个反向代理了吗？从 [FlyEnv 的 Host 配置](/zh/guide/host) 开始创建你的站点，然后应用上述配置。
 
-需要将你的本地开发环境暴露到互联网？查看我们的 [Cloudflare Tunnel 指南](/guide/cloudflare-tunnel-local-development) 获取安全的公共 URL。
+需要将你的本地开发环境暴露到互联网？查看我们的 [Cloudflare Tunnel 指南](/zh/guide/cloudflare-tunnel-local-development) 获取安全的公共 URL。

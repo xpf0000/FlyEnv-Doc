@@ -308,9 +308,9 @@ A: 极少。CPU 推理使用约 10-30W。GPU 推理仅在活跃使用时使用 5
 
 掌控你的开发数据。在几分钟内设置你的离线 AI 助手。
 
-[下载 FlyEnv](/download) 内置 Ollama 支持
+[下载 FlyEnv](/zh/download) 内置 Ollama 支持
 
 探索更多生产力工具：
-- [PHP 代码混淆](/guide/php-code-obfuscation) — 保护你的代码
-- [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development) — 安全分享
-- [项目版本管理](/guide/manage-multiple-node-php-versions) — 简化工作流
+- [PHP 代码混淆](/zh/guide/php-code-obfuscation) — 保护你的代码
+- [Cloudflare Tunnel](/zh/guide/cloudflare-tunnel-local-development) — 安全分享
+- [项目版本管理](/zh/guide/manage-multiple-node-php-versions) — 简化工作流

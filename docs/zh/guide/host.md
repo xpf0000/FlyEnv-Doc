@@ -342,7 +342,7 @@ A：可以，但不推荐。这会阻止访问真实站点。改用 .test。
 
 **Q：这些 SSL 证书对其他人有效吗？**
 
-A：无效。本地证书只在你机器上被信任。要分享，请使用 [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development)。
+A：无效。本地证书只在你机器上被信任。要分享，请使用 [Cloudflare Tunnel](/zh/guide/cloudflare-tunnel-local-development)。
 
 **Q：我可以创建多少个站点？**
 
@@ -376,8 +376,8 @@ A：FlyEnv 支持 IPv4（127.0.0.1）和 IPv6（::1）本地主机。
 
 现在你已经设置了专业的本地托管环境：
 
-- [Node.js 反向代理](/guide/reverse-proxy-nestjs-multi-servers) — 使用干净 URL 托管 Node 应用
-- [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development) — 安全分享站点
-- [使用 Mailpit 测试邮件](/guide/local-email-testing-mailpit) — 完整的开发环境
+- [Node.js 反向代理](/zh/guide/reverse-proxy-nestjs-multi-servers) — 使用干净 URL 托管 Node 应用
+- [Cloudflare Tunnel](/zh/guide/cloudflare-tunnel-local-development) — 安全分享站点
+- [使用 Mailpit 测试邮件](/zh/guide/local-email-testing-mailpit) — 完整的开发环境
 
-立即[下载 FlyEnv](/download)开始使用自定义域名。
+立即[下载 FlyEnv](/zh/download)开始使用自定义域名。

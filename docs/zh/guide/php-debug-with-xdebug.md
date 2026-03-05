@@ -435,9 +435,9 @@ Xdebug + FlyEnv 为您提供专业的 PHP 调试体验：
 
 不再猜测代码的执行情况。开始直观地查看它。
 
-[下载 FlyEnv](/download) —— 适用于 macOS、Windows 和 Linux
+[下载 FlyEnv](/zh/download) —— 适用于 macOS、Windows 和 Linux
 
 相关指南：
-- [使用 FlyEnv 运行 Laravel](/guide/run-laravel-use-flyenv) —— Laravel 特定设置
-- [项目级版本隔离](/guide/project-level-runtime-environment) —— 管理多个 PHP 版本
-- [PHP 扩展安装](/guide/php-extensions-install) —— 其他有用的扩展
+- [使用 FlyEnv 运行 Laravel](/zh/guide/run-laravel-use-flyenv) —— Laravel 特定设置
+- [项目级版本隔离](/zh/guide/project-level-runtime-environment) —— 管理多个 PHP 版本
+- [PHP 扩展安装](/zh/guide/php-extensions-install) —— 其他有用的扩展

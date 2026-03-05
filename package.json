@@ -17,8 +17,7 @@
     "docs:zh:preview": "vitepress preview docsZH"
   },
   "dependencies": {
-    "@number-flow/vue": "^0.2.7",
-    "axios": "^1.7.7",
+    "axios": "^1.13.6",
     "svg-inline-loader": "^0.8.2"
   },
   "devDependencies": {

@@ -411,9 +411,9 @@ FlyEnv 的 Podman 模块架起了原生开发与容器化之间的桥梁：
 
 准备好减少 Docker Desktop 的资源占用了吗？立即尝试 FlyEnv 中的 Podman。
 
-[下载 FlyEnv](/download) — 适用于 macOS、Windows 和 Linux
+[下载 FlyEnv](/zh/download) — 适用于 macOS、Windows 和 Linux
 
 探索更多功能：
-- [自定义域名和 SSL](/guide/host) — 专业的本地开发
-- [反向代理设置](/guide/reverse-proxy-nestjs-multi-servers) — 将容器连接到 Web 服务器
-- [FlyEnv vs Docker](/guide/flyenv-vs-docker-xampp) — 完整对比
+- [自定义域名和 SSL](/zh/guide/host) — 专业的本地开发
+- [反向代理设置](/zh/guide/reverse-proxy-nestjs-multi-servers) — 将容器连接到 Web 服务器
+- [FlyEnv vs Docker](/zh/guide/flyenv-vs-docker-xampp) — 完整对比

@@ -288,4 +288,4 @@ location /uploads/ {
 
 所有方法都需要首先更新 PHP-FPM 的 `security.limit_extensions`。
 
-需要其他服务器配置的帮助？查看我们的 [反向代理设置指南](/guide/reverse-proxy-nestjs-multi-servers) 或 [自定义域名文档](/guide/host)。
+需要其他服务器配置的帮助？查看我们的 [反向代理设置指南](/zh/guide/reverse-proxy-nestjs-multi-servers) 或 [自定义域名文档](/zh/guide/host)。
