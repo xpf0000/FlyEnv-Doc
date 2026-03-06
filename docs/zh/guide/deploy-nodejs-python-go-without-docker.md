@@ -177,6 +177,12 @@ go run main.go
 3. **环境变量**：在 shell 配置文件中设置环境变量或使用 FlyEnv 的环境管理功能
 4. **项目隔离**：为不同的技术栈创建单独的模块分类
 
+## 视频教程
+
+更喜欢观看？看看 手把手教你将 Node/Python/Go 项目转化为原生服务 实际演示：
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?isOutside=true&aid=116182287911765&bvid=BV14eP4zUErm&cid=36502245064&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## 常见问题解答（FAQ）
 
 **Q: 这比 Docker 占用更少的内存吗？**

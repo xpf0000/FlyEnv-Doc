@@ -177,6 +177,12 @@ Need to share your localhost with a colleague or client? FlyEnv integrates with 
 3. **Environment variables**: Set env vars in your shell profile or use FlyEnv's environment management
 4. **Project isolation**: Create separate module categories for different tech stacks
 
+## Video Walkthrough
+
+Prefer watching? See Ditch Docker for Local Dev, Run Node, Python & Go as Native Services use FlyEnv in action:
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/SHK12kXApTM?si=YlgoKQQeXw86cCYN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Frequently Asked Questions (FAQ)
 
 **Q: Does this use less RAM than Docker?**
