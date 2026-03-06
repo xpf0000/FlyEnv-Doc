@@ -125,6 +125,7 @@ export default defineConfigWithTheme({
                 { text: 'Custom Domains & Auto SSL', link: '/guide/host' }, // 原来的 host，改名增加吸引力
                 { text: 'Parse HTML as PHP (Nginx/Apache/Caddy)', link: '/guide/parse-html-as-php-multi-servers' }, // 合并原有3个文件
                 { text: 'Reverse Proxy Setup (NestJS/Node.js)', link: '/guide/reverse-proxy-nestjs-multi-servers' }, // 合并原有3个文件
+                { text: 'Deploy Node/Python/Go Without Docker', link: '/guide/deploy-nodejs-python-go-without-docker' },
                 { text: 'Network & Proxy Settings', link: '/guide/use-proxy' },
                 { text: 'User Customizable Modules', link: '/guide/user-customizable-modules' },
                 { text: 'Podman Module User Guide', link: '/guide/podman-module' },
@@ -206,6 +207,7 @@ export default defineConfigWithTheme({
                 { text: '自定义域名与自动SSL', link: '/zh/guide/host' },
                 { text: '解析HTML为PHP', link: '/zh/guide/parse-html-as-php-multi-servers' },
                 { text: '反向代理设置', link: '/zh/guide/reverse-proxy-nestjs-multi-servers' },
+                { text: '无需Docker部署Node/Python/Go', link: '/zh/guide/deploy-nodejs-python-go-without-docker' },
                 { text: '网络与代理设置', link: '/zh/guide/use-proxy' },
                 { text: '自定义模块', link: '/zh/guide/user-customizable-modules' },
                 { text: 'Podman模块', link: '/zh/guide/podman-module' },

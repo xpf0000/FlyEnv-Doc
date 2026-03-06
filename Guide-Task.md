@@ -56,77 +56,10 @@ head:
 
 ## 5. 执行指令 (Execution Command)
 
-Guide目录。 link对应 docs/guide 文件夹下的xxx.md文件
+待处理：
+重写：
+md/FlyEnv部署任意项目使用指南.md
 
-```javascript
-{
-  '/guide/': [
-    {
-      text: 'Getting Started',
-      items: [
-        { text: 'What is FlyEnv?', link: '/guide/what-is-flyenv' },
-        // 新增：专门吃“对比类”长尾搜索词，提升转化率
-        { text: 'FlyEnv vs Docker & XAMPP', link: '/guide/flyenv-vs-docker-xampp' },
-        { text: 'Quick Start Guide', link: '/guide/getting-started' },
-        { text: 'About FlyEnv Helper', link: '/guide/about-flyenv-helper' },
-        { text: 'License & Support', link: '/guide/about-license' },
-      ],
-      collapsed: false
-    },
-    {
-      text: 'Core Environment Setup',
-      // SEO意图：覆盖语言安装、多版本管理、扩展配置等高频基础需求
-      items: [
-        { text: 'Project-Level Version Isolation', link: '/guide/project-level-runtime-environment' },
-        { text: 'Manage Node.js & PHP Versions', link: '/guide/manage-multiple-node-php-versions' }, // 新增：截留搜 NVM / PHP Monitor 的流量
-        { text: 'System Path Management', link: '/guide/setup-system-path-environment' },
-        { text: 'Set Up Java Environment', link: '/guide/set-up-java-development-environment' },
-        { text: 'Install PHP Extensions', link: '/guide/php-extensions-install' },
-        { text: 'Database & Security Settings', link: '/guide/database-user-password' },
-      ],
-      collapsed: false
-    },
-    {
-      text: 'AI & Pro Productivity Tools',
-      // SEO意图：最高优的引流板块，直接把GSC里跑出来的词前置
-      items: [
-        { text: 'Build Local Offline AI Agent', link: '/guide/build-local-offline-ai-agent' },
-        { text: 'PHP Code Obfuscation Tool', link: '/guide/php-code-obfuscation' },
-        // 新增：利用你刚集成的 Cloudflare 功能，截取 ngrok alternative 流量
-        { text: 'Expose Localhost with Cloudflare Tunnel', link: '/guide/cloudflare-tunnel-local-development' },
-        // 新增：截取 mailhog alternative 流量
-        { text: 'Local Email Testing (Mailpit)', link: '/guide/local-email-testing-mailpit' },
-        { text: 'Code Playground & Library', link: '/guide/code-playground-and-code-library' },
-      ],
-      collapsed: false
-    },
-    {
-      text: 'Web Server & Reverse Proxy',
-      // SEO意图：把原来分散的 Apache/Nginx/Caddy 合并，提升单页面权重
-      items: [
-        { text: 'Custom Domains & Auto SSL', link: '/guide/host' }, // 原来的 host，改名增加吸引力
-        { text: 'Parse HTML as PHP (Nginx/Apache/Caddy)', link: '/guide/parse-html-as-php-multi-servers' }, // 合并原有3个文件
-        { text: 'Reverse Proxy Setup (NestJS/Node.js)', link: '/guide/reverse-proxy-nestjs-multi-servers' }, // 合并原有3个文件
-        { text: 'Network & Proxy Settings', link: '/guide/use-proxy' },
-        { text: 'User Customizable Modules', link: '/guide/user-customizable-modules' },
-        { text: 'Podman Module User Guide', link: '/guide/podman-module' },
-      ],
-      collapsed: true // 进阶配置可以默认折叠
-    },
-    {
-      text: 'Troubleshooting & Optimization',
-      // SEO意图：解答长尾报错词，增加在 Google 上的精选摘要曝光
-      items: [
-        { text: 'Windows Site Performance Tuning', link: '/guide/windows-site-performance-optimization' },
-        { text: 'Run Laravel on FlyEnv', link: '/guide/run-laravel-use-flyenv' },
-        { text: 'PHP Debugging with Xdebug', link: '/guide/php-debug-with-xdebug' }, // 移到排障这里更合理
-        { text: 'Fix Common PHP Issues (icu4c)', link: '/guide/php-icu4c-issues' },
-        { text: 'Dynamically Load I18n Packs', link: '/guide/dynamically-load-I18n-language-packs' },
-      ],
-      collapsed: true
-    }
-  ]
-}
-```
-
-严格按照上述要求，重写或添加Guide目录里的文章。内容需要界面截图的地方，先使用图片占位，后续我再手动添加图片。
+严格按照上述要求，以待处理中包含的文件为输入源，重写或添加指南。
+内容需要界面截图的地方，先使用图片占位，后续我再手动添加图片。
+重写或添加的文章，不在docs/.vitepress/config.mts配置文件中的，需要添加进去。
