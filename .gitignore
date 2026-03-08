@@ -41,3 +41,4 @@ package.lock.json
 /docsZH/.vitepress/dist/*
 /out
 .env
+/md
