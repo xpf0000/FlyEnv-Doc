@@ -1,0 +1,860 @@
+无法安装php7.4啊不显示这个版本
+windows版本的PHP，增加下pecl，phpize吧
+希望增加 Golang，谢谢
+添加不了环境变量，一直在转圈圈，php,redis,nginx几乎都试过了。我甚至还重装了系统，macOS14.7和macOS15.0.1都试过了，都不行，软件4.4和4.3也都试过了，搞的我很郁闷，有什么解决办法吧，添加到环境变量。
+windows 4.3.5版本设置通用中没有选择国内镜像加速的选项
+升级最新后，配置站点保存，老的配置就不显示了
+更新完4.5.1之后homebrew刷不出来版本了
+macM3不支持ipv6的时候，hosts每次变动都会自动增加ipv6解析，导致网站无法正常访问，建议可以增加开关
+[proxy_fcgi:error] [pid 6920] [client 127.0.0.1:52872] AH01071: Got error 'Primary script unknown'
+Mac 12.6 4.5.5版本Redis启动失败
+希望可以卸载某些默认安装的版本，比如Apache
+希望不要自动安装默认版本的软件，让用户选择自己安装
+Can you add support for an NGINX equivalent in the form of Angie? https://angie.software/angie/
+PHP的扩展库，没有zip扩展
+windows平台有一款比较小巧高效的mysql(mariadb)工具~HeidiSQL
+您好，非常感谢，这个工具很好用。不过，更新到最新版本后，有三个站点限制了，那么如何获取许可证呢？如果是捐赠项目的话，需要捐赠多少？官方站点上的微信扫码如何与我用的工具建立关联呢？
+Mac12.6 phpwebstudy最新版本 没有任何改动NG启动报error
+你好，我捐赠后，今天突然许可证不可用了，点击请求许可证和刷新状态都无效
+许可证通过一下：uuid:ddc174a88103b442b61d727c9c5a2e4b，用户：提拉米苏，捐赠：5元
+想问一下开发者  ，如何我在windows电脑上 ，赞助激活许可后  ， 在我的另一台mac上可以如何激活
+建议rabbitmq配置里默认开启 管理插件和vhost可以web管理起来
+开发者您好，我是一名从事PHP开发的工程师，从window切换到Mac的时候，了解了咱这款软件，使用过程感觉很棒，省去了大量安装时间。最近因为项目更新切换到了JAVA开发，看到咱这款软件上也有JAVA的相关环境设置，非常nice。有几点建议忘采纳：1.是否考虑将像是elasticsearchd这样的集成进来；2.我个人感觉咱这个名称可以换一换，因为不仅限于PHP了；3.如1所说，如果不可以，是否考虑可以用户自行配置某些环境；4.像是PHP这种limit配置，是否可以可视化简化部分操作，（ps. 这个是一个刚入门的同事提的需求，对配置了解不是很熟悉）。☺️
+Hello and thank you for your product! This is a good solution for development. Let me suggest a new tool - jpeg/png to webp converter.
+Thanks again and good luck to you!
+Hello,
+
+Wanted to say Thank you for all your hard work by contributing a perfect Arabic Translation.
+
+https://github.com/xpf0000/FlyEnv/pull/192
+Very appreciated. ❤️
+启动mysql一直提示：FlyEnv需要安装帮助程序
+更新后，之前创建的站点都没有了
+Loving it so far as I try to see if it's a perfect alternative to Laragon.
+
+Good work. You've truly built something amazing.
+Though, I would suggest looking at the RAM usage, it's a tidbit high as compared to laragon. 
+
+However, the UI is 100% better than any other server out there.
+NIce work
+Just a note to say congratulations on a really good piece of software, seriously good! I've tried several other tools and yours beats them all hhands down. Awesome work, thanks so much! Tony Coyle
+更新太慢了，建议放在百度网盘，谢谢
+更新后，添加的站点丢失了～～
+捐助了可以继续添加站点,但是过一段时间又不能添加,刷新状态还是不能解决,请更新一些这个刷新,可以检测是否可以继续添加吧
+您好，试用了一下，发现如下问题：
+1、windows server2022 右下角图标没有反应
+2、windows server2022 PHP多版本无效
+php扩展怎么卸载？
+windows 环境下装的软件启动报错，只有go环境安装成功了，mysql , nginx,PostgreSQ安装了都启动不了
+哈喽 请问下 许可证一般审核多久呢
+是否能实现单个项目访问方式可灵活配置，比如*.ai.com,*可以自由输入
+FlyEnv
+Version 4.8.5
+windows下配置php扩展在php.ini不会自动添加后缀名.dll，造成扩展加载失败
+许可证如何换到其他机器上，没法跟用户名绑定吗？你这个有点不happy
+winserver2005右键无法退出，只能通过进程来关闭自动更新也无法进行
+Hello
+Although I have set the FlyEnv to run when Windows boots and it is also displayed and active in Windows startup, this does not happen and when I turn on or restart the system, the FlyEnv does not run. The FlyEnv version is 4.9.2. Do I need to do anything else besides the settings?
+检查更新之后下载安装包从来就没有成功过。没有一次成功的，每次都会检查出有新版本，但是从来就没有下载成功过。
+这个软件太牛逼了，能否添加支持redis 5.* 版本呢 QAQ
+关于群组启动的功能的logo标识.总是让我难以理解。还不如像加入环境变量一样。弄个绿色对号。已经加入环境变量就是绿色对号。没加入就没有对号。已加入群组启动。就弄个绿色对号。没加入就没有绿色对号。而现在情况是放了个开关标识。说实话我绕了很久才搞清楚。要不然就用拨动式开关，拨到一边彩色显示 ，拨到另一边灰白显示。它一直在，只有彩色和灰白两种状态。现在的有N种状态显示：指向时为金色，关闭时为深灰，加入群组时为什么都不显示.当然。现在我已经搞明白了。不过作为用户我更期待它简洁明了
+Apache2.4 always error if running in the new version flyenv for windows
+Apache2.4 always error if running in the new version flyenv for windows
+
+some feaute redis ,php,webserver cant set ADD TO PATH
+不知道是不是系统升级的原因还是什么,我现在版本Sequoia 15.4.1,创建站点选择ssl的时候,只生成了.ext文件,还缺其他3个文件导致nginx启动失败
+你好,我现在遇到一个内网穿透的服务,在使用该产品时候遇到了一些问题,在站点那边只能生成 php,java,go....等一些列的配置内容,这很不错,但是我这边仅仅只是需要一个反向代理,需要配置任何服务,当然也能到目录内自己去做一个反向代理的配置文件即可,但若是图形化界面里面能添加一个选项就很好了,希望这个需求能被采纳
+Dear Flyenv Support Team,
+
+I hope this message finds you well.
+
+I am currently using my licensed Flyenv product on my work computer. However, I would like to transfer the license to my personal computer instead.
+
+Could you please guide me on the steps I need to follow in order to deactivate the license on my current device and activate it on a new one?
+
+Thank you in advance for your assistance.
+MacOS环境下的python项目操作菜单【进入终端】是否可以切换iTerm，不是默认终端。
+请问如何指定参数编译nginx,需要指定ssl的版本1.1
+请问如何指定参数编译nginx,需要指定ssl的版本1.1
+啥时候可以出一个修改数据库密码的功能啊
+Hi, now it is possible to press Ctrl+R or Ctrl+Shift+R on Windows which produce a refresh and that causes a blank screen. That should be fixed :)
+Hi,
+
+My name is Ilija Stanek one of sponsor :) 
+I did not wanna to open Github ticket but in 4.9.8 win Kaspersky alerting 
+PDM:Trojan.Win32.Generic to PhpWebStudy.exe
+
+Interesting i can run app everything is fine but once run servers (apache, mysql and php) Kaspersky start alerting and delete files.
+
+For the 4.9.6 flag not-a-virus:PDM:RiskTool.Win32.Qhost.ra to PhpWebStudy.exe
+
+Thank you for your great work :)
+我在本地windows10环境中安装了flvenv，启动ftp服务后，用浏览器访问服务器，却提示空白，无法访问ftp服务器上的文件呢？这些异常问题细节要在那里获取帮助呢？谢谢
+pls help , its to difficult to change port for the service like mysql, apache etc , can u make menu or tools or button or anything can easily change the port , thanks ilove flyenv
+请问安装php是默认安装线程安全的吗，nts版本要手动安装？
+如何安装swooleloader扩展呢
+使用navicat连接mysql要好长时间，如果是本地安装都是瞬间连接的，可以优化一下吗
+mac版本下，安装PHP的静态版本，此时如果不是内置的扩展无法安装，同时并没有其它方式安装，比如PECL，文档里提示可以使用bin/pecl，但实际上bin下面除了php执行文件，没有其它文件，我演讲自己加了一个pecl,但安装时又会提示没有phpize，我从官方安装了phpize，又提示没有build环境，所以还是缺少一整套的工具
+Hello, it is possible to add or configure startup option with only load program to windows tray without show window on screen?
+更新4.9.12版本后NodeJs模块一直加载不出，已经使用过代理和vpn，均加载不出来
+能否新增一个重置设置的功能，有部分模块在软件升级后无法正常打开
+peifeng i cry tears of joy everyday because of this wonderful product you have released, xiexie wo ai ni baobao
+I love the dedication and passion you have put in, Pengfei. I offer my most sincerest gratitude and wish you the best in anything you might seek
+右上角,总开关开/关时,最好不要将所有模块一起开/关,如果能将模块独立,或禁止跟踪总开关.比喻redis运行后,是长链接的,如果重启总开关,redis就会断开.影响其它业务进程
+I have a problem after the license is active. When I "add hosts" the loading is endless and my new host is not saved.
+I have a problem after the license is active. When I "add hosts" the loading is endless and my new host is not saved.
+系统重装后导致许可证失效 需要从新赞助吗
+FlyEnv开发者，你们好！非常感谢你们提供这么一款工具，非常便利我新机快速部署基础开发环境接续手头工作。现在我遇到一个这么一个情况，在flyenv中安装的mysql8.0.35、mysql8.0.36启动比较慢，用数据库连接测试工具发现连接延迟300ms居高不下，这比较影响我本地开发调试一些要求高的质量级接口，希望你们协助看看是我本地电脑的问题还是flyenv本身在启动mysql时存在某些bug？
+希望支持自定义脚本命令，配置成服务，跟数据库、redis等服务一起开机启动
+I have donated and updated the license today.  When I add the 4th host and pressed save button.  It keeping saving the settings without success.  I am running FlyEnv 4.9.12 on Windows 11 Pro. I have restarted FlyEnv and end all FlyEnv tasks and still got the same problem.  Please help to trouble shoot my case.  Thanks!
+我捐赠了，但是还是获取不到许可，辛苦授权下啦
+可以考虑加入ClickHouse。
+hi，考虑替换或引入其它图标库嘛？例如清理日志的图标现在是Notebook。如果你同意且指定引入一个图标库，我可以进行帮忙修改提交
+https://Ko-fi.com/home/coffeeshop?txid=c10b3c3c-9f3c-40ea-9019-6fe38e363667&mode=public&img=ogbuymeacoffee
+
+hai, why my devices not activate
+Radis 安装不了。
+MySQL 设置帐号密码，及远程访问。
+开发者你好，打扰你一下，就是等了好几天请求许可证，都没刷新，
+捐赠
+微信订单号：10001073012025061701433012750564
+这软件真的NB！！！
+推荐数据库工具 tableplus [https://tableplus.com/], 
+另外建议数据库服务方面安装完成后, 希望有可设置密码或修改密码的可视化操作
+M2 Sequoia15.5 Silicon chip Arm64 "FlyEnv needs to install a helper program"
+FlyEnv-4.9.12-arm64.dmg
+
+After .dmg installation selecting any option i.e Apache , enter password ->> red error msg "FlyEnv needs to install a helper program"
+开发者你好，打扰你一下，就是等了好几天请求许可证，都没刷新，
+捐赠
+微信订单号：10001073012025061701433012750564
+建议加入ClickHouse
+模块新增没用啊，新增了也不显示呢
+啥时候集成 nacos 呐
+可以增加 Nacos
+https://nacos.io
+每次更新给个日志呗，都看不到你更新的啥
+I'm running the FlyEnv in Windows 11 Pro 24H2 both in my office and at my home. While at home, when I right click the FlyEnv icon, there will be a window showing the app running status, but in the office, nothing is shown, but an icon is shown in the taskbar, and when I move the mouse over the icon or right/left click the icon, nothing appears and the icon then disappears.
+当前使用的是4.10.3版本，在Ollama的模型列表中，永远都是空的，是不是https://ollama.com/search的数据接口有变化还是怎么了，麻烦看一下，谢谢。
+cd "/Users/zhaojunlin/Library/PhpWebStudy/server/cache" && ./IUZSIoWv6IQFY7DdVJ2cIDmsPaKuzCsB.sh && wait && exit 0
+zhaojunlin@zhaojunlindeMac-mini / % cd "/Users/zhaojunlin/Library/PhpWebStudy/server/cache" && ./I
+UZSIoWv6IQFY7DdVJ2cIDmsPaKuzCsB.sh && wait && exit 0
+./IUZSIoWv6IQFY7DdVJ2cIDmsPaKuzCsB.sh: line 2: ./brew-install.sh: Permission denied
+Task-AvAoq6XiBRaAHyBRyqyDl0JtjMPYmOwi-END
+没有权限
+
+Hi,
+
+I have recently sponsored the project but I am switching to a new mac now. How do I change?
+我是中国的用户，每次下载都很慢，虽然是从github下载，但是我开了加速器，依旧很慢
+因为老项目的原因需要安装 PHP7.3但安装出现错误 Error: openssl@1.1 has been disabled because it is not supported upstream!,我的 mac m1 pro / mac os 13.7
+How does the licensing system work? Will I need to get a new license after formatting my computer?
+更新4.10.3后，开机自启和启动隐藏界面都是“打开”状态的，但是有时没见自启，成功自启的无法自动隐藏界面。
+4.10.4 好卡啊。mac mini M4 Pro  15.5版本
+安装的PHP版本为精简版，在软件不支持点选安装的扩展，需要自行编译安装时比较麻烦；比如：pecl、phpize、php-config等
+希望工具箱中加一个md转html的功能，方便有的时候写文档的时候，没有对照的格式
+pagina nao mostra o download e site so um
+4.10.3的时候，WINDOWS托盘图标右键菜单无法显示，4.10.4终于可以正常打开了，现在4.10.5又不行了，怎么更新一次就变动一次啊.
+4.10.3的时候，WINDOWS托盘图标右键菜单无法显示，4.10.4终于可以正常打开了，现在4.10.5又不行了，怎么更新一次就变动一次啊.
+
+补充：刚才返回到设置界面，看到一个经典和现代的菜单选择，选择经典就可以打开了。
+4.10.3版本创建站点后  hosts不会自动写入，需要手动在hosts中写入站点域名
+我的许可证请求许可好多天了，没有通过，我想知道是什么情况，麻烦了
+作者您好，很喜欢 FlyEnv , 工具箱是否可以添加一个星标功能的栏目，这样可以快捷找到常用的工具，现在的方式感觉比较麻烦
+刚发现，已经有收藏功能了 🐂🍺
+已经赞助了，为什么迟迟没有开通许可？
+你好，我想咨询一下，电脑重装之后，许可证要怎么处理呢？重新赞助获取吗？
+Hi,
+
+I have to reinstall my computer and i lost activation. Can you reactivate please ?
+
+Have a good day, Lionel
+test project test
+Hi Team FlyEnv
+Greetings for the Day!
+I previously used XAMPP and Laragon then i got to know FlyEnv which is grate for every developer.
+But the issue is here while i using FlyEnv it's ~30 sec to load the page even phpMyAdmin also same. But if i use the XAMPP or Laragon then it's taking ~1 sec to load.
+I tried multiple solutions like php memory limits and time but same result still.
+This the major issue kindly solve the issue as soon as possible it will help other developer to adopt FlyEnv if there are no compromise in latency.
+
+Thank You
+Hello,
+Just wonder if there's a way to avoid or ignore hidden folders or files when enabling the subfolders to populate as websites? Image attached:
+https://utfs.io/f/YiBQmPRcglVvvdSjy7LoLwJUuA917NtFPWVGOjfEY5So6phX
+PosgreSQL Click Stop Button and not stopped PosgreSQL .
+PosgreSQL not stopped
+
+Best Regards
+Adem Celik
+你好，我这里有几个建议希望采纳：
+1、中国区用户使用flyenv有点不方便，下载很慢，希望有中国镜像能快速的下载需要的环境
+2、左侧开关点击后，没有任何提示，希望开关点击后有点动态效果，比如图标换成loading，或者显示启动中的提示
+3、有时候同一个环境有多种版本，只需要启动一个版本，希望可以控制，目前是所有的都启动，比如php8，php7，只想启动php8，但是现在点击左侧菜单中的开关两个会一起启动
+
+你好，我这里有几个建议希望采纳：
+1、中国区用户使用flyenv有点不方便，下载很慢，希望有中国镜像能快速的下载需要的环境
+2、左侧开关点击后，没有任何提示，希望开关点击后有点动态效果，比如图标换成loading，或者显示启动中的提示
+3、有时候同一个环境有多种版本，只需要启动一个版本，希望可以控制，目前是所有的都启动，比如php8，php7，只想启动php8，但是现在点击左侧菜单中的开关两个会一起启动
+
+UID：f982a45a6b801fa3b5829db2953bec25e82e897b842c386f9f57833244dd5efb
+10001073012025082801276020035558
+
+这是我的订单号
+
+刷新了不起效
+添加julia语言
+更新版本之前，安装的mysql可以启动，更新版本之前，之前的安装的mysql配置加载不了
+Dear Support Team
+
+I would like to kindly request the transfer of my current license.
+Please deactivate the license on this computer and move it to the device with the following UUID:
+
+UUID: 7d1e03885dd001364746cb3c97f22aac21bbb955723b3989a574bf4ff3fb05f7
+
+
+Thank you for your assistance.
+Best regards,
+Ahmet Erduğan
+
+
+
+站点列表中希望加入开关功能。
+Hey what happen to my activated license if i am reinstalling my OS? 
+Cheers
+捐赠了10块钱，请查看微信订单号10001073012025091300415442409183
+PHP的扩展中，缺少Swoole框架的扩展。
+参考Swoole的官网：https://swoole.com/
+为什么下个redis， 能下载一天
+nginx无法正常启动运行
+希望可以设置phpwebstudyData这个目录的位置，C盘空间有限
+创建的php站点，访问网页，一直显示404 - Not Found
+申请许可证 
+微信订单：10001073012025092401493851739511 
+联系方式 vx：bsun220
+申请许可证 
+微信订单：10001073012025092401493851739511 
+联系方式 vx：bsun220
+尊敬的FlyEnv开发者，您好！
+随着大数据实时分析需求的不断增长，Apache Doris 作为一款高性能、实时的 MPP 数据库，已在包括百度、腾讯、京东、阿里等众多知名企业中广泛应用，成为实时数仓和即席查询场景的首选方案之一。其架构简洁、查询低延迟、支持高并发等特性，深受开发者喜爱。
+为了进一步丰富 FlyEnv 的数据库生态，提升平台在大数据场景下的服务能力，诚挚建议系统增加对 Doris 数据库的原生支持。通过集成 Doris 服务，用户可一键部署、快速接入，实现与现有应用的无缝集成，显著降低运维成本，提升开发效率。期待 FlyEnv 在多元化数据库支持方面持续领先，为开发者提供更完整、更便捷的一站式环境管理体验。谢谢。
+无法取消或中断下载，例如mysql下载慢，我想取消然后手动下载，无法取消
+为什么下载不了低版本数据库比如5.6
+FlyEnv开启代理后，访问站点就502，请问这个怎么解决
+自己添加其他版本的mysql数据库无法启动，数据库版本8.0.12
+安装使用问题，win11, 第一次使用便携功能正常，然后使用安装版，安装到F盘路径flyenv下，打开安装所有的程序比如nginx  php不同版本点击安装 快速闪现1%就又跳到 显示安装，安装没反应
+东西挺不错的，建议加点swoole
+Hi, sorry for bothering you. i need the licence becaise i need to config more of 3 hosts. can you check the ko-fi tip?
+希望作者能开发一个菜单排序功能，常用功能可以排序到前面
+Hi! Greatly enjoying your meticuosly crafted and wonderfully interfaced product! I have one question and probably caught one spell mistake in the interface. 
+And the question is what is "Http Serve" under Web Server with drag-n-drop option?
+And the probable spell mistake is in the same place as my question "Http Serve", maybe [r] is missing in the end?
+Also for the future updates - would be great if there could be one button Wordpress installation with databese creation option.
+Thanks for great soft!
+https://blog.csdn.net/weixin_43880514/article/details/152003430?spm=1001.2014.3001.5502，麻烦验证一下许可证
+PS C:\Program Files\PhpWebStudy> powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "try { Unblock-File -LiteralPath 'C:\Users\ADMINI~1\AppData\Local\Temp\FMlxbEQwXeXTRuuto6I4lpHnyS31Is1n\0thSBsTZEUBH3Y2mmJZ2ezVQbjzDGedp.ps1'; & 'C:\Users\ADMINI~1\AppData\Local\Temp\FMlxbEQwXeXTRuuto6I4lpHnyS31Is1n\0thSBsTZEUBH3Y2mmJZ2ezVQbjzDGedp.ps1' } finally { Remove-Item -LiteralPath 'C:\Users\ADMINI~1\AppData\Local\Temp\FMlxbEQwXeXTRuuto6I4lpHnyS31Is1n' -Recurse -Force -ErrorAction SilentlyContinue }"
+Unblock-File : C:\Users\ADMINI~1\AppData\Local\Temp\FMlxbEQwXeXTRuuto6I4lpHnyS31Is1n\0thSBsTZEUBH3Y2mmJZ2ezVQbjzDGed
+p.ps1
+所在位置 行:1 字符: 7
++ try { Unblock-File -LiteralPath 'C:\Users\ADMINI~1\AppData\Local\Temp ...
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\ADMINI...zVQbjzDGedp.ps1:String) [Unblock-File], FileNotFou 
+尊敬的开发者团队，非常感谢你们的真诚付出，软件做得非常出色，完全满足了我的日常和工作需要，只是我在使用过程中发现了一个异常现象，我目前无法复现，也不知道如何修复，只能被迫卸载重装软件，我将阐述问题发生的原因和造成的现象，希望这能引起团队的重视。
+原因：源于一次断电，系统异常关闭。
+现象：所有常用的软件无法正常启动，例如nginx、mysql、redis，我尝试过杀死进程、重启软件、重启系统，但每次在软件中点击启动程序后，都会陷入永恒的等待，即使下载其他版本也同样无法正常启动。
+
+我认为这个问题是比较严重的，因为如果重装软件，许多配置和环境都需要重新下载配置，非常耽误时间，希望能得到开发团队的重视，并由衷祝愿软件越来越好。
+
+Hi,
+Found an issue with PHP 8.2.29 in PhpWebStudy — the Event extension conflicts with OpenCart's Event class and crashes the app.
+The extension isn't needed for most projects, so it would be great if you could either:
+
+Make it optional/removable
+Or exclude it from the default build
+
+Downgrading to PHP 7.4 fixed it for me, but it's a blocker for users wanting to use newer PHP versions.
+Thanks!
+当我在用工具下载Ollame时候，下载进度一直停留在10%，整个软件没有停止的功能和按钮，能否增加此功能，谢谢
+flyenv在中国区，各个软件下载非常慢，希望flyenv官方能够为中国区用户加速。谢谢！
+MySQL 数据库密码更改不了
+Hey, I love the project so far, I just had a problem with my computer and had to reinstall windows so everything got deleted. After reinstalling the app I cannot add more projects since it doesn't recognise me anymore. Is there a change you can do something? I'd be more then willing to donate more if I use it in another machine, but for now I lost complete access from it. 
+赞助了 什么时候给解锁创建多个项目的？
+安装nginx提示：Error: nginx: [emerg] CreateFile() "C:\Users\HIJERR~1\AppData\Local\Temp\PhpWebStudy-Data\server\nginx/conf/nginx.conf" failed (2: The system cannot find the file specified)
+
+但是在这个目录下我能看到nginx.conf，为什么还是提示找不到呢？
+rust安装版本后无法加入环境变量，无法使用
+软件挺好的就是有点小bug，安装的mysql.php路径都错了，报红了，都在一级目录下了，无法运行
+我的捐赠有收到吗，但是我看状态还没有刷新呢
+已经激活取得许可证，特此感谢。
+Thank you so much for automatically getting my license after reinstalling MacOS! Excellent software!
+什么时候可以支持信创产品啊，达梦数据库，国产中间件
+程序一直提示 需要安装帮助：
+FlyEnv需要安装帮助程序
+搜索帮助程序安装失败，请尝试在弹出的终端中手动安装
+
+然后Nginx 一直无法启动很奇怪，我都重新安装程序了也不行，然后一直提示，等他自动安装也没有反应很奇怪这个问题
+Hi i have a question is it possible to create accounts to connect license or something similar there cuz for example i am workin now on mac mini where i have license but now i have macbook air for remote work aswell and after installed flyenv 
+here uuid ofcourse is diffirent so i have no license here it would be nice if we could use it on any machine when i have it already. btw best app to develop or learn programming ever. keep doing good job.
+The Russian translation is in work at Crowdin. 
+
+Cheers
+martin 
+Hey, the stylesheet on your sponsor page is missing (404). x]
+But thanks for this super nice soft!!
+I am Head Of IT at a medium austrian business and currently moving our entire development structure out of docker into FlyEnv.
+Thanks again peeps, this is awesome!
+- Lucky  
+为什么更新之后，之前的所有站点都被清空了
+1501b463b321018c44249934632668691f2199796b6519d16fe7d958ca213574
+
+您好～辛苦开通一下权限～已捐赠
+php旧版本能不能支持下旧版本的mac 我的13.7.8 (22H730)不支持homebrew 安装
+please add firebase cli module and openlightspeed web server :)
+php的redis拓展有问题,同样的代码用了软件库的php_redis.dll会卡死,从别的地方拷贝替换掉运行正常
+$rank = $redis->zRevRange($key, 0, -1, true);
+$key = caiyuan_sect_rank_0_0_20251124
+arm64 Ubuntu 22.04.5LTS latest FlyEnv安装不了PHP8和MySQL，因为没有提供选项。我的硬件是RK3588.
+大类，我觉得网站可以支持一下网站运行or停止单独控制；然后模块可以支持一下拖动调整顺序或者是另一个方案，弄个首页快捷管理。大佬觉得如何
+  您好，mac  mini2Pro 从官网下载安装之后，找不到mysql，redis的版本，php下载进度到9%左右就停止了，nginx可以正常安装。切换不同安装源也是一样。请问是有处理方法吗？
+ 谢谢！
+工具箱这么多工具，最需要，POST工具，JS工具
+微信已捐赠 转账单号10001073012025120600709040463070
+php8.2,mysql8安装后启动不了。滑块一直是灰色，也没有报错日志。
+在安装任意内容时，一直提示“帮助程序正在安装, 请稍候”，并没有进行实际的任何安装操作。
+打开nginx报错，Error: spawn cmd.exe ENOENT
+请问一般需要捐赠多少才能获得许可？
+Donation done, enable me the license
+如果我重装系统，重装软件，还能激活许可证吗
+Hi, I'm an Indonesian user, I use flyenv for development purposes, I need to use port 80 on my device, but I also want to run apache from flyenv, is it possible to change the apache port in flyenv so that it doesn't run on port 80? How do I do that? I change it through the configuration and it always goes back to port 80
+nodejs能支持volta吗？最近使用下来，感觉很强大啊，暂时没遇到什么使用问题。
+能不能提供PHP老版本，之前安装还好，现在尤其是Mac26之后安装会碰到各种问题
+nodeJS 模块中，不能识别出我使用 nvm 安装的 node 版本，这是一个 bug 还是其他原因
+申请获取许可证，支付后一般什么时候给通过
+申请获取许可证，支付后一般什么时候给通过
+请问能不能有个开关，控制是否生成ipv6的域名。我用hbuilderx代理进行调试访问的时候，总是出错。原因是里面域名有ipv6的解析。
+帮助程序安装失败是什么原因？
+
+重装系统了 许可证还可以找回么
+Hi!
+License needed ASAP for second computer. Thanks – for the great software, too!
+UUID
+e93f4b5b896678ae39840754a1184301bc6315672bcfd27999339f5fec95ce3e
+PayPal Transaction ID
+31T69805B71287506
+Kind regards,
+Mischa
+为什么 安装window 版本的需要安装帮助啊？ 而且很慢
+podman 新增虚拟机的时候提示新增成功，但是却没有内容，日志也看不到信息
+希望后续能在podman中的compose加入nacos选项
+为什么php和nginx下载环境那么卡。都下载不成功
+Hi,
+
+I'm using FlyEnv (PhpWebStudy) on Windows 11 and I'm unable to start the Apache service.
+
+When I try to start it, I get a "ServerRoot" syntax error pointing to the config file generated in my AppData folder. It seems like the configuration defaults to C:/Apache24 instead of the actual env or app path within FlyEnv.
+
+Here is the error log:
+
+Error: httpd.exe: Syntax error on line 31 of C:/Users/Huseyin/AppData/Local/Programs/PhpWebStudy-Data/server/apache/2.4.66.conf: ServerRoot must be a valid directory
+What I have tried so far:
+
+I checked the 2.4.66.conf file and ServerRoot was set to "C:/Apache24", which does not exist on my machine.
+
+I tried manually changing the ServerRoot to point to my actual directories (I tried both the .../env/apache path and the .../app/apache-2.4.66 path).
+
+When I fix the ServerRoot path manually, I then get a new error: Cannot load modules/mod_access_compat.so.
+
+Is there a way to force FlyEnv to regenerate the config with the correct paths, or am I missing a specific setting?
+2025年10月16号捐赠过，获得了许可证，后来由于系统问题重装了系统，第二次下载安装以后显示要重新获取许可证，10001073012025101600118445396132这个是当时的捐赠订单号，微信支付
+捐赠了不给许可证嘛，是嫌少了嘛
+phpMyAdmin下载不下来
+您好，我使用4.8.5所有功能都正常。升级到4.12.0或4.12.1就不能访问所有的配置文件，包括安装的应用和设置的网站。貌似必须登录github才行吗?但是我们访问github网速非常慢，又没有梯子。不知道有没有解决办法？
+Hello bro on a new laptop on windows, if i download apache it not start always says cannot find the module, for nginx just dont configure php atutomatic it try to download when you visit the page.
+
+Ill install all by my self but should this errores not happend.
+Hi,
+
+Can you bind my github account : https://github.com/agusjanardana
+For the licenses please !
+
+Kofi : https://ko-fi.com/home/coffeeshop?txid=bf9730db-6100-488a-912a-96ea7dfe522c&mode=g&widget=false
+
+PC UUID : ce666061bb98c9e45a7303ef76c63fbe7a22a6ddd6f91585c1bd2fc9cbf26086
+
+Licenses UUID: 4872ee8a-8707-4bb3-8603-cf41b5787e71
+
+Previously i think i unbind the github because i wrongly bind the github, though i can bind licenses manually.
+Previously im using my Workplace Github and i wanted to change to my own Github which is : https://github.com/agusjanardana
+
+Thank you !
+
+
+为什么PHP项目，使用这个配置的环境，加载的项目的都是卡顿的。
+Hi,
+
+Why did you inject a trojan into helper file?
+Error: sed: 1: "s/^//////": bad flag in substitute command: '/'
+启动mysql8.0时候版本是8.0.45
+请问怎么处理
+PG 没有 pgvector 扩展需要单独安装。
+
+有什么办法处理吗
+
+
+node nvm安装后，在界面中不可见，但在命令行里 list 可见。
+另外可否增加数据库管理工具。
+系统macOS 15.3
+在windows11里，使用mydockfinder时 ，系统状态栏在上方，但是点击状态栏图标，界面出现在下方没有和鼠标位置同步
+php扩展安装的时候希望能选择版本
+Hi,
+
+[a] 'About' tab in Settings
+
+The 'About' tab is somehow only partially localized. 
+
+
+[b] Crowdin
+
+I currently synchronize Crowdin both way manually, not ideal, but for now it works.
+
+I'de like to see an option at Crowdin to synchronize it on demand manually, pulling all repo updates on the one hand and creating a pull request for all updates at crowdin on the other hand. 
+
+
+[c] Telemetry
+
+FlyEnv should add a section in the documentation about the data tranferred for telemetry.
+
+I'm not sure if it is possible, but  maybe it is a good idea to add an option to turn of telemetry, similar to Firefox or Thunderbird. For some users this is a big deal.
+
+(see https://github.com/xpf0000/FlyEnv/discussions/304)
+
+
+Cheers
+martin (vendeeglobe)
+很好用，如果能加上docker就完美了https://blog.csdn.net/jyp189/article/details/158101025?spm=1011.2415.3001.5331
+Hello,
+
+I made a donation of 20 yen yesterday. I still do not have a license.  My phone number is 234-8037135107.
+软件启动非常的卡是什么原因呢，之前版本也没这么卡
+NVM for windows should be run from a terminal such as CMD or PowerShell
+已经安装的 确定是可以用的 怎么报这个呢
+Hi,
+I'm on FlyEnv version 4.13.2, after update in this version i cannot add Host from button "Add". Thank you.
+我真服了，我企业电脑不用了，怎么更换许可；
+如果能同时运行 两个mysql版本就好了
+Hi i'm using FlyEnv Version 4.13.2 after update. I got problem, now i cannot add new PHP site in Host menu. I'm using Linux Ubuntu 24.04. Thank you.
+这个版本好卡啊。mackbook M1 max 和 M4 mac mini 两台电脑使用都好卡
+总是显示需要安装flyenv，服务我看计划任务也开的呢，不影响整体运行，就是老弹窗
+minio是否可以指向社区fork版呢？ github.com/pgsty/minio 
+可以增加一些主题
+您好，PhpWebStudy 真是个好软件，最近在帮朋友安装，提示了这个，不知道是不是可以解决呢，麻烦您了，谢谢。
+
+Error: mysql@5.7 has been disabled because it is not supported upstream! It was disabled on 2024-08-01.
+Hello there, 
+
+I came across phpWebStudy and I think it is great, the only thing that I am trying to figure out how to do is get PHP 7.4 running via static-php - I know there is MacPorts but there are issues with getting PHP 7.4 running via MacPorts so how can I get php 7.4 working as static-php? 
+
+Thank you very much, 
+Sincerely,
+
+Emmanuel
+Can you please add lighttpd server
+fuckingshit
+suckacock
+youcantevenputaspaceinherewhatthefuckareyouthinking
+dickhole
+dickhole
+fucktard
+DICK N BEANS
+Suck a fat cock
+我们需要.net
+elastichsearch
+win11安装完Nginx的配置文件那里显示 未找到配置文件, 请重新选择版本
+切换Nginx版本，没有反应，每次都要重启电脑重新选择。
+A few items:
+
+1) For Windows, after making changes with hosts can you please automatically issue a "ipconfig /flushdns" command.  Easy for me to do in command line after but takes the brain a bit to do the "doh! forgot to flush dns" when I am refreshing the browser and nothing is showing up.
+
+2) is there any reason why nginx-1.25.5 keeps coming back?  I am deleting the folder with it.  Refreshing the Nginx page but it never disappears off the list unless I hide it and ignore.  And I could swear I see the app/nginx-1.25.5 folder reappearing.
+
+3) Similar with PHP 8.2.18 showing up but since it is deleted it doesn't do anything.  I just hide it, but thankfully it doesn't re-download or anything unlike the Nginx one.
+
+4) Is there a way to modify vhost conf templates?
+
+And thanks again for your app.  I've told my developer friends about it and promoted it in a couple message boards and Reddit posts.  It is a whole lot better than Herd and Xampp's env controller.  Best of luck with it.
+Hi,
+is it possible to setup different github accounts for different projects (different ssh keys)?
+I really like this app! I was using Laravel Herd before, but after discovering this app, I uninstalled Herd and switched to this one. Amazing work!
+
+It would be great to have a local tunnelling feature built into the app, adding this feature would make the app even better.
+
+https://github.com/anderspitman/awesome-tunneling
+
+Thank you!
+UUID：8579c607e558363b67b30ded5ad6c8dce54200f2f02eede66a864e4572e3e552
+
+微信转账
+转账金额
+6.66
+转账时间
+2024年12月18日 22:08:54
+转账单号
+10000499012024121800066367416055
+25年1月1号捐赠 9.9元，望该系统越来越好
+很不错的项目
+nodejs. 安装版本会提示：AxiosError: Request failed with status code 404。（FlyEnv 安装的）
+Hi,
+I realy like FlyENV and want to use it, but I do not find anything about terminal. Can you tell me where I can find the terminal ?
+Hi, so about the license for flyenv, is it lifetime license or is it monthly/yearly type of license? thx.
+hi,
+i have a problem. when i click to env button it is saying allways error: fail. i uninstall and reinstall but still the same. i checked the license and it is licensed. i can not add env from flyenv. what must i do? windows 11 app.
+
+thank you.
+i just mailed to you. but forget i am using the latest version 4.8.7
+Hi,
+Ive made donate. How can i get licence?
+
+Best regards,
+Pawel
+Hello, can you integrate S3 engine like Minio ? Would be very great
+为什么不能安装apache   
+homebrew总是提示无可用版本  
+切换homebrew的下载源也不行
+优化建议；另外能不能不限制网站数量，很恶心呀；
+nginx 里面 添加这个   
+
+fastcgi_split_path_info ^(.+\.php)(.*)$;
+fastcgi_param  PATH_INFO       $fastcgi_path_info;
+fastcgi_param  PATH_TRANSLATED $document_root$fastcgi_script_name$fastcgi_path_info;
+
+捐赠了 一直没审核 订单8022120186587622806
+很好用的工具
+can you add list model Ai for deepseek ? 
+
+DeepSeek-Coder-V2 for programming
+
+https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct
+Is there an option to change port of mysql/mariadb and all other services?
+Add Rust and Open Lite Speed Server
+微信捐赠 ￥10 订单账号：10001073012025042901038889947531
+
+评论链接：
+https://learnku.com/articles/89793#reply307910
+UUID：220f4e4c8e080636854af4e61a9dfd44
+
+支付宝捐款订单号：2025043022001431121434488382
+
+需要添加超过 3 个站点，谢谢
+Hi,
+
+I am trying to install FlyENV on Macbook pro. But "Flyenv needs to intall a helper program"  message comes when I want to start Apache Server. How can I solve this ?
+
+Regards,
+
+Metin Gonen
+
+20元微信 hanchoihyun 获取许可
+1元 支付宝 Marks 获取许可
+1元 支付宝 Marks  获取许可
+5元 微信支付 hanchoihyun 获取许可
+No Terminal like laragon?
+Plss add .NET 
+We are migrated to valkey if you add that  that would be very helpfull.
+
+
+Data Queues & Caching: valkey (https://valkey.io/) https://github.com/valkey-io/valkey/releases
+https://valkey.io/topics/installation/
+Please make docker, docker-compose, etc.
+Add Websocket server (Pusher, Laravel Reverb, etc)
+我捐赠了，怎么还不行。
+I am new to Linux and want to use flyenv, which file should I download for Linux?
+你好，我在使用中发现会改变修改jdk的环境变量时会改变path中环境变量的顺序，但是我的有些应用设置的变量需要置顶才能使用。是否可以修改变量时保持path中环境变量原有的顺序呢
+I appreciate the quality of the services you provide; they are truly commendable. However, I believe there is room for enhancement by incorporating functionalities that would provide users with greater control and flexibility. Specifically, the addition of user management and database administration features, similar to those found in MAMP, would be a significant improvement. The inclusion of such features would empower users to more effectively manage their accounts and databases, leading to a more streamlined and efficient experience overall. This enhancement would bring your services even closer to meeting the comprehensive needs of your user base.
+Hi, i enjoy using this app. i think to get the license. how i do that?
+
+Programming and testing FPGA with VHDL using model sim or questasim 
+aku mau memakai ini kedepannya bisa berikan lisence dulu, setelah aku mendapat uangnya pastinya aku ikut berdonasi 
+
+
+https://ko-fi.com/home/coffeeshop?txid=67f689ea-24db-4a2a-b7d0-91d2d1546fd1&mode=g&ReturnUrl=/Manage/SupportReceived
+UUID:56bf86ca7f8766699e4fa8e0fcf695e195bce847047c487e3eae9be235b9aba3
+博客：https://blog.csdn.net/keae123/article/details/148427682?spm=1011.2415.3001.5331
+没有zookeeper
+是一个很不错的项目
+支持！支持！ 50¥
+
+Payment has been completed, and a blog post for promotion has been published at:
+https://blog.csdn.net/keae123/article/details/148427682?spm=1011.2415.3001.5331
+UUID:56bf86ca7f8766699e4fa8e0fcf695e195bce847047c487e3eae9be235b9aba3
+可以增加 FrakenPHP 吗
+为什么许可证还没有下发？
+UUID:56bf86ca7f8766699e4fa8e0fcf695e195bce847047c487e3eae9be235b9aba3
+已经捐助了，你开通许可
+UUID:56bf86ca7f8766699e4fa8e0fcf695e195bce847047c487e3eae9be235b9aba3
+It has been donated and promoted but no permission has been obtained.
+UUID:56bf86ca7f8766699e4fa8e0fcf695e195bce847047c487e3eae9be235b9aba3
+我通过支付宝捐赠了，但是没有给我审批许可证，为什么？
+UUID: 1ac9478c30a8d7d05f8cf82278bbba9f87ea3f9505d196c5747263c133f0d543
+
+支付宝捐赠
+商家订单号：47494327281102485317683
+支付宝订单号：2025060922001417681458274822
+github账号：dafeng-work
+
+我提交了支付宝捐赠的请求许可证，没给通过，是为什么？
+可以考虑添加向量数据库吗
+Please install the portainer (https://www.portainer.io)
+https://medium.com/@nuridwan1303/dari-it-works-on-my-machine-ke-it-works-everywhere-f8e62eb63462
+您好。我是使用mac的，假如我要安装a.so，应该去哪里找这个目录呢？感谢解答。
+Hello! I hope this message finds you well.
+
+I have a question regarding the Sponsor. Recently i have claimed my License through ko-fi donation, and I was wondering if I can still claim it on my other laptop? Since i think i made a mistake by claiming it on my office laptop, not my personal laptop. In that case, is it still possible to claim it again in my personal laptop? Thank you!
+没有昵称
+-2.00
+Transaction successful
+
+International Card Fee
+0.00
+
+Payment time
+2025-07-02 12:13:52
+
+Payment method
+Visa (0251)
+0.06 international card fee included, 0.06 waived.
+
+Item description
+收钱码收款
+
+Full name of payee
+**飞 (个人)
+
+Order No.
+2025070222001461801451614184
+
+Merchant order No.
+47514295842152161161802
+
+
+mosya
+
+UUID
+304484556f3543c9629626544bfd22a5c5b1865a6c03b94b137a10db4bf354a4
+https://medium.com/@envyssolution/flyenv-alternatif-moden-ringan-untuk-laragon-wajib-try-kalau-kau-php-laravel-dev-4418a67a2f10
+
+UUID : 304484556f3543c9629626544bfd22a5c5b1865a6c03b94b137a10db4bf354a4
+新版的操作界面，点击设置别名，弹框显示异常
+i cant install redis module
+希望新增  kafka
+Hi Alex Xu,
+
+First of all, thank you so much for bringing this app to life — it has been incredibly helpful and impactful for my workflow!
+
+I wanted to ask if there's any plan to introduce a more robust or automated licensing mechanism in the near future. Due to company policy, I frequently have to switch devices (specifically company-issued ones), and the current manual verification process may become challenging — both for users like me and potentially for your team as well.
+
+I'm really looking forward to any updates you can share regarding this, and once again, thank you for your great work!
+
+Best regards,
+zeixs
+https://medium.com/@entegreturk/flyenv-tam-size-g%C3%B6re-02c96e694370
+Hi FlyEnv Team,
+I published an article about FlyEnv on Medium: https://medium.com/@nopardazdev/flyenv-the-next-generation-full-stack-development-efficiency-tool-a-foolproof-integrated-f2bac86e8df6
+Would it be possible to get a license? I'd love to continue using FlyEnv and creating more content about it.
+Thanks for the great tool!
+Best regards,
+Hamid Dastani
+2025072522001404061431232044
+大佬您好，我刚刚捐赠了，希望获得许可证。谢谢。支付宝订单ID：2025072522001489861401539609
+UUID：4a08a018bf3ecfbddcc49ef78f89786ece964f4e19f4bded59d8ca5e61c89eca
+maven 呢
+我目前用的sdkman  + nvm   ，  但是没有操作界面 ， 还是喜欢有界面的 ， 这个缺一个maven 
+Does FlyEnv only support projects/websites with frameworks or can I make normal websites too. I can't seem to find that option unless I'm mistaken with the setup.
+软件版本库不能获取列表
+is not ASP or net core
+已经捐献，许可证是多少
+color-scheme: light;  可以解决黑暗模式下的，左下角赞助按钮，白色底，我想要个授权码，大佬
+微信付了一元，是否可以开通许可？uuid：bcab26c3f0a18d6b95d7a9794ec31660da55c00b87cb663e904748983842b453，订单号：10000499012025081401898635608510
+Hi Team FlyEnv
+Greetings for the Day!
+I previously used XAMPP and Laragon then i got to know FlyEnv which is grate for every developer.
+But the issue is here while i using FlyEnv it's ~30 sec to load the page even phpMyAdmin also same. But if i use the XAMPP or Laragon then it's taking ~1 sec to load.
+I tried multiple solutions like php memory limits and time but same result still.
+This the major issue kindly solve the issue as soon as possible it will help other developer to adopt FlyEnv if there are no compromise in latency.
+
+Thank You
+HIsdsdsdsds
+flyenv after i updated, they error. then i uninstall and install new againt, this same. error
+没有提供memcached拓展
+能一键配置redis的哨兵和集群模式吗?
+windows11 flyenv 4.10.8 似乎不能安裝redis， 点击所有版本都是闪一下不会自动下载安装
+Hello, i wanna ask, if i migrate licensed app to other device, will it reset licensed?, how to restore it?
+
+Thanks
+哈吉峰 20RMB (2025091622001430061421175474)
+4.10.8版本helper进程直接被杀毒软件报严重病毒！4.7/4.8./4.9都没有这个进程不知道怎么弄了
+Shared folder server (samba server)
+Dark theme in download page is broken, makes impossible to read the labels above the buttons.
+I'm on firefox, btw
+
+kafka   and   activeMQ
+
+你们下载页面颜色问题 看不清楚下载的版本信息
+How to add/install PostgreSQL service on Linux (Debian) with FlyEnv Linux Desktop? I have installed Homebrew, but the "Homebrew" tab does not show the version listed.
+请问捐赠之后怎么才能获得许可证?微信扫码支付过了....
+Votre texte est blanc sur fond blanc : https://www.macphpstudy.com/download.html
+saya tidak menemukan log ftp dan merubah port ftp, tolong bantu tambahkan jika belum ada
+NGROCK
+你好，这个工具很棒，感谢作者的辛苦付出，我在掘金发了推文，并且通过微信支付了小额赞助，麻烦把许可证通过一下，
+UUID d4cf34345ab9fdabc814bce23020b7671434acb0726ea7dcfd9eb76572433986
+推文地址 https://juejin.cn/post/7559787842089254958
+微信赞助转账ID 10001073012025101700953877965052
+你好，这个工具很棒，感谢作者的辛苦付出，我在掘金发了推文，并且通过微信支付了小额赞助，麻烦把许可证通过一下，
+UUID d4cf34345ab9fdabc814bce23020b7671434acb0726ea7dcfd9eb76572433986
+推文地址 https://juejin.cn/post/7559787842089254958
+微信赞助转账ID 10001073012025101700953877965052
+Hi xpf0000,
+
+I hope you're well. I wanted to check in with you regarding a potential renaming of the utility folder currently labeled PhpWebStudy-Data. Would you be open to changing it to WebTools-Data?
+
+The current prefix “Php” may give the impression that the FlyEnv app is limited to PHP-related functionality, whereas the proposed name better reflects its broader, more versatile scope. WebTools-Data feels more inclusive and aligned with its general-purpose nature.
+
+Let me know your thoughts when you have a moment.
+限制添加三个站点，我已经发布了推广文章，审核还未通过，请帮我加急审核一下
+https://www.bilibili.com/opus/1125847886209220649
+95efbdc2c183db4b0ae7d94bed52b78edd48ec98facbcf00d26d9e097a93a991
+Hi there, I donated 5usd for the key - the paypal / przelewy24 got my money yet somehow it was interrupted. can you confirm please if you got the founds? 
+
+paypal confirmation id: 
+373633334766919
+
+the one who got the transfer:
+250881478@qq.com
+250881478@qq.com
+86 17719226070
+
+Ko-fi for xpf0000 	5,00 $ USD	
+1 @ 5,00 $ USD
+
+will be grateful for help and if you got it - for key :-D
+thanks for great work!
+a.
+搜索引擎：OpenSearch（https://artifacts.opensearch.org/releases/bundle/opensearch/3.3.2/opensearch-3.3.2-windows-x64.zip）
+搜索引擎：Solr（https://dlcdn.apache.org/solr/solr/9.10.0/solr-9.10.0.tgz）
+时序数据库：InfluxDB（https://dl.influxdata.com/influxdb/releases/influxdb3-core-3.6.0-windows_amd64.zip）
+图数据库：neo4j（https://dist.neo4j.org/neo4j-community-2025.10.1-windows.zip）
+neo4j官网国内下载被封禁了，国内合作商下载渠道：https://we-yun.com/doc/neo4j/2025.10.1/neo4j-community-2025.10.1-windows.zip
+
+https://we-yun.com/doc/neo4j/
+Dear Team,
+
+I hope this email finds you well. I am writing to seek your kind guidance on two technical questions, and would greatly appreciate any insights you could share:
+
+1. Could you please advise on how to extend the pg_vector module and GIS module of the PostgreSQL database? I would be grateful for detailed steps or relevant documentation references if available.
+
+2. Could you kindly provide instructions on how to custom-install components involved in Spring microservices, such as RocketMQ and Nacos? Tips on configuration best practices would also be highly valued.
+
+Thank you very much for taking the time to review my questions. Please feel free to let me know if you need any additional information from my side. I look forward to your valuable reply at your earliest convenience.
+nacos：服务发现与配置(https://download.nacos.io/nacos-server/nacos-server-3.1.0.zip)
+Прекрасний продукт розробляєте! https://medium.com/@igor.rv.ua/flyenv-%D0%B1%D1%96%D0%BB%D1%8C%D1%88%D0%B5-%D0%BD%D1%96%D0%B6-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9-%D0%B2%D0%B5%D0%B1-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80-%D1%86%D0%B5-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0-%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%B2%D0%B5%D0%B1-%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BD%D0%B8%D0%BA%D0%B0-a9fd071e0853?postPublishedType=repub
+
+Слава Україні!
+Hi. If I share my genuine and heartfelt experience with FlyEnv as a comment under a YouTube video, would there be any chance of receiving a free license in return?
+Because I live in Türkiye, I’m unable to use PayPal or other PayPal-based payment systems, which makes it very difficult for me to purchase a license even though I truly want to support the project.
+My financial resources are quite limited, so any support you could offer would mean a great deal to me. I would be sincerely grateful for your help.
+win10 redis 无法下载和安装，啥子原因？没日志查么？
+please add Nacos！
+Hi there
+On this page -> https://www.macphpstudy.com/guide/database-user-password.html you have a misspelling.
+In Database Client Section: PhoMyAdmin should be correct.
+Wish you luck bro
+AI：Shimmy 代替 Ollama（Z:\Shimmy\shimmy-windows-x86_64.exe serve --bind 127.0.0.1:11434）
+
+https://github.com/Michael-A-Kuykendall/shimmy/releases/tag/v1.7.4
+Hello. I’m Saeed from Iran, a country that unfortunately is heavily sanctioned and censored by the government in many ways. I am a student, and I wanted to donate to you using cryptocurrency to both thank you for your efforts in developing this great tool and to be able to work on my academic projects, which may help me eventually migrate to a better country.
+
+I would appreciate it if you could guide me.
+Sincerely,
+Saeed
+国内下载太慢了，能否允许用户自己定义镜像源？毕竟只是想有一个版本管理工具，目前自己安装后再从软件内添加还是感觉有点麻烦。
+https://github.com/xpf0000/FlyEnv/discussions/503
+期待 svn
+https://www.macsvn.co/ 是正的不好用
+Hi, please accept my license request from donate link here : https://ko-fi.com/home/coffeeshop?txid=11c9ac4c-65fe-46a7-8634-2cb832048806&mode=g&widget=false . Thank you.
+can i get a license pro?
+如果可以的话希望可以加一个可以自定义环境安装到哪里的自定义选项，我的电脑是Windows，我的C盘空间不是很多，如果使用工具自带的安装的话，会总是默认装在C盘的temp目录下，希望可以的话，希望可以加一个可以自定义环境，FlyEnv挺好用的，希望越来越好
+What's the official site for flyenv:
+Flyenv.com
+or
+https://www.macphpstudy.com/
+Hello,
+
+I hope this message finds you well.
+
+We manage laravel.gen.tr, a community-driven forum dedicated to the open-source Laravel framework. Through our platform, we regularly publish content, provide support, and help developers by answering questions and sharing knowledge related to Laravel and its ecosystem.
+
+As Laravel is an open-source project, our work is entirely focused on supporting and growing the open-source community. We have noticed that flyenv.com also values and supports open-source initiatives, which we truly appreciate.
+
+With this in mind, we kindly wanted to ask whether it would be possible for you to provide us with a complimentary license. We would be very happy to use FlyEnv while continuing our community efforts and, where appropriate, acknowledge and recommend your product within our platform.
+
+Thank you very much for your time and consideration. We would be grateful for any support you can offer.
+
+Kind regards,
+Sinan Eldem
+
+https://laravel.gen.tr/
+Hi!
+I am currently a student at one of the FPs in Spain studying web development, and I would like to suggest to my teachers that they use your software instead of XAMPP. There are many reasons for this—it is more convenient and works better, including on Mac and Windows. Tell me, do you have any plans for educational licences? If not, then in principle it would be more convenient to use the free version, since they will essentially be creating their own project on a domain, for example, project.local, and working on it in PHP.
+In any case, thank you for such a wonderful product! Your development team literally saved my butt from melting my chair when I switched to Mac. I am thinking of making a donation and getting a licence to expand the list of local domains for development. I wish you luck in your difficult work of developing and improving this programme!
+获取许可证，捐赠后提交很久一直没有得到许可，帮忙处理一下
+捐赠订单ID：10001073012025120800929880620179
+林城 wechat
+Hi, 
+
+I'd really like to use FlyEnv. After installing it on Windows 11, I can't install any of the modules (Apache, PHP). It starts downloading and then stops with a message in the log saying "Starting download," nothing more.
+
+I've tried the default and other installation locations, as well as the portable version, and the result is the same. The same when running as administrator.
+
+Can you tell me what the problem is?
+
+Thank you very much.
+Artur
+Hi team,
+I would like to ask regarding the Pro License.
+
+Does the license compatible across OS and can be used at once?
+
+Currently I have 1 laptop with Ubuntu installed and a PC with Windows installed
+
+I would like to use FlyEnv on both my devices. Is it possible to purchase once then use it on both device, or do I need purchase separate license
+
+Looking forward for your information
+
+Thank you
+已经捐赠，请问在哪里获取专业版
+服务都无法启动，重新安装，删除配置都无法有效。一直在 loading，需要您协助看一下。
+Hi,
+
+ If users can re-order items in the 'Quick Access menu'. They will be able to choose tech they need fast without needing to scroll. This is a great thing. There are a ton of technologies in FlyEnv and I might want to see only my favourites. 
+
+Also one question, what does buying a license entail. And what does it mean to me as a user.
+
+Thanks 
+RG  
+Hello, thank you for your hard work, this tool is very helpful for me as a beginner, I can only donate 10 CNY for now. I hope your generosity to provide a license. Thank you.
+txid 20260221111212800100166939794785306 from DANA (indonesian wallet app)
+Dear FlyEnv Team,
+
+My name is Khadziq Muttaqin, and I am an active FlyEnv user for my development projects.
+
+I am writing to request activation of the FlyEnv Pro (unlimited) license. As a form of support for the project, I have promoted FlyEnv through the following publication:
+
+https://blog.bekenweb.com/laravel-herd-vs-flyenv-perbandingan-resmi-dan-alasan-mengapa-flyenv-lebih-direkomendasikan/
+
+I truly appreciate the work behind FlyEnv, as it has significantly improved my development workflow. Please let me know if there are any additional steps or information required to proceed with the Pro license activation.
+
+Thank you for your time and consideration.
+
+Sincerely,
+Khadziq Muttaqin
+dsfgsdfsdf
+https://blog.csdn.net/qq_15379815/article/details/158496185
+请问捐赠后怎么获取许可证？
