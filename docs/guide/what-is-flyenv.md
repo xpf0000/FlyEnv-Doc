@@ -40,16 +40,16 @@ Your environment adapts to your project, not the other way around.
 
 ### Everything in One Interface
 
-| Category | Tools Included |
-|----------|---------------|
-| **AI & ML** | Ollama, DeepSeek, Chatbox |
-| **Web Servers** | Apache, Nginx, Caddy, Tomcat |
-| **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB |
+| Category | Tools Included                             |
+|----------|--------------------------------------------|
+| **AI & ML** | OpenClaw, Ollama, DeepSeek, Chatbox        |
+| **Web Servers** | Apache, Nginx, Caddy, Tomcat               |
+| **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB        |
 | **Languages** | PHP, Node.js, Python, Go, Java, Ruby, Rust |
-| **Cache/Queue** | Redis, Memcached, RabbitMQ |
-| **Search** | Elasticsearch, Meilisearch, Typesense |
-| **Email Testing** | Mailpit (modern Mailhog alternative) |
-| **Networking** | Cloudflare Tunnel, DNS Server |
+| **Cache/Queue** | Redis, Memcached, RabbitMQ                 |
+| **Search** | Elasticsearch, Meilisearch, Typesense      |
+| **Email Testing** | Mailpit (modern Mailhog alternative)       |
+| **Networking** | Cloudflare Tunnel, DNS Server              |
 
 No more hunting for installers or fighting with Homebrew.
 
