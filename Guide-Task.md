@@ -58,7 +58,7 @@ head:
 
 待处理：
 重写：
-docs/guide/project-level-runtime-environment.md
+@docs/guide/openclaw.md
 
 严格按照上述要求，以待处理中包含的文件为输入源，重写或添加指南。
 内容需要界面截图的地方，先使用图片占位，后续我再手动添加图片。

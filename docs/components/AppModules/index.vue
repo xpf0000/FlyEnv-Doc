@@ -354,15 +354,21 @@
     </div>
   </template>
   <template v-else-if="type === 7">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Build a 100% Local AI Agent: OpenClaw + Ollama Setup via FlyEnv In 5 Minutes"
+      href="https://youtu.be/j7_B-VzIyEU"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">AI Assistant</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-5">
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI Assistant</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/OpenClaw.svg" />
       </div>
-      <span class="shrink-0 select-text">OpenClaw</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">OpenClaw</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
 
     <a
       title="Build a Offline Local AI Agent in 3 Min with FlyEnv (No Code!)"
