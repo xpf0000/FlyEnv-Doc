@@ -42,7 +42,7 @@ Your environment adapts to your project, not the other way around.
 
 | Category | Tools Included                             |
 |----------|--------------------------------------------|
-| **AI & ML** | OpenClaw, Ollama, DeepSeek, Chatbox        |
+| **AI & ML** | OpenClaw, Ollama, n8n, qwen3.5, Chatbox    |
 | **Web Servers** | Apache, Nginx, Caddy, Tomcat               |
 | **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB        |
 | **Languages** | PHP, Node.js, Python, Go, Java, Ruby, Rust |

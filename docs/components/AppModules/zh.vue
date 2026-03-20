@@ -370,6 +370,16 @@
       </div>
     </a>
 
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI智能体</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-5">
+        <img src="../SVG/n8n.svg" />
+      </div>
+      <span class="shrink-0 select-text">n8n</span>
+    </div>
+
     <a
       title="3分钟搞定！用FlyEnv零代码搭建离线AI Agent【手把手教程】"
       href="https://www.bilibili.com/video/BV13UZcYGEhu/"
