@@ -310,6 +310,35 @@ A: 极少。CPU 推理使用约 10-30W。GPU 推理仅在活跃使用时使用 5
 
 [下载 FlyEnv](/zh/download) 内置 Ollama 支持
 
+---
+
+## 🚀 进阶：从对话到自动化
+
+喜欢你的私有 AI 助手？更进一步，构建**自动化 AI 工作流**，无需人工干预即可 7×24 小时运行。
+
+**你将获得：**
+- **Webhook** — 从外部应用（Slack、GitHub、Stripe）触发 AI 处理
+- **工作流自动化** — 将多个 AI 操作链接成流水线
+- **API 端点** — 让你的应用访问本地 AI 模型
+- **远程访问** — 从任何地方控制你的 AI 工作流
+
+👉 **[使用 n8n 和 Ollama 构建自托管 AI 工作流](/zh/guide/build-local-ai-workflow-by-n8n)** — 将你的离线 AI 转变为自动化利器
+
+---
+
+## 🤖 构建能执行操作的 AI 代理
+
+想要一个不仅能聊天——还能**实际为你做事**的 AI？OpenClaw 将你的本地 AI 连接到消息应用，并赋予它以下能力：
+
+- **读写文件** — 在你的计算机上操作文件
+- **执行命令** — 运行脚本和系统命令
+- **发送消息** — 通过 QQ、微信、飞书、WhatsApp、Telegram 等
+- **发起 HTTP 请求** — 与 API 交互
+
+👉 **[OpenClaw + Ollama 配置指南](/zh/guide/openclaw)** — 零 API 费用构建自托管 AI 代理
+
+---
+
 探索更多生产力工具：
 - [PHP 代码混淆](/zh/guide/php-code-obfuscation) — 保护你的代码
 - [Cloudflare Tunnel](/zh/guide/cloudflare-tunnel-local-development) — 安全分享

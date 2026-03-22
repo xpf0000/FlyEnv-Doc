@@ -310,6 +310,35 @@ Take control of your development data. Set up your offline AI assistant in minut
 
 [Download FlyEnv](/download) with built-in Ollama support
 
+---
+
+## 🚀 Next Level: From Chat to Automation
+
+Enjoying your private AI assistant? Take it further by building **automated AI workflows** that run 24/7 without your intervention.
+
+**What you'll gain:**
+- **Webhooks** — Trigger AI processing from external apps (Slack, GitHub, Stripe)
+- **Workflow automation** — Chain multiple AI actions into pipelines
+- **API endpoints** — Give your apps access to local AI models
+- **Remote access** — Control your AI workflows from anywhere
+
+👉 **[Build Self-Hosted AI Workflows with n8n & Ollama](/guide/build-local-ai-workflow-by-n8n)** — Turn your offline AI into an automation powerhouse
+
+---
+
+## 🤖 Build an AI Agent That Takes Action
+
+Want an AI that doesn't just chat—but actually **does things** for you? OpenClaw connects your local AI to messaging apps and gives it the power to:
+
+- **Read/write files** on your computer
+- **Execute commands** and run scripts
+- **Send messages** via WhatsApp, Telegram, Discord
+- **Make HTTP requests** and interact with APIs
+
+👉 **[OpenClaw + Ollama Setup Guide](/guide/openclaw)** — Build a self-hosted AI agent with zero API costs
+
+---
+
 Explore more productivity tools:
 - [PHP Code Obfuscation](/guide/php-code-obfuscation) — Protect your code
 - [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development) — Secure sharing
