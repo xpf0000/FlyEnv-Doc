@@ -249,6 +249,12 @@ Combine with Home Assistant webhooks to create AI-powered automation rules using
 
 ---
 
+## Video Walkthrough
+
+Prefer watching? See Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (No Docker!) via FlyEnv in action:
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/YnA1B3qmDJU?si=8trvnWn7JUxDQeLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Frequently Asked Questions (FAQ)
 
 ### Does this setup use less RAM than Docker?

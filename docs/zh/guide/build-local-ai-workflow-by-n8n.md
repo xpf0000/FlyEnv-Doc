@@ -249,6 +249,12 @@ FlyEnv 自动生成和管理本地 SSL 证书：
 
 ---
 
+## 视频教程
+
+更喜欢观看？看看 FlyEnv本地AI工作流实战：n8n + Ollama 全流程教程（小白也能搞定） 实际演示：
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?bvid=BV1qGXFBfE7U&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ## 常见问题解答 (FAQ)
 
 ### 这个设置比 Docker 使用更少的内存吗？
