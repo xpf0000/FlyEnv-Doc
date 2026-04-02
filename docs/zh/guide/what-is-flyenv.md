@@ -40,16 +40,17 @@ php -v  # PHP 8.3 (自动切换)
 
 ### 一个界面搞定一切
 
-| 类别 | 包含工具                                       |
-|------|--------------------------------------------|
-| **AI 与机器学习** | OpenClaw, Ollama, n8n, qwen3.5, Chatbox        |
-| **Web 服务器** | Apache, Nginx, Caddy, Tomcat               |
-| **数据库** | MySQL, MariaDB, PostgreSQL, MongoDB        |
-| **编程语言** | PHP, Node.js, Python, Go, Java, Ruby, Rust |
-| **缓存/队列** | Redis, Memcached, RabbitMQ                 |
-| **搜索** | Elasticsearch, Meilisearch, Typesense      |
-| **邮件测试** | Mailpit (现代 Mailhog 替代品)                   |
-| **网络** | Cloudflare Tunnel, DNS Server              |
+| 类别           | 包含工具                                                       |
+|--------------|------------------------------------------------------------|
+| **AI 与机器学习** | OpenClaw, Ollama, n8n, qwen3.5, Chatbox                    |
+| **Web 服务器**  | Apache, Nginx, Caddy, Tomcat                               |
+| **数据库**      | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                |
+| **编程语言**     | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
+| **缓存/队列**    | Redis, Memcached, RabbitMQ                                 |
+| **搜索**       | Elasticsearch, Meilisearch, Typesense                      |
+| **邮件测试**     | Mailpit (现代 Mailhog 替代品)                                   |
+| **对象存储**     | RustFS, Minio                                              |
+| **网络**       | Cloudflare Tunnel, DNS Server                              |
 
 再也不用到处找安装包或与 Homebrew 搏斗了。
 

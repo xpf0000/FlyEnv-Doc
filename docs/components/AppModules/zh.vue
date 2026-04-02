@@ -440,6 +440,15 @@
     >
       <span class="shrink-0 select-text">Object Storage</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-3">
+        <img src="../SVG/RustFS.svg" />
+      </div>
+      <span class="shrink-0 select-text">RustFS</span>
+    </div>
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">Object Storage</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-3">
         <img src="../SVG/Minio.svg" />
       </div>
       <span class="shrink-0 select-text">Minio</span>
