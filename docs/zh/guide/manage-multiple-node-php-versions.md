@@ -151,14 +151,14 @@ FlyEnv 自动修改你的 shell 配置：
 **macOS/Linux (.zshrc/.bashrc)：**
 ```bash
 # 由 FlyEnv 添加 - 在 cd 时加载项目环境
-export PATH="/Users/name/.flyenv/shims:$PATH"
-eval "$(flyenv init -)"
+source "/Applications/FlyEnv.app/Contents/Resources/helper/flyenv.sh"
 ```
 
 **Windows (PowerShell profile)：**
 ```powershell
-# 自动版本切换已集成
-Import-Module FlyEnv
+# 由 FlyEnv 添加 - 在 cd 时加载项目环境
+# FlyEnv Auto-Load
+. "FlyEnv数据文件夹/server/bin/flyenv.ps1"
 ```
 
 ### IDE 兼容性

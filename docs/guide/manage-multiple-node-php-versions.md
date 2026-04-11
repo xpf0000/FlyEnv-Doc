@@ -151,14 +151,14 @@ FlyEnv automatically modifies your shell configuration:
 **macOS/Linux (.zshrc/.bashrc):**
 ```bash
 # Added by FlyEnv - loads project environment on cd
-export PATH="/Users/name/.flyenv/shims:$PATH"
-eval "$(flyenv init -)"
+source "/Applications/FlyEnv.app/Contents/Resources/helper/flyenv.sh"
 ```
 
 **Windows (PowerShell profile):**
 ```powershell
-# Automatic version switching integrated
-Import-Module FlyEnv
+# Added by FlyEnv - loads project environment on cd
+# FlyEnv Auto-Load
+. "{FlyEnv Data Folder}/server/bin/flyenv.ps1"
 ```
 
 ### IDE Compatibility

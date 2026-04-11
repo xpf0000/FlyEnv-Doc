@@ -14,12 +14,12 @@ Managing database users and passwords is a critical part of local development. F
 
 When you first install a database through FlyEnv, default credentials are set for security and convenience:
 
-| Database | Username | Initial Password |
-|----------|----------|------------------|
-| **MySQL** | root | root |
-| **MariaDB** | root | root |
-| **PostgreSQL** | postgres | postgres |
-| **MongoDB** | - | None (no auth by default) |
+| Database | Username | Initial Password              |
+|----------|-------|-------------------------------|
+| **MySQL** | root  | root                          |
+| **MariaDB** | root  | root                          |
+| **PostgreSQL** | root  | None (no password by default) |
+| **MongoDB** | -     | None (no auth by default)     |
 
 **Important**: Change default passwords before exposing databases to the network.
 
