@@ -58,8 +58,9 @@ head:
 
 待处理：
 重写：
-@docs/guide/build-local-ai-workflow-by-n8n.md
+docs/zh/guide/flyenv-work-with-ai.md
 
 严格按照上述要求，以待处理中包含的文件为输入源，重写或添加指南。
 内容需要界面截图的地方，先使用图片占位，后续我再手动添加图片。
-重写或添加的文章，不在docs/.vitepress/config.mts配置文件中的，需要添加进去。
+重写或添加的文章，不在docs/.vitepress/config.mts配置文件中的，需要添加进去。 
+可以结合 md/aaa.txt. 完善下内容.
