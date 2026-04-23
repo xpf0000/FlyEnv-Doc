@@ -354,13 +354,23 @@
     </div>
   </template>
   <template v-else-if="type === 7">
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
+        <img src="../SVG/Hermes.svg" />
+      </div>
+      <span class="shrink-0 select-text">Hermes Agent</span>
+    </div>
+
     <a
       title="搭建 OpenClaw 本地 AI 智能体：FlyEnv 5分钟 一键部署 OpenClaw + Ollama"
       href="https://www.bilibili.com/video/BV1ciwMzUEGH/"
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI智能体</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/OpenClaw.svg" />
       </div>
@@ -376,7 +386,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI智能体</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/n8n.svg" />
       </div>
@@ -392,7 +402,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI智能体</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/Ollama.svg" />
       </div>
@@ -408,7 +418,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI智能体</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/DeepSeek.svg" />
       </div>
@@ -424,7 +434,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI智能体</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-7">
         <img src="../SVG/Chatbox.svg" />
       </div>

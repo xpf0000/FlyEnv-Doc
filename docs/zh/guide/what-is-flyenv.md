@@ -42,7 +42,7 @@ php -v  # PHP 8.3 (自动切换)
 
 | 类别           | 包含工具                                                       |
 |--------------|------------------------------------------------------------|
-| **AI 与机器学习** | OpenClaw, Ollama, n8n, qwen3.5, Chatbox                    |
+| **AI 与机器学习** | Hermes Agent, OpenClaw, Ollama, n8n, qwen3.5, Chatbox      |
 | **Web 服务器**  | Apache, Nginx, Caddy, Tomcat                               |
 | **数据库**      | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                |
 | **编程语言**     | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |

@@ -40,17 +40,17 @@ Your environment adapts to your project, not the other way around.
 
 ### Everything in One Interface
 
-| Category | Tools Included                             |
-|----------|--------------------------------------------|
-| **AI & ML** | OpenClaw, Ollama, n8n, qwen3.5, Chatbox    |
-| **Web Servers** | Apache, Nginx, Caddy, Tomcat               |
-| **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant      |
+| Category | Tools Included                                             |
+|----------|------------------------------------------------------------|
+| **AI & ML** | Hermes Agent, OpenClaw, Ollama, n8n, qwen3.5, Chatbox      |
+| **Web Servers** | Apache, Nginx, Caddy, Tomcat                               |
+| **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                |
 | **Languages** | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
-| **Cache/Queue** | Redis, Memcached, RabbitMQ                 |
-| **Search** | Elasticsearch, Meilisearch, Typesense      |
-| **Email Testing** | Mailpit (modern Mailhog alternative)       |
+| **Cache/Queue** | Redis, Memcached, RabbitMQ                                 |
+| **Search** | Elasticsearch, Meilisearch, Typesense                      |
+| **Email Testing** | Mailpit (modern Mailhog alternative)                       |
 | **Object Storage**     | RustFS, Minio                                              |
-| **Networking** | Cloudflare Tunnel, DNS Server              |
+| **Networking** | Cloudflare Tunnel, DNS Server                              |
 
 No more hunting for installers or fighting with Homebrew.
 
