@@ -282,7 +282,7 @@ For Laravel Queue functionality:
 php artisan queue:work
 ```
 
-Or use Supervisor (available in FlyEnv) to keep workers running.
+Or use Supervisor to keep workers running.
 
 ### Scheduler (Cron)
 

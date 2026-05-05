@@ -282,7 +282,7 @@ npm run build
 php artisan queue:work
 ```
 
-或使用 Supervisor（FlyEnv 中可用）来保持 workers 持续运行。
+或使用 Supervisor 来保持 workers 持续运行。
 
 ### 定时任务（Cron）
 

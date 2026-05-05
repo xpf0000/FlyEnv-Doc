@@ -54,7 +54,7 @@ schtasks.exe /delete /tn "flyenv-helper" /f
 In macOS, FlyEnv creates a startup item via `launchd`.
 
 * **Executable location:** `/Library/Application Support/FlyEnv/Helper/flyenv-helper`
-* **Special Note:** During installation, the system will pop up a "Background Items Added" prompt; please be sure to **Allow** it. After a successful installation, you will see a record named **pengfei xu** in `System Settings -> General -> Login Items`. This is because the author uses a personal Apple Developer certificate, which displays the author's real name.
+* **Special Note:** During installation, the system will pop up a "Background Items Added" prompt; please be sure to **Allow** it.
 
 **Uninstallation Method:**
 Please open the Terminal and execute the following commands to remove the startup item and program files:

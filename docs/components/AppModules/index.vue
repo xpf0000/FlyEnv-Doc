@@ -1,5 +1,14 @@
 <template>
   <template v-if="type === 0">
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">Web Server</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
+        <img src="../SVG/FrankenPHP.svg" />
+      </div>
+      <span class="shrink-0 select-text">FrankenPHP</span>
+    </div>
     <a
       title="Run Apache Natively on Windows/macOS/Linux: No Docker, Full Speed! | FlyEnv"
       href="https://youtu.be/t7nKL45FdVk"
@@ -49,15 +58,6 @@
         <img src="https://oss.macphpstudy.com/image/tomcat.svg" />
       </div>
       <span class="shrink-0 select-text">Tomcat</span>
-    </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
-    >
-      <span class="shrink-0 select-text">Web Server</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
-        <img src="../SVG/Consul.svg" />
-      </div>
-      <span class="shrink-0 select-text">Consul</span>
     </div>
   </template>
   <template v-else-if="type === 1">
@@ -274,17 +274,24 @@
       </div>
       <span class="shrink-0 select-text">RabbitMQ</span>
     </div>
+  </template>
+  <template v-else-if="type === 4">
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Data Queues</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
-        <img src="../SVG/etcd.svg" />
+      <span class="shrink-0 select-text">DNS</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-5">
+        <span style="font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #2c2418 0%, #c0623a 55%, #6b7c4e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;">Numa</span>
       </div>
-      <span class="shrink-0 select-text">etcd</span>
+      <span class="shrink-0 select-text">Numa</span>
     </div>
-  </template>
-  <template v-else-if="type === 4">
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -412,37 +419,15 @@
       </div>
     </a>
 
-    <a
-      title="Build a Offline Local AI Agent in 3 Min with FlyEnv (No Code!)"
-      href="https://youtu.be/yPk9HQJRvb8"
-      target="_blank"
-      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
-        <img src="../SVG/DeepSeek.svg" />
+      <span class="shrink-0 select-text">AI</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
+        <span class="text-[20px] font-bold text-[#3451b2]">CLIProxyAPI</span>
       </div>
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">DeepSeek</span>
-      <div class="absolute inset-0 flex items-center justify-center z-20">
-        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
-      </div>
-    </a>
-
-    <a
-      title="Build a Offline Local AI Agent in 3 Min with FlyEnv (No Code!)"
-      href="https://youtu.be/yPk9HQJRvb8"
-      target="_blank"
-      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
-    >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-7">
-        <img src="../SVG/Chatbox.svg" />
-      </div>
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Chatbox</span>
-      <div class="absolute inset-0 flex items-center justify-center z-20">
-        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
-      </div>
-    </a>
+      <span class="shrink-0 select-text">CLIProxyAPI</span>
+    </div>
   </template>
   <template v-else-if="type === 8">
     <div
@@ -495,6 +480,35 @@
       <span class="shrink-0 select-text truncate">Cloudflare Tunnel</span>
     </div>
   </template>
+    <template v-else-if="type === 11">
+      <div
+        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      >
+        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
+          <img src="../SVG/R-NACOS.svg" />
+        </div>
+        <span class="shrink-0 select-text">R-NACOS</span>
+      </div>
+      <div
+        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      >
+        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
+          <img src="../SVG/Consul.svg" />
+        </div>
+        <span class="shrink-0 select-text">Consul</span>
+      </div>
+      <div
+        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      >
+        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
+          <img src="../SVG/etcd.svg" />
+        </div>
+        <span class="shrink-0 select-text">Etcd</span>
+      </div>
+    </template>
 </template>
 
 <script lang="ts" setup>
@@ -503,4 +517,6 @@
   defineProps<{
     type: number
   }>()
+</script>
+<script setup lang="ts">
 </script>

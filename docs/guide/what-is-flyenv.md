@@ -40,17 +40,18 @@ Your environment adapts to your project, not the other way around.
 
 ### Everything in One Interface
 
-| Category | Tools Included                                             |
-|----------|------------------------------------------------------------|
-| **AI & ML** | Hermes Agent, OpenClaw, Ollama, n8n, qwen3.5, Chatbox      |
-| **Web Servers** | Apache, Nginx, Caddy, Tomcat                               |
-| **Databases** | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                |
-| **Languages** | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
-| **Cache/Queue** | Redis, Memcached, RabbitMQ                                 |
-| **Search** | Elasticsearch, Meilisearch, Typesense                      |
-| **Email Testing** | Mailpit (modern Mailhog alternative)                       |
-| **Object Storage**     | RustFS, Minio                                              |
-| **Networking** | Cloudflare Tunnel, DNS Server                              |
+| Category                  | Tools Included                                             |
+|---------------------------|------------------------------------------------------------|
+| **AI & ML**               | Hermes Agent, OpenClaw, Ollama, n8n, CliProxyAPI           |
+| **Web Servers**           | FrankenPHP, Apache, Nginx, Caddy, Tomcat                   |
+| **Databases**             | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                |
+| **Languages & Runtime**   | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
+| **Cache & Message Queue** | Redis, Memcached, RabbitMQ                                 |
+| **Service Governance**    | Consul, Etcd, R-Nacos                                      |
+| **Search**                | Elasticsearch, Meilisearch, Typesense                      |
+| **Email Testing**         | Mailpit (modern Mailhog alternative)                       |
+| **Object Storage**        | RustFS, Minio                                              |
+| **Networking**            | Cloudflare Tunnel, Numa, DNS Server                        |
 
 No more hunting for installers or fighting with Homebrew.
 

@@ -54,7 +54,7 @@ schtasks.exe /delete /tn "flyenv-helper" /f
 在 macOS 中，FlyEnv 会通过 `launchd` 创建一个启动项。
 
 * **可执行文件位置：** `/Library/Application Support/FlyEnv/Helper/flyenv-helper`
-* **特别说明：** 安装时，系统会弹出“后台项添加”提示，请务必**允许**。安装成功后，在 `系统设置 -> 通用 -> 登录项 (启动项)` 中，你会看到一条名为 **pengfei xu** 的记录。这是因为作者使用的是个人苹果开发者证书，显示名称即为作者的真实姓名。
+* **特别说明：** 安装时，系统会弹出“后台项添加”提示，请务必**允许**。
 
 **卸载方法：**
 请打开终端（Terminal），执行以下命令移除启动项及程序文件：

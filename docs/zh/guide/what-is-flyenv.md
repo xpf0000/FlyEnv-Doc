@@ -42,15 +42,16 @@ php -v  # PHP 8.3 (自动切换)
 
 | 类别           | 包含工具                                                       |
 |--------------|------------------------------------------------------------|
-| **AI 与机器学习** | Hermes Agent, OpenClaw, Ollama, n8n, qwen3.5, Chatbox      |
-| **Web 服务器**  | Apache, Nginx, Caddy, Tomcat                               |
+| **AI 与机器学习** | Hermes Agent, OpenClaw, Ollama, n8n, CliProxyAPI           |
+| **Web 服务器**  | FrankenPHP, Apache, Nginx, Caddy, Tomcat                   |
 | **数据库**      | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                |
-| **编程语言**     | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
+| **编程语言&运行时**     | PHP, Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
 | **缓存/队列**    | Redis, Memcached, RabbitMQ                                 |
+| **服务治理**    | Consul, Etcd, R-Nacos                                      |
 | **搜索**       | Elasticsearch, Meilisearch, Typesense                      |
 | **邮件测试**     | Mailpit (现代 Mailhog 替代品)                                   |
 | **对象存储**     | RustFS, Minio                                              |
-| **网络**       | Cloudflare Tunnel, DNS Server                              |
+| **网络**       | Cloudflare Tunnel, Numa, DNS Server                        |
 
 再也不用到处找安装包或与 Homebrew 搏斗了。
 

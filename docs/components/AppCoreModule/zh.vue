@@ -17,6 +17,7 @@
       <AppModules :type="3" />
       <AppModules :type="5" />
       <AppModules :type="8" />
+      <AppModules :type="11" />
       <AppModules :type="4" />
     </div>
   </div>
