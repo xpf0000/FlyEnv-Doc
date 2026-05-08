@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlyEnv Community Stories & Tutorials | FlyEnv</title>
+  <meta name="description" content="Discover real developer stories, tutorials, and reviews about FlyEnv. Learn how teams replace XAMPP, Docker, and Laragon with FlyEnv on macOS and Windows.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+    .vp-doc { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .tag-active { background: #4f46e5; color: white; border-color: #4f46e5; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15); }
+  </style>
+</head>
+<body class="text-slate-800">
+
+  <!-- Simulated VitePress Nav -->
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2 font-bold text-xl text-slate-900">
+        <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white text-sm">F</div>
+        FlyEnv
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#" class="hover:text-indigo-600">Download</a>
+        <a href="#" class="hover:text-indigo-600">Guide</a>
+        <a href="#" class="text-indigo-600">Community</a>
+        <a href="#" class="hover:text-indigo-600">Sponsor</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="vp-doc py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">FlyEnv Community Stories</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Discover how developers around the world use FlyEnv to streamline their local development workflow. 
+        From macOS to Windows, from Laravel to WordPress — these are real stories written by real users.
+      </p>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="bg-white rounded-2xl border border-slate-200 p-4 mb-10 shadow-sm">
+      <div class="flex flex-col md:flex-row gap-4 items-center">
+        <!-- Category Tags -->
+        <div class="flex flex-wrap gap-2 flex-1">
+          <button class="tag-active px-4 py-2 rounded-full text-sm font-medium border transition-all">All</button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">macOS</button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">Windows</button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">Tutorials</button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">Reviews</button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">Videos</button>
+          <button class="px-4 py-2 rounded-full text-sm font-medium border border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all">Docker Alternative</button>
+        </div>
+        <!-- Search -->
+        <div class="relative w-full md:w-64">
+          <input type="text" placeholder="Search articles..." 
+            class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-md text-indigo-700">Tutorial</span>
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Alex Chen</span>
+            <span>•</span>
+            <span>DEV.to</span>
+            <span>•</span>
+            <span>Mar 15, 2024</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">FlyEnv: A Modern Alternative to XAMPP on macOS</h3>
+          <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+            A comprehensive guide on why FlyEnv replaces XAMPP for PHP development on macOS. Includes performance benchmarks, setup instructions, and side-by-side comparisons.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">macOS</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">XAMPP</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">PHP</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer ugc" 
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+            Read Article 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-md text-emerald-700">Review</span>
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Maria Garcia</span>
+            <span>•</span>
+            <span>Medium</span>
+            <span>•</span>
+            <span>Feb 28, 2024</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">Why I Switched from Docker to FlyEnv for Local PHP Development</h3>
+          <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+            After 3 years with Docker Desktop, I found FlyEnv to be significantly faster and simpler for Laravel projects. Here's my honest review and migration experience.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Docker</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Laravel</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Review</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer ugc" 
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+            Read Article 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center relative">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-md text-orange-700">Video</span>
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> CodeWithDave</span>
+            <span>•</span>
+            <span>YouTube</span>
+            <span>•</span>
+            <span>Apr 02, 2024</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">FlyEnv Setup Guide for Windows Developers</h3>
+          <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+            A step-by-step video walkthrough for setting up FlyEnv on Windows 11. Covers PHP 8.3, Nginx, MySQL, and Node.js integration in under 15 minutes.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Windows</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Video</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Getting Started</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer ugc" 
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+            Watch Video
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center relative">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-md text-blue-700">Tutorial</span>
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> 李明</span>
+            <span>•</span>
+            <span>掘金</span>
+            <span>•</span>
+            <span>Jan 20, 2024</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">使用 FlyEnv 搭建 Laravel 本地开发环境最佳实践</h3>
+          <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+            详细介绍了如何在 macOS 上使用 FlyEnv 配置 Laravel 项目，包括多版本 PHP 切换、Redis 配置、队列监控等高级用法。
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">macOS</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Laravel</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">中文</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer ugc" 
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+            Read Article 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center relative">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-md text-violet-700">Comparison</span>
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> TechReview Pro</span>
+            <span>•</span>
+            <span>Reddit / Blog</span>
+            <span>•</span>
+            <span>Mar 08, 2024</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">FlyEnv vs Laragon: Which is Better for Windows PHP Development?</h3>
+          <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+            An in-depth comparison of FlyEnv and Laragon on Windows, covering installation ease, resource usage, PHP version management, and extension support.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Windows</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Laragon</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Comparison</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer ugc" 
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+            Read Article 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card-hover bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300">
+        <div class="h-40 bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center relative">
+          <span class="absolute top-3 left-3 bg-white/90 backdrop-blur text-xs font-semibold px-2.5 py-1 rounded-md text-pink-700">Case Study</span>
+          <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> StartupTeam ID</span>
+            <span>•</span>
+            <span>Personal Blog</span>
+            <span>•</span>
+            <span>Dec 12, 2023</span>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">How Our Team Replaced Docker Desktop with FlyEnv and Saved 40% RAM</h3>
+          <p class="text-sm text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+            A real-world case study from an Indonesian development team migrating 12 local projects from Docker to FlyEnv. Includes memory usage charts and developer productivity metrics.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Docker</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Team</span>
+            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Performance</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer ugc" 
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+            Read Article 
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Load More -->
+    <div class="text-center mt-12">
+      <button class="px-6 py-3 bg-white border border-slate-200 rounded-xl text-sm font-semibold text-slate-700 hover:border-indigo-300 hover:text-indigo-600 transition-all shadow-sm">
+        Load More Articles
+      </button>
+    </div>
+
+    <!-- Submit CTA -->
+    <div class="mt-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 md:p-12 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3">Written about FlyEnv?</h2>
+      <p class="text-indigo-100 mb-6 max-w-xl mx-auto">
+        We love featuring community content. If you've written a tutorial, review, or case study about FlyEnv, let us know and we'll feature it here.
+      </p>
+      <a href="mailto:flyenv@example.com" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
+        Submit Your Article
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+
+    <!-- JSON-LD Schema (hidden) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "FlyEnv Community Articles",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TechArticle",
+            "headline": "FlyEnv: A Modern Alternative to XAMPP on macOS",
+            "description": "A comprehensive guide on why FlyEnv replaces XAMPP for PHP development on macOS...",
+            "author": {"@type": "Person", "name": "Alex Chen"},
+            "publisher": {"@type": "Organization", "name": "DEV.to"},
+            "datePublished": "2024-03-15",
+            "about": {"@type": "SoftwareApplication", "name": "FlyEnv"}
+          }
+        }
+      ]
+    }
+    </script>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 mt-20 py-8 text-center text-sm text-slate-500">
+    <p>Copyright © 2019-present Alex Xu</p>
+  </footer>
+
+</body>
+</html>
