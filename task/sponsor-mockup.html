@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsor FlyEnv</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #ffffff; }
+    .hero-gradient { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
+    .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12); }
+    .donate-card { transition: all 0.2s ease; }
+    .donate-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(0,0,0,0.12); }
+    .voice-card { transition: all 0.2s ease; }
+    .voice-card:hover { transform: scale(1.01); }
+    .message-card { transition: all 0.2s ease; }
+    .message-card:hover { background: #f8fafc; }
+    .dark .message-card:hover { background: rgba(255,255,255,0.03); }
+    .gradient-text { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .manifesto-border { border: 1px dashed #fde68a; }
+    .quote-mark { font-size: 4rem; line-height: 1; color: #e2e8f0; font-family: Georgia, serif; }
+    .roadmap-check { width: 1.25rem; height: 1.25rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; }
+    .avatar-item { width: 2.75rem; height: 2.75rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; user-select: none; }
+    .avatar-more { background: #f1f5f9 !important; color: #94a3b8; border: 1px dashed #cbd5e1; }
+    .page-btn { padding: 0.375rem 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500; border: none; background: transparent; color: #64748b; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .page-btn:hover:not(:disabled) { background: #f1f5f9; color: #334155; }
+    .page-btn.active { background: #e0e7ff; color: #4f46e5; }
+    .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .gradient-bar { height: 3px; background: linear-gradient(90deg, #4f46e5, #7c3aed, #db2777); border-radius: 2px; }
+  </style>
+</head>
+<body class="text-slate-800">
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="#" class="text-xl font-bold text-slate-900">FlyEnv</a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#" class="hover:text-slate-900">Download</a>
+        <a href="#" class="hover:text-slate-900">FlyPHPServer</a>
+        <a href="#" class="hover:text-slate-900">Guide</a>
+        <a href="#" class="hover:text-slate-900">Community</a>
+        <a href="#" class="text-indigo-600">Sponsor</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="flex items-center gap-2 px-3 py-1.5 text-sm text-slate-500 bg-slate-100 rounded-lg">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        Search
+        <kbd class="px-1.5 py-0.5 text-xs bg-white rounded border">K</kbd>
+      </button>
+      <button class="p-2 text-slate-500 hover:text-slate-900">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-gradient pt-20 pb-16">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.1]">
+      Making local development<br class="hidden md:block">
+      <span class="gradient-text">fast, native, and enjoyable</span> again.
+    </h1>
+    <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-8 leading-relaxed">
+      FlyEnv is an independently built, open-source environment manager for macOS, Windows, and Linux. Your support keeps it free and constantly improving.
+    </p>
+  </div>
+</section>
+
+<!-- Indie Manifesto -->
+<section class="py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="bg-amber-50/80 rounded-2xl p-8 md:p-10 manifesto-border relative overflow-hidden">
+      <div class="absolute top-4 right-6 text-6xl text-amber-200 font-serif leading-none select-none">❝</div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🚀</span>
+          <h2 class="text-xl font-bold text-slate-900">Built Independently</h2>
+        </div>
+        <p class="text-slate-700 text-base leading-relaxed mb-4">
+          FlyEnv is independently built and maintained by a single developer.
+        </p>
+        <div class="space-y-2 mb-6">
+          <p class="text-slate-600 font-medium">No VC funding.</p>
+          <p class="text-slate-600 font-medium">No big company backing.</p>
+          <p class="text-slate-600 font-medium">No corporate roadmap.</p>
+        </div>
+        <p class="text-slate-700 text-base leading-relaxed mb-6">
+          Just continuous work to make local development better for everyone.
+        </p>
+        <div class="bg-white/60 rounded-xl p-5 space-y-2">
+          <p class="text-sm font-semibold text-slate-800 mb-2">Your sponsorship directly fuels:</p>
+          <div class="flex items-start gap-2 text-sm text-slate-600">
+            <span class="text-indigo-500 mt-0.5">→</span>
+            <span>Cross-platform native binaries</span>
+          </div>
+          <div class="flex items-start gap-2 text-sm text-slate-600">
+            <span class="text-indigo-500 mt-0.5">→</span>
+            <span>Faster release cycles</span>
+          </div>
+          <div class="flex items-start gap-2 text-sm text-slate-600">
+            <span class="text-indigo-500 mt-0.5">→</span>
+            <span>Community-driven features</span>
+          </div>
+          <div class="flex items-start gap-2 text-sm text-slate-600">
+            <span class="text-indigo-500 mt-0.5">→</span>
+            <span>Keeping FlyEnv independent and free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Sponsor -->
+<section class="py-16 bg-slate-50/50">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Where Your Support Goes</h2>
+      <p class="text-slate-500">Your sponsorship helps FlyEnv stay independent and evolve.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-white rounded-xl p-6 border border-slate-200 card-hover">
+        <div class="text-3xl mb-3">🖥</div>
+        <h3 class="font-bold text-slate-900 mb-1">Native Binaries</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Maintain native binaries for macOS, Windows & Linux across architectures.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 card-hover">
+        <div class="text-3xl mb-3">🌍</div>
+        <h3 class="font-bold text-slate-900 mb-1">Cross-Platform</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Improve compatibility and fix platform-specific edge cases.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 card-hover">
+        <div class="text-3xl mb-3">🤖</div>
+        <h3 class="font-bold text-slate-900 mb-1">AI Integrations</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Build new AI agent & local LLM integrations for smarter workflows.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 card-hover">
+        <div class="text-3xl mb-3">📦</div>
+        <h3 class="font-bold text-slate-900 mb-1">Open Source Infra</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Support open-source infrastructure and upstream dependencies.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 md:col-span-2 lg:col-span-2 card-hover">
+        <div class="text-3xl mb-3">🔒</div>
+        <h3 class="font-bold text-slate-900 mb-1">Stay Independent</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">No ads, no tracking, no paywalls — just a tool built for developers, funded by developers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Community Voices -->
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Loved by Developers Worldwide</h2>
+      <p class="text-slate-500">Real words from real users around the globe.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="bg-white rounded-xl p-6 border border-slate-200 voice-card relative">
+        <div class="quote-mark absolute top-2 left-4 select-none">"</div>
+        <p class="text-slate-700 italic text-base leading-relaxed mb-4 relative z-10 pt-6">
+          "Rápida, nativa y simplifica mi trabajo."
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇪🇸</span>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">wgnd.93</p>
+            <p class="text-xs text-slate-500">Spain</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 voice-card relative">
+        <div class="quote-mark absolute top-2 left-4 select-none">"</div>
+        <p class="text-slate-700 italic text-base leading-relaxed mb-4 relative z-10 pt-6">
+          "Semoga Semakin Bermanfaat Untuk Banyak Orang"
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇮🇩</span>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">Fadlur.id</p>
+            <p class="text-xs text-slate-500">Indonesia</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 voice-card relative">
+        <div class="quote-mark absolute top-2 left-4 select-none">"</div>
+        <p class="text-slate-700 italic text-base leading-relaxed mb-4 relative z-10 pt-6">
+          "The definitive local development powerhouse for engineers!"
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇺🇸</span>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">Max Voitsekhovsky</p>
+            <p class="text-xs text-slate-500">USA</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 voice-card relative">
+        <div class="quote-mark absolute top-2 left-4 select-none">"</div>
+        <p class="text-slate-700 italic text-base leading-relaxed mb-4 relative z-10 pt-6">
+          "Esse app é incrível, meus parabéns"
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇧🇷</span>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">Augusto César</p>
+            <p class="text-xs text-slate-500">Brazil</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 voice-card relative">
+        <div class="quote-mark absolute top-2 left-4 select-none">"</div>
+        <p class="text-slate-700 italic text-base leading-relaxed mb-4 relative z-10 pt-6">
+          "Un vrai plaisir de développer dans cet environnement."
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇫🇷</span>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">POIREL Denis</p>
+            <p class="text-xs text-slate-500">France</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-slate-200 voice-card relative">
+        <div class="quote-mark absolute top-2 left-4 select-none">"</div>
+        <p class="text-slate-700 italic text-base leading-relaxed mb-4 relative z-10 pt-6">
+          "Amazing environment manager!! Super recommended"
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="text-lg">🇵🇹</span>
+          <div>
+            <p class="text-sm font-semibold text-slate-900">Dennys Oliveira</p>
+            <p class="text-xs text-slate-500">Portugal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Donation Methods -->
+<section class="py-16 bg-slate-50/50">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">Choose Your Way to Support</h2>
+      <p class="text-slate-500">Every contribution, big or small, keeps FlyEnv moving forward.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Ko-fi -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden donate-card">
+        <div class="h-20 bg-gradient-to-br from-rose-50 to-red-50 flex items-center justify-center">
+          <svg class="w-10 h-10 text-rose-500" viewBox="0 0 1024 1024" fill="currentColor"><path d="M1018.912 381.792c-32.992-174.304-207.328-195.968-207.328-195.968H30.816c-25.76 0-28.96 34.048-28.96 34.048s-3.488 312.48-0.928 504.416c7.008 103.424 110.336 114.016 110.336 114.016s352.736-0.992 510.56-2.08c104.032-18.176 114.464-109.472 113.408-159.328 185.696 10.24 316.672-120.8 283.68-295.072z m-471.968 149.792c-53.152 61.984-171.136 169.632-171.136 169.632s-5.152 5.088-13.216 0.992c-3.232-2.432-4.608-3.84-4.608-3.84-18.912-18.816-143.712-130.08-172.128-168.704-30.24-41.184-44.416-115.2-3.872-158.304 40.576-43.104 128.224-46.336 186.144 17.376 0 0 66.784-76.032 147.968-41.088 81.248 34.976 78.176 128.48 30.848 183.936z m263.392 20.384c-39.584 4.96-71.776 1.184-71.776 1.184V310.752h75.52s84.096 23.52 84.096 112.544c0 81.632-42.016 113.792-87.84 128.64z"/></svg>
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-slate-900 text-lg mb-1">Ko-fi</h3>
+          <p class="text-sm text-slate-500 mb-4">Credit Card / PayPal</p>
+          <div class="bg-slate-50 rounded-xl p-4 mb-4 inline-block">
+            <img src="https://oss.macphpstudy.com/image/qrcode3@2x.png" alt="Ko-fi QR" class="w-40 h-40 object-contain rounded-lg mx-auto">
+          </div>
+          <a href="https://ko-fi.com/xpf0000" target="_blank" class="inline-flex items-center justify-center w-full gap-2 px-4 py-2.5 bg-rose-500 text-white rounded-xl font-semibold text-sm hover:bg-rose-600 transition">
+            Support on Ko-fi
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- WeChat -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden donate-card">
+        <div class="h-20 bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center">
+          <svg class="w-10 h-10 text-green-600" viewBox="0 0 1025 1024" fill="currentColor"><path d="M1024.16 694.816c0-149.92-143.104-271.392-319.584-271.392-176.576 0-319.68 121.504-319.68 271.392S528 966.208 704.576 966.208c55.456 0 107.648-12.096 153.184-33.248l125.984 54.528-14.592-140.544c34.784-43.392 55.04-95.808 55.04-152.128zM596.832 621.28c-25.152 0-45.472-20.352-45.472-45.472s20.32-45.472 45.472-45.472c25.12 0 45.44 20.384 45.44 45.472s-20.384 45.472-45.44 45.472z m215.392 0c-25.056 0-45.44-20.352-45.44-45.472s20.384-45.472 45.44-45.472c25.184 0 45.536 20.384 45.536 45.472s-20.352 45.472-45.536 45.472zM704.576 387.488c49.376 0 96.416 8.8 139.264 24.64 0.32-5.728 0.992-11.232 0.992-16.992 0-198.08-189.152-358.624-422.432-358.624C189.184 36.512 0.032 197.024 0.032 395.136c0 74.496 26.816 143.776 72.704 201.12L53.472 781.92l166.432-72.096c41.216 19.2 86.784 32.16 134.88 38.784-3.616-17.504-5.824-35.424-5.824-53.792 0.032-169.44 159.552-307.296 355.616-307.296z m-139.808-209.6c33.184 0 60 26.88 60 60 0 33.184-26.816 60.064-60 60.064s-60.032-26.88-60.032-60.064c0-33.152 26.88-60 60.032-60zM280.032 297.952c-33.184 0-60-26.88-60-60.064 0-33.152 26.848-60 60-60 33.184 0 60.032 26.88 60.032 60s-26.88 60.064-60.032 60.064z"/></svg>
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-slate-900 text-lg mb-1">WeChat Pay</h3>
+          <p class="text-sm text-slate-500 mb-4">Scan to donate</p>
+          <div class="bg-slate-50 rounded-xl p-4 mb-4 inline-block">
+            <img src="https://oss.macphpstudy.com/image/qrcode1@2x.png" alt="WeChat QR" class="w-40 h-40 object-contain rounded-lg mx-auto">
+          </div>
+          <div class="inline-flex items-center justify-center w-full gap-2 px-4 py-2.5 bg-green-600 text-white rounded-xl font-semibold text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+            Scan QR Code
+          </div>
+        </div>
+      </div>
+      <!-- Alipay -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden donate-card">
+        <div class="h-20 bg-gradient-to-br from-blue-50 to-sky-50 flex items-center justify-center">
+          <svg class="w-10 h-10 text-blue-600" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M1023.795 853.64v6.348a163.807 163.807 0 0 1-163.807 163.807h-696.18A163.807 163.807 0 0 1 0 859.988v-696.18A163.807 163.807 0 0 1 163.807 0h696.181a163.807 163.807 0 0 1 163.807 163.807V853.64z" fill="#009FE9"/><path d="M844.836 648.267c-40.952-14.333-95.623-34.809-156.846-57.128a949.058 949.058 0 0 0 90.094-222.573H573.325V307.14h245.711v-43.41l-245.71 2.458V143.33H472.173c-18.223 0-21.704 20.476-21.704 20.476v102.38H204.759v40.952h245.71v61.427H245.712v40.952h409.518a805.522 805.522 0 0 1-64.909 148.246c-128.384-42.795-266.186-77.604-354.233-55.08a213.564 213.564 0 0 0-112.003 63.27c-95.418 116.917-26.21 294.034 175.274 294.034 119.989 0 236.087-67.366 325.771-177.73 134.322 65.932 398.666 176.297 398.666 176.297V701.3s-32.352-4.095-178.96-53.033z m-563.702 144.97c-158.893 0-204.759-124.699-126.336-194.112a191.86 191.86 0 0 1 90.913-46.276c93.575-10.238 189.811 35.629 293.624 86.614-74.941 94.598-166.674 153.774-258.2 153.774z" fill="#FFFFFF"/></svg>
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-bold text-slate-900 text-lg mb-1">Alipay</h3>
+          <p class="text-sm text-slate-500 mb-4">Scan to donate</p>
+          <div class="bg-slate-50 rounded-xl p-4 mb-4 inline-block">
+            <img src="https://oss.macphpstudy.com/image/qrcode2@2x.png" alt="Alipay QR" class="w-40 h-40 object-contain rounded-lg mx-auto">
+          </div>
+          <div class="inline-flex items-center justify-center w-full gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl font-semibold text-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/></svg>
+            Scan QR Code
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap 2026 -->
+<section class="py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">2026 Roadmap</h2>
+      <p class="text-slate-500">Your sponsorship accelerates these goals.</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-slate-200 p-6 md:p-8">
+      <div class="space-y-5">
+        <!-- Completed -->
+        <div class="flex items-start gap-4">
+          <div class="roadmap-check bg-emerald-500 text-white flex-shrink-0 mt-0.5">✓</div>
+          <div>
+            <p class="font-semibold text-slate-900">Linux GUI Optimization</p>
+            <p class="text-sm text-slate-500 mt-0.5">Improved native desktop experience for Linux users.</p>
+          </div>
+        </div>
+        <!-- In Progress -->
+        <div class="flex items-start gap-4">
+          <div class="roadmap-check bg-indigo-500 text-white flex-shrink-0 mt-0.5">~</div>
+          <div>
+            <p class="font-semibold text-slate-900">AI Agent & Local LLM Integration</p>
+            <p class="text-sm text-slate-500 mt-0.5">Deep integration with local AI workflows and Ollama.</p>
+          </div>
+        </div>
+        <!-- Planned -->
+        <div class="flex items-start gap-4">
+          <div class="roadmap-check bg-slate-200 text-slate-500 flex-shrink-0 mt-0.5"></div>
+          <div>
+            <p class="font-semibold text-slate-900">Native Container Runtime Support</p>
+            <p class="text-sm text-slate-500 mt-0.5">Lightweight native containers without Docker overhead.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="roadmap-check bg-slate-200 text-slate-500 flex-shrink-0 mt-0.5"></div>
+          <div>
+            <p class="font-semibold text-slate-900">Remote Team Environment Sync</p>
+            <p class="text-sm text-slate-500 mt-0.5">Share and sync environments across team members.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="roadmap-check bg-slate-200 text-slate-500 flex-shrink-0 mt-0.5"></div>
+          <div>
+            <p class="font-semibold text-slate-900">One-Click Deployment Pipelines</p>
+            <p class="text-sm text-slate-500 mt-0.5">Deploy from local to staging/production effortlessly.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 pt-6 border-t border-slate-100 text-center">
+        <a href="https://github.com/xpf0000/FlyEnv/discussions" target="_blank" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+          Have a feature idea? Join the discussion on GitHub
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Special Thanks -->
+<section class="py-16 bg-slate-50/50">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl font-bold text-slate-900 mb-2">Special Thanks</h2>
+      <p class="text-slate-500">Thank you to every friend who supports the FlyEnv project.</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-slate-200 p-6 flex items-start gap-4">
+      <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm flex-shrink-0">F4</div>
+      <div>
+        <p class="font-bold text-slate-900">F4nniu</p>
+        <p class="text-sm text-slate-500 mt-0.5">
+          Founder of <a href="https://www.fastadmin.net/" target="_blank" class="text-indigo-600 hover:text-indigo-700 font-medium">FastAdmin</a>, for sponsoring the <strong class="text-slate-800">flyenv.com</strong> domain.
+        </p>
+      </div>
+      <div class="ml-auto hidden sm:block">
+        <span class="text-2xl">🎗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Supporters -->
+<section class="py-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+      <!-- Avatar Wall -->
+      <div class="p-6 border-b border-slate-100">
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <h2 class="text-lg font-bold text-slate-900">Recent Supporters</h2>
+          <span class="text-xs text-slate-500">Showing 148 supporters with messages</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <div class="avatar-item" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);" title="Max Voitsekhovsky">MV</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" title="BarkahIstigozah">B</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);" title="Alexander Alexandrov">AA</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);" title="Fadlur.id">F</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);" title="Ainars">A</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #30cfd0 0%, #330867 100%);" title="imadtbro">I</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);" title="Dennys Oliveira">DO</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);" title="Ainars">A</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);" title="Al">A</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);" title="satriyo">S</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #f6d365 0%, #fda085 100%);" title="Colir">C</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);" title="Mário C.">MC</div>
+          <div class="avatar-item" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);" title="Rey Arlena">RA</div>
+          <div class="avatar-item avatar-more">+135</div>
+        </div>
+      </div>
+
+      <!-- Messages List (Big Cards) -->
+      <div class="p-6 space-y-4">
+        <!-- Message 1 -->
+        <div class="message-card bg-slate-50/80 rounded-xl p-5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);">MV</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-3 mb-1 flex-wrap">
+              <span class="font-semibold text-slate-900 text-sm">Max Voitsekhovsky</span>
+              <span class="text-indigo-600 font-bold text-sm">$10.00</span>
+            </div>
+            <p class="text-slate-600 text-[0.9375rem] leading-relaxed">
+              "You've come a long way from a small project for managing PHP / MYSQL / NGINX to a super useful tool for engineers! Thank you very much!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Message 2 -->
+        <div class="message-card bg-slate-50/80 rounded-xl p-5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">B</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-3 mb-1 flex-wrap">
+              <span class="font-semibold text-slate-900 text-sm">BarkahIstigozah</span>
+              <span class="text-indigo-600 font-bold text-sm">$10.00</span>
+            </div>
+            <p class="text-slate-600 text-[0.9375rem] leading-relaxed">
+              "Keep up the great work on your app, dude!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Message 3 -->
+        <div class="message-card bg-slate-50/80 rounded-xl p-5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">AA</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-3 mb-1 flex-wrap">
+              <span class="font-semibold text-slate-900 text-sm">Alexander Alexandrov</span>
+              <span class="text-indigo-600 font-bold text-sm">$10.00</span>
+            </div>
+            <p class="text-slate-600 text-[0.9375rem] leading-relaxed">
+              "For a great app!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Message 4 -->
+        <div class="message-card bg-slate-50/80 rounded-xl p-5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">F</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-3 mb-1 flex-wrap">
+              <span class="font-semibold text-slate-900 text-sm">Fadlur.id</span>
+              <span class="text-indigo-600 font-bold text-sm">$10.00</span>
+            </div>
+            <p class="text-slate-600 text-[0.9375rem] leading-relaxed">
+              "Semoga Semakin Bermanfaat Untuk Banyak Orang"
+            </p>
+          </div>
+        </div>
+
+        <!-- Message 5 -->
+        <div class="message-card bg-slate-50/80 rounded-xl p-5 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);">A</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-3 mb-1 flex-wrap">
+              <span class="font-semibold text-slate-900 text-sm">Ainars</span>
+              <span class="text-indigo-600 font-bold text-sm">$10.00</span>
+            </div>
+            <p class="text-slate-600 text-[0.9375rem] leading-relaxed">
+              "So satisfied by this, I now want to set this up on other devices aswell!"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="px-6 py-4 border-t border-slate-100 flex items-center justify-center gap-1 flex-wrap">
+        <button class="page-btn" disabled>Prev</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <span class="px-1 text-slate-400 text-sm">...</span>
+        <button class="page-btn">15</button>
+        <button class="page-btn">Next</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+      <div class="relative z-10">
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">Join the Mission</h2>
+        <p class="text-indigo-100 max-w-xl mx-auto mb-8 leading-relaxed">
+          FlyEnv is powered by its community. Whether you donate, contribute code, or simply spread the word — you're helping make local development better for everyone.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="https://ko-fi.com/xpf0000" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition shadow-lg">
+            Become a Supporter
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="https://github.com/xpf0000/FlyEnv" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold hover:bg-white/20 transition border border-white/20">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C19.612 23.027 24 18.062 24 12.073c0-6.627-5.373-12-12-12z"/></svg>
+            Star on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 py-8">
+  <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+    Copyright © 2019-present <a href="#" class="text-slate-700 hover:text-slate-900">Alex Xu</a>
+  </div>
+</footer>
+
+</body>
+</html>

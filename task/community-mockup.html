@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlyEnv Community Stories & Tutorials</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #ffffff; }
+    .hero-gradient { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
+    .featured-gradient { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%); }
+    .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15); }
+    .topic-card { transition: all 0.2s ease; }
+    .topic-card:hover { transform: scale(1.02); }
+    .platform-icon { width: 18px; height: 18px; }
+    .tag-pill { transition: all 0.2s; }
+    .tag-pill:hover { background: #e0e7ff; color: #4338ca; }
+    .animate-count { font-variant-numeric: tabular-nums; }
+    .section-title { position: relative; padding-left: 16px; }
+    .section-title::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4px; border-radius: 2px; }
+    .section-docker::before { background: #f97316; }
+    .section-laravel::before { background: #ef4444; }
+    .section-latest::before { background: #6366f1; }
+    .section-popular::before { background: #eab308; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body class="text-slate-800">
+
+<!-- Nav -->
+<nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="#" class="text-xl font-bold text-slate-900">FlyEnv</a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#" class="hover:text-slate-900">Download</a>
+        <a href="#" class="hover:text-slate-900">FlyPHPServer</a>
+        <a href="#" class="hover:text-slate-900">Guide</a>
+        <a href="#" class="text-indigo-600">Community</a>
+        <a href="#" class="hover:text-slate-900">Sponsor</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="flex items-center gap-2 px-3 py-1.5 text-sm text-slate-500 bg-slate-100 rounded-lg">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        Search
+        <kbd class="px-1.5 py-0.5 text-xs bg-white rounded border">K</kbd>
+      </button>
+      <button class="p-2 text-slate-500 hover:text-slate-900">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-gradient pt-16 pb-12">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+      FlyEnv Community Stories
+    </h1>
+    <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Discover how developers around the world use FlyEnv to streamline their local development workflow. From macOS to Windows, from Laravel to WordPress — these are real stories written by real users.
+    </p>
+
+    <!-- Stats Dashboard -->
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+      <div class="bg-white rounded-xl px-6 py-4 shadow-sm border border-slate-100 min-w-[140px]">
+        <div class="text-3xl font-bold text-indigo-600 animate-count">24</div>
+        <div class="text-sm text-slate-500 font-medium mt-1">Articles</div>
+      </div>
+      <div class="bg-white rounded-xl px-6 py-4 shadow-sm border border-slate-100 min-w-[140px]">
+        <div class="text-3xl font-bold text-violet-600 animate-count">18</div>
+        <div class="text-sm text-slate-500 font-medium mt-1">Authors</div>
+      </div>
+      <div class="bg-white rounded-xl px-6 py-4 shadow-sm border border-slate-100 min-w-[140px]">
+        <div class="text-3xl font-bold text-pink-600 animate-count">8</div>
+        <div class="text-sm text-slate-500 font-medium mt-1">Languages</div>
+      </div>
+      <div class="bg-white rounded-xl px-6 py-4 shadow-sm border border-slate-100 min-w-[140px]">
+        <div class="text-3xl font-bold text-amber-600 animate-count">6</div>
+        <div class="text-sm text-slate-500 font-medium mt-1">Platforms</div>
+      </div>
+    </div>
+
+    <!-- Filter Tags -->
+    <div class="flex flex-wrap justify-center gap-2">
+      <button class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-full">All</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">macOS</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Windows</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Linux</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Tutorials</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Reviews</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Videos</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Docker Alt</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">Laravel</button>
+      <button class="px-4 py-2 bg-white text-slate-600 text-sm font-medium rounded-full border border-slate-200 hover:border-indigo-300 hover:text-indigo-600 transition">XAMPP Alt</button>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<div class="max-w-7xl mx-auto px-6 py-12">
+
+  <!-- Featured Article -->
+  <div class="mb-14">
+    <div class="flex items-center gap-2 mb-5">
+      <span class="text-xl">🏆</span>
+      <h2 class="text-lg font-bold text-slate-900">Featured Community Story</h2>
+    </div>
+    <div class="featured-gradient rounded-2xl p-8 md:p-10 text-white relative overflow-hidden card-hover cursor-pointer">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+      <div class="relative z-10 max-w-3xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">Docker Alternative</span>
+          <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">Popular</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-bold mb-3 leading-tight">
+          FlyEnv vs Docker for Laravel Development: Why Teams Are Switching to Native
+        </h3>
+        <p class="text-indigo-100 text-base md:text-lg mb-6 leading-relaxed max-w-2xl">
+          Native performance, 80% less RAM usage, zero container overhead. See why development teams are replacing Docker Desktop with FlyEnv for local PHP, Node.js and MySQL workflows.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-indigo-100">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-white/30 flex items-center justify-center text-xs font-bold">G</div>
+            <span class="font-medium">Ghulaminchalimalwi</span>
+          </div>
+          <span>·</span>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+            <span>Medium</span>
+          </div>
+          <span>·</span>
+          <span>Apr 30, 2026</span>
+          <span>·</span>
+          <span>⏱ 5 min read</span>
+        </div>
+        <div class="mt-6">
+          <span class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-indigo-700 rounded-xl font-semibold text-sm hover:bg-indigo-50 transition">
+            Read Full Article
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trending Topics -->
+  <div class="mb-14">
+    <div class="flex items-center gap-2 mb-5">
+      <span class="text-xl">🔥</span>
+      <h2 class="text-lg font-bold text-slate-900">Trending Topics</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <div class="topic-card bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-100 rounded-xl p-4 cursor-pointer">
+        <div class="text-2xl mb-2">🐳</div>
+        <div class="font-bold text-slate-800 text-sm">Docker Alternative</div>
+        <div class="text-xs text-slate-500 mt-1">6 articles</div>
+      </div>
+      <div class="topic-card bg-gradient-to-br from-red-50 to-rose-50 border border-red-100 rounded-xl p-4 cursor-pointer">
+        <div class="text-2xl mb-2">🚀</div>
+        <div class="font-bold text-slate-800 text-sm">Laravel Dev</div>
+        <div class="text-xs text-slate-500 mt-1">5 articles</div>
+      </div>
+      <div class="topic-card bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100 rounded-xl p-4 cursor-pointer">
+        <div class="text-2xl mb-2">⚡</div>
+        <div class="font-bold text-slate-800 text-sm">XAMPP Replacement</div>
+        <div class="text-xs text-slate-500 mt-1">4 articles</div>
+      </div>
+      <div class="topic-card bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-100 rounded-xl p-4 cursor-pointer">
+        <div class="text-2xl mb-2">🍎</div>
+        <div class="font-bold text-slate-800 text-sm">macOS PHP</div>
+        <div class="text-xs text-slate-500 mt-1">4 articles</div>
+      </div>
+      <div class="topic-card bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 rounded-xl p-4 cursor-pointer">
+        <div class="text-2xl mb-2">🐧</div>
+        <div class="font-bold text-slate-800 text-sm">Linux Setup</div>
+        <div class="text-xs text-slate-500 mt-1">4 articles</div>
+      </div>
+      <div class="topic-card bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 rounded-xl p-4 cursor-pointer">
+        <div class="text-2xl mb-2">📹</div>
+        <div class="font-bold text-slate-800 text-sm">Video Tutorials</div>
+        <div class="text-xs text-slate-500 mt-1">4 articles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest Community Posts -->
+  <div class="mb-14">
+    <h2 class="section-title section-latest text-xl font-bold text-slate-900 mb-6">Latest Community Posts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+              <span>Medium</span>
+            </div>
+            <span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full">Tutorial</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 leading-snug text-[15px]">
+            FlyEnv vs Laragon: Best Cross-Platform Local Dev Environment (2026)
+          </h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-3">
+            FlyEnv is the next-gen cross-platform local development environment manager. Unlike Windows-only Laragon, it supports PHP, Node, Go, Python with one-click version switching, plus built-in Ollama AI assistant and Cloudflare tunnels.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+            <span>IMRAN AHMED DEV</span>
+            <span>·</span>
+            <span>May 6, 2026</span>
+            <span>·</span>
+            <span>⏱ 4 min</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">laragon alternative</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">cross-platform</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">php</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+            Read Article
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-orange-500 to-red-500"></div>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+              <span>Medium</span>
+            </div>
+            <span class="px-2 py-0.5 bg-orange-50 text-orange-700 text-xs font-semibold rounded-full">Comparison</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 leading-snug text-[15px]">
+            Docker vs FlyEnv for PHP Version Switching: Do You Really Need Containers?
+          </h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-3">
+            Comparing Docker and FlyEnv for local PHP development. For simple version management, FlyEnv offers a lighter, faster solution without Docker's complexity and resource overhead — perfect for legacy project compatibility.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+            <span>kurniawan</span>
+            <span>·</span>
+            <span>May 5, 2026</span>
+            <span>·</span>
+            <span>⏱ 4 min</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">docker alternative</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">php version manager</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">macos</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+            Read Article
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-green-500 to-emerald-500"></div>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+              <span>Medium</span>
+            </div>
+            <span class="px-2 py-0.5 bg-green-50 text-green-700 text-xs font-semibold rounded-full">Review</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 leading-snug text-[15px]">
+            FlyEnv Linux Setup: Best Laravel Herd Alternative for Ubuntu
+          </h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-3">
+            A PHP developer shares how FlyEnv seamlessly replaced Laravel Herd after switching from Windows to Linux. One-click setup for PHP, MySQL, Redis, and Nginx without complex manual configuration.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+            <span>Adryel Dearo</span>
+            <span>·</span>
+            <span>Feb 26, 2026</span>
+            <span>·</span>
+            <span>⏱ 3 min</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">linux</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">laravel</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">php</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+            Read Article
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-red-500 to-pink-500"></div>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+              <span>YouTube</span>
+            </div>
+            <span class="px-2 py-0.5 bg-red-50 text-red-700 text-xs font-semibold rounded-full">Video</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 leading-snug text-[15px]">
+            FlyEnv Tutorial: Multi-Version PHP/Java/MySQL/Go Dev Environment Setup
+          </h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-3">
+            Step-by-step video tutorial showing how FlyEnv replaces XAMPP by managing multiple PHP, Java, MySQL and Go versions on a single machine. Perfect for full-stack developers juggling diverse tech stacks.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+            <span>Agus Darmawan</span>
+            <span>·</span>
+            <span>Oct 15, 2024</span>
+            <span>·</span>
+            <span>⏱ 12 min video</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">xampp replacement</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">tutorial</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">video</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+            Watch Video
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              <span>掘金</span>
+            </div>
+            <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full">Tutorial</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 leading-snug text-[15px]">
+            FlyEnv 全栈开发环境：替代 Docker 和 XAMPP 的最佳选择
+          </h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-3">
+            拯救本地开发环境：FlyEnv 采用原生二进制运行，无需 Docker 虚拟化层即可管理 PHP、Node.js、MySQL 等服务。相比传统方案，零容器开销，为开发者提供流畅的本地开发体验。
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+            <span>15996629484</span>
+            <span>·</span>
+            <span>May 8, 2026</span>
+            <span>·</span>
+            <span>⏱ 8 min</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">docker alternative</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">xampp replacement</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">tutorial</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+            Read Article
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-purple-500 to-violet-500"></div>
+        <div class="p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2 text-xs text-slate-500">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+              <span>Blog</span>
+            </div>
+            <span class="px-2 py-0.5 bg-purple-50 text-purple-700 text-xs font-semibold rounded-full">Comparison</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 leading-snug text-[15px]">
+            Laravel Herd vs FlyEnv: Complete Comparison for Ubuntu Developers
+          </h3>
+          <p class="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-3">
+            Backend developer Germanio compares Laravel Herd and FlyEnv in depth. Detailed analysis of configuration convenience, feature sets, and use cases within the Laravel ecosystem to help PHP developers choose the right tool.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 mb-4">
+            <span>Germanio</span>
+            <span>·</span>
+            <span>Feb 22, 2026</span>
+            <span>·</span>
+            <span>⏱ 5 min</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">laravel</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">php</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full cursor-pointer">comparison</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700">
+            Read Article
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Docker Alternatives Section -->
+  <div class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="section-title section-docker text-xl font-bold text-slate-900">Docker Alternatives</h2>
+      <a href="#" class="text-sm font-medium text-orange-600 hover:text-orange-700 flex items-center gap-1">
+        View All <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-orange-400 to-red-400"></div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+            <span>Medium</span>
+            <span>·</span>
+            <span>⏱ 5 min</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 text-[15px]">Bye Docker, Hello FlyEnv: The Fastest Local Dev Environment</h3>
+          <p class="text-sm text-slate-500 line-clamp-2 mb-3">Native speed with 80% less RAM. No more waiting 20-60 seconds for Docker Desktop to start.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag-pill px-2 py-0.5 bg-orange-50 text-orange-700 text-xs rounded-full">docker alternative</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-orange-400 to-red-400"></div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+            <span>Medium</span>
+            <span>·</span>
+            <span>⏱ 3 min</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 text-[15px]">FlyEnv vs Docker for Magento 2.4+ Local Development</h3>
+          <p class="text-sm text-slate-500 line-clamp-2 mb-3">Eliminate containerization overhead with native PHP, MySQL and Redis for Magento development.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag-pill px-2 py-0.5 bg-orange-50 text-orange-700 text-xs rounded-full">docker alternative</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">magento</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-orange-400 to-red-400"></div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            <span>Blog</span>
+            <span>·</span>
+            <span>⏱ 4 min</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 text-[15px]">FlyEnv: Modern Alternative to Docker & XAMPP (German)</h3>
+          <p class="text-sm text-slate-500 line-clamp-2 mb-3">Up to 80% less resource consumption with native system binaries instead of containers.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag-pill px-2 py-0.5 bg-orange-50 text-orange-700 text-xs rounded-full">docker alternative</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">xampp</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Laravel & PHP Section -->
+  <div class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="section-title section-laravel text-xl font-bold text-slate-900">Laravel & PHP</h2>
+      <a href="#" class="text-sm font-medium text-red-600 hover:text-red-700 flex items-center gap-1">
+        View All <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-red-400 to-pink-400"></div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+            <span>Medium</span>
+            <span>·</span>
+            <span>⏱ 4 min</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 text-[15px]">Beyond Laragon: FlyEnv for Multi-Language Laravel Development</h3>
+          <p class="text-sm text-slate-500 line-clamp-2 mb-3">One-click version switching for PHP 7.4 to 8.3, plus Node.js, Go and Python support.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag-pill px-2 py-0.5 bg-red-50 text-red-700 text-xs rounded-full">laravel</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">php</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-red-400 to-pink-400"></div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            <span>Blog</span>
+            <span>·</span>
+            <span>⏱ 5 min</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 text-[15px]">Laravel Herd vs FlyEnv: Which is Best for Ubuntu?</h3>
+          <p class="text-sm text-slate-500 line-clamp-2 mb-3">FlyEnv runs natively on Ubuntu without compatibility layers — the definitive choice for Linux Laravel developers.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag-pill px-2 py-0.5 bg-red-50 text-red-700 text-xs rounded-full">laravel</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">ubuntu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover">
+        <div class="h-2 bg-gradient-to-r from-red-400 to-pink-400"></div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10S2 17.514 2 12 6.486 2 12 2zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>
+            <span>Medium</span>
+            <span>·</span>
+            <span>⏱ 3 min</span>
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2 text-[15px]">Managing PHP & Node.js Versions for Multi-Framework Development</h3>
+          <p class="text-sm text-slate-500 line-clamp-2 mb-3">Handle Laravel, Vue, React, Angular, Nuxt and Next.js projects with per-project environment isolation.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tag-pill px-2 py-0.5 bg-red-50 text-red-700 text-xs rounded-full">php</span>
+            <span class="tag-pill px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">nodejs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Load More -->
+  <div class="text-center mb-16">
+    <button class="px-8 py-3 bg-white border border-slate-200 text-slate-700 font-medium rounded-xl hover:border-indigo-300 hover:text-indigo-600 transition shadow-sm">
+      Load More Articles
+    </button>
+  </div>
+
+  <!-- Community Channels -->
+  <div class="mb-14">
+    <h2 class="text-xl font-bold text-slate-900 text-center mb-8">Join the Community</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <a href="#" class="group bg-white rounded-xl border border-slate-200 p-5 text-center hover:border-slate-300 transition card-hover">
+        <div class="w-12 h-12 mx-auto mb-3 bg-slate-800 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C19.612 23.027 24 18.062 24 12.073c0-6.627-5.373-12-12-12z"/></svg>
+        </div>
+        <div class="font-semibold text-slate-900 text-sm">GitHub Discussions</div>
+        <div class="text-xs text-slate-500 mt-1">Ask questions & share ideas</div>
+        <div class="text-xs text-slate-400 mt-2">⭐ 1.2k stars</div>
+      </a>
+
+      <a href="#" class="group bg-white rounded-xl border border-slate-200 p-5 text-center hover:border-slate-300 transition card-hover">
+        <div class="w-12 h-12 mx-auto mb-3 bg-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </div>
+        <div class="font-semibold text-slate-900 text-sm">Facebook Group</div>
+        <div class="text-xs text-slate-500 mt-1">Join the community</div>
+        <div class="text-xs text-slate-400 mt-2">👥 500+ members</div>
+      </a>
+
+      <a href="#" class="group bg-white rounded-xl border border-slate-200 p-5 text-center hover:border-slate-300 transition card-hover">
+        <div class="w-12 h-12 mx-auto mb-3 bg-indigo-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        </div>
+        <div class="font-semibold text-slate-900 text-sm">Discord</div>
+        <div class="text-xs text-slate-500 mt-1">Chat with developers</div>
+        <div class="text-xs text-slate-400 mt-2">🟢 200+ online</div>
+      </a>
+
+      <a href="#" class="group bg-white rounded-xl border border-slate-200 p-5 text-center hover:border-slate-300 transition card-hover">
+        <div class="w-12 h-12 mx-auto mb-3 bg-rose-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="font-semibold text-slate-900 text-sm">QQ Group</div>
+        <div class="text-xs text-slate-500 mt-1">Chinese community</div>
+        <div class="text-xs text-slate-400 mt-2">👥 540738893</div>
+      </a>
+
+      <a href="#" class="group bg-white rounded-xl border border-slate-200 p-5 text-center hover:border-slate-300 transition card-hover">
+        <div class="w-12 h-12 mx-auto mb-3 bg-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition">
+          <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 01-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 01.042 3.369h1.963c.533 0 .969.434.969.968a.975.975 0 01-.969.969h-1.874c-.125 2.145-1.117 4.054-2.611 5.377a6.074 6.074 0 00-2.612-5.377h-1.874a.975.975 0 01-.969-.969c0-.534.436-.968.969-.968h1.963a3.11 3.11 0 01.042-3.369 1.753 1.753 0 01-1.01-1.614c0-.968.786-1.754 1.754-1.754.477 0 .899.182 1.207.491 1.194-.856 2.85-1.418 4.674-1.488l-.8-3.747-2.597.547a1.25 1.25 0 01-2.498-.056c0-.688.562-1.249 1.25-1.249l3.25-.684a.875.875 0 011.036.67l1.315 6.172c.14.657-.28 1.305-.937 1.445a1.127 1.127 0 01-1.299-.765l-.451-2.116c-1.215.143-2.289.641-3.014 1.32-.725-.679-1.799-1.177-3.014-1.32l-.451 2.116a1.127 1.127 0 01-1.299.765c-.657-.14-1.077-.788-.937-1.445l1.315-6.172a.875.875 0 011.036-.67l3.25.684z"/></svg>
+        </div>
+        <div class="font-semibold text-slate-900 text-sm">Reddit</div>
+        <div class="text-xs text-slate-500 mt-1">r/FlyEnv discussions</div>
+        <div class="text-xs text-slate-400 mt-2">🔥 Active</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="mb-16">
+    <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+      <div class="relative z-10">
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">Share Your FlyEnv Story</h2>
+        <p class="text-indigo-100 max-w-xl mx-auto mb-8 leading-relaxed">
+          Written a tutorial or review? Get featured in front of thousands of developers. We link back to your blog or YouTube channel.
+        </p>
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-indigo-50 transition shadow-lg">
+          Submit Your Article
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <div class="mt-6 text-sm text-indigo-200">
+          Already featured: <span class="font-semibold text-white">18 authors</span> · <span class="font-semibold text-white">8 languages</span> · <span class="font-semibold text-white">6 platforms</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="border-t border-slate-200 py-8">
+  <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+    Copyright © 2019-present <a href="#" class="text-slate-700 hover:text-slate-900">Alex Xu</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -154,3 +154,7 @@ A: FlyEnv 的版本管理更加直观。不需要使用 `nvm use 18`，只需 `c
 [免费下载 FlyEnv](/zh/download) — 适用于 macOS、Windows 和 Linux
 
 想看到 FlyEnv 的实际效果吗？查看我们的[快速入门指南](/zh/guide/getting-started)，在 5 分钟内运行您的第一个项目。
+
+---
+
+> 💬 **社区视角**：查看开发者在真实评测和教程中对 [FlyEnv 与 XAMPP、Docker 的对比评价](/zh/community)。

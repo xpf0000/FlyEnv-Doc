@@ -66,6 +66,13 @@
     color-scheme: none !important;
 }
 
+.vp-doc h2.no-border {
+    border: none;
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
 @media (min-width: 500px) {
     .live-app-block .h2 {
         font-size: 2rem;

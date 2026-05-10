@@ -322,3 +322,7 @@ Now that you are running, explore these features:
 - [Build Local AI Agent](/guide/build-local-offline-ai-agent) — Offline AI with Ollama
 
 [Download FlyEnv](/download) if you haven't already, and happy coding!
+
+---
+
+> 💬 **Community Perspective**: See real developer stories and tutorials about FlyEnv on our [Community page](/community).
