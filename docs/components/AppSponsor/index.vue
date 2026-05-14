@@ -100,7 +100,7 @@ const props = defineProps<{
 
 const currentPage = ref(1)
 const pageSize = computed(() => props.pageSize ?? 10)
-const maxAvatars = computed(() => props.maxAvatars ?? 13)
+const maxAvatars = computed(() => props.maxAvatars ?? 12)
 
 const totalPages = computed(() => Math.ceil(props.list.length / pageSize.value))
 

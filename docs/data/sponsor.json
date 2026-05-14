@@ -1,6 +1,11 @@
 {
   "list": [
     {
+      "name": "Enrico Bertocchi",
+      "num": "$12.00",
+      "msg": "Thank you so much for creating and maintaining FlyEnv, this project has solved a lot of problems for me, I'm just sorry that at the moment I can only donate $12, I hope in the future to have the opportunity to provide you with monthly support because you deserve it"
+    },
+    {
       "name": "Max Voitsekhovsky",
       "num": "$10.00",
       "msg": "You've come a long way from a small project for managing PHP / MYSQL / NGINX to a super useful tool for engineers! Thank you very much!"
@@ -166,64 +171,9 @@
       "msg": "excelente, me ha ayudado mucho"
     },
     {
-      "name": "Beto",
-      "num": "$5.00",
-      "msg": "Parabéns, seu projeto é inspirador"
-    },
-    {
-      "name": "uz_zo",
-      "num": "$5.00",
-      "msg": "Amazing app, using it on windows and linux"
-    },
-    {
-      "name": "Augusto César",
-      "num": "$5.00",
-      "msg": "Esse app é incrível, meus parabéns"
-    },
-    {
-      "name": "Void",
-      "num": "$5.00",
-      "msg": "Great app on Linux and Windows"
-    },
-    {
-      "name": "kawankoding.com",
-      "num": "$5.00",
-      "msg": "Love this app, using it both on mac os and windows now !"
-    },
-    {
-      "name": "Diinggo Sirojudin",
-      "num": "$5.00",
-      "msg": "Great App! thanks from Indonesia"
-    },
-    {
       "name": "chopstik_sent_me",
       "num": "$10.00",
       "msg": "Keep up the good work!"
-    },
-    {
-      "name": "yodymada",
-      "num": "$5.00",
-      "msg": "Love it, all is well on my 3 PC (Windows, Mac, LinuxMint)"
-    },
-    {
-      "name": "Cyb3r",
-      "num": "$5.00",
-      "msg": "My second device, Thanks!"
-    },
-    {
-      "name": "rhoseno",
-      "num": "$5.00",
-      "msg": "Great work!!!. Very helpful tools"
-    },
-    {
-      "name": "GaGYaM",
-      "num": "$5.00",
-      "msg": "As someone without a deep coding background, navigating development environments felt daunting. Then I discovered FlyEnv! It's been a game-changer for me.\n\nThanks to FlyEnv, I can focus on the bigger picture instead of wrestling with technical setup!"
-    },
-    {
-      "name": "kawankoding",
-      "num": "$5.00",
-      "msg": "This tool very helpful, keep going!"
     },
     {
       "name": "Dado",
@@ -231,84 +181,9 @@
       "msg": "Great App! Thanx and regards from switzerland"
     },
     {
-      "name": "Nicu",
-      "num": "$5.00",
-      "msg": "Nice app! Good work! Impressive project!!"
-    },
-    {
       "name": "Daniel Ubaldo",
       "num": "$17.00",
       "msg": "Eu amei a sua iniciativa e o seu software. Finalmente uma ferramenta descente e prática para trabalhar com desenvolvimento web.\n\nMuito obrigado pelo seu trabalho e esforço. Continue assim."
-    },
-    {
-      "name": "moohard",
-      "num": "$5.00",
-      "msg": "I Iike this application, good for you"
-    },
-    {
-      "name": "datiller",
-      "num": "$5.00",
-      "msg": "Used Laragon for a while but updating it was a pain. Then I switched to devcontainers or docker in general when developing, but getting things up is always a pain. Getting projects up in FlyEnv is a breeze! Love the work, guys please donate!"
-    },
-    {
-      "name": "etherkyrios",
-      "num": "$5.00",
-      "msg": "Great work! The best open source alternative to XAMPP and similar software.\nIt makes it very easy to run websites with different versions of PHP, MariaDB, etc. at the same time.\nI wish this project, which is truly a rare gem, a long life."
-    },
-    {
-      "name": "Max Voitsekhovsky",
-      "num": "$5.00",
-      "msg": "Your software is incredibly convenient and fast! As a web developer, I am delighted! Thank you from Ukraine!"
-    },
-    {
-      "name": "Fadjar",
-      "num": "$5.00",
-      "msg": "Awesome work!!"
-    },
-    {
-      "name": "Cedric R",
-      "num": "$5.00",
-      "msg": "I love your work"
-    },
-    {
-      "name": "MEP",
-      "num": "$5.00",
-      "msg": "Super job!"
-    },
-    {
-      "name": "Willi Pratama",
-      "num": "$5.00",
-      "msg": "As always, great local development packs. Please add support for Flutter in Language & Runtime if you can."
-    },
-    {
-      "name": "Adiatis",
-      "num": "$5.00",
-      "msg": "Awesome project"
-    },
-    {
-      "name": "Cedric R",
-      "num": "$5.00",
-      "msg": "You're project is awesome. thanks man!"
-    },
-    {
-      "name": "dnmslf",
-      "num": "$5.00",
-      "msg": "Nice apps with all in one tools for development."
-    },
-    {
-      "name": "Mouse0270",
-      "num": "$5.00",
-      "msg": "Thanks for the project, loving the ease of use."
-    },
-    {
-      "name": "Aji",
-      "num": "$5.00",
-      "msg": "Nice apps with all in one tools for development."
-    },
-    {
-      "name": "Cyril Reze",
-      "num": "$5.00",
-      "msg": "I just discovered FlyEnv, and I'm delighted!\nIt will really simplify my work compared to xampp. I am happy to make a modest first donation, hoping to be able to do better later (which would be deserved!)"
     },
     {
       "name": "ahmads",
@@ -316,39 +191,9 @@
       "msg": "This application is very helpful for local development"
     },
     {
-      "name": "Ward",
-      "num": "$5.00",
-      "msg": "Great tool for local development!"
-    },
-    {
-      "name": "Willi Pratama",
-      "num": "$5.00",
-      "msg": "I love it, makes local development easier than ever."
-    },
-    {
       "name": "burnee77",
       "num": "$20.00",
       "msg": "Flyenv rocks"
-    },
-    {
-      "name": "moohard",
-      "num": "$5.00",
-      "msg": "good apps for local environment"
-    },
-    {
-      "name": "Tastaturberuf",
-      "num": "$5.00",
-      "msg": "Love FlyEnv, its the perfect multi server/configuration environment server. Also the homebrew integration is flawless. Thank you"
-    },
-    {
-      "name": "Kabbu",
-      "num": "$5.00",
-      "msg": "The best way to manage my development enviroment on my mac."
-    },
-    {
-      "name": "Xuan-Phuong Hoang",
-      "num": "$5.00",
-      "msg": "FlyEnv is an impressive open-source project — lightweight yet powerful, enabling lightning-fast setup and environment switching."
     },
     {
       "name": "Admire Mhlaba",
@@ -361,69 +206,14 @@
       "msg": "Great product! It deserves more credit that it gets compared to similar products like xampp. Way easier, way more stable, way more flexible."
     },
     {
-      "name": "Abdur Rozaq",
-      "num": "$5.00",
-      "msg": "Thank you, it has really helped me while developing app on macOS."
-    },
-    {
       "name": "Ahmet Erduğan",
       "num": "$10.00",
       "msg": "Dear Team,\n\nI am very pleased with the open-source project you have developed. I’m making this donation to support your work and help you take the project to even greater levels.\n\nThank you for your efforts and contributions to the community."
     },
     {
-      "name": "Adiatis",
-      "num": "$5.00",
-      "msg": "Great for freelance Dev environment"
-    },
-    {
-      "name": "Yeyene",
-      "num": "$5.00",
-      "msg": "Enfin, un serveur local windows très fonctionnel et stable. J'adore !"
-    },
-    {
-      "name": "AcilmedeS",
-      "num": "$5.00",
-      "msg": "Great work, really love it"
-    },
-    {
-      "name": "Edwin Ricaurte",
-      "num": "$5.00",
-      "msg": "Thanks for your amazing job, your app is a game changing!!! I really love it."
-    },
-    {
-      "name": "ngalehkuy",
-      "num": "$5.00",
-      "msg": "Great app bro"
-    },
-    {
-      "name": "Thanoulhs",
-      "num": "$5.00",
-      "msg": "This is the only project I actually did not mind donating"
-    },
-    {
       "name": "JoeyRedShirt",
       "num": "$20.00",
       "msg": "This is such an amazing tool. Easy to use, and the UI is miles ahead of any of the alternatives. Keep up the awesome work!"
-    },
-    {
-      "name": "Well Nasc",
-      "num": "$5.00",
-      "msg": "Um excelente trabalho... obrigado!"
-    },
-    {
-      "name": "Shovelknight__",
-      "num": "$5.00",
-      "msg": "Great job"
-    },
-    {
-      "name": "phpspaceship",
-      "num": "$8.00",
-      "msg": "Great App, easy to use and robust!"
-    },
-    {
-      "name": "dark.hero",
-      "num": "$5.00",
-      "msg": "Great App!"
     },
     {
       "name": "V01d570rm",
@@ -436,19 +226,9 @@
       "msg": "Great software, keep it up"
     },
     {
-      "name": "FeelsGoodMan Clap",
-      "num": "$5.00",
-      "msg": "Impressive tool! Started using after migrating from other tools like Laragon and i like it already! Please continue your hard work!"
-    },
-    {
       "name": "ngiann",
       "num": "$10.00",
       "msg": "Congratulations! Excellent work."
-    },
-    {
-      "name": "samtanius",
-      "num": "$5.00",
-      "msg": "Thanks for this great app! Keep the good work on FlyEnv"
     },
     {
       "name": "zeixs",
@@ -456,69 +236,9 @@
       "msg": "Thank you for creating this awesome dev tools for mac, there's not a lot of great app with good ui and great functionality"
     },
     {
-      "name": "Antonio Roba",
-      "num": "$5.00",
-      "msg": "This is awesome, continue to doing it!"
-    },
-    {
-      "name": "NRiconalla",
-      "num": "$5.00",
-      "msg": "Great software and I really love it. Thank you."
-    },
-    {
-      "name": "nur",
-      "num": "$5.00",
-      "msg": "thanks for developing flyenv apps"
-    },
-    {
-      "name": "mdhb2",
-      "num": "$5.00",
-      "msg": "Thank you for developing this amazing tool!"
-    },
-    {
-      "name": "Gustavo",
-      "num": "$5.00",
-      "msg": "Keep the good work on FlyEnv"
-    },
-    {
-      "name": "dnmslf",
-      "num": "$5.00",
-      "msg": "Thanks for best app <3"
-    },
-    {
-      "name": "champetas",
-      "num": "$5.00",
-      "msg": "I ♥️ FlyEnv"
-    },
-    {
-      "name": "gauden",
-      "num": "$5.00",
-      "msg": "very like this"
-    },
-    {
       "name": "totya",
       "num": "$10.00",
       "msg": "Great work!"
-    },
-    {
-      "name": "niranjan",
-      "num": "$5.00",
-      "msg": "Good Application"
-    },
-    {
-      "name": "Oco",
-      "num": "$5.00",
-      "msg": "FlyEnv is great."
-    },
-    {
-      "name": "Daniel Martins",
-      "num": "$5.00",
-      "msg": "Really great work!"
-    },
-    {
-      "name": "Giolabs",
-      "num": "$5.00",
-      "msg": "Great job and more success in this project"
     },
     {
       "name": "Markus Plohn",
@@ -531,99 +251,9 @@
       "msg": "A really great app!"
     },
     {
-      "name": "doc",
-      "num": "$5.00",
-      "msg": "Super app! Great work. Keep the flame alive!"
-    },
-    {
-      "name": "André Marques",
-      "num": "$5.00",
-      "msg": "Thank you for your work"
-    },
-    {
-      "name": "Vipul Parsama",
-      "num": "$5.00",
-      "msg": "Thanks for making project"
-    },
-    {
-      "name": "mickydoc",
-      "num": "$5.00",
-      "msg": "Thanks for the awesome FlyEnv app!"
-    },
-    {
-      "name": "Lou",
-      "num": "$5.00",
-      "msg": "Thank you from Incognitotech Dev"
-    },
-    {
-      "name": "Rexie Galban",
-      "num": "$5.00",
-      "msg": "Thanks for the awesome flyenv"
-    },
-    {
-      "name": "Rhay Sabaria",
-      "num": "$5.00",
-      "msg": "Thank you for this wonderful app"
-    },
-    {
-      "name": "Ankit Singh",
-      "num": "$5.00",
-      "msg": "Hello, Loving the project"
-    },
-    {
-      "name": "Baka Ayana",
-      "num": "$5.00",
-      "msg": "Thanks for make a Great App"
-    },
-    {
-      "name": "Avi Prima Nanda",
-      "num": "$5.00",
-      "msg": "Thanks for make Great Apps"
-    },
-    {
-      "name": "avoxid",
-      "num": "$5.00",
-      "msg": "FlyEnv was superb and game changer for local devs cycle."
-    },
-    {
-      "name": "DannySuero",
-      "num": "$5.00",
-      "msg": "Thanks for making such an awesome app I love it!"
-    },
-    {
-      "name": "Joe",
-      "num": "$5.00",
-      "msg": "nice app"
-    },
-    {
       "name": "crodev",
       "num": "$10.00",
       "msg": "Thank you for this awesome work!"
-    },
-    {
-      "name": "wizour",
-      "num": "$5.00",
-      "msg": "Great app!"
-    },
-    {
-      "name": "vhung234",
-      "num": "$5.00",
-      "msg": "love your app"
-    },
-    {
-      "name": "stableconfusion",
-      "num": "$5.00",
-      "msg": "What a great project! Thank you (and all the contributors) for your work!"
-    },
-    {
-      "name": "Ridwan Fauzan",
-      "num": "$5.00",
-      "msg": "Thanks for the project"
-    },
-    {
-      "name": "kreatore",
-      "num": "$5.00",
-      "msg": "Great platform, great software."
     },
     {
       "name": "Kostya",
@@ -631,64 +261,14 @@
       "msg": "Thanks for the tool"
     },
     {
-      "name": "CrB",
-      "num": "$5.00",
-      "msg": "Thanks for this software"
-    },
-    {
-      "name": "Leo",
-      "num": "$5.00",
-      "msg": "Thank you so much for creating this amazing software."
-    },
-    {
-      "name": "Sunesh",
-      "num": "$5.00",
-      "msg": "Great product"
-    },
-    {
-      "name": "Dimyati",
-      "num": "$5.00",
-      "msg": "Thanks for great app"
-    },
-    {
-      "name": "Ryan",
-      "num": "$5.00",
-      "msg": "Great tool! Thanx!"
-    },
-    {
-      "name": "nero.n3050",
-      "num": "$5.00",
-      "msg": "Thank you so much for doing this amazing work"
-    },
-    {
-      "name": "Krenar",
-      "num": "$5.00",
-      "msg": "Thank you so much for this marvelous project."
-    },
-    {
-      "name": "johann",
-      "num": "$5.00",
-      "msg": "Thanks for your project!"
-    },
-    {
       "name": "chopstik",
       "num": "$10.00",
       "msg": "Thanks so much for a great app development, seriously good!"
     },
     {
-      "name": "Thanh Le",
-      "num": "$5.00",
-      "msg": "Thanks for your project!"
-    },
-    {
       "name": "Ilija Stanek",
       "num": "$10.00",
       "msg": "Great app! Thank you!"
-    },
-    {
-      "name": "POIREL Denis",
-      "num": "$8.00",
-      "msg": "Congratulations on this development, it's a real pleasure to develop in this environment."
     },
     {
       "name": "Dennis Schott",
@@ -701,29 +281,9 @@
       "msg": "Thankyou for useful app"
     },
     {
-      "name": "Nur Waqid Muhsinin",
-      "num": "$5.00",
-      "msg": "Great App"
-    },
-    {
       "name": "Paul Watson",
       "num": "$10.00",
       "msg": "Hi, thanks for all your hard work, it is becoming a great product. All the Best, Paul."
-    },
-    {
-      "name": "David",
-      "num": "$5.00",
-      "msg": "Best web tools"
-    },
-    {
-      "name": "Makar",
-      "num": "$5.00",
-      "msg": "Best web server for macOS. Thank you."
-    },
-    {
-      "name": "Nazir maman",
-      "num": "$5.00",
-      "msg": "Thanks you from Italy"
     },
     {
       "name": "RobiNN1",
@@ -734,12 +294,7 @@
       "name": "Vaszkó Attila",
       "num": "$ 10.00",
       "msg": "Thank You from Hungary (EU)."
-    },
-    {
-      "name": "Andrii Toniievych",
-      "num": "$ 5.00",
-      "msg": "Thank you for the Windows version for FlyEnv"
     }
   ],
-  "total": 148
+  "total": 58
 }
