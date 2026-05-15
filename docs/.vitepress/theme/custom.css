@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.VPFooter {
+    order: 1;
+}
+
 :root {
     --vp-home-hero-name-color: transparent;
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
@@ -81,6 +85,11 @@
 .vp-doc h3.no-border {
     border-top: none;
     margin-top: 0;
+    padding-top: 0;
+}
+
+#app .Layout .VPFooter {
+    border-top: none;
     padding-top: 0;
 }
 
