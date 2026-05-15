@@ -2,7 +2,17 @@
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
-titleTemplate: 'Docker/XAMPP 的原生替代方案 | 您的本地开发工具箱，化繁为简'
+title: 'FlyEnv - 支持 PHP、Node.js 与 AI 的原生本地开发环境'
+titleTemplate: false
+
+head:
+  - - meta
+    - name: description
+      content: 'FlyEnv 是一款原生本地开发环境管理工具，支持 PHP、Node.js、Python、数据库、HTTPS 与本地 AI。可在 macOS、Windows 和 Linux 上运行项目，无需 Docker 额外开销。'
+  - - script
+    - type: application/ld+json
+    - |
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"inLanguage":"zh-CN","description":"FlyEnv 是一款原生本地开发环境管理工具，支持 PHP、Node.js、Python、数据库、HTTPS 与本地 AI。可运行本地项目，无需 Docker 额外开销。","url":"https://www.flyenv.com/zh/","downloadUrl":"https://www.flyenv.com/zh/download","softwareHelp":"https://www.flyenv.com/zh/guide/what-is-flyenv","author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://www.flyenv.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 
 hero:
   name: "FlyEnv"
@@ -13,8 +23,8 @@ hero:
     alt: 'FlyEnv 应用图标'
   actions:
     - theme: brand
-      text: 了解FlyEnv
-      link: /zh/guide/what-is-flyenv
+      text: 免费下载
+      link: /zh/download
     - theme: alt
       text: 快速上手
       link: /zh/guide/getting-started
@@ -48,7 +58,7 @@ features:
 
 <script setup>
 import AppSvgIcon from '../components/VueSvgIcon/svg.vue';
-import AppCoreModule from '../components/AppCoreModule/zh.vue';
+import AppCoreModule from '../components/AppCoreModule/zh-v2.vue';
 import AppToolModule from '../components/AppToolModule/zh.vue';
 import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue';
 import AppGitHubModules from '../components/AppGithub/zh.vue';

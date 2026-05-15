@@ -436,5 +436,27 @@
     "relevance_score": 10,
     "seoTitle": "FlyEnv vs Laragon: Best Cross-Platform Local Dev Environment (2026)",
     "seoSummary": "Move beyond Windows-only Laragon with FlyEnv's native binary architecture. Multi-language support, Ollama AI integration, automatic SSL certificates and Cloudflare tunnels — the 2026 upgrade guide."
+  },
+  {
+    "id": "flyenv-untuk-laravel-12-review-dan-tutorial-migrasi-dari-la",
+    "title": "FlyEnv untuk Laravel 12: Review dan Tutorial Migrasi dari Laragon",
+    "url": "https://medium.com/@abbyansyahatha/flyenv-untuk-laravel-12-review-dan-tutorial-migrasi-dari-laragon-fd3b3b682fa3",
+    "author": "Abdurrachman Atha",
+    "platform": "Medium",
+    "language": "id",
+    "date": "2026-05-11",
+    "summary": "这是一篇从 Laragon 迁移到 FlyEnv 的 Laravel 12 深度实战教程，包含详细的步骤说明和大量截图。作者逐步演示了环境配置、服务启动和项目迁移全过程，展示了 FlyEnv 在跨平台支持、多版本 PHP 管理和简化配置方面的核心优势。",
+    "tags": [
+      "tutorial",
+      "laravel",
+      "php",
+      "laragon"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 110,
+    "relevance_score": 10,
+    "seoTitle": "FlyEnv Laravel 12 Tutorial: Complete Migration Guide from Laragon",
+    "seoSummary": "Step-by-step guide to migrating from Laragon to FlyEnv for Laravel 12 development. Detailed screenshots and configuration walkthrough for PHP, MySQL, Nginx setup with project-level environment isolation."
   }
 ]

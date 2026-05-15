@@ -509,6 +509,17 @@
         <span class="shrink-0 select-text">Etcd</span>
       </div>
     </template>
+  <template v-else-if="type === 12">
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text truncate">Framework / SDK</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
+        <img src="../SVG/Flutter.svg" />
+      </div>
+      <span class="shrink-0 select-text">Flutter</span>
+    </div>
+  </template>
 </template>
 
 <script lang="ts" setup>

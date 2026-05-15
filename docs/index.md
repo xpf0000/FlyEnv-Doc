@@ -2,14 +2,18 @@
 # 针对 SEO 优化的 VitePress 首页配置
 layout: home
 
-title: 'FlyEnv | Native PHP & Node.js Environment Manager | Best Docker Alternative'
-titleTemplate: 'Fast, Native, and Lightweight Local Development Toolbox'
+title: 'FlyEnv - Native Local Development Environment for PHP, Node.js & AI'
+titleTemplate: false
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
   - - meta
     - name: description
-      content: 'FlyEnv is a lightning-fast native alternative to Docker and XAMPP. Run PHP, Node.js, and Python with zero config. Includes built-in Offline AI Agent (Ollama, DeepSeek 3.2, Qwen 3.5, Gemma 3), PHP Obfuscator, and automatic SSL.'
+      content: 'FlyEnv is a native local development environment for PHP, Node.js, Python, databases, HTTPS, and local AI. Run projects on macOS, Windows, and Linux without Docker overhead.'
+  - - script
+    - type: application/ld+json
+    - |
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"description":"FlyEnv is a native local development environment for PHP, Node.js, Python, databases, HTTPS, and local AI. Run projects without Docker overhead.","url":"https://www.flyenv.com/","downloadUrl":"https://www.flyenv.com/download","softwareHelp":"https://www.flyenv.com/guide/what-is-flyenv","author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://www.flyenv.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 
 hero:
   name: "FlyEnv"
@@ -22,11 +26,11 @@ hero:
     alt: 'FlyEnv - Native PHP and AI Development Environment'
   actions:
     - theme: brand
-      text: 'Get Started Free'
-      link: /guide/getting-started
+      text: 'Download Free'
+      link: /download
     - theme: alt
-      text: 'Explore Features'
-      link: /guide/what-is-flyenv
+      text: 'Quick Start'
+      link: /guide/getting-started
 
 features:
   - icon:
@@ -61,7 +65,7 @@ features:
 
 <script setup>
 import AppSvgIcon from './components/VueSvgIcon/svg.vue';
-import AppCoreModule from './components/AppCoreModule/en.vue';
+import AppCoreModule from './components/AppCoreModule/en-v2.vue';
 import AppToolsModule from './components/AppToolModule/en.vue';
 import AppNoFountTipsModules from './components/AppNoFoundTips/index.vue';
 import AppGitHubModules from './components/AppGithub/en.vue';

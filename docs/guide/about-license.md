@@ -22,8 +22,20 @@ We offer several flexible, community-centric ways to obtain a permanent license:
 
 ### Option A: Support the Project (Donation)
 
-* **Pay What You Want**: There is no mandatory minimum for donations.
-* **Contribution-Based**: We recognize that economic situations vary—especially for students—so please choose an amount that feels fair to you.
+* **Suggested donation:** $10–30 depending on your usage and financial situation.
+* **Minimum Donation:** Due to the manual review process, the minimum donation amount is **$10 USD**.
+* **Contribution-Based:** We understand that economic situations vary—especially for students and indie developers—so beyond the minimum amount, please contribute whatever feels fair and meaningful to you.
+* **Meaningful Support:** Every contribution helps sustain FlyEnv’s development and reflects genuine support for the project and the time invested in maintaining it.
+
+---
+
+### 方式 A：捐赠项目 (Donate)
+
+* **最低捐赠金额：** 最低捐赠金额为 **10 美元 / 10 元人民币**。
+* **有意义的支持：** 每一份捐赠都在帮助 FlyEnv 持续发展，也代表着对项目以及维护投入时间的认可与支持。
+
+
+Small symbolic donations (e.g. $0.01) may not be eligible for license review.
 
 ### Option B: Contribute to the Codebase
 
@@ -64,6 +76,13 @@ Recommended platforms for sharing:
 Once you’ve shared FlyEnv, simply paste the link to your post, video, or article in the "Message" field within the app's license request section.
 
 You can see examples of how others have supported the project here: [Sponsors](../sponsor.md)
+
+**Additional Guidelines:**
+
+* Please submit your license request shortly after publishing your content.
+* Since FlyEnv evolves rapidly with frequent new features and improvements, promotional content published more than **3 months ago** may no longer be eligible.
+* Please only submit **original content created by yourself**. Reposting or submitting someone else’s content is not eligible.
+* Each article, video, or piece of promotional content is eligible for **one license only**.
 
 ## 3. Request & Activation Process
 

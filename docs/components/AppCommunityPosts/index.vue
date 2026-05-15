@@ -432,7 +432,11 @@ const featuredPost = computed(() => {
     (p) => (p.quality_score || 0) >= 100 && (p.relevance_score || 0) >= 9
   )
   if (eligible.length === 0) return null
-  return eligible.sort((a, b) => (b.quality_score || 0) - (a.quality_score || 0))[0]
+  return eligible.sort((a, b) => {
+    const scoreDiff = (b.quality_score || 0) - (a.quality_score || 0)
+    if (scoreDiff !== 0) return scoreDiff
+    return new Date(b.date).getTime() - new Date(a.date).getTime()
+  })[0]
 })
 
 // Latest posts
