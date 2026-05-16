@@ -54,7 +54,7 @@ export default defineConfigWithTheme({
   themeConfig: {
     footer: {
       message: FootMessage,
-      copyright: 'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a>'
+      copyright: 'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> · <a href="/refund-policy">Refund Policy</a>'
     },
     search: {
       provider: 'local'
@@ -75,7 +75,7 @@ export default defineConfigWithTheme({
           { text: 'FlyPHPServer', link: '/flyphpserver' },
           { text: 'Guide', link: '/guide/what-is-flyenv' },
           { text: 'Community', link: '/community' },
-          { text: 'Sponsor', link: '/sponsor' },
+          { text: 'Sponsor', link: '/sponsor' }
         ],
         sidebar: {
           '/guide/': [
@@ -158,6 +158,10 @@ export default defineConfigWithTheme({
       title: "FlyEnv",
       description: "一体化全栈环境管理工具. 支持macOS / Windows / Linux",
       themeConfig: {
+        footer: {
+          message: FootMessage,
+          copyright: 'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/zh/terms">服务条款</a> · <a href="/zh/privacy">隐私政策</a> · <a href="/zh/refund-policy">退款政策</a>'
+        },
         socialLinks: [
           { icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }
         ],
@@ -166,7 +170,7 @@ export default defineConfigWithTheme({
           { text: 'FlyPHPServer', link: '/zh/flyphpserver' },
           { text: '指南', link: '/zh/guide/what-is-flyenv' },
           { text: '社区', link: '/zh/community' },
-          { text: '捐赠', link: '/zh/sponsor' },
+          { text: '捐赠', link: '/zh/sponsor' }
         ],
         sidebar: {
           '/zh/guide/': [
