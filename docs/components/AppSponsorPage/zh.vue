@@ -176,6 +176,17 @@
         <div class="section-header">
           <h2 class="no-border">选择您支持的方式</h2>
           <p>无论大小，每一份贡献都推动 FlyEnv 不断前行。</p>
+          <a href="/zh/guide/about-license" class="license-guide-link no-underline">
+            捐赠后需要申请许可证？查看许可证说明
+            <svg class="license-guide-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </a>
         </div>
         <div class="donate-grid">
           <!-- Paddle -->
@@ -482,6 +493,17 @@
                   />
                 </svg>
                 在 GitHub 上标星
+              </a>
+              <a href="/zh/guide/about-license" class="cta-btn cta-btn-secondary no-underline">
+                许可证说明
+                <svg class="cta-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
               </a>
             </div>
           </div>

@@ -27,15 +27,7 @@ We offer several flexible, community-centric ways to obtain a permanent license:
 * **Contribution-Based:** We understand that economic situations vary—especially for students and indie developers—so beyond the minimum amount, please contribute whatever feels fair and meaningful to you.
 * **Meaningful Support:** Every contribution helps sustain FlyEnv’s development and reflects genuine support for the project and the time invested in maintaining it.
 
----
-
-### 方式 A：捐赠项目 (Donate)
-
-* **最低捐赠金额：** 最低捐赠金额为 **10 美元 / 10 元人民币**。
-* **有意义的支持：** 每一份捐赠都在帮助 FlyEnv 持续发展，也代表着对项目以及维护投入时间的认可与支持。
-
-
-Small symbolic donations (e.g. $0.01) may not be eligible for license review.
+After donating, keep your transaction or order ID and submit it with your license request in the app. To choose a payment method, go to the [Sponsor page](/sponsor).
 
 ### Option B: Contribute to the Codebase
 

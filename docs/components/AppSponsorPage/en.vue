@@ -183,6 +183,17 @@
         <div class="section-header">
           <h2 class="no-border">Choose Your Way to Support</h2>
           <p>Every contribution, big or small, keeps FlyEnv moving forward.</p>
+          <a href="/guide/about-license" class="license-guide-link no-underline">
+            Need a license after donating? Read the license guide
+            <svg class="license-guide-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </a>
         </div>
         <div class="donate-grid">
           <!-- Paddle -->
@@ -489,6 +500,17 @@
                   />
                 </svg>
                 Star on GitHub
+              </a>
+              <a href="/guide/about-license" class="cta-btn cta-btn-secondary no-underline">
+                License Guide
+                <svg class="cta-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
               </a>
             </div>
           </div>

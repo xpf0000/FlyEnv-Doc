@@ -101,7 +101,7 @@
     {
       title: '🚀 运行时与语言',
       desc: '现代原生开发的基础。',
-      items: ['PHP','Node.js','Bun','Deno','Python','Go', 'Flutter', 'Java','Ruby','Rust','Zig'],
+      items: ['PHP','Node.js','Bun','Deno','Python','Go', 'Flutter', 'Java','Ruby','Rust','Zig', '.NET'],
       highlight: false
     },
     {
@@ -131,7 +131,7 @@
     {
       title: '🛠 开发者工具',
       desc: '开发者辅助工具和服务。',
-      items: ['Mailpit','Static Server','FTP','SSL Toolkit','CLI Proxy API'],
+      items: ['Mailpit','Static Server','FTP','SSL Toolkit','CLI Proxy API', 'Cron Jobs'],
       highlight: false
     }
   ]

@@ -101,7 +101,7 @@
     {
       title: '🚀 Runtime & Languages',
       desc: 'Foundation of modern native development.',
-      items: ['PHP','Node.js','Bun','Deno','Python','Go', 'Flutter', 'Java','Ruby','Rust','Zig'],
+      items: ['PHP','Node.js','Bun','Deno','Python','Go', 'Flutter', 'Java','Ruby','Rust','Zig', '.NET'],
       highlight: false
     },
     {
@@ -131,7 +131,7 @@
     {
       title: '🛠 Developer Utilities',
       desc: 'Developer helper tools and services.',
-      items: ['Mailpit','Static Server','FTP','SSL Toolkit','CLI Proxy API'],
+      items: ['Mailpit','Static Server','FTP','SSL Toolkit','CLI Proxy API', 'Cron Jobs'],
       highlight: false
     }
   ]

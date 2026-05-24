@@ -126,6 +126,27 @@
   margin: 0;
 }
 
+.license-guide-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  margin-top: 0.875rem;
+  color: var(--vp-c-brand-1);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.license-guide-link:hover {
+  color: var(--vp-c-brand-2);
+}
+
+.license-guide-link-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
 /* Manifesto */
 .manifesto-card {
   background: rgba(251, 191, 36, 0.08);
