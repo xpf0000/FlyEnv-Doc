@@ -36,13 +36,29 @@ FlyEnv integrates Cloudflare Tunnel directly into the UI. No terminal commands, 
 ### Step 1: Get Your Cloudflare API Token
 
 1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com)
+
+![Log In To Cloudflare Dashboard](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-1.webp)
+
 2. Go to **My Profile** (top right) → **API Tokens**
+
+![Go to My Profile](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-2.webp)
+
 3. Click **Create Token**
+
+![Click Create Token](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-3.webp)
+
 4. Use the **"Cloudflare Tunnel"** template, or create custom with these permissions:
    - **Account:Cloudflare Tunnel:Edit** — For managing tunnels
    - **Zone:Zone:Read** — For listing your domains
    - **Zone:DNS:Edit** — For creating DNS records
+
 5. Select the **Zone Resources** (domains) you want to use
+
+![Create Custom Token](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-4.webp)
+![Setup Permissions Step1](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-5.webp)
+![Setup Permissions Step2](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-6.webp)
+![Setup Permissions Step3](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-7.webp)
+
 6. Copy the generated token
 
 ### Step 2: Configure in FlyEnv

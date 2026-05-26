@@ -36,13 +36,28 @@ FlyEnv 将 Cloudflare Tunnel 直接集成到界面中。无需终端命令，无
 ### 步骤 1：获取您的 Cloudflare API Token
 
 1. 登录 [Cloudflare Dashboard](https://dash.cloudflare.com)
+
+![登录 Cloudflare Dashboard](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-1.webp)
+
 2. 前往 **我的资料**（右上角）→ **API Tokens**
+
+![前往我的资料](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-2.webp)
+
 3. 点击 **创建令牌**
+
+![点击创建令牌](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-3.webp)
+
 4. 使用 **"Cloudflare Tunnel"** 模板，或使用以下权限创建自定义令牌：
    - **Account:Cloudflare Tunnel:Edit** — 用于管理 tunnels
    - **Zone:Zone:Read** — 用于列出您的域名
    - **Zone:DNS:Edit** — 用于创建 DNS 记录
 5. 选择您要使用的 **Zone Resources**（域名）
+
+![创建自定义令牌](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-4.webp)
+![设置权限-1](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-5.webp)
+![设置权限-2](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-6.webp)
+![设置权限-3](https://oss.macphpstudy.com/image/Cloudflare-Tunnel-api-key-setup-7.webp)
+
 6. 复制生成的令牌
 
 ### 步骤 2：在 FlyEnv 中配置
