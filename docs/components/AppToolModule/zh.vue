@@ -1,7 +1,7 @@
 <template>
-  <div class="my-24 px-4">
+  <div class="my-24 px-4 pt-12">
     <div class="text-center mx-auto mb-12">
-      <h2 id="tools-modules" tabindex="-1">工具模块 <a class="header-anchor" href="#tools-modules" aria-label="永久链接至“🚀 工具模块”"></a></h2>
+      <div id="tools-modules" tabindex="-1" class="no-border text-3xl md:text-[40px] font-bold mb-4">工具模块 <a class="header-anchor" href="#tools-modules" aria-label="永久链接至“🚀 工具模块”"></a></div>
       <p class="text-lg text-gray-500">
         你所需的其他一切，都已内置。小工具，大作用。
       </p>

@@ -58,7 +58,7 @@ features:
 
 <script setup>
 import AppSvgIcon from '../components/VueSvgIcon/svg.vue';
-import AppCoreModule from '../components/AppCoreModule/zh-v2.vue';
+import AppCoreModule from '../components/AppCoreModule/zh.vue';
 import AppToolModule from '../components/AppToolModule/zh.vue';
 import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue';
 import AppGitHubModules from '../components/AppGithub/zh.vue';

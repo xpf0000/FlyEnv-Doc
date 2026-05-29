@@ -65,7 +65,7 @@ features:
 
 <script setup>
 import AppSvgIcon from './components/VueSvgIcon/svg.vue';
-import AppCoreModule from './components/AppCoreModule/en-v2.vue';
+import AppCoreModule from './components/AppCoreModule/en.vue';
 import AppToolsModule from './components/AppToolModule/en.vue';
 import AppNoFountTipsModules from './components/AppNoFoundTips/index.vue';
 import AppGitHubModules from './components/AppGithub/en.vue';

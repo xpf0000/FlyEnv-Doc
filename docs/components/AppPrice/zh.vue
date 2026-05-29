@@ -1,7 +1,7 @@
 <template>
   <div class="my-16 px-4">
     <div class="text-center mx-auto mb-12">
-      <h2 id="公平灵活的许可" tabindex="-1">公平灵活的许可 <a class="header-anchor" href="#公平灵活的许可" aria-label="Permalink to &quot;公平灵活的许可&quot;">​</a></h2>
+      <div class="w-full text-center no-border text-3xl md:text-[40px] font-bold mb-4" id="公平灵活的许可" tabindex="-1">公平灵活的许可 <a class="header-anchor" href="#公平灵活的许可" aria-label="Permalink to &quot;公平灵活的许可&quot;">​</a></div>
       <p class="text-lg text-gray-500">
         FlyEnv 可免费下载和使用。我们相信公平交换——支持项目以解锁无限潜力。
       </p>

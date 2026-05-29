@@ -1,7 +1,7 @@
 <template>
-  <div class="my-24 px-4">
+  <div class="my-24 px-4 pt-12">
     <div class="text-center mx-auto mb-12">
-      <h2 id="tools-modules" tabindex="-1">Tools Modules <a class="header-anchor" href="#tools-modules" aria-label="Permalink to &quot;🚀 Tools Modules&quot;"></a></h2>
+      <div id="tools-modules" tabindex="-1" class="no-border text-3xl md:text-[40px] font-bold mb-4">Tools Modules <a class="header-anchor" href="#tools-modules" aria-label="Permalink to &quot;🚀 Tools Modules&quot;"></a></div>
       <p class="text-lg text-gray-500">
         Everything else you need, built right in. Small tools, big impact.
       </p>

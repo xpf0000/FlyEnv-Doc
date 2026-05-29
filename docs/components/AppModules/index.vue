@@ -207,6 +207,15 @@
     >
       <span class="shrink-0 select-text">Language</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-2">
+        <img src="../SVG/DotNet.svg" />
+      </div>
+      <span class="shrink-0 select-text">.NET</span>
+    </div>
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">Language</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-2">
         <img src="../SVG/zig.svg" />
       </div>
       <span class="shrink-0 select-text">Zig</span>
@@ -228,6 +237,15 @@
         <img src="../SVG/Deno.svg" />
       </div>
       <span class="shrink-0 select-text">Deno</span>
+    </div>
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">Framework SDK</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-3">
+        <img src="../SVG/Flutter.svg" />
+      </div>
+      <span class="shrink-0 select-text">Flutter</span>
     </div>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
@@ -480,7 +498,7 @@
       <span class="shrink-0 select-text truncate">Cloudflare Tunnel</span>
     </div>
   </template>
-    <template v-else-if="type === 11">
+  <template v-else-if="type === 11">
       <div
         class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
       >

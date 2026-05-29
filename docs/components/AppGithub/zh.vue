@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center my-16">
-    <h2 class="w-full text-center" id="_100-开源与社区驱动" tabindex="-1">100% 开源与社区驱动 <a class="header-anchor" href="#_100-开源与社区驱动" aria-label="Permalink to &quot;100% 开源与社区驱动&quot;">​</a></h2>
+    <div class="w-full text-center no-border text-3xl md:text-[40px] font-bold mb-4" id="_100-开源与社区驱动" tabindex="-1">100% 开源与社区驱动 <a class="header-anchor" href="#_100-开源与社区驱动" aria-label="Permalink to &quot;100% 开源与社区驱动&quot;">​</a></div>
     <p class="text-lg text-gray-500 text-center mb-8">
       透明、可审计，由开发者构建，为开发者服务。在 GitHub 上加入我们。
     </p>
