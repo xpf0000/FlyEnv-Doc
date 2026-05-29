@@ -1,14 +1,22 @@
 <template>
   <div>
     <div class="sponsor-container">
-      <!-- Avatar Wall -->
-      <div class="sponsor-wall">
+      <div class="sponsor-wall" :class="{ 'sponsor-wall-compact': !showAvatars }">
         <div class="wall-header">
           <h2 class="wall-title no-border">{{ title }}</h2>
-          <span class="wall-count">{{ subtitle }}</span>
+          <a
+            v-if="headerLinkHref"
+            :href="headerLinkHref"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="wall-count wall-link no-underline"
+          >
+            {{ headerLinkText || subtitle }}
+          </a>
+          <span v-else class="wall-count">{{ subtitle }}</span>
         </div>
 
-        <div class="avatar-list">
+        <div v-if="showAvatars" class="avatar-list">
           <div
             v-for="(item, index) in displayedAvatars"
             :key="index"
@@ -55,7 +63,7 @@
             :disabled="currentPage === 1"
             @click="currentPage--"
           >
-            Prev
+            {{ prevText }}
           </button>
           <template v-for="page in visiblePages" :key="page">
             <span v-if="page === -1" class="page-ellipsis">...</span>
@@ -73,7 +81,7 @@
             :disabled="currentPage === totalPages"
             @click="currentPage++"
           >
-            Next
+            {{ nextText }}
           </button>
         </div>
       </div>
@@ -90,17 +98,36 @@ interface SponsorItem {
   msg: string
 }
 
-const props = defineProps<{
-  list: SponsorItem[]
+const props = withDefaults(defineProps<{
+  list?: SponsorItem[]
   title?: string
   subtitle?: string
+  headerLinkText?: string
+  headerLinkHref?: string
+  showAvatars?: boolean
+  prevText?: string
+  nextText?: string
   maxAvatars?: number
   pageSize?: number
-}>()
+}>(), {
+  list: () => [],
+  title: 'Recent Supporters',
+  subtitle: '',
+  headerLinkText: '',
+  headerLinkHref: '',
+  showAvatars: true,
+  prevText: 'Prev',
+  nextText: 'Next',
+  maxAvatars: 12,
+  pageSize: 10
+})
 
 const currentPage = ref(1)
-const pageSize = computed(() => props.pageSize ?? 10)
-const maxAvatars = computed(() => props.maxAvatars ?? 12)
+const pageSize = computed(() => props.pageSize)
+const maxAvatars = computed(() => props.maxAvatars)
+const showAvatars = computed(() => props.showAvatars)
+const prevText = computed(() => props.prevText)
+const nextText = computed(() => props.nextText)
 
 const totalPages = computed(() => Math.ceil(props.list.length / pageSize.value))
 
@@ -188,6 +215,10 @@ const gradients = [
   border-bottom: 1px solid #f1f5f9;
 }
 
+.sponsor-wall-compact .wall-header {
+  margin-bottom: 0;
+}
+
 .dark .sponsor-wall {
   border-bottom-color: var(--vp-c-divider);
 }
@@ -211,6 +242,15 @@ const gradients = [
 .wall-count {
   font-size: 0.75rem;
   color: var(--vp-c-text-2);
+}
+
+.wall-link {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.wall-link:hover {
+  color: var(--vp-c-brand-2);
 }
 
 .avatar-list {
