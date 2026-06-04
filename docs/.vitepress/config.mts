@@ -126,6 +126,7 @@ export default defineConfigWithTheme({
               // SEO意图：把原来分散的 Apache/Nginx/Caddy 合并，提升单页面权重
               items: [
                 { text: 'Custom Domains & Auto SSL', link: '/guide/host' }, // 原来的 host，改名增加吸引力
+                { text: 'Deploy PHP Projects Without Docker', link: '/guide/deploy-php-projects-without-docker' },
                 { text: 'Parse HTML as PHP (Nginx/Apache/Caddy)', link: '/guide/parse-html-as-php-multi-servers' }, // 合并原有3个文件
                 { text: 'Reverse Proxy Setup (NestJS/Node.js)', link: '/guide/reverse-proxy-nestjs-multi-servers' }, // 合并原有3个文件
                 { text: 'Deploy Node/Python/Go Without Docker', link: '/guide/deploy-nodejs-python-go-without-docker' },
@@ -215,6 +216,7 @@ export default defineConfigWithTheme({
               text: '网络服务器与反向代理',
               items: [
                 { text: '自定义域名与自动SSL', link: '/zh/guide/host' },
+                { text: '无需 Docker 部署 PHP 项目', link: '/zh/guide/deploy-php-projects-without-docker' },
                 { text: '解析HTML为PHP', link: '/zh/guide/parse-html-as-php-multi-servers' },
                 { text: '反向代理设置', link: '/zh/guide/reverse-proxy-nestjs-multi-servers' },
                 { text: '无需Docker部署Node/Python/Go', link: '/zh/guide/deploy-nodejs-python-go-without-docker' },
