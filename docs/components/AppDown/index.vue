@@ -4,7 +4,7 @@
     style="min-height: calc(100vh - 64px - 89px)"
   >
     <div
-      class="max-w-screen-xl container flex flex-col items-center justify-between gap-7 mx-auto p-5 py-8"
+      class="max-w-screen-xl container flex flex-col items-center justify-between gap-5 mx-auto p-5 py-8"
     >
       <h1 class="text-center text-5xl font-bold">{{ title }}</h1>
       <h4 class="text-center text-xl mb-5">{{ subtitle }}</h4>
@@ -29,6 +29,31 @@
           </div>
         </div>
       </template>
+
+      <p class="max-w-3xl text-center text-sm text-gray-600 dark:text-gray-300 mb-6">
+        <template v-if="lang === 'zh-CN'">
+          代码签名：本项目使用
+          <a
+            class="text-blue-500"
+            href="https://signpath.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >SignPath Foundation</a
+          >
+          进行代码签名。
+        </template>
+        <template v-else>
+          Code signing: This project uses
+          <a
+            class="text-blue-500"
+            href="https://signpath.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            >SignPath Foundation</a
+          >
+          for code signing.
+        </template>
+      </p>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
         <div class="text-center bg-white dark:bg-gray-800 px-6 py-8 rounded-lg shadow-lg">
