@@ -36,7 +36,7 @@ Refunds may be denied where:
 - there is evidence of fraud, abuse, chargeback misuse, or repeated refund behavior
 - the product was used in a way that violates our [Terms of Service](/terms)
 - the issue is caused by unsupported third-party software, operating system changes, or local configuration outside FlyEnv's control and a reasonable workaround exists
-- the purchase was a voluntary donation or sponsorship that was not sold as a paid license or subscription
+- the payment was a voluntary community contribution outside Paddle that was not sold as a paid license or subscription
 
 This Policy does not limit any mandatory consumer rights that apply in your country or region.
 

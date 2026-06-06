@@ -75,7 +75,7 @@ export default defineConfigWithTheme({
           { text: 'FlyPHPServer', link: '/flyphpserver' },
           { text: 'Guide', link: '/guide/what-is-flyenv' },
           { text: 'Community', link: '/community' },
-          { text: 'Sponsor', link: '/sponsor' }
+          { text: 'License', link: '/license' }
         ],
         sidebar: {
           '/guide/': [
@@ -171,7 +171,7 @@ export default defineConfigWithTheme({
           { text: 'FlyPHPServer', link: '/zh/flyphpserver' },
           { text: '指南', link: '/zh/guide/what-is-flyenv' },
           { text: '社区', link: '/zh/community' },
-          { text: '捐赠', link: '/zh/sponsor' }
+          { text: '许可证', link: '/zh/license' }
         ],
         sidebar: {
           '/zh/guide/': [

@@ -1,8 +1,8 @@
-# 📜 FlyEnv Licensing Guide
+# FlyEnv Licensing Guide
 
-The FlyEnv licensing model is designed to sustain the project’s growth while honoring the creator's dedication. Our goal is **not to impose restrictions**, but to foster a culture of respect for independent development and intellectual property.
+The FlyEnv licensing model provides a paid software license for users who need continued access to premium features while helping fund ongoing development. Our goal is **not to block core local development**, but to make the long-term maintenance of an independent developer tool sustainable.
 
-Activating a license is a way to acknowledge the work behind FlyEnv. By doing so, you support the project's longevity and contribute to a spirit of mutual trust within the global developer community.
+Activating a license gives you licensed access beyond the evaluation limits below. Community code contributions and original educational content may also qualify for a manually reviewed license.
 
 ## 1. Evaluation Version Limitations
 
@@ -14,20 +14,20 @@ FlyEnv remains functional without a license, but the following limits apply to t
 * **Image Optimizer**: The image compression utility is limited to a **3-day** trial.
 * **Future Updates**: New premium features may be subject to similar trial periods or limits.
 
-**Core runtimes and environment management features will always remain accessible.** The license is less about "unlocking software" and more about **investing in the tool's future.** We believe developer tools should be accessible, so we avoid rigid paywalls. Whether you contribute through a donation, code, or by spreading the word, you are helping us build a faster, leaner development ecosystem.
+**Core runtimes and environment management features will always remain accessible.** A paid license removes evaluation limits for premium tools and helps keep FlyEnv maintained across macOS, Windows, and Linux.
 
 ## 2. How to Get Licensed
 
-We offer several flexible, community-centric ways to obtain a permanent license:
+We offer one paid purchase path and two manually reviewed community paths:
 
-### Option A: Support the Project (Donation)
+### Option A: Purchase a Personal License
 
-* **Suggested donation:** $10–30 depending on your usage and financial situation.
-* **Minimum Donation:** Due to the manual review process, the minimum donation amount is **$10 USD**.
-* **Contribution-Based:** We understand that economic situations vary—especially for students and indie developers—so beyond the minimum amount, please contribute whatever feels fair and meaningful to you.
-* **Meaningful Support:** Every contribution helps sustain FlyEnv’s development and reflects genuine support for the project and the time invested in maintaining it.
+* **License price:** **$10 USD** for a FlyEnv Personal License.
+* **License scope:** One active device, with device transfer supported through license management.
+* **Premium access:** Removes the evaluation limits listed above for the licensed device.
+* **Payment processor:** Paddle may process checkout, taxes, receipts, invoices, and payment-related support.
 
-After donating, keep your transaction or order ID and submit it with your license request in the app. To choose a payment method, go to the [Sponsor page](/sponsor).
+After purchasing, keep your Paddle order ID and submit it with your license request in the app. To purchase a license, go to the [License page](/license).
 
 ### Option B: Contribute to the Codebase
 
@@ -67,7 +67,7 @@ Recommended platforms for sharing:
 **Submission Note:**
 Once you’ve shared FlyEnv, simply paste the link to your post, video, or article in the "Message" field within the app's license request section.
 
-You can see examples of how others have supported the project here: [Sponsors](../sponsor.md)
+You can see examples of community contribution records here: [Community records](../license.md)
 
 **Additional Guidelines:**
 
@@ -81,7 +81,7 @@ You can see examples of how others have supported the project here: [Sponsors](.
 Once you have completed any of the steps above, follow these instructions to activate your license:
 
 1. **Provide Proof**: In the "Message" field of the application, include:
-* **Donors**: Your name, donation link, or transaction/order ID.
+* **License purchasers**: Your Paddle order ID or receipt email.
 * **Contributors**: The link to your GitHub Pull Request.
 * **Promoters**: The link to your post, video, or shared content.
 

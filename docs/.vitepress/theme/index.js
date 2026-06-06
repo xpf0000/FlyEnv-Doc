@@ -37,7 +37,7 @@ export default {
             if (window?.kofiWidgetOverlay) {
                 window?.kofiWidgetOverlay?.draw('xpf0000', {
                     'type': 'floating-chat',
-                    'floating-chat.donateButton.text': 'Support me',
+                    'floating-chat.donateButton.text': 'Ko-fi',
                     'floating-chat.donateButton.background-color': '#323842',
                     'floating-chat.donateButton.text-color': '#fff'
                 });

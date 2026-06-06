@@ -33,7 +33,7 @@
       </div>
 
       <!-- Messages List -->
-      <div class="messages-section">
+      <div v-if="showMessages" class="messages-section">
         <div class="messages-list">
           <div
             v-for="(item, index) in paginatedList"
@@ -105,6 +105,7 @@ const props = withDefaults(defineProps<{
   headerLinkText?: string
   headerLinkHref?: string
   showAvatars?: boolean
+  showMessages?: boolean
   prevText?: string
   nextText?: string
   maxAvatars?: number
@@ -116,6 +117,7 @@ const props = withDefaults(defineProps<{
   headerLinkText: '',
   headerLinkHref: '',
   showAvatars: true,
+  showMessages: true,
   prevText: 'Prev',
   nextText: 'Next',
   maxAvatars: 12,
@@ -126,6 +128,7 @@ const currentPage = ref(1)
 const pageSize = computed(() => props.pageSize)
 const maxAvatars = computed(() => props.maxAvatars)
 const showAvatars = computed(() => props.showAvatars)
+const showMessages = computed(() => props.showMessages)
 const prevText = computed(() => props.prevText)
 const nextText = computed(() => props.nextText)
 
