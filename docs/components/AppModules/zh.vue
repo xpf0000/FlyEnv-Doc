@@ -77,15 +77,22 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="不用 Docker 管理 MariaDB？FlyEnv 安装、切换版本、建库演示"
+      href="https://www.bilibili.com/video/BV1NfEx6eE3V/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">数据库</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">数据库</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-1">
         <img src="https://oss.macphpstudy.com/image/mariadb.svg" />
       </div>
-      <span class="shrink-0 select-text">MariaDB</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">MariaDB</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -140,15 +147,22 @@
       </div>
       <span class="shrink-0 select-text">Java</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+
+    <a
+      title="FlyEnv Node.js：项目级版本隔离、服务管理与 Nginx 反向代理"
+      href="https://www.bilibili.com/video/BV1pzEs6tE2X/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">运行时</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">运行时</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="https://oss.macphpstudy.com/image/Node.js.svg" />
       </div>
-      <span class="shrink-0 select-text">NodeJS</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">NodeJS</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
 
     <a
       title="FlyEnv [Python] 模块: Windows 运行多版本 Python 竟能如此简单？告别环境变量报错的痛苦！ | FlyEnv"

@@ -77,15 +77,22 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="FlyEnv MariaDB Module: Install, Switch Versions, Create Databases"
+      href="https://youtu.be/mvmbRi6KsgI"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Database</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Database</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-1">
         <img src="https://oss.macphpstudy.com/image/mariadb.svg" />
       </div>
-      <span class="shrink-0 select-text">MariaDB</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">MariaDB</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -140,15 +147,22 @@
       </div>
       <span class="shrink-0 select-text">Java</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+
+    <a
+      title="FlyEnv Node.js: Per-Project Versions, Services & Nginx Proxy"
+      href="https://youtu.be/Pt_I3NDciZw"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Runtime</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Runtime</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="https://oss.macphpstudy.com/image/Node.js.svg" />
       </div>
-      <span class="shrink-0 select-text">NodeJS</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">NodeJS</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
 
     <a
       title="Python Version Management on Windows, Simplified: No More Environment Variable Mess! | FlyEnv"

@@ -40,18 +40,18 @@ php -v  # PHP 8.3 (自动切换)
 
 ### 一个界面搞定一切
 
-| 类别           | 包含工具                                                                                                                        |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------|
-| **AI 与机器学习** | Hermes Agent, [OpenClaw], [Ollama], [n8n], CliProxyAPI                                                                      |
-| **Web 服务器**  | FrankenPHP, [Apache], [Nginx], Caddy, Tomcat                                                                                |
-| **数据库**      | [MySQL], MariaDB, PostgreSQL, MongoDB, Qdrant                                                                               |
-| **编程语言&运行时**     | PHP ([PHP-CLI], [PHP-FPM], FrankenPHP, [RoadRunner], [Swoole CLI]), Node.js, Bun, Deno, [Python], Go, Java, Ruby, Rust, Zig |
-| **缓存/队列**    | [Redis], Memcached, RabbitMQ                                                                                                |
-| **服务治理**    | Consul, Etcd, R-Nacos                                                                                                       |
-| **搜索**       | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                           |
-| **邮件测试**     | Mailpit (现代 Mailhog 替代品)                                                                                                    |
-| **对象存储**     | RustFS, Minio                                                                                                               |
-| **网络**       | Cloudflare Tunnel, Numa, DNS Server                                                                                         |
+| 类别           | 包含工具                                                                                                                          |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------|
+| **AI 与机器学习** | Hermes Agent, [OpenClaw], [Ollama], [n8n], CliProxyAPI                                                                        |
+| **Web 服务器**  | FrankenPHP, [Apache], [Nginx], Caddy, Tomcat                                                                                  |
+| **数据库**      | [MySQL], [MariaDB], PostgreSQL, MongoDB, Qdrant                                                                               |
+| **编程语言&运行时**     | PHP ([PHP-CLI], [PHP-FPM], FrankenPHP, [RoadRunner], [Swoole CLI]), [Node.js], Bun, Deno, [Python], Go, Java, Ruby, Rust, Zig |
+| **缓存/队列**    | [Redis], Memcached, RabbitMQ                                                                                                  |
+| **服务治理**    | Consul, Etcd, R-Nacos                                                                                                         |
+| **搜索**       | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                             |
+| **邮件测试**     | Mailpit (现代 Mailhog 替代品)                                                                                                      |
+| **对象存储**     | RustFS, Minio                                                                                                                 |
+| **网络**       | Cloudflare Tunnel, Numa, DNS Server                                                                                           |
 
 [OpenClaw]: https://www.bilibili.com/video/BV1ciwMzUEGH/
 [Ollama]: https://www.bilibili.com/video/BV13UZcYGEhu/
@@ -65,6 +65,8 @@ php -v  # PHP 8.3 (自动切换)
 [PHP-CLI]: https://www.bilibili.com/video/BV1cFEp67E2v/
 [RoadRunner]: https://www.bilibili.com/video/BV1cFEp67E2v/
 [Swoole CLI]: https://www.bilibili.com/video/BV1cFEp67E2v/
+[Node.js]: https://www.bilibili.com/video/BV1pzEs6tE2X/
+[MariaDB]: https://www.bilibili.com/video/BV1NfEx6eE3V/
 
 再也不用到处找安装包或与 Homebrew 搏斗了。
 
