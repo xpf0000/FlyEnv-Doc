@@ -40,18 +40,31 @@ Your environment adapts to your project, not the other way around.
 
 ### Everything in One Interface
 
-| Category                  | Tools Included                                                                                                   |
-|---------------------------|------------------------------------------------------------------------------------------------------------------|
-| **AI & ML**               | Hermes Agent, OpenClaw, Ollama, n8n, CliProxyAPI                                                                 |
-| **Web Servers**           | FrankenPHP, Apache, Nginx, Caddy, Tomcat                                                                         |
-| **Databases**             | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant                                                                      |
-| **Languages & Runtime**   | PHP(PHP-CLI, PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI), Node.js, Bun, Deno, Python, Go, Java, Ruby, Rust, Zig |
-| **Cache & Message Queue** | Redis, Memcached, RabbitMQ                                                                                       |
-| **Service Governance**    | Consul, Etcd, R-Nacos                                                                                            |
-| **Search**                | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                          |
-| **Email Testing**         | Mailpit (modern Mailhog alternative)                                                                             |
-| **Object Storage**        | RustFS, Minio                                                                                                    |
-| **Networking**            | Cloudflare Tunnel, Numa, DNS Server                                                                              |
+| Category                  | Tools Included                                                                                                              |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **AI & ML**               | Hermes Agent, [OpenClaw], [Ollama], [n8n], CliProxyAPI                                                                      |
+| **Web Servers**           | FrankenPHP, [Apache], [Nginx], Caddy, Tomcat                                                                                |
+| **Databases**             | [MySQL], MariaDB, PostgreSQL, MongoDB, Qdrant                                                                               |
+| **Languages & Runtime**   | PHP ([PHP-CLI], [PHP-FPM], FrankenPHP, [RoadRunner], [Swoole CLI]), Node.js, Bun, Deno, [Python], Go, Java, Ruby, Rust, Zig |
+| **Cache & Message Queue** | [Redis], Memcached, RabbitMQ                                                                                                |
+| **Service Governance**    | Consul, Etcd, R-Nacos                                                                                                       |
+| **Search**                | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                           |
+| **Email Testing**         | Mailpit (modern Mailhog alternative)                                                                                        |
+| **Object Storage**        | RustFS, Minio                                                                                                               |
+| **Networking**            | Cloudflare Tunnel, Numa, DNS Server                                                                                         |
+
+[OpenClaw]: https://youtu.be/j7_B-VzIyEU
+[Ollama]: https://youtu.be/yPk9HQJRvb8
+[n8n]: https://youtu.be/YnA1B3qmDJU
+[Apache]: https://youtu.be/t7nKL45FdVk
+[Nginx]: https://youtu.be/zfdNZFRt3k4
+[MySQL]: https://youtu.be/uWWHAqxhVyk
+[PHP-FPM]: https://youtu.be/OYP1IOoJOtI
+[Python]: https://youtu.be/dhy0nJYsfQQ
+[Redis]: https://youtu.be/u9xjPN-VWT4
+[PHP-CLI]: https://youtu.be/5NqSag8c4YY
+[RoadRunner]: https://youtu.be/5NqSag8c4YY
+[Swoole CLI]: https://youtu.be/5NqSag8c4YY
 
 No more hunting for installers or fighting with Homebrew.
 

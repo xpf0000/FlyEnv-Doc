@@ -311,6 +311,12 @@ The deployment mode is only one part of the local environment. Most PHP projects
 5. Use **PHP Project Service** for Workerman, GatewayWorker, queue workers, and custom long-running PHP commands.
 6. Use **Cloudflare Tunnel** when a third-party webhook or client needs to access your local service.
 
+## Video Walkthrough
+
+Prefer watching? See Deploy PHP Apps Without Docker in FlyEnv: Laravel Octane, RoadRunner, Swoole & Workerman in action:
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/5NqSag8c4YY?si=fBlpEHxBKjKR7nX1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Frequently Asked Questions (FAQ)
 
 ### Is FlyEnv a Docker alternative for PHP development?

@@ -42,3 +42,4 @@ package.lock.json
 /out
 .env
 /md
+/test
