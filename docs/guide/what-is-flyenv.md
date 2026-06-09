@@ -44,7 +44,7 @@ Your environment adapts to your project, not the other way around.
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | **AI & ML**               | Hermes Agent, [OpenClaw], [Ollama], [n8n], CliProxyAPI                                                                        |
 | **Web Servers**           | FrankenPHP, [Apache], [Nginx], Caddy, Tomcat                                                                                  |
-| **Databases**             | [MySQL], [MariaDB], [PostgreSQL], MongoDB, Qdrant                                                                             |
+| **Databases**             | [MySQL], [MariaDB], [PostgreSQL], [MongoDB], Qdrant                                                                           |
 | **Languages & Runtime**   | PHP ([PHP-CLI], [PHP-FPM], FrankenPHP, [RoadRunner], [Swoole CLI]), [Node.js], Bun, Deno, [Python], Go, Java, Ruby, Rust, Zig |
 | **Cache & Message Queue** | [Redis], Memcached, RabbitMQ                                                                                                  |
 | **Service Governance**    | Consul, Etcd, R-Nacos                                                                                                         |
@@ -68,6 +68,7 @@ Your environment adapts to your project, not the other way around.
 [Node.js]: https://youtu.be/Pt_I3NDciZw
 [MariaDB]: https://youtu.be/mvmbRi6KsgI
 [PostgreSQL]: https://youtu.be/5gW3WHh8_Jw
+[MongoDB]: https://youtu.be/wPjgwVeA6lw
 
 No more hunting for installers or fighting with Homebrew.
 
