@@ -49,7 +49,7 @@ php -v  # PHP 8.3 (自动切换)
 | **缓存/队列**    | [Redis], Memcached, RabbitMQ                                                                                                  |
 | **服务治理**    | Consul, Etcd, R-Nacos                                                                                                         |
 | **搜索**       | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                             |
-| **邮件测试**     | Mailpit (现代 Mailhog 替代品)                                                                                                      |
+| **邮件测试**     | [Mailpit] (现代 Mailhog 替代品)                                                                                                    |
 | **对象存储**     | RustFS, Minio                                                                                                                 |
 | **网络**       | Cloudflare Tunnel, Numa, DNS Server                                                                                           |
 
@@ -69,6 +69,7 @@ php -v  # PHP 8.3 (自动切换)
 [MariaDB]: https://www.bilibili.com/video/BV1NfEx6eE3V/
 [PostgreSQL]: https://www.bilibili.com/video/BV19oE36BELa/
 [MongoDB]: https://www.bilibili.com/video/BV182E26AELB/
+[Mailpit]: https://www.bilibili.com/video/BV1CxEz6YEgx/
 
 再也不用到处找安装包或与 Homebrew 搏斗了。
 

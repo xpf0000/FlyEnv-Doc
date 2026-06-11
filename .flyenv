@@ -1,0 +1,5 @@
+#!/bin/zsh
+export PATH="/Users/x/Library/PhpWebStudy/app/nodejs/v24.14.0:/Users/x/Library/PhpWebStudy/app/nodejs/v24.14.0/bin:$PATH" #FlyEnv-ID-tX6637wpFuFMKRVCBBGMbTHWfT2ZmS1U
+export PATH="/Users/x/Library/PhpWebStudy/app/nodejs/v24.14.0:/Users/x/Library/PhpWebStudy/app/nodejs/v24.14.0/bin:$PATH" #FlyEnv-ID-LyHhL2aDyG7jRyYbQpWkNoX3PYTXrIWx
+export PATH="/Users/x/Library/PhpWebStudy/app/nodejs/v24.14.0:/Users/x/Library/PhpWebStudy/app/nodejs/v24.14.0/bin:$PATH" #FlyEnv-ID-St2ECxauhdznlVpHvve3gS5MXLUtylCf
+export PATH="/Users/x/Library/PhpWebStudy/app/static-php-8.3.30:/Users/x/Library/PhpWebStudy/app/static-php-8.3.30/bin:/Users/x/Library/PhpWebStudy/app/static-php-8.3.30/sbin:$PATH" #FlyEnv-ID-4aTPDLmagMpZdFYrx4BSn0YvqVqCRtAg

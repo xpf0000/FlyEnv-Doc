@@ -49,7 +49,7 @@ Your environment adapts to your project, not the other way around.
 | **Cache & Message Queue** | [Redis], Memcached, RabbitMQ                                                                                                  |
 | **Service Governance**    | Consul, Etcd, R-Nacos                                                                                                         |
 | **Search**                | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                             |
-| **Email Testing**         | Mailpit (modern Mailhog alternative)                                                                                          |
+| **Email Testing**         | [Mailpit] (modern Mailhog alternative)                                                                                        |
 | **Object Storage**        | RustFS, Minio                                                                                                                 |
 | **Networking**            | Cloudflare Tunnel, Numa, DNS Server                                                                                           |
 
@@ -69,6 +69,7 @@ Your environment adapts to your project, not the other way around.
 [MariaDB]: https://youtu.be/mvmbRi6KsgI
 [PostgreSQL]: https://youtu.be/5gW3WHh8_Jw
 [MongoDB]: https://youtu.be/wPjgwVeA6lw
+[Mailpit]: https://youtu.be/D4MkA25Ofd0
 
 No more hunting for installers or fighting with Homebrew.
 
