@@ -62,31 +62,6 @@
 
         <div class="donate-grid community-payment-grid">
           <article class="donate-card donate-hover">
-            <div class="donate-header kofi-bg">
-              <span class="donate-mark">KO</span>
-            </div>
-            <div class="donate-body">
-              <h3>Ko-fi</h3>
-              <p>{{ t.kofiDesc }}</p>
-              <div class="donate-qr-wrap">
-                <img
-                  src="https://oss.macphpstudy.com/image/qrcode3@2x.png"
-                  alt="Ko-fi QR"
-                  class="donate-qr"
-                />
-              </div>
-              <a
-                href="https://ko-fi.com/xpf0000"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="donate-btn kofi-btn no-underline"
-              >
-                {{ t.supportOnKofi }}
-              </a>
-            </div>
-          </article>
-
-          <article class="donate-card donate-hover">
             <div class="donate-header wechat-bg">
               <span class="donate-mark">WX</span>
             </div>
@@ -154,27 +129,6 @@
     <section class="sponsor-v2-section sponsor-v2-section-alt">
       <div class="sponsor-v2-inner sponsor-v2-inner-list">
         <div class="sponsor-v2-header">
-          <h2 class="no-border">{{ t.donationTitle }}</h2>
-          <p>{{ t.donationDesc }}</p>
-        </div>
-        <AppSponsor
-          :list="sponsorData.list"
-          :title="t.donationTitle"
-          :header-link-text="t.viewOnKofi"
-          header-link-href="https://ko-fi.com/xpf0000"
-          :show-avatars="true"
-          :show-messages="false"
-          :page-size="5"
-          :max-avatars="14"
-          :prev-text="t.prev"
-          :next-text="t.next"
-        />
-      </div>
-    </section>
-
-    <section class="sponsor-v2-section">
-      <div class="sponsor-v2-inner sponsor-v2-inner-list">
-        <div class="sponsor-v2-header">
           <h2 class="no-border">{{ t.articlesTitle }}</h2>
           <p>{{ t.articlesDesc }}</p>
         </div>
@@ -232,7 +186,7 @@
       </div>
     </section>
 
-    <section class="sponsor-v2-section sponsor-v2-section-alt">
+    <section class="sponsor-v2-section">
       <div class="sponsor-v2-inner sponsor-v2-inner-list">
         <div class="sponsor-v2-header">
           <h2 class="no-border">{{ t.pullRequestsTitle }}</h2>
@@ -307,18 +261,10 @@
             <p>{{ t.ctaDesc }}</p>
             <div class="cta-buttons">
               <a
-                href="https://ko-fi.com/xpf0000"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="cta-btn cta-btn-primary no-underline"
-              >
-                {{ t.becomeSupporter }}
-              </a>
-              <a
                 href="https://github.com/xpf0000/FlyEnv"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="cta-btn cta-btn-secondary no-underline"
+                class="cta-btn cta-btn-primary no-underline"
               >
                 {{ t.starOnGithub }}
               </a>
@@ -335,8 +281,6 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import AppSponsor from '../AppSponsor/index.vue'
-  import sponsorData from '../../data/sponsor.json'
   import communityPosts from '../../data/community-posts.json'
   import communityPostsZh from '../../data/community-posts-zh.json'
   import pullRequestData from '../../data/flyenv-pull-requests.json'
@@ -394,9 +338,7 @@
       refundLink: 'Refunds',
       communityTitle: 'Other Community Contribution Methods',
       communityDesc:
-        'Ko-fi, WeChat Pay, Alipay, Pull Requests, and original articles are handled outside Paddle and may be submitted manually as license request proof.',
-      kofiDesc: 'Community contribution via Ko-fi',
-      supportOnKofi: 'Contribute on Ko-fi',
+        'WeChat Pay, Alipay, Pull Requests, and original articles are handled outside Paddle and may be submitted manually as license request proof.',
       wechatTitle: 'WeChat Pay',
       alipayTitle: 'Alipay',
       scanToContribute: 'Scan QR code to contribute',
@@ -407,10 +349,6 @@
       f4Suffix: ', for funding the',
       domainLabel: 'domain',
       sentenceEnd: '.',
-      donationTitle: 'Community Contribution Records',
-      donationDesc:
-        'Public records from users who helped FlyEnv through Ko-fi or other community contribution channels.',
-      viewOnKofi: 'View on Ko-fi',
       articlesTitle: 'User Articles',
       articlesDesc:
         'Original tutorials, reviews, videos, and migration stories shared by FlyEnv users.',
@@ -426,7 +364,6 @@
       ctaTitle: 'Get Licensed or Contribute',
       ctaDesc:
         'Buy a software license through Paddle, contribute code, or share original FlyEnv content. Each path helps qualify a license request under the activation guide.',
-      becomeSupporter: 'Contribute on Ko-fi',
       starOnGithub: 'Star on GitHub',
       prev: 'Prev',
       next: 'Next'
@@ -456,9 +393,7 @@
       refundLink: '退款政策',
       communityTitle: '其他社区贡献方式',
       communityDesc:
-        'Ko-fi、微信、支付宝、PR 和原创文章均不通过 Paddle 处理，可在应用内作为许可证申请凭证手动提交。',
-      kofiDesc: '通过 Ko-fi 进行社区贡献',
-      supportOnKofi: '在 Ko-fi 贡献',
+        '微信、支付宝、PR 和原创文章均不通过 Paddle 处理，可在应用内作为许可证申请凭证手动提交。',
       wechatTitle: '微信支付',
       alipayTitle: '支付宝',
       scanToContribute: '扫码进行社区贡献',
@@ -469,10 +404,6 @@
       f4Suffix: ' 创始人，承担了',
       domainLabel: '域名费用',
       sentenceEnd: '。',
-      donationTitle: '社区贡献记录',
-      donationDesc:
-        '以下是通过 Ko-fi 或其他社区贡献渠道帮助 FlyEnv 的公开记录。',
-      viewOnKofi: '在 Ko-fi 查看',
       articlesTitle: '用户文章',
       articlesDesc: 'FlyEnv 用户分享的原创教程、评测、视频和迁移实践。',
       articlesHead: '文章',
@@ -486,7 +417,6 @@
       ctaTitle: '获取许可证或参与共建',
       ctaDesc:
         '通过 Paddle 购买软件许可证，或提交代码和原创内容。每一种方式都可按激活说明用于许可证申请。',
-      becomeSupporter: '在 Ko-fi 贡献',
       starOnGithub: '在 GitHub 点星',
       prev: '上一页',
       next: '下一页'
@@ -760,8 +690,13 @@
     }
 
     .community-payment-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  .community-payment-grid {
+    max-width: 40rem;
+    margin: 0 auto;
   }
 
   .donate-card {
@@ -792,10 +727,6 @@
     justify-content: center;
   }
 
-  .kofi-bg {
-    background: linear-gradient(to bottom right, #fff1f2, #fef2f2);
-  }
-
   .wechat-bg {
     background: linear-gradient(to bottom right, #f0fdf4, #ecfdf5);
   }
@@ -823,10 +754,6 @@
 
   .paddle-bg .donate-mark {
     color: #f97316;
-  }
-
-  .kofi-bg .donate-mark {
-    color: #f43f5e;
   }
 
   .wechat-bg .donate-mark {
@@ -920,10 +847,6 @@
   .paddle-btn:disabled {
     cursor: not-allowed;
     opacity: 0.72;
-  }
-
-  .kofi-btn {
-    background: #f43f5e;
   }
 
   .wechat-btn {

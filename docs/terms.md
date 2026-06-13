@@ -54,7 +54,7 @@ We may update, modify, add, or remove features in FlyEnv to improve performance,
 
 ## Third-Party Software and Services
 
-FlyEnv may help install, manage, or connect to third-party software such as programming runtimes, databases, web servers, AI tools, package managers, GitHub, Ko-fi, analytics providers, or payment processors. Your use of those third-party products or services may be subject to their own terms and policies.
+FlyEnv may help install, manage, or connect to third-party software such as programming runtimes, databases, web servers, AI tools, package managers, GitHub, analytics providers, or payment processors. Your use of those third-party products or services may be subject to their own terms and policies.
 
 ## Support
 

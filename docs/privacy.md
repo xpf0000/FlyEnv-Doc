@@ -46,7 +46,7 @@ We use information to:
 
 ## Cookies and Analytics
 
-The FlyEnv website may use cookies, local storage, analytics scripts, and similar technologies. These may include Google Analytics and third-party widgets such as Ko-fi.
+The FlyEnv website may use cookies, local storage, analytics scripts, and similar technologies. These may include Google Analytics and similar third-party widgets.
 
 You can control cookies through your browser settings. Some website features may not work correctly if cookies or storage are disabled.
 

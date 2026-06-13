@@ -468,10 +468,6 @@
   justify-content: center;
 }
 
-.kofi-bg {
-  background: linear-gradient(to bottom right, #fff1f2, #fef2f2);
-}
-
 .wechat-bg {
   background: linear-gradient(to bottom right, #f0fdf4, #ecfdf5);
 }
@@ -487,10 +483,6 @@
 .donate-header-icon {
   width: 2.5rem;
   height: 2.5rem;
-}
-
-.kofi-bg .donate-header-icon {
-  color: #f43f5e;
 }
 
 .wechat-bg .donate-header-icon {
@@ -615,16 +607,6 @@
   font-size: 0.75rem;
   line-height: 1.4;
   margin: 0.75rem 0 0;
-}
-
-.kofi-btn {
-  background: #f43f5e;
-  transition: background 0.2s;
-  cursor: pointer;
-}
-
-.kofi-btn:hover {
-  background: #e11d48;
 }
 
 .wechat-btn {

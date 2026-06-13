@@ -233,43 +233,6 @@
               <p v-if="paddleError" class="paddle-error">{{ paddleError }}</p>
             </div>
           </div>
-          <!-- Ko-fi -->
-          <div class="donate-card donate-hover">
-            <div class="donate-header kofi-bg">
-              <svg class="donate-header-icon" viewBox="0 0 1024 1024" fill="currentColor">
-                <path
-                  d="M1018.912 381.792c-32.992-174.304-207.328-195.968-207.328-195.968H30.816c-25.76 0-28.96 34.048-28.96 34.048s-3.488 312.48-0.928 504.416c7.008 103.424 110.336 114.016 110.336 114.016s352.736-0.992 510.56-2.08c104.032-18.176 114.464-109.472 113.408-159.328 185.696 10.24 316.672-120.8 283.68-295.072z m-471.968 149.792c-53.152 61.984-171.136 169.632-171.136 169.632s-5.152 5.088-13.216 0.992c-3.232-2.432-4.608-3.84-4.608-3.84-18.912-18.816-143.712-130.08-172.128-168.704-30.24-41.184-44.416-115.2-3.872-158.304 40.576-43.104 128.224-46.336 186.144 17.376 0 0 66.784-76.032 147.968-41.088 81.248 34.976 78.176 128.48 30.848 183.936z m263.392 20.384c-39.584 4.96-71.776 1.184-71.776 1.184V310.752h75.52s84.096 23.52 84.096 112.544c0 81.632-42.016 113.792-87.84 128.64z"
-                />
-              </svg>
-            </div>
-            <div class="donate-body">
-              <h3>Ko-fi</h3>
-              <p>信用卡 / PayPal</p>
-              <div class="donate-qr-wrap">
-                <img
-                  src="https://oss.macphpstudy.com/image/qrcode3@2x.png"
-                  alt="Ko-fi QR"
-                  class="donate-qr"
-                />
-              </div>
-              <a
-                href="https://ko-fi.com/xpf0000"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="donate-btn kofi-btn no-underline"
-              >
-                在 Ko-fi 上支持
-                <svg class="donate-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
           <!-- WeChat -->
           <div class="donate-card donate-hover">
             <div class="donate-header wechat-bg">
@@ -465,22 +428,6 @@
               您都在帮助让每个人的本地开发体验更好。</p
             >
             <div class="cta-buttons">
-              <a
-                href="https://ko-fi.com/xpf0000"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="cta-btn cta-btn-primary no-underline"
-              >
-                成为支持者
-                <svg class="cta-btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
               <a
                 href="https://github.com/xpf0000/FlyEnv"
                 target="_blank"

@@ -38,7 +38,7 @@ FlyEnv-Doc/
 │   │   ├── config.mts             # Site config (nav, sidebar, locales)
 │   │   ├── env.ts                 # Environment variables (host, GA ID, etc.)
 │   │   ├── theme/                 # Custom theme
-│   │   │   ├── index.js           # Theme entry with Kofi widget integration
+│   │   │   ├── index.js           # Theme entry
 │   │   │   └── custom.css         # Custom styles + Tailwind directives
 │   │   ├── cache/                 # VitePress cache (gitignored)
 │   │   └── dist/                  # Build output (gitignored)
@@ -237,7 +237,6 @@ export const FootMessage = undefined                  // Footer message
 
 When `PROD = true`, the following are injected:
 - Google Analytics tracking script
-- Ko-fi donation widget
 - Custom analytics script (`/js/index.js`)
 
 ---
@@ -251,9 +250,6 @@ When `PROD = true`, the following are injected:
 - **Feedback API**: `https://api.macphpstudy.com/api/app/feedback_site`
   - Used by `AppFeedback` component
   - POST endpoint for user messages
-
-### Widgets
-- **Ko-fi**: Floating donation button (loaded from `storage.ko-fi.com`)
 
 ---
 

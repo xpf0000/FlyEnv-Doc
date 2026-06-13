@@ -20,9 +20,6 @@ if (PROD) {
       gtag('config', '${GoogleID}');`
   ], [
     'script',
-    { async: '', src: `https://storage.ko-fi.com/cdn/scripts/overlay-widget.js` }
-  ], [
-    'script',
     { async: '', src: `/js/index.js` }
   ])
 }
