@@ -3,7 +3,7 @@
     <div class="mt-9 py-9"></div>
     <template v-if="lang === 'zh-CN'">
       <div class="text-center">
-        <span class="text-3xl font-bold md:text-6xl">还是没找到需要的功能？</span>
+        <h2 class="no-border !text-3xl md:!text-6xl font-bold">还是没找到需要的功能？</h2>
       </div>
       <div class="text-center mt-9">
         <span
@@ -15,7 +15,7 @@
     </template>
     <template v-else>
       <div class="text-center">
-        <span class="text-3xl font-bold md:text-6xl">Still Can't Find What You Need?</span>
+        <h2 class="no-border !text-3xl md:!text-6xl font-bold">Still Can't Find What You Need?</h2>
       </div>
       <div class="text-center mt-9">
         <span

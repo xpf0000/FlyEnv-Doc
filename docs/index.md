@@ -46,7 +46,7 @@ features:
       height: '32px'
     # 优化：针对 GSC 中 4500+ 曝光的 AI 词汇
     title: Private Offline AI Agents
-    details: Build and run local AI Agents with integrated Ollama. Seamlessly deploy **Qwen 3.5, Gemma 3, and GLM-5**. Keep your code and data 100% private with zero latency.
+    details: Build and run local AI Agents with integrated Ollama. Pull and run the latest open-source models locally. Keep your code and data 100% private with zero latency.
   - icon:
       src: 'https://oss.macphpstudy.com/image/all.svg'
       width: '32px'
@@ -78,11 +78,11 @@ import AppPriceModules from './components/AppPrice/en.vue';
 
 <AppCanDoModules />
 
+<AppGitHubModules />
+
 <AppCoreModule />
 
 <AppToolsModule />
-
-<AppGitHubModules />
 
 <AppCommentModules />
 

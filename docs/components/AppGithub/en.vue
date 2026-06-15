@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center my-16 pt-12">
-    <div class="w-full text-center no-border text-3xl md:text-[40px] font-bold mb-4" id="_100-open-source-community-driven" tabindex="-1">100% Open Source &amp; Community Driven <a class="header-anchor" href="#_100-open-source-community-driven" aria-label="Permalink to &quot;100% Open Source &amp; Community Driven&quot;">​</a></div>
+    <h2 class="w-full text-center no-border !text-3xl md:!text-[40px] font-bold mb-4" id="_100-open-source-community-driven" tabindex="-1">100% Open Source &amp; Community Driven <a class="header-anchor" href="#_100-open-source-community-driven" aria-label="Permalink to &quot;100% Open Source &amp; Community Driven&quot;">​</a></h2>
     <p class="text-lg text-gray-500 text-center mb-8">
       Transparent, auditable, and built by developers for developers. Join us on GitHub.
     </p>

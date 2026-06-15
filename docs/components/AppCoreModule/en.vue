@@ -1,7 +1,7 @@
 <template>
   <div class="my-24 px-4">
     <div class="text-center mx-auto mb-12">
-      <div id="🚀-core-modules" tabindex="-1" class="no-border text-3xl md:text-[40px] font-bold mb-4">🚀 Core Modules <a class="header-anchor" href="#🚀-core-modules" aria-label="Permalink to &quot;🚀 Core Modules&quot;">​</a></div>
+      <h2 id="🚀-core-modules" tabindex="-1" class="no-border !text-3xl md:!text-[40px] font-bold mb-4">🚀 Core Modules <a class="header-anchor" href="#🚀-core-modules" aria-label="Permalink to &quot;🚀 Core Modules&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
         A unified native development stack for runtimes, databases, AI agents, infrastructure and modern workflows.
       </p>

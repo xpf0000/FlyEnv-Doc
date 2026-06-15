@@ -71,11 +71,11 @@ import AppPriceModules from '../components/AppPrice/zh.vue';
 
 <AppCanDoModules />
 
+<AppGitHubModules />
+
 <AppCoreModule />
 
 <AppToolModule />
-
-<AppGitHubModules />
 
 <AppCommentModules />
 

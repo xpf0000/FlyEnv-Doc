@@ -1,7 +1,7 @@
 <template>
   <div class="my-16 px-4">
     <div class="text-center mx-auto mb-12">
-      <div class="w-full text-center no-border text-3xl md:text-[40px] font-bold mb-4" id="fair-flexible-licensing" tabindex="-1">Fair &amp; Flexible Licensing <a class="header-anchor" href="#fair-flexible-licensing" aria-label="Permalink to &quot;Fair &amp; Flexible Licensing&quot;">​</a></div>
+      <h2 class="w-full text-center no-border !text-3xl md:!text-[40px] font-bold mb-4" id="fair-flexible-licensing" tabindex="-1">Fair &amp; Flexible Licensing <a class="header-anchor" href="#fair-flexible-licensing" aria-label="Permalink to &quot;Fair &amp; Flexible Licensing&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
         FlyEnv is free to download and use. We believe in fair exchange—support the project to unlock unlimited potential.
       </p>
@@ -9,7 +9,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
       <div class="border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex flex-col">
-        <h3 class="text-2xl font-bold mb-2">Community Edition</h3>
+        <h3 class="no-border !text-2xl font-bold mb-2">Community Edition</h3>
         <div class="text-4xl font-bold mb-6">$0 <span class="text-lg font-normal text-gray-500">/ forever</span></div>
         <p class="text-gray-500 mb-6">Perfect for hobbyists and individual learners</p>
         <ul class="space-y-3 mb-8 flex-1 list-none">
@@ -26,7 +26,7 @@
       </div>
       <div class="border-2 border-brand rounded-2xl p-8 flex flex-col relative overflow-hidden">
         <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">RECOMMENDED</div>
-        <h3 class="text-2xl font-bold mb-2">Pro License</h3>
+        <h3 class="no-border !text-2xl font-bold mb-2">Pro License</h3>
         <div class="text-lg font-bold mb-6 text-green-600">Pay with Money, Code, or Voice</div>
         <p class="text-gray-500 mb-6">For professionals who need unlimited power and want to support the open-source spirit.</p>
         <ul class="space-y-3 mb-8 flex-1 list-none">

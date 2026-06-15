@@ -1,62 +1,129 @@
 <template>
   <div class="my-24 px-4">
-    <div class="text-center max-w-3xl mx-auto mb-12">
-      <div class="text-3xl md:text-[40px] font-bold mb-4">Beyond Development: Your All-in-One Native Ecosystem</div>
-      <p class="text-lg text-gray-500">
-        More than just a version manager. A high-performance, native replacement for Docker, XAMPP, and NVM.
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="no-border !text-3xl md:!text-[40px] font-bold mb-4">Core Features</h2>
+      <p class="text-lg text-gray-500 mb-8">
+        Everything you need to run modern web projects locally — without Docker.
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-      <div class="flex flex-col">
-        <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🚀</span> Native Performance (No Docker)
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          FlyEnv runs <strong>PHP, Node.js, Python, Go, and Java</strong> as <strong>native static binaries</strong>. Unlike Docker Desktop, it starts in milliseconds and consumes 80% less RAM. Switch between versions (e.g., PHP 5.6 to 8.4) instantly without container overhead.
-        </p>
+
+    <div class="space-y-20 max-w-6xl mx-auto">
+      <!-- Feature 1: Service Dashboard -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1">
+          <div class="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 mb-4">
+            Service Dashboard
+          </div>
+          <h3 class="no-border !text-2xl font-bold mb-4">All Your Services in One Native Dashboard</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            FlyEnv puts Apache, Nginx, PHP-FPM, MySQL, MariaDB, PostgreSQL, Redis, Mailpit, and more behind a single clean dashboard. Start, stop, and switch between multiple native versions with one click — no terminal, no Docker, no config files.
+          </p>
+          <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+            <li class="flex items-start">
+              <span class="mr-2 text-indigo-600">✓</span>
+              One-click start/stop for every service
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-indigo-600">✓</span>
+              Run multiple PHP, Node.js, or Python versions side by side
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-indigo-600">✓</span>
+              Native binaries, not containers
+            </li>
+          </ul>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="aspect-[16/10] rounded-xl bg-gray-900 overflow-hidden shadow-lg ring-1 ring-gray-200 dark:ring-gray-700">
+            <img
+              src="https://oss.macphpstudy.com/image/flyenv-demo.gif"
+              alt="FlyEnv Service Dashboard - manage all services and versions in one place"
+              class="w-full h-full object-cover cursor-pointer"
+              data-x-image-preview=""
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col">
-        <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🔒</span> Privacy-First Offline AI Agent
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          <strong>Run AI Agents locally & offline.</strong> FlyEnv integrates <strong>Ollama</strong> to support the latest models like <strong>Qwen 3.5, Gemma 3, and GLM-5</strong>. Build AI-powered apps with zero latency and 100% data privacy—no API keys or internet required.
-        </p>
+
+      <!-- Feature 2: Local Sites -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="order-1">
+          <div class="aspect-[16/10] rounded-xl bg-gray-900 overflow-hidden shadow-lg ring-1 ring-gray-200 dark:ring-gray-700">
+            <img
+              src="https://oss.macphpstudy.com/image/flyenv-local-sites.webp"
+              alt="FlyEnv Hosts panel - local sites with HTTPS and custom .test domains"
+              class="w-full h-full object-cover cursor-pointer"
+              data-x-image-preview=""
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="order-2">
+          <div class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 mb-4">
+            Local Sites
+          </div>
+          <h3 class="no-border !text-2xl font-bold mb-4">Local Sites with HTTPS & Custom Domains</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            Stop editing <code>/etc/hosts</code>. FlyEnv creates custom <code>.test</code> domains and trusted SSL certificates automatically. Manage all your local projects in one place, each with its own runtime version and settings.
+          </p>
+          <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+            <li class="flex items-start">
+              <span class="mr-2 text-emerald-600">✓</span>
+              Custom local domains like <code>myapp.test</code> out of the box
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-emerald-600">✓</span>
+              Automatic trusted SSL certificates
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-emerald-600">✓</span>
+              Per-site runtime version selection
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="flex flex-col">
-        <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🌐</span> Auto DNS & Zero-Config SSL
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Stop editing <code>/etc/hosts</code>. FlyEnv includes a built-in DNS server for custom domains (like <code>myapp.test</code>). It automatically issues <strong>trusted SSL certificates</strong>, providing a production-like HTTPS environment for local development.
-        </p>
-      </div>
-      <div class="flex flex-col">
-        <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">📂</span> Smart Project-Level Isolation
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          A superior alternative to <strong>NVM and PHP Monitor</strong>. FlyEnv detects your project settings and <strong>automatically switches</strong> to the required Node.js or PHP version when you <code>cd</code> into a directory. Eliminate global version conflicts forever.
-        </p>
-      </div>
-      <div class="flex flex-col">
-        <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🛠️</span> Professional Developer Toolbox
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Built-in <strong>PHP Obfuscator</strong>, Mailpit for email testing, and <strong>Cloudflare Tunnel</strong> for instant public URL exposure. Everything a full-stack developer needs is pre-configured and ready to use in one click.
-        </p>
-      </div>
-      <div class="flex flex-col">
-        <h3 class="text-xl font-bold mb-3 flex items-center">
-          <span class="text-2xl mr-3">🗄️</span> Multi-Version Database Manager
-        </h3>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-          Instantly deploy <strong>MySQL, MariaDB, PostgreSQL, MongoDB, and Redis</strong>. FlyEnv supports running multiple versions of the same database simultaneously, making it easy to test migrations and data compatibility across different environments.
-        </p>
+
+      <!-- Feature 3: Version switching -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1">
+          <div class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700 mb-4">
+            Project Isolation
+          </div>
+          <h3 class="no-border !text-2xl font-bold mb-4">Project-Level Version Switching</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            Drop into any project folder and FlyEnv automatically loads the right environment. Whether it's Node.js v18, v20, v22, or v24, the correct version is active the moment you <code>cd</code> in — no manual switching, no global conflicts.
+          </p>
+          <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+            <li class="flex items-start">
+              <span class="mr-2 text-amber-600">✓</span>
+              Auto-switch Node.js, PHP, or Python per project
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-amber-600">✓</span>
+              Run v18, v20, v22, v24 side by side without conflicts
+            </li>
+            <li class="flex items-start">
+              <span class="mr-2 text-amber-600">✓</span>
+              No global installs, no manual environment setup
+            </li>
+          </ul>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="aspect-[16/10] rounded-xl bg-gray-900 overflow-hidden shadow-lg ring-1 ring-gray-200 dark:ring-gray-700">
+            <img
+              src="https://oss.macphpstudy.com/image/flyenv-version-switch.webp"
+              alt="FlyEnv project-level version switching - terminal showing automatic Node.js version changes"
+              class="w-full h-full object-cover cursor-pointer"
+              data-x-image-preview=""
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
 </script>

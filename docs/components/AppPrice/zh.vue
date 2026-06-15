@@ -1,7 +1,7 @@
 <template>
   <div class="my-16 px-4">
     <div class="text-center mx-auto mb-12">
-      <div class="w-full text-center no-border text-3xl md:text-[40px] font-bold mb-4" id="公平灵活的许可" tabindex="-1">公平灵活的许可 <a class="header-anchor" href="#公平灵活的许可" aria-label="Permalink to &quot;公平灵活的许可&quot;">​</a></div>
+      <h2 class="w-full text-center no-border !text-3xl md:!text-[40px] font-bold mb-4" id="公平灵活的许可" tabindex="-1">公平灵活的许可 <a class="header-anchor" href="#公平灵活的许可" aria-label="Permalink to &quot;公平灵活的许可&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
         FlyEnv 可免费下载和使用。我们相信公平交换——支持项目以解锁无限潜力。
       </p>
@@ -9,7 +9,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
       <div class="border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex flex-col">
-        <h3 class="text-2xl font-bold mb-2">社区版</h3>
+        <h3 class="no-border !text-2xl font-bold mb-2">社区版</h3>
         <div class="text-4xl font-bold mb-6">$0 <span class="text-lg font-normal text-gray-500">/ 永久免费</span></div>
         <p class="text-gray-500 mb-6">适合爱好者和个人学习者</p>
         <ul class="space-y-3 mb-8 flex-1 list-none">
@@ -26,7 +26,7 @@
       </div>
       <div class="border-2 border-brand rounded-2xl p-8 flex flex-col relative overflow-hidden">
         <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">推荐</div>
-        <h3 class="text-2xl font-bold mb-2">专业版许可</h3>
+        <h3 class="no-border !text-2xl font-bold mb-2">专业版许可</h3>
         <div class="text-lg font-bold mb-6 text-green-600">可通过金钱、代码或宣传支持获取</div>
         <p class="text-gray-500 mb-6">适合需要无限能力并希望支持开源精神的专业人士。</p>
         <ul class="space-y-3 mb-8 flex-1 list-none">
