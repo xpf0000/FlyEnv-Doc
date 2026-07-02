@@ -355,15 +355,6 @@
       </div>
       <span class="shrink-0 select-text">FTP Server</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
-    >
-      <span class="shrink-0 select-text">Utilities</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-5">
-        <img src="https://oss.macphpstudy.com/image/http.svg" />
-      </div>
-      <span class="shrink-0 select-text">Static Server</span>
-    </div>
   </template>
   <template v-else-if="type === 5">
     <div
@@ -417,9 +408,9 @@
     >
       <span class="shrink-0 select-text">MCP</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
-        <img src="../SVG/mcp.svg" />
+        <img src="https://oss.macphpstudy.com/image/app-icon.png" />
       </div>
-      <span class="shrink-0 select-text text-center">FlyEnv MCP Server</span>
+      <span class="shrink-0 select-text text-center">MCP Server</span>
     </div>
 
     <div
@@ -466,7 +457,7 @@
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
       <span class="shrink-0 select-text">AI Coding</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-2">
         <img src="../SVG/antigravity.svg" />
       </div>
       <span class="shrink-0 select-text text-center">Antigravity CLI</span>

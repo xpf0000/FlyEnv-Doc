@@ -1,218 +1,133 @@
 ---
-title: 'What is FlyEnv? The All-in-One Development Environment Manager for 2026'
+title: 'What Is FlyEnv? Native Local Stack, AI Coding CLI, and MCP Workspace'
 head:
   - - meta
     - name: description
-      content: 'FlyEnv is the all-in-one development environment manager for PHP, Node.js, Python, Go, and Java. Native performance, far less RAM than Docker, automatic version switching, reverse proxy, secure tunnels, and built-in utilities on macOS, Windows, and Linux.'
+      content: 'FlyEnv is a native desktop workspace for local runtimes, services, HTTPS sites, AI coding CLIs, and the FlyEnv MCP Server on macOS, Windows, and Linux.'
 ---
 
-# What is FlyEnv? The All-in-One Development Environment Manager for 2026
+# What Is FlyEnv? Native Local Stack, AI Coding CLI, and MCP Workspace
 
-Setting up a local development environment used to be simple. Install PHP, MySQL, maybe Apache—and you were done. But modern full-stack development changed everything. Now you need Node.js for frontend builds, Python for scripts, Redis for caching, Elasticsearch for search, and a dozen other services.
+Modern local development is no longer just PHP and MySQL. A real project usually needs multiple runtimes, local services, HTTPS sites, and now AI coding clients that must see the same local environment you use yourself.
 
-Before you know it, you are juggling Docker containers, fighting with version conflicts, and watching your laptop slow to a crawl. **There has to be a better way.**
+FlyEnv is a native desktop workspace that brings those pieces together. It manages local runtimes and services, switches versions per project, launches AI coding CLIs, and exposes your managed local context through the built-in **FlyEnv MCP Server**.
 
-Enter FlyEnv: the native, all-in-one environment manager that gives you all the power of modern development stacks without the container overhead.
+## What FlyEnv Actually Does
 
-## What Makes FlyEnv Different?
+With FlyEnv you can manage all of this from one app:
 
-### Native Binaries, Not Containers
+| Area | What FlyEnv handles |
+| --- | --- |
+| Runtimes | PHP, Node.js, Python, Go, Java, and other local runtimes |
+| Services | MySQL, MariaDB, PostgreSQL, Redis, MongoDB, Mailpit, queues, search tools, and more |
+| Local sites | Custom domains, HTTPS/SSL, reverse proxy, logs, and site-level runtime settings |
+| AI workflow | Claude Code, Codex, OpenCode, Kimi, GitHub Copilot CLI, Antigravity CLI, and related local AI tooling |
+| MCP | Structured access to services, sites, configs, logs, and selected actions through the FlyEnv MCP Server |
 
-Docker runs a complete operating system for every service. On a typical Laravel stack:
-- **Docker Desktop**: 2-4GB RAM, 30+ seconds to start
-- **FlyEnv**: 200-400MB RAM, instant startup
+Instead of stitching together Docker, version managers, shell aliases, host-file edits, and separate AI client setup, you work from one local desktop workspace.
 
-FlyEnv installs and runs official binaries directly on your machine—PHP from php.net, Node.js from nodejs.org, MySQL from mysql.com. No virtualization overhead. No file sharing slowdowns. Just native speed.
+## Why Developers Use It
 
-### Automatic Version Switching
-
-Ever typed `nvm use 18` or `brew switch php@8.1` for the hundredth time? FlyEnv eliminates version management entirely through **project-level isolation**.
-
-```bash
-cd ~/projects/legacy-wordpress
-php -v  # PHP 7.4 (auto-loaded)
-
-cd ~/projects/modern-laravel
-php -v  # PHP 8.3 (auto-switched)
-```
-
-Your environment adapts to your project, not the other way around.
-
-### Everything in One Interface
-
-| Category                  | Tools Included                                                                                                                |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| **AI & ML**               | Hermes Agent, [OpenClaw], [Ollama], [n8n], CliProxyAPI                                                                        |
-| **Web Servers**           | FrankenPHP, [Apache], [Nginx], Caddy, Tomcat                                                                                  |
-| **Databases**             | [MySQL], [MariaDB], [PostgreSQL], [MongoDB], Qdrant                                                                           |
-| **Languages & Runtime**   | PHP ([PHP-CLI], [PHP-FPM], FrankenPHP, [RoadRunner], [Swoole CLI]), [Node.js], Bun, Deno, [Python], Go, Java, Ruby, Rust, Zig |
-| **Cache & Message Queue** | [Redis], Memcached, RabbitMQ                                                                                                  |
-| **Service Governance**    | Consul, Etcd, R-Nacos                                                                                                         |
-| **Search**                | Elasticsearch, Meilisearch, Typesense, ZincSearch                                                                             |
-| **Email Testing**         | [Mailpit] (modern Mailhog alternative)                                                                                        |
-| **Object Storage**        | RustFS, Minio                                                                                                                 |
-| **Networking**            | Cloudflare Tunnel, Numa, DNS Server                                                                                           |
-
-[OpenClaw]: https://youtu.be/j7_B-VzIyEU
-[Ollama]: https://youtu.be/yPk9HQJRvb8
-[n8n]: https://youtu.be/YnA1B3qmDJU
-[Apache]: https://youtu.be/t7nKL45FdVk
-[Nginx]: https://youtu.be/zfdNZFRt3k4
-[MySQL]: https://youtu.be/uWWHAqxhVyk
-[PHP-FPM]: https://youtu.be/OYP1IOoJOtI
-[Python]: https://youtu.be/dhy0nJYsfQQ
-[Redis]: https://youtu.be/u9xjPN-VWT4
-[PHP-CLI]: https://youtu.be/5NqSag8c4YY
-[RoadRunner]: https://youtu.be/5NqSag8c4YY
-[Swoole CLI]: https://youtu.be/5NqSag8c4YY
-[Node.js]: https://youtu.be/Pt_I3NDciZw
-[MariaDB]: https://youtu.be/mvmbRi6KsgI
-[PostgreSQL]: https://youtu.be/5gW3WHh8_Jw
-[MongoDB]: https://youtu.be/wPjgwVeA6lw
-[Mailpit]: https://youtu.be/D4MkA25Ofd0
-
-No more hunting for installers or fighting with Homebrew.
+| Common local-dev problem | Typical workaround | What FlyEnv changes |
+| --- | --- | --- |
+| Version conflicts between projects | `nvm`, `pyenv`, manual PHP switching, custom shell glue | Project-level runtime switching from one workspace |
+| Too many local tools to manage | One app for runtimes, another for databases, another for sites | Runtimes, services, sites, and utilities in one place |
+| Local HTTPS and custom domains take time | Manual proxy, certificate, and hosts-file setup | Managed local sites with domains, SSL, and logs |
+| AI clients can read code but not real local context | Hand-built config, scripts, or broad shell access | Managed AI CLIs plus MCP access to local context |
+| Container-first local stacks feel heavy for daily work | Docker for everything | Native local workflow without container-first overhead |
 
 ## The Real Power: When Everything Works Together
 
-Any single FlyEnv feature is useful on its own. A version switcher. A web server manager. A tunnel tool. You can find each of these elsewhere.
+Any one FlyEnv capability is useful on its own. A version switcher. A service dashboard. Local domains and SSL. A tunnel tool. AI coding CLI management. MCP access to the local stack.
 
-What you can't find elsewhere is **all of them in one place, sharing the same projects, the same sites, and the same workflow**. That is where FlyEnv changes from "a convenient tool" into "the place you actually work." It is a quantity-into-quality shift: enough capabilities under one roof that the friction between them simply disappears.
+You can find versions of those features in other tools. What is harder to find is **all of them in one place, sharing the same projects, sites, and workflow**. That is where FlyEnv stops being "a convenient utility" and becomes "the place you actually work."
 
-Picture a normal day. You open a project and the right PHP, Node, and Python versions load automatically. You spin up a local site with a real domain and trusted SSL in one click. You point a reverse proxy at your Node API, then expose it to the internet through a Cloudflare Tunnel to test a webhook or demo to a client—no deploy, no firewall fight. You attach Xdebug and step through a request. You grab a screenshot, compress an image, or generate a QR code from the built-in utilities without leaving the app. You ask the built-in AI assistant about an error in your log.
+Picture a normal day:
 
-Every one of those steps used to mean a different tool, a different config file, a different tab. In FlyEnv they are **one continuous flow**:
+1. Install or manage the runtimes and services your project needs.
+2. Let FlyEnv attach the right versions to the current project.
+3. Run local sites with domains, SSL, reverse proxy rules, logs, and dependent services from the same workspace.
+4. Launch Claude Code, Codex, or another supported AI coding CLI against that same project context.
+5. Expose the managed local stack through the FlyEnv MCP Server so the AI can inspect services, configs, logs, and selected actions.
 
-> **Install → Configure → Run → Reverse proxy → Tunnel → Debug → Ship**
+What used to be separate tools, config files, and shell glue turns into one continuous local flow:
 
-And because FlyEnv is built for **multiple languages, multiple projects, and multiple services at once**, that flow holds up no matter how many things you have running. Switching between a legacy WordPress site, a modern Laravel API, and a Next.js frontend is not three context switches—it is the same window, the same habits, the same muscle memory. The time you save is not from any one feature being fast. It is from never having to leave.
+> **Install -> Configure -> Run -> Proxy -> Tunnel -> Debug -> Connect AI -> Ship**
 
-## Key Features That Solve Real Problems
+That continuity is the real strength. The time savings do not come from a single fast feature. They come from not having to keep leaving the workspace.
 
-### 1. One-Click Installation
+## How FlyEnv Differs from Docker and XAMPP-Style Stacks
 
-Install any version of any software in seconds: open FlyEnv, pick a module, choose a version, click Install. FlyEnv downloads official binaries—no compilation, no dependency hell.
+| Approach | Best at | Tradeoff compared with FlyEnv |
+| --- | --- | --- |
+| Docker Desktop | Container parity and multi-service container orchestration | More setup and more container overhead for everyday local app work |
+| XAMPP / MAMP-style bundles | Simple fixed PHP/MySQL sandbox | Narrower multi-version, multi-runtime, and AI workflow support |
+| FlyEnv | Native multi-runtime local development plus AI and MCP workflow | Less focused on reproducing full container topology than Docker |
 
-### 2. Multi-Version Management
+If your local work mostly means building and debugging apps against real local runtimes and services, FlyEnv is designed for that path first.
 
-Run unlimited versions side-by-side:
-- **PHP**: 5.6 through 8.4+
-- **Node.js**: 10.x through 22.x
-- **MySQL**: 5.7, 8.0, 8.4
-- **Python**: 2.7, 3.6 through 3.12
+## Why AI Changes the Definition of a Local Environment
 
-Switch between them per project or per terminal session.
+AI coding clients do not just need repository files. They also need:
 
-### 3. Local Web Hosting with SSL
+- the active PHP, Node.js, or Python version
+- the running local databases, caches, and web services
+- site URLs, logs, and managed config files
+- a controlled way to inspect or operate on that environment
 
-Create professional local development sites: custom domains (`project.test`, `api.local`), automatic browser-trusted SSL certificates, clean URLs without port numbers, and access/error logs—all managed from one screen.
+FlyEnv keeps the runtime layer and the AI access layer in the same place:
 
-### 4. Reverse Proxy & Secure Tunnels
+- project-level runtime switching
+- AI coding CLI modules in the same workspace
+- built-in MCP with token auth, tool toggles, approval modes, and audit logs
 
-Route requests to any local service with a built-in reverse proxy, then expose a local site to the public internet through a Cloudflare Tunnel. Test webhooks, share a work-in-progress, or run a live demo without deploying anything.
-
-### 5. Built-In AI Assistant & Utilities
-
-FlyEnv bundles the small tools you reach for every day so you never break flow: an offline AI assistant (run Llama, DeepSeek, or Qwen locally with no API cost), a screenshot tool, an image optimizer, and more—right next to your environment.
-
-### 6. Project Templates
-
-Start new projects instantly: Laravel, WordPress, Yii2, Next.js, Vue, React, NestJS, Express, Django, Flask.
+If you want the full AI setup walkthrough, read the [FlyEnv AI Workspace & MCP Guide](/guide/ai-coding-workspace-mcp).
 
 ## Built and Driven by Its Community
 
-FlyEnv does not grow on a roadmap decided behind closed doors—it grows with the people who use it. A large share of FlyEnv's features started as a community feature request or arrived as a **direct pull request from a user**. To date, contributors have opened **170+ pull requests** spanning new modules, bug fixes, translations, and documentation.
+FlyEnv does not grow only from an internal roadmap. A large share of its modules, fixes, translations, and documentation improvements come from community requests and direct pull requests.
 
-This matters for a practical reason: **the feature you are missing today may already be on its way.** FlyEnv is built on a mature, multi-module architecture where each runtime, server, database, or tool is a self-contained module. Adding a new one rarely disturbs the rest, which makes the project naturally easy to extend—for the maintainers and for anyone who wants to contribute.
+That matters for a practical reason: the feature you are missing today may already be on its way. FlyEnv is built around a modular architecture, which makes it easier to extend with new runtimes, services, AI tools, and related integrations without rewriting the whole app.
 
-So if FlyEnv doesn't yet do the one thing you need:
-- **Open a request.** Popular requests move quickly.
-- **Or send a PR.** The module structure means new tools slot in cleanly, and meaningful contributions also qualify for a license (see below).
+So if FlyEnv does not yet cover a local tool or workflow you need, the next step is clear:
 
-You are not just a user of FlyEnv. You are part of what it becomes next.
+- Open a request on GitHub
+- Contribute a pull request
 
-## FlyEnv vs The Alternatives
+The product is shaped in public, and that is part of why it can move across so many local development scenarios.
 
-| Feature | Docker Desktop | XAMPP | MAMP Pro | **FlyEnv** |
-|---------|---------------|-------|----------|------------|
-| Memory usage | 2-4GB | 500MB | 500MB | **200-400MB** |
-| Startup time | 30-60s | 5-10s | 5-10s | **Instant** |
-| Multi-version PHP | Complex | No | No | **One-click** |
-| Node.js version switching | No | No | No | **Automatic** |
-| Built-in SSL | Manual | No | Yes | **Auto-generated** |
-| Reverse proxy & tunnels | Manual | No | No | **Built-in** |
-| AI tools & utilities | No | No | No | **Built-in** |
-| Price | Free / paid plans | Free | $99 | **Free core + $10 license** |
+## Who FlyEnv Is For
 
-## Who Is FlyEnv For?
-
-### Web Developers
-Manage complete PHP/Node.js stacks with automatic version switching between client projects.
-
-### Full-Stack Engineers
-Run frontend build tools, backend APIs, databases, and cache servers—all optimized, native, and connected through one reverse proxy.
-
-### Agency Teams
-Standardize environments across the team while letting each developer customize their stack.
-
-### Freelancers
-Switch between Laravel, WordPress, Django, and Express projects without configuration headaches—and share a live preview over a tunnel in seconds.
-
-### Students & Learners
-Experiment with different technologies without breaking your system or learning complex DevOps.
+- Developers switching between multiple local projects and runtime versions
+- Teams that want native local environments without hand-built shell glue
+- Developers using Claude Code, Codex, or other AI clients against real local services
+- People who want a lighter daily workflow than a container-first setup
 
 ## Platform Support
 
 FlyEnv runs natively on:
-- **macOS** (Intel & Apple Silicon)
-- **Windows** (x64)
-- **Linux** (Debian, Ubuntu, Red Hat, Fedora, SUSE, CentOS)
 
-## Getting Started
+- macOS
+- Windows
+- Linux
 
-Ready to streamline your development environment?
+## Frequently Asked Questions
 
-1. [Download FlyEnv](/download) for your platform
-2. Follow the [Quick Start Guide](/guide/getting-started)
-3. Create your first site in under 5 minutes
+**Q: Is FlyEnv only for PHP?**
 
-## Frequently Asked Questions (FAQ)
+A: No. FlyEnv is built for multi-runtime local work, including PHP, Node.js, Python, databases, local sites, and related tooling.
 
-**Q: Is FlyEnv free?**
+**Q: Does FlyEnv replace Docker?**
 
-A: FlyEnv is open-source, and core runtime and environment management always remain accessible without a license. The evaluation version has a few limits (up to 3 local sites, and 3-day trials for the AI assistant and built-in utilities). A one-time **$10 Personal License** removes those limits and helps fund ongoing development. You can also earn a license by contributing code or sharing FlyEnv—see the [Licensing Guide](/guide/about-license).
+A: For many day-to-day local development workflows, yes. If you need full container topology or production-like container orchestration, Docker can still make sense.
 
-**Q: Does it replace Docker?**
+**Q: Can AI coding clients connect to FlyEnv?**
 
-A: For local development, absolutely. For complex microservices orchestration, you might still use Docker in production while enjoying FlyEnv's simplicity locally.
+A: Yes. FlyEnv can manage supported AI coding CLIs directly and expose local context through the FlyEnv MCP Server.
 
-**Q: Will it conflict with my existing Homebrew installations?**
+## Next Steps
 
-A: No. FlyEnv can detect and use existing Homebrew/Macports installations, or install its own isolated versions.
-
-**Q: The tool I need isn't included yet. Will it be added?**
-
-A: Quite possibly soon. FlyEnv's modular architecture makes new tools easy to add, and many features arrive as community requests or pull requests. Open a request on GitHub—or contribute the module yourself.
-
-**Q: Is my data safe?**
-
-A: Yes. Everything runs locally on your machine. No cloud dependencies, no data collection.
-
-**Q: How does it compare to Laravel Herd?**
-
-A: Herd is Mac-only and PHP-focused. FlyEnv supports all platforms and all languages (PHP, Node, Python, Go, Java, etc.), plus reverse proxy, tunnels, and built-in utilities.
-
-**Q: Can I use it for production?**
-
-A: FlyEnv is designed for local development. Production deployments should use proper server configuration or containerization.
-
-## Ready to Transform Your Workflow?
-
-Stop fighting with environment setup. Start building.
-
-[Download FlyEnv](/download) — Available for macOS, Windows, and Linux
-
-Learn more:
-- [Quick Start Guide](/guide/getting-started)
-- [FlyEnv vs Docker & XAMPP](/guide/flyenv-vs-docker-xampp)
-- [Project-Level Version Isolation](/guide/project-level-runtime-environment)
+- [Download FlyEnv](/download)
+- Follow the [Quick Start Guide](/guide/getting-started)
+- Compare approaches in [FlyEnv vs Docker & XAMPP](/guide/flyenv-vs-docker-xampp)
+- Set up the full AI workflow in [FlyEnv AI Workspace & MCP Guide](/guide/ai-coding-workspace-mcp)

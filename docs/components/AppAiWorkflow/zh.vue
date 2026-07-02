@@ -4,15 +4,14 @@
       <div
         class="mb-4 inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-sm font-medium text-sky-700 dark:bg-sky-500/10 dark:text-sky-300"
       >
-        AI Coding Workspace
+        AI 编程工作区
       </div>
       <h2 class="no-border !text-3xl md:!text-[40px] font-bold mb-4">
-        Connect your local stack to AI coding clients with MCP
+        通过 MCP 把本地技术栈接到 AI 编程客户端
       </h2>
       <p class="text-lg text-gray-500 dark:text-slate-300">
-        FlyEnv is not only a runtime and service manager. It also manages AI coding
-        CLIs and exposes your local projects, services, and site context through the
-        built-in FlyEnv MCP Server.
+        FlyEnv 不只是运行时和服务管理器。它还能管理 AI 编程 CLI，并通过内置的
+        FlyEnv MCP Server 把你的本地项目、服务和站点上下文暴露给 AI 工具。
       </p>
     </div>
 
@@ -24,50 +23,51 @@
           <div
             class="mb-4 inline-flex items-center rounded-full bg-white/80 px-3 py-1 text-sm font-medium text-sky-700 ring-1 ring-sky-100 dark:bg-white/10 dark:text-sky-300 dark:ring-sky-500/20"
           >
-            One desktop workspace
+            一个桌面工作区
           </div>
           <h3 class="no-border !text-2xl font-bold mb-4">
-            Manage local runtimes, services, AI coding CLIs, and the MCP bridge in one place
+            在一个地方管理本地运行时、服务、AI 编程 CLI 和 MCP 桥接
           </h3>
           <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
-            Run PHP, Node.js, Python, databases, HTTPS, and local services natively, then
-            connect the same environment to Claude Code, Codex, OpenCode, Kimi,
-            Antigravity CLI, and GitHub Copilot CLI.
+            以原生方式运行 PHP、Node.js、Python、数据库、HTTPS 和本地服务，再把同一套环境接入
+            Claude Code、Codex、OpenCode、Kimi、Antigravity CLI 和 GitHub Copilot CLI。
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-400">
             <li class="flex items-start">
               <span class="mr-2 text-sky-600">✓</span>
-              Install and launch AI coding clients from the same FlyEnv workspace
+              在同一个 FlyEnv 工作区里安装并启动 AI 编程客户端
             </li>
             <li class="flex items-start">
               <span class="mr-2 text-sky-600">✓</span>
-              Expose services, sites, configs, logs, and selected actions through MCP
+              通过 MCP 暴露服务、站点、配置、日志和部分操作能力
             </li>
             <li class="flex items-start">
               <span class="mr-2 text-sky-600">✓</span>
-              Keep your code, local stack, and AI context on your own machine
+              让代码、本地技术栈和 AI 上下文都留在你自己的机器上
             </li>
           </ul>
           <div class="mt-6 flex flex-wrap gap-3 text-sm">
             <a
-              href="/guide/ai-coding-workspace-mcp"
+              href="/zh/guide/ai-coding-workspace-mcp"
               class="rounded-full bg-sky-700 px-4 py-2 font-medium !text-white no-underline transition-colors hover:bg-sky-800 dark:bg-sky-400 dark:!text-slate-950 dark:hover:bg-sky-300"
             >
-              See AI workflow guide
+              查看 AI 工作流指南
             </a>
             <a
-              href="/download"
+              href="/zh/download"
               class="rounded-full border border-slate-200 px-4 py-2 font-medium !text-slate-700 no-underline transition-colors hover:border-slate-300 hover:!text-slate-900 dark:border-slate-700 dark:!text-slate-200 dark:hover:border-slate-600"
             >
-              Download FlyEnv
+              下载 FlyEnv
             </a>
           </div>
         </div>
 
-        <div class="overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900">
+        <div
+          class="overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900"
+        >
           <img
             src="/home/flyenv-mcp.jpeg"
-            alt="FlyEnv MCP workflow connecting local projects and services to AI coding clients"
+            alt="FlyEnv MCP workflow，将本地项目与服务接入 AI 编程客户端"
             class="w-full cursor-pointer"
             data-x-image-preview=""
             loading="lazy"
@@ -79,7 +79,7 @@
         <div class="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-950 shadow-lg dark:border-slate-700">
           <img
             src="/home/flyenv-mcp-screen.webp"
-            alt="FlyEnv MCP Server settings screen"
+            alt="FlyEnv MCP Server 设置界面"
             class="w-full cursor-pointer"
             data-x-image-preview=""
             loading="lazy"
@@ -87,32 +87,33 @@
         </div>
 
         <div>
-          <div class="mb-4 inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700">
+          <div
+            class="mb-4 inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300"
+          >
             FlyEnv MCP Server
           </div>
-          <h3 class="no-border !text-2xl font-bold mb-4">A real control panel for the local AI bridge</h3>
+          <h3 class="no-border !text-2xl font-bold mb-4">一个真正可用的本地 AI 桥接控制面板</h3>
           <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
-            Start and stop the MCP server from a UI, manage host, port, token, and auto-start
-            behavior, then connect supported AI tools to the same local environment you already
-            use for development.
+            通过 UI 启停 MCP Server，管理 host、port、token 和自动启动行为，再把支持的 AI
+            工具接到你已经在开发中使用的同一套本地环境。
           </p>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <div class="mb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">Same Context</div>
+              <div class="mb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">同一上下文</div>
               <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                AI clients see the same services, sites, and runtime choices you use locally.
+                AI 客户端看到的服务、站点和运行时选择，与本地开发环境完全一致。
               </p>
             </div>
             <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <div class="mb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">Private by Default</div>
+              <div class="mb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">默认私有</div>
               <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                Keep the server on localhost by default and only open remote access when needed.
+                默认只监听 localhost，需要时再开放远程访问，并使用 token 做鉴权。
               </p>
             </div>
             <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-              <div class="mb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">Less Glue Code</div>
+              <div class="mb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">更少胶水代码</div>
               <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                Replace one-off scripts and manual config edits with a built-in bridge inside FlyEnv.
+                用 FlyEnv 内置桥接替代一次性脚本和手工配置，把本地环境接入 AI 工作流。
               </p>
             </div>
           </div>

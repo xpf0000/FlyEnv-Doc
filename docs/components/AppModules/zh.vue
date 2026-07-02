@@ -355,15 +355,6 @@
       </div>
       <span class="shrink-0 select-text">FTP Server</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
-    >
-      <span class="shrink-0 select-text">静态服务器</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-5">
-        <img src="https://oss.macphpstudy.com/image/http.svg" />
-      </div>
-      <span class="shrink-0 select-text">Static Server</span>
-    </div>
   </template>
   <template v-else-if="type === 5">
     <div
@@ -415,11 +406,81 @@
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">AI</span>
+      <span class="shrink-0 select-text">MCP</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
+        <img src="https://oss.macphpstudy.com/image/app-icon.png" />
+      </div>
+      <span class="shrink-0 select-text text-center">MCP Server</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 编程</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
+        <img src="../SVG/claude-code.svg" />
+      </div>
+      <span class="shrink-0 select-text text-center">Claude Code</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 编程</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
+        <img src="../SVG/codex.svg" />
+      </div>
+      <span class="shrink-0 select-text text-center">Codex</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 编程</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
+        <img src="../SVG/opencode.svg" />
+      </div>
+      <span class="shrink-0 select-text text-center">OpenCode</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 编程</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
+        <img src="../SVG/kimi.svg" />
+      </div>
+      <span class="shrink-0 select-text text-center">Kimi</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 编程</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-2">
+        <img src="../SVG/antigravity.svg" />
+      </div>
+      <span class="shrink-0 select-text text-center">Antigravity CLI</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 编程</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
+        <img src="../SVG/github.svg" />
+      </div>
+      <span class="shrink-0 select-text text-center text-sm">GitHub Copilot CLI</span>
+    </div>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">AI 集成</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <img src="../SVG/Hermes.svg" />
       </div>
-      <span class="shrink-0 select-text">Hermes Agent</span>
+      <span class="shrink-0 select-text text-center">Hermes Agent</span>
     </div>
 
     <a
@@ -428,7 +489,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI 集成</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/OpenClaw.svg" />
       </div>
@@ -444,7 +505,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI 集成</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/n8n.svg" />
       </div>
@@ -460,7 +521,7 @@
       target="_blank"
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI 集成</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/Ollama.svg" />
       </div>
@@ -473,11 +534,11 @@
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">AI</span>
+      <span class="shrink-0 select-text">AI 网关</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <span class="text-[20px] font-bold text-[#3451b2]">CLIProxyAPI</span>
       </div>
-      <span class="shrink-0 select-text">CLIProxyAPI</span>
+      <span class="shrink-0 select-text text-center">CLIProxyAPI</span>
     </div>
   </template>
   <template v-else-if="type === 8">

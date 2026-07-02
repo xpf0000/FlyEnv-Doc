@@ -105,6 +105,7 @@ export default defineConfigWithTheme({
               text: 'AI & Pro Productivity Tools',
               // SEO意图：最高优的引流板块，直接把GSC里跑出来的词前置
               items: [
+                { text: 'FlyEnv AI Workspace & MCP Guide', link: '/guide/ai-coding-workspace-mcp' },
                 { text: 'AI Coding Assistant Workflow', link: '/guide/flyenv-work-with-ai' },
                 { text: 'Build Local Offline AI Agent', link: '/guide/build-local-offline-ai-agent' },
                 { text: 'Self-Hosted AI Workflows with n8n', link: '/guide/build-local-ai-workflow-by-n8n' },
@@ -198,6 +199,7 @@ export default defineConfigWithTheme({
             {
               text: 'AI & 高效开发工具',
               items: [
+                { text: 'FlyEnv AI 工作区与 MCP 指南', link: '/zh/guide/ai-coding-workspace-mcp' },
                 { text: 'AI 编程助手效率翻倍工作流', link: '/zh/guide/flyenv-work-with-ai' },
                 { text: '本地离线AI智能体', link: '/zh/guide/build-local-offline-ai-agent' },
                 { text: '使用 n8n 构建本地 AI 工作流', link: '/zh/guide/build-local-ai-workflow-by-n8n' },
