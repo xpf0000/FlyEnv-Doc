@@ -3,7 +3,7 @@
     <div class="text-center mx-auto mb-12">
       <h2 id="🚀-core-modules" tabindex="-1" class="no-border !text-3xl md:!text-[40px] font-bold mb-4">🚀 Core Modules <a class="header-anchor" href="#🚀-core-modules" aria-label="Permalink to &quot;🚀 Core Modules&quot;">​</a></h2>
       <p class="text-lg text-gray-500">
-        A unified native development stack for runtimes, databases, AI agents, infrastructure and modern workflows.
+        A unified native workspace for runtimes, databases, AI coding clients, MCP, infrastructure, and modern local workflows.
       </p>
     </div>
     <div class="grid grid-cols-2 gap-5 md:grid-cols-4 xl:grid-cols-6 select-none">

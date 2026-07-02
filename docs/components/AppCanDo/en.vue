@@ -3,7 +3,7 @@
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 class="no-border !text-3xl md:!text-[40px] font-bold mb-4">Core Features</h2>
       <p class="text-lg text-gray-500 mb-8">
-        Everything you need to run modern web projects locally — without Docker.
+        Everything you need to run local projects, AI coding clients, and the bridge between them.
       </p>
     </div>
 
@@ -88,11 +88,11 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div class="order-2 md:order-1">
           <div class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700 mb-4">
-            Project Isolation
+            Project Context
           </div>
-          <h3 class="no-border !text-2xl font-bold mb-4">Project-Level Version Switching</h3>
+          <h3 class="no-border !text-2xl font-bold mb-4">Project-Level Runtime Switching for Humans and AI</h3>
           <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-            Drop into any project folder and FlyEnv automatically loads the right environment. Whether it's Node.js v18, v20, v22, or v24, the correct version is active the moment you <code>cd</code> in — no manual switching, no global conflicts.
+            Drop into any project folder and FlyEnv automatically loads the right environment. Whether you launch a shell, run tests, or open an AI coding CLI from FlyEnv, the correct Node.js, PHP, or Python version is ready with no manual switching and no global conflicts.
           </p>
           <ul class="space-y-2 text-gray-600 dark:text-gray-400">
             <li class="flex items-start">
@@ -101,7 +101,7 @@
             </li>
             <li class="flex items-start">
               <span class="mr-2 text-amber-600">✓</span>
-              Run v18, v20, v22, v24 side by side without conflicts
+              Keep your terminal and AI coding tools on the same project runtime
             </li>
             <li class="flex items-start">
               <span class="mr-2 text-amber-600">✓</span>

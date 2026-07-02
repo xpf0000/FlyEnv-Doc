@@ -2,28 +2,27 @@
 # 针对 SEO 优化的 VitePress 首页配置
 layout: home
 
-title: 'FlyEnv - Native Local Development Environment for PHP, Node.js & AI'
+title: 'FlyEnv - Native Local Stack, AI Coding CLI & MCP Workspace'
 titleTemplate: false
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
   - - meta
     - name: description
-      content: 'FlyEnv is a native local development environment for PHP, Node.js, Python, databases, HTTPS, and local AI. Run projects on macOS, Windows, and Linux without Docker overhead.'
+      content: 'FlyEnv is a native desktop workspace for local runtimes, services, AI coding CLIs, and the FlyEnv MCP Server. Run projects on macOS, Windows, and Linux without Docker overhead.'
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"description":"FlyEnv is a native local development environment for PHP, Node.js, Python, databases, HTTPS, and local AI. Run projects without Docker overhead.","url":"https://www.flyenv.com/","downloadUrl":"https://www.flyenv.com/download","softwareHelp":"https://www.flyenv.com/guide/what-is-flyenv","author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://www.flyenv.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"description":"FlyEnv is a native desktop workspace for local runtimes, services, AI coding CLIs, and the FlyEnv MCP Server. Run projects without Docker overhead and connect local context to AI tools.","url":"https://www.flyenv.com/","downloadUrl":"https://www.flyenv.com/download","softwareHelp":"https://www.flyenv.com/guide/what-is-flyenv","author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://www.flyenv.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 
 hero:
   name: "FlyEnv"
   # 优化：直接点出“它是谁的替代品”，吸引正在寻找 Docker/XAMPP 替代方案的用户
-  text: "The Native Alternative to Docker & XAMPP"
-  # 优化：加入 "Offline AI Agent" 和 "Instant Setup"，对应 GSC 中的高印象词汇
-  tagline: "High-performance local development environment for PHP, Node.js, and Python. Run Offline AI Agents and manage local sites with zero configuration."
+  text: "Native Local Stack, AI Coding CLI & MCP Workspace"
+  tagline: "Run PHP, Node.js, Python, databases, local sites, AI coding clients, and the FlyEnv MCP Server from one desktop app. A faster native alternative to Docker, XAMPP, Herd, and scattered CLI tooling."
   image:
     src: 'https://oss.macphpstudy.com/image/app-icon.png'
-    alt: 'FlyEnv - Native PHP and AI Development Environment'
+    alt: 'FlyEnv - Native local stack, AI coding CLI, and MCP workspace'
   actions:
     - theme: brand
       text: 'Download Free'
@@ -37,34 +36,31 @@ features:
       src: 'https://oss.macphpstudy.com/image/fast.svg'
       width: '32px'
       height: '32px'
-    title: Native Speed (No Docker)
-    # 优化：强调“低资源占用”，这是 Docker 用户最头疼的痛点
-    details: Runs Nginx, PHP, and MySQL as native binaries. Starts in milliseconds and uses 80% less RAM than Docker Desktop.
+    title: Native Local Stack
+    details: Run runtimes, web servers, databases, queues, mail testing, and HTTPS as native binaries with faster startup and lower RAM than container-heavy setups.
   - icon:
       src: 'https://oss.macphpstudy.com/image/deep.svg'
       width: '32px'
       height: '32px'
-    # 优化：针对 GSC 中 4500+ 曝光的 AI 词汇
-    title: Private Offline AI Agents
-    details: Build and run local AI Agents with integrated Ollama. Pull and run the latest open-source models locally. Keep your code and data 100% private with zero latency.
+    title: AI Coding CLI Workspace
+    details: Install and manage Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, and GitHub Copilot CLI from the same desktop workspace as your projects.
   - icon:
       src: 'https://oss.macphpstudy.com/image/all.svg'
       width: '32px'
       height: '32px'
-    title: Universal Native Stack
-    # 优化：提及 NVM 和 PHP Monitor，覆盖更多工具类搜索词
-    details: A unified replacement for NVM, XAMPP, and Laragon. Switch between PHP 5.6 to 8.4 and multiple Node.js versions instantly.
+    title: Built-in MCP Server
+    details: Expose local services, sites, configs, logs, and selected lifecycle actions to AI clients through the FlyEnv MCP Server without hand-editing every integration.
   - icon:
       src: 'https://oss.macphpstudy.com/image/same.svg'
       width: '32px'
       height: '32px'
-    title: Pro Dev Utilities
-    # 优化：提及 GSC 中排名较高的 PHP Obfuscator 工具
-    details: Includes built-in PHP Obfuscator, SSL generator, Mailpit, and Cloudflare Tunneling for seamless local-to-web testing.
+    title: Project & Ops Utilities
+    details: Switch versions per project, manage local domains and SSL, tunnel with Cloudflare, schedule cron jobs, and use built-in dev tools from one app.
 ---
 
 <script setup>
 import AppSvgIcon from './components/VueSvgIcon/svg.vue';
+import AppAiWorkflow from './components/AppAiWorkflow/en.vue';
 import AppCoreModule from './components/AppCoreModule/en.vue';
 import AppToolsModule from './components/AppToolModule/en.vue';
 import AppNoFountTipsModules from './components/AppNoFoundTips/index.vue';
@@ -77,6 +73,8 @@ import AppPriceModules from './components/AppPrice/en.vue';
 <AppSvgIcon />
 
 <AppCanDoModules />
+
+<AppAiWorkflow />
 
 <AppGitHubModules />
 
