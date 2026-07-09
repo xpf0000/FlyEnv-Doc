@@ -188,6 +188,12 @@ Here is the common setup loop inside FlyEnv:
 
 This is where FlyEnv differs from a generic shell-only workflow: the runtime, services, AI CLI, and MCP connection all point at the same local context.
 
+## Watch the End-to-End Demo
+
+If you want to see this workflow in a real project, this demo walks from MySQL setup to a live PHP CRUD site by using FlyEnv, an AI CLI, and the MCP bridge together.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/frprHkD1_rQ" title="FlyEnv AI CLI + MCP End-to-End Demo: From MySQL to a Live PHP CRUD Site" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Why This Works Well Without Docker-First Overhead
 
 If your goal is a local AI coding workspace, you do not always need to start by containerizing the workflow. FlyEnv already manages native runtimes and local services, then gives AI clients structured MCP access to that stack.
