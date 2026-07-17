@@ -26,6 +26,14 @@ With FlyEnv you can manage all of this from one app:
 
 Instead of stitching together Docker, version managers, shell aliases, host-file edits, and separate AI client setup, you work from one local desktop workspace.
 
+## Watch FlyEnv's Core Features in 13 Minutes
+
+This walkthrough focuses on FlyEnv's core local-development workflow: choosing the modules you need, installing and switching versions, managing services, creating reusable startup groups, configuring local sites, and using built-in developer tools.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/TA2NA0JeGdo" title="FlyEnv Feature Overview - Native Local Development Without Docker" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+For AI coding CLI and MCP features, continue with the [FlyEnv AI Workspace & MCP Guide](/guide/ai-coding-workspace-mcp).
+
 ## Why Developers Use It
 
 | Common local-dev problem | Typical workaround | What FlyEnv changes |
