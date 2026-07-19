@@ -151,7 +151,7 @@
                   rel="noopener noreferrer"
                   class="no-underline"
                   >SignPath Foundation</a
-                >{{ t.sentenceEnd }}
+                >{{ t.signPathEnd }}{{ t.sentenceEnd }}
               </p>
             </div>
           </div>
@@ -380,6 +380,7 @@
       specialThanksDesc: 'Thank you to every friend who helps FlyEnv keep improving.',
       signPathPrefix: 'Free code signing for FlyEnv on Windows is provided by',
       signPathMiddle: ', with the certificate provided by',
+      signPathEnd: '',
       f4Prefix: 'Founder of',
       f4Suffix: ', for funding the',
       domainLabel: 'domain',
@@ -437,6 +438,7 @@
       specialThanksDesc: '感谢每一位支持 FlyEnv 项目的朋友。',
       signPathPrefix: 'FlyEnv 的 Windows 免费代码签名由',
       signPathMiddle: ' 提供，证书由',
+      signPathEnd: '提供',
       f4Prefix: '',
       f4Suffix: ' 创始人，承担了',
       domainLabel: '域名费用',
