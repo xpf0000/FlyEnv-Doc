@@ -106,21 +106,54 @@
           <h2 class="no-border">{{ t.specialThanks }}</h2>
           <p>{{ t.specialThanksDesc }}</p>
         </div>
-        <div class="thanks-card">
-          <div class="thanks-avatar">F4</div>
-          <div class="thanks-body">
-            <p class="thanks-name">F4nniu</p>
-            <p class="thanks-desc">
-              {{ t.f4Prefix }}
-              <a
-                href="https://www.fastadmin.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="no-underline"
-                >FastAdmin</a
-              >{{ t.f4Suffix }} <strong>flyenv.com</strong> {{ t.domainLabel
-              }}{{ t.sentenceEnd }}
-            </p>
+        <div class="thanks-list">
+          <div class="thanks-card">
+            <div class="thanks-avatar">F4</div>
+            <div class="thanks-body">
+              <p class="thanks-name">F4nniu</p>
+              <p class="thanks-desc">
+                {{ t.f4Prefix }}
+                <a
+                  href="https://www.fastadmin.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="no-underline"
+                  >FastAdmin</a
+                >{{ t.f4Suffix }} <strong>flyenv.com</strong> {{ t.domainLabel
+                }}{{ t.sentenceEnd }}
+              </p>
+            </div>
+          </div>
+          <div class="thanks-card">
+            <div class="thanks-avatar">SP</div>
+            <div class="thanks-body">
+              <p class="thanks-name">
+                <a
+                  href="https://signpath.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="no-underline"
+                  >SignPath</a
+                >
+              </p>
+              <p class="thanks-desc">
+                {{ t.signPathPrefix }}
+                <a
+                  href="https://signpath.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="no-underline"
+                  >SignPath.io</a
+                >{{ t.signPathMiddle }}
+                <a
+                  href="https://signpath.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="no-underline"
+                  >SignPath Foundation</a
+                >{{ t.sentenceEnd }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -345,6 +378,8 @@
       scanQr: 'Scan QR Code',
       specialThanks: 'Special Thanks',
       specialThanksDesc: 'Thank you to every friend who helps FlyEnv keep improving.',
+      signPathPrefix: 'Free code signing for FlyEnv on Windows is provided by',
+      signPathMiddle: ', with the certificate provided by',
       f4Prefix: 'Founder of',
       f4Suffix: ', for funding the',
       domainLabel: 'domain',
@@ -400,6 +435,8 @@
       scanQr: '扫描二维码',
       specialThanks: '特别鸣谢',
       specialThanksDesc: '感谢每一位支持 FlyEnv 项目的朋友。',
+      signPathPrefix: 'FlyEnv 的 Windows 免费代码签名由',
+      signPathMiddle: ' 提供，证书由',
       f4Prefix: '',
       f4Suffix: ' 创始人，承担了',
       domainLabel: '域名费用',
@@ -861,6 +898,11 @@
     margin: 0.75rem 0 0;
     color: #dc2626;
     font-size: 0.8125rem;
+  }
+
+  .thanks-list {
+    display: grid;
+    gap: 1rem;
   }
 
   .thanks-card {
