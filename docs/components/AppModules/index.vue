@@ -133,6 +133,15 @@
       </div>
       <span class="shrink-0 select-text">Qdrant</span>
     </div>
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">Database</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
+        <img src="../SVG/ClickHouse.svg" />
+      </div>
+      <span class="shrink-0 select-text">ClickHouse</span>
+    </div>
   </template>
   <template v-else-if="type === 2">
     <a
@@ -661,6 +670,15 @@
           <img src="../SVG/etcd.svg" />
         </div>
         <span class="shrink-0 select-text">Etcd</span>
+      </div>
+      <div
+        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      >
+        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
+          <img src="../SVG/Temporal.svg" />
+        </div>
+        <span class="shrink-0 select-text">Temporal</span>
       </div>
     </template>
   <template v-else-if="type === 12">
