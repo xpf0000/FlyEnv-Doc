@@ -44,3 +44,4 @@ package.lock.json
 /md
 /test
 /.worktrees/
+.flyenv
