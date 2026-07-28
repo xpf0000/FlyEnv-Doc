@@ -84,3 +84,60 @@ for (const values of chineseCards) {
     expectVideoCard(sourceFile('docs/components/AppModules/zh.vue'), card)
   })
 }
+
+function expectDocumentIncludes(path, terms) {
+  const source = sourceFile(path)
+  for (const term of terms) {
+    assert.ok(source.toLowerCase().includes(term.toLowerCase()), path + ' should include ' + term)
+  }
+}
+
+test('English What Is FlyEnv page lists the full on-demand module catalog', () => {
+  expectDocumentIncludes('docs/guide/what-is-flyenv.md', [
+    'install only the software you need',
+    'AI Coding & MCP',
+    'AI Integration & Automation',
+    'Containers',
+    'Network Tunnel',
+    'Web Servers',
+    'Databases',
+    'Email Server',
+    'Programming Languages & Runtime',
+    'Cache & Message Queue',
+    'Service Governance',
+    'Search Engine',
+    'Object Storage',
+    'Automation & Scheduling',
+    'Utilities',
+    'Custom modules',
+    'All modules support multi-version co-existence',
+    'Custom modules can be added as services or commands',
+    'Custom domains, HTTPS/SSL, reverse proxy, logs, and site-level runtime settings',
+    'FlyEnv MCP Server'
+  ])
+})
+
+test('Chinese What Is FlyEnv page lists the full on-demand module catalog', () => {
+  expectDocumentIncludes('docs/zh/guide/what-is-flyenv.md', [
+    '只安装当前工作流需要的软件',
+    'AI 编程与 MCP',
+    'AI 集成与自动化',
+    '容器',
+    '网络隧道',
+    'Web 服务器',
+    '数据库',
+    '邮件服务器',
+    '编程语言与运行时',
+    '缓存与消息队列',
+    '服务治理',
+    '搜索引擎',
+    '对象存储',
+    '自动化与调度',
+    '实用工具',
+    '自定义模块',
+    '所有模块均支持多版本共存',
+    '自定义模块可以作为服务或常用命令添加',
+    '自定义域名、HTTPS/SSL、反向代理、日志和站点级运行时设置',
+    'FlyEnv MCP Server'
+  ])
+})

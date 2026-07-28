@@ -14,15 +14,29 @@ FlyEnv 就是把这些能力收进同一个原生桌面工作区的工具。它�
 
 ## FlyEnv 实际上能做什么
 
-在 FlyEnv 里，你可以从一个应用管理这些内容：
+FlyEnv 让你只安装当前工作流需要的软件，并在一个原生桌面工作区中统一管理：
 
-| 领域 | FlyEnv 负责的内容 |
+| 模块分类 | 支持的软件 |
 | --- | --- |
-| 运行时 | PHP、Node.js、Python、Go、Java 等本地运行时 |
-| 服务 | MySQL、MariaDB、PostgreSQL、Redis、MongoDB、Mailpit、消息队列、搜索服务等 |
-| 本地站点 | 自定义域名、HTTPS/SSL、反向代理、日志、站点级运行时设置 |
-| AI 工作流 | Claude Code、Codex、OpenCode、Kimi、GitHub Copilot CLI、Antigravity CLI 以及相关本地 AI 工具 |
-| MCP | 通过 FlyEnv MCP Server 结构化暴露服务、站点、配置、日志和部分操作能力 |
+| AI 编程与 MCP | FlyEnv MCP Server、Claude Code、Codex、OpenCode、Kimi、Antigravity CLI、GitHub Copilot CLI |
+| AI 集成与自动化 | Hermes Agent、OpenClaw、n8n、Ollama、CliProxyAPI |
+| 容器 | Podman |
+| 网络隧道 | Cloudflared、Cloudflare Tunnel |
+| Web 服务器 | FrankenPHP、Apache、Nginx、Caddy、Tomcat |
+| 数据库 | MySQL、MariaDB、PostgreSQL、MongoDB、Qdrant、ClickHouse |
+| 邮件服务器 | Mailpit |
+| 编程语言与运行时 | .NET、Flutter、PHP、Composer、PHP-CLI、PHP-FPM、RoadRunner、Swoole CLI、Go、Node.js、Python、Java、Maven、Gradle、SDKMAN、Erlang、Ruby、Rust、Rustup、Bun、Deno、Zig |
+| 缓存与消息队列 | Redis、Memcached、RabbitMQ |
+| 服务治理 | Consul、Etcd、R-Nacos、Temporal、Temporal CLI |
+| 搜索引擎 | Elasticsearch、Meilisearch、Typesense、ZincSearch |
+| 对象存储 | RustFS、Minio |
+| 自动化与调度 | Cron Jobs |
+| 实用工具 | Git、MkCert、DNS Server、FTP Server、Static HTTP Server |
+| 自定义模块 | 自定义模块可以作为服务或常用命令添加，并像内置模块一样工作。 |
+
+所有模块均支持多版本共存，因此不同项目可以使用各自需要的运行时和服务版本，无需为每种软件分别维护版本管理工具。
+
+除这些模块外，FlyEnv 还统一管理本地站点的自定义域名、HTTPS/SSL、反向代理、日志和站点级运行时设置；也把 AI 编程客户端和 FlyEnv MCP Server 放进同一工作区，让 AI 客户端能够结构化访问受管理的服务、站点、配置、日志和部分操作能力。
 
 你不需要再把 Docker、版本管理器、shell 别名、hosts 修改和 AI 客户端配置拼成一套散乱流程，而是直接在一个本地桌面工作区里完成。
 

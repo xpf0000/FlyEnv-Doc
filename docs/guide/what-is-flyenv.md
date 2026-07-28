@@ -14,15 +14,29 @@ FlyEnv is a native desktop workspace that brings those pieces together. It manag
 
 ## What FlyEnv Actually Does
 
-With FlyEnv you can manage all of this from one app:
+FlyEnv lets you install only the software you need and manage it from one native desktop workspace:
 
-| Area | What FlyEnv handles |
+| Module category | Supported modules |
 | --- | --- |
-| Runtimes | PHP, Node.js, Python, Go, Java, and other local runtimes |
-| Services | MySQL, MariaDB, PostgreSQL, Redis, MongoDB, Mailpit, queues, search tools, and more |
-| Local sites | Custom domains, HTTPS/SSL, reverse proxy, logs, and site-level runtime settings |
-| AI workflow | Claude Code, Codex, OpenCode, Kimi, GitHub Copilot CLI, Antigravity CLI, and related local AI tooling |
-| MCP | Structured access to services, sites, configs, logs, and selected actions through the FlyEnv MCP Server |
+| AI Coding & MCP | FlyEnv MCP Server, Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, GitHub Copilot CLI |
+| AI Integration & Automation | Hermes Agent, OpenClaw, n8n, Ollama, CliProxyAPI |
+| Containers | Podman |
+| Network Tunnel | Cloudflared, Cloudflare Tunnel |
+| Web Servers | FrankenPHP, Apache, Nginx, Caddy, Tomcat |
+| Databases | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant, ClickHouse |
+| Email Server | Mailpit |
+| Programming Languages & Runtime | .NET, Flutter, PHP, Composer, PHP-CLI, PHP-FPM, RoadRunner, Swoole CLI, Go, Node.js, Python, Java, Maven, Gradle, SDKMAN, Erlang, Ruby, Rust, Rustup, Bun, Deno, Zig |
+| Cache & Message Queue | Redis, Memcached, RabbitMQ |
+| Service Governance | Consul, Etcd, R-Nacos, Temporal, Temporal CLI |
+| Search Engine | Elasticsearch, Meilisearch, Typesense, ZincSearch |
+| Object Storage | RustFS, Minio |
+| Automation & Scheduling | Cron Jobs |
+| Utilities | Git, MkCert, DNS Server, FTP Server, Static HTTP Server |
+| Custom modules | Custom modules can be added as services or commands and work like built-in modules. |
+
+All modules support multi-version co-existence, so projects can use the versions they need without a separate manager for each runtime or service.
+
+Alongside these modules, FlyEnv manages local sites with custom domains, HTTPS/SSL, reverse proxy, logs, and site-level runtime settings. It also brings AI coding clients and the FlyEnv MCP Server into the same workspace, giving AI clients structured access to managed services, sites, configs, logs, and selected actions.
 
 Instead of stitching together Docker, version managers, shell aliases, host-file edits, and separate AI client setup, you work from one local desktop workspace.
 
