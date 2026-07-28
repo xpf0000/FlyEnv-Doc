@@ -19,16 +19,16 @@ FlyEnv lets you install only the software you need and manage it from one native
 | Module category | Supported modules |
 | --- | --- |
 | AI Coding & MCP | FlyEnv MCP Server, Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, GitHub Copilot CLI |
-| AI Integration & Automation | Hermes Agent, OpenClaw, n8n, Ollama, CliProxyAPI |
+| AI Integration & Automation | Hermes Agent, [OpenClaw](https://youtu.be/j7_B-VzIyEU), [n8n](https://youtu.be/YnA1B3qmDJU), [Ollama](https://youtu.be/yPk9HQJRvb8), CliProxyAPI |
 | Containers | Podman |
 | Network Tunnel | Cloudflared, Cloudflare Tunnel |
-| Web Servers | FrankenPHP, Apache, Nginx, Caddy, Tomcat |
-| Databases | MySQL, MariaDB, PostgreSQL, MongoDB, Qdrant, ClickHouse |
-| Email Server | Mailpit |
-| Programming Languages & Runtime | .NET, Flutter, PHP, Composer, PHP-CLI, PHP-FPM, RoadRunner, Swoole CLI, Go, Node.js, Python, Java, Maven, Gradle, SDKMAN, Erlang, Ruby, Rust, Rustup, Bun, Deno, Zig |
-| Cache & Message Queue | Redis, Memcached, RabbitMQ |
-| Service Governance | Consul, Etcd, R-Nacos, Temporal, Temporal CLI |
-| Search Engine | Elasticsearch, Meilisearch, Typesense, ZincSearch |
+| Web Servers | FrankenPHP, [Apache](https://youtu.be/t7nKL45FdVk), [Nginx](https://youtu.be/zfdNZFRt3k4), Caddy, Tomcat |
+| Databases | [MySQL](https://youtu.be/uWWHAqxhVyk), [MariaDB](https://youtu.be/mvmbRi6KsgI), [PostgreSQL](https://youtu.be/5gW3WHh8_Jw), [MongoDB](https://youtu.be/wPjgwVeA6lw), [Qdrant](https://youtu.be/ahetMNLLS7s), [ClickHouse](https://youtu.be/3ePJYddWYmQ) |
+| Email Server | [Mailpit](https://youtu.be/D4MkA25Ofd0) |
+| Programming Languages & Runtime | .NET, Flutter, [PHP](https://youtu.be/OYP1IOoJOtI), Composer, PHP-CLI, PHP-FPM, RoadRunner, Swoole CLI, Go, [Node.js](https://youtu.be/Pt_I3NDciZw), [Python](https://youtu.be/dhy0nJYsfQQ), Java, Maven, Gradle, SDKMAN, Erlang, Ruby, Rust, Rustup, Bun, Deno, Zig |
+| Cache & Message Queue | [Redis](https://youtu.be/u9xjPN-VWT4), Memcached, RabbitMQ |
+| Service Governance | Consul, Etcd, R-Nacos, [Temporal](https://youtu.be/E_jetPnVxBo), Temporal CLI |
+| Search Engine | [Elasticsearch](https://youtu.be/B9Eo2Y-aXWQ), Meilisearch, Typesense, ZincSearch |
 | Object Storage | RustFS, Minio |
 | Automation & Scheduling | Cron Jobs |
 | Utilities | Git, MkCert, DNS Server, FTP Server, Static HTTP Server |

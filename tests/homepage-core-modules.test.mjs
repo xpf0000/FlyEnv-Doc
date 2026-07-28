@@ -141,3 +141,70 @@ test('Chinese What Is FlyEnv page lists the full on-demand module catalog', () =
     'FlyEnv MCP Server'
   ])
 })
+
+const englishModuleLinks = [
+  ['OpenClaw', 'https://youtu.be/j7_B-VzIyEU'],
+  ['n8n', 'https://youtu.be/YnA1B3qmDJU'],
+  ['Ollama', 'https://youtu.be/yPk9HQJRvb8'],
+  ['Apache', 'https://youtu.be/t7nKL45FdVk'],
+  ['Nginx', 'https://youtu.be/zfdNZFRt3k4'],
+  ['MySQL', 'https://youtu.be/uWWHAqxhVyk'],
+  ['MariaDB', 'https://youtu.be/mvmbRi6KsgI'],
+  ['PostgreSQL', 'https://youtu.be/5gW3WHh8_Jw'],
+  ['MongoDB', 'https://youtu.be/wPjgwVeA6lw'],
+  ['Qdrant', 'https://youtu.be/ahetMNLLS7s'],
+  ['ClickHouse', 'https://youtu.be/3ePJYddWYmQ'],
+  ['Mailpit', 'https://youtu.be/D4MkA25Ofd0'],
+  ['PHP', 'https://youtu.be/OYP1IOoJOtI'],
+  ['Node.js', 'https://youtu.be/Pt_I3NDciZw'],
+  ['Python', 'https://youtu.be/dhy0nJYsfQQ'],
+  ['Redis', 'https://youtu.be/u9xjPN-VWT4'],
+  ['Elasticsearch', 'https://youtu.be/B9Eo2Y-aXWQ'],
+  ['Temporal', 'https://youtu.be/E_jetPnVxBo']
+]
+
+const chineseModuleLinks = [
+  ['OpenClaw', 'https://www.bilibili.com/video/BV1ciwMzUEGH/'],
+  ['n8n', 'https://www.bilibili.com/video/BV1qGXFBfE7U/'],
+  ['Ollama', 'https://www.bilibili.com/video/BV13UZcYGEhu/'],
+  ['Apache', 'https://www.bilibili.com/video/BV1wqZ7BNErL/'],
+  ['Nginx', 'https://www.bilibili.com/video/BV1jKZ4BjEgk/'],
+  ['MySQL', 'https://www.bilibili.com/video/BV1vuZ4B5EAg/'],
+  ['MariaDB', 'https://www.bilibili.com/video/BV1NfEx6eE3V/'],
+  ['PostgreSQL', 'https://www.bilibili.com/video/BV19oE36BELa/'],
+  ['MongoDB', 'https://www.bilibili.com/video/BV182E26AELB/'],
+  ['Qdrant', 'https://www.bilibili.com/video/BV16Q3P6VEPA/'],
+  ['ClickHouse', 'https://www.bilibili.com/video/BV1S43w6QEvS/'],
+  ['Mailpit', 'https://www.bilibili.com/video/BV1CxEz6YEgx/'],
+  ['PHP', 'https://www.bilibili.com/video/BV1r6Z7BwE8p/'],
+  ['Node.js', 'https://www.bilibili.com/video/BV1pzEs6tE2X/'],
+  ['Python', 'https://www.bilibili.com/video/BV1hvZxBBEJk/'],
+  ['Redis', 'https://www.bilibili.com/video/BV1YaZxBzENJ/'],
+  ['Elasticsearch', 'https://www.bilibili.com/video/BV1if3P6BEBR/'],
+  ['Temporal', 'https://www.bilibili.com/video/BV1TD3c67Eei/']
+]
+
+function expectMarkdownLinks(path, links) {
+  const source = sourceFile(path)
+  for (const [label, href] of links) {
+    const link = '[' + label + '](' + href + ')'
+    assert.ok(source.includes(link), path + ' should include ' + link)
+  }
+}
+
+function expectPlainModuleNames(path, names) {
+  const source = sourceFile(path)
+  for (const name of names) {
+    assert.ok(!source.includes('[' + name + ']('), path + ' should keep ' + name + ' plain')
+  }
+}
+
+test('English What Is FlyEnv table uses English AppModules demo links', () => {
+  expectMarkdownLinks('docs/guide/what-is-flyenv.md', englishModuleLinks)
+  expectPlainModuleNames('docs/guide/what-is-flyenv.md', ['Podman', 'FrankenPHP', 'Temporal CLI'])
+})
+
+test('Chinese What Is FlyEnv table uses Chinese AppModules demo links', () => {
+  expectMarkdownLinks('docs/zh/guide/what-is-flyenv.md', chineseModuleLinks)
+  expectPlainModuleNames('docs/zh/guide/what-is-flyenv.md', ['Podman', 'FrankenPHP', 'Temporal CLI'])
+})

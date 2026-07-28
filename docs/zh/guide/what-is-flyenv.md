@@ -19,16 +19,16 @@ FlyEnv 让你只安装当前工作流需要的软件，并在一个原生桌面�
 | 模块分类 | 支持的软件 |
 | --- | --- |
 | AI 编程与 MCP | FlyEnv MCP Server、Claude Code、Codex、OpenCode、Kimi、Antigravity CLI、GitHub Copilot CLI |
-| AI 集成与自动化 | Hermes Agent、OpenClaw、n8n、Ollama、CliProxyAPI |
+| AI 集成与自动化 | Hermes Agent、[OpenClaw](https://www.bilibili.com/video/BV1ciwMzUEGH/)、[n8n](https://www.bilibili.com/video/BV1qGXFBfE7U/)、[Ollama](https://www.bilibili.com/video/BV13UZcYGEhu/)、CliProxyAPI |
 | 容器 | Podman |
 | 网络隧道 | Cloudflared、Cloudflare Tunnel |
-| Web 服务器 | FrankenPHP、Apache、Nginx、Caddy、Tomcat |
-| 数据库 | MySQL、MariaDB、PostgreSQL、MongoDB、Qdrant、ClickHouse |
-| 邮件服务器 | Mailpit |
-| 编程语言与运行时 | .NET、Flutter、PHP、Composer、PHP-CLI、PHP-FPM、RoadRunner、Swoole CLI、Go、Node.js、Python、Java、Maven、Gradle、SDKMAN、Erlang、Ruby、Rust、Rustup、Bun、Deno、Zig |
-| 缓存与消息队列 | Redis、Memcached、RabbitMQ |
-| 服务治理 | Consul、Etcd、R-Nacos、Temporal、Temporal CLI |
-| 搜索引擎 | Elasticsearch、Meilisearch、Typesense、ZincSearch |
+| Web 服务器 | FrankenPHP、[Apache](https://www.bilibili.com/video/BV1wqZ7BNErL/)、[Nginx](https://www.bilibili.com/video/BV1jKZ4BjEgk/)、Caddy、Tomcat |
+| 数据库 | [MySQL](https://www.bilibili.com/video/BV1vuZ4B5EAg/)、[MariaDB](https://www.bilibili.com/video/BV1NfEx6eE3V/)、[PostgreSQL](https://www.bilibili.com/video/BV19oE36BELa/)、[MongoDB](https://www.bilibili.com/video/BV182E26AELB/)、[Qdrant](https://www.bilibili.com/video/BV16Q3P6VEPA/)、[ClickHouse](https://www.bilibili.com/video/BV1S43w6QEvS/) |
+| 邮件服务器 | [Mailpit](https://www.bilibili.com/video/BV1CxEz6YEgx/) |
+| 编程语言与运行时 | .NET、Flutter、[PHP](https://www.bilibili.com/video/BV1r6Z7BwE8p/)、Composer、PHP-CLI、PHP-FPM、RoadRunner、Swoole CLI、Go、[Node.js](https://www.bilibili.com/video/BV1pzEs6tE2X/)、[Python](https://www.bilibili.com/video/BV1hvZxBBEJk/)、Java、Maven、Gradle、SDKMAN、Erlang、Ruby、Rust、Rustup、Bun、Deno、Zig |
+| 缓存与消息队列 | [Redis](https://www.bilibili.com/video/BV1YaZxBzENJ/)、Memcached、RabbitMQ |
+| 服务治理 | Consul、Etcd、R-Nacos、[Temporal](https://www.bilibili.com/video/BV1TD3c67Eei/)、Temporal CLI |
+| 搜索引擎 | [Elasticsearch](https://www.bilibili.com/video/BV1if3P6BEBR/)、Meilisearch、Typesense、ZincSearch |
 | 对象存储 | RustFS、Minio |
 | 自动化与调度 | Cron Jobs |
 | 实用工具 | Git、MkCert、DNS Server、FTP Server、Static HTTP Server |
