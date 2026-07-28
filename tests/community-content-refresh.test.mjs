@@ -110,3 +110,24 @@ test('English Community data contains the four selected reviewed stories', () =>
 test('Chinese Community data contains the selected reviewed story', () => {
   expectPost(readJson('docs/data/community-posts-zh.json'), chinesePost)
 })
+
+function sourceFile(path) {
+  return readFileSync(resolve(projectRoot, path), 'utf8')
+}
+
+function expectSchemaTerms(path, entries) {
+  const source = sourceFile(path)
+  for (const entry of entries) {
+    for (const term of [entry.title, entry.url, entry.author, entry.platform, entry.date]) {
+      assert.ok(source.includes(term), path + ' is missing JSON-LD term: ' + term)
+    }
+  }
+}
+
+test('English Community JSON-LD describes the four curated English entries', () => {
+  expectSchemaTerms('docs/community.md', englishPosts)
+})
+
+test('Chinese Community JSON-LD describes the curated Chinese entry', () => {
+  expectSchemaTerms('docs/zh/community.md', [chinesePost])
+})
