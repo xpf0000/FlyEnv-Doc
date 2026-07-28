@@ -194,5 +194,25 @@
     "relevance_score": 10,
     "seoTitle": "FlyEnv 全栈开发环境：替代 Docker 和 XAMPP 的最佳选择",
     "seoSummary": "跨平台一体化全栈本地开发环境管理工具，采用原生二进制运行，无需 Docker 虚拟化层即可管理 PHP、Node.js、MySQL 等服务。解决容器资源占用高、环境配置繁琐痛点，提供零开销流畅开发体验。"
+  },
+  {
+    "id": "juejin-7666754297045614628",
+    "title": "环境管理神器flyenv",
+    "url": "https://juejin.cn/post/7666754297045614628",
+    "author": "西雨东晴",
+    "platform": "掘金",
+    "language": "zh",
+    "date": "2026-07-27",
+    "summary": "作者从维护多个 PHP、Node.js 与数据库服务项目的日常场景出发，介绍了通过统一图形界面安装不同运行时、按项目切换版本、管理本地服务、配置站点并查看日志的体验与适用场景。",
+    "tags": [
+      "tutorial",
+      "php",
+      "nodejs",
+      "docker"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 80,
+    "relevance_score": 9
   }
 ]

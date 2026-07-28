@@ -458,5 +458,86 @@
     "relevance_score": 10,
     "seoTitle": "FlyEnv Laravel 12 Tutorial: Complete Migration Guide from Laragon",
     "seoSummary": "Step-by-step guide to migrating from Laragon to FlyEnv for Laravel 12 development. Detailed screenshots and configuration walkthrough for PHP, MySQL, Nginx setup with project-level environment isolation."
+  },
+  {
+    "id": "mencoba-flyenv-setelah-lama-menggunakan-xampp",
+    "title": "Mencoba FlyEnv Setelah Lama Menggunakan XAMPP",
+    "url": "https://medium.com/@putusuthasatyawan/mencoba-flyenv-setelah-lama-menggunakan-xampp-e5f2980d8730",
+    "author": "I Putu Sutha Satyawan",
+    "platform": "Medium",
+    "language": "id",
+    "date": "2026-07-26",
+    "summary": "A PHP developer shares how trying FlyEnv changed a long-standing XAMPP workflow, with a focus on handling projects that need different PHP versions.",
+    "tags": [
+      "review",
+      "php",
+      "xampp",
+      "tutorial"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
+  },
+  {
+    "id": "why-i-finally-switched-from-laragon-to-flyenv",
+    "title": "Why I Finally Switched from Laragon to FlyEnv After Years of Using It",
+    "url": "https://medium.com/@rafy683/why-i-finally-switched-from-laragon-to-flyenv-after-years-of-using-it-21be77579963",
+    "author": "Rafy Aulia Akbar",
+    "platform": "Medium",
+    "language": "en",
+    "date": "2026-07-26",
+    "summary": "A Laravel developer describes moving from a familiar Laragon setup to a FlyEnv workflow for PHP, PostgreSQL, and everyday project work.",
+    "tags": [
+      "review",
+      "laravel",
+      "php",
+      "laragon"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
+  },
+  {
+    "id": "flyenv-on-linux-actually-fixed-my-php-version-headache",
+    "title": "FlyEnv on Linux Actually Fixed My PHP Version Headache",
+    "url": "https://medium.com/@azka.thoyyib/flyenv-on-linux-actually-fixed-my-php-version-headache-668de6216565",
+    "author": "Azka Thoyyib",
+    "platform": "Medium",
+    "language": "en",
+    "date": "2026-07-19",
+    "summary": "A Linux Mint developer walks through managing legacy and current PHP projects alongside local services without repeated system-wide version changes.",
+    "tags": [
+      "review",
+      "linux",
+      "php",
+      "laravel"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
+  },
+  {
+    "id": "flyenv-for-lightweight-local-development-on-linux",
+    "title": "FlyEnv for Lightweight Local Development on Linux",
+    "url": "https://www.linkedin.com/posts/hadiid-andri-yulison-984a69200_flyenv-webdevelopment-localenvironment-share-7469227528122007553-oCBY",
+    "author": "Hadiid Andri Yulison",
+    "platform": "LinkedIn",
+    "language": "en",
+    "date": "2026-06-07",
+    "summary": "A Linux Mint developer shares a practical account of using FlyEnv with Laravel, Node.js, Golang, and PostgreSQL on an 8 GB laptop.",
+    "tags": [
+      "review",
+      "linux",
+      "php",
+      "nodejs",
+      "postgresql"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 85,
+    "relevance_score": 10
   }
 ]
