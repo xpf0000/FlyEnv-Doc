@@ -1,5 +1,6 @@
 ---
 layout: home
+title: FlyEnv Community Stories & Developer Tutorials
 
 head:
   - - meta
@@ -11,6 +12,17 @@ head:
   - - meta
     - property: og:description
       content: "Real community articles, tutorials, and videos about FlyEnv from developers around the world."
+  - - link
+    - rel: canonical
+      href: https://www.flyenv.com/community.html
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.flyenv.com/community.html
+  - - link
+    - rel: alternate
+      hreflang: zh-CN
+      href: https://www.flyenv.com/zh/community.html
   - - script
     - type: application/ld+json
     - |
@@ -21,9 +33,12 @@ head:
 import AppCommunityPosts from './components/AppCommunityPosts/index.vue'
 import AppCommunityChannels from './components/AppCommunityChannels/index.vue'
 import AppCommunityCTA from './components/AppCommunityCTA/index.vue'
+import AppCommunityScenarioMap from './components/AppCommunityEvidence/ScenarioMap.vue'
 import posts from './data/community-posts.json'
+import { communityEvidence } from './data/community-evidence'
 </script>
 
+<AppCommunityScenarioMap :posts="posts" :evidence="communityEvidence.en" locale="en" />
 <AppCommunityPosts :posts="posts" locale="en" />
 <AppCommunityChannels title="Join the Community" locale="en" />
-<AppCommunityCTA locale="en" />
+<AppCommunityCTA :posts="posts" locale="en" />

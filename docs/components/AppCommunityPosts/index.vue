@@ -56,8 +56,8 @@
               <div class="featured-tags-row">
                 <span v-for="tag in getSEOTags(featuredPost.tags).slice(0, 2)" :key="tag" class="featured-tag-pill">{{ tag }}</span>
               </div>
-              <a :href="featuredPost.url" target="_blank" rel="noopener noreferrer ugc" class="featured-title">{{ featuredPost.seoTitle || featuredPost.title }}</a>
-              <p class="featured-summary">{{ featuredPost.seoSummary || featuredPost.summary }}</p>
+              <a :href="featuredPost.url" target="_blank" rel="noopener noreferrer ugc" class="featured-title">{{ featuredPost.title }}</a>
+              <p class="featured-summary">{{ featuredPost.summary }}</p>
               <div class="featured-meta">
                 <div class="featured-author">
                   <div class="author-avatar">{{ (featuredPost.author || 'A').charAt(0) }}</div>
@@ -70,6 +70,8 @@
                 </span>
                 <span class="meta-sep">·</span>
                 <span>{{ formatDate(featuredPost.date) }}</span>
+                <span class="meta-sep">·</span>
+                <span>{{ featuredPost.language.toUpperCase() }}</span>
                 <span class="meta-sep">·</span>
                 <span>⏱ {{ getReadTime(featuredPost) }}</span>
               </div>
@@ -123,12 +125,14 @@
                     {{ getContentTypeLabel(post.tags) }}
                   </span>
                 </div>
-                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.seoTitle || post.title }}</a>
-                <p class="card-summary">{{ post.seoSummary || post.summary }}</p>
+                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.title }}</a>
+                <p class="card-summary">{{ post.summary }}</p>
                 <div class="card-meta">
                   <span v-if="post.author">{{ post.author }}</span>
                   <span v-if="post.author" class="meta-dot">·</span>
                   <span>{{ formatDate(post.date) }}</span>
+                  <span class="meta-dot">·</span>
+                  <span>{{ post.language.toUpperCase() }}</span>
                   <span class="meta-dot">·</span>
                   <span>⏱ {{ getReadTime(post) }}</span>
                 </div>
@@ -162,12 +166,14 @@
                     {{ getContentTypeLabel(post.tags) }}
                   </span>
                 </div>
-                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.seoTitle || post.title }}</a>
-                <p class="card-summary">{{ post.seoSummary || post.summary }}</p>
+                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.title }}</a>
+                <p class="card-summary">{{ post.summary }}</p>
                 <div class="card-meta">
                   <span v-if="post.author">{{ post.author }}</span>
                   <span v-if="post.author" class="meta-dot">·</span>
                   <span>{{ formatDate(post.date) }}</span>
+                  <span class="meta-dot">·</span>
+                  <span>{{ post.language.toUpperCase() }}</span>
                   <span class="meta-dot">·</span>
                   <span>⏱ {{ getReadTime(post) }}</span>
                 </div>
@@ -204,10 +210,14 @@
                   <span class="platform-icon" v-html="getPlatformIcon(post.platform)" />
                   {{ post.platform }}
                   <span class="meta-dot">·</span>
+                  <span>{{ formatDate(post.date) }}</span>
+                  <span class="meta-dot">·</span>
+                  <span>{{ post.language.toUpperCase() }}</span>
+                  <span class="meta-dot">·</span>
                   <span>⏱ {{ getReadTime(post) }}</span>
                 </div>
-                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.seoTitle || post.title }}</a>
-                <p class="card-summary compact">{{ post.seoSummary || post.summary }}</p>
+                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.title }}</a>
+                <p class="card-summary compact">{{ post.summary }}</p>
                 <div class="card-tags">
                   <span v-for="(tag, idx) in getSEOTags(post.tags, 'docker')" :key="tag" :class="['card-tag', idx === 0 ? 'tag-themed-docker' : '']">{{ tag }}</span>
                 </div>
@@ -235,23 +245,20 @@
                   <span class="platform-icon" v-html="getPlatformIcon(post.platform)" />
                   {{ post.platform }}
                   <span class="meta-dot">·</span>
+                  <span>{{ formatDate(post.date) }}</span>
+                  <span class="meta-dot">·</span>
+                  <span>{{ post.language.toUpperCase() }}</span>
+                  <span class="meta-dot">·</span>
                   <span>⏱ {{ getReadTime(post) }}</span>
                 </div>
-                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.seoTitle || post.title }}</a>
-                <p class="card-summary compact">{{ post.seoSummary || post.summary }}</p>
+                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.title }}</a>
+                <p class="card-summary compact">{{ post.summary }}</p>
                 <div class="card-tags">
                   <span v-for="(tag, idx) in getSEOTags(post.tags, 'laravel')" :key="tag" :class="['card-tag', idx === 0 ? 'tag-themed-laravel' : '']">{{ tag }}</span>
                 </div>
               </div>
             </article>
           </div>
-        </div>
-
-        <!-- Load More -->
-        <div v-if="remainingPosts.length && !showAll" class="load-more-wrap">
-          <button class="load-more-btn" @click="showAll = true">
-            {{ t.loadMore }}
-          </button>
         </div>
 
         <!-- Remaining posts -->
@@ -269,12 +276,14 @@
                     {{ getContentTypeLabel(post.tags) }}
                   </span>
                 </div>
-                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.seoTitle || post.title }}</a>
-                <p class="card-summary">{{ post.seoSummary || post.summary }}</p>
+                <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.title }}</a>
+                <p class="card-summary">{{ post.summary }}</p>
                 <div class="card-meta">
                   <span v-if="post.author">{{ post.author }}</span>
                   <span v-if="post.author" class="meta-dot">·</span>
                   <span>{{ formatDate(post.date) }}</span>
+                  <span class="meta-dot">·</span>
+                  <span>{{ post.language.toUpperCase() }}</span>
                   <span class="meta-dot">·</span>
                   <span>⏱ {{ getReadTime(post) }}</span>
                 </div>
@@ -308,12 +317,14 @@
                   {{ getContentTypeLabel(post.tags) }}
                 </span>
               </div>
-              <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.seoTitle || post.title }}</a>
-              <p class="card-summary">{{ post.seoSummary || post.summary }}</p>
+              <a :href="post.url" target="_blank" rel="noopener noreferrer ugc" class="card-title">{{ post.title }}</a>
+              <p class="card-summary">{{ post.summary }}</p>
               <div class="card-meta">
                 <span v-if="post.author">{{ post.author }}</span>
                 <span v-if="post.author" class="meta-dot">·</span>
                 <span>{{ formatDate(post.date) }}</span>
+                <span class="meta-dot">·</span>
+                <span>{{ post.language.toUpperCase() }}</span>
                 <span class="meta-dot">·</span>
                 <span>⏱ {{ getReadTime(post) }}</span>
               </div>
@@ -370,8 +381,8 @@ const t = computed(() => {
   return {
     heroTitle: isZh ? 'FlyEnv 社区故事' : 'FlyEnv Community Stories',
     heroSubtitle: isZh
-      ? '发现全球开发者如何使用 FlyEnv 简化本地开发工作流。从 macOS 到 Windows，从 Laravel 到 WordPress —— 这些都是真实用户撰写的真实故事。'
-      : 'Discover how developers around the world use FlyEnv to streamline their local development workflow. From macOS to Windows, from Laravel to WordPress — these are real stories written by real users.',
+      ? '浏览开发者使用 FlyEnv 迁移环境、管理多版本运行时、本地服务与跨平台项目的公开故事。'
+      : 'Explore public stories from developers who use FlyEnv for migration, multiple runtimes, local services, Laravel, and cross-platform work.',
     articles: isZh ? '文章' : 'Articles',
     authors: isZh ? '作者' : 'Authors',
     languages: isZh ? '语言' : 'Languages',
@@ -387,7 +398,6 @@ const t = computed(() => {
     popularPosts: isZh ? '最受欢迎' : 'Most Popular',
     dockerAlt: isZh ? 'Docker 替代方案' : 'Docker Alternatives',
     laravelPHP: isZh ? 'Laravel & PHP' : 'Laravel & PHP',
-    loadMore: isZh ? '加载更多文章' : 'Load More Articles',
     noArticles: isZh ? '未找到符合条件的文章。' : 'No articles found matching your criteria.',
     viewAll: isZh ? '查看全部' : 'View All'
   }
@@ -410,7 +420,7 @@ const categories = computed(() => {
 })
 
 const activeCategory = ref('all')
-const showAll = ref(false)
+const showAll = ref(true)
 
 // Stats
 const stats = computed(() => {
@@ -1345,31 +1355,6 @@ const getSEOTags = (tags: string[], theme?: string) => {
 .card-platform-line .platform-icon :deep(svg) {
   width: 14px;
   height: 14px;
-}
-
-/* Load More */
-.load-more-wrap {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.load-more-btn {
-  padding: 12px 32px;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #475569;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-}
-
-.load-more-btn:hover {
-  border-color: #c7d2fe;
-  color: #4f46e5;
-  background: #f5f7ff;
 }
 
 /* Empty State */

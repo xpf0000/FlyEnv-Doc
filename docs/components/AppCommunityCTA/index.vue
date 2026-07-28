@@ -6,51 +6,60 @@
       <div class="cta-content">
         <h2 class="cta-title no-border">{{ t.title }}</h2>
         <p class="cta-desc">{{ t.desc }}</p>
-        <a href="guide/about-license" class="cta-btn no-underline">
-          {{ t.btn }}
+        <a :href="licensePath" class="cta-btn no-underline">
+          {{ isZh ? '了解内容贡献与许可证' : 'Learn about community contributions and licensing' }}
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </a>
         <div class="cta-footer">
-        <template v-if="isZh">
-          已展示：<span class="cta-stat">7+ 位作者</span> · <span class="cta-stat">1 种语言</span> · <span class="cta-stat">5 个平台</span>
-        </template>
-        <template v-else>
-          Already featured: <span class="cta-stat">18 authors</span> · <span class="cta-stat">8 languages</span> · <span class="cta-stat">6 platforms</span>
-        </template>
-      </div>
+          <template v-if="isZh">
+            已展示：<span class="cta-stat">{{ stats.authors }} 位作者</span> ·
+            <span class="cta-stat">{{ stats.languages }} 种语言</span> ·
+            <span class="cta-stat">{{ stats.platforms }} 个平台</span>
+          </template>
+          <template v-else>
+            Already featured: <span class="cta-stat">{{ stats.authors }} authors</span> ·
+            <span class="cta-stat">{{ stats.languages }} languages</span> ·
+            <span class="cta-stat">{{ stats.platforms }} platforms</span>
+          </template>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import Feedback from '../AppFeedback/feedback.vue'
-  import { AsyncComponentShow } from '../AsyncComponent'
+import { computed } from 'vue'
 
 const props = defineProps<{
   locale?: 'en' | 'zh'
+  posts: Array<{ author: string; language: string; platform: string }>
 }>()
 
 const isZh = props.locale === 'zh'
 
+const stats = computed(() => ({
+  authors: new Set(props.posts.map((post) => post.author).filter(Boolean)).size,
+  languages: new Set(props.posts.map((post) => post.language)).size,
+  platforms: new Set(props.posts.map((post) => post.platform)).size
+}))
+
+const licensePath = computed(() =>
+  isZh ? '/zh/guide/about-license.html' : '/guide/about-license.html'
+)
+
 const t = {
-  title: isZh ? '分享你的 FlyEnv 故事' : 'Share Your FlyEnv Story',
+  title: isZh ? '公开分享你的 FlyEnv 使用体验' : 'Share your FlyEnv experience publicly',
   desc: isZh
-    ? '写过教程或评测？让你的内容展现在数千名开发者面前。我们会链接回你的博客或 B 站频道。'
-    : 'Written a tutorial or review? Get featured in front of thousands of developers. We link back to your blog or YouTube channel.',
+    ? '阅读社区内容贡献与许可证说明，了解公开文章如何作为真实开发者经验被引用。'
+    : 'Read how community contributions and licensing work for public articles used as real developer evidence.',
   btn: isZh ? '提交你的文章' : 'Submit Your Article',
   footer: isZh
     ? '已展示：\u200b7+ 位作者\u200b · \u200b1 种语言\u200b · \u200b5 个平台\u200b'
     : 'Already featured: \u200b18 authors\u200b · \u200b8 languages\u200b · \u200b6 platforms\u200b'
 }
 
-  const showFeedback = () => {
-    AsyncComponentShow(Feedback).then(() => {
-      console.log('end !!!')
-    })
-  }
 </script>
 
 <style scoped>

@@ -1,5 +1,6 @@
 ---
 layout: home
+title: FlyEnv 社区故事、教程与开发者评测
 
 head:
   - - meta
@@ -11,6 +12,17 @@ head:
   - - meta
     - property: og:description
       content: "来自全球开发者的 FlyEnv 真实文章、教程和视频。"
+  - - link
+    - rel: canonical
+      href: https://www.flyenv.com/zh/community.html
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://www.flyenv.com/community.html
+  - - link
+    - rel: alternate
+      hreflang: zh-CN
+      href: https://www.flyenv.com/zh/community.html
   - - script
     - type: application/ld+json
     - |
@@ -21,9 +33,12 @@ head:
 import AppCommunityPosts from '../components/AppCommunityPosts/index.vue'
 import AppCommunityChannels from '../components/AppCommunityChannels/index.vue'
 import AppCommunityCTA from '../components/AppCommunityCTA/index.vue'
+import AppCommunityScenarioMap from '../components/AppCommunityEvidence/ScenarioMap.vue'
 import posts from '../data/community-posts-zh.json'
+import { communityEvidence } from '../data/community-evidence'
 </script>
 
+<AppCommunityScenarioMap :posts="posts" :evidence="communityEvidence.zh" locale="zh" />
 <AppCommunityPosts :posts="posts" locale="zh" />
 <AppCommunityChannels title="加入社区" locale="zh" />
-<AppCommunityCTA locale="zh" />
+<AppCommunityCTA :posts="posts" locale="zh" />
