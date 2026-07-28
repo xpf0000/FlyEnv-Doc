@@ -62,7 +62,9 @@ import AppCoreModule from '../components/AppCoreModule/zh.vue'
 import AppToolModule from '../components/AppToolModule/zh.vue'
 import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue'
 import AppGitHubModules from '../components/AppGithub/zh.vue'
-import AppCommentModules from '../components/AppComment/zh.vue'
+import AppCommunityEvidence from '../components/AppCommunityEvidence/HomepageProof.vue'
+import communityPosts from '../data/community-posts-zh.json'
+import { communityEvidence } from '../data/community-evidence'
 import AppCanDoModules from '../components/AppCanDo/zh.vue'
 import AppPriceModules from '../components/AppPrice/zh.vue'
 </script>
@@ -79,7 +81,7 @@ import AppPriceModules from '../components/AppPrice/zh.vue'
 
 <AppToolModule />
 
-<AppCommentModules />
+<AppCommunityEvidence :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" />
 
 <AppPriceModules />
 
