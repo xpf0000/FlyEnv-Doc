@@ -363,7 +363,7 @@ const guideEvent = computed(() => props.placement === 'home'
   : 'community_story_guide_click')
 ~~~
 
-Its template must render exactly these source facts: evidence.scenario, post.title, evidence.editorialSummary, post.author, post.platform, post.language, and a locale-formatted post.date. Use `{{ post.author }} · {{ post.platform }} · {{ post.language.toUpperCase() }} · {{ formattedDate }}` for the attribution line. Its source link is post.url with target _blank and rel noopener noreferrer; its click handler calls trackEvidenceEvent(sourceEvent, post.id, placement). Render the related-guide link only when guidePath is set and call trackEvidenceEvent(guideEvent, post.id, placement).
+Its template must render exactly these source facts: evidence.scenario, post.title, evidence.editorialSummary, post.author, post.platform, post.language, and a locale-formatted post.date. Use `&#123;&#123; post.author &#125;&#125; · &#123;&#123; post.platform &#125;&#125; · &#123;&#123; post.language.toUpperCase() &#125;&#125; · &#123;&#123; formattedDate &#125;&#125;` for the attribution line. Its source link is post.url with target _blank and rel noopener noreferrer; its click handler calls trackEvidenceEvent(sourceEvent, post.id, placement). Render the related-guide link only when guidePath is set and call trackEvidenceEvent(guideEvent, post.id, placement).
 
 Use the following literal labels in the template:
 
