@@ -124,24 +124,36 @@
         <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
       </div>
     </a>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Qdrant Local Setup in FlyEnv | Versions, Config, Logs, and Dashboard"
+      href="https://youtu.be/ahetMNLLS7s"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Database</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Database</span>
       <div class="aspect-square w-full flex shrink-0 overflow-hidden items-center justify-center p-4">
         <img src="../SVG/qdrant.svg" />
       </div>
-      <span class="shrink-0 select-text">Qdrant</span>
-    </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Qdrant</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+    <a
+      title="Native Local ClickHouse in 2 Minutes (No Docker, No Config) - FlyEnv"
+      href="https://youtu.be/3ePJYddWYmQ"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Database</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Database</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/ClickHouse.svg" />
       </div>
-      <span class="shrink-0 select-text">ClickHouse</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">ClickHouse</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 2">
     <a
@@ -366,15 +378,21 @@
     </div>
   </template>
   <template v-else-if="type === 5">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Elasticsearch Local Setup with FlyEnv | Versions, Logs, and Service Controls"
+      href="https://youtu.be/B9Eo2Y-aXWQ"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Search Engine</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Search Engine</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <img src="../SVG/Elasticsearch.svg" />
       </div>
-      <span class="shrink-0 select-text">Elasticsearch</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Elasticsearch</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -671,15 +689,21 @@
         </div>
         <span class="shrink-0 select-text">Etcd</span>
       </div>
-      <div
-        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      <a
+        title="Temporal Local Development in One Click — FlyEnv Native Service"
+        href="https://youtu.be/E_jetPnVxBo"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
       >
-        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">Service Governance</span>
         <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
           <img src="../SVG/Temporal.svg" />
         </div>
-        <span class="shrink-0 select-text">Temporal</span>
-      </div>
+        <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Temporal</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
     </template>
   <template v-else-if="type === 12">
     <div

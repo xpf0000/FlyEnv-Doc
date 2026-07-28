@@ -124,24 +124,36 @@
         <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
       </div>
     </a>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Qdrant 本地一键配置｜FlyEnv 演示"
+      href="https://www.bilibili.com/video/BV16Q3P6VEPA/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">数据库</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">数据库</span>
       <div class="aspect-square w-full flex shrink-0 overflow-hidden items-center justify-center p-4">
         <img src="../SVG/qdrant.svg" />
       </div>
-      <span class="shrink-0 select-text">Qdrant</span>
-    </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Qdrant</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+    <a
+      title="不用 Docker，在本地一键跑起 ClickHouse - FlyEnv 原生本地环境"
+      href="https://www.bilibili.com/video/BV1S43w6QEvS/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">数据库</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">数据库</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/ClickHouse.svg" />
       </div>
-      <span class="shrink-0 select-text">ClickHouse</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">ClickHouse</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 2">
     <a
@@ -366,15 +378,21 @@
     </div>
   </template>
   <template v-else-if="type === 5">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Elasticsearch 本地一键配置｜FlyEnv 演示"
+      href="https://www.bilibili.com/video/BV1if3P6BEBR/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Search Engine</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Search Engine</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <img src="../SVG/Elasticsearch.svg" />
       </div>
-      <span class="shrink-0 select-text">Elasticsearch</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Elasticsearch</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -671,15 +689,21 @@
       </div>
       <span class="shrink-0 select-text">Etcd</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="不用 Docker，本地一键运行 Temporal — FlyEnv 原生本地环境"
+      href="https://www.bilibili.com/video/BV1TD3c67Eei/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text truncate">服务治理</span>
+      <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">服务治理</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/Temporal.svg" />
       </div>
-      <span class="shrink-0 select-text">Temporal</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Temporal</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 12">
     <div

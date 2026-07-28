@@ -10,43 +10,77 @@ function sourceFile(path) {
   return readFileSync(resolve(projectRoot, path), 'utf8')
 }
 
-function expectCard(source, category, moduleName, icon, categoryClass = 'shrink-0 select-text') {
-  assert.match(
-    source,
-    new RegExp(
-      `<span class="${categoryClass}">${category}</span>\\s*` +
-        '<div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">\\s*' +
-        `<img src="../SVG/${icon}.svg" />\\s*` +
-        '</div>\\s*' +
-        `<span class="shrink-0 select-text">${moduleName}</span>`
-    )
-  )
+function escapeRegExp(value) {
+  return value.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
 }
 
-test('English Core Modules includes ClickHouse as a database', () => {
-  expectCard(sourceFile('docs/components/AppModules/index.vue'), 'Database', 'ClickHouse', 'ClickHouse')
-})
+function expectVideoCard(source, card) {
+  const moduleClass = escapeRegExp('shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]')
+  const pattern =
+    '<a\\s+title="' +
+    escapeRegExp(card.title) +
+    '"\\s+href="' +
+    escapeRegExp(card.href) +
+    '"\\s+target="_blank"\\s+' +
+    'class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"\\s*>' +
+    '[\\s\\S]*?<span class="' +
+    escapeRegExp(card.categoryClass) +
+    '">' +
+    escapeRegExp(card.category) +
+    '</span>' +
+    '[\\s\\S]*?<div class="' +
+    escapeRegExp(card.iconClass) +
+    '">\\s*<img src="../SVG/' +
+    escapeRegExp(card.icon) +
+    '.svg" />' +
+    '[\\s\\S]*?<span class="' +
+    moduleClass +
+    '">' +
+    escapeRegExp(card.moduleName) +
+    '</span>' +
+    '[\\s\\S]*?<SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import\\(\'../SVG/play.svg\\?raw\'\\)" />'
 
-test('English Core Modules includes Temporal as service governance', () => {
-  expectCard(
-    sourceFile('docs/components/AppModules/index.vue'),
-    'Service Governance',
-    'Temporal',
-    'Temporal',
-    'shrink-0 select-text truncate'
-  )
-})
+  assert.match(source, new RegExp(pattern))
+}
 
-test('Chinese Core Modules includes ClickHouse as a database', () => {
-  expectCard(sourceFile('docs/components/AppModules/zh.vue'), '数据库', 'ClickHouse', 'ClickHouse')
-})
+const englishCards = [
+  ['Native Local ClickHouse in 2 Minutes (No Docker, No Config) - FlyEnv', 'https://youtu.be/3ePJYddWYmQ', 'Database', 'ClickHouse', 'aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4', 'ClickHouse'],
+  ['Temporal Local Development in One Click — FlyEnv Native Service', 'https://youtu.be/E_jetPnVxBo', 'Service Governance', 'Temporal', 'aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4', 'Temporal', true],
+  ['Elasticsearch Local Setup with FlyEnv | Versions, Logs, and Service Controls', 'https://youtu.be/B9Eo2Y-aXWQ', 'Search Engine', 'Elasticsearch', 'aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6', 'Elasticsearch'],
+  ['Qdrant Local Setup in FlyEnv | Versions, Config, Logs, and Dashboard', 'https://youtu.be/ahetMNLLS7s', 'Database', 'qdrant', 'aspect-square w-full flex shrink-0 overflow-hidden items-center justify-center p-4', 'Qdrant']
+]
 
-test('Chinese Core Modules includes Temporal as service governance', () => {
-  expectCard(
-    sourceFile('docs/components/AppModules/zh.vue'),
-    '服务治理',
-    'Temporal',
-    'Temporal',
-    'shrink-0 select-text truncate'
-  )
-})
+const chineseCards = [
+  ['不用 Docker，在本地一键跑起 ClickHouse - FlyEnv 原生本地环境', 'https://www.bilibili.com/video/BV1S43w6QEvS/', '数据库', 'ClickHouse', 'aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4', 'ClickHouse'],
+  ['不用 Docker，本地一键运行 Temporal — FlyEnv 原生本地环境', 'https://www.bilibili.com/video/BV1TD3c67Eei/', '服务治理', 'Temporal', 'aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4', 'Temporal', true],
+  ['Elasticsearch 本地一键配置｜FlyEnv 演示', 'https://www.bilibili.com/video/BV1if3P6BEBR/', 'Search Engine', 'Elasticsearch', 'aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6', 'Elasticsearch'],
+  ['Qdrant 本地一键配置｜FlyEnv 演示', 'https://www.bilibili.com/video/BV16Q3P6VEPA/', '数据库', 'qdrant', 'aspect-square w-full flex shrink-0 overflow-hidden items-center justify-center p-4', 'Qdrant']
+]
+
+function toCard(values) {
+  return {
+    title: values[0],
+    href: values[1],
+    category: values[2],
+    icon: values[3],
+    iconClass: values[4],
+    moduleName: values[5],
+    categoryClass: values[6]
+      ? 'shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]'
+      : 'shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]'
+  }
+}
+
+for (const values of englishCards) {
+  const card = toCard(values)
+  test('English Core Modules links ' + card.moduleName + ' to its demo', () => {
+    expectVideoCard(sourceFile('docs/components/AppModules/index.vue'), card)
+  })
+}
+
+for (const values of chineseCards) {
+  const card = toCard(values)
+  test('Chinese Core Modules links ' + card.moduleName + ' to its demo', () => {
+    expectVideoCard(sourceFile('docs/components/AppModules/zh.vue'), card)
+  })
+}
