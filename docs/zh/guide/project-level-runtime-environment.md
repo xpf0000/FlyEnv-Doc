@@ -6,6 +6,12 @@ head:
       content: 告别手动切换 Node.js/PHP 版本的烦恼。了解 FlyEnv 如何实现项目级环境隔离—进入目录自动切换运行时版本，无需 Docker，内存占用降低 80%。
 ---
 
+<script setup>
+import AppGuideCommunityProof from '../../components/AppCommunityEvidence/GuideProof.vue'
+import communityPosts from '../../data/community-posts-zh.json'
+import { communityEvidence } from '../../data/community-evidence'
+</script>
+
 # 无需 Docker 实现项目级环境隔离
 
 厌倦了每次切换项目都要手动输入 `nvm use` 或修改 `PATH` 环境变量？在不同文件夹运行 `node -v` 却得到错误的版本？为了简单的环境切换就让 Docker Desktop 吃掉你几 GB 的内存？
@@ -176,6 +182,8 @@ A: 他们仍然可以使用自己的版本管理器。FlyEnv 不会修改你的�
 
 **Q: 如何卸载某个版本？**  
 A: 进入 FlyEnv 的主语言标签页，右键点击该版本，选择"卸载"。使用该版本的项目会优雅回退或提示你选择新版本。
+
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="juejin-7666754297045614628" guide-path="/zh/guide/project-level-runtime-environment.html" />
 
 ## 下一步
 

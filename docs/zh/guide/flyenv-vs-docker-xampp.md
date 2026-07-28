@@ -6,6 +6,12 @@ head:
       content: '对比 FlyEnv、Docker 和 XAMPP 这类本地开发方案，看看原生运行时、AI 编程 CLI 和 MCP 如何改变现代本地工作流。'
 ---
 
+<script setup>
+import AppGuideCommunityProof from '../../components/AppCommunityEvidence/GuideProof.vue'
+import communityPosts from '../../data/community-posts-zh.json'
+import { communityEvidence } from '../../data/community-evidence'
+</script>
+
 # FlyEnv vs Docker & XAMPP：本地开发该怎么选
 
 现在选择本地开发方案，已经不只是决定怎么跑 PHP 或 MySQL。你还要决定多运行时、本地服务、HTTPS 站点，以及 AI 编程客户端要如何一起工作。
@@ -116,6 +122,8 @@ A：可以。FlyEnv 能直接管理支持的 AI 编程 CLI，也能通过 FlyEnv
 **Q：FlyEnv 可以免费使用吗？**
 
 A：核心环境管理能力可以在无许可证情况下使用。当前评估版会对部分高级流程设置限制，详细规则请查看 [许可证指南](/zh/guide/about-license)。
+
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="csdn-145736318" guide-path="/zh/guide/flyenv-vs-docker-xampp.html" />
 
 ## 下一步
 

@@ -6,6 +6,12 @@ head:
       content: '告别 NVM 和 PHP 版本管理器的困扰。了解 FlyEnv 如何通过自动按项目切换来处理多个 Node.js 和 PHP 版本，无需命令行。'
 ---
 
+<script setup>
+import AppGuideCommunityProof from '../../components/AppCommunityEvidence/GuideProof.vue'
+import communityPosts from '../../data/community-posts-zh.json'
+import { communityEvidence } from '../../data/community-evidence'
+</script>
+
 # 如何在不使用 NVM 或 PHP Monitor 的情况下管理多个 Node.js 和 PHP 版本
 
 如果你曾经第一百次输入 `nvm use 18`，或者与 Homebrew 的 PHP 版本链接作斗争，你就知道版本管理的痛苦。不同的项目需要不同的版本，在它们之间切换会严重影响生产力。
@@ -237,6 +243,8 @@ A：FlyEnv 使用你系统的默认版本或你配置的全局默认值。
 **Q：团队成员可以使用不同的版本管理器吗？**
 
 A：可以。FlyEnv 中的项目配置不会干扰队友使用其他工具。
+
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="juejin-7666754297045614628" guide-path="/zh/guide/manage-multiple-node-php-versions.html" />
 
 ## 准备好停止手动管理版本了吗？
 

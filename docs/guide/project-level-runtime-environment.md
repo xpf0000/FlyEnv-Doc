@@ -6,6 +6,12 @@ head:
       content: Stop juggling Node.js/PHP versions manually. Learn how FlyEnv's project-level environment isolation automatically switches runtimes when you cd into directories—no Docker needed, 80% less RAM usage.
 ---
 
+<script setup>
+import AppGuideCommunityProof from '../components/AppCommunityEvidence/GuideProof.vue'
+import communityPosts from '../data/community-posts.json'
+import { communityEvidence } from '../data/community-evidence'
+</script>
+
 # Project-Level Version Isolation Without Docker
 
 Tired of typing `nvm use` or manually editing `PATH` every time you switch projects? Running `node -v` in different folders and getting the wrong version? Docker Desktop eating your RAM just to manage simple environment switching?
@@ -176,6 +182,8 @@ A: They can still use the project with their own version manager. FlyEnv doesn't
 
 **Q: How do I uninstall a version?**  
 A: Go to the main language tab in FlyEnv, right-click the version, and select "Uninstall". Projects using that version will gracefully fall back or prompt you to select a new one.
+
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="flyenv-on-linux-actually-fixed-my-php-version-headache" guide-path="/guide/project-level-runtime-environment.html" />
 
 ## Next Steps
 

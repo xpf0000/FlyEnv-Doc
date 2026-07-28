@@ -6,6 +6,12 @@ head:
       content: 'Compare FlyEnv vs Docker and XAMPP-style local stacks for modern development. See how native runtimes, AI coding CLIs, and MCP change the local workflow.'
 ---
 
+<script setup>
+import AppGuideCommunityProof from '../components/AppCommunityEvidence/GuideProof.vue'
+import communityPosts from '../data/community-posts.json'
+import { communityEvidence } from '../data/community-evidence'
+</script>
+
 # FlyEnv vs Docker & XAMPP for Local Development
 
 Choosing a local development setup now means choosing more than just how to run PHP or MySQL. You also need to decide how multiple runtimes, local services, HTTPS sites, and AI coding clients fit together.
@@ -116,6 +122,8 @@ A: Yes. FlyEnv can manage supported AI coding CLIs directly and expose local con
 **Q: Is FlyEnv free to use?**
 
 A: Core environment management remains accessible without a license. The current evaluation version applies limits to some premium flows. See the [Licensing Guide](/guide/about-license) for the current details.
+
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="mencoba-flyenv-setelah-lama-menggunakan-xampp" guide-path="/guide/flyenv-vs-docker-xampp.html" />
 
 ## Next Steps
 
