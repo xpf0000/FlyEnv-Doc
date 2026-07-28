@@ -160,7 +160,8 @@ const englishModuleLinks = [
   ['Python', 'https://youtu.be/dhy0nJYsfQQ'],
   ['Redis', 'https://youtu.be/u9xjPN-VWT4'],
   ['Elasticsearch', 'https://youtu.be/B9Eo2Y-aXWQ'],
-  ['Temporal', 'https://youtu.be/E_jetPnVxBo']
+  ['Temporal', 'https://youtu.be/E_jetPnVxBo'],
+  ['Temporal CLI', 'https://youtu.be/80psOMuDK9I']
 ]
 
 const chineseModuleLinks = [
@@ -181,7 +182,8 @@ const chineseModuleLinks = [
   ['Python', 'https://www.bilibili.com/video/BV1hvZxBBEJk/'],
   ['Redis', 'https://www.bilibili.com/video/BV1YaZxBzENJ/'],
   ['Elasticsearch', 'https://www.bilibili.com/video/BV1if3P6BEBR/'],
-  ['Temporal', 'https://www.bilibili.com/video/BV1TD3c67Eei/']
+  ['Temporal', 'https://www.bilibili.com/video/BV1TD3c67Eei/'],
+  ['Temporal CLI', 'https://www.bilibili.com/video/BV1Xc3v6UEEW/']
 ]
 
 function expectMarkdownLinks(path, links) {
@@ -201,10 +203,10 @@ function expectPlainModuleNames(path, names) {
 
 test('English What Is FlyEnv table uses English AppModules demo links', () => {
   expectMarkdownLinks('docs/guide/what-is-flyenv.md', englishModuleLinks)
-  expectPlainModuleNames('docs/guide/what-is-flyenv.md', ['Podman', 'FrankenPHP', 'Temporal CLI'])
+  expectPlainModuleNames('docs/guide/what-is-flyenv.md', ['Podman', 'FrankenPHP'])
 })
 
 test('Chinese What Is FlyEnv table uses Chinese AppModules demo links', () => {
   expectMarkdownLinks('docs/zh/guide/what-is-flyenv.md', chineseModuleLinks)
-  expectPlainModuleNames('docs/zh/guide/what-is-flyenv.md', ['Podman', 'FrankenPHP', 'Temporal CLI'])
+  expectPlainModuleNames('docs/zh/guide/what-is-flyenv.md', ['Podman', 'FrankenPHP'])
 })
