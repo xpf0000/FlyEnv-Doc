@@ -33,12 +33,9 @@ head:
 import AppCommunityPosts from '../components/AppCommunityPosts/index.vue'
 import AppCommunityChannels from '../components/AppCommunityChannels/index.vue'
 import AppCommunityCTA from '../components/AppCommunityCTA/index.vue'
-import AppCommunityScenarioMap from '../components/AppCommunityEvidence/ScenarioMap.vue'
 import posts from '../data/community-posts-zh.json'
-import { communityEvidence } from '../data/community-evidence'
 </script>
 
-<AppCommunityScenarioMap :posts="posts" :evidence="communityEvidence.zh" locale="zh" />
 <AppCommunityPosts :posts="posts" locale="zh" />
 <AppCommunityChannels title="加入社区" locale="zh" />
 <AppCommunityCTA :posts="posts" locale="zh" />

@@ -1,32 +1,19 @@
 <template>
-  <div class="max-w-6xl mx-auto px-6 mb-16">
-    <div class="cta-banner">
-      <div class="cta-glow cta-glow-tr"></div>
-      <div class="cta-glow cta-glow-bl"></div>
-      <div class="cta-content">
-        <h2 class="cta-title no-border">{{ t.title }}</h2>
-        <p class="cta-desc">{{ t.desc }}</p>
-        <a :href="licensePath" class="cta-btn no-underline">
-          {{ isZh ? '了解内容贡献与许可证' : 'Learn about community contributions and licensing' }}
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
+  <section class="community-contribute" :aria-labelledby="contributeId">
+    <div class="contribute-shell">
+      <div class="contribute-copy">
+        <h2 :id="contributeId" class="no-border">{{ t.title }}</h2>
+        <p>{{ t.description }}</p>
+      </div>
+
+      <div class="contribute-side">
+        <a :href="licensePath" class="contribute-action">
+          {{ t.action }} <span aria-hidden="true">↗</span>
         </a>
-        <div class="cta-footer">
-          <template v-if="isZh">
-            已展示：<span class="cta-stat">{{ stats.authors }} 位作者</span> ·
-            <span class="cta-stat">{{ stats.languages }} 种语言</span> ·
-            <span class="cta-stat">{{ stats.platforms }} 个平台</span>
-          </template>
-          <template v-else>
-            Already featured: <span class="cta-stat">{{ stats.authors }} authors</span> ·
-            <span class="cta-stat">{{ stats.languages }} languages</span> ·
-            <span class="cta-stat">{{ stats.platforms }} platforms</span>
-          </template>
-        </div>
+        <p>{{ t.coverage(stats) }}</p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -34,115 +21,148 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   locale?: 'en' | 'zh'
-  posts: Array<{ author: string; language: string; platform: string }>
+  posts: Array<{ author?: string; language: string; platform: string }>
 }>()
 
-const isZh = props.locale === 'zh'
+const isZh = computed(() => props.locale === 'zh')
+const contributeId = 'community-contribute'
 
 const stats = computed(() => ({
   authors: new Set(props.posts.map((post) => post.author).filter(Boolean)).size,
-  languages: new Set(props.posts.map((post) => post.language)).size,
-  platforms: new Set(props.posts.map((post) => post.platform)).size
+  languages: new Set(props.posts.map((post) => post.language).filter(Boolean)).size,
+  platforms: new Set(props.posts.map((post) => post.platform).filter(Boolean)).size
 }))
 
-const licensePath = computed(() =>
-  isZh ? '/zh/guide/about-license.html' : '/guide/about-license.html'
+const licensePath = computed(() => (isZh.value ? '/zh/guide/about-license.html' : '/guide/about-license.html'))
+
+const t = computed(() =>
+  isZh.value
+    ? {
+        title: '写下你的 FlyEnv 使用经验',
+        description: '公开发布的文章、教程或视频，可以帮助下一位开发者更快了解 FlyEnv 的实际使用场景。',
+        action: '了解内容贡献说明',
+        coverage: (value: typeof stats.value) =>
+          `当前已收录 ${value.authors} 位作者、${value.languages} 种语言和 ${value.platforms} 个平台的公开内容。`
+      }
+    : {
+        title: 'Share how you use FlyEnv',
+        description:
+          'A public article, tutorial, or video can help the next developer understand where FlyEnv fits in real work.',
+        action: 'How stories are featured',
+        coverage: (value: typeof stats.value) =>
+          `This library currently brings together public writing from ${value.authors} authors across ${value.languages} languages and ${value.platforms} platforms.`
+      }
 )
-
-const t = {
-  title: isZh ? '公开分享你的 FlyEnv 使用体验' : 'Share your FlyEnv experience publicly',
-  desc: isZh
-    ? '阅读社区内容贡献与许可证说明，了解公开文章如何作为真实开发者经验被引用。'
-    : 'Read how community contributions and licensing work for public articles used as real developer evidence.',
-  btn: isZh ? '提交你的文章' : 'Submit Your Article',
-  footer: isZh
-    ? '已展示：\u200b7+ 位作者\u200b · \u200b1 种语言\u200b · \u200b5 个平台\u200b'
-    : 'Already featured: \u200b18 authors\u200b · \u200b8 languages\u200b · \u200b6 platforms\u200b'
-}
-
 </script>
 
 <style scoped>
-.cta-banner {
-  background: linear-gradient(to right, #4f46e5, #9333ea, #ec4899);
-  border-radius: 20px;
-  padding: 48px 32px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
+.community-contribute {
+  --contribute-ink: #12312d;
+  --contribute-muted: #61736f;
+  --contribute-line: #d7e2de;
+  --contribute-panel: #e5efeb;
+  --contribute-accent: #0b7667;
+  margin: 0 auto;
+  max-width: 78rem;
+  padding: 0 1.5rem 4.5rem;
 }
-@media (min-width: 768px) {
-  .cta-banner {
-    padding: 64px 48px;
-  }
-}
-.cta-glow {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  filter: blur(60px);
-  pointer-events: none;
-}
-.cta-glow-tr {
-  top: 0;
-  right: 0;
-  width: 384px;
-  height: 384px;
-  transform: translate(30%, -30%);
-}
-.cta-glow-bl {
-  bottom: 0;
-  left: 0;
-  width: 256px;
-  height: 256px;
-  transform: translate(-30%, 30%);
-}
-.cta-content {
-  position: relative;
-  z-index: 1;
-}
-.cta-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-@media (min-width: 768px) {
-  .cta-title {
-    font-size: 30px;
-  }
-}
-.cta-desc {
-  color: #c7d2fe;
-  max-width: 640px;
-  margin: 0 auto 32px;
-  line-height: 1.625;
-}
-.cta-btn {
-  display: inline-flex;
+
+.contribute-shell {
   align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: #fff;
-  color: #4f46e5;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: 600;
+  background: var(--contribute-panel);
+  border: 1px solid var(--contribute-line);
+  border-radius: 1rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(17rem, 0.8fr);
+  padding: 2.2rem 2.4rem;
+}
+
+.contribute-copy h2 {
+  color: var(--contribute-ink);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.contribute-copy p,
+.contribute-side p {
+  color: var(--contribute-muted);
+  line-height: 1.65;
+  margin: 0.7rem 0 0;
+}
+
+.contribute-copy p {
+  max-width: 43rem;
+}
+
+.contribute-side {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.contribute-action {
+  align-items: center;
+  background: var(--contribute-accent);
+  border-radius: 999px;
+  color: #f5fffc;
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 0.45rem;
+  padding: 0.75rem 1rem;
   text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+  transition: background-color 180ms ease, transform 180ms ease;
+  white-space: nowrap;
 }
-.cta-btn:hover {
-  background: #eef2ff;
+
+.contribute-action:hover {
+  background: #075c50;
+  color: #f5fffc;
+  transform: translateY(-2px);
 }
-.cta-footer {
-  margin-top: 24px;
-  font-size: 14px;
-  color: #c7d2fe;
+
+.contribute-action:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--contribute-accent) 45%, transparent);
+  outline-offset: 3px;
 }
-.cta-stat {
-  font-weight: 600;
-  color: #fff;
+
+.contribute-side p {
+  font-size: 0.82rem;
+}
+
+.dark .community-contribute {
+  --contribute-ink: #e4efeb;
+  --contribute-muted: #9eb4ad;
+  --contribute-line: #2b4942;
+  --contribute-panel: #112a25;
+  --contribute-accent: #36a994;
+}
+
+.dark .contribute-action,
+.dark .contribute-action:hover {
+  color: #06231d;
+}
+
+@media (max-width: 767px) {
+  .community-contribute {
+    padding: 0 1rem 3.5rem;
+  }
+
+  .contribute-shell {
+    grid-template-columns: 1fr;
+    padding: 1.6rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .community-contribute *,
+  .community-contribute *::before,
+  .community-contribute *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 </style>
