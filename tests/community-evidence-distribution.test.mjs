@@ -47,6 +47,13 @@ test('shared card keeps attribution and tracks both destinations', () => {
   ])
 })
 
+test('story card anchors its action row to the shared card bottom', () => {
+  expectTerms('docs/components/AppCommunityEvidence/StoryCard.vue', [
+    'flex h-full flex-col',
+    'mt-auto flex flex-wrap'
+  ])
+})
+
 test('homepages use evidence, not generic testimonial components', () => {
   for (const path of ['docs/index.md', 'docs/zh/index.md']) {
     expectTerms(path, ['AppCommunityEvidence', 'communityEvidence'])

@@ -1,7 +1,7 @@
 <template>
   <article
     :class="[
-      'rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-900',
+      'flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-900',
       { 'p-5': compact }
     ]"
   >
@@ -13,7 +13,7 @@
     <p class="mb-5 text-sm text-slate-500 dark:text-slate-400">
       {{ post.author }} · {{ post.platform }} · {{ post.language.toUpperCase() }} · {{ formattedDate }}
     </p>
-    <div class="flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold">
+    <div class="mt-auto flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold">
       <a
         :href="post.url"
         target="_blank"
