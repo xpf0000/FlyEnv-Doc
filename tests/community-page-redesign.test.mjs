@@ -34,3 +34,19 @@ test('community surfaces use the homepage blue and violet brand palette', () => 
   assert.match(cta, /--contribute-accent: #646cff/)
   assert.doesNotMatch(`${posts}\n${channels}\n${cta}`, /#0b7667|#12312d|#f4f8f6/)
 })
+
+test('English community stories do not render Chinese copy', () => {
+  const posts = JSON.parse(read('docs/data/community-posts.json'))
+
+  for (const post of posts) {
+    assert.doesNotMatch(`${post.title}\n${post.summary}`, /[\u3400-\u9fff]/u, post.id)
+  }
+})
+
+test('community section headings are anchored to a single section divider', () => {
+  const source = read('docs/components/AppCommunityPosts/index.vue')
+
+  assert.match(source, /class="section-heading"/)
+  assert.match(source, /\.section-heading::before/)
+  assert.match(source, /\.browse-topics,\n\.story-library \{\n  border-top: 1px solid var\(--community-line\)/)
+})

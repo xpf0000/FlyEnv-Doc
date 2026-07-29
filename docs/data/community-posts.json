@@ -45,13 +45,13 @@
   },
   {
     "id": "galatamedya-flyenv-php-gelistiriciler-icin-hepsi-bir",
-    "title": "FlyEnv: PHP开发者的一站式本地开发环境完整指南",
+    "title": "FlyEnv: A Complete Local Development Environment Guide for PHP Developers",
     "url": "https://www.galatamedya.com/flyenv-php-gelistiriciler-icin-hepsi-bir-arada-gelistirme-ortami/",
     "author": "Galata Medya",
     "platform": "Blog",
     "language": "tr",
     "date": "2025-05-24",
-    "summary": "FlyEnv是专为PHP开发者设计的轻量级跨平台环境管理工具，支持项目级PHP版本隔离和依赖管理。通过简洁的CLI工具和即将推出的Web界面，开发者可在macOS、Linux和Windows上快速构建一致的开发环境，彻底消除版本冲突与系统配置混乱问题。",
+    "summary": "FlyEnv is a lightweight, cross-platform environment manager built for PHP developers. It supports project-level PHP version isolation and dependency management, helping developers create consistent environments across macOS, Linux, and Windows without version conflicts or configuration sprawl.",
     "tags": [
       "php",
       "tutorial",
@@ -73,7 +73,7 @@
     "platform": "Medium",
     "language": "id",
     "date": "2025-05-30",
-    "summary": "FlyEnv 是一款强大的全栈开发环境管理工具，支持一键配置 PHP、Node.js、Java 等多种技术栈，并提供即时版本切换和原生性能体验。文章详细介绍了 FlyEnv 的核心优势，包括项目级环境隔离、跨平台一致性以及比 Docker 更高效的资源利用，并提供了从安装到配置的完整实践指南。",
+    "summary": "FlyEnv is a full-stack development environment manager for PHP, Node.js, Java, and other stacks. This guide covers project-level isolation, cross-platform consistency, more efficient resource use than Docker, and a practical path from installation to configuration.",
     "tags": [
       "tutorial",
       "php",
@@ -116,7 +116,7 @@
     "platform": "DEV.to",
     "language": "id",
     "date": "2025-07-30",
-    "summary": "FlyEnv是面向现代开发者的跨平台环境管理工具，支持PHP、Node.js、Python等多语言。相比Laragon，它提供更灵活的多版本管理、自动软件安装和更好的跨平台支持，且完全免费。文章包含详细的Laravel项目创建教程。",
+    "summary": "FlyEnv is a cross-platform environment manager for modern developers, supporting PHP, Node.js, Python, and other runtimes. Compared with Laragon, it offers flexible multi-version management, automatic software installation, and stronger cross-platform support. The article includes a detailed Laravel project setup tutorial.",
     "tags": [
       "comparison",
       "tutorial",
@@ -138,7 +138,7 @@
     "platform": "Blog",
     "language": "fr",
     "date": "2025-09-07",
-    "summary": "FlyEnv是一款开源本地开发环境管理工具，通过原生二进制架构（非虚拟化）实现比Docker更快的启动速度和更低资源占用。它支持PHP、NodeJS等语言的一键安装与多版本并行运行，提供项目级环境自动隔离。相比Docker的复杂配置，FlyEnv以直观GUI和即时启动体验，成为跨平台开发环境的轻量级替代方案。",
+    "summary": "FlyEnv is an open-source local development environment manager that uses native binaries instead of virtualization for faster startup and lower resource use than Docker. It supports one-click installation and parallel versions of PHP, Node.js, and other runtimes with automatic project-level environment isolation.",
     "tags": [
       "docker",
       "comparison",
@@ -204,7 +204,7 @@
     "platform": "Medium",
     "language": "id",
     "date": "2025-11-12",
-    "summary": "FlyEnv简化了本地WordPress开发流程，无需手动配置Apache、Nginx、PHP或MySQL服务器栈。通过自动检测项目类型并一键生成开发域名，开发者只需几步操作即可在本地运行WordPress项目，显著提升了本地开发效率。",
+    "summary": "FlyEnv simplifies local WordPress development without manually configuring Apache, Nginx, PHP, or MySQL. By detecting project types automatically and generating development domains in one click, developers can run WordPress projects locally in only a few steps.",
     "tags": [
       "wordpress",
       "tutorial",
@@ -225,7 +225,7 @@
     "platform": "DEV.to",
     "language": "id",
     "date": "2025-11-12",
-    "summary": "作者分享了从Homebrew手动管理PHP迁移到FlyEnv（原PHPWebStudy）的6个月使用体验，重点介绍了该工具对多版本PHP切换、自动子域名配置以及集成MySQL/PostgreSQL数据库管理的便捷性，认为其是macOS上XAMPP用户的理想替代方案。",
+    "summary": "This six-month review covers a migration from managing PHP manually with Homebrew to FlyEnv, formerly PHPWebStudy. It highlights multi-version PHP switching, automatic subdomain setup, and integrated MySQL and PostgreSQL management for macOS developers moving beyond XAMPP.",
     "tags": [
       "php",
       "macos",
@@ -247,7 +247,7 @@
     "platform": "Blog",
     "language": "tr",
     "date": "2025-11-16",
-    "summary": "FlyEnv是一款颠覆性的全栈本地开发环境工具，以5美元一次性捐赠的低价提供Laragon的简洁与Docker的隔离能力。支持跨平台和PHP、Python、Node等多语言环境一键管理，实现项目级PHP版本隔离。相比XAMPP的局限和Herd的高额订阅费，它为开发者提供了极高的性价比和便捷性。",
+    "summary": "FlyEnv combines Laragon's simplicity with Docker-style isolation through a low, one-time contribution. It supports cross-platform management of PHP, Python, Node.js, and other runtimes with project-level PHP version isolation, offering a practical alternative to XAMPP and subscription-based tools.",
     "tags": [
       "comparison",
       "php",
@@ -291,7 +291,7 @@
     "platform": "Medium",
     "language": "pt",
     "date": "2025-12-02",
-    "summary": "FlyEnv是一款跨平台本地开发环境管理工具，通过图形界面集中管理PHP、Node.js多版本及MySQL等数据库。相比XAMPP和Docker，它提供更直观的版本切换、一键SSL配置和低资源消耗，并支持快速创建Laravel、WordPress等项目，显著提升开发效率。",
+    "summary": "FlyEnv is a cross-platform local development environment manager that centralizes PHP and Node.js versions alongside databases such as MySQL in a graphical interface. Compared with XAMPP and Docker, it provides more intuitive version switching, one-click SSL configuration, lower resource use, and quick Laravel and WordPress project creation.",
     "tags": [
       "tutorial",
       "comparison",
@@ -313,7 +313,7 @@
     "platform": "Medium",
     "language": "bn",
     "date": "2025-12-22",
-    "summary": "FlyEnv是一款基于asdf的跨平台GUI环境管理器，支持Node.js、PHP等运行时版本切换。作者分享了在Laravel、Vue、React、Angular、Nuxt及Next.js多栈开发中的实际使用经验，展示了如何通过FlyEnv解决版本冲突、提升开发效率。该工具让多框架项目的环境配置变得简单可靠，显著减少开发者的环境调试时间。",
+    "summary": "FlyEnv is a cross-platform GUI environment manager built on asdf, supporting version switching for Node.js, PHP, and other runtimes. The author shares practical use across Laravel, Vue, React, Angular, Nuxt, and Next.js, showing how FlyEnv resolves version conflicts and makes multi-framework environment setup more reliable.",
     "tags": [
       "laravel",
       "php",
@@ -335,7 +335,7 @@
     "platform": "Medium",
     "language": "en",
     "date": "2026-02-16",
-    "summary": "作者分享了从Docker转向FlyEnv管理Magento 2.4+本地开发环境的经验。FlyEnv通过原生运行PHP、MySQL和Redis等服务，消除了容器化开销，实现秒级PHP版本切换（8.2/8.3/8.4），并内置HTTPS支持，显著提升CLI命令执行效率，让开发者更专注于Magento本身而非基础设施维护。",
+    "summary": "This guide describes moving from Docker to FlyEnv for Magento 2.4+ local development. Running PHP, MySQL, and Redis as native services removes container overhead, enables near-instant PHP 8.2, 8.3, and 8.4 switching, and includes HTTPS support so developers can focus on Magento rather than infrastructure.",
     "tags": [
       "tutorial",
       "php",
@@ -357,7 +357,7 @@
     "platform": "Blog",
     "language": "es",
     "date": "2026-02-22",
-    "summary": "Backend开发者Germanio深入对比Laravel Herd与FlyEnv两款本地开发环境工具，详细分析它们在Laravel生态系统中的配置便捷性、功能特性及适用场景，帮助PHP开发者选择最适合的开发环境方案。",
+    "summary": "Backend developer Germanio compares Laravel Herd and FlyEnv in detail, examining setup, capabilities, and suitable scenarios across the Laravel ecosystem to help PHP developers choose the right local development environment.",
     "tags": [
       "comparison",
       "laravel",
@@ -401,7 +401,7 @@
     "platform": "Medium",
     "language": "id",
     "date": "2026-05-05",
-    "summary": "文章通过对比 Docker 与 FlyEnv，探讨在本地开发中切换 PHP 版本时是否真的需要容器技术。作者指出对于仅需管理多版本 PHP 的场景，FlyEnv 提供了更轻量、高效的解决方案，避免了 Docker 的复杂性和资源开销，特别适合处理遗留项目的版本兼容问题。",
+    "summary": "The article compares Docker and FlyEnv for local PHP version switching and asks whether containers are necessary. It argues that FlyEnv is a lighter, more efficient option for managing multiple PHP versions, avoiding Docker's configuration complexity and resource overhead, especially for legacy-project compatibility.",
     "tags": [
       "comparison",
       "docker",
@@ -423,7 +423,7 @@
     "platform": "Medium",
     "language": "en",
     "date": "2026-05-06",
-    "summary": "FlyEnv是新一代跨平台本地开发环境管理器，采用原生二进制架构避免Docker资源开销。相比Windows专属的Laragon，它支持PHP、Node、Go、Python等多语言版本一键切换，并集成Ollama本地AI助手、自动SSL证书和Cloudflare隧道。文章提供了从Laragon迁移的详细三步指南，适合追求高性能和现代化工具链的全栈开发者。",
+    "summary": "FlyEnv is a next-generation cross-platform local development environment manager that uses native binaries to avoid Docker resource overhead. Unlike Windows-only Laragon, it supports one-click version switching for PHP, Node.js, Go, Python, and other runtimes, while integrating a local Ollama AI assistant, automatic SSL certificates, and Cloudflare Tunnel.",
     "tags": [
       "laragon",
       "comparison",
@@ -445,7 +445,7 @@
     "platform": "Medium",
     "language": "id",
     "date": "2026-05-11",
-    "summary": "这是一篇从 Laragon 迁移到 FlyEnv 的 Laravel 12 深度实战教程，包含详细的步骤说明和大量截图。作者逐步演示了环境配置、服务启动和项目迁移全过程，展示了 FlyEnv 在跨平台支持、多版本 PHP 管理和简化配置方面的核心优势。",
+    "summary": "This in-depth Laravel 12 migration tutorial covers moving from Laragon to FlyEnv with detailed instructions and screenshots. It walks through environment configuration, service startup, and the complete project migration, demonstrating FlyEnv's cross-platform support, multi-version PHP management, and streamlined configuration.",
     "tags": [
       "tutorial",
       "laravel",
