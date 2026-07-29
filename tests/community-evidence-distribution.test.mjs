@@ -54,6 +54,14 @@ test('homepages use evidence, not generic testimonial components', () => {
   }
 })
 
+test('homepage developer story heading matches the shared section heading treatment', () => {
+  expectTerms('docs/components/AppCommunityEvidence/HomepageProof.vue', [
+    'no-border',
+    '!text-3xl',
+    'md:!text-[40px]'
+  ])
+})
+
 test('Community metadata, archive, and CTA are crawlable and accurate', () => {
   expectTerms('docs/community.md', [
     'title: FlyEnv Community Stories & Developer Tutorials',
