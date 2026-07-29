@@ -8,9 +8,19 @@ const read = (path) => readFileSync(resolve(process.cwd(), path), 'utf8')
 const pageTitles = {
   'docs/download.md': 'Download FlyEnv for macOS, Windows & Linux',
   'docs/zh/download.md': '下载 FlyEnv（macOS、Windows 和 Linux）',
-  'docs/license.md': 'FlyEnv Personal License',
-  'docs/zh/license.md': 'FlyEnv 个人许可证'
+  'docs/license.md': 'FlyEnv License',
+  'docs/zh/license.md': 'FlyEnv 许可证'
 }
+
+test('license page naming does not emphasize a personal license tier', () => {
+  const licensePage = [
+    read('docs/license.md'),
+    read('docs/zh/license.md'),
+    read('docs/components/AppSponsorPage/v2.vue')
+  ].join('\n')
+
+  assert.doesNotMatch(licensePage, /Personal License|个人许可证/)
+})
 
 for (const [path, title] of Object.entries(pageTitles)) {
   test(`${path} declares its route-specific document title`, () => {

@@ -349,13 +349,13 @@
     en: {
       heroTitle: 'FlyEnv License',
       heroDesc:
-        'Buy a FlyEnv Personal License for licensed access to premium features, one device activation, and continued updates. FlyEnv remains open-source and free to evaluate.',
-      licenseTitle: 'Buy FlyEnv Personal License',
+        'Buy a FlyEnv License for licensed access to premium features, one device activation, and continued updates. FlyEnv remains open-source and free to evaluate.',
+      licenseTitle: 'Buy FlyEnv License',
       licenseDesc:
         'The Paddle checkout sells a real FlyEnv software license. After payment, use your Paddle order ID in the app license request flow for activation review.',
       licenseGuide: 'Read license terms and activation guide',
       licenseGuideShort: 'License Terms',
-      paddleTitle: 'FlyEnv Personal License',
+      paddleTitle: 'FlyEnv License',
       paddleDesc: 'Software license checkout by Paddle',
       licensePriceLabel: 'Permanent license',
       paddleFeatures: [
@@ -407,13 +407,13 @@
     zh: {
       heroTitle: 'FlyEnv 许可证',
       heroDesc:
-        '购买 FlyEnv 个人许可证，可获得高级功能的授权访问、一台设备激活和持续更新。FlyEnv 仍然保持开源并可免费评估。',
-      licenseTitle: '购买 FlyEnv 个人许可证',
+        '购买 FlyEnv 许可证，可获得高级功能的授权访问、一台设备激活和持续更新。FlyEnv 仍然保持开源并可免费评估。',
+      licenseTitle: '购买 FlyEnv 许可证',
       licenseDesc:
         'Paddle 结账用于销售真实的 FlyEnv 软件许可证。付款后，请在应用内许可证申请流程中提交 Paddle 订单 ID 以便激活审核。',
       licenseGuide: '查看许可证条款与激活说明',
       licenseGuideShort: '许可证条款',
-      paddleTitle: 'FlyEnv 个人许可证',
+      paddleTitle: 'FlyEnv 许可证',
       paddleDesc: '由 Paddle 处理的软件许可证结账',
       licensePriceLabel: '永久许可证',
       paddleFeatures: [
