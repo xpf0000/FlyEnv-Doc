@@ -61,7 +61,7 @@
 
       <section class="browse-topics" :aria-labelledby="topicsId">
         <div class="section-copy">
-          <h2 :id="topicsId" class="section-heading">{{ t.browseTitle }}</h2>
+          <h2 :id="topicsId">{{ t.browseTitle }}</h2>
           <p>{{ t.browseIntro }}</p>
         </div>
         <nav class="story-filters" :aria-label="t.filterLabel">
@@ -81,9 +81,7 @@
 
       <section class="story-library" :aria-labelledby="libraryId" aria-live="polite">
         <div class="library-heading">
-          <h2 :id="libraryId" class="section-heading">
-            {{ activeFilter === 'all' ? t.libraryTitle : activeFilterLabel }}
-          </h2>
+          <h2 :id="libraryId">{{ activeFilter === 'all' ? t.libraryTitle : activeFilterLabel }}</h2>
           <p>{{ resultSummary }}</p>
         </div>
 
@@ -428,7 +426,8 @@ function formatDate(date: string) {
 }
 
 .masthead-copy h1,
-.section-heading,
+.section-copy h2,
+.library-heading h2,
 .story-empty h3 {
   color: var(--community-ink);
   margin: 0;
@@ -493,7 +492,7 @@ function formatDate(date: string) {
   display: grid;
   gap: 2rem;
   grid-template-columns: 10rem minmax(0, 1fr) auto;
-  padding: 3rem 0;
+  padding: 3rem 0 3.75rem;
 }
 
 .lead-marker {
@@ -637,32 +636,19 @@ function formatDate(date: string) {
   transform: translateY(-2px);
 }
 
-.browse-topics,
-.story-library {
-  border-top: 1px solid var(--community-line);
-}
-
 .browse-topics {
   display: grid;
   gap: 1.5rem;
-  padding: 3.25rem 0;
+  padding: 0 0 3.75rem;
 }
 
-.section-heading {
-  align-items: center;
-  display: flex;
-  gap: 0.8rem;
+.section-copy h2,
+.library-heading h2 {
+  border-top: 0;
   font-size: clamp(1.6rem, 3vw, 2.25rem);
   letter-spacing: -0.035em;
   line-height: 1.1;
-}
-
-.section-heading::before {
-  background: linear-gradient(180deg, #41d1ff, #bd34fe);
-  border-radius: 999px;
-  content: '';
-  flex: 0 0 0.22rem;
-  height: 1.12em;
+  padding-top: 0;
 }
 
 .section-copy p,
@@ -731,7 +717,7 @@ function formatDate(date: string) {
 }
 
 .story-library {
-  padding-top: 3.25rem;
+  padding-top: 0;
 }
 
 .library-heading {
@@ -930,7 +916,7 @@ function formatDate(date: string) {
 
   .lead-story {
     gap: 1.4rem;
-    padding: 2.5rem 0;
+    padding: 2.5rem 0 3rem;
   }
 
   .lead-title {
@@ -944,11 +930,11 @@ function formatDate(date: string) {
   }
 
   .browse-topics {
-    padding: 2.75rem 0 2rem;
+    padding: 0 0 3rem;
   }
 
   .story-library {
-    padding-top: 2.75rem;
+    padding-top: 0;
   }
 
   .story-grid {

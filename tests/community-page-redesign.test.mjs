@@ -43,10 +43,12 @@ test('English community stories do not render Chinese copy', () => {
   }
 })
 
-test('community section headings are anchored to a single section divider', () => {
+test('community sections use whitespace rather than competing decorative dividers', () => {
   const source = read('docs/components/AppCommunityPosts/index.vue')
 
-  assert.match(source, /class="section-heading"/)
-  assert.match(source, /\.section-heading::before/)
-  assert.match(source, /\.browse-topics,\n\.story-library \{\n  border-top: 1px solid var\(--community-line\)/)
+  assert.doesNotMatch(source, /class="section-heading"/)
+  assert.doesNotMatch(source, /\.section-heading::before/)
+  assert.doesNotMatch(source, /\.browse-topics,\n\.story-library \{\n  border-top: 1px solid var\(--community-line\)/)
+  assert.match(source, /\.section-copy h2,\n\.library-heading h2 \{\n  border-top: 0;/)
+  assert.match(source, /\.section-copy h2,\n\.library-heading h2 \{[\s\S]*?padding-top: 0;/)
 })
