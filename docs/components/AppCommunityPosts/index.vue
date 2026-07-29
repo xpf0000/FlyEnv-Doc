@@ -376,14 +376,15 @@ function formatDate(date: string) {
 
 <style scoped>
 .community-library {
-  --community-ink: #12312d;
-  --community-muted: #61736f;
-  --community-line: #d7e2de;
-  --community-surface: #f4f8f6;
-  --community-panel: #e5efeb;
-  --community-accent: #0b7667;
-  --community-accent-deep: #075c50;
-  --community-accent-soft: #d5ece5;
+  --community-ink: #303242;
+  --community-muted: #686b7d;
+  --community-line: #e2e5f0;
+  --community-surface: #f7f8ff;
+  --community-panel: #eef0ff;
+  --community-accent: #646cff;
+  --community-accent-deep: #4d56d9;
+  --community-accent-soft: #e3e6ff;
+  --community-hero-background: linear-gradient(120deg, #41d1ff1f 0%, #f8faff 46%, #bd34fe1c 100%);
   color: var(--community-ink);
   padding: 3rem 0 5rem;
 }
@@ -397,7 +398,7 @@ function formatDate(date: string) {
 
 .story-masthead {
   align-items: end;
-  background: var(--community-surface);
+  background: var(--community-hero-background);
   border: 1px solid var(--community-line);
   border-radius: 1rem;
   display: grid;
@@ -624,7 +625,7 @@ function formatDate(date: string) {
 .lead-action {
   align-self: start;
   background: var(--community-accent);
-  color: #f5fffc;
+  color: #f9faff;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   white-space: nowrap;
@@ -632,7 +633,7 @@ function formatDate(date: string) {
 
 .lead-action:hover {
   background: var(--community-accent-deep);
-  color: #f5fffc;
+  color: #f9faff;
   transform: translateY(-2px);
 }
 
@@ -711,8 +712,8 @@ function formatDate(date: string) {
 
 .story-filters button.selected span,
 .story-filters button:hover span {
-  background: rgba(245, 255, 252, 0.2);
-  color: #f5fffc;
+  background: rgba(249, 250, 255, 0.2);
+  color: #f9faff;
 }
 
 .story-library {
@@ -750,7 +751,7 @@ function formatDate(date: string) {
 
 .story-card:hover {
   border-color: color-mix(in srgb, var(--community-accent) 45%, var(--community-line));
-  box-shadow: 0 1rem 2rem -1.65rem rgba(8, 57, 49, 0.45);
+  box-shadow: 0 1rem 2rem -1.65rem rgba(74, 86, 217, 0.28);
   transform: translateY(-3px);
 }
 
@@ -844,22 +845,23 @@ function formatDate(date: string) {
 }
 
 .dark .community-library {
-  --community-ink: #e4efeb;
-  --community-muted: #9eb4ad;
-  --community-line: #2b4942;
-  --community-surface: #112a25;
-  --community-panel: #1d4038;
-  --community-accent: #36a994;
-  --community-accent-deep: #74d4c1;
-  --community-accent-soft: #1c4940;
+  --community-ink: #f0f1ff;
+  --community-muted: #afb4d2;
+  --community-line: #30365d;
+  --community-surface: #151a3d;
+  --community-panel: #202657;
+  --community-accent: #8b90ff;
+  --community-accent-deep: #c3c6ff;
+  --community-accent-soft: #2e3574;
+  --community-hero-background: linear-gradient(120deg, #172e60 0%, #151a3d 48%, #38245f 100%);
 }
 
 .dark .lead-action {
-  color: #06231d;
+  color: #151936;
 }
 
 .dark .lead-action:hover {
-  color: #06231d;
+  color: #151936;
 }
 
 @media (max-width: 900px) {

@@ -57,11 +57,11 @@ const t = computed(() =>
 
 <style scoped>
 .community-contribute {
-  --contribute-ink: #12312d;
-  --contribute-muted: #61736f;
-  --contribute-line: #d7e2de;
-  --contribute-panel: #e5efeb;
-  --contribute-accent: #0b7667;
+  --contribute-ink: #303242;
+  --contribute-muted: #686b7d;
+  --contribute-line: #e2e5f0;
+  --contribute-panel: #eef0ff;
+  --contribute-accent: #646cff;
   margin: 0 auto;
   max-width: 78rem;
   padding: 0 1.5rem 4.5rem;
@@ -107,7 +107,7 @@ const t = computed(() =>
   align-items: center;
   background: var(--contribute-accent);
   border-radius: 999px;
-  color: #f5fffc;
+  color: #f9faff;
   display: inline-flex;
   font-size: 0.88rem;
   font-weight: 700;
@@ -119,8 +119,8 @@ const t = computed(() =>
 }
 
 .contribute-action:hover {
-  background: #075c50;
-  color: #f5fffc;
+  background: #4d56d9;
+  color: #f9faff;
   transform: translateY(-2px);
 }
 
@@ -134,16 +134,16 @@ const t = computed(() =>
 }
 
 .dark .community-contribute {
-  --contribute-ink: #e4efeb;
-  --contribute-muted: #9eb4ad;
-  --contribute-line: #2b4942;
-  --contribute-panel: #112a25;
-  --contribute-accent: #36a994;
+  --contribute-ink: #f0f1ff;
+  --contribute-muted: #afb4d2;
+  --contribute-line: #30365d;
+  --contribute-panel: #202657;
+  --contribute-accent: #8b90ff;
 }
 
 .dark .contribute-action,
 .dark .contribute-action:hover {
-  color: #06231d;
+  color: #151936;
 }
 
 @media (max-width: 767px) {

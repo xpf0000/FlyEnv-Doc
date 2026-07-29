@@ -22,3 +22,15 @@ test('the post library has the editorial interaction hooks', () => {
     assert.ok(source.includes(hook), `missing ${hook}`)
   }
 })
+
+test('community surfaces use the homepage blue and violet brand palette', () => {
+  const posts = read('docs/components/AppCommunityPosts/index.vue')
+  const channels = read('docs/components/AppCommunityChannels/index.vue')
+  const cta = read('docs/components/AppCommunityCTA/index.vue')
+
+  assert.match(posts, /--community-accent: #646cff/)
+  assert.match(posts, /--community-hero-background: linear-gradient\([^)]*#41d1ff[^)]*#bd34fe/)
+  assert.match(channels, /--channel-accent: #646cff/)
+  assert.match(cta, /--contribute-accent: #646cff/)
+  assert.doesNotMatch(`${posts}\n${channels}\n${cta}`, /#0b7667|#12312d|#f4f8f6/)
+})

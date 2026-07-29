@@ -83,11 +83,11 @@ const channels = computed(() => [
 
 <style scoped>
 .community-channels {
-  --channel-ink: #12312d;
-  --channel-muted: #61736f;
-  --channel-line: #d7e2de;
-  --channel-surface: #f4f8f6;
-  --channel-accent: #0b7667;
+  --channel-ink: #303242;
+  --channel-muted: #686b7d;
+  --channel-line: #e2e5f0;
+  --channel-surface: #f7f8ff;
+  --channel-accent: #646cff;
   margin: 0 auto;
   max-width: 78rem;
   padding: 0 1.5rem 4rem;
@@ -138,13 +138,13 @@ const channels = computed(() => [
 
 .channel-card.is-link:hover {
   border-color: color-mix(in srgb, var(--channel-accent) 45%, var(--channel-line));
-  box-shadow: 0 1rem 2rem -1.65rem rgba(8, 57, 49, 0.42);
+  box-shadow: 0 1rem 2rem -1.65rem rgba(74, 86, 217, 0.26);
   transform: translateY(-3px);
 }
 
 .channel-mark {
   align-items: center;
-  background: var(--channel-ink);
+  background: var(--channel-accent);
   border-radius: 0.55rem;
   color: #f5fffc;
   display: inline-flex;
@@ -194,15 +194,15 @@ const channels = computed(() => [
 }
 
 .dark .community-channels {
-  --channel-ink: #e4efeb;
-  --channel-muted: #9eb4ad;
-  --channel-line: #2b4942;
-  --channel-surface: #112a25;
-  --channel-accent: #74d4c1;
+  --channel-ink: #f0f1ff;
+  --channel-muted: #afb4d2;
+  --channel-line: #30365d;
+  --channel-surface: #151a3d;
+  --channel-accent: #8b90ff;
 }
 
 .dark .channel-mark {
-  color: #08251f;
+  color: #151936;
 }
 
 @media (max-width: 900px) {
