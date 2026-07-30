@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root { --ink:#18213a; --muted:#6e7891; --line:#dfe5f1; --paper:#fff; --blue:#4f46e5; --violet:#7c3aed; --cyan:#0ea5e9; --orange:#f97316; }
+      *{box-sizing:border-box} body{margin:0;padding:36px;background:#eef2f9;color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif} h1{margin:0 0 8px;font-size:28px}.intro{margin:0 0 26px;color:var(--muted);line-height:1.65}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.choice{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:0 14px 35px rgba(30,47,85,.08);cursor:pointer;transition:.2s ease}.choice:hover,.choice.selected{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 20px 45px rgba(79,70,229,.18)}.choice.selected{outline:3px solid rgba(79,70,229,.14)}.preview{min-height:340px;padding:19px;background:#fafbff;border-bottom:1px solid var(--line)}.choice-body{padding:18px}.choice-body h2{margin:0 0 7px;font-size:18px;border:0;padding:0}.choice-body p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}.recommend{position:absolute;margin:10px;z-index:1;border-radius:99px;padding:5px 9px;background:#141b33;color:#fff;font-size:10px;font-weight:800}.h2{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px;font-weight:800;font-size:16px;border:0!important;padding:0!important}.h2 small{color:var(--blue);font-size:10px}.subtitle{margin:-6px 0 14px;color:var(--muted);font-size:10px}.meta{display:flex;align-items:center;gap:6px;margin-top:14px;color:#7c869b;font-size:9px}.avatar{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font-weight:800;color:#fff;background:linear-gradient(145deg,#4f46e5,#9f67ff)}.title{font-weight:800;line-height:1.38}.summary{color:var(--muted);font-size:10px;line-height:1.55}.tag{display:inline-block;padding:4px 7px;border-radius:99px;font-size:8px;font-weight:800;letter-spacing:.04em}.actions{display:flex;gap:13px;margin-top:13px;font-size:9px;font-weight:800}.actions b{color:var(--blue)}.actions span{color:#4b5871}
+      .a-card{position:relative;overflow:hidden;padding:20px;border-radius:15px;background:linear-gradient(145deg,#1e1b4b,#4338ca 60%,#0891b2);color:#fff}.a-card:after{content:"";position:absolute;right:-40px;bottom:-55px;width:150px;height:150px;border:30px solid rgba(255,255,255,.12);border-radius:50%}.a-card .tag{color:#dce7ff;background:rgba(255,255,255,.14)}.a-card .summary,.a-card .meta{color:#d8e0ff}.a-card .actions b{color:#fff}.a-card .actions span{color:#d8e0ff}.a-card .avatar{background:#fff;color:#4f46e5}
+      .b-card{position:relative;padding:20px 20px 18px 25px;border:1px solid #dfe4f2;border-radius:15px;background:#fff;box-shadow:0 10px 22px rgba(42,55,92,.08)}.b-card:before{content:"";position:absolute;left:0;top:17px;bottom:17px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(#5b5cf0,#43b7e9)}.b-card .tag{color:#4f46e5;background:#eff0ff}.b-card .title{font-size:17px}.b-card .summary{margin:9px 0 0}.b-card .divider{height:1px;margin:14px 0 0;background:#edf0f6}.b-card .actions{margin-top:12px}
+      .c-card{padding:18px;border-radius:15px;border:1px solid #e4e8f0;background:#f7f9fc}.c-source{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;color:#56637d;font-size:10px;font-weight:800}.c-source b{color:#111b34}.c-card .tag{color:#b75d22;background:#fff0e7}.c-card .title{font-size:16px}.c-card .summary{margin:9px 0}.c-card .quote{margin:14px 0 0;padding:10px 12px;border-left:2px solid #f2b185;background:#fff;color:#59647a;font-size:10px;line-height:1.55}.c-card .actions{margin-top:13px}
+      @media(max-width:900px){body{padding:18px}.choices{grid-template-columns:1fr}.preview{min-height:245px}}
+    </style>
+  </head>
+  <body>
+    <h1>Community：卡片该用哪种视觉语言？</h1>
+    <p class="intro">三种都会保留可核验的标题、来源、语言、日期和两个去向；所有 H2 都会去掉 VitePress 默认上边框。点击你偏好的卡片。</p>
+    <div class="choices">
+      <article class="choice" data-choice="a" onclick="toggleSelect(this)">
+        <div class="preview"><div class="h2">Featured story <small>无上边框</small></div><p class="subtitle">How developers use FlyEnv in real local work</p><div class="a-card"><span class="tag">LINUX · MULTIPLE PHP VERSIONS</span><div class="title" style="font-size:18px;margin-top:12px">FlyEnv on Linux Actually Fixed My PHP Version Headache</div><p class="summary">A Linux Mint developer explains how they manage legacy and current PHP projects alongside local services.</p><div class="meta"><span class="avatar">A</span> Azka Thoyyib · Medium · EN · Jul 19, 2026</div><div class="actions"><b>阅读原文 ↗</b><span>相关指南 →</span></div></div></div>
+        <div class="choice-body"><h2>A. 深色渐变 Highlight</h2><p>冲击力强，适合一张 Featured；但如果列表多数卡片也用，容易偏营销感，并抢走原文的注意力。</p></div>
+      </article>
+      <article class="choice" data-choice="b" onclick="toggleSelect(this)">
+        <div class="recommend">推荐</div><div class="preview"><div class="h2">Featured story <small>无上边框</small></div><p class="subtitle">How developers use FlyEnv in real local work</p><div class="b-card"><span class="tag">LINUX · MULTIPLE PHP VERSIONS</span><div class="title" style="margin-top:12px">FlyEnv on Linux Actually Fixed My PHP Version Headache</div><p class="summary">A Linux Mint developer explains how they manage legacy and current PHP projects alongside local services.</p><div class="divider"></div><div class="meta"><span class="avatar">A</span> Azka Thoyyib · Medium · EN · Jul 19, 2026</div><div class="actions"><b>阅读原文 ↗</b><span>相关指南 →</span></div></div></div>
+        <div class="choice-body"><h2>B. 编辑型高亮卡</h2><p>以细色条、层次化元数据和克制阴影提升质感。Featured 放大，普通故事缩小复用，既好看又保留资料库的可信度。</p></div>
+      </article>
+      <article class="choice" data-choice="c" onclick="toggleSelect(this)">
+        <div class="preview"><div class="h2">Featured story <small>无上边框</small></div><p class="subtitle">How developers use FlyEnv in real local work</p><div class="c-card"><div class="c-source"><span>MEDIUM · EN</span><b>公开来源</b></div><span class="tag">LINUX LOCAL DEVELOPMENT</span><div class="title" style="margin-top:12px">FlyEnv on Linux Actually Fixed My PHP Version Headache</div><p class="summary">A Linux Mint developer explains how they manage legacy and current PHP projects.</p><div class="quote">“将作者的编辑摘要作为证据注释，而不伪装成用户原话。”</div><div class="actions"><b>阅读原文 ↗</b><span>相关指南 →</span></div></div></div>
+        <div class="choice-body"><h2>C. 研究笔记卡</h2><p>来源和编辑摘要的区分最强，适合强调 E-E-A-T；但整体会更像文档，页面活力和浏览效率略低。</p></div>
+      </article>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root { --ink:#17213a; --muted:#68738b; --line:#dce3f1; --paper:#fff; --wash:#f5f7ff; --blue:#4f46e5; --cyan:#0ea5e9; --orange:#ff8a4c; }
+      * { box-sizing:border-box; } body { margin:0; padding:36px; background:#eef2f9; color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; }
+      h1 { margin:0 0 8px; font-size:28px; } .intro { margin:0 0 26px; color:var(--muted); line-height:1.65; }
+      .choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; } .choice { overflow:hidden; border:1px solid var(--line); border-radius:18px; background:var(--paper); box-shadow:0 14px 35px rgba(30,47,85,.08); cursor:pointer; transition:.2s ease; }
+      .choice:hover,.choice.selected { transform:translateY(-4px); border-color:var(--blue); box-shadow:0 20px 45px rgba(79,70,229,.18); } .choice.selected { outline:3px solid rgba(79,70,229,.14); }
+      .preview { min-height:300px; padding:17px; background:#fbfcff; border-bottom:1px solid var(--line); } .label { display:inline-flex; align-items:center; padding:4px 9px; border-radius:99px; background:#e9edff; color:#5149c7; font-size:10px; font-weight:800; letter-spacing:.05em; }
+      .choice-body { padding:18px; } .choice-body h2 { margin:0 0 7px; font-size:18px; border:0; padding:0; } .choice-body p { margin:0; color:var(--muted); line-height:1.6; font-size:13px; }
+      .mini-hero { padding:15px; border-radius:12px; background:linear-gradient(130deg,#172554,#4f46e5 72%,#0ea5e9); color:#fff; } .mini-hero b { display:block; font-size:18px; margin:8px 0 4px; } .mini-hero small { color:#dce7ff; font-size:10px; line-height:1.5; }
+      .mini-stats { display:flex; gap:7px; margin:11px 0; } .mini-stats span { flex:1; padding:8px 4px; border-radius:8px; background:#fff; border:1px solid var(--line); text-align:center; font-size:10px; color:var(--muted); } .mini-stats b { display:block; color:var(--ink); font-size:14px; }
+      .mini-tabs { display:flex; gap:5px; overflow:hidden; margin:10px 0; } .mini-tabs span { white-space:nowrap; padding:5px 8px; border-radius:99px; border:1px solid var(--line); color:var(--muted); font-size:9px; } .mini-tabs span:first-child { color:#fff; border-color:var(--blue); background:var(--blue); }
+      .section-title { display:flex; align-items:center; justify-content:space-between; margin:13px 0 8px; font-size:12px; font-weight:800; } .section-title:after { content:""; display:none; } .section-title small { color:var(--blue); font-weight:700; }
+      .story { padding:11px; background:#fff; border:1px solid var(--line); border-radius:10px; } .story .tag { display:inline-block; margin-bottom:7px; color:#3b82f6; font-size:9px; font-weight:800; } .story b { display:block; font-size:11px; line-height:1.4; } .story p { margin:6px 0 0; color:var(--muted); font-size:9px; line-height:1.5; } .story footer { margin-top:8px; color:#8992a5; font-size:8px; }
+      .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; } .cards .story { min-height:107px; padding:9px; } .cards .story b { font-size:9px; }.cards .story p { display:none; }
+      .magazine { display:grid; grid-template-columns:1.5fr 1fr; gap:8px; }.side { display:grid; gap:8px; }.side .story { padding:9px; }.side .story b { font-size:9px; }.side .story p { display:none; }
+      .workflow { display:flex; gap:6px; margin:10px 0; }.workflow span { flex:1; padding:7px 4px; border-radius:8px; text-align:center; background:#f1f4ff; color:#5f60a8; font-size:8px; font-weight:700; } .workflow span:nth-child(2) { background:#effbff; color:#2788ad; }.workflow span:nth-child(3) { background:#fff4ec; color:#c86a34; }
+      .recommended { position:absolute; margin:10px; z-index:1; background:#111a33; color:#fff; padding:5px 9px; border-radius:99px; font-size:10px; font-weight:800; }
+      @media (max-width:900px){ body{padding:18px}.choices{grid-template-columns:1fr}.preview{min-height:230px;} }
+    </style>
+  </head>
+  <body>
+    <h1>Community：哪种整体结构更对？</h1>
+    <p class="intro">三种方向都保留原有文章、筛选和统计；区别在于它们如何把“真实使用证据”组织成一个统一页面。点击一张卡片选方向。</p>
+    <div class="choices">
+      <article class="choice" data-choice="a" onclick="toggleSelect(this)">
+        <div class="preview">
+          <div class="mini-hero"><span class="label">COMMUNITY</span><b>FlyEnv Community Stories</b><small>真实文章、教程与评测</small></div>
+          <div class="mini-stats"><span><b>25</b>文章</span><span><b>18</b>作者</span><span><b>8</b>语言</span></div>
+          <div class="mini-tabs"><span>全部</span><span>Docker</span><span>Laravel</span><span>Linux</span></div>
+          <div class="section-title">Featured Community Story</div>
+          <div class="story"><span class="tag">MOVING FROM XAMPP</span><b>Mencoba FlyEnv Setelah Lama Menggunakan XAMPP</b><p>原文标题、摘要和来源信息保留。</p><footer>I Putu Sutha Satyawan · Medium · ID</footer></div>
+        </div>
+        <div class="choice-body"><h2>A. 精修现有结构</h2><p>保持顶部统计、筛选、Featured、Trending 和分组文章；只换更有层次的卡片和无边框标题。改动最小，但页面仍偏“目录”。</p></div>
+      </article>
+      <article class="choice" data-choice="b" onclick="toggleSelect(this)">
+        <div class="recommended">推荐</div>
+        <div class="preview">
+          <div class="mini-hero"><span class="label">DEVELOPER STORIES</span><b>How developers use FlyEnv</b><small>按真实开发问题发现公开经验</small></div>
+          <div class="workflow"><span>迁移 XAMPP / Laragon</span><span>多版本运行时</span><span>Linux 本地开发</span></div>
+          <div class="section-title">Featured story <small>阅读原文 ↗</small></div>
+          <div class="story"><span class="tag">MULTIPLE PHP VERSIONS</span><b>FlyEnv on Linux Actually Fixed My PHP Version Headache</b><p>以高信息密度的编辑卡片呈现作者、平台、语言、时间与可验证摘要。</p><footer>Azka Thoyyib · Medium · EN · Jul 19, 2026</footer></div>
+          <div class="section-title">More developer stories <small>全部文章</small></div>
+          <div class="cards"><div class="story"><span class="tag">XAMPP</span><b>Long-standing XAMPP workflow</b></div><div class="story"><span class="tag">LARAGON</span><b>Everyday Laravel project work</b></div><div class="story"><span class="tag">LINUX</span><b>Local services without resets</b></div></div>
+        </div>
+        <div class="choice-body"><h2>B. 编辑型 Community Hub</h2><p>把“场景”做成紧凑的导航，而不是额外一组同类卡片；Featured 成为一个有分量的故事，原有归档紧随其后。更像产品的证据中心。</p></div>
+      </article>
+      <article class="choice" data-choice="c" onclick="toggleSelect(this)">
+        <div class="preview">
+          <div class="mini-hero"><span class="label">COMMUNITY JOURNAL</span><b>FlyEnv in the wild</b><small>全球开发者的公开体验</small></div>
+          <div class="section-title">This week in the community</div>
+          <div class="magazine"><div class="story"><span class="tag">COVER STORY</span><b>Why I Finally Switched from Laragon to FlyEnv</b><p>把一篇故事做成封面卡，正文入口最强。</p><footer>Rafy Aulia Akbar · Medium</footer></div><div class="side"><div class="story"><span class="tag">LINUX</span><b>Version headache fixed</b></div><div class="story"><span class="tag">MACOS</span><b>All-in-one local setup</b></div></div></div>
+          <div class="mini-tabs"><span>最新</span><span>评测</span><span>教程</span><span>视频</span></div>
+        </div>
+        <div class="choice-body"><h2>C. 杂志型展示</h2><p>用封面故事与次要故事制造更强的视觉节奏。更有“内容品牌”感，但会弱化文章库的扫描和筛选效率。</p></div>
+      </article>
+    </div>
+  </body>
+</html>
