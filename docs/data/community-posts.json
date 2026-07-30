@@ -539,5 +539,27 @@
     "featured": false,
     "quality_score": 85,
     "relevance_score": 10
+  },
+  {
+    "id": "flyenv-install-ruby-jekyll-local-development",
+    "title": "FlyEnv: Cara Install Ruby dan Jekyll Setup Local Development",
+    "url": "https://blog.kiki.my.id/flyenv-cara-install-ruby-dan-jekyll-setup-local-development/",
+    "author": "Kiki",
+    "platform": "Miftakhuddin's Blog",
+    "language": "id",
+    "date": "2026-07-29",
+    "summary": "A step-by-step Windows tutorial for installing Ruby with FlyEnv, preparing the GCC and Make toolchain required by Jekyll, installing project dependencies, and running a Jekyll site locally or as a FlyEnv Ruby Project service.",
+    "tags": [
+      "tutorial",
+      "windows",
+      "ruby",
+      "jekyll"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 100,
+    "relevance_score": 10,
+    "seoTitle": "FlyEnv Ruby and Jekyll Setup Guide for Windows Local Development",
+    "seoSummary": "Set up Ruby and Jekyll on Windows with FlyEnv. Install Ruby, configure the GCC and Make toolchain, install Jekyll dependencies, and run your local site as a FlyEnv service."
   }
 ]

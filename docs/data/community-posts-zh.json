@@ -214,5 +214,28 @@
     "featured": false,
     "quality_score": 80,
     "relevance_score": 9
+  },
+  {
+    "id": "csdn-163329080",
+    "title": "FlyEnv 本地开发集成环境的六边形战士",
+    "url": "https://blog.csdn.net/toptopdj/article/details/163329080",
+    "author": "玖音",
+    "platform": "CSDN",
+    "language": "zh",
+    "date": "2026-07-30",
+    "summary": "一篇面向 PHP 开发者的 FlyEnv 综合评测与上手指南，比较了 XAMPP、Laragon、MAMP、Valet 和 Docker 等本地开发方案，并提供服务启动、站点配置、PHP 版本切换、证书、端口与 hosts 问题的排查建议。作者还提出了增加 enable-php-*.php 配置入口的具体改进建议。",
+    "tags": [
+      "review",
+      "tutorial",
+      "php",
+      "docker",
+      "xampp"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 80,
+    "relevance_score": 9,
+    "seoTitle": "FlyEnv 本地开发环境评测与 PHP 上手指南",
+    "seoSummary": "面向 PHP 开发者的 FlyEnv 评测与上手指南：比较 XAMPP、Laragon、MAMP、Valet 和 Docker，并涵盖服务、站点、PHP 版本、证书及端口排查。"
   }
 ]

@@ -272,7 +272,7 @@
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
       <span class="shrink-0 select-text">Runtime</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-2">
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/bun.svg" />
       </div>
       <span class="shrink-0 select-text">Bun</span>
@@ -281,7 +281,7 @@
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
       <span class="shrink-0 select-text">Runtime</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-3">
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="../SVG/Deno.svg" />
       </div>
       <span class="shrink-0 select-text">Deno</span>
@@ -430,7 +430,7 @@
       class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
       <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Search Engine</span>
-      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-3">
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="/home/zincsearch.png" />
       </div>
       <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">ZincSearch</span>
