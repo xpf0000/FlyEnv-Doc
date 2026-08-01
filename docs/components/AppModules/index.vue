@@ -268,15 +268,21 @@
       </div>
       <span class="shrink-0 select-text">Zig</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Bun Local Runtime Setup with FlyEnv: Manage Versions, Projects, and Local Services"
+      href="https://youtu.be/lu68kw8_3dY"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Runtime</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Runtime</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/bun.svg" />
       </div>
-      <span class="shrink-0 select-text">Bun</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Bun</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -342,10 +348,13 @@
     </div>
   </template>
   <template v-else-if="type === 4">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Run Numa Locally with FlyEnv | Install, Enable & Monitor"
+      href="https://youtu.be/0qfnkr5V7eE"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">DNS</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">DNS</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-5">
         <span style="font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 400;
@@ -356,8 +365,11 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;">Numa</span>
       </div>
-      <span class="shrink-0 select-text">Numa</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Numa</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -627,15 +639,21 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="CLIProxyAPI Local AI Gateway - Providers, OAuth & API Keys in FlyEnv"
+      href="https://youtu.be/RmSl4jgmEyI"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">AI Gateway</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI Gateway</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <span class="text-[20px] font-bold text-[#3451b2]">CLIProxyAPI</span>
       </div>
-      <span class="shrink-0 select-text text-center">CLIProxyAPI</span>
-    </div>
+      <span class="shrink-0 select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">CLIProxyAPI</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 8">
     <a
@@ -701,33 +719,51 @@
     </div>
   </template>
   <template v-else-if="type === 11">
-      <div
-        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      <a
+        title="Native Local Nacos for Service Discovery and Config In FlyEnv — No Docker"
+        href="https://youtu.be/8ceC7QqY4UA"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
       >
-        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">Service Governance</span>
         <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
           <img src="../SVG/R-NACOS.svg" />
         </div>
-        <span class="shrink-0 select-text">R-NACOS</span>
-      </div>
-      <div
-        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+        <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">R-NACOS</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
+      <a
+        title="Run Consul Locally Without Docker - FlyEnv Consul Module Demo"
+        href="https://youtu.be/pa0QFgpu17w"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
       >
-        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">Service Governance</span>
         <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
           <img src="../SVG/Consul.svg" />
         </div>
-        <span class="shrink-0 select-text">Consul</span>
-      </div>
-      <div
-        class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+        <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Consul</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
+      <a
+        title="Native Local etcd Setup Without Docker - Install, Start and Monitor with FlyEnv"
+        href="https://youtu.be/xsw8BQxii10"
+        target="_blank"
+        class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
       >
-        <span class="shrink-0 select-text truncate">Service Governance</span>
+        <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">Service Governance</span>
         <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
           <img src="../SVG/etcd.svg" />
         </div>
-        <span class="shrink-0 select-text">Etcd</span>
-      </div>
+        <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Etcd</span>
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+        </div>
+      </a>
       <a
         title="Temporal Local Development in One Click — FlyEnv Native Service"
         href="https://youtu.be/E_jetPnVxBo"

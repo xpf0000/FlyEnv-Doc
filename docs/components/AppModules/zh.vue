@@ -268,15 +268,21 @@
       </div>
       <span class="shrink-0 select-text">Zig</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Bun 本地开发环境怎么配？用 FlyEnv 一次管理 | Bun多版本共存与项目配置演示"
+      href="https://www.bilibili.com/video/BV1GtGG6dE6y/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">运行时</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">运行时</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/bun.svg" />
       </div>
-      <span class="shrink-0 select-text">Bun</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Bun</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -342,10 +348,13 @@
     </div>
   </template>
   <template v-else-if="type === 4">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="FlyEnv Numa 模块演示：本地安装、启动与状态监控"
+      href="https://www.bilibili.com/video/BV1SeGG6DEHS/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">DNS</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">DNS</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center p-5">
         <span style="font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 400;
@@ -356,8 +365,11 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;">Numa</span>
       </div>
-      <span class="shrink-0 select-text">Numa</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Numa</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -627,15 +639,21 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="CLIProxyAPI 本地管理中心演示：供应商、OAuth、API Key 一站式管理"
+      href="https://www.bilibili.com/video/BV1biGG6nEYz/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">AI 网关</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">AI 网关</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <span class="text-[20px] font-bold text-[#3451b2]">CLIProxyAPI</span>
       </div>
-      <span class="shrink-0 select-text text-center">CLIProxyAPI</span>
-    </div>
+      <span class="shrink-0 select-text text-center text-[#3c3c43] dark:text-[#dfdff6]">CLIProxyAPI</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 8">
     <a
@@ -701,33 +719,51 @@
     </div>
   </template>
   <template v-else-if="type === 11">
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="不用 Docker，本地原生运行 Nacos — FlyEnv 一键安装与控制台演示"
+      href="https://www.bilibili.com/video/BV1XuGV6oECA/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text truncate">服务治理</span>
+      <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">服务治理</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
         <img src="../SVG/R-NACOS.svg" />
       </div>
-      <span class="shrink-0 select-text">R-NACOS</span>
-    </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">R-NACOS</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+    <a
+      title="FlyEnv Consul 模块：本地一键启动服务发现与 KV 管理"
+      href="https://www.bilibili.com/video/BV1vNGV68EF4/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text truncate">服务治理</span>
+      <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">服务治理</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
         <img src="../SVG/Consul.svg" />
       </div>
-      <span class="shrink-0 select-text">Consul</span>
-    </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Consul</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
+    <a
+      title="本地运行 etcd 不用手动配置 一键安装、原生启动、实时日志：FlyEnv etcd 模块演示"
+      href="https://www.bilibili.com/video/BV1eKGV6fEB5/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text truncate">服务治理</span>
+      <span class="shrink-0 select-text truncate text-[#3c3c43] dark:text-[#dfdff6]">服务治理</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full px-4">
         <img src="../SVG/etcd.svg" />
       </div>
-      <span class="shrink-0 select-text">Etcd</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Etcd</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <a
       title="不用 Docker，本地一键运行 Temporal — FlyEnv 原生本地环境"
       href="https://www.bilibili.com/video/BV1TD3c67Eei/"
