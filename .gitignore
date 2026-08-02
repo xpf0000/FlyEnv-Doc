@@ -44,6 +44,4 @@ package.lock.json
 /md
 /test
 /.worktrees/
-/.youtube-analytics/
-/reports/youtube/
 .flyenv

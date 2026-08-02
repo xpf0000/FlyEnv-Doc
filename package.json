@@ -12,8 +12,6 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "test": "node --test tests/*.test.mjs",
-    "youtube:report": "node scripts/youtube-analytics-report.mjs",
     "docs:zh:dev": "vitepress dev docsZH",
     "docs:zh:build": "vitepress build docsZH",
     "docs:zh:preview": "vitepress preview docsZH"

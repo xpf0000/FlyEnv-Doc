@@ -116,7 +116,6 @@ export default defineConfigWithTheme({
                 // 新增：截取 mailhog alternative 流量
                 { text: 'Local Email Testing (Mailpit)', link: '/guide/local-email-testing-mailpit' },
                 { text: 'Code Playground & Library', link: '/guide/code-playground-and-code-library' },
-                { text: 'YouTube Private Channel Analytics', link: '/guide/youtube-private-channel-analytics' },
               ],
               collapsed: false
             },
@@ -209,7 +208,6 @@ export default defineConfigWithTheme({
                 { text: 'Cloudflare Tunnel 内网穿透', link: '/zh/guide/cloudflare-tunnel-local-development' },
                 { text: '本地邮件测试 (Mailpit)', link: '/zh/guide/local-email-testing-mailpit' },
                 { text: '代码演练场 & 代码图书馆', link: '/zh/guide/code-playground-and-code-library.md' },
-                { text: 'YouTube 私人频道数据分析', link: '/zh/guide/youtube-private-channel-analytics' },
               ],
               collapsed: false
             },
