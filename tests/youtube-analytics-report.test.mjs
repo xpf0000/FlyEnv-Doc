@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {
+  fetchAnalyticsRows,
+  getVideoMetadata,
   normalizeAnalyticsRows,
   renderMarkdownReport,
   resolveDateRange
@@ -53,4 +55,64 @@ test('renders every required report section and escapes Markdown table values', 
     assert.match(markdown, new RegExp(heading))
   }
   assert.ok(markdown.includes('A \\| B'))
+})
+
+test('paginates Analytics rows for the authorized channel', async () => {
+  const urls = []
+  const payloads = [
+    {
+      totalResults: 3,
+      columnHeaders: [{ name: 'video' }, { name: 'views' }],
+      rows: [['a', 5], ['b', 4]]
+    },
+    {
+      totalResults: 3,
+      columnHeaders: [{ name: 'video' }, { name: 'views' }],
+      rows: [['c', 3]]
+    }
+  ]
+
+  const rows = await fetchAnalyticsRows({
+    accessToken: 'not-a-real-token',
+    query: {
+      startDate: '2026-07-01',
+      endDate: '2026-07-31',
+      metrics: 'views',
+      dimensions: 'video',
+      sort: '-views'
+    },
+    fetchImpl: async (url) => {
+      urls.push(new URL(url))
+      return new Response(JSON.stringify(payloads.shift()), { status: 200 })
+    }
+  })
+
+  assert.deepEqual(rows, [
+    { video: 'a', views: 5 },
+    { video: 'b', views: 4 },
+    { video: 'c', views: 3 }
+  ])
+  assert.equal(urls[0].searchParams.get('ids'), 'channel==MINE')
+  assert.equal(urls[1].searchParams.get('startIndex'), '3')
+})
+
+test('batches Data API metadata lookups in groups of at most 50 IDs', async () => {
+  const requestedIds = []
+  const videoIds = Array.from({ length: 51 }, (_, index) => `video-${index}`)
+
+  const metadata = await getVideoMetadata({
+    accessToken: 'not-a-real-token',
+    videoIds,
+    fetchImpl: async (url) => {
+      const ids = new URL(url).searchParams.get('id').split(',')
+      requestedIds.push(ids)
+      return new Response(
+        JSON.stringify({ items: ids.map((id) => ({ id, snippet: { title: id } })) }),
+        { status: 200 }
+      )
+    }
+  })
+
+  assert.deepEqual(requestedIds.map((ids) => ids.length), [50, 1])
+  assert.equal(metadata.get('video-50').snippet.title, 'video-50')
 })

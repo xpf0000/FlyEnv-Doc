@@ -1,4 +1,6 @@
 const DAY_MS = 24 * 60 * 60 * 1000
+const ANALYTICS_URL = 'https://youtubeanalytics.googleapis.com/v2/reports'
+const DATA_API_URL = 'https://www.googleapis.com/youtube/v3'
 
 function toIsoDate(value) {
   return value.toISOString().slice(0, 10)
@@ -173,4 +175,147 @@ export function renderMarkdownReport(data) {
     breakdown('Countries', 'country', data.countries ?? []) +
     breakdown('Device types', 'deviceType', data.devices ?? [])
   )
+}
+
+export async function fetchGoogleJson(url, accessToken, fetchImpl = fetch) {
+  const response = await fetchImpl(url, {
+    headers: { authorization: `Bearer ${accessToken}` }
+  })
+  const payload = await response.json().catch(() => ({}))
+
+  if (!response.ok) {
+    throw new Error(
+      `Google API request failed (${response.status}): ${payload.error?.message ?? 'Unknown error'}`
+    )
+  }
+
+  return payload
+}
+
+export async function fetchAnalyticsRows({ accessToken, query, fetchImpl = fetch }) {
+  const rows = []
+  const maxResults = 200
+  let startIndex = 1
+
+  while (true) {
+    const url = new URL(ANALYTICS_URL)
+    const parameters = { ids: 'channel==MINE', ...query, maxResults, startIndex }
+
+    for (const [key, value] of Object.entries(parameters)) {
+      if (value !== undefined && value !== null && value !== '') {
+        url.searchParams.set(key, String(value))
+      }
+    }
+
+    const page = await fetchGoogleJson(url, accessToken, fetchImpl)
+    const pageRows = normalizeAnalyticsRows(page)
+    rows.push(...pageRows)
+
+    if (pageRows.length === 0 || rows.length >= (page.totalResults ?? rows.length)) {
+      return rows
+    }
+
+    startIndex += pageRows.length
+  }
+}
+
+export async function getVideoMetadata({ accessToken, videoIds, fetchImpl = fetch }) {
+  const metadata = new Map()
+
+  for (let index = 0; index < videoIds.length; index += 50) {
+    const ids = videoIds.slice(index, index + 50)
+    const url = new URL(`${DATA_API_URL}/videos`)
+    url.search = new URLSearchParams({ part: 'snippet', id: ids.join(',') }).toString()
+
+    const response = await fetchGoogleJson(url, accessToken, fetchImpl)
+    for (const item of response.items ?? []) {
+      metadata.set(item.id, item)
+    }
+  }
+
+  return metadata
+}
+
+export async function collectChannelData({ accessToken, dateRange, fetchImpl = fetch }) {
+  const channelMetrics =
+    'views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,' +
+    'subscribersGained,subscribersLost,likes,comments,shares'
+  const baseQuery = { ...dateRange, metrics: channelMetrics }
+  const channelUrl = new URL(`${DATA_API_URL}/channels`)
+  channelUrl.search = new URLSearchParams({ part: 'snippet,statistics', mine: 'true' }).toString()
+
+  const [channelPayload, daily, videoRows, optionalResults] = await Promise.all([
+    fetchGoogleJson(channelUrl, accessToken, fetchImpl),
+    fetchAnalyticsRows({
+      accessToken,
+      query: { ...baseQuery, dimensions: 'day', sort: 'day' },
+      fetchImpl
+    }),
+    fetchAnalyticsRows({
+      accessToken,
+      query: { ...baseQuery, dimensions: 'video', sort: '-views' },
+      fetchImpl
+    }),
+    Promise.allSettled([
+      fetchAnalyticsRows({
+        accessToken,
+        query: {
+          ...dateRange,
+          metrics: 'views,estimatedMinutesWatched',
+          dimensions: 'insightTrafficSourceType',
+          sort: '-views'
+        },
+        fetchImpl
+      }),
+      fetchAnalyticsRows({
+        accessToken,
+        query: {
+          ...dateRange,
+          metrics: 'views,estimatedMinutesWatched',
+          dimensions: 'country',
+          sort: '-views'
+        },
+        fetchImpl
+      }),
+      fetchAnalyticsRows({
+        accessToken,
+        query: {
+          ...dateRange,
+          metrics: 'views,estimatedMinutesWatched',
+          dimensions: 'deviceType',
+          sort: '-views'
+        },
+        fetchImpl
+      })
+    ])
+  ])
+
+  const metadata = await getVideoMetadata({
+    accessToken,
+    videoIds: videoRows.map((row) => row.video),
+    fetchImpl
+  })
+  const videos = videoRows.map((row) => {
+    const video = metadata.get(row.video)
+    return {
+      ...row,
+      title: video?.snippet?.title ?? row.video,
+      publishedAt: video?.snippet?.publishedAt,
+      url: `https://www.youtube.com/watch?v=${row.video}`
+    }
+  })
+  const [trafficSources, countries, devices] = optionalResults.map((result) =>
+    result.status === 'fulfilled' ? result.value : []
+  )
+
+  return {
+    channel: channelPayload.items?.[0] ?? null,
+    dateRange,
+    collectedAt: new Date().toISOString(),
+    daily,
+    videos,
+    trafficSources,
+    countries,
+    devices
+  }
 }
