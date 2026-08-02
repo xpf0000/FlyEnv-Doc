@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
+import { parseReportArgs } from '../scripts/youtube-analytics-report.mjs'
 import {
   fetchAnalyticsRows,
   getVideoMetadata,
@@ -115,4 +116,21 @@ test('batches Data API metadata lookups in groups of at most 50 IDs', async () =
 
   assert.deepEqual(requestedIds.map((ids) => ids.length), [50, 1])
   assert.equal(metadata.get('video-50').snippet.title, 'video-50')
+})
+
+test('requires OAuth client configuration and validates report arguments', () => {
+  assert.throws(() => parseReportArgs([]), /--client-secrets is required/)
+  assert.deepEqual(
+    parseReportArgs(['--client-secrets', '/tmp/client.json', '--days', '30']),
+    {
+      clientSecrets: '/tmp/client.json',
+      days: 30,
+      output: 'reports/youtube',
+      tokenFile: '.youtube-analytics/token.json'
+    }
+  )
+  assert.throws(
+    () => parseReportArgs(['--client-secrets', '/tmp/client.json', '--bad', 'value']),
+    /Unknown option: --bad/
+  )
 })
