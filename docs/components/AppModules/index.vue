@@ -41,15 +41,21 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Caddy Local Setup on Windows - Caddyfile, PHP-FPM and MySQL with FlyEnv"
+      href="https://youtu.be/NuaYnRiD3AY"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Web Server</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Web Server</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="https://oss.macphpstudy.com/image/caddy.svg" />
       </div>
-      <span class="shrink-0 select-text">Caddy</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Caddy</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -337,15 +343,21 @@
       </div>
       <span class="shrink-0 select-text">Memcached</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="RabbitMQ Local Setup on Windows - Install, Start and Manage with FlyEnv"
+      href="https://youtu.be/ymbyrr5zGkI"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">Data Queues</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Data Queues</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <img src="../SVG/RabbitMQ.svg" />
       </div>
-      <span class="shrink-0 select-text">RabbitMQ</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">RabbitMQ</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 4">
     <a

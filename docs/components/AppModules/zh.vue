@@ -41,15 +41,21 @@
       </div>
     </a>
 
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Caddy 本地环境怎么配？用 FlyEnv 管理 Caddy、PHP、MySQL（Windows）"
+      href="https://www.bilibili.com/video/BV129uF6BExw/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">网络服务器</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">网络服务器</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
         <img src="https://oss.macphpstudy.com/image/caddy.svg" />
       </div>
-      <span class="shrink-0 select-text">Caddy</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Caddy</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
     <div
       class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
@@ -337,15 +343,21 @@
       </div>
       <span class="shrink-0 select-text">Memcached</span>
     </div>
-    <div
-      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    <a
+      title="Windows 本地一键运行 RabbitMQ：安装、启动与管理后台 - FlyEnv 演示"
+      href="https://www.bilibili.com/video/BV1XiMZ6GEdw/"
+      target="_blank"
+      class="group hover:scale-105 transition-all duration-300 relative no-underline overflow-hidden rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
     >
-      <span class="shrink-0 select-text">数据队列</span>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">数据队列</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-6">
         <img src="../SVG/RabbitMQ.svg" />
       </div>
-      <span class="shrink-0 select-text">RabbitMQ</span>
-    </div>
+      <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">RabbitMQ</span>
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
+      </div>
+    </a>
   </template>
   <template v-else-if="type === 4">
     <a
