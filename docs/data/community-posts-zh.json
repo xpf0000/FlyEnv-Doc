@@ -237,5 +237,52 @@
     "relevance_score": 9,
     "seoTitle": "FlyEnv 本地开发环境评测与 PHP 上手指南",
     "seoSummary": "面向 PHP 开发者的 FlyEnv 评测与上手指南：比较 XAMPP、Laragon、MAMP、Valet 和 Docker，并涵盖服务、站点、PHP 版本、证书及端口排查。"
+  },
+  {
+    "id": "ankaonb-flyenv-local-development-environment",
+    "title": "推荐一款本地开发环境部署神器flyenv 吊打市面上大多数软件",
+    "url": "https://www.ankaonb.com/industry-insights/53.html",
+    "author": "安靠数字工坊",
+    "platform": "Blog",
+    "language": "zh",
+    "date": "2026-08-05",
+    "summary": "安靠数字工坊介绍 FlyEnv 如何在 Windows 和 macOS 上统一管理 Apache、Nginx、PHP、数据库、Redis 与 Mailpit，并展示项目级运行时切换、HTTPS 本地站点和 AI/MCP 工作流。",
+    "tags": [
+      "review",
+      "php",
+      "macos",
+      "windows",
+      "ai",
+      "docker"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 75,
+    "relevance_score": 9,
+    "seoTitle": "FlyEnv Windows 与 Mac 本地开发环境一站式管理介绍",
+    "seoSummary": "了解 FlyEnv 如何在 Windows 和 macOS 上统一管理 PHP、Web 服务器、数据库、Redis、Mailpit、本地 HTTPS 站点及 AI/MCP 工具。"
+  },
+  {
+    "id": "navg-servbay-to-flyenv-php-plugin-development",
+    "title": "从ServBay到FlyEnv：一个PHP插件开发者的环境管理工具深度评测",
+    "url": "https://navg.cn/thread-30.htm",
+    "author": "段先生",
+    "platform": "XiunoX Forum",
+    "language": "zh",
+    "date": "2026-08-10",
+    "summary": "一位长期维护 Xiuno BBS 插件的 Windows 开发者分享从 ServBay 迁移到 FlyEnv 两周后的体验，重点记录多版本 PHP、项目级版本隔离、站点 HTTPS、AI 编程 CLI 与 MCP Server。",
+    "tags": [
+      "review",
+      "php",
+      "windows",
+      "ai",
+      "docker"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 100,
+    "relevance_score": 10,
+    "seoTitle": "从 ServBay 迁移到 FlyEnv：PHP 插件开发者真实评测",
+    "seoSummary": "一位 Xiuno BBS 插件开发者记录从 ServBay 迁移到 FlyEnv 的两周体验，涵盖多版本 PHP、项目级隔离、HTTPS 站点及 AI/MCP 集成。"
   }
 ]

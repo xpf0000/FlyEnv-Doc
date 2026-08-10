@@ -160,6 +160,16 @@
         <SVGUse class="w-16 opacity-20 transition-all duration-300 group-hover:opacity-65" :svg="import('../SVG/play.svg?raw')" />
       </div>
     </a>
+
+    <div
+      class="rounded-lg shadow-md bg-slate-100 flex flex-col items-center p-5 dark:bg-slate-800 justify-between"
+    >
+      <span class="shrink-0 select-text">Database</span>
+      <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-4">
+        <img src="../SVG/Neo4j.svg" />
+      </div>
+      <span class="shrink-0 select-text">Neo4j</span>
+    </div>
   </template>
   <template v-else-if="type === 2">
     <a

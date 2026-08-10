@@ -561,5 +561,101 @@
     "relevance_score": 10,
     "seoTitle": "FlyEnv Ruby and Jekyll Setup Guide for Windows Local Development",
     "seoSummary": "Set up Ruby and Jekyll on Windows with FlyEnv. Install Ruby, configure the GCC and Make toolchain, install Jekyll dependencies, and run your local site as a FlyEnv service."
+  },
+  {
+    "id": "abidar-flyenv-modern-local-development-php-laravel-wordpress",
+    "title": "FlyEnv: A Modern Local Development Environment for PHP, Laravel & WordPress",
+    "url": "https://abidar.dev/blog/flyenv-a-modern-local-development-environment-for-php-laravel-wordpress",
+    "author": "Mohamed Abidar",
+    "platform": "Blog",
+    "language": "en",
+    "date": "2026-08-07",
+    "summary": "A Windows-focused developer introduces FlyEnv for Laravel, WordPress, and plain PHP projects, highlighting isolated PHP versions and simpler local site management.",
+    "tags": [
+      "review",
+      "php",
+      "laravel",
+      "wordpress",
+      "windows"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10,
+    "seoTitle": "FlyEnv for PHP, Laravel and WordPress: Modern Local Development on Windows",
+    "seoSummary": "See how a Windows developer uses FlyEnv to manage Laravel, WordPress, and plain PHP projects with isolated PHP versions and simpler local site configuration."
+  },
+  {
+    "id": "nh-ihsan-flyenv-mac-local-environment-2026",
+    "title": "Tinggalkan Local Environment yang Berat: Mengapa FlyEnv adalah Solusi Terbaik untuk Developer Mac di 2026",
+    "url": "https://medium.com/@nh.ihsan/tinggalkan-local-environment-berat-flyenv-solusi-local-environtment-terbaik-di-mac-5fd0c1ea8eea",
+    "author": "Muhammad Ihsan",
+    "platform": "Medium",
+    "language": "id",
+    "date": "2026-08-07",
+    "summary": "A Mac developer reviews FlyEnv after working with Docker and Valet, covering native service control, per-project PHP versions, local HTTPS domains, and databases such as PostgreSQL and Redis.",
+    "tags": [
+      "review",
+      "macos",
+      "php",
+      "docker",
+      "laravel",
+      "postgresql"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10,
+    "seoTitle": "FlyEnv Mac Review: Native PHP Versions, HTTPS and Local Services",
+    "seoSummary": "A Mac developer compares FlyEnv with Docker and Valet, showing how native services, per-project PHP versions, local HTTPS, PostgreSQL, and Redis simplify daily development."
+  },
+  {
+    "id": "sitinadiahtusiman-all-in-one-local-development-environment",
+    "title": "A Powerful All-in-One Local Local Development Environment",
+    "url": "https://medium.com/@sitinadiahtusiman/a-powerful-all-in-one-local-local-development-environment-da376a12332e",
+    "author": "Sitinadiahtusiman",
+    "platform": "Medium",
+    "language": "en",
+    "date": "2026-08-05",
+    "summary": "A concise overview of FlyEnv's cross-platform workspace for multiple runtimes, databases, local HTTPS, reverse proxies, logs, AI coding clients, and the built-in MCP server.",
+    "tags": [
+      "review",
+      "php",
+      "nodejs",
+      "ai",
+      "docker"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 75,
+    "relevance_score": 9,
+    "seoTitle": "FlyEnv All-in-One Local Development Environment Overview",
+    "seoSummary": "A short overview of FlyEnv's native runtimes, databases, local HTTPS, reverse proxies, AI coding clients, and MCP server across Windows, macOS, and Linux."
+  },
+  {
+    "id": "oworock-flyenv-vs-laragon-vs-xampp-2026",
+    "title": "FlyEnv vs Laragon vs XAMPP: The Best Local Development Environment for PHP Developers in 2026",
+    "url": "https://oworock.com/flyenv-vs-laragon-vs-xampp-the-best-local-development-environment-for-php-developers-in-2026/",
+    "author": "Oworock",
+    "platform": "Blog",
+    "language": "en",
+    "date": "2026-07-31",
+    "summary": "This comparison of FlyEnv, Laragon, and XAMPP covers PHP version switching, virtual hosts, HTTPS, databases, Redis, and cross-platform support for Laravel and WordPress workflows.",
+    "tags": [
+      "comparison",
+      "php",
+      "laravel",
+      "wordpress",
+      "laragon",
+      "xampp",
+      "macos",
+      "windows"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 90,
+    "relevance_score": 10,
+    "seoTitle": "FlyEnv vs Laragon vs XAMPP: PHP Local Development Comparison for 2026",
+    "seoSummary": "Compare FlyEnv, Laragon, and XAMPP across PHP versions, virtual hosts, HTTPS, databases, Redis, and macOS or Windows support for modern PHP projects."
   }
 ]

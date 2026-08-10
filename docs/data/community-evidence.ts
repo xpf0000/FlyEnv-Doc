@@ -8,6 +8,32 @@ import type {
 export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
   en: [
     {
+      postId: 'abidar-flyenv-modern-local-development-php-laravel-wordpress',
+      locale: 'en',
+      scenario: 'Windows Laravel and WordPress projects',
+      useCases: ['windows-local-development', 'multiple-runtime-versions'],
+      editorialSummary:
+        'A Windows developer uses FlyEnv for Laravel, WordPress, and plain PHP projects that need different PHP versions without changing global settings.',
+      relatedGuides: [
+        '/guide/project-level-runtime-environment.html',
+        '/guide/run-laravel-use-flyenv.html'
+      ],
+      featuredPlacements: ['home', 'community-hero', 'guide']
+    },
+    {
+      postId: 'nh-ihsan-flyenv-mac-local-environment-2026',
+      locale: 'en',
+      scenario: 'Mac services and local HTTPS',
+      useCases: ['macos-local-development', 'local-services', 'multiple-runtime-versions'],
+      editorialSummary:
+        'A Mac developer describes replacing heavier Docker and Valet workflows with native service control, per-project PHP versions, local HTTPS domains, and databases.',
+      relatedGuides: [
+        '/guide/flyenv-vs-docker-xampp.html',
+        '/guide/project-level-runtime-environment.html'
+      ],
+      featuredPlacements: ['home', 'community-hero', 'guide']
+    },
+    {
       postId: 'mencoba-flyenv-setelah-lama-menggunakan-xampp',
       locale: 'en',
       scenario: 'Moving from XAMPP',
@@ -28,7 +54,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'A Laravel developer describes moving from Laragon to a FlyEnv workflow for PHP, PostgreSQL, and everyday project work.',
       relatedGuides: ['/guide/flyenv-vs-docker-xampp.html', '/guide/run-laravel-use-flyenv.html'],
-      featuredPlacements: ['home', 'community-hero', 'guide']
+      featuredPlacements: ['community-hero', 'guide']
     },
     {
       postId: 'flyenv-on-linux-actually-fixed-my-php-version-headache',
@@ -41,18 +67,25 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
         '/guide/project-level-runtime-environment.html',
         '/guide/manage-multiple-node-php-versions.html'
       ],
-      featuredPlacements: ['home', 'community-hero', 'guide']
+      featuredPlacements: ['community-hero', 'guide']
     }
   ],
   zh: [
     {
-      postId: 'csdn-145736318',
+      postId: 'navg-servbay-to-flyenv-php-plugin-development',
       locale: 'zh',
-      scenario: '从 Docker 与 XAMPP 迁移',
-      useCases: ['docker-alternative', 'xampp-migration'],
+      scenario: 'PHP 插件开发与 AI 工作流',
+      useCases: [
+        'windows-local-development',
+        'multiple-runtime-versions',
+        'ai-assisted-development'
+      ],
       editorialSummary:
-        '一位开发者从本地服务、运行时版本和跨平台使用场景出发，分享了 FlyEnv 作为 Docker 与 XAMPP 替代方案的体验。',
-      relatedGuides: ['/zh/guide/flyenv-vs-docker-xampp.html'],
+        '一位 Windows PHP 插件开发者记录从 ServBay 迁移到 FlyEnv 后的真实工作流，包括项目级 PHP 版本、HTTPS 站点以及 AI 编程 CLI 和 MCP Server。',
+      relatedGuides: [
+        '/zh/guide/project-level-runtime-environment.html',
+        '/zh/guide/flyenv-work-with-ai.html'
+      ],
       featuredPlacements: ['home', 'community-hero', 'guide']
     },
     {
@@ -77,6 +110,16 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
         '一位 macOS 开发者介绍了在一个桌面环境中管理 Web 服务、数据库和多版本语言运行时的本地开发体验。',
       relatedGuides: ['/zh/guide/manage-multiple-node-php-versions.html'],
       featuredPlacements: ['home', 'community-hero']
+    },
+    {
+      postId: 'csdn-145736318',
+      locale: 'zh',
+      scenario: '从 Docker 与 XAMPP 迁移',
+      useCases: ['docker-alternative', 'xampp-migration'],
+      editorialSummary:
+        '一位开发者从本地服务、运行时版本和跨平台使用场景出发，分享了 FlyEnv 作为 Docker 与 XAMPP 替代方案的体验。',
+      relatedGuides: ['/zh/guide/flyenv-vs-docker-xampp.html'],
+      featuredPlacements: ['community-hero', 'guide']
     }
   ]
 }
