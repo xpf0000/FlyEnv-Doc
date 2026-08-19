@@ -18,7 +18,7 @@ FlyEnv remains functional without a license, but the following limits apply to t
 
 ## 2. How to Get Licensed
 
-We offer one paid purchase path and two manually reviewed community paths:
+We offer the following three license application paths. Every path requires manual review, and FlyEnv issues a license only after approval:
 
 ### Option A: Purchase a Personal License
 
@@ -27,7 +27,7 @@ We offer one paid purchase path and two manually reviewed community paths:
 * **Premium access:** Removes the evaluation limits listed above for the licensed device.
 * **Payment processor:** Paddle may process checkout, taxes, receipts, invoices, and payment-related support.
 
-After purchasing, keep your Paddle order ID and submit it with your license request in the app. To purchase a license, go to the [License page](/license).
+After purchasing, keep your Paddle order ID and submit it with your license request in the app. This purchase path also requires manual review; FlyEnv issues the license only after approval. To purchase a license, go to the [License page](/license).
 
 ### Option B: Contribute to the Codebase
 
@@ -78,20 +78,21 @@ You can see examples of community contribution records here: [Community records]
 
 ## 3. Request & Activation Process
 
-Once you have completed any of the steps above, follow these instructions to activate your license:
+After completing the purchase, contribution, or promotion required by one of the paths above, submit your license request in the app:
 
-1. **Provide Proof**: In the "Message" field of the application, include:
+1. **Open the License Request Area**: Go to **FlyEnv Settings -> License**, scroll to the bottom, and find the license request area.
+2. **Provide Proof**: In the "Message" field of the application, include:
 * **License purchasers**: Your Paddle order ID or receipt email.
 * **Contributors**: The link to your GitHub Pull Request.
 * **Promoters**: The link to your post, video, or shared content.
 
 
-2. **Submit**: Click the **"Request License"** button.
-3. **Review**: Most requests are processed within **24 hours**.
+3. **Submit**: Click the **"Request License"** button.
+4. **Review and Issuance**: Most requests are processed within **24 hours**. After approval, FlyEnv issues the license.
 
 ## 4. License Management & Device Binding
 
-All FlyEnv licenses are **permanent** and follow a "one license per machine" policy:
+Under the current license policy, purchased FlyEnv licenses are **permanent** and follow a "one license per machine" policy. The policy may be adjusted to annual subscriptions in the future:
 
 * **Device Binding**: Each license is tied to a specific hardware UUID.
 * **Hardware Migration**: If you get a new computer, you can transfer your license. Log in via your **GitHub account** and go to **"My Licenses"**:
