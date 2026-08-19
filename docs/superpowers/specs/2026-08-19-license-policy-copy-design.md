@@ -13,7 +13,7 @@ No changes will be made to the purchase page, Terms of Service, Refund Policy, o
 
 ### License Acquisition
 
-The three acquisition paths (purchase, code contribution, and promotion) all require manual review before FlyEnv issues a license. The purchase path must no longer imply automatic license issuance after payment.
+Licenses cannot currently be issued automatically. The three acquisition paths (purchase, code contribution, and promotion) are all handled manually, and the purchase path must not imply automatic license issuance after payment.
 
 ### Current Policy
 
@@ -26,7 +26,7 @@ Add the first step before proof submission:
 1. Open FlyEnv Settings, select License, then scroll to the bottom to find the license request area.
 2. Enter the applicable proof in the Message field.
 3. Submit the request.
-4. Wait for manual review and license issuance, normally within 24 hours.
+4. Wait for manual processing and license issuance, normally within 24 hours.
 
 ## Language Consistency
 

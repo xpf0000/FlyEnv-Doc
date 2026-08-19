@@ -102,6 +102,19 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       featuredPlacements: ['home', 'community-hero', 'guide']
     },
     {
+      postId: 'juejin-7674818461377495050',
+      locale: 'zh',
+      scenario: '多运行时、本地服务与 AI 工具',
+      useCases: ['multiple-runtime-versions', 'local-services', 'ai-assisted-development'],
+      editorialSummary:
+        '作者从多项目本地开发中的版本、服务和站点管理问题出发，分享如何将运行时、数据库、Web 服务和 AI 工具集中到同一工作台，并说明与 Docker 的适用边界。',
+      relatedGuides: [
+        '/zh/guide/project-level-runtime-environment.html',
+        '/zh/guide/flyenv-work-with-ai.html'
+      ],
+      featuredPlacements: ['home', 'community-hero', 'guide']
+    },
+    {
       postId: 'zhuangpenglong-macos-kai-fa-huan-jing-bu-shu-flyenv-ran',
       locale: 'zh',
       scenario: 'macOS 多运行时开发',
@@ -109,7 +122,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         '一位 macOS 开发者介绍了在一个桌面环境中管理 Web 服务、数据库和多版本语言运行时的本地开发体验。',
       relatedGuides: ['/zh/guide/manage-multiple-node-php-versions.html'],
-      featuredPlacements: ['home', 'community-hero']
+      featuredPlacements: ['community-hero']
     },
     {
       postId: 'csdn-145736318',

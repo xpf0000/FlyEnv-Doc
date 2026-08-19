@@ -5,13 +5,13 @@ layout: home
 head:
   - - meta
     - name: description
-      content: 'Buy a FlyEnv license through Paddle and review license terms, activation, refund policy, and community contribution records.'
+      content: 'Buy a FlyEnv license through Paddle and view license terms, manual issuance details, refund policy, and community contribution records.'
   - - meta
     - property: og:title
       content: 'FlyEnv License'
   - - meta
     - property: og:description
-      content: 'Purchase a FlyEnv software license for premium feature access, activation review, and continued updates.'
+      content: 'Purchase a FlyEnv software license for premium feature access, manual issuance, and continued updates.'
   - - script
     - type: application/ld+json
     - |

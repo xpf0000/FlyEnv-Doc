@@ -352,7 +352,7 @@
         'Buy a FlyEnv License for licensed access to premium features, one device activation, and continued updates. FlyEnv remains open-source and free to evaluate.',
       licenseTitle: 'Buy FlyEnv License',
       licenseDesc:
-        'The Paddle checkout sells a real FlyEnv software license. After payment, use your Paddle order ID in the app license request flow for activation review.',
+        'The Paddle checkout sells a real FlyEnv software license. After payment, use your Paddle order ID in the app license request flow for manual license issuance.',
       licenseGuide: 'Read license terms and activation guide',
       licenseGuideShort: 'License Terms',
       paddleTitle: 'FlyEnv License',
@@ -361,7 +361,7 @@
       paddleFeatures: [
         'One device activation',
         'Removes evaluation limits',
-        'Manual review within 24 hours',
+        'Manual license issuance within 24 hours',
         'License transfer supported'
       ],
       openingCheckout: 'Opening Checkout...',
@@ -410,7 +410,7 @@
         '购买 FlyEnv 许可证，可获得高级功能的授权访问、一台设备激活和持续更新。FlyEnv 仍然保持开源并可免费评估。',
       licenseTitle: '购买 FlyEnv 许可证',
       licenseDesc:
-        'Paddle 结账用于销售真实的 FlyEnv 软件许可证。付款后，请在应用内许可证申请流程中提交 Paddle 订单 ID 以便激活审核。',
+        'Paddle 结账用于销售真实的 FlyEnv 软件许可证。付款后，请在应用内许可证申请流程中提交 Paddle 订单 ID，由人工处理许可证发放。',
       licenseGuide: '查看许可证条款与激活说明',
       licenseGuideShort: '许可证条款',
       paddleTitle: 'FlyEnv 许可证',
@@ -419,7 +419,7 @@
       paddleFeatures: [
         '一台设备激活',
         '解除评估版限制',
-        '通常 24 小时内审核',
+        '通常 24 小时内人工处理发放',
         '支持许可证迁移'
       ],
       openingCheckout: '正在打开付款...',

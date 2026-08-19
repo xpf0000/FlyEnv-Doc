@@ -284,5 +284,28 @@
     "relevance_score": 10,
     "seoTitle": "从 ServBay 迁移到 FlyEnv：PHP 插件开发者真实评测",
     "seoSummary": "一位 Xiuno BBS 插件开发者记录从 ServBay 迁移到 FlyEnv 的两周体验，涵盖多版本 PHP、项目级隔离、HTTPS 站点及 AI/MCP 集成。"
+  },
+  {
+    "id": "juejin-7674818461377495050",
+    "title": "告别“散装”本地环境：FlyEnv 如何把多版本运行时、服务与 AI 工具收进一个工作台",
+    "url": "https://juejin.cn/post/7674818461377495050",
+    "author": "用户7376317088702",
+    "platform": "掘金",
+    "language": "zh",
+    "date": "2026-08-17",
+    "summary": "文章从多项目维护的日常问题出发，介绍 FlyEnv 对多版本运行时、数据库与 Web 服务、本地站点和 AI 工具的集中管理，并讨论迁移步骤以及与 Docker 的适用边界。",
+    "tags": [
+      "review",
+      "php",
+      "nodejs",
+      "ai",
+      "docker"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 90,
+    "relevance_score": 10,
+    "seoTitle": "FlyEnv 多运行时、本地服务与 AI 工具工作流",
+    "seoSummary": "从多项目本地开发出发，介绍 FlyEnv 如何集中管理运行时、数据库、Web 服务、本地站点和 AI 工具，并说明与 Docker 的适用边界。"
   }
 ]

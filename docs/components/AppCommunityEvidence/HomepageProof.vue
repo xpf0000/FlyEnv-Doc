@@ -65,6 +65,7 @@ const stories = computed(() =>
   props.evidence
     .filter((item) => item.featuredPlacements.includes('home'))
     .map((evidence) => ({ evidence, post: getEvidencePost(props.posts, evidence) }))
+    .sort((first, second) => second.post.date.localeCompare(first.post.date))
 )
 
 function trackHub() {

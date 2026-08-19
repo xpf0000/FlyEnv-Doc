@@ -10,7 +10,7 @@ head:
       content: 'FlyEnv 个人许可证'
   - - meta
     - property: og:description
-      content: '购买 FlyEnv 软件许可证，用于高级功能授权访问、激活审核和持续更新。'
+      content: '购买 FlyEnv 软件许可证，用于高级功能授权访问、人工处理发放和持续更新。'
   - - script
     - type: application/ld+json
     - |
