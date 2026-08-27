@@ -59,3 +59,39 @@ test('the catalog exposes only supported categories and localized public playbac
   assert.match(source, /youtube: 'https:\/\/www\.youtube\.com\/watch\?v=/)
   assert.doesNotMatch(source, /averageViewDuration|watchMinutes|retention|views:/)
 })
+
+test('the demos component keeps playback lazy and exposes accessible discovery controls', () => {
+  const componentPath = resolve(projectRoot, 'docs/components/AppDemos/index.vue')
+  assert.ok(existsSync(componentPath), 'docs/components/AppDemos/index.vue should exist')
+
+  const source = read('docs/components/AppDemos/index.vue')
+  for (const required of [
+    'URLSearchParams',
+    'history.replaceState',
+    'aria-pressed',
+    'aria-live="polite"',
+    'loading="lazy"',
+    'role="dialog"',
+    'aria-modal="true"',
+    'trapDialogFocus',
+    'document.activeElement',
+    'getDemoEmbedUrl',
+    'demos_filter_change',
+    'demos_search',
+    'demos_play',
+    'demos_platform_open',
+    'demos_guide_click'
+  ]) {
+    assert.ok(source.includes(required), `missing ${required}`)
+  }
+
+  assert.match(source, /<iframe\s+v-if="selectedDemo"/)
+  assert.doesNotMatch(source, /<iframe[^>]+src="https:\/\/www\.youtube/i)
+  assert.match(source, /query_length: searchQuery\.value\.trim\(\)\.length/)
+  assert.doesNotMatch(source, /query:\s*searchQuery/)
+  assert.doesNotMatch(
+    source,
+    /\.demos-masthead h1\s*\{\s*font-size:\s*[^;]*vw/,
+    'catalog typography must not scale with viewport width'
+  )
+})
