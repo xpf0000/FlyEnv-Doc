@@ -796,7 +796,7 @@ onUnmounted(() => {
   font-size: 12px;
   font-weight: 700;
   line-height: 1.3;
-  margin-top: auto;
+  margin-top: 22px;
   overflow-wrap: anywhere;
 }
 
@@ -814,7 +814,7 @@ onUnmounted(() => {
 }
 
 .demo-card-featured .demo-cover-topic {
-  font-size: clamp(21px, 2.4vw, 30px);
+  font-size: 28px;
 }
 
 .demo-cover-tags {
@@ -888,10 +888,11 @@ onUnmounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.82);
   border-radius: 50%;
   height: 42px;
-  left: 50%;
+  bottom: 18px;
+  left: auto;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  right: 18px;
+  top: auto;
   width: 42px;
   z-index: 3;
 }
