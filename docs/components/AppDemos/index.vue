@@ -68,9 +68,22 @@
               <span class="demo-cover-native" :class="coverToneClass(demo.category)">
                 <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
                 <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
-                <span class="demo-cover-topic">{{ demoCopy(demo).title }}</span>
-                <span class="demo-cover-tags" aria-hidden="true">
-                  <span v-for="tag in demoCopy(demo).tags.slice(0, 4)" :key="tag">{{ tag }}</span>
+                <span class="demo-cover-visual" aria-hidden="true">
+                  <img
+                    v-if="coverVisual(demo).src"
+                    class="demo-cover-logo"
+                    :src="coverVisual(demo).src"
+                    alt=""
+                    loading="lazy"
+                    @load="markCoverLogoLoaded"
+                    @error="hideBrokenThumbnail"
+                  />
+                  <span
+                    class="demo-cover-fallback"
+                    :class="{ 'is-primary': !coverVisual(demo).src }"
+                  >
+                    {{ coverVisual(demo).mark }}
+                  </span>
                 </span>
               </span>
               <span class="demo-play" aria-hidden="true"></span>
@@ -121,9 +134,22 @@
               <span class="demo-cover-native" :class="coverToneClass(demo.category)">
                 <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
                 <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
-                <span class="demo-cover-topic">{{ demoCopy(demo).title }}</span>
-                <span class="demo-cover-tags" aria-hidden="true">
-                  <span v-for="tag in demoCopy(demo).tags.slice(0, 4)" :key="tag">{{ tag }}</span>
+                <span class="demo-cover-visual" aria-hidden="true">
+                  <img
+                    v-if="coverVisual(demo).src"
+                    class="demo-cover-logo"
+                    :src="coverVisual(demo).src"
+                    alt=""
+                    loading="lazy"
+                    @load="markCoverLogoLoaded"
+                    @error="hideBrokenThumbnail"
+                  />
+                  <span
+                    class="demo-cover-fallback"
+                    :class="{ 'is-primary': !coverVisual(demo).src }"
+                  >
+                    {{ coverVisual(demo).mark }}
+                  </span>
                 </span>
               </span>
               <span class="demo-play" aria-hidden="true"></span>
@@ -310,6 +336,52 @@ const coverToneClasses: Record<DemoCategory, string> = {
   'ai-mcp': 'demo-cover-tone-ai-mcp'
 }
 
+type DemoCoverRule = {
+  match: RegExp
+  mark: string
+  src?: string
+}
+
+const coverFallbackMarks: Record<DemoCategory, string> = {
+  'getting-started': 'FE',
+  projects: 'APP',
+  runtimes: 'RUN',
+  'databases-services': 'DATA',
+  'developer-tools': 'DEV',
+  'ai-mcp': 'AI'
+}
+
+const coverVisualRules: DemoCoverRule[] = [
+  { match: /erpnext/, mark: 'ERP', src: 'https://cdn.simpleicons.org/erpnext' },
+  { match: /gitea/, mark: 'GT', src: 'https://cdn.simpleicons.org/gitea' },
+  { match: /postgresql|pgadmin/, mark: 'PG', src: 'https://cdn.simpleicons.org/postgresql' },
+  { match: /redis/, mark: 'RD', src: 'https://cdn.simpleicons.org/redis' },
+  { match: /rabbitmq/, mark: 'RMQ', src: 'https://cdn.simpleicons.org/rabbitmq' },
+  { match: /php/, mark: 'PHP', src: 'https://cdn.simpleicons.org/php' },
+  { match: /mysql/, mark: 'SQL', src: 'https://cdn.simpleicons.org/mysql' },
+  { match: /mariadb/, mark: 'MDB', src: 'https://cdn.simpleicons.org/mariadb' },
+  { match: /mongodb/, mark: 'MDB', src: 'https://cdn.simpleicons.org/mongodb' },
+  { match: /neo4j/, mark: 'N4J', src: 'https://cdn.simpleicons.org/neo4j' },
+  { match: /clickhouse/, mark: 'CH', src: 'https://cdn.simpleicons.org/clickhouse' },
+  { match: /qdrant/, mark: 'Q', src: 'https://cdn.simpleicons.org/qdrant' },
+  { match: /caddy/, mark: 'CD', src: 'https://cdn.simpleicons.org/caddy' },
+  { match: /nginx/, mark: 'NG', src: 'https://cdn.simpleicons.org/nginx' },
+  { match: /apache/, mark: 'AP', src: 'https://cdn.simpleicons.org/apache' },
+  { match: /node\.js|nodejs/, mark: 'JS', src: 'https://cdn.simpleicons.org/nodedotjs' },
+  { match: /python/, mark: 'PY', src: 'https://cdn.simpleicons.org/python' },
+  { match: /\bgo\b/, mark: 'GO', src: 'https://cdn.simpleicons.org/go' },
+  { match: /java|tomcat/, mark: 'JV', src: 'https://cdn.simpleicons.org/openjdk' },
+  { match: /bun/, mark: 'BUN', src: 'https://cdn.simpleicons.org/bun' },
+  { match: /ruby/, mark: 'RB', src: 'https://cdn.simpleicons.org/ruby' },
+  { match: /rust/, mark: 'RS', src: 'https://cdn.simpleicons.org/rust' },
+  { match: /flutter/, mark: 'FLT', src: 'https://cdn.simpleicons.org/flutter' },
+  { match: /n8n/, mark: 'N8N', src: 'https://cdn.simpleicons.org/n8n' },
+  { match: /ollama/, mark: 'OL', src: 'https://cdn.simpleicons.org/ollama' },
+  { match: /claude/, mark: 'CC', src: 'https://cdn.simpleicons.org/claude' },
+  { match: /mcp/, mark: 'MCP' },
+  { match: /startup|environment|runtime/, mark: 'STACK' }
+]
+
 const activeCategory = ref<FilterValue>('all')
 const searchQuery = ref('')
 const selectedDemo = ref<Demo | null>(null)
@@ -374,6 +446,17 @@ function categoryLabel(category: DemoCategory) {
 
 function coverToneClass(category: DemoCategory) {
   return coverToneClasses[category]
+}
+
+function coverVisual(demo: Demo) {
+  const copy = demoCopy(demo)
+  const haystack = [demo.id, copy.title, ...copy.tags].join(' ').toLocaleLowerCase()
+  const rule = coverVisualRules.find((candidate) => candidate.match.test(haystack))
+
+  return {
+    mark: rule?.mark || coverFallbackMarks[demo.category],
+    src: rule?.src
+  }
 }
 
 function thumbnailUrl(demo: Demo) {
@@ -450,6 +533,11 @@ function openDemo(demo: Demo, position: DemoPosition, trigger: EventTarget | nul
 function hideBrokenThumbnail(event: Event) {
   const image = event.currentTarget as HTMLImageElement
   image.classList.add('is-unavailable')
+}
+
+function markCoverLogoLoaded(event: Event) {
+  const image = event.currentTarget as HTMLImageElement
+  image.classList.add('is-loaded')
 }
 
 function selectPlatform(platform: DemoPlatform) {
@@ -777,7 +865,6 @@ onUnmounted(() => {
   color: var(--cover-ink);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 18px;
   z-index: 2;
 }
@@ -788,6 +875,7 @@ onUnmounted(() => {
   font-weight: 800;
   letter-spacing: 0.08em;
   line-height: 1.2;
+  opacity: 0.9;
   text-transform: uppercase;
 }
 
@@ -796,46 +884,65 @@ onUnmounted(() => {
   font-size: 12px;
   font-weight: 700;
   line-height: 1.3;
-  margin-top: 22px;
+  margin-top: 8px;
   overflow-wrap: anywhere;
+  text-transform: uppercase;
 }
 
-.demo-cover-topic {
-  font-size: 18px;
-  font-weight: 760;
-  line-height: 1.15;
-  margin-top: 6px;
-  max-width: 76%;
-  overflow-wrap: anywhere;
+.demo-cover-visual {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+  padding: 12px 24px 4px;
+  position: relative;
+}
+
+.demo-cover-logo {
+  display: block;
+  height: auto;
+  max-height: 88px;
+  max-width: 38%;
+  min-height: 48px;
+  object-fit: contain;
+  width: auto;
+}
+
+.demo-cover-logo.is-unavailable {
+  display: none;
+}
+
+.demo-cover-fallback {
+  color: var(--cover-accent);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  opacity: 0.16;
+  text-align: center;
+}
+
+.demo-cover-fallback.is-primary,
+.demo-cover-logo.is-unavailable + .demo-cover-fallback {
+  opacity: 0.84;
+}
+
+.demo-cover-logo.is-loaded + .demo-cover-fallback {
+  opacity: 0;
 }
 
 .demo-card-featured .demo-cover-native {
   padding: 22px;
 }
 
-.demo-card-featured .demo-cover-topic {
-  font-size: 28px;
+.demo-card-featured .demo-cover-logo {
+  max-height: 116px;
+  max-width: 34%;
 }
 
-.demo-cover-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 12px;
-  max-height: 52px;
-  overflow: hidden;
-}
-
-.demo-cover-tags span {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.76);
-  border-radius: 4px;
-  color: var(--cover-ink);
-  font-size: 11px;
-  line-height: 1.25;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  padding: 4px 6px;
+.demo-card-featured .demo-cover-fallback {
+  font-size: 58px;
 }
 
 .demo-cover-tone-getting-started {
@@ -1139,9 +1246,32 @@ input:focus-visible {
     padding: 14px;
   }
 
-  .demo-cover-topic,
-  .demo-card-featured .demo-cover-topic {
-    font-size: 20px;
+  .demo-cover-category {
+    font-size: 10px;
+    margin-top: 6px;
+  }
+
+  .demo-cover-visual {
+    padding: 8px 16px 0;
+  }
+
+  .demo-cover-logo {
+    max-height: 72px;
+    max-width: 34%;
+    min-height: 36px;
+  }
+
+  .demo-cover-fallback {
+    font-size: 36px;
+  }
+
+  .demo-card-featured .demo-cover-fallback {
+    font-size: 44px;
+  }
+
+  .demo-play {
+    bottom: 12px;
+    right: 12px;
   }
 
   .demos-section {

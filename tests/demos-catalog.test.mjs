@@ -115,9 +115,11 @@ test('demo cards provide native localized covers independent of remote thumbnail
     'demo-cover-scrim',
     'demo-cover-brand',
     'demo-cover-category',
-    'demo-cover-topic',
-    'demo-cover-tags',
-    'coverToneClass',
+    'demo-cover-visual',
+    'demo-cover-logo',
+    'demo-cover-fallback',
+    'coverVisual',
+    'markCoverLogoLoaded',
     'demo-cover-tone-getting-started',
     'demo-cover-tone-projects',
     'demo-cover-tone-runtimes',
@@ -128,11 +130,14 @@ test('demo cards provide native localized covers independent of remote thumbnail
     assert.ok(source.includes(required), `missing ${required}`)
   }
 
-  assert.match(source, /v-for="tag in demoCopy\(demo\)\.tags\.slice\(0, 4\)"/)
   assert.match(source, /class="demo-cover-thumbnail"/)
   assert.match(source, /class="demo-cover-native"/)
   assert.match(source, /class="demo-cover-scrim"/)
-  assert.match(source, /class="demo-cover-topic"/)
+  assert.match(source, /class="demo-cover-visual"/)
+  assert.match(source, /class="demo-cover-fallback"/)
+  assert.match(source, /@load="markCoverLogoLoaded"/)
+  assert.doesNotMatch(source, /class="demo-cover-topic"/)
+  assert.doesNotMatch(source, /class="demo-cover-tags"/)
 })
 
 test('all three Demos routes have localized metadata and compose the shared catalog', () => {
