@@ -96,8 +96,8 @@ test('the demos component keeps playback lazy and exposes accessible discovery c
   )
   assert.match(
     source,
-    /\.demos-filter-scroll\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/s,
-    'the desktop filter row must have the full control width'
+    /\.demos-filter-scroll\s*\{[^}]*grid-column:\s*2/s,
+    'the desktop filter row must share the browse bar with search'
   )
   assert.match(
     source,
@@ -119,7 +119,6 @@ test('demo cards provide native localized covers independent of remote thumbnail
     'demo-cover-logo',
     'demo-cover-fallback',
     'coverVisual',
-    'markCoverLogoLoaded',
     'demo-cover-tone-getting-started',
     'demo-cover-tone-projects',
     'demo-cover-tone-runtimes',
@@ -135,9 +134,33 @@ test('demo cards provide native localized covers independent of remote thumbnail
   assert.match(source, /class="demo-cover-scrim"/)
   assert.match(source, /class="demo-cover-visual"/)
   assert.match(source, /class="demo-cover-fallback"/)
-  assert.match(source, /@load="markCoverLogoLoaded"/)
+  assert.match(source, /hideBrokenCoverLogo/)
   assert.doesNotMatch(source, /class="demo-cover-topic"/)
   assert.doesNotMatch(source, /class="demo-cover-tags"/)
+})
+
+test('demo covers use local brand assets and the first screen presents a unified browse bar', () => {
+  const source = read('docs/components/AppDemos/index.vue')
+
+  assert.match(source, /\/assets\/demo-logos\//)
+  assert.doesNotMatch(source, /cdn\.simpleicons\.org/)
+  assert.match(source, /title: 'See what runs locally with FlyEnv'/)
+  assert.match(
+    source,
+    /Browse demo videos for real projects, runtimes, databases, developer tools, and AI workflows running locally with FlyEnv\./
+  )
+  assert.match(source, /demos-browse-bar/)
+  assert.match(source, /class="demos-search-label"[\s\S]*class="demos-filter-scroll"/)
+})
+
+test('the local demo logo library contains every mapped brand asset', () => {
+  const source = read('docs/components/AppDemos/index.vue')
+  const assets = Array.from(source.matchAll(/\/assets\/demo-logos\/([a-z0-9-]+\.svg)/g), (match) => match[1])
+
+  assert.ok(assets.length >= 20)
+  for (const asset of new Set(assets)) {
+    assert.ok(existsSync(resolve(projectRoot, 'docs/public/assets/demo-logos', asset)), `missing ${asset}`)
+  }
 })
 
 test('all three Demos routes have localized metadata and compose the shared catalog', () => {

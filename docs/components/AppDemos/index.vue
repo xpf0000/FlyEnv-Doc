@@ -7,7 +7,18 @@
         <p class="demos-intro">{{ t.intro }}</p>
       </header>
 
-      <section class="demos-controls" :aria-label="t.controlsLabel">
+      <section class="demos-controls demos-browse-bar" :aria-label="t.controlsLabel">
+        <label class="demos-search-label">
+          <span>{{ t.searchLabel }}</span>
+          <input
+            v-model="searchQuery"
+            type="search"
+            :placeholder="t.searchPlaceholder"
+            autocomplete="off"
+            @input="scheduleSearchTracking"
+          />
+        </label>
+
         <div class="demos-filter-scroll">
           <div class="demos-filter-row" role="group" :aria-label="t.categoryLabel">
             <button
@@ -23,17 +34,6 @@
             </button>
           </div>
         </div>
-
-        <label class="demos-search-label">
-          <span>{{ t.searchLabel }}</span>
-          <input
-            v-model="searchQuery"
-            type="search"
-            :placeholder="t.searchPlaceholder"
-            autocomplete="off"
-            @input="scheduleSearchTracking"
-          />
-        </label>
       </section>
 
       <p class="demos-result-summary" aria-live="polite">{{ resultSummary }}</p>
@@ -68,20 +68,20 @@
               <span class="demo-cover-native" :class="coverToneClass(demo.category)">
                 <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
                 <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
-                <span class="demo-cover-visual" aria-hidden="true">
+                <span
+                  class="demo-cover-visual"
+                  :class="{ 'no-logo': !coverVisual(demo).src }"
+                  aria-hidden="true"
+                >
                   <img
                     v-if="coverVisual(demo).src"
                     class="demo-cover-logo"
                     :src="coverVisual(demo).src"
                     alt=""
                     loading="lazy"
-                    @load="markCoverLogoLoaded"
-                    @error="hideBrokenThumbnail"
+                    @error="hideBrokenCoverLogo"
                   />
-                  <span
-                    class="demo-cover-fallback"
-                    :class="{ 'is-primary': !coverVisual(demo).src }"
-                  >
+                  <span class="demo-cover-fallback">
                     {{ coverVisual(demo).mark }}
                   </span>
                 </span>
@@ -134,20 +134,20 @@
               <span class="demo-cover-native" :class="coverToneClass(demo.category)">
                 <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
                 <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
-                <span class="demo-cover-visual" aria-hidden="true">
+                <span
+                  class="demo-cover-visual"
+                  :class="{ 'no-logo': !coverVisual(demo).src }"
+                  aria-hidden="true"
+                >
                   <img
                     v-if="coverVisual(demo).src"
                     class="demo-cover-logo"
                     :src="coverVisual(demo).src"
                     alt=""
                     loading="lazy"
-                    @load="markCoverLogoLoaded"
-                    @error="hideBrokenThumbnail"
+                    @error="hideBrokenCoverLogo"
                   />
-                  <span
-                    class="demo-cover-fallback"
-                    :class="{ 'is-primary': !coverVisual(demo).src }"
-                  >
+                  <span class="demo-cover-fallback">
                     {{ coverVisual(demo).mark }}
                   </span>
                 </span>
@@ -252,8 +252,8 @@ const props = defineProps<{
 const copy = {
   en: {
     kicker: 'FlyEnv demonstrations',
-    title: 'See the local task before you build it',
-    intro: 'Browse practical FlyEnv workflows for runtimes, services, projects, AI, and developer tools.',
+    title: 'See what runs locally with FlyEnv',
+    intro: 'Browse demo videos for real projects, runtimes, databases, developer tools, and AI workflows running locally with FlyEnv.',
     controlsLabel: 'Browse FlyEnv demonstrations',
     categoryLabel: 'Filter by category',
     searchLabel: 'Search demos',
@@ -274,8 +274,8 @@ const copy = {
   },
   zh: {
     kicker: 'FlyEnv 演示',
-    title: '在开始前先看真实的本地开发任务',
-    intro: '浏览 FlyEnv 管理运行时、服务、项目、AI 和开发工具的实际工作流。',
+    title: '查看 FlyEnv 可在本地运行的内容',
+    intro: '浏览 FlyEnv 在本地运行真实项目、运行时、数据库、开发工具和 AI 工作流的演示视频。',
     controlsLabel: '浏览 FlyEnv 演示',
     categoryLabel: '按分类筛选',
     searchLabel: '搜索演示',
@@ -296,8 +296,8 @@ const copy = {
   },
   id: {
     kicker: 'Demo FlyEnv',
-    title: 'Lihat tugas lokal sebelum Anda membangunnya',
-    intro: 'Telusuri alur kerja FlyEnv untuk runtime, layanan, proyek, AI, dan alat developer.',
+    title: 'Lihat apa yang berjalan lokal dengan FlyEnv',
+    intro: 'Jelajahi video demo FlyEnv untuk proyek, runtime, database, alat developer, dan alur kerja AI yang berjalan secara lokal.',
     controlsLabel: 'Telusuri demo FlyEnv',
     categoryLabel: 'Filter berdasarkan kategori',
     searchLabel: 'Cari demo',
@@ -343,43 +343,53 @@ type DemoCoverRule = {
 }
 
 const coverFallbackMarks: Record<DemoCategory, string> = {
-  'getting-started': 'FE',
-  projects: 'APP',
-  runtimes: 'RUN',
-  'databases-services': 'DATA',
-  'developer-tools': 'DEV',
-  'ai-mcp': 'AI'
+  'getting-started': '+',
+  projects: '[]',
+  runtimes: '>>',
+  'databases-services': '<>',
+  'developer-tools': '{}',
+  'ai-mcp': '*'
 }
 
 const coverVisualRules: DemoCoverRule[] = [
-  { match: /erpnext/, mark: 'ERP', src: 'https://cdn.simpleicons.org/erpnext' },
-  { match: /gitea/, mark: 'GT', src: 'https://cdn.simpleicons.org/gitea' },
-  { match: /postgresql|pgadmin/, mark: 'PG', src: 'https://cdn.simpleicons.org/postgresql' },
-  { match: /redis/, mark: 'RD', src: 'https://cdn.simpleicons.org/redis' },
-  { match: /rabbitmq/, mark: 'RMQ', src: 'https://cdn.simpleicons.org/rabbitmq' },
-  { match: /php/, mark: 'PHP', src: 'https://cdn.simpleicons.org/php' },
-  { match: /mysql/, mark: 'SQL', src: 'https://cdn.simpleicons.org/mysql' },
-  { match: /mariadb/, mark: 'MDB', src: 'https://cdn.simpleicons.org/mariadb' },
-  { match: /mongodb/, mark: 'MDB', src: 'https://cdn.simpleicons.org/mongodb' },
-  { match: /neo4j/, mark: 'N4J', src: 'https://cdn.simpleicons.org/neo4j' },
-  { match: /clickhouse/, mark: 'CH', src: 'https://cdn.simpleicons.org/clickhouse' },
-  { match: /qdrant/, mark: 'Q', src: 'https://cdn.simpleicons.org/qdrant' },
-  { match: /caddy/, mark: 'CD', src: 'https://cdn.simpleicons.org/caddy' },
-  { match: /nginx/, mark: 'NG', src: 'https://cdn.simpleicons.org/nginx' },
-  { match: /apache/, mark: 'AP', src: 'https://cdn.simpleicons.org/apache' },
-  { match: /node\.js|nodejs/, mark: 'JS', src: 'https://cdn.simpleicons.org/nodedotjs' },
-  { match: /python/, mark: 'PY', src: 'https://cdn.simpleicons.org/python' },
-  { match: /\bgo\b/, mark: 'GO', src: 'https://cdn.simpleicons.org/go' },
-  { match: /java|tomcat/, mark: 'JV', src: 'https://cdn.simpleicons.org/openjdk' },
-  { match: /bun/, mark: 'BUN', src: 'https://cdn.simpleicons.org/bun' },
-  { match: /ruby/, mark: 'RB', src: 'https://cdn.simpleicons.org/ruby' },
-  { match: /rust/, mark: 'RS', src: 'https://cdn.simpleicons.org/rust' },
-  { match: /flutter/, mark: 'FLT', src: 'https://cdn.simpleicons.org/flutter' },
-  { match: /n8n/, mark: 'N8N', src: 'https://cdn.simpleicons.org/n8n' },
-  { match: /ollama/, mark: 'OL', src: 'https://cdn.simpleicons.org/ollama' },
-  { match: /claude/, mark: 'CC', src: 'https://cdn.simpleicons.org/claude' },
+  { match: /erpnext/, mark: 'ERP', src: '/assets/demo-logos/erpnext.svg' },
+  { match: /gitea/, mark: 'GT', src: '/assets/demo-logos/gitea.svg' },
+  { match: /nextcloud/, mark: 'NC', src: '/assets/demo-logos/nextcloud.svg' },
+  { match: /wordpress/, mark: 'WP', src: '/assets/demo-logos/wordpress.svg' },
+  { match: /laravel/, mark: 'LV', src: '/assets/demo-logos/laravel.svg' },
+  { match: /postgresql/, mark: 'PG', src: '/assets/demo-logos/postgresql.svg' },
+  { match: /redis/, mark: 'RD', src: '/assets/demo-logos/redis.svg' },
+  { match: /rabbitmq/, mark: 'RMQ', src: '/assets/demo-logos/rabbitmq.svg' },
+  { match: /php/, mark: 'PHP', src: '/assets/demo-logos/php.svg' },
+  { match: /mysql/, mark: 'SQL', src: '/assets/demo-logos/mysql.svg' },
+  { match: /mariadb/, mark: 'MDB', src: '/assets/demo-logos/mariadb.svg' },
+  { match: /mongodb/, mark: 'MDB', src: '/assets/demo-logos/mongodb.svg' },
+  { match: /neo4j/, mark: 'N4J', src: '/assets/demo-logos/neo4j.svg' },
+  { match: /clickhouse/, mark: 'CH', src: '/assets/demo-logos/clickhouse.svg' },
+  { match: /qdrant/, mark: 'Q', src: '/assets/demo-logos/qdrant.svg' },
+  { match: /temporal/, mark: 'TMP', src: '/assets/demo-logos/temporal.svg' },
+  { match: /consul/, mark: 'CSL', src: '/assets/demo-logos/consul.svg' },
+  { match: /etcd/, mark: 'ETC', src: '/assets/demo-logos/etcd.svg' },
+  { match: /zincsearch/, mark: 'ZS', src: '/assets/demo-logos/zincsearch.svg' },
+  { match: /rustfs/, mark: 'RFS', src: '/assets/demo-logos/rustfs.svg' },
+  { match: /podman/, mark: 'PDM', src: '/assets/demo-logos/podman.svg' },
+  { match: /caddy/, mark: 'CD', src: '/assets/demo-logos/caddy.svg' },
+  { match: /nginx/, mark: 'NG', src: '/assets/demo-logos/nginx.svg' },
+  { match: /apache/, mark: 'AP', src: '/assets/demo-logos/apache.svg' },
+  { match: /node\.js|nodejs/, mark: 'JS', src: '/assets/demo-logos/nodedotjs.svg' },
+  { match: /python/, mark: 'PY', src: '/assets/demo-logos/python.svg' },
+  { match: /\bgo\b/, mark: 'GO', src: '/assets/demo-logos/go.svg' },
+  { match: /java|tomcat/, mark: 'JV', src: '/assets/demo-logos/openjdk.svg' },
+  { match: /bun/, mark: 'BUN', src: '/assets/demo-logos/bun.svg' },
+  { match: /ruby/, mark: 'RB', src: '/assets/demo-logos/ruby.svg' },
+  { match: /rust/, mark: 'RS', src: '/assets/demo-logos/rust.svg' },
+  { match: /flutter/, mark: 'FLT', src: '/assets/demo-logos/flutter.svg' },
+  { match: /n8n/, mark: 'N8N', src: '/assets/demo-logos/n8n.svg' },
+  { match: /ollama/, mark: 'OL', src: '/assets/demo-logos/ollama.svg' },
+  { match: /claude/, mark: 'CC', src: '/assets/demo-logos/claude.svg' },
+  { match: /django/, mark: 'DJ', src: '/assets/demo-logos/django.svg' },
   { match: /mcp/, mark: 'MCP' },
-  { match: /startup|environment|runtime/, mark: 'STACK' }
+  { match: /startup|environment|runtime/, mark: '[]' }
 ]
 
 const activeCategory = ref<FilterValue>('all')
@@ -535,9 +545,10 @@ function hideBrokenThumbnail(event: Event) {
   image.classList.add('is-unavailable')
 }
 
-function markCoverLogoLoaded(event: Event) {
+function hideBrokenCoverLogo(event: Event) {
   const image = event.currentTarget as HTMLImageElement
-  image.classList.add('is-loaded')
+  image.classList.add('is-unavailable')
+  image.parentElement?.classList.add('logo-missing')
 }
 
 function selectPlatform(platform: DemoPlatform) {
@@ -673,19 +684,21 @@ onUnmounted(() => {
   border-bottom: 1px solid var(--demos-line);
   display: grid;
   gap: 20px;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
   margin-top: 42px;
   padding-bottom: 24px;
 }
 
 .demos-filter-scroll {
-  grid-column: 1 / -1;
+  grid-column: 2;
+  grid-row: 1;
   min-width: 0;
 }
 
 .demos-filter-row {
   display: flex;
   gap: 8px;
+  justify-content: flex-end;
   overflow-x: auto;
   padding-bottom: 2px;
   scrollbar-width: thin;
@@ -744,8 +757,10 @@ onUnmounted(() => {
 .demos-search-label {
   display: grid;
   gap: 7px;
-  justify-self: end;
-  width: min(100%, 360px);
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: stretch;
+  width: 100%;
 }
 
 .demos-search-label > span {
@@ -915,6 +930,7 @@ onUnmounted(() => {
 
 .demo-cover-fallback {
   color: var(--cover-accent);
+  display: none;
   font-size: 44px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -923,13 +939,10 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.demo-cover-fallback.is-primary,
-.demo-cover-logo.is-unavailable + .demo-cover-fallback {
+.demo-cover-visual.no-logo .demo-cover-fallback,
+.demo-cover-visual.logo-missing .demo-cover-fallback {
+  display: block;
   opacity: 0.84;
-}
-
-.demo-cover-logo.is-loaded + .demo-cover-fallback {
-  opacity: 0;
 }
 
 .demo-card-featured .demo-cover-native {
@@ -1218,21 +1231,28 @@ input:focus-visible {
 
   .demos-controls {
     align-items: stretch;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .demos-filter-scroll {
-    grid-column: auto;
+    grid-column: 1;
+    grid-row: 1;
     margin: 0 -16px;
     overflow-x: auto;
+    order: 1;
     padding: 0 16px;
   }
 
   .demos-filter-row {
+    justify-content: flex-start;
     width: max-content;
   }
 
   .demos-search-label {
+    grid-column: 1;
+    grid-row: 2;
     justify-self: stretch;
+    order: 2;
     width: 100%;
   }
 
