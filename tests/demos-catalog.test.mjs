@@ -94,4 +94,79 @@ test('the demos component keeps playback lazy and exposes accessible discovery c
     /\.demos-masthead h1\s*\{\s*font-size:\s*[^;]*vw/,
     'catalog typography must not scale with viewport width'
   )
+  assert.match(
+    source,
+    /\.demos-filter-scroll\s*\{[^}]*grid-column:\s*1\s*\/\s*-1/s,
+    'the desktop filter row must have the full control width'
+  )
+  assert.match(
+    source,
+    /\.demos-masthead h1\s*\{[^}]*max-width:\s*700px/s,
+    'the desktop title must have a deliberate text measure'
+  )
+})
+
+test('demo cards provide native localized covers independent of remote thumbnails', () => {
+  const source = read('docs/components/AppDemos/index.vue')
+
+  for (const required of [
+    'demo-cover-native',
+    'demo-cover-thumbnail',
+    'demo-cover-scrim',
+    'demo-cover-brand',
+    'demo-cover-category',
+    'demo-cover-topic',
+    'demo-cover-tags',
+    'coverToneClass',
+    'demo-cover-tone-getting-started',
+    'demo-cover-tone-projects',
+    'demo-cover-tone-runtimes',
+    'demo-cover-tone-databases-services',
+    'demo-cover-tone-developer-tools',
+    'demo-cover-tone-ai-mcp'
+  ]) {
+    assert.ok(source.includes(required), `missing ${required}`)
+  }
+
+  assert.match(source, /v-for="tag in demoCopy\(demo\)\.tags\.slice\(0, 4\)"/)
+  assert.match(source, /class="demo-cover-thumbnail"/)
+  assert.match(source, /class="demo-cover-native"/)
+  assert.match(source, /class="demo-cover-scrim"/)
+  assert.match(source, /class="demo-cover-topic"/)
+})
+
+test('all three Demos routes have localized metadata and compose the shared catalog', () => {
+  const expected = [
+    ['docs/demos.md', './components/AppDemos/index.vue', 'locale="en"', 'FlyEnv Demos'],
+    ['docs/zh/demos.md', '../components/AppDemos/index.vue', 'locale="zh"', 'FlyEnv 演示'],
+    ['docs/id/demos.md', '../components/AppDemos/index.vue', 'locale="id"', 'Demo FlyEnv']
+  ]
+
+  for (const [path, component, locale, title] of expected) {
+    const source = read(path)
+    assert.ok(source.includes(component))
+    assert.ok(source.includes(locale))
+    assert.ok(source.includes(title))
+    assert.match(source, /^title: ['"].+['"]$/m, `${path} must quote its YAML title`)
+    assert.match(source, /rel: canonical/)
+    assert.match(source, /hreflang: en/)
+    assert.match(source, /hreflang: zh-CN/)
+    assert.match(source, /hreflang: id-ID/)
+  }
+})
+
+test('all site locales expose Demos in primary navigation and delegated analytics', () => {
+  const config = read('docs/.vitepress/config.mts')
+  const theme = read('docs/.vitepress/theme/index.js')
+
+  for (const [label, link] of [
+    ['Demos', '/demos'],
+    ['演示', '/zh/demos'],
+    ['Demo', '/id/demos']
+  ]) {
+    assert.ok(config.includes(`{ text: '${label}', link: '${link}' }`))
+  }
+
+  assert.match(theme, /demos_nav_click/)
+  assert.match(theme, /primary_nav/)
 })

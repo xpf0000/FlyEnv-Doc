@@ -56,6 +56,7 @@
               @click="openDemo(demo, 'featured', $event.currentTarget)"
             >
               <img
+                class="demo-cover-thumbnail"
                 :src="thumbnailUrl(demo)"
                 alt=""
                 width="480"
@@ -63,6 +64,15 @@
                 loading="lazy"
                 @error="hideBrokenThumbnail"
               />
+              <span class="demo-cover-scrim" aria-hidden="true"></span>
+              <span class="demo-cover-native" :class="coverToneClass(demo.category)">
+                <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
+                <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
+                <span class="demo-cover-topic">{{ demoCopy(demo).title }}</span>
+                <span class="demo-cover-tags" aria-hidden="true">
+                  <span v-for="tag in demoCopy(demo).tags.slice(0, 4)" :key="tag">{{ tag }}</span>
+                </span>
+              </span>
               <span class="demo-play" aria-hidden="true"></span>
             </button>
             <div class="demo-card-body">
@@ -99,6 +109,7 @@
               @click="openDemo(demo, 'catalog', $event.currentTarget)"
             >
               <img
+                class="demo-cover-thumbnail"
                 :src="thumbnailUrl(demo)"
                 alt=""
                 width="480"
@@ -106,6 +117,15 @@
                 loading="lazy"
                 @error="hideBrokenThumbnail"
               />
+              <span class="demo-cover-scrim" aria-hidden="true"></span>
+              <span class="demo-cover-native" :class="coverToneClass(demo.category)">
+                <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
+                <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
+                <span class="demo-cover-topic">{{ demoCopy(demo).title }}</span>
+                <span class="demo-cover-tags" aria-hidden="true">
+                  <span v-for="tag in demoCopy(demo).tags.slice(0, 4)" :key="tag">{{ tag }}</span>
+                </span>
+              </span>
               <span class="demo-play" aria-hidden="true"></span>
             </button>
             <div class="demo-card-body">
@@ -281,6 +301,15 @@ const categoryValues: DemoCategory[] = [
   'ai-mcp'
 ]
 
+const coverToneClasses: Record<DemoCategory, string> = {
+  'getting-started': 'demo-cover-tone-getting-started',
+  projects: 'demo-cover-tone-projects',
+  runtimes: 'demo-cover-tone-runtimes',
+  'databases-services': 'demo-cover-tone-databases-services',
+  'developer-tools': 'demo-cover-tone-developer-tools',
+  'ai-mcp': 'demo-cover-tone-ai-mcp'
+}
+
 const activeCategory = ref<FilterValue>('all')
 const searchQuery = ref('')
 const selectedDemo = ref<Demo | null>(null)
@@ -341,6 +370,10 @@ function demoCopy(demo: Demo) {
 
 function categoryLabel(category: DemoCategory) {
   return demoCategories[props.locale][category]
+}
+
+function coverToneClass(category: DemoCategory) {
+  return coverToneClasses[category]
 }
 
 function thumbnailUrl(demo: Demo) {
@@ -536,6 +569,7 @@ onUnmounted(() => {
   font-size: 48px;
   line-height: 1.08;
   margin: 0;
+  max-width: 700px;
 }
 
 .demos-intro {
@@ -551,12 +585,13 @@ onUnmounted(() => {
   border-bottom: 1px solid var(--demos-line);
   display: grid;
   gap: 20px;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  grid-template-columns: minmax(0, 1fr);
   margin-top: 42px;
   padding-bottom: 24px;
 }
 
 .demos-filter-scroll {
+  grid-column: 1 / -1;
   min-width: 0;
 }
 
@@ -621,6 +656,8 @@ onUnmounted(() => {
 .demos-search-label {
   display: grid;
   gap: 7px;
+  justify-self: end;
+  width: min(100%, 360px);
 }
 
 .demos-search-label > span {
@@ -698,29 +735,152 @@ onUnmounted(() => {
 
 .demo-cover {
   aspect-ratio: 16 / 9;
-  background: #dce6f4;
+  background: #e7edf5;
   border: 0;
   cursor: pointer;
   display: block;
+  isolation: isolate;
   overflow: hidden;
   padding: 0;
   position: relative;
   width: 100%;
 }
 
-.demo-cover img {
-  height: 100%;
-  object-fit: cover;
-  transition: transform 180ms ease;
-  width: 100%;
+.demo-cover-thumbnail,
+.demo-cover-scrim,
+.demo-cover-native {
+  inset: 0;
+  position: absolute;
 }
 
-.demo-cover img.is-unavailable {
+.demo-cover-thumbnail {
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+  transition: opacity 180ms ease, transform 180ms ease;
+  width: 100%;
+  z-index: 0;
+}
+
+.demo-cover-thumbnail.is-unavailable {
   opacity: 0;
 }
 
-.demo-cover:hover img {
+.demo-cover-scrim {
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.demo-cover-native {
+  background: var(--cover-tint);
+  border-top: 4px solid var(--cover-accent);
+  color: var(--cover-ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  z-index: 2;
+}
+
+.demo-cover-brand {
+  color: var(--cover-accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.demo-cover-category {
+  color: var(--cover-accent);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: auto;
+  overflow-wrap: anywhere;
+}
+
+.demo-cover-topic {
+  font-size: 18px;
+  font-weight: 760;
+  line-height: 1.15;
+  margin-top: 6px;
+  max-width: 76%;
+  overflow-wrap: anywhere;
+}
+
+.demo-card-featured .demo-cover-native {
+  padding: 22px;
+}
+
+.demo-card-featured .demo-cover-topic {
+  font-size: clamp(21px, 2.4vw, 30px);
+}
+
+.demo-cover-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+  max-height: 52px;
+  overflow: hidden;
+}
+
+.demo-cover-tags span {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 4px;
+  color: var(--cover-ink);
+  font-size: 11px;
+  line-height: 1.25;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding: 4px 6px;
+}
+
+.demo-cover-tone-getting-started {
+  --cover-accent: #1d4ed8;
+  --cover-tint: rgba(219, 234, 254, 0.9);
+  --cover-ink: #172554;
+}
+
+.demo-cover-tone-projects {
+  --cover-accent: #047857;
+  --cover-tint: rgba(209, 250, 229, 0.9);
+  --cover-ink: #064e3b;
+}
+
+.demo-cover-tone-runtimes {
+  --cover-accent: #b45309;
+  --cover-tint: rgba(254, 243, 199, 0.9);
+  --cover-ink: #78350f;
+}
+
+.demo-cover-tone-databases-services {
+  --cover-accent: #4338ca;
+  --cover-tint: rgba(224, 231, 255, 0.9);
+  --cover-ink: #312e81;
+}
+
+.demo-cover-tone-developer-tools {
+  --cover-accent: #be185d;
+  --cover-tint: rgba(252, 231, 243, 0.9);
+  --cover-ink: #831843;
+}
+
+.demo-cover-tone-ai-mcp {
+  --cover-accent: #7c3aed;
+  --cover-tint: rgba(237, 233, 254, 0.9);
+  --cover-ink: #4c1d95;
+}
+
+.demo-cover:hover .demo-cover-thumbnail {
+  opacity: 0.24;
   transform: scale(1.025);
+}
+
+.demo-cover:hover .demo-cover-thumbnail.is-unavailable {
+  opacity: 0;
 }
 
 .demo-play {
@@ -733,6 +893,7 @@ onUnmounted(() => {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 42px;
+  z-index: 3;
 }
 
 .demo-play::after {
@@ -949,10 +1110,10 @@ input:focus-visible {
 
   .demos-controls {
     align-items: stretch;
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .demos-filter-scroll {
+    grid-column: auto;
     margin: 0 -16px;
     overflow-x: auto;
     padding: 0 16px;
@@ -962,9 +1123,24 @@ input:focus-visible {
     width: max-content;
   }
 
+  .demos-search-label {
+    justify-self: stretch;
+    width: 100%;
+  }
+
   .demos-featured-grid,
   .demos-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .demo-cover-native,
+  .demo-card-featured .demo-cover-native {
+    padding: 14px;
+  }
+
+  .demo-cover-topic,
+  .demo-card-featured .demo-cover-topic {
+    font-size: 20px;
   }
 
   .demos-section {
