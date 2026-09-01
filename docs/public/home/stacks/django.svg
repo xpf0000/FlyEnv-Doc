@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Django local stack placeholder</title>
+  <desc id="desc">A replaceable placeholder preview for a Django stack in FlyEnv.</desc>
+  <rect width="960" height="420" rx="28" fill="#102326"/>
+  <rect x="32" y="32" width="896" height="54" rx="14" fill="#17363a"/>
+  <text x="60" y="66" fill="#d1fae5" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Django workspace</text>
+  <rect x="32" y="112" width="260" height="270" rx="18" fill="#16353a"/>
+  <text x="60" y="155" fill="#9cc4c0" font-family="system-ui, sans-serif" font-size="15">RUNTIMES</text>
+  <text x="60" y="194" fill="#f0fdf4" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Python 3.12</text>
+  <text x="60" y="232" fill="#86efac" font-family="system-ui, sans-serif" font-size="16">● Running</text>
+  <text x="60" y="286" fill="#9cc4c0" font-family="system-ui, sans-serif" font-size="15">SERVICES</text>
+  <text x="60" y="320" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="16">PostgreSQL · Redis</text>
+  <rect x="320" y="112" width="608" height="270" rx="18" fill="#ecfdf5"/>
+  <text x="360" y="165" fill="#064e3b" font-family="system-ui, sans-serif" font-size="30" font-weight="800">django.test</text>
+  <rect x="360" y="194" width="170" height="34" rx="17" fill="#d1fae5"/><text x="385" y="217" fill="#047857" font-family="system-ui, sans-serif" font-size="15" font-weight="700">HTTPS enabled</text>
+  <text x="360" y="278" fill="#365d56" font-family="system-ui, sans-serif" font-size="18">Native local stack preview</text>
+  <text x="360" y="320" fill="#55736d" font-family="system-ui, sans-serif" font-size="15">FlyEnv workspace preview</text>
+</svg>

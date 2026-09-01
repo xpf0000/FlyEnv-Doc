@@ -21,6 +21,7 @@ export interface Demo {
   category: DemoCategory
   publishedAt: string
   featured: boolean
+  featuredRank?: number
   locales: Record<DemoLocale, DemoCopy>
   platforms: {
     youtube: string
@@ -30,9 +31,11 @@ export interface Demo {
   relatedModules: string[]
 }
 
-type DemoSource = Omit<Demo, 'featured' | 'locales' | 'platforms'> & {
+type DemoSource = Omit<Demo, 'featured' | 'featuredRank' | 'locales' | 'platforms'> & {
   featured?: boolean
+  featuredRank?: number
   titles: Record<DemoLocale, string>
+  summaries?: Partial<Record<DemoLocale, string>>
   tags: string[]
 }
 
@@ -40,7 +43,7 @@ export const demoCategories: Record<DemoLocale, Record<DemoCategory, string>> = 
   en: {
     'getting-started': 'Getting started',
     projects: 'Projects',
-    runtimes: 'Runtimes',
+    runtimes: 'Languages & Runtimes',
     'databases-services': 'Databases & services',
     'developer-tools': 'Developer tools',
     'ai-mcp': 'AI & MCP'
@@ -48,7 +51,7 @@ export const demoCategories: Record<DemoLocale, Record<DemoCategory, string>> = 
   zh: {
     'getting-started': '开始使用',
     projects: '项目实践',
-    runtimes: '运行时',
+    runtimes: '语言与运行时',
     'databases-services': '数据库与服务',
     'developer-tools': '开发工具',
     'ai-mcp': 'AI 与 MCP'
@@ -56,7 +59,7 @@ export const demoCategories: Record<DemoLocale, Record<DemoCategory, string>> = 
   id: {
     'getting-started': 'Mulai cepat',
     projects: 'Proyek',
-    runtimes: 'Runtime',
+    runtimes: 'Bahasa & Runtime',
     'databases-services': 'Database & layanan',
     'developer-tools': 'Alat developer',
     'ai-mcp': 'AI & MCP'
@@ -105,7 +108,7 @@ const bilibiliByYoutubeId: Partial<Record<string, string>> = {
   'SHK12kXApTM': 'BV1cFEp67E2v',
   'uOf2cWk3AtU': 'BV1Hu3463Ej7',
   'vPD3lXo1vr0': 'BV1EV346BEqi',
-  'sdbIbnIYoYY': 'BV1i6oQYdE1g',
+  'sdbIbnIYoYY': 'BV1zrFDz4ELJ',
   'ahetMNLLS7s': 'BV16Q3P6VEPA',
   'B9Eo2Y-aXWQ': 'BV1if3P6BEBR',
   'YnA1B3qmDJU': 'BV1qGXFBfE7U',
@@ -124,7 +127,51 @@ const bilibiliByYoutubeId: Partial<Record<string, string>> = {
   'yYSwnYC7V9M': 'BV14Je6zhECW',
   'u9xjPN-VWT4': 'BV1YaZxBzENJ',
   'ViKMVkh3TL8': 'BV1XxjzzdE3e',
-  'Cpq6i9T6IK4': 'BV1Ez5EzzEk5'
+  'Cpq6i9T6IK4': 'BV1Ez5EzzEk5',
+  // Fill these entries when the corresponding Bilibili videos are available.
+  'vjZPrYqJavA': 'BV1Tjui66E2Z',
+  'ZhvJ8a9Fp_4': 'BV1jxbQ6EEWx',
+  '5NqSag8c4YY': 'BV1cFEp67E2v',
+  'hKIx2LdNz0Y': 'BV1cXgp6aEdr',
+  'Sd03V_wxh1k': 'BV1xrgn6wEWo',
+  's6PHRiioyuc': 'BV1mX8865Eqp',
+  'sXo7L4-cxh8': 'BV1NA8d6CEWn',
+  'Kfb0meXjzUA': 'BV1fi8R6wETE',
+  '47I5nZK3rjo': 'BV1i6oQYdE1g',
+  '5gW3WHh8_Jw': 'BV19oE36BELa',
+  '2sfoWGW9rm4': 'BV1B1846HEvV',
+  'idjLaMh2RMw': 'BV1vM8462EZ8',
+  'DByCl9MyYrg': 'BV1v3846yEPR',
+  'mriHvqJmU1g': 'BV17U846JE3C',
+  't7nKL45FdVk': 'BV1wqZ7BNErL',
+  '8ceC7QqY4UA': 'BV1XuGV6oECA',
+  'pa0QFgpu17w': 'BV1vNGV68EF4',
+  'L-W1JNqWPEw': 'BV1Pmg36TE9n',
+  'Jg7zfJTOZCM': 'BV1Kkg366EaB',
+  'uFVZHMGORGM': 'BV1smg36KEG5',
+  'yPk9HQJRvb8': 'BV13UZcYGEhu',
+  'KChv2gvgKjw': 'BV1UXgM6NEZZ',
+  'X8W1FcwWc00': 'BV1GhcYzNEyw',
+  'qpgUJZmS6Ig': 'BV1fPc4ztEL6',
+  'iPGTefjNWI8': 'BV11icbz5EWs',
+  'LFazRyd_G3o': 'BV1XbcYzvEmg',
+  'NSQNBS7zHqU': 'BV1W9cxzKEmM',
+  'NiJW09NCa_0': 'BV1UBcYzbE2M',
+  '2QxmRRVR15Q': 'BV1Q7ciz6ELv',
+  'BYu3sNxuRF0': 'BV1XJc4z7ENe',
+  'jZmnlraSHvs': 'BV1MSFdz4EDC',
+  '2KZK97EP8is': 'BV1r1cbzMEBm',
+  'cCXvWoJ4ayM': 'BV1mdcuzfE2p',
+  'DiYIv_SoTDY': 'BV1bsZ7BGEaC',
+  'x36kdgUI16k': 'BV1AZcxzYEKY',
+  'oiVFGe4GhkY': 'BV1eRZ7BQEih',
+  'Y17Tvrc9fsQ': 'BV1SMcEzXEX6',
+  '4kyrX0-QPgM': 'BV117cEz2Ens',
+  'DIX4lTgBP4c': 'BV1bAFQzGEPF',
+  'Zb5YPO5BTaY': 'BV1yzcbzGEer',
+  'dyT5GzuOrBc': 'BV13FZEBEEuh',
+  '67cwHqygWFM': 'BV1txZ7BrEDY',
+  'MqjFsqrpI0I': 'BV12ccgzxEE1'
 }
 
 function createDemo(source: DemoSource): Demo {
@@ -136,20 +183,21 @@ function createDemo(source: DemoSource): Demo {
     category: source.category,
     publishedAt: source.publishedAt,
     featured: source.featured === true,
+    featuredRank: source.featuredRank,
     locales: {
       en: {
         title: source.titles.en,
-        summary: categorySummaries.en[source.category],
+        summary: source.summaries?.en || categorySummaries.en[source.category],
         tags: source.tags
       },
       zh: {
         title: source.titles.zh,
-        summary: categorySummaries.zh[source.category],
+        summary: source.summaries?.zh || categorySummaries.zh[source.category],
         tags: source.tags
       },
       id: {
         title: source.titles.id,
-        summary: categorySummaries.id[source.category],
+        summary: source.summaries?.id || categorySummaries.id[source.category],
         tags: source.tags
       }
     },
@@ -165,8 +213,13 @@ function createDemo(source: DemoSource): Demo {
 const sources: DemoSource[] = [
   {
     id: 'flyenv-feature-overview', youtubeId: 'TA2NA0JeGdo', category: 'getting-started',
-    publishedAt: '2026-07-17', featured: true,
+    publishedAt: '2026-07-17', featured: true, featuredRank: 1,
     titles: { en: 'FlyEnv feature overview', zh: 'FlyEnv 功能总览', id: 'Ikhtisar fitur FlyEnv' },
+    summaries: {
+      en: 'See how FlyEnv brings runtimes, services, projects, and developer tools into one local workspace.',
+      zh: '了解 FlyEnv 如何将运行时、服务、项目与开发工具集中到一个本地工作区。',
+      id: 'Lihat cara FlyEnv menyatukan runtime, layanan, proyek, dan alat developer dalam satu ruang kerja lokal.'
+    },
     tags: ['FlyEnv', 'local development', 'native workflow'],
     relatedGuides: ['/guide/what-is-flyenv'], relatedModules: []
   },
@@ -178,39 +231,14 @@ const sources: DemoSource[] = [
     relatedGuides: ['/guide/what-is-flyenv'], relatedModules: []
   },
   {
-    id: 'phpwebstudy-overview', youtubeId: 'FHJ8nrQ2aj4', category: 'getting-started',
-    publishedAt: '2024-09-28',
-    titles: { en: 'PhpWebStudy all-in-one web environment', zh: 'PhpWebStudy 一体化 Web 环境', id: 'Lingkungan web lengkap PhpWebStudy' },
-    tags: ['PhpWebStudy', 'PHP', 'web server'], relatedGuides: [], relatedModules: []
-  },
-  {
-    id: 'phpwebstudy-macos', youtubeId: 'f9emR2HFk9M', category: 'getting-started',
-    publishedAt: '2022-12-23',
-    titles: { en: 'PhpWebStudy on macOS', zh: 'macOS 上的 PhpWebStudy', id: 'PhpWebStudy di macOS' },
-    tags: ['PhpWebStudy', 'macOS', 'PHP'], relatedGuides: [], relatedModules: []
-  },
-  {
-    id: 'flyphpserver-demo', youtubeId: 'QbuUkztmwLs', category: 'getting-started',
-    publishedAt: '2026-05-07',
-    titles: { en: 'FlyPHPServer demonstration', zh: 'FlyPHPServer 演示', id: 'Demo FlyPHPServer' },
-    tags: ['FlyPHPServer', 'PHP', 'web server'], relatedGuides: [], relatedModules: ['/flyphpserver']
-  },
-  {
-    id: 'phpwebstudy-windows-stack', youtubeId: 'rufRCVIeqj8', category: 'getting-started',
-    publishedAt: '2024-11-11',
-    titles: { en: 'Apache, PHP, MySQL and phpMyAdmin on Windows', zh: 'Windows 上的 Apache、PHP、MySQL 与 phpMyAdmin', id: 'Apache, PHP, MySQL, dan phpMyAdmin di Windows' },
-    tags: ['Apache', 'PHP', 'MySQL', 'Windows'], relatedGuides: [], relatedModules: []
-  },
-  {
-    id: 'phpwebstudy-quick-stack', youtubeId: 'TwpnOXZ8cPo', category: 'getting-started',
-    publishedAt: '2024-10-13',
-    titles: { en: 'Build an Apache, PHP and MySQL stack quickly', zh: '快速搭建 Apache、PHP 与 MySQL 技术栈', id: 'Membangun stack Apache, PHP, dan MySQL dengan cepat' },
-    tags: ['Apache', 'PHP', 'MySQL'], relatedGuides: [], relatedModules: []
-  },
-  {
     id: 'erpnext-local-project', youtubeId: 'ZhvJ8a9Fp_4', category: 'projects',
-    publishedAt: '2026-08-16', featured: true,
+    publishedAt: '2026-08-16', featured: true, featuredRank: 3,
     titles: { en: 'Run ERPNext locally', zh: '本地运行 ERPNext', id: 'Menjalankan ERPNext secara lokal' },
+    summaries: {
+      en: 'Run ERPNext and its Frappe services together as a managed local stack.',
+      zh: '将 ERPNext 与 Frappe 服务作为一个本地技术栈统一运行和管理。',
+      id: 'Jalankan ERPNext dan layanan Frappe-nya bersama sebagai satu stack lokal terkelola.'
+    },
     tags: ['ERPNext', 'Frappe', 'local stack'], relatedGuides: [], relatedModules: []
   },
   {
@@ -239,9 +267,26 @@ const sources: DemoSource[] = [
     tags: ['Nextcloud', 'PHP', 'local stack'], relatedGuides: ['/guide/run-laravel-use-flyenv'], relatedModules: []
   },
   {
-    id: 'zero-config-runtimes', youtubeId: '47I5nZK3rjo', category: 'runtimes',
-    publishedAt: '2025-03-28',
+    id: 'keycloak-local-project', youtubeId: 'sXo7L4-cxh8', category: 'projects',
+    publishedAt: '2026-08-26',
+    titles: { en: 'Run Keycloak locally with Nginx, PostgreSQL and Mailpit', zh: '使用 Nginx、PostgreSQL 与 Mailpit 本地运行 Keycloak', id: 'Menjalankan Keycloak secara lokal dengan Nginx, PostgreSQL, dan Mailpit' },
+    tags: ['Keycloak', 'Nginx', 'PostgreSQL', 'Mailpit'], relatedGuides: ['/guide/host'], relatedModules: []
+  },
+  {
+    id: 'snipe-it-local-project', youtubeId: 'Kfb0meXjzUA', category: 'projects',
+    publishedAt: '2026-08-26',
+    titles: { en: 'Run Snipe-IT locally with Nginx, PHP-FPM, MySQL and Mailpit', zh: '使用 Nginx、PHP-FPM、MySQL 与 Mailpit 本地运行 Snipe-IT', id: 'Menjalankan Snipe-IT secara lokal dengan Nginx, PHP-FPM, MySQL, dan Mailpit' },
+    tags: ['Snipe-IT', 'Nginx', 'PHP-FPM', 'MySQL', 'Mailpit'], relatedGuides: ['/guide/run-laravel-use-flyenv'], relatedModules: []
+  },
+  {
+    id: 'zero-config-runtimes', youtubeId: '47I5nZK3rjo', category: 'getting-started',
+    publishedAt: '2025-03-28', featured: true, featuredRank: 2,
     titles: { en: 'Install PHP, Python, Go, Node.js and Java quickly', zh: '快速安装 PHP、Python、Go、Node.js 与 Java', id: 'Memasang PHP, Python, Go, Node.js, dan Java dengan cepat' },
+    summaries: {
+      en: 'Install and switch PHP, Python, Go, Node.js, and Java from one local workspace.',
+      zh: '在一个本地工作区中安装和切换 PHP、Python、Go、Node.js 与 Java。',
+      id: 'Instal dan ganti PHP, Python, Go, Node.js, serta Java dari satu ruang kerja lokal.'
+    },
     tags: ['PHP', 'Python', 'Go', 'Node.js', 'Java'], relatedGuides: ['/guide/getting-started'], relatedModules: []
   },
   {
@@ -282,8 +327,13 @@ const sources: DemoSource[] = [
   },
   {
     id: 'postgresql-pgadmin', youtubeId: '5gW3WHh8_Jw', category: 'databases-services',
-    publishedAt: '2026-06-08', featured: true,
+    publishedAt: '2026-06-08', featured: true, featuredRank: 4,
     titles: { en: 'Set up PostgreSQL and pgAdmin locally', zh: '本地配置 PostgreSQL 与 pgAdmin', id: 'Menyiapkan PostgreSQL dan pgAdmin secara lokal' },
+    summaries: {
+      en: 'Run PostgreSQL locally, then connect and manage it in pgAdmin 4.',
+      zh: '本地运行 PostgreSQL，并通过 pgAdmin 4 连接和管理数据库。',
+      id: 'Jalankan PostgreSQL secara lokal, lalu hubungkan dan kelola lewat pgAdmin 4.'
+    },
     tags: ['PostgreSQL', 'pgAdmin', 'database'], relatedGuides: ['/guide/database-user-password'], relatedModules: []
   },
   {
@@ -294,8 +344,13 @@ const sources: DemoSource[] = [
   },
   {
     id: 'redis-commander', youtubeId: 'idjLaMh2RMw', category: 'databases-services',
-    publishedAt: '2026-08-23', featured: true,
+    publishedAt: '2026-08-23',
     titles: { en: 'Run Redis and manage data in Redis Commander', zh: '运行 Redis 并使用 Redis Commander 管理数据', id: 'Menjalankan Redis dan mengelola data di Redis Commander' },
+    summaries: {
+      en: 'Run Redis locally and inspect keys, values, and connections in Redis Commander.',
+      zh: '本地运行 Redis，并在 Redis Commander 中查看键、值与连接。',
+      id: 'Jalankan Redis secara lokal dan periksa key, value, serta koneksi di Redis Commander.'
+    },
     tags: ['Redis', 'Redis Commander', 'database'], relatedGuides: [], relatedModules: []
   },
   {
@@ -318,8 +373,13 @@ const sources: DemoSource[] = [
   },
   {
     id: 'caddy-php-mysql', youtubeId: 'NuaYnRiD3AY', category: 'databases-services',
-    publishedAt: '2026-08-04', featured: true,
+    publishedAt: '2026-08-04', featured: true, featuredRank: 5,
     titles: { en: 'Set up Caddy, PHP-FPM and MySQL locally', zh: '本地配置 Caddy、PHP-FPM 与 MySQL', id: 'Menyiapkan Caddy, PHP-FPM, dan MySQL secara lokal' },
+    summaries: {
+      en: 'Configure Caddy, PHP-FPM, and MySQL together for a native local PHP stack.',
+      zh: '将 Caddy、PHP-FPM 与 MySQL 配置为原生本地 PHP 技术栈。',
+      id: 'Konfigurasikan Caddy, PHP-FPM, dan MySQL bersama sebagai stack PHP lokal native.'
+    },
     tags: ['Caddy', 'PHP-FPM', 'MySQL'], relatedGuides: ['/guide/parse-html-as-php-multi-servers'], relatedModules: []
   },
   {
@@ -450,14 +510,24 @@ const sources: DemoSource[] = [
   },
   {
     id: 'cliproxyapi-gateway', youtubeId: 'RmSl4jgmEyI', category: 'ai-mcp',
-    publishedAt: '2026-08-01', featured: true,
+    publishedAt: '2026-08-01',
     titles: { en: 'Set up CLIProxyAPI as a local AI gateway', zh: '将 CLIProxyAPI 配置为本地 AI 网关', id: 'Menyiapkan CLIProxyAPI sebagai gateway AI lokal' },
+    summaries: {
+      en: 'Set up a local AI gateway with providers, OAuth, and API keys managed in FlyEnv.',
+      zh: '在 FlyEnv 中配置本地 AI 网关，统一管理模型提供商、OAuth 与 API 密钥。',
+      id: 'Siapkan gateway AI lokal di FlyEnv untuk mengelola provider, OAuth, dan API key.'
+    },
     tags: ['CLIProxyAPI', 'AI gateway', 'OAuth', 'API keys'], relatedGuides: ['/guide/ai-coding-workspace-mcp'], relatedModules: []
   },
   {
     id: 'ai-cli-mcp-crud', youtubeId: 'frprHkD1_rQ', category: 'ai-mcp',
-    publishedAt: '2026-07-09',
+    publishedAt: '2026-07-09', featured: true, featuredRank: 6,
     titles: { en: 'Build a PHP CRUD site with AI CLI and MCP', zh: '使用 AI CLI 与 MCP 构建 PHP CRUD 网站', id: 'Membangun situs PHP CRUD dengan AI CLI dan MCP' },
+    summaries: {
+      en: 'Use an AI CLI and MCP to build and manage a local PHP and MySQL project.',
+      zh: '使用 AI CLI 与 MCP 构建并管理本地 PHP 和 MySQL 项目。',
+      id: 'Gunakan AI CLI dan MCP untuk membangun serta mengelola proyek PHP dan MySQL lokal.'
+    },
     tags: ['MCP', 'AI CLI', 'MySQL', 'PHP'], relatedGuides: ['/guide/ai-coding-workspace-mcp'], relatedModules: []
   },
   {

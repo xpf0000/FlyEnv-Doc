@@ -144,7 +144,3 @@ FlyEnv 并未限制核心运行环境功能的使用。付费许可证用于解�
 ![FlyEnv 许可证设置-5](https://oss.macphpstudy.com/image/flyenv-license-5.webp)
 
 ![FlyEnv 许可证设置-6](https://oss.macphpstudy.com/image/flyenv-license-6.webp)
-
----
-
-*注：申请与管理许可证需要通过 GitHub 进行登录授权。*

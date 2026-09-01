@@ -20,11 +20,12 @@
 import { computed } from 'vue'
 
 const props = defineProps<{
-  locale?: 'en' | 'zh'
+  locale?: 'en' | 'zh' | 'id'
   posts: Array<{ author?: string; language: string; platform: string }>
 }>()
 
 const isZh = computed(() => props.locale === 'zh')
+const isId = computed(() => props.locale === 'id')
 const contributeId = 'community-contribute'
 
 const stats = computed(() => ({
@@ -33,7 +34,11 @@ const stats = computed(() => ({
   platforms: new Set(props.posts.map((post) => post.platform).filter(Boolean)).size
 }))
 
-const licensePath = computed(() => (isZh.value ? '/zh/guide/about-license.html' : '/guide/about-license.html'))
+const licensePath = computed(() => {
+  if (isZh.value) return '/zh/guide/about-license.html'
+  if (isId.value) return '/id/guide/about-license.html'
+  return '/guide/about-license.html'
+})
 
 const t = computed(() =>
   isZh.value
@@ -44,7 +49,15 @@ const t = computed(() =>
         coverage: (value: typeof stats.value) =>
           `当前已收录 ${value.authors} 位作者、${value.languages} 种语言和 ${value.platforms} 个平台的公开内容。`
       }
-    : {
+    : isId.value
+      ? {
+          title: 'Bagikan cara Anda menggunakan FlyEnv',
+          description: 'Artikel, tutorial, atau video publik dapat membantu pengembang berikutnya memahami peran FlyEnv dalam pekerjaan nyata.',
+          action: 'Cara cerita ditampilkan',
+          coverage: (value: typeof stats.value) =>
+            `Perpustakaan ini saat ini mengumpulkan tulisan publik dari ${value.authors} penulis dalam ${value.languages} bahasa di ${value.platforms} platform.`
+        }
+      : {
         title: 'Share how you use FlyEnv',
         description:
           'A public article, tutorial, or video can help the next developer understand where FlyEnv fits in real work.',

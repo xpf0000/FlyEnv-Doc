@@ -2,27 +2,72 @@
 # 针对 SEO 优化的 VitePress 首页配置
 layout: home
 
-title: 'FlyEnv - Native Local Stack, AI Coding CLI & MCP Workspace'
+title: 'FlyEnv - Native Local Development Environment'
 titleTemplate: false
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
   - - meta
     - name: description
-      content: 'FlyEnv is a native desktop workspace for local runtimes, services, AI coding CLIs, and the FlyEnv MCP Server. Run projects on macOS, Windows, and Linux without Docker overhead.'
+      content: 'FlyEnv is a native local development environment for Windows, macOS and Linux. Run runtimes, databases, web servers, local sites, HTTPS and AI tools from one desktop app.'
+  - - meta
+    - property: og:title
+      content: 'FlyEnv - Native Local Development Environment'
+  - - meta
+    - property: og:description
+      content: 'FlyEnv is a native local development environment for Windows, macOS and Linux. Run runtimes, databases, web servers, local sites, HTTPS and AI tools from one desktop app.'
+  - - meta
+    - property: og:type
+      content: website
+  - - meta
+    - property: og:url
+      content: https://flyenv.com/
+  - - meta
+    - property: og:image
+      content: https://oss.macphpstudy.com/image/app-icon.png
+  - - meta
+    - name: twitter:card
+      content: summary
+  - - meta
+    - name: twitter:title
+      content: 'FlyEnv - Native Local Development Environment'
+  - - meta
+    - name: twitter:description
+      content: 'FlyEnv is a native local development environment for Windows, macOS and Linux.'
+  - - meta
+    - name: twitter:image
+      content: https://oss.macphpstudy.com/image/app-icon.png
+  - - link
+    - rel: canonical
+      href: https://flyenv.com/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://flyenv.com/
+  - - link
+    - rel: alternate
+      hreflang: zh-CN
+      href: https://flyenv.com/zh/
+  - - link
+    - rel: alternate
+      hreflang: id-ID
+      href: https://flyenv.com/id/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://flyenv.com/
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"description":"FlyEnv is a native desktop workspace for local runtimes, services, AI coding CLIs, and the FlyEnv MCP Server. Run projects without Docker overhead and connect local context to AI tools.","url":"https://www.flyenv.com/","downloadUrl":"https://www.flyenv.com/download","softwareHelp":"https://www.flyenv.com/guide/what-is-flyenv","author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://www.flyenv.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"description":"FlyEnv is a native local development environment for Windows, macOS and Linux. Run runtimes, databases, web servers, local sites, HTTPS and AI tools from one desktop app.","url":"https://flyenv.com/","downloadUrl":"https://flyenv.com/download","softwareHelp":"https://flyenv.com/guide/what-is-flyenv","sameAs":["https://github.com/xpf0000/FlyEnv"],"author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://flyenv.com/"}}
 
 hero:
   name: "FlyEnv"
-  # 优化：直接点出“它是谁的替代品”，吸引正在寻找 Docker/XAMPP 替代方案的用户
-  text: "Native Local Stack, AI Coding CLI & MCP Workspace"
-  tagline: "Run PHP, Node.js, Python, databases, local sites, AI coding clients, and the FlyEnv MCP Server from one desktop app. A faster native alternative to Docker, XAMPP, Herd, and scattered CLI tooling."
+  text: "Run your complete local development stack natively."
+  tagline: "Manage runtimes, databases, web servers, local sites and HTTPS from one desktop app on Windows, macOS and Linux — with AI coding tools and MCP built in."
   image:
     src: 'https://oss.macphpstudy.com/image/app-icon.png'
-    alt: 'FlyEnv - Native local stack, AI coding CLI, and MCP workspace'
+    alt: 'FlyEnv'
   actions:
     - theme: brand
       text: 'Download Free'
@@ -31,61 +76,33 @@ hero:
       text: 'Quick Start'
       link: /guide/getting-started
 
-features:
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/fast.svg'
-      width: '32px'
-      height: '32px'
-    title: Native Local Stack
-    details: Run runtimes, web servers, databases, queues, mail testing, and HTTPS as native binaries with faster startup and lower RAM than container-heavy setups.
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/deep.svg'
-      width: '32px'
-      height: '32px'
-    title: AI Coding CLI Workspace
-    details: Install and manage Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, and GitHub Copilot CLI from the same desktop workspace as your projects.
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/all.svg'
-      width: '32px'
-      height: '32px'
-    title: Built-in MCP Server
-    details: Expose local services, sites, configs, logs, and selected lifecycle actions to AI clients through the FlyEnv MCP Server without hand-editing every integration.
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/same.svg'
-      width: '32px'
-      height: '32px'
-    title: Project & Ops Utilities
-    details: Switch versions per project, manage local domains and SSL, tunnel with Cloudflare, schedule cron jobs, and use built-in dev tools from one app.
 ---
 
 <script setup>
 import AppSvgIcon from './components/VueSvgIcon/svg.vue';
 import AppAiWorkflow from './components/AppAiWorkflow/en.vue';
-import AppCoreModule from './components/AppCoreModule/en.vue';
-import AppToolsModule from './components/AppToolModule/en.vue';
-import AppNoFountTipsModules from './components/AppNoFoundTips/index.vue';
 import AppGitHubModules from './components/AppGithub/en.vue';
 import AppCommunityEvidence from './components/AppCommunityEvidence/HomepageProof.vue';
 import communityPosts from './data/community-posts.json';
 import { communityEvidence } from './data/community-evidence';
-import AppCanDoModules from './components/AppCanDo/en.vue';
-import AppPriceModules from './components/AppPrice/en.vue';
+import AppHomePositioning from './components/AppHomePositioning/en.vue';
+import AppProjectStacks from './components/AppProjectStacks/en.vue';
+import AppFeaturedModules from './components/AppFeaturedModules/en.vue';
+import AppHomeFinalCta from './components/AppHomeFinalCta/en.vue';
 </script>
 
 <AppSvgIcon />
 
-<AppCanDoModules />
+<AppHomePositioning />
+
+<AppProjectStacks />
+
+<AppCommunityEvidence :posts="communityPosts" :evidence="communityEvidence.en" locale="en" />
+
+<AppFeaturedModules />
 
 <AppAiWorkflow />
 
 <AppGitHubModules />
 
-<AppCoreModule />
-
-<AppToolsModule />
-
-<AppCommunityEvidence :posts="communityPosts" :evidence="communityEvidence.en" locale="en" />
-
-<AppPriceModules />
-
-<AppNoFountTipsModules />
+<AppHomeFinalCta />

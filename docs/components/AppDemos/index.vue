@@ -1,5 +1,5 @@
 <template>
-  <section class="demos-library">
+  <section class="demos-library" :data-locale="props.locale">
     <div class="demos-shell">
       <header class="demos-masthead">
         <p class="demos-kicker">{{ t.kicker }}</p>
@@ -19,28 +19,27 @@
           />
         </label>
 
-        <div class="demos-filter-scroll">
-          <div class="demos-filter-row" role="group" :aria-label="t.categoryLabel">
-            <button
-              v-for="filter in filters"
-              :key="filter.value"
-              type="button"
-              :aria-pressed="activeCategory === filter.value"
-              :class="{ selected: activeCategory === filter.value }"
-              @click="selectCategory(filter.value)"
-            >
-              <span>{{ filter.label }}</span>
-              <span class="demos-filter-count">{{ filter.count }}</span>
-            </button>
-          </div>
+        <div class="demos-filter-group" role="group" :aria-label="t.categoryLabel">
+          <button
+            v-for="filter in filters"
+            :key="filter.value"
+            type="button"
+            class="demos-filter-button"
+            :aria-pressed="activeCategory === filter.value"
+            :class="{ selected: activeCategory === filter.value }"
+            @click="selectCategory(filter.value)"
+          >
+            <span>{{ filter.label }}</span>
+            <span class="demos-filter-count">{{ filter.count }}</span>
+          </button>
         </div>
       </section>
 
-      <p class="demos-result-summary" aria-live="polite">{{ resultSummary }}</p>
+      <p class="visually-hidden" aria-live="polite">{{ resultSummary }}</p>
 
       <section v-if="showFeatured" class="demos-section" :aria-labelledby="featuredHeadingId">
         <div class="demos-section-heading">
-          <h2 :id="featuredHeadingId">{{ t.featuredTitle }}</h2>
+          <h2 :id="featuredHeadingId" class="no-border">{{ t.featuredTitle }}</h2>
         </div>
         <div class="demos-featured-grid">
           <article
@@ -109,76 +108,93 @@
         </div>
       </section>
 
-      <section class="demos-section demos-all-section" :aria-labelledby="catalogHeadingId">
-        <div class="demos-section-heading">
-          <h2 :id="catalogHeadingId">{{ t.catalogTitle }}</h2>
-        </div>
-        <div v-if="visibleDemos.length" class="demos-grid">
-          <article v-for="demo in visibleDemos" :key="demo.id" class="demo-card" :data-demo-id="demo.id">
+      <div v-if="categorySections.length" class="demos-catalog">
+        <section
+          v-for="section in categorySections"
+          :key="section.category"
+          class="demos-section demos-catalog-section"
+          :aria-labelledby="section.headingId"
+        >
+          <div class="demos-section-heading">
+            <div class="demos-section-title">
+              <h2 :id="section.headingId" class="no-border">{{ categoryLabel(section.category) }}</h2>
+              <span class="demos-section-count">{{ section.total }}</span>
+            </div>
             <button
+              v-if="section.hasMore"
               type="button"
-              class="demo-cover"
-              :aria-label="playLabel(demo)"
-              @click="openDemo(demo, 'catalog', $event.currentTarget)"
+              class="demos-section-view-all"
+              @click="selectCategory(section.category)"
             >
-              <img
-                class="demo-cover-thumbnail"
-                :src="thumbnailUrl(demo)"
-                alt=""
-                width="480"
-                height="270"
-                loading="lazy"
-                @error="hideBrokenThumbnail"
-              />
-              <span class="demo-cover-scrim" aria-hidden="true"></span>
-              <span class="demo-cover-native" :class="coverToneClass(demo.category)">
-                <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
-                <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
-                <span
-                  class="demo-cover-visual"
-                  :class="{ 'no-logo': !coverVisual(demo).src }"
-                  aria-hidden="true"
-                >
-                  <img
-                    v-if="coverVisual(demo).src"
-                    class="demo-cover-logo"
-                    :src="coverVisual(demo).src"
-                    alt=""
-                    loading="lazy"
-                    @error="hideBrokenCoverLogo"
-                  />
-                  <span class="demo-cover-fallback">
-                    {{ coverVisual(demo).mark }}
+              {{ t.viewAll() }}
+            </button>
+          </div>
+          <div class="demos-grid">
+            <article v-for="demo in section.demos" :key="demo.id" class="demo-card" :data-demo-id="demo.id">
+              <button
+                type="button"
+                class="demo-cover"
+                :aria-label="playLabel(demo)"
+                @click="openDemo(demo, 'catalog', $event.currentTarget)"
+              >
+                <img
+                  class="demo-cover-thumbnail"
+                  :src="thumbnailUrl(demo)"
+                  alt=""
+                  width="480"
+                  height="270"
+                  loading="lazy"
+                  @error="hideBrokenThumbnail"
+                />
+                <span class="demo-cover-scrim" aria-hidden="true"></span>
+                <span class="demo-cover-native" :class="coverToneClass(demo.category)">
+                  <span class="demo-cover-brand" aria-hidden="true">FlyEnv</span>
+                  <span class="demo-cover-category">{{ categoryLabel(demo.category) }}</span>
+                  <span
+                    class="demo-cover-visual"
+                    :class="{ 'no-logo': !coverVisual(demo).src }"
+                    aria-hidden="true"
+                  >
+                    <img
+                      v-if="coverVisual(demo).src"
+                      class="demo-cover-logo"
+                      :src="coverVisual(demo).src"
+                      alt=""
+                      loading="lazy"
+                      @error="hideBrokenCoverLogo"
+                    />
+                    <span class="demo-cover-fallback">
+                      {{ coverVisual(demo).mark }}
+                    </span>
                   </span>
                 </span>
-              </span>
-              <span class="demo-play" aria-hidden="true"></span>
-            </button>
-            <div class="demo-card-body">
-              <p class="demo-category">{{ categoryLabel(demo.category) }}</p>
-              <h3>{{ demoCopy(demo).title }}</h3>
-              <p class="demo-summary">{{ demoCopy(demo).summary }}</p>
+                <span class="demo-play" aria-hidden="true"></span>
+              </button>
+              <div class="demo-card-body">
+                <p class="demo-category">{{ categoryLabel(demo.category) }}</p>
+                <h3>{{ demoCopy(demo).title }}</h3>
               <ul class="demo-tags" :aria-label="t.tagsLabel">
-                <li v-for="tag in demoCopy(demo).tags" :key="tag">{{ tag }}</li>
-              </ul>
-              <a
-                v-for="guide in localizedGuideLinks(demo)"
-                :key="guide.href"
-                :href="guide.href"
-                class="demo-related-link"
-                @click="trackGuide(demo, guide.href)"
-              >
-                {{ guide.label }}
-              </a>
-            </div>
-          </article>
-        </div>
-        <div v-else class="demos-empty">
-          <h3>{{ t.emptyTitle }}</h3>
-          <p>{{ t.emptyIntro }}</p>
-          <button type="button" @click="resetDiscovery">{{ t.reset }}</button>
-        </div>
-      </section>
+                  <li v-for="tag in demoCopy(demo).tags" :key="tag">{{ tag }}</li>
+                </ul>
+                <a
+                  v-for="guide in localizedGuideLinks(demo)"
+                  :key="guide.href"
+                  :href="guide.href"
+                  class="demo-related-link"
+                  @click="trackGuide(demo, guide.href)"
+                >
+                  {{ guide.label }}
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+      <div v-else class="demos-empty">
+        <h3>{{ t.emptyTitle }}</h3>
+        <p>{{ t.emptyIntro }}</p>
+        <button type="button" @click="resetDiscovery">{{ t.reset }}</button>
+      </div>
     </div>
   </section>
 
@@ -215,7 +231,7 @@
         </div>
         <div class="demo-dialog-actions">
           <button
-            v-if="alternatePlatform"
+            v-if="alternatePlatform && props.locale !== 'zh'"
             type="button"
             class="demo-platform-switch"
             @click="selectPlatform(alternatePlatform)"
@@ -241,6 +257,57 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { trackEvent } from '../../utils/analytics'
 import { demos, demoCategories, getDemoCopy, getDemoEmbedUrl, getDemoPlatform } from '../../data/demos'
 import type { Demo, DemoCategory, DemoLocale, DemoPlatform } from '../../data/demos'
+import base64Logo from '../SVG/base64-string.svg'
+import bunLogo from '../SVG/bun.svg'
+import chmodLogo from '../SVG/chmod.svg'
+import claudeCodeLogo from '../SVG/claude-code.svg'
+import clickHouseLogo from '../SVG/ClickHouse.svg'
+import codeLibraryLogo from '../SVG/code-library.svg'
+import codeLogo from '../SVG/code.svg'
+import codexLogo from '../SVG/codex.svg'
+import consulLogo from '../SVG/Consul.svg'
+import elasticsearchLogo from '../SVG/Elasticsearch.svg'
+import encryptLogo from '../SVG/encrypt.svg'
+import envLogo from '../SVG/env.svg'
+import etcdLogo from '../SVG/etcd.svg'
+import fileInfoLogo from '../SVG/fileinfo.svg'
+import flutterLogo from '../SVG/Flutter.svg'
+import goLogo from '../SVG/Go.svg'
+import hashTextLogo from '../SVG/hash-text.svg'
+import httpStatusLogo from '../SVG/httpstatus.svg'
+import imageCompressLogo from '../SVG/imagecompress.svg'
+import jsonLogo from '../SVG/json1.svg'
+import kimiLogo from '../SVG/kimi.svg'
+import mailpitLogo from '../SVG/Mailpit.svg'
+import mcpLogo from '../SVG/mcp.svg'
+import meilisearchLogo from '../SVG/Meilisearch.svg'
+import mimeTypesLogo from '../SVG/mime-types.svg'
+import minioLogo from '../SVG/Minio.svg'
+import nacosLogo from '../SVG/R-NACOS.svg'
+import n8nLogo from '../SVG/n8n.svg'
+import neo4jLogo from '../SVG/Neo4j.svg'
+import ollamaLogo from '../SVG/Ollama.svg'
+import openClawLogo from '../SVG/OpenClaw.svg'
+import openCodeLogo from '../SVG/opencode.svg'
+import podmanLogo from '../SVG/Podman.svg'
+import portKillLogo from '../SVG/portkill.svg'
+import processLogo from '../SVG/process.svg'
+import pythonLogo from '../SVG/Python.svg'
+import qdrantLogo from '../SVG/qdrant.svg'
+import qrCodeLogo from '../SVG/qrcodemake.svg'
+import rabbitMqLogo from '../SVG/RabbitMQ.svg'
+import regexTesterLogo from '../SVG/regextester.svg'
+import rsaLogo from '../SVG/rsa.svg'
+import rubyLogo from '../SVG/Ruby.svg'
+import rustfsLogo from '../SVG/RustFS.svg'
+import rustLogo from '../SVG/Rust.svg'
+import screenshotLogo from '../SVG/screenshot.svg'
+import sslMakeLogo from '../SVG/sslmake.svg'
+import temporalLogo from '../SVG/Temporal.svg'
+import timeLogo from '../SVG/time.svg'
+import tokenLogo from '../SVG/tokenmake.svg'
+import typesenseLogo from '../SVG/Typesense.svg'
+import urlParseLogo from '../SVG/urlparse.svg'
 
 type DemoPosition = 'featured' | 'catalog'
 type FilterValue = 'all' | DemoCategory
@@ -253,22 +320,24 @@ const copy = {
   en: {
     kicker: 'FlyEnv demonstrations',
     title: 'See what runs locally with FlyEnv',
-    intro: 'Browse demo videos for real projects, runtimes, databases, developer tools, and AI workflows running locally with FlyEnv.',
+    intro: 'Browse demos of real projects, runtimes, databases, developer tools, and AI workflows running locally with FlyEnv.',
     controlsLabel: 'Browse FlyEnv demonstrations',
     categoryLabel: 'Filter by category',
     searchLabel: 'Search demos',
-    searchPlaceholder: 'Search a task, stack, or tool',
+    searchPlaceholder: 'Search projects, stacks, and tools',
     all: 'All demos',
-    featuredTitle: 'Featured demonstrations',
+    featuredTitle: 'Featured demos',
     catalogTitle: 'All demonstrations',
+    viewAll: () => 'View all →',
     tagsLabel: 'Demo tags',
     emptyTitle: 'No demonstrations match this search',
     emptyIntro: 'Clear the current filters to return to the complete catalog.',
     reset: 'Clear filters',
     play: 'Play demo',
-    relatedLink: 'Open related guide',
+    relatedLink: 'Related guide →',
     close: 'Close video player',
-    resultSummary: (count: number) => `${count} ${count === 1 ? 'demo' : 'demos'} found`,
+    resultSummary: (count: number, categoryCount: number) =>
+      `${count} ${count === 1 ? 'demo' : 'demos'} across ${categoryCount} ${categoryCount === 1 ? 'category' : 'categories'}`,
     watchOn: (platform: DemoPlatform) => `Watch on ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
     openOn: (platform: DemoPlatform) => `Open on ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   },
@@ -279,18 +348,19 @@ const copy = {
     controlsLabel: '浏览 FlyEnv 演示',
     categoryLabel: '按分类筛选',
     searchLabel: '搜索演示',
-    searchPlaceholder: '搜索任务、技术栈或工具',
+    searchPlaceholder: '搜索项目、技术栈和工具',
     all: '全部演示',
     featuredTitle: '精选演示',
     catalogTitle: '全部演示',
+    viewAll: () => '查看全部 →',
     tagsLabel: '演示标签',
     emptyTitle: '没有匹配的演示',
     emptyIntro: '清除当前筛选条件以返回完整目录。',
     reset: '清除筛选',
     play: '播放演示',
-    relatedLink: '打开相关指南',
+    relatedLink: '相关指南 →',
     close: '关闭视频播放器',
-    resultSummary: (count: number) => `找到 ${count} 个演示`,
+    resultSummary: (count: number, categoryCount: number) => `共 ${count} 个演示，分为 ${categoryCount} 类`,
     watchOn: (platform: DemoPlatform) => `切换到 ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
     openOn: (platform: DemoPlatform) => `在 ${platform === 'youtube' ? 'YouTube' : 'Bilibili'} 打开`
   },
@@ -301,18 +371,19 @@ const copy = {
     controlsLabel: 'Telusuri demo FlyEnv',
     categoryLabel: 'Filter berdasarkan kategori',
     searchLabel: 'Cari demo',
-    searchPlaceholder: 'Cari tugas, stack, atau alat',
+    searchPlaceholder: 'Cari proyek, stack, dan alat',
     all: 'Semua demo',
     featuredTitle: 'Demo pilihan',
     catalogTitle: 'Semua demo',
+    viewAll: () => 'Lihat semua →',
     tagsLabel: 'Tag demo',
     emptyTitle: 'Tidak ada demo yang cocok',
     emptyIntro: 'Hapus filter saat ini untuk kembali ke katalog lengkap.',
     reset: 'Hapus filter',
     play: 'Putar demo',
-    relatedLink: 'Buka panduan terkait',
+    relatedLink: 'Panduan terkait →',
     close: 'Tutup pemutar video',
-    resultSummary: (count: number) => `${count} demo ditemukan`,
+    resultSummary: (count: number, categoryCount: number) => `${count} demo dalam ${categoryCount} kategori`,
     watchOn: (platform: DemoPlatform) => `Tonton di ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
     openOn: (platform: DemoPlatform) => `Buka di ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   }
@@ -326,6 +397,7 @@ const categoryValues: DemoCategory[] = [
   'developer-tools',
   'ai-mcp'
 ]
+const DEMOS_PER_CATEGORY = 6
 
 const coverToneClasses: Record<DemoCategory, string> = {
   'getting-started': 'demo-cover-tone-getting-started',
@@ -352,43 +424,86 @@ const coverFallbackMarks: Record<DemoCategory, string> = {
 }
 
 const coverVisualRules: DemoCoverRule[] = [
+  { match: /flyenv-feature-overview/, mark: 'FlyEnv', src: 'https://oss.macphpstudy.com/image/app-icon.png' },
+  { match: /system-environment-tool/, mark: 'ENV', src: envLogo },
+  { match: /ssl-certificate-generator/, mark: 'SSL', src: sslMakeLogo },
+  { match: /base64-file-converter|base64-encoder-decoder/, mark: 'B64', src: base64Logo },
+  { match: /code-playground-library/, mark: 'CODE', src: codeLibraryLogo },
+  { match: /rsa-key-pair-generator/, mark: 'RSA', src: rsaLogo },
+  { match: /html-entity-tool/, mark: 'HTML', src: codeLogo },
+  { match: /token-generator/, mark: 'TOKEN', src: tokenLogo },
+  { match: /string-encryption-tool/, mark: 'ENC', src: encryptLogo },
+  { match: /chmod-calculator/, mark: 'CHMOD', src: chmodLogo },
+  { match: /timestamp-converter/, mark: 'TIME', src: timeLogo },
+  { match: /qr-code-generator/, mark: 'QR', src: qrCodeLogo },
+  { match: /mime-type-lookup/, mark: 'MIME', src: mimeTypesLogo },
+  { match: /screen-capture-tool/, mark: 'CAPTURE', src: screenshotLogo },
+  { match: /http-status-codes/, mark: 'HTTP', src: httpStatusLogo },
+  { match: /hash-string-tool/, mark: 'HASH', src: hashTextLogo },
+  { match: /regex-tool/, mark: 'REGEX', src: regexTesterLogo },
+  { match: /process-kill-tool/, mark: 'PROC', src: processLogo },
+  { match: /port-kill-tool/, mark: 'PORT', src: portKillLogo },
+  { match: /data-format-converter/, mark: 'JSON', src: jsonLogo },
+  { match: /url-timing-analyzer/, mark: 'URL', src: urlParseLogo },
+  { match: /file-metadata-hash/, mark: 'FILE', src: fileInfoLogo },
+  { match: /batch-image-processor/, mark: 'IMG', src: imageCompressLogo },
+  { match: /caddy-php-mysql/, mark: 'CD', src: 'https://oss.macphpstudy.com/image/caddy.svg' },
+  { match: /apache-native/, mark: 'AP', src: 'https://oss.macphpstudy.com/image/apache.png' },
+  { match: /nginx-module/, mark: 'NG', src: 'https://oss.macphpstudy.com/image/nginx.png' },
+  { match: /node-project-runtime/, mark: 'JS', src: 'https://oss.macphpstudy.com/image/Node.js.svg' },
+  { match: /openmrs-local-project/, mark: 'TC', src: 'https://oss.macphpstudy.com/image/tomcat.svg' },
   { match: /erpnext/, mark: 'ERP', src: '/assets/demo-logos/erpnext.svg' },
   { match: /gitea/, mark: 'GT', src: '/assets/demo-logos/gitea.svg' },
   { match: /nextcloud/, mark: 'NC', src: '/assets/demo-logos/nextcloud.svg' },
+  { match: /keycloak/, mark: 'KC', src: '/assets/demo-logos/keycloak.svg' },
+  { match: /snipe-it/, mark: 'SNIPE', src: '/assets/demo-logos/snipeit.png' },
   { match: /wordpress/, mark: 'WP', src: '/assets/demo-logos/wordpress.svg' },
   { match: /laravel/, mark: 'LV', src: '/assets/demo-logos/laravel.svg' },
-  { match: /postgresql/, mark: 'PG', src: '/assets/demo-logos/postgresql.svg' },
-  { match: /redis/, mark: 'RD', src: '/assets/demo-logos/redis.svg' },
-  { match: /rabbitmq/, mark: 'RMQ', src: '/assets/demo-logos/rabbitmq.svg' },
-  { match: /php/, mark: 'PHP', src: '/assets/demo-logos/php.svg' },
-  { match: /mysql/, mark: 'SQL', src: '/assets/demo-logos/mysql.svg' },
-  { match: /mariadb/, mark: 'MDB', src: '/assets/demo-logos/mariadb.svg' },
-  { match: /mongodb/, mark: 'MDB', src: '/assets/demo-logos/mongodb.svg' },
-  { match: /neo4j/, mark: 'N4J', src: '/assets/demo-logos/neo4j.svg' },
-  { match: /clickhouse/, mark: 'CH', src: '/assets/demo-logos/clickhouse.svg' },
-  { match: /qdrant/, mark: 'Q', src: '/assets/demo-logos/qdrant.svg' },
-  { match: /temporal/, mark: 'TMP', src: '/assets/demo-logos/temporal.svg' },
-  { match: /consul/, mark: 'CSL', src: '/assets/demo-logos/consul.svg' },
-  { match: /etcd/, mark: 'ETC', src: '/assets/demo-logos/etcd.svg' },
+  { match: /postgresql/, mark: 'PG', src: 'https://oss.macphpstudy.com/image/postgresql.svg' },
+  { match: /redis/, mark: 'RD', src: 'https://oss.macphpstudy.com/image/redis.png' },
+  { match: /rabbitmq/, mark: 'RMQ', src: rabbitMqLogo },
+  { match: /minio/, mark: 'MINIO', src: minioLogo },
+  { match: /meilisearch/, mark: 'MEILI', src: meilisearchLogo },
+  { match: /elasticsearch/, mark: 'ES', src: elasticsearchLogo },
+  { match: /mailpit/, mark: 'MAIL', src: mailpitLogo },
+  { match: /nacos/, mark: 'NACOS', src: nacosLogo },
+  { match: /numa/, mark: 'Numa' },
+  { match: /typesense/, mark: 'TYPE', src: typesenseLogo },
+  { match: /cliproxyapi/, mark: 'CLIProxyAPI' },
+  { match: /mcp/, mark: 'MCP', src: mcpLogo },
+  { match: /php/, mark: 'PHP', src: 'https://oss.macphpstudy.com/image/php.png' },
+  { match: /mysql/, mark: 'SQL', src: 'https://oss.macphpstudy.com/image/mysql.png' },
+  { match: /mariadb/, mark: 'MDB', src: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+  { match: /mongodb/, mark: 'MDB', src: 'https://oss.macphpstudy.com/image/MongoDB.svg' },
+  { match: /neo4j/, mark: 'N4J', src: neo4jLogo },
+  { match: /clickhouse/, mark: 'CH', src: clickHouseLogo },
+  { match: /qdrant/, mark: 'Q', src: qdrantLogo },
+  { match: /temporal/, mark: 'TMP', src: temporalLogo },
+  { match: /consul/, mark: 'CSL', src: consulLogo },
+  { match: /etcd/, mark: 'ETC', src: etcdLogo },
   { match: /zincsearch/, mark: 'ZS', src: '/assets/demo-logos/zincsearch.svg' },
-  { match: /rustfs/, mark: 'RFS', src: '/assets/demo-logos/rustfs.svg' },
-  { match: /podman/, mark: 'PDM', src: '/assets/demo-logos/podman.svg' },
-  { match: /caddy/, mark: 'CD', src: '/assets/demo-logos/caddy.svg' },
-  { match: /nginx/, mark: 'NG', src: '/assets/demo-logos/nginx.svg' },
-  { match: /apache/, mark: 'AP', src: '/assets/demo-logos/apache.svg' },
-  { match: /node\.js|nodejs/, mark: 'JS', src: '/assets/demo-logos/nodedotjs.svg' },
-  { match: /python/, mark: 'PY', src: '/assets/demo-logos/python.svg' },
-  { match: /\bgo\b/, mark: 'GO', src: '/assets/demo-logos/go.svg' },
-  { match: /java|tomcat/, mark: 'JV', src: '/assets/demo-logos/openjdk.svg' },
-  { match: /bun/, mark: 'BUN', src: '/assets/demo-logos/bun.svg' },
-  { match: /ruby/, mark: 'RB', src: '/assets/demo-logos/ruby.svg' },
-  { match: /rust/, mark: 'RS', src: '/assets/demo-logos/rust.svg' },
-  { match: /flutter/, mark: 'FLT', src: '/assets/demo-logos/flutter.svg' },
-  { match: /n8n/, mark: 'N8N', src: '/assets/demo-logos/n8n.svg' },
-  { match: /ollama/, mark: 'OL', src: '/assets/demo-logos/ollama.svg' },
-  { match: /claude/, mark: 'CC', src: '/assets/demo-logos/claude.svg' },
+  { match: /rustfs/, mark: 'RFS', src: rustfsLogo },
+  { match: /podman/, mark: 'PDM', src: podmanLogo },
+  { match: /caddy/, mark: 'CD', src: 'https://oss.macphpstudy.com/image/caddy.svg' },
+  { match: /nginx/, mark: 'NG', src: 'https://oss.macphpstudy.com/image/nginx.png' },
+  { match: /apache/, mark: 'AP', src: 'https://oss.macphpstudy.com/image/apache.png' },
+  { match: /node\.js|nodejs/, mark: 'JS', src: 'https://oss.macphpstudy.com/image/Node.js.svg' },
+  { match: /python/, mark: 'PY', src: pythonLogo },
+  { match: /\bgo\b/, mark: 'GO', src: goLogo },
+  { match: /java/, mark: 'JV', src: 'https://oss.macphpstudy.com/image/java.svg' },
+  { match: /tomcat/, mark: 'TC', src: 'https://oss.macphpstudy.com/image/tomcat.svg' },
+  { match: /bun/, mark: 'BUN', src: bunLogo },
+  { match: /ruby/, mark: 'RB', src: rubyLogo },
+  { match: /rust/, mark: 'RS', src: rustLogo },
+  { match: /flutter/, mark: 'FLT', src: flutterLogo },
+  { match: /n8n/, mark: 'N8N', src: n8nLogo },
+  { match: /openclaw/, mark: 'OCL', src: openClawLogo },
+  { match: /ollama/, mark: 'OL', src: ollamaLogo },
+  { match: /claude/, mark: 'CC', src: claudeCodeLogo },
+  { match: /opencode/, mark: 'OC', src: openCodeLogo },
+  { match: /kimi/, mark: 'K', src: kimiLogo },
+  { match: /codex/, mark: 'CODEX', src: codexLogo },
   { match: /django/, mark: 'DJ', src: '/assets/demo-logos/django.svg' },
-  { match: /mcp/, mark: 'MCP' },
   { match: /startup|environment|runtime/, mark: '[]' }
 ]
 
@@ -400,7 +515,6 @@ const playerTrigger = ref<HTMLElement | null>(null)
 const dialogElement = ref<HTMLElement | null>(null)
 const dialogCloseButton = ref<HTMLButtonElement | null>(null)
 const featuredHeadingId = 'demos-featured-heading'
-const catalogHeadingId = 'demos-catalog-heading'
 let searchTimer: ReturnType<typeof window.setTimeout> | undefined
 
 const t = computed(() => copy[props.locale])
@@ -412,7 +526,7 @@ const filters = computed(() => [
     count: demos.filter((demo) => demo.category === value).length
   }))
 ])
-const visibleDemos = computed(() => {
+const matchedDemos = computed(() => {
   const query = searchQuery.value.trim().toLocaleLowerCase()
 
   return demos.filter((demo) => {
@@ -430,9 +544,36 @@ const visibleDemos = computed(() => {
       (!query || haystack.includes(query))
   })
 })
-const featuredDemos = computed(() => demos.filter((demo) => demo.featured))
+const categorySections = computed(() => {
+  const shouldLimitCategory = !searchQuery.value.trim() && activeCategory.value === 'all'
+
+  return categoryValues
+    .filter((category) => activeCategory.value === 'all' || category === activeCategory.value)
+    .map((category) => {
+      const categoryDemos = matchedDemos.value.filter((demo) => demo.category === category)
+      const unfeaturedDemos = categoryDemos.filter((demo) => !demo.featured)
+      const shouldShowWholeCategory = categoryDemos.length <= DEMOS_PER_CATEGORY
+      const displayedDemos = shouldLimitCategory && !shouldShowWholeCategory
+        ? unfeaturedDemos.slice(0, DEMOS_PER_CATEGORY)
+        : categoryDemos
+
+      return {
+        category,
+        demos: displayedDemos,
+        hasMore: shouldLimitCategory && categoryDemos.length > displayedDemos.length,
+        headingId: `demos-${category}-heading`,
+        total: categoryDemos.length
+      }
+    })
+    .filter((section) => section.demos.length)
+})
+const featuredDemos = computed(() =>
+  demos
+    .filter((demo) => demo.featured && typeof demo.featuredRank === 'number')
+    .sort((first, second) => first.featuredRank! - second.featuredRank!)
+)
 const showFeatured = computed(() => activeCategory.value === 'all' && !searchQuery.value.trim())
-const resultSummary = computed(() => t.value.resultSummary(visibleDemos.value.length))
+const resultSummary = computed(() => t.value.resultSummary(matchedDemos.value.length, categorySections.value.length))
 const embedUrl = computed(() => {
   if (!selectedDemo.value) return ''
   return getDemoEmbedUrl(selectedDemo.value, selectedPlatform.value)
@@ -505,7 +646,7 @@ function selectCategory(category: FilterValue) {
   syncDiscoveryUrl()
   trackEvent('demos_filter_change', {
     category,
-    result_count: visibleDemos.value.length
+    result_count: matchedDemos.value.length
   })
 }
 
@@ -516,7 +657,7 @@ function scheduleSearchTracking() {
   searchTimer = window.setTimeout(() => {
     trackEvent('demos_search', {
       query_length: searchQuery.value.trim().length,
-      result_count: visibleDemos.value.length
+      result_count: matchedDemos.value.length
     })
   }, 250)
 }
@@ -635,10 +776,26 @@ onUnmounted(() => {
   --demos-muted: #526072;
   --demos-line: #d9e1ec;
   --demos-surface: #ffffff;
+  --demos-control-muted: #e8eef8;
+  --demos-tag-ink: #3b4d66;
+  --demos-tag-surface: #edf2f8;
   --demos-wash: #f4f7fb;
   background: var(--demos-wash);
   color: var(--demos-ink);
   padding: 64px 24px 88px;
+}
+
+:global(html.dark .demos-library) {
+  --demos-accent: #60a5fa;
+  --demos-accent-dark: #bfdbfe;
+  --demos-control-muted: #26364d;
+  --demos-ink: #e5edf9;
+  --demos-line: #314158;
+  --demos-muted: #b7c3d5;
+  --demos-surface: #151f30;
+  --demos-tag-ink: #d9e4f2;
+  --demos-tag-surface: #22314a;
+  --demos-wash: #0f1726;
 }
 
 .demos-shell {
@@ -682,29 +839,23 @@ onUnmounted(() => {
 .demos-controls {
   align-items: end;
   border-bottom: 1px solid var(--demos-line);
-  display: grid;
-  gap: 20px;
-  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
-  margin-top: 42px;
-  padding-bottom: 24px;
-}
-
-.demos-filter-scroll {
-  grid-column: 2;
-  grid-row: 1;
-  min-width: 0;
-}
-
-.demos-filter-row {
   display: flex;
-  gap: 8px;
-  justify-content: flex-end;
-  overflow-x: auto;
-  padding-bottom: 2px;
-  scrollbar-width: thin;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  margin-top: 36px;
+  padding-bottom: 22px;
+  row-gap: 12px;
 }
 
-.demos-filter-row button,
+.demos-filter-group {
+  display: contents;
+}
+
+.demos-filter-button {
+  flex: 0 0 auto;
+}
+
+.demos-filter-button,
 .demos-empty button,
 .demo-platform-switch {
   align-items: center;
@@ -724,22 +875,22 @@ onUnmounted(() => {
   white-space: nowrap;
 }
 
-.demos-filter-row button:hover,
-.demos-filter-row button.selected,
+.demos-filter-button:hover,
+.demos-filter-button.selected,
 .demos-empty button:hover,
 .demo-platform-switch:hover {
   border-color: var(--demos-accent);
   color: var(--demos-accent-dark);
 }
 
-.demos-filter-row button.selected {
+.demos-filter-button.selected {
   background: var(--demos-accent);
   border-color: var(--demos-accent);
   color: #ffffff;
 }
 
 .demos-filter-count {
-  background: #e8eef8;
+  background: var(--demos-control-muted);
   border-radius: 999px;
   color: var(--demos-muted);
   font-size: 12px;
@@ -749,18 +900,18 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.demos-filter-row button.selected .demos-filter-count {
+.demos-filter-button.selected .demos-filter-count {
   background: rgba(255, 255, 255, 0.18);
   color: #ffffff;
 }
 
 .demos-search-label {
   display: grid;
+  flex: 0 1 280px;
   gap: 7px;
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: stretch;
-  width: 100%;
+  max-width: 280px;
+  min-width: 220px;
+  margin-right: 8px;
 }
 
 .demos-search-label > span {
@@ -785,27 +936,67 @@ onUnmounted(() => {
   color: #64748b;
 }
 
-.demos-result-summary {
-  color: var(--demos-muted);
-  font-size: 14px;
-  margin: 18px 0 0;
+.demos-section {
+  margin-top: 44px;
 }
 
-.demos-section {
-  margin-top: 52px;
+.demos-catalog-section {
+  border-top: 1px solid var(--demos-line);
+  margin-top: 72px;
+  padding-top: 28px;
 }
 
 .demos-section-heading {
   align-items: baseline;
   display: flex;
+  gap: 18px;
   justify-content: space-between;
   margin-bottom: 18px;
+}
+
+.demos-section-title {
+  align-items: baseline;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
 }
 
 .demos-section-heading h2 {
   font-size: 24px;
   line-height: 1.25;
   margin: 0;
+}
+
+.demos-section-count {
+  background: var(--demos-control-muted);
+  border-radius: 999px;
+  color: var(--demos-muted);
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 24px;
+  padding: 4px 6px;
+  text-align: center;
+}
+
+.demos-section-view-all {
+  background: transparent;
+  border: 0;
+  color: var(--demos-accent-dark);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 4px 0;
+  text-align: right;
+}
+
+.demos-section-view-all:hover {
+  color: var(--demos-accent);
+  text-decoration: underline;
 }
 
 .demos-featured-grid,
@@ -916,12 +1107,11 @@ onUnmounted(() => {
 
 .demo-cover-logo {
   display: block;
-  height: auto;
+  height: 40%;
   max-height: 88px;
   max-width: 38%;
-  min-height: 48px;
   object-fit: contain;
-  width: auto;
+  width: 38%;
 }
 
 .demo-cover-logo.is-unavailable {
@@ -950,8 +1140,10 @@ onUnmounted(() => {
 }
 
 .demo-card-featured .demo-cover-logo {
+  height: 40%;
   max-height: 116px;
   max-width: 34%;
+  width: 34%;
 }
 
 .demo-card-featured .demo-cover-fallback {
@@ -1048,7 +1240,16 @@ onUnmounted(() => {
   font-size: 18px;
   line-height: 1.35;
   margin: 0;
+  min-height: 2.7em;
   overflow-wrap: anywhere;
+}
+
+.demo-card:not(.demo-card-featured) h3 {
+  min-height: 2.7em;
+}
+
+.demos-library[data-locale='id'] .demo-card:not(.demo-card-featured) h3 {
+  min-height: 4.05em;
 }
 
 .demo-summary {
@@ -1056,6 +1257,10 @@ onUnmounted(() => {
   font-size: 14px;
   line-height: 1.55;
   margin: 10px 0 0;
+}
+
+.demo-card-featured .demo-summary {
+  min-height: 3.1em;
 }
 
 .demo-tags {
@@ -1068,20 +1273,24 @@ onUnmounted(() => {
 }
 
 .demo-tags li {
-  background: #edf2f8;
+  background: var(--demos-tag-surface);
   border-radius: 4px;
-  color: #3b4d66;
+  color: var(--demos-tag-ink);
   font-size: 12px;
   line-height: 1.3;
   overflow-wrap: anywhere;
   padding: 4px 6px;
 }
 
+.demos-library .demo-tags li + li {
+  margin-top: 0;
+}
+
 .demo-related-link {
   color: var(--demos-accent-dark);
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 17px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 16px;
   overflow-wrap: anywhere;
 }
 
@@ -1135,6 +1344,11 @@ onUnmounted(() => {
   width: 100%;
 }
 
+:global(.dark .demo-dialog) {
+  background: #151f30;
+  color: #e5edf9;
+}
+
 :global(.demo-dialog-header) {
   align-items: center;
   display: flex;
@@ -1165,6 +1379,12 @@ onUnmounted(() => {
   line-height: 1;
   padding: 0;
   width: 36px;
+}
+
+:global(.dark .demo-dialog-close) {
+  background: #1c2940;
+  border-color: #42546f;
+  color: #e5edf9;
 }
 
 :global(.demo-dialog-player) {
@@ -1231,27 +1451,13 @@ input:focus-visible {
 
   .demos-controls {
     align-items: stretch;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .demos-filter-scroll {
-    grid-column: 1;
-    grid-row: 1;
-    margin: 0 -16px;
-    overflow-x: auto;
-    order: 1;
-    padding: 0 16px;
-  }
-
-  .demos-filter-row {
-    justify-content: flex-start;
-    width: max-content;
   }
 
   .demos-search-label {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: stretch;
+    flex: 1 1 100%;
+    max-width: none;
+    min-width: 0;
+    margin-right: 0;
     order: 2;
     width: 100%;
   }
@@ -1296,6 +1502,25 @@ input:focus-visible {
 
   .demos-section {
     margin-top: 40px;
+  }
+
+  .demos-catalog-section {
+    margin-top: 52px;
+    padding-top: 22px;
+  }
+
+  .demos-section-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .demos-section-heading h2 {
+    font-size: 22px;
+  }
+
+  .demo-card h3,
+  .demo-card-featured .demo-summary {
+    min-height: 0;
   }
 
   :global(.demo-dialog-actions) {

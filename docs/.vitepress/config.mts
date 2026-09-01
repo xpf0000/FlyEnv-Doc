@@ -5,8 +5,11 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
 import AppDownBtn from '../components/AppDownButton/index.vue'
+import { solutions } from '../data/solutions'
+import { solutionContentByLocale } from '../data/solution-locales'
 
 const head: any = [['link', { rel: 'icon', href: '/favicon.ico' }]]
+const socialImage = 'https://oss.macphpstudy.com/image/app-icon.png'
 if (PROD) {
   head.push([
     'script',
@@ -26,6 +29,7 @@ if (PROD) {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfigWithTheme({
+  srcExclude: ['superpowers/**'],
   vite: {
     plugins: [
       AutoImport({
@@ -46,6 +50,68 @@ export default defineConfigWithTheme({
   },
   sitemap: {
     hostname: AppHost
+  },
+  transformHead({ page, title, description }) {
+    const match = page.match(/^(?:(zh|id)\/)?solutions\/([a-z0-9-]+)\.md$/)
+    if (!match) return
+
+    const locale = (match[1] ?? 'en') as 'en' | 'zh' | 'id'
+    const slug = match[2]
+    const solution = solutions.find((item) => item.slug === slug)
+    if (!solution) return
+
+    const localePath = locale === 'en' ? '' : `/${locale}`
+    const language = locale === 'zh' ? 'zh-CN' : locale === 'id' ? 'id-ID' : 'en'
+    const solutionDescription =
+      solutionContentByLocale[locale][slug]?.summary ?? description
+    const solutionsLabel = locale === 'zh' ? '解决方案' : locale === 'id' ? 'Solusi' : 'Solutions'
+    const url = `${AppHost}${localePath}/solutions/${slug}.html`
+    const schema = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          '@id': `${url}#webpage`,
+          name: title,
+          url,
+          description: solutionDescription,
+          inLanguage: language,
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'FlyEnv',
+            url: `${AppHost}${localePath || '/'}`
+          }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${url}#breadcrumb`,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'FlyEnv', item: `${AppHost}/` },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: solutionsLabel,
+              item: `${AppHost}${localePath}/solutions.html`
+            },
+            { '@type': 'ListItem', position: 3, name: solution.name, item: url }
+          ]
+        }
+      ]
+    }
+
+    return [
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: solutionDescription }],
+      ['meta', { property: 'og:type', content: 'website' }],
+      ['meta', { property: 'og:url', content: url }],
+      ['meta', { property: 'og:image', content: socialImage }],
+      ['meta', { name: 'twitter:card', content: 'summary' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: solutionDescription }],
+      ['meta', { name: 'twitter:image', content: socialImage }],
+      ...(locale === 'en' ? [] : [['link', { rel: 'canonical', href: url }]]),
+      ['script', { type: 'application/ld+json' }, JSON.stringify(schema)]
+    ]
   },
   head,
   themeConfig: {
@@ -69,7 +135,8 @@ export default defineConfigWithTheme({
         ],
         nav: [
           { text: 'Download', link: '/download' },
-          { text: 'FlyPHPServer', link: '/flyphpserver' },
+          { text: 'Solutions', link: '/solutions' },
+          { text: 'Demos', link: '/demos' },
           { text: 'Guide', link: '/guide/what-is-flyenv' },
           { text: 'Community', link: '/community' },
           { text: 'License', link: '/license' }
@@ -166,7 +233,8 @@ export default defineConfigWithTheme({
         ],
         nav: [
           { text: '下载', link: '/zh/download' },
-          { text: 'FlyPHPServer', link: '/zh/flyphpserver' },
+          { text: '解决方案', link: '/zh/solutions' },
+          { text: '演示', link: '/zh/demos' },
           { text: '指南', link: '/zh/guide/what-is-flyenv' },
           { text: '社区', link: '/zh/community' },
           { text: '许可证', link: '/zh/license' }
@@ -233,6 +301,97 @@ export default defineConfigWithTheme({
                 { text: 'PHP Xdebug 调试', link: '/zh/guide/php-debug-with-xdebug' },
                 { text: 'PHP icu4c 问题', link: '/zh/guide/php-icu4c-issues' },
                 { text: '动态加载I18n语言包', link: '/zh/guide/dynamically-load-I18n-language-packs' },
+              ],
+              collapsed: false
+            }
+          ]
+        }
+      }
+    },
+    id: {
+      label: 'Bahasa Indonesia',
+      lang: 'id-ID',
+      link: '/id/',
+      title: 'FlyEnv',
+      description: 'Pengelola lingkungan pengembangan full-stack terpadu untuk macOS, Windows, dan Linux.',
+      themeConfig: {
+        footer: {
+          message: FootMessage,
+          copyright: 'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/id/terms">Ketentuan Layanan</a> · <a href="/id/privacy">Kebijakan Privasi</a> · <a href="/id/refund-policy">Kebijakan Pengembalian Dana</a>'
+        },
+        socialLinks: [
+          { icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }
+        ],
+        nav: [
+          { text: 'Unduh', link: '/id/download' },
+          { text: 'Solusi', link: '/id/solutions' },
+          { text: 'Demo', link: '/id/demos' },
+          { text: 'Panduan', link: '/id/guide/what-is-flyenv' },
+          { text: 'Komunitas', link: '/id/community' },
+          { text: 'Lisensi', link: '/id/license' }
+        ],
+        sidebar: {
+          '/id/guide/': [
+            {
+              text: 'Memulai',
+              items: [
+                { text: 'Apa itu FlyEnv?', link: '/id/guide/what-is-flyenv' },
+                { text: 'FlyEnv vs Docker & XAMPP', link: '/id/guide/flyenv-vs-docker-xampp' },
+                { text: 'Panduan Mulai Cepat', link: '/id/guide/getting-started' },
+                { text: 'Tentang FlyEnv Helper', link: '/id/guide/about-flyenv-helper' },
+                { text: 'Lisensi & Dukungan', link: '/id/guide/about-license' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Penyiapan Lingkungan Inti',
+              items: [
+                { text: 'Isolasi Versi per Proyek', link: '/id/guide/project-level-runtime-environment' },
+                { text: 'Kelola Versi Node.js & PHP', link: '/id/guide/manage-multiple-node-php-versions' },
+                { text: 'Manajemen System Path', link: '/id/guide/setup-system-path-environment' },
+                { text: 'Menyiapkan Lingkungan Java', link: '/id/guide/set-up-java-development-environment' },
+                { text: 'Memasang Ekstensi PHP', link: '/id/guide/php-extensions-install' },
+                { text: 'Pengaturan Database & Keamanan', link: '/id/guide/database-user-password' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'AI & Alat Produktivitas',
+              items: [
+                { text: 'Panduan FlyEnv AI Workspace & MCP', link: '/id/guide/ai-coding-workspace-mcp' },
+                { text: 'Alur Kerja Asisten Pemrograman AI', link: '/id/guide/flyenv-work-with-ai' },
+                { text: 'Membangun Agen AI Offline Lokal', link: '/id/guide/build-local-offline-ai-agent' },
+                { text: 'Alur Kerja AI Self-hosted dengan n8n', link: '/id/guide/build-local-ai-workflow-by-n8n' },
+                { text: 'Panduan OpenClaw + Ollama', link: '/id/guide/openclaw' },
+                { text: 'Alat Obfuscation Kode PHP', link: '/id/guide/php-code-obfuscation' },
+                { text: 'Mengekspos Localhost dengan Cloudflare Tunnel', link: '/id/guide/cloudflare-tunnel-local-development' },
+                { text: 'Pengujian Email Lokal (Mailpit)', link: '/id/guide/local-email-testing-mailpit' },
+                { text: 'Code Playground & Library', link: '/id/guide/code-playground-and-code-library' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Server Web & Reverse Proxy',
+              items: [
+                { text: 'Domain Kustom & SSL Otomatis', link: '/id/guide/host' },
+                { text: 'Mendeploy Proyek PHP Tanpa Docker', link: '/id/guide/deploy-php-projects-without-docker' },
+                { text: 'Mengurai HTML sebagai PHP (Nginx/Apache/Caddy)', link: '/id/guide/parse-html-as-php-multi-servers' },
+                { text: 'Penyiapan Reverse Proxy (NestJS/Node.js)', link: '/id/guide/reverse-proxy-nestjs-multi-servers' },
+                { text: 'Mendeploy Node/Python/Go Tanpa Docker', link: '/id/guide/deploy-nodejs-python-go-without-docker' },
+                { text: 'Pengaturan Jaringan & Proxy', link: '/id/guide/use-proxy' },
+                { text: 'Modul yang Dapat Dikustomisasi Pengguna', link: '/id/guide/user-customizable-modules' },
+                { text: 'Panduan Modul Podman', link: '/id/guide/podman-module' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Pemecahan Masalah & Optimasi',
+              items: [
+                { text: 'Penyetelan Performa Situs Windows', link: '/id/guide/windows-site-performance-optimization' },
+                { text: 'Menjalankan Laravel di FlyEnv', link: '/id/guide/run-laravel-use-flyenv' },
+                { text: 'Debug PHP dengan Xdebug', link: '/id/guide/php-debug-with-xdebug' },
+                { text: 'Memperbaiki Masalah PHP Umum (icu4c)', link: '/id/guide/php-icu4c-issues' },
+                { text: 'Memuat Paket I18n Secara Dinamis', link: '/id/guide/dynamically-load-I18n-language-packs' }
               ],
               collapsed: false
             }

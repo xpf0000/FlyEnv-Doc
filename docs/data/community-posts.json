@@ -657,5 +657,124 @@
     "relevance_score": 10,
     "seoTitle": "FlyEnv vs Laragon vs XAMPP: PHP Local Development Comparison for 2026",
     "seoSummary": "Compare FlyEnv, Laragon, and XAMPP across PHP versions, virtual hosts, HTTPS, databases, Redis, and macOS or Windows support for modern PHP projects."
+  },
+  {
+    "id": "fahdilabib-flyenv-ram-lightweight-local-development",
+    "title": "Pengalaman Nyata Menggunakan FlyEnv: Menyelamatkan RAM Laptop dari Beban Berat Local Development",
+    "url": "https://fahdilabib.com/pengalaman-nyata-menggunakan-flyenv-menyelamatkan-ram-laptop-dari-beban-berat-local-development/",
+    "author": "Fahdi Labib",
+    "platform": "Blog",
+    "language": "id",
+    "date": "2026-09-01",
+    "summary": "Fahdi Labib shares a hands-on move away from heavier Docker workflows, focusing on FlyEnv's multi-version PHP management, automatic local SSL, and lower RAM use during everyday development.",
+    "tags": [
+      "case-study",
+      "php",
+      "docker",
+      "xampp"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 100,
+    "relevance_score": 10
+  },
+  {
+    "id": "goharabbas321-flyenv-modern-local-development-full-stack",
+    "title": "FlyEnv: A Modern Local Development Environment for Full-Stack Developers",
+    "url": "https://medium.com/@goharabbas321/flyenv-a-modern-local-development-environment-for-full-stack-developers-d1661b18f488",
+    "author": "Gohar Abbas",
+    "platform": "Medium",
+    "language": "en",
+    "date": "2026-09-01",
+    "summary": "Gohar Abbas presents FlyEnv as a modern full-stack local development environment for developers who want runtime, database, and local tooling workflows in one desktop workspace.",
+    "tags": [
+      "review",
+      "php",
+      "nodejs",
+      "ai"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 85,
+    "relevance_score": 10
+  },
+  {
+    "id": "mufaizabd-xampp-docker-to-flyenv",
+    "title": "I Used XAMPP and Docker for Years — Now I Fully Use FlyEnv",
+    "url": "https://medium.com/@mufaizabd/i-used-xampp-and-docker-for-years-now-i-fully-use-flyenv-71bb92d3a141",
+    "author": "Muhammad Faiz",
+    "platform": "Medium",
+    "language": "id",
+    "date": "2026-08-28",
+    "summary": "Muhammad Faiz describes replacing XAMPP and Docker on a low-RAM computer, with instant PHP version switching and a simpler workflow for legacy and modern projects.",
+    "tags": [
+      "review",
+      "php",
+      "docker",
+      "xampp"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
+  },
+  {
+    "id": "taufantritama-flyenv-modern-local-development",
+    "title": "Selamat Tinggal XAMPP: Mengapa FlyEnv Adalah Masa Depan Local Development bagi Developer Modern",
+    "url": "https://medium.com/@taufantritama.unu/selamat-tinggal-xampp-mengapa-flyenv-adalah-masa-depan-local-development-bagi-developer-modern-07126edffd93",
+    "author": "Taufantritama Unu",
+    "platform": "Medium",
+    "language": "id",
+    "date": "2026-08-24",
+    "summary": "Taufantritama Unu compares FlyEnv with traditional local tools, covering multi-runtime switching, web server choice, integrated databases, automatic HTTPS, and cross-platform performance.",
+    "tags": [
+      "comparison",
+      "php",
+      "xampp",
+      "nodejs"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 90,
+    "relevance_score": 10
+  },
+  {
+    "id": "kiki-six-months-flyenv-multi-project-dashboard",
+    "title": "Sharing: 6 Bulan Pakai FlyEnv & Tips Kelola Banyak Project Disatu Site untuk Pengguna",
+    "url": "https://blog.kiki.my.id/tips-kelola-banyak-project-disatu-site-untuk-pengguna/",
+    "author": "kiki",
+    "platform": "Miftakhuddin's Blog",
+    "language": "id",
+    "date": "2026-08-23",
+    "summary": "After six months with FlyEnv, kiki shares practical ways to organize multiple PHP projects, standardize runtimes, reuse Redis or object storage, and keep inactive services off.",
+    "tags": [
+      "case-study",
+      "php",
+      "nodejs"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
+  },
+  {
+    "id": "elmandayp-flyenv-xampp-laragon-alternative",
+    "title": "FlyEnv: Alternatif Lokal Server Terbaik Pengganti XAMPP dan Laragon",
+    "url": "https://elmandayp.com/flyenv-alternatif-lokal-server-terbaik-pengganti-xampp-dan-laragon/",
+    "author": "elmandayp",
+    "platform": "Blog",
+    "language": "id",
+    "date": "2026-08-21",
+    "summary": "Elmandayp reviews FlyEnv as an open-source alternative to XAMPP and Laragon, highlighting native multi-version runtimes, integrated services, automatic setup, and a lighter modern UI.",
+    "tags": [
+      "comparison",
+      "php",
+      "xampp",
+      "laragon"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
   }
 ]

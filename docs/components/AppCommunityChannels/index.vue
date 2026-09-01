@@ -34,10 +34,11 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   title: string
-  locale?: 'en' | 'zh'
+  locale?: 'en' | 'zh' | 'id'
 }>()
 
 const isZh = computed(() => props.locale === 'zh')
+const isId = computed(() => props.locale === 'id')
 const channelsId = 'community-channels'
 
 const t = computed(() =>
@@ -46,6 +47,11 @@ const t = computed(() =>
         intro: '在适合你的地方提问、分享经验，或与其他开发者一起交流。',
         open: '进入社区'
       }
+    : isId.value
+      ? {
+          intro: 'Ajukan pertanyaan, bagikan pengalaman, dan bertemu pengembang lain di kanal yang paling sesuai untuk Anda.',
+          open: 'Buka komunitas'
+        }
     : {
         intro: 'Ask questions, share what you learn, and meet other developers where it suits you.',
         open: 'Open community'
@@ -57,26 +63,26 @@ const channels = computed(() => [
     mark: 'GH',
     name: 'GitHub Discussions',
     url: 'https://github.com/xpf0000/FlyEnv/discussions',
-    description: isZh.value ? '提问、报告想法并参与产品讨论。' : 'Ask questions, share ideas, and join product discussions.'
+    description: isZh.value ? '提问、报告想法并参与产品讨论。' : isId.value ? 'Ajukan pertanyaan, bagikan ide, dan ikut diskusi produk.' : 'Ask questions, share ideas, and join product discussions.'
   },
   {
     mark: 'f',
     name: 'Facebook Group',
     url: 'https://www.facebook.com/groups/908637655411162',
-    description: isZh.value ? '加入 Facebook 社区，交流日常使用经验。' : 'Join the Facebook group for everyday tips and conversation.'
+    description: isZh.value ? '加入 Facebook 社区，交流日常使用经验。' : isId.value ? 'Bergabunglah dengan grup Facebook untuk tips dan percakapan sehari-hari.' : 'Join the Facebook group for everyday tips and conversation.'
   },
   {
     mark: 'D',
     name: 'Discord',
     url: 'https://discord.gg/u5SuMGxjPE',
-    description: isZh.value ? '与开发者实时交流 FlyEnv 的使用问题。' : 'Chat with developers about using FlyEnv in real time.'
+    description: isZh.value ? '与开发者实时交流 FlyEnv 的使用问题。' : isId.value ? 'Mengobrol dengan pengembang lain tentang penggunaan FlyEnv secara real time.' : 'Chat with developers about using FlyEnv in real time.'
   },
   {
     mark: 'QQ',
-    name: isZh.value ? 'QQ 群' : 'QQ Group',
+    name: isZh.value ? 'QQ 群' : isId.value ? 'Grup QQ' : 'QQ Group',
     url: '',
-    description: isZh.value ? '面向中文用户的 FlyEnv 交流群。' : 'A FlyEnv discussion group for Chinese-speaking users.',
-    groupNumber: isZh.value ? '群号：540738893' : 'Group number: 540738893'
+    description: isZh.value ? '面向中文用户的 FlyEnv 交流群。' : isId.value ? 'Grup diskusi FlyEnv untuk pengguna berbahasa Mandarin.' : 'A FlyEnv discussion group for Chinese-speaking users.',
+    groupNumber: isZh.value ? '群号：540738893' : isId.value ? 'Nomor grup: 540738893' : 'Group number: 540738893'
   }
 ])
 </script>

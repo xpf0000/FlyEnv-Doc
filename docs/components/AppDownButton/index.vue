@@ -14,6 +14,7 @@
 <script setup lang="ts">
   import { ElButton } from 'element-plus'
   import { computed } from 'vue'
+  import { detectOperatingSystem, trackEvent } from '../../utils/analytics'
 
   const props = defineProps<{
     i18n: 'en' | 'zh'
@@ -24,26 +25,8 @@
     return props?.i18n === 'zh' ? '下载' : 'Download'
   })
 
-  const detectOS = () => {
-    const userAgent = window.navigator.userAgent
-    const platform = window.navigator.platform
-    const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K']
-    const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE']
-
-    if (macosPlatforms.indexOf(platform) !== -1) {
-      if (userAgent.indexOf('Macintosh') !== -1 || userAgent.indexOf('MacIntel') !== -1) {
-        return 'MacOS_X86'
-      } else {
-        return 'MacOS_ARM64'
-      }
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      return 'Windows'
-    }
-    return 'unknown'
-  }
-
   const down = () => {
-    const os = detectOS()
+    const os = detectOperatingSystem()
     let downloadUrl = ''
 
     switch (os) {
@@ -62,17 +45,22 @@
         const url = window.location.href.includes('/zh/')
           ? '/zh/guide/getting-started.html'
           : '/guide/getting-started.html'
+        trackEvent('download_click', { os, target: url, release_file: '' })
         window.location.href = url
         return
     }
+
+    const releaseFile = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1)
+    trackEvent('download_click', { os, target: downloadUrl, release_file: releaseFile })
 
     // Create an invisible a element and trigger download
     const link = document.createElement('a')
     link.href = downloadUrl
     // link.target = '_blank'
-    link.download = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1)
+    link.download = releaseFile
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
+    trackEvent('download_start', { os, target: downloadUrl, release_file: releaseFile })
   }
 </script>

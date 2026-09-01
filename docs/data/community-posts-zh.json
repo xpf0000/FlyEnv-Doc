@@ -307,5 +307,62 @@
     "relevance_score": 10,
     "seoTitle": "FlyEnv 多运行时、本地服务与 AI 工具工作流",
     "seoSummary": "从多项目本地开发出发，介绍 FlyEnv 如何集中管理运行时、数据库、Web 服务、本地站点和 AI 工具，并说明与 Docker 的适用边界。"
+  },
+  {
+    "id": "toutiao-7680435277819314739",
+    "title": "一个人的古籍站，我是怎么用 FlyEnv 把本地开发环境理顺的",
+    "url": "https://www.toutiao.com/article/7680435277819314739/",
+    "author": "",
+    "platform": "今日头条",
+    "language": "zh",
+    "date": "2026-09-01",
+    "summary": "作者独自维护古籍资料库项目，分享在 Windows 上用 FlyEnv 管理 Laravel、PHP、Python、Node.js、PostgreSQL、Redis 与本地 HTTPS 的真实工作流。",
+    "tags": [
+      "case-study",
+      "php",
+      "postgresql",
+      "nodejs"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 95,
+    "relevance_score": 10
+  },
+  {
+    "id": "csdn-164155021",
+    "title": "FlyEnv：把 Java 开发环境，从“配置两小时“变成“点击三下“",
+    "url": "https://blog.csdn.net/zbsxcc/article/details/164155021",
+    "author": "zbsxcc",
+    "platform": "CSDN",
+    "language": "zh",
+    "date": "2026-08-29",
+    "summary": "这篇 CSDN 文章面向 Java 开发者介绍 FlyEnv，强调在 macOS、Windows 和 Linux 上用统一的本地开发环境管理工具减少手动配置与环境切换成本。",
+    "tags": [
+      "tutorial",
+      "java"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 85,
+    "relevance_score": 9
+  },
+  {
+    "id": "zhihu-2075241562318152899",
+    "title": "FlyEnv 使用体验：一款省心的本地开发环境管理工具",
+    "url": "https://zhuanlan.zhihu.com/p/2075241562318152899",
+    "author": "啊哈",
+    "platform": "知乎",
+    "language": "zh",
+    "date": "2026-08-24",
+    "summary": "作者分享实际使用 FlyEnv 的体验，重点介绍多版本管理、数据库与 Redis 等服务集中控制、本地站点配置以及更直观的状态和问题排查，适合不想重复维护环境配置的日常开发者。",
+    "tags": [
+      "review",
+      "php",
+      "nodejs"
+    ],
+    "cover": "",
+    "featured": false,
+    "quality_score": 90,
+    "relevance_score": 10
   }
 ]

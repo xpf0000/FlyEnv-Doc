@@ -12,7 +12,7 @@ Position FlyEnv as the local development environment behind projects people want
 
 - The site is VitePress with Vue 3 and Tailwind CSS 3.
 - The current English navigation has no Solutions destination. Add one English `Solutions` item without modifying Chinese or Indonesian navigation in this task.
-- Official logos for the proposed projects and services already exist under `/assets/demo-logos/`; no generated or fabricated product visuals are needed.
+- Reuse official project and service logos under `/assets/demo-logos/` where they exist. For entries not yet represented locally, use the Simple Icons CDN source for the official mark; do not generate or fabricate product visuals.
 - Existing UI uses pale backgrounds, FlyEnv blue and violet accents, light borders, and compact rounded cards. This page will use the same visual language while keeping a white, developer-tool orientation.
 
 ## Page Structure

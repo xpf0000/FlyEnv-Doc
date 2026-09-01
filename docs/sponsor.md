@@ -1,24 +1,17 @@
 ---
+title: 'FlyEnv License'
 layout: home
 
 head:
   - - meta
-    - name: description
-      content: 'Buy a FlyEnv Personal License through Paddle and review license terms, activation, refund policy, and community contribution records.'
+    - name: robots
+      content: 'noindex,follow'
+  - - link
+    - rel: canonical
+      href: https://flyenv.com/license
   - - meta
-    - property: og:title
-      content: 'FlyEnv Personal License'
-  - - meta
-    - property: og:description
-      content: 'Purchase a FlyEnv software license for premium feature access, manual issuance, and continued updates.'
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"description":"FlyEnv is an all-in-one full-stack local development environment manager.","offers":{"@type":"Offer","name":"FlyEnv Personal License","price":"10","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://www.flyenv.com/license"}}
+    - http-equiv: refresh
+      content: '0; url=/license'
 ---
 
-<script setup>
-import AppSponsorPageV2 from './components/AppSponsorPage/v2.vue'
-</script>
-
-<AppSponsorPageV2 />
+<p>This legacy page has moved to the <a href="/license">FlyEnv License page</a>.</p>

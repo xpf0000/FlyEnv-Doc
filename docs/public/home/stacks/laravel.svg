@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Laravel local stack placeholder</title>
+  <desc id="desc">A replaceable placeholder preview for a Laravel stack in FlyEnv.</desc>
+  <rect width="960" height="420" rx="28" fill="#101827"/>
+  <rect x="32" y="32" width="896" height="54" rx="14" fill="#18243a"/>
+  <circle cx="62" cy="59" r="8" fill="#ef4444"/><circle cx="88" cy="59" r="8" fill="#f59e0b"/><circle cx="114" cy="59" r="8" fill="#22c55e"/>
+  <text x="150" y="66" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Laravel workspace</text>
+  <rect x="32" y="112" width="260" height="270" rx="18" fill="#17243a"/>
+  <text x="60" y="155" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15">RUNTIMES</text>
+  <text x="60" y="194" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">PHP 8.3</text>
+  <text x="60" y="232" fill="#86efac" font-family="system-ui, sans-serif" font-size="16">● Running</text>
+  <text x="60" y="286" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15">SERVICES</text>
+  <text x="60" y="320" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="16">MySQL · Redis · Nginx</text>
+  <rect x="320" y="112" width="608" height="270" rx="18" fill="#f8fafc"/>
+  <text x="360" y="165" fill="#0f172a" font-family="system-ui, sans-serif" font-size="30" font-weight="800">laravel.test</text>
+  <rect x="360" y="194" width="170" height="34" rx="17" fill="#fee2e2"/><text x="385" y="217" fill="#b91c1c" font-family="system-ui, sans-serif" font-size="15" font-weight="700">HTTPS enabled</text>
+  <text x="360" y="278" fill="#475569" font-family="system-ui, sans-serif" font-size="18">Native local stack preview</text>
+  <text x="360" y="320" fill="#64748b" font-family="system-ui, sans-serif" font-size="15">FlyEnv workspace preview</text>
+</svg>

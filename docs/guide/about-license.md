@@ -110,7 +110,3 @@ Under the current license policy, purchased FlyEnv licenses are **permanent** an
 ![FlyEnv License Setup-5](https://oss.macphpstudy.com/image/flyenv-license-5.webp)
 
 ![FlyEnv License Setup-6](https://oss.macphpstudy.com/image/flyenv-license-6.webp)
-
----
-
-*Note: GitHub authorization is required to apply for and manage licenses.*

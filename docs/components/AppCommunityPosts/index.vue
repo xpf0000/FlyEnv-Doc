@@ -154,7 +154,7 @@ interface FilterDefinition {
 
 const props = defineProps<{
   posts: Post[]
-  locale?: 'en' | 'zh'
+  locale?: 'en' | 'zh' | 'id'
 }>()
 
 const locale = computed(() => props.locale || 'en')
@@ -220,6 +220,62 @@ const copy = {
       postgresql: 'PostgreSQL',
       ai: 'AI',
       'case-study': 'Case study'
+    }
+  },
+  id: {
+    kicker: 'Cerita komunitas',
+    title: 'Pengalaman nyata para pengembang, dikumpulkan di satu tempat',
+    intro: 'Tulisan publik, tutorial, dan ulasan memudahkan Anda melihat cara pengembang lain menggunakan FlyEnv sebelum mencobanya sendiri.',
+    coverageLabel: 'Cakupan cerita komunitas',
+    stories: 'Cerita',
+    authors: 'Penulis',
+    languages: 'Bahasa',
+    platforms: 'Platform',
+    leadLabel: 'Cerita terbaru',
+    browseTitle: 'Telusuri berdasarkan masalah yang sedang Anda selesaikan',
+    browseIntro: 'Mulailah dari pengalaman yang paling dekat dengan alur kerja Anda.',
+    filterLabel: 'Filter cerita komunitas',
+    libraryTitle: 'Perpustakaan komunitas',
+    resultSummary: (count: number) => `${count} ${count === 1 ? 'cerita' : 'cerita'} untuk dijelajahi`,
+    readStory: 'Baca cerita',
+    showMore: (count: number) => `Tampilkan ${count} cerita lainnya`,
+    emptyTitle: 'Belum ada cerita pada topik ini',
+    emptyIntro: 'Coba topik lain untuk menelusuri seluruh perpustakaan komunitas.',
+    resetFilter: 'Lihat semua cerita',
+    filters: {
+      all: 'Semua cerita',
+      switch: 'Beralih stack',
+      php: 'PHP dan Laravel',
+      runtimes: 'Beragam runtime',
+      platforms: 'Kerja lintas platform',
+      video: 'Panduan video'
+    },
+    content: {
+      video: 'Video',
+      tutorial: 'Tutorial',
+      comparison: 'Perbandingan',
+      review: 'Ulasan',
+      story: 'Cerita'
+    },
+    tags: {
+      tutorial: 'Tutorial',
+      comparison: 'Perbandingan',
+      review: 'Ulasan',
+      video: 'Video',
+      php: 'PHP',
+      laravel: 'Laravel',
+      nodejs: 'Node.js',
+      java: 'Java',
+      docker: 'Docker',
+      xampp: 'XAMPP',
+      laragon: 'Laragon',
+      macos: 'macOS',
+      windows: 'Windows',
+      linux: 'Linux',
+      wordpress: 'WordPress',
+      postgresql: 'PostgreSQL',
+      ai: 'AI',
+      'case-study': 'Studi kasus'
     }
   },
   zh: {
@@ -366,7 +422,7 @@ function languageLabel(language: string) {
 }
 
 function formatDate(date: string) {
-  return new Intl.DateTimeFormat(locale.value === 'zh' ? 'zh-CN' : 'en-US', {
+  return new Intl.DateTimeFormat(locale.value === 'zh' ? 'zh-CN' : locale.value === 'id' ? 'id-ID' : 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'

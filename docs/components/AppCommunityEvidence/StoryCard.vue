@@ -6,11 +6,11 @@
     ]"
   >
     <p class="mb-3 text-sm font-semibold text-indigo-600 dark:text-indigo-300">{{ evidence.scenario }}</p>
-    <h3 class="mb-3 text-xl font-bold leading-snug text-slate-900 dark:text-white">
-      {{ post.title }}
+    <h3 class="mb-3 line-clamp-2 text-xl font-bold leading-snug text-slate-900 dark:text-white">
+      {{ displayTitle }}
     </h3>
-    <p class="mb-4 leading-7 text-slate-600 dark:text-slate-300">{{ evidence.editorialSummary }}</p>
-    <p class="mb-5 text-sm text-slate-500 dark:text-slate-400">
+    <p class="mb-4 line-clamp-2 leading-7 text-slate-600 dark:text-slate-300">{{ evidence.editorialSummary }}</p>
+    <p v-if="placement !== 'home'" class="mb-5 text-sm text-slate-500 dark:text-slate-400">
       {{ post.author }} · {{ post.platform }} · {{ post.language.toUpperCase() }} · {{ formattedDate }}
     </p>
     <div class="mt-auto flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold">
@@ -21,10 +21,10 @@
         class="text-indigo-600 hover:text-indigo-700 hover:underline dark:text-indigo-300 dark:hover:text-indigo-200"
         @click="trackSource"
       >
-        {{ labels.original }}
+        {{ labels.original }} →
       </a>
       <a
-        v-if="guidePath"
+        v-if="guidePath && placement !== 'home'"
         :href="guidePath"
         class="text-slate-700 hover:text-indigo-700 hover:underline dark:text-slate-200 dark:hover:text-indigo-200"
         @click="trackGuide"
@@ -52,11 +52,17 @@ const props = defineProps<{
 const labels = computed(() =>
   props.locale === 'zh'
     ? { original: '阅读原文', guide: '查看相关指南' }
-    : { original: 'Read the original story', guide: 'See the related guide' }
+    : props.locale === 'id'
+      ? { original: props.placement === 'home' ? 'Baca cerita' : 'Baca cerita asli', guide: 'Lihat panduan terkait' }
+      : { original: props.placement === 'home' ? 'Read story' : 'Read the original story', guide: 'See the related guide' }
+)
+
+const displayTitle = computed(() =>
+  props.placement === 'home' ? props.evidence.homepageTitle || props.post.title : props.post.title
 )
 
 const formattedDate = computed(() =>
-  new Intl.DateTimeFormat(props.locale === 'zh' ? 'zh-CN' : 'en-US', {
+  new Intl.DateTimeFormat(props.locale === 'zh' ? 'zh-CN' : props.locale === 'id' ? 'id-ID' : 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'

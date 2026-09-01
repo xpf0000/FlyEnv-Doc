@@ -338,7 +338,7 @@
 
   const props = withDefaults(
     defineProps<{
-      i18n?: 'en' | 'zh'
+      i18n?: 'en' | 'zh' | 'id'
     }>(),
     {
       i18n: 'en'
@@ -404,6 +404,62 @@
       prev: 'Prev',
       next: 'Next'
     },
+    id: {
+      heroTitle: 'Lisensi FlyEnv',
+      heroDesc:
+        'Beli Lisensi FlyEnv untuk akses berlisensi ke fitur premium, aktivasi pada satu perangkat, dan pembaruan berkelanjutan. FlyEnv tetap open-source dan dapat dievaluasi secara gratis.',
+      licenseTitle: 'Beli Lisensi FlyEnv',
+      licenseDesc:
+        'Checkout Paddle menjual lisensi perangkat lunak FlyEnv yang sah. Setelah pembayaran, gunakan ID pesanan Paddle Anda pada alur permintaan lisensi di aplikasi untuk penerbitan lisensi manual.',
+      licenseGuide: 'Baca ketentuan lisensi dan panduan aktivasi',
+      licenseGuideShort: 'Ketentuan Lisensi',
+      paddleTitle: 'Lisensi FlyEnv',
+      paddleDesc: 'Checkout lisensi perangkat lunak oleh Paddle',
+      licensePriceLabel: 'Lisensi permanen',
+      paddleFeatures: [
+        'Aktivasi satu perangkat',
+        'Menghapus batas evaluasi',
+        'Penerbitan lisensi manual dalam 24 jam',
+        'Mendukung transfer lisensi'
+      ],
+      openingCheckout: 'Membuka checkout...',
+      buyWithPaddle: 'Beli Lisensi dengan Paddle',
+      termsLink: 'Ketentuan',
+      privacyLink: 'Privasi',
+      refundLink: 'Pengembalian Dana',
+      communityTitle: 'Cara Lain Berkontribusi ke Komunitas',
+      communityDesc:
+        'WeChat Pay, Alipay, pull request, dan artikel orisinal diproses di luar Paddle dan dapat dikirimkan secara manual sebagai bukti permintaan lisensi.',
+      wechatTitle: 'WeChat Pay',
+      alipayTitle: 'Alipay',
+      scanToContribute: 'Pindai kode QR untuk berkontribusi',
+      scanQr: 'Pindai Kode QR',
+      specialThanks: 'Terima Kasih Khusus',
+      specialThanksDesc: 'Terima kasih kepada setiap teman yang membantu FlyEnv terus berkembang.',
+      signPathPrefix: 'Penandatanganan kode gratis untuk FlyEnv di Windows disediakan oleh',
+      signPathMiddle: ', dengan sertifikat yang disediakan oleh',
+      signPathEnd: '',
+      f4Prefix: 'Pendiri',
+      f4Suffix: ', yang membiayai domain',
+      domainLabel: '',
+      sentenceEnd: '.',
+      articlesTitle: 'Artikel Pengguna',
+      articlesDesc: 'Tutorial, ulasan, video, dan kisah migrasi orisinal yang dibagikan pengguna FlyEnv.',
+      articlesHead: 'Artikel',
+      postsLabel: 'artikel',
+      articleFallback: 'Artikel',
+      unknownAuthor: 'Penulis tidak diketahui',
+      pullRequestsTitle: 'Pull Request Pengguna',
+      pullRequestsDesc: 'Kontribusi kode, dokumentasi, terjemahan, dan perbaikan bug dari komunitas GitHub.',
+      pullRequestsHead: 'Pull Request',
+      pullRequestsLabel: 'PR',
+      ctaTitle: 'Dapatkan Lisensi atau Berkontribusi',
+      ctaDesc:
+        'Beli lisensi perangkat lunak melalui Paddle, kontribusikan kode, atau bagikan konten FlyEnv orisinal. Setiap jalur dapat mendukung permintaan lisensi sesuai panduan aktivasi.',
+      starOnGithub: 'Beri bintang di GitHub',
+      prev: 'Sebelumnya',
+      next: 'Berikutnya'
+    },
     zh: {
       heroTitle: 'FlyEnv 许可证',
       heroDesc:
@@ -463,14 +519,15 @@
   }
 
   const t = computed(() => messages[props.i18n])
-  const licenseHref = computed(() =>
-    props.i18n === 'zh' ? '/zh/guide/about-license' : '/guide/about-license'
-  )
-  const termsHref = computed(() => (props.i18n === 'zh' ? '/zh/terms' : '/terms'))
-  const privacyHref = computed(() => (props.i18n === 'zh' ? '/zh/privacy' : '/privacy'))
-  const refundHref = computed(() =>
-    props.i18n === 'zh' ? '/zh/refund-policy' : '/refund-policy'
-  )
+  const localePrefix = computed(() => {
+    if (props.i18n === 'zh') return '/zh'
+    if (props.i18n === 'id') return '/id'
+    return ''
+  })
+  const licenseHref = computed(() => `${localePrefix.value}/guide/about-license`)
+  const termsHref = computed(() => `${localePrefix.value}/terms`)
+  const privacyHref = computed(() => `${localePrefix.value}/privacy`)
+  const refundHref = computed(() => `${localePrefix.value}/refund-policy`)
 
   const articlePage = ref(1)
   const pullRequestPage = ref(1)
@@ -482,7 +539,9 @@
     errorMessage:
       props.i18n === 'zh'
         ? 'Paddle 付款暂时不可用，请尝试其他方式。'
-        : 'Paddle checkout is temporarily unavailable. Please try another method.'
+        : props.i18n === 'id'
+          ? 'Checkout Paddle sedang tidak tersedia. Silakan coba lagi nanti.'
+          : 'Paddle checkout is temporarily unavailable. Please try another method.'
   })
 
   const articleList = computed<ArticleItem[]>(() => {

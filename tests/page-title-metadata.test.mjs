@@ -6,10 +6,10 @@ import test from 'node:test'
 const read = (path) => readFileSync(resolve(process.cwd(), path), 'utf8')
 
 const pageTitles = {
-  'docs/download.md': 'Download FlyEnv for macOS, Windows & Linux',
-  'docs/zh/download.md': '下载 FlyEnv（macOS、Windows 和 Linux）',
-  'docs/license.md': 'FlyEnv License',
-  'docs/zh/license.md': 'FlyEnv 许可证'
+  'docs/download.md': 'Download FlyEnv for Windows, macOS & Linux',
+  'docs/zh/download.md': '下载 FlyEnv（Windows、macOS 和 Linux）',
+  'docs/license.md': 'FlyEnv License - One-Time Purchase, No Subscription',
+  'docs/zh/license.md': 'FlyEnv 许可证 - 一次性购买，无订阅'
 }
 
 test('license page naming does not emphasize a personal license tier', () => {

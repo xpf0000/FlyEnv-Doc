@@ -1,25 +1,71 @@
 ---
 layout: home
 
-title: 'FlyEnv - 原生本地技术栈、AI 编程 CLI 与 MCP 工作区'
+title: 'FlyEnv - 原生本地开发环境'
 titleTemplate: false
 
 head:
   - - meta
     - name: description
-      content: 'FlyEnv 是一款原生桌面工作区，用于管理本地运行时、服务、AI 编程 CLI 和 FlyEnv MCP Server。可在 macOS、Windows 和 Linux 上运行项目，无需 Docker 额外开销。'
+      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的原生本地开发环境。在一个桌面应用中管理运行时、数据库、Web 服务器、本地站点和 HTTPS，并内置 AI 编程工具与 MCP。'
+  - - meta
+    - property: og:title
+      content: 'FlyEnv - 原生本地开发环境'
+  - - meta
+    - property: og:description
+      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的原生本地开发环境。在一个桌面应用中管理运行时、数据库、Web 服务器、本地站点和 HTTPS，并内置 AI 编程工具与 MCP。'
+  - - meta
+    - property: og:type
+      content: website
+  - - meta
+    - property: og:url
+      content: https://flyenv.com/zh/
+  - - meta
+    - property: og:image
+      content: https://oss.macphpstudy.com/image/app-icon.png
+  - - meta
+    - name: twitter:card
+      content: summary
+  - - meta
+    - name: twitter:title
+      content: 'FlyEnv - 原生本地开发环境'
+  - - meta
+    - name: twitter:description
+      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的原生本地开发环境。'
+  - - meta
+    - name: twitter:image
+      content: https://oss.macphpstudy.com/image/app-icon.png
+  - - link
+    - rel: canonical
+      href: https://flyenv.com/zh/
+  - - link
+    - rel: alternate
+      hreflang: en
+      href: https://flyenv.com/
+  - - link
+    - rel: alternate
+      hreflang: zh-CN
+      href: https://flyenv.com/zh/
+  - - link
+    - rel: alternate
+      hreflang: id-ID
+      href: https://flyenv.com/id/
+  - - link
+    - rel: alternate
+      hreflang: x-default
+      href: https://flyenv.com/
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"],"inLanguage":"zh-CN","description":"FlyEnv 是一款原生桌面工作区，用于管理本地运行时、服务、AI 编程 CLI 和 FlyEnv MCP Server。可在 macOS、Windows 和 Linux 上运行项目，无需 Docker 额外开销。","url":"https://www.flyenv.com/zh/","downloadUrl":"https://www.flyenv.com/zh/download","softwareHelp":"https://www.flyenv.com/zh/guide/what-is-flyenv","author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://www.flyenv.com"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"zh-CN","description":"FlyEnv 是适用于 macOS、Windows 和 Linux 的原生本地开发环境。在一个桌面应用中管理运行时、数据库、Web 服务器、本地站点和 HTTPS，并内置 AI 编程工具与 MCP。","url":"https://flyenv.com/zh/","downloadUrl":"https://flyenv.com/zh/download","softwareHelp":"https://flyenv.com/zh/guide/what-is-flyenv","sameAs":["https://github.com/xpf0000/FlyEnv"],"author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://flyenv.com/"}}
 
 hero:
   name: "FlyEnv"
-  text: "原生本地技术栈、AI 编程 CLI 与 MCP 工作区"
-  tagline: "在一个桌面应用中运行 PHP、Node.js、Python、数据库、本地站点、AI 编程客户端和 FlyEnv MCP Server。比 Docker、XAMPP、Herd 和零散 CLI 工具更轻、更快。"
+  text: "原生运行完整的本地开发技术栈"
+  tagline: "在 Windows、macOS 和 Linux 上，通过一个桌面应用管理运行时、数据库、Web 服务器、本地站点和 HTTPS。内置 AI 编程工具与 MCP。"
   image:
     src: 'https://oss.macphpstudy.com/image/app-icon.png'
-    alt: 'FlyEnv - 原生本地技术栈、AI 编程 CLI 与 MCP 工作区'
+    alt: 'FlyEnv'
   actions:
     - theme: brand
       text: 免费下载
@@ -28,61 +74,33 @@ hero:
       text: 快速上手
       link: /zh/guide/getting-started
 
-features:
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/fast.svg'
-      width: '32px'
-      height: '32px'
-    title: 原生本地技术栈
-    details: 以原生二进制方式运行运行时、Web 服务器、数据库、队列、邮件测试和 HTTPS，比重容器方案启动更快、内存更低。
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/deep.svg'
-      width: '32px'
-      height: '32px'
-    title: AI 编程 CLI 工作区
-    details: 在与你的项目相同的桌面工作区中安装和管理 Claude Code、Codex、OpenCode、Kimi、Antigravity CLI 和 GitHub Copilot CLI。
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/all.svg'
-      width: '32px'
-      height: '32px'
-    title: 内置 MCP Server
-    details: 通过 FlyEnv MCP Server，把本地服务、站点、配置、日志和部分生命周期操作暴露给 AI 客户端，无需手工维护每一个集成。
-  - icon:
-      src: 'https://oss.macphpstudy.com/image/same.svg'
-      width: '32px'
-      height: '32px'
-    title: 项目与运维工具
-    details: 按项目切换版本，管理本地域名和 SSL，使用 Cloudflare Tunnel、定时任务以及内置开发工具，全部集中在一个应用里。
 ---
 
 <script setup>
 import AppSvgIcon from '../components/VueSvgIcon/svg.vue'
 import AppAiWorkflow from '../components/AppAiWorkflow/zh.vue'
-import AppCoreModule from '../components/AppCoreModule/zh.vue'
-import AppToolModule from '../components/AppToolModule/zh.vue'
-import AppNoFountTipsModules from '../components/AppNoFoundTips/index.vue'
 import AppGitHubModules from '../components/AppGithub/zh.vue'
 import AppCommunityEvidence from '../components/AppCommunityEvidence/HomepageProof.vue'
 import communityPosts from '../data/community-posts-zh.json'
 import { communityEvidence } from '../data/community-evidence'
-import AppCanDoModules from '../components/AppCanDo/zh.vue'
-import AppPriceModules from '../components/AppPrice/zh.vue'
+import AppHomePositioning from '../components/AppHomePositioning/zh.vue'
+import AppProjectStacks from '../components/AppProjectStacks/zh.vue'
+import AppFeaturedModules from '../components/AppFeaturedModules/zh.vue'
+import AppHomeFinalCta from '../components/AppHomeFinalCta/zh.vue'
 </script>
 
 <AppSvgIcon />
 
-<AppCanDoModules />
+<AppHomePositioning />
+
+<AppProjectStacks />
+
+<AppCommunityEvidence :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" />
+
+<AppFeaturedModules />
 
 <AppAiWorkflow />
 
 <AppGitHubModules />
 
-<AppCoreModule />
-
-<AppToolModule />
-
-<AppCommunityEvidence :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" />
-
-<AppPriceModules />
-
-<AppNoFountTipsModules />
+<AppHomeFinalCta />

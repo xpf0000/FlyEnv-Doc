@@ -1,4 +1,4 @@
-export type CommunityLocale = 'en' | 'zh'
+export type CommunityLocale = 'en' | 'zh' | 'id'
 export type CommunityPlacement = 'home' | 'community-hero' | 'guide'
 
 export interface CommunityPost {
@@ -17,6 +17,7 @@ export interface CommunityEvidence {
   postId: string
   locale: CommunityLocale
   scenario: string
+  homepageTitle?: string
   useCases: string[]
   editorialSummary: string
   relatedGuides: string[]
