@@ -83,3 +83,57 @@ Open **Extensions** from any PHP version to see what is loaded and install what 
 ![Loaded extension list for a PHP version](https://oss.macphpstudy.com/image/features/php-8.webp)
 
 ![Installing a PHP extension from Homebrew](https://oss.macphpstudy.com/image/features/php-9.webp)
+
+## Project-level PHP isolation
+
+Different projects often need different PHP versions. In **PHP → Projects**, register each project folder and bind it to its own PHP binary — or keep it on the system version.
+
+- **Per-project runtime:** double-click a project to switch its PHP version; the choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right PHP automatically.
+- **Open-in tools:** jump from a project row into Terminal, PowerShell, VSCode, PhpStorm, WebStorm or Sublime with the project environment loaded.
+- **Per-site PHP version:** each site in **Host** selects its own PHP-FPM version (or stays a static site), and the site list shows which version serves which site.
+
+Registering more than two projects requires a FlyEnv license.
+
+![PHP projects list with per-project PHP version binding](https://oss.macphpstudy.com/image/features/php-10.webp)
+
+## Composer management
+
+The **Composer** tab manages Composer like any other versioned tool in FlyEnv.
+
+- Install and keep multiple Composer versions, from static builds or Homebrew depending on your platform.
+- Add your own Composer installations from custom directories.
+- Bind a specific Composer version to a project together with its PHP version, so dependency installs use a consistent toolchain.
+
+![Composer version manager](https://oss.macphpstudy.com/image/features/php-11.webp)
+
+## Quick project creation
+
+**PHP → New Project** scaffolds common PHP applications without leaving the app. Supported templates: WordPress, Laravel, Yii2, ThinkPHP, Symfony, CodeIgniter, CakePHP, Slim, ClassicPress and Contao.
+
+1. Pick a template and choose the framework version, the PHP version and the Composer version.
+2. FlyEnv runs the Composer creation command in its embedded terminal, so you see the real output.
+3. When the project is ready, create a matching site in one click — the web-server rewrite rules for that framework are pre-filled.
+
+![PHP project template grid](https://oss.macphpstudy.com/image/features/php-12.webp)
+
+![Creating a Laravel project with version selection](https://oss.macphpstudy.com/image/features/php-13.webp)
+
+## More PHP tools
+
+- **Log viewers:** open the PHP error log, the PHP-FPM log or the FPM slow log per version, with search and refresh built in.
+- **phpMyAdmin:** from the MySQL or MariaDB module, set up phpMyAdmin in one step — FlyEnv downloads it and creates a local site served by your highest installed PHP version.
+- **PHP Obfuscator:** a Tools-page utility that obfuscates PHP source code with a chosen PHP version, useful before handing code to third parties.
+
+## Related runtimes
+
+For application-server style PHP, FlyEnv has dedicated modules that complement the classic PHP-FPM setup:
+
+- **FrankenPHP** — PHP bundled with a modern web-serving model.
+- **RoadRunner** — PHP workers, Laravel Octane and fileserver presets.
+- **Swoole CLI** — Native Swoole, Hyperf, EasySwoole, Laravel Octane and custom script presets.
+
+The [PHP deployment guide](/guide/deploy-php-projects-without-docker) explains how to choose between them. For browser-facing sites, continue with [Local Sites, Custom Domains & HTTPS](/features/local-sites-https); framework-specific stacks are covered in the [Laravel](/solutions/laravel) and [WordPress](/solutions/wordpress) solutions.
+
+## Boundaries
+
+FlyEnv manages the local runtime and process configuration; it does not guarantee that every PHP extension, framework version or third-party binary is available on every operating system. Verify the project's requirements against the installed PHP build, and treat the [Download page](/download) and current release notes as the source for supported packages.
