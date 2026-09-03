@@ -27,9 +27,9 @@ head:
       href: https://www.flyenv.com/features/php
 ---
 
-# PHP development in FlyEnv
+# Local PHP Development with FlyEnv
 
-FlyEnv turns PHP into a managed part of your local stack: install as many PHP versions as your projects need, run PHP-FPM per version, edit `php.ini` and extensions without touching the terminal, bind a runtime to each project, and scaffold common PHP applications in a few clicks.
+FlyEnv manages the whole PHP side of your local stack in one app: multiple PHP versions, per-version PHP-FPM, visual `php.ini` and extension management, project-level runtimes, Composer, and one-click scaffolding for common PHP applications.
 
 ![FlyEnv PHP module overview](https://oss.macphpstudy.com/image/features/php-1.webp)
 
@@ -124,7 +124,7 @@ The **Composer** tab manages Composer like any other versioned tool in FlyEnv.
 - **phpMyAdmin:** from the MySQL or MariaDB module, set up phpMyAdmin in one step — FlyEnv downloads it and creates a local site served by your highest installed PHP version.
 - **PHP Obfuscator:** a Tools-page utility that obfuscates PHP source code with a chosen PHP version, useful before handing code to third parties.
 
-## Related runtimes
+## PHP Application Servers
 
 For application-server style PHP, FlyEnv has dedicated modules that complement the classic PHP-FPM setup:
 
@@ -134,6 +134,6 @@ For application-server style PHP, FlyEnv has dedicated modules that complement t
 
 The [PHP deployment guide](/guide/deploy-php-projects-without-docker) explains how to choose between them. For browser-facing sites, continue with [Local Sites, Custom Domains & HTTPS](/features/local-sites-https); framework-specific stacks are covered in the [Laravel](/solutions/laravel) and [WordPress](/solutions/wordpress) solutions.
 
-## Boundaries
+## Compatibility Notes
 
 FlyEnv manages the local runtime and process configuration; it does not guarantee that every PHP extension, framework version or third-party binary is available on every operating system. Verify the project's requirements against the installed PHP build, and treat the [Download page](/download) and current release notes as the source for supported packages.

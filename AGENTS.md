@@ -154,6 +154,21 @@ See `.prettierrc`:
 
 ## Adding New Documentation
 
+### Feature Pages vs Guide Pages
+
+**Feature documents the product surface; Guide documents workflows built on top of the product surface.**
+
+Feature pages (`docs/features/`):
+- Content comes primarily from current FlyEnv source code and product UI
+- Document capabilities that exist inside the FlyEnv module itself
+- May explain what each capability does and how it is operated in FlyEnv, with real UI screenshots
+- May go deep on the module's own features, but must not expand into external tutorials
+
+Guide pages (`docs/guide/`):
+- May combine FlyEnv features with external tools, framework conventions, configuration files and troubleshooting
+- Cover task-oriented or problem-oriented workflows
+- Examples: Xdebug debugging, `.user.ini`, PHP obfuscation strategy, Laravel-specific setup, special rewrite rules
+
 ### Adding a New Guide Page
 
 1. Create the markdown file in `docs/guide/` (English) or `docs/zh/guide/` (Chinese)

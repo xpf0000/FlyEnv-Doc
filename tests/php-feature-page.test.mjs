@@ -21,8 +21,8 @@ test('php feature page covers all core feature sections', () => {
     '## Composer management',
     '## Quick project creation',
     '## More PHP tools',
-    '## Related runtimes',
-    '## Boundaries'
+    '## PHP Application Servers',
+    '## Compatibility Notes'
   ]) {
     assert.match(page, new RegExp(heading.replace(/[.*]/g, '\\$&')))
   }
