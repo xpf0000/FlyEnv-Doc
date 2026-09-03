@@ -54,19 +54,19 @@ head: [description/og:title/og:description/og:type/og:url/og:image/canonical 全
 
 ## Compatibility Notes
 
-<平台限制、许可证门槛、事实边界>
+<平台限制、事实边界>
 ```
 
 ### 各原型的 H2 区块模板
 
-- **A. 语言运行时**：`Version management`（安装源按模块实际）→ `Command-line version switching`（PATH/别名/自定义目录）→ `Projects`（.flyenv、run-as-service、端口、环境变量、IDE 打开；超过 2 个项目需许可证，与 PHP 页措辞一致）→ 模块亮点（Python 项目模板 / Java Maven 标签页 / Go GVM 等，有才写）→ Compatibility Notes。Gradle 无 Projects 标签页则不写该节。
+- **A. 语言运行时**：`Version management`（安装源按模块实际）→ `Command-line version switching`（PATH/别名/自定义目录）→ `Projects`（.flyenv、run-as-service、端口、环境变量、IDE 打开）→ 模块亮点（Python 项目模板 / Java Maven 标签页 / Go GVM 等，有才写）→ Compatibility Notes。Gradle 无 Projects 标签页则不写该节。
 - **B. Flutter**：版本管理 → SDK 状态与 Doctor → Command Center → 项目创建/编辑 → Android 工具链 → Compatibility Notes。
 - **C. Web 服务器**：`Version management` → `Service management`（单版本运行）→ `Configuration`（可视化表单单独说明，Apache/Caddy/FrankenPHP 为纯源码编辑器）→ `Site integration`（vhost、每站点端口、自动 HTTPS、rewrite/反代）→ `Logs` → Compatibility Notes。
 - **D. 数据库**：版本管理 → 服务与配置 → 日志 → 管理面板（phpMyAdmin/pgAdmin/DbGate/CH-UI/Neo4j Browser/Qdrant Dashboard）→ 模块亮点（MySQL Group 多实例、PostgreSQL 数据目录+pgvector、Neo4j Java 版本绑定等）→ Compatibility Notes。
 - **E. 版本化服务**：版本管理 → 服务与配置（有可视化表单则注明）→ 日志 → Web UI（有才写）→ 模块亮点（如 Mailpit 的 SMTP/POP3 端口、n8n 的 Users 管理、Ollama 的 Model 标签页）→ Compatibility Notes。薄模块（Memcached 无配置无日志、Cloudflared 仅安装）如实窄写。
 - **F. AI CLI 客户端**：`Installation`（xterm 一键安装）→ `Configuration`（可视化/纯源码按实际）→ `Sessions`（恢复/删除/导出按实际）→ `MCP servers` → 差异标签页（Plugins/Skills/Stats/命令面板，有才写）→ Compatibility Notes。明确写"会话在外部系统终端运行"。
-- **G. 内建能力**：无版本管理节；按各自真实 UI 结构定节（MCP Server：服务选项/客户端配置/工具策略/审计日志；DNS Server：解析行为/查询日志/与站点域名联动；FTP Server：pure-ftpd + ftp-srv 双实现与账号管理；Startup Groups：成员类型/顺序启停/默认组/许可证 1 组限制；Cron Jobs：系统调度器写入/运行历史/系统任务标签页/许可证 1 任务限制；Per-Project Runtimes：.flyenv 机制/shell hook/IDE 集成；User Modules：自定义模块/执行项/日志；CLI & Terminal：shell hook、open-in-terminal、内嵌 xterm、系统环境变量工具）。
-- **H. 特殊集成**：Podman（机器管理/Compose 生成器约 29 种栈/镜像与容器）；Cloudflared（安装+PATH，注明被 Cloudflare Tunnel 依赖）；Cloudflare Tunnel（API Token 配置/DNS 规则/许可证 1 隧道 1 规则限制）。
+- **G. 内建能力**：无版本管理节；按各自真实 UI 结构定节（MCP Server：服务选项/客户端配置/工具策略/审计日志；DNS Server：解析行为/查询日志/与站点域名联动；FTP Server：pure-ftpd + ftp-srv 双实现与账号管理；Startup Groups：成员类型/顺序启停/默认组；Cron Jobs：系统调度器写入/运行历史/系统任务标签页；Per-Project Runtimes：.flyenv 机制/shell hook/IDE 集成；User Modules：自定义模块/执行项/日志；CLI & Terminal：shell hook、open-in-terminal、内嵌 xterm、系统环境变量工具）。
+- **H. 特殊集成**：Podman（机器管理/Compose 生成器约 29 种栈/镜像与容器）；Cloudflared（安装+PATH，注明被 Cloudflare Tunnel 依赖）；Cloudflare Tunnel（API Token 配置/DNS 规则/每隧道日志）。
 
 ## 截图规则
 
@@ -78,7 +78,7 @@ head: [description/og:title/og:description/og:type/og:url/og:image/canonical 全
 
 - 只写调研报告中核实的能力；不确定的不写。
 - 平台限制必须标注：ClickHouse、Typesense、Pure-FTPd 仅 macOS+Linux；Memcached 无配置文件和日志；Elasticsearch 全平台仅 Static 源；Cloudflared 无服务生命周期等。
-- 许可证门槛如实写：语言模块超过 2 个 Projects 需许可证、Startup Groups 1 组、Cron 1 任务、Cloudflare Tunnel 1 隧道 1 规则、Ollama AI chat 3 天试用。
+- **不出现任何许可证/付费/试用相关内容**（用户明确要求）：内页只阐述功能，具体限制由应用在用户实际触发时自行提示。已有的 `docs/features/php.md` 中 "Registering more than two projects requires a FlyEnv license." 一句也要删除，并同步更新 `tests/php-feature-page.test.mjs` 中的 `/license/i` 断言。
 - 语言模块的 "Service" 标签页是版本/PATH 管理而非运行中的服务，文案避免误导。
 - 不延伸教程内容（Xdebug、.user.ini、框架配置等留给 Guide，遵循 AGENTS.md 的 Feature/Guide 边界规则）。
 
@@ -86,7 +86,7 @@ head: [description/og:title/og:description/og:type/og:url/og:image/canonical 全
 
 1. `docs/features.md`：61 个卡片的 `href` 改为对应 `/features/<slug>`；卡片 `name`/`detail`/`logo` 不动（`features-page.test.mjs` 的模块名单断言依赖 name）。
 2. `tests/features-page.test.mjs`：`links users to verified workflows` 断言中的 `/guide/ai-coding-workspace-mcp` 等若因卡片改链而消失，同步更新断言（`/guide/getting-started` 和 `/demos` 在底部 CTA 仍存在）。
-3. 新建 `tests/feature-pages.test.mjs`：数据驱动遍历全部 64 个 feature 页（含已有 3 页），断言：frontmatter 含 title/description/canonical 且 canonical 与 slug 一致；恰好一个 H1；图片 URL 匹配 `features/<slug>-N.webp` 且从 1 连续编号；含 `## Compatibility Notes`；每页至少 2 个内部链接（`/guide/`、`/solutions/`、`/features/`、`/download`、`/demos` 之一）。每页的关键术语断言用一张 manifest 表（slug → 必含词数组）。
+3. 新建 `tests/feature-pages.test.mjs`：数据驱动遍历全部 64 个 feature 页（含已有 3 页），断言：frontmatter 含 title/description/canonical 且 canonical 与 slug 一致；恰好一个 H1；图片 URL 匹配 `features/<slug>-N.webp` 且从 1 连续编号；含 `## Compatibility Notes`；每页至少 2 个内部链接（`/guide/`、`/solutions/`、`/features/`、`/download`、`/demos` 之一）；**不出现许可证相关词**（`/licen[cs]e|trial/i` 负向断言）。每页的关键术语断言用一张 manifest 表（slug → 必含词数组）。
 
 ## 执行批次（8 批，按原型）
 
@@ -114,5 +114,5 @@ head: [description/og:title/og:description/og:type/og:url/og:image/canonical 全
 - 不做中文页、不改 `docs/zh/`。
 - 不更新 `flyenv-seo-content-loop-kit/seo/inventory/features.yaml` 状态（用户指示跳过）。
 - 不为 61 页各写独立 spec 文件（本设计文档 + 调研报告即为工件）。
-- 不动已有 3 个内页（php/nodejs/local-sites-https）。
+- 不动已有内页 nodejs/local-sites-https；php.md 仅删除许可证一句（见内容红线）。
 - 不加自定义 Vue 组件，页面纯 markdown。
