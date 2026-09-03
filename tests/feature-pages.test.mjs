@@ -2,7 +2,10 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import test from 'node:test'
 
-// slug -> { terms: 页面必含关键术语, minImages: 最少占位图数 }
+// slug -> { terms: key terms each page must contain, minImages: minimum number of screenshots }
+// Screenshot rule: each page's screenshots use only its own slug
+// (features/<slug>-N.webp), numbered from 1 with no gaps; screenshots are never
+// shared across pages; minImages: 0 marks legacy pages without screenshots.
 const manifest = {
   php: { terms: ['PHP-FPM', 'php.ini', 'Composer', 'WordPress'], minImages: 13 },
   nodejs: { terms: ['Version Manager', 'Run as service', 'reverse'], minImages: 0 },
@@ -91,8 +94,12 @@ for (const [slug, { terms, minImages }] of Object.entries(manifest)) {
     assert.ok(page.includes(`content: '${titleMatch[1]}'`), 'og:title repeats title')
     assert.ok(page.includes(`content: '${descMatch[1]}'`), 'description metas repeat description')
 
+    // strip fenced code blocks so structural-content assertions are not
+    // affected by code samples (e.g. config snippets with `# comment` lines)
+    const body = page.replace(/```[\s\S]*?```/g, '')
+
     // exactly one H1
-    assert.equal((page.match(/^# /gm) ?? []).length, 1, 'exactly one H1')
+    assert.equal((body.match(/^# /gm) ?? []).length, 1, 'exactly one H1')
 
     // placeholder screenshots: slug-matched, numbered from 1 without gaps
     const images = [
@@ -107,18 +114,18 @@ for (const [slug, { terms, minImages }] of Object.entries(manifest)) {
     })
 
     // structure
-    assert.match(page, /## Compatibility Notes/)
+    assert.match(body, /## Compatibility Notes/)
 
     // no license/trial marketing blockers
     assert.doesNotMatch(page, /licen[cs]e|trial/i)
 
     // at least two internal links
-    const links = page.match(/\]\(\/(guide|solutions|features|download|demos)[^)]*\)/g) ?? []
+    const links = body.match(/\]\(\/(guide|solutions|features|download|demos)[^)]*\)/g) ?? []
     assert.ok(links.length >= 2, 'at least two internal links')
 
     // key terms
     for (const term of terms) {
-      assert.match(page, new RegExp(escapeRegExp(term), 'i'), `contains "${term}"`)
+      assert.match(body, new RegExp(escapeRegExp(term), 'i'), `contains "${term}"`)
     }
   })
 }
