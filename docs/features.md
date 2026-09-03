@@ -136,9 +136,9 @@ const categories = [
       { name: 'FTP Server', detail: 'Run an FTP service for local testing.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/ftp.svg' },
       { name: 'Minio', detail: 'Run S3-compatible storage locally.', href: '/demos', logo: minioLogo },
       { name: 'RustFS', detail: 'Prototype S3-compatible storage locally.', href: '/demos', logo: rustFsLogo },
-      { name: 'Podman', detail: 'Use containers when a project calls for them.', href: '/guide/podman-module', logo: podmanLogo },
-      { name: 'Cloudflared', detail: 'Run the Cloudflare connector locally.', href: '/demos', logo: cloudflareLogo },
-      { name: 'Cloudflare Tunnel', detail: 'Expose local sites for webhooks and reviews.', href: '/guide/cloudflare-tunnel-local-development', logo: cloudflareLogo },
+      { name: 'Podman', detail: 'Use containers when a project calls for them.', href: '/features/podman', logo: podmanLogo },
+      { name: 'Cloudflared', detail: 'Run the Cloudflare connector locally.', href: '/features/cloudflared', logo: cloudflareLogo },
+      { name: 'Cloudflare Tunnel', detail: 'Expose local sites for webhooks and reviews.', href: '/features/cloudflare-tunnel', logo: cloudflareLogo },
       { name: 'R-NACOS', detail: 'Test service discovery and configuration locally.', href: '/demos', logo: rNacosLogo },
       { name: 'Consul', detail: 'Run service discovery in your workspace.', href: '/demos', logo: consulLogo },
       { name: 'Etcd', detail: 'Test distributed configuration locally.', href: '/demos', logo: etcdLogo }
