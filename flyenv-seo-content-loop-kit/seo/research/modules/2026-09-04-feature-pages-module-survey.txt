@@ -1,0 +1,752 @@
+<agent_swarm_result>
+<summary>completed: 10</summary>
+<subagent agent_id="agent-1" item="language runtimes part 1: Python (components/Python), Java (components/Java), GoLang (components/GoLang), Ruby (components/Ruby), Rust (components/Rust), DotNet (components/DotNet)" outcome="completed">Research complete. All facts verified against source at `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`.
+
+## Shared architecture (applies to all six modules)
+
+- All six are `moduleType: 'language'`, `isService: true`, `isTray: true`, `isOnlyRunOne: false` in their `Module.ts` files. **None of them runs a daemon** — there is no port/socket/process lifecycle. The "Service" tab is `components/ServiceManager/base.vue`, which for languages is an installed-versions table whose actions are: set version into the app-managed PATH/env (`ServiceActionStore.updatePath`), show whether PATH was set by FlyEnv or externally, set a command alias, per-version remark/notes, and add custom search dirs (`base.vue`, `ServiceManager/EXT/index.vue`).
+- All six fork classes return `[]` from `getConfigFiles()` and `getLogFiles()` — **no module-level config editors and no log viewers exist** (verified in each `src/fork/module/<Name>/index.ts`).
+- **No admin panels / integrated web UIs** exist for any of these six (no pgAdmin/phpMyAdmin-style tooling).
+- Non-Windows version sources are rendered by `components/VersionManager/index.vue`: macOS offers Static / Homebrew / MacPorts / SDKMAN radios (per-module flags), Linux offers Static / Homebrew / SDKMAN, Windows always uses the Static online list.
+- **Projects tab** (shared `components/LanguageProjects/`): per-project runtime version binding (`binVersion`), optional "run as service" with custom run command or run file, project port (default 3000, link shown as `http://127.0.0.1:<port>`), sudo toggle, run-in-terminal option, env vars (none / inline / env file), user-defined config files and log files with viewers (`ConfigViewer.vue`, `LogViewer.vue`), and "open in IDE" per language. `Project.ts:311` `setDirEnv()` writes a `.flyenv` file into the project dir prepending the bound runtime's bin dirs to PATH (PowerShell syntax on Windows, shell export on macOS/Linux), tagged `#FlyEnv-ID-<id>`. **License gate: without an active license, max 3 projects per language** (`Project.ts:245`, `index.vue:18-24`).
+
+## Python — sidebar "Python" (`components/Python/`)
+
+- Tabs: Python Projects / Service / Version Manager / New Project (`Index.vue:39-44`). Sidebar shows project sub-list via `LanguageProjects/ASide.vue`.
+- Version sources: macOS = Homebrew (`brew search /^python[@\d.]+$/`) + MacPorts (`^python\d*$`); Linux = Homebrew; Windows = Static online list of official python.exe installers (`fetchAllOnlineVersion` → `_fetchOnlineVersion('python')`, FlyEnv online list API). Custom dirs supported; macOS also auto-scans `/opt/local/Library/Frameworks/Python.framework/Versions` (fork `Python/index.ts:96-114`).
+- Windows install is distinctive: unpacks WiX `dark.exe` from bundled `dark.7z`, renders a PowerShell template (`sh/python.ps1`) to extract the exe installer and msiexec-install into the app dir, then runs `sh/pip.ps1` to bootstrap pip (`fork/module/Python/index.ts:155-231`).
+- New Project templates (`Host/CreateProject/python/version.ts`): FastAPI, Django, Flask, Streamlit, Masonite, uv, Wagtail, Sanic, Litestar, Mezzanine, PDM — each with per-OS pip/uv install commands.
+- "Open in PyCharm" action on projects.
+- Thin module otherwise: no config files, no logs, no service process — version + PATH + projects only (fork comments at `index.ts:266-274`).
+
+## Java — sidebar "Java" (`components/Java/`)
+
+- Tabs: Java Projects / Service / Version Manager / **Maven** (`Index.vue:55-60`). The Maven tab is a full `VersionManager/all.vue` with Homebrew + MacPorts + Static + SDKMAN sources.
+- Version sources: macOS = Static (`.tar.gz` JDKs), Homebrew (`^(jdk|openjdk)(@...)?$`), MacPorts (`^((open)?)jdk...`), **SDKMAN** (`show-sdkman-lib`); auto-scans `/Library/Java/JavaVirtualMachines` and `~/.sdkman/candidates/java` (`fork/module/Java/index.ts:70-79`). Linux = Static + Homebrew + SDKMAN. Windows = Static online list (zip JDKs). Custom dirs supported.
+- Manager header links to https://learn.microsoft.com/en-us/java/openjdk/download.
+- No New Project tab. "Open in IntelliJ IDEA" on projects.
+- Thin otherwise: `getConfigFiles`/`getLogFiles` return [] (`fork/module/Java/index.ts:157-165`).
+
+## Go — sidebar "Go" (`components/GoLang/`, typeFlag `golang`)
+
+- Tabs: Go Projects / Service / Version Manager / New Project / **GVM** — GVM tab appended only when NOT Windows (`tabs.ts`, `Index.vue:48-56`).
+- Version sources: macOS = Static (`.tar.gz` from go.dev list via FlyEnv API), Homebrew (`^go$`), MacPorts (`^go$`); Linux = Static + Homebrew; Windows = Static (zip). Custom dirs; non-Windows also auto-discovers GVM-installed Go dirs (`fork/module/GoLang/index.ts:92-104`).
+- GVM tab (`gvm/index.vue`): detects existing GVM (`~/.gvm` or `GVM_ROOT`), offers one-click GVM install in an embedded xterm terminal, lists GVM versions with install/use actions via `gvmInitScript` (fork `gvm.ts`).
+- New Project templates (`Host/CreateProject/go/version.ts`): plain `go mod init`, Gin, Echo, Fiber, Iris, GoFrame, Buffalo.
+- "Open in GoLand" on projects.
+- No config/log files (fork `index.ts:188-194`).
+
+## Ruby — sidebar "Ruby" (`components/Ruby/`)
+
+- Tabs: Ruby Projects / Service / Version Manager — only 3 tabs, no New Project (`Index.vue:43`).
+- Version sources: macOS = Homebrew (`ruby` + `ruby@x.y`) + MacPorts (`^ruby\d+$`; also auto-scans `/opt/local/lib`); **no Static source on macOS/Linux** (`:has-static="false"`); Linux = Homebrew; Windows = Static online list (RubyInstaller zips, header links to oneclick/rubyinstaller2 releases). Custom dirs supported.
+- "Open in RubyMine" on projects.
+- Thinnest of the group: version install + PATH + projects only; fork explicitly comments no config/log files (`fork/module/Ruby/index.ts:140-150`). (Note: `portinfo`'s installed-check probes `/opt/local/lib/ruby/bin/erl` — looks like a copy-paste artifact, not user-facing.)
+
+## Rust — sidebar "Rust" (`components/Rust/`)
+
+- Tabs: Rust Projects / Service / Version Manager / **Rustup** (`Index.vue:46-51`).
+- Version sources: macOS = Static (standalone `.tar.xz` installers, header links to forge.rust-lang.org standalone-installers) + Homebrew (`rust` formula); MacPorts radio explicitly hidden (`:show-port-lib="false"`); Linux = Static + Homebrew; Windows = Static. Custom dirs; also auto-discovers rustup toolchains under `RUSTUP_HOME`/`~/.rustup/toolchains` and app-managed `AppDir/rust/*` (`fork/module/Rust/index.ts:110-138`).
+- Static install on macOS/Linux runs the archive's `install.sh --destdir="./" --prefix="/"` after unpack (`fork/module/Rust/index.ts:180-187`).
+- Rustup tab (`rustup.vue`): detects rustup at `CARGO_HOME/bin/rustup` (honors `CARGO_HOME`/`RUSTUP_HOME` env, fix for issue #691), offers one-click rustup install via xterm, two sub-tabs: toolchains (install/set default/remove) and target platforms (`rustup target list`, install/remove targets) — data from `rustupData()` in fork.
+- "Open in RustRover" on projects. No config/log files.
+
+## .NET — sidebar ".NET" (`components/DotNet/`, typeFlag `dotnet`)
+
+- Tabs: .NET Projects / Service / Version Manager — 3 tabs, no New Project (`Index.vue:37`).
+- Version sources: **unique among the six — Static list is fetched directly from Microsoft's official release metadata** (`https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json`), picking the latest SDK per channel and building `builds.dotnet.microsoft.com` download URLs per RID (`win-x64`, `osx-arm64/x64`, `linux-arm64/x64`) (`fork/module/DotNet/index.ts:33-113`). Does NOT use FlyEnv's online-list API. macOS also Homebrew (`^dotnet$`); MacPorts radio renders but `portinfo()` returns `{}` (empty). Linux = Static + Homebrew; Windows = Static (zip).
+- Version detection runs `dotnet --version` with fallback to parsing `dotnet --info` (forced `DOTNET_CLI_UI_LANGUAGE=en`), cached via `BinVersionCache` (`index.ts:115-175`). macOS install runs `binXattrFix` to remove quarantine.
+- "Open in VS Code" on projects. No config/log files.
+
+## Key caveats for doc writers
+
+- The "Service" tab name is misleading for languages — it is version/PATH/alias management, not a running service; docs should describe it as such.
+- Only Python and Go have New Project template galleries; Java has the extra Maven manager; Go has GVM (non-Windows); Rust has Rustup.
+- The 3-project-per-language license limit and the per-project `.flyenv` PATH file are the only real "integration" mechanisms; there is no reverse proxy or site binding for these language modules (project ports are plain `127.0.0.1:port` links).</subagent>
+<subagent agent_id="agent-2" item="language runtimes part 2: Zig (components/Zig), Bun (components/Bun), Deno (components/Deno), Erlang (components/Erlang), Flutter (components/Flutter), Gradle (components/Gradle)" outcome="completed">Research complete. Fact sheets below; all facts verified against the FlyEnv source at `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`.
+
+## Shared infrastructure (applies to all 6 modules)
+
+- **"Service" tab** (`src/render/components/ServiceManager/base.vue`): despite the name, for these language modules it's an *installed-versions table* — version, path, per-version remark/note, "Add to PATH"/remove-from-PATH toggle (shows whether PATH was set by FlyEnv or externally), alias setting, custom version directories, delete. There is **no daemon/process lifecycle** for these modules; none of the fork modules implement `_startServer`/`_stopService`.
+- **Version Manager** (`src/render/components/VersionManager/index.vue`): macOS offers Static / Homebrew / MacPorts / SDKMAN tabs (per-module flags); Linux offers Static / Homebrew / SDKMAN; Windows shows Static only. "Static" = online version list fetched via `fetchAllOnlineVersion` → `Base._fetchOnlineVersion` POSTs to `https://api.one-env.com/api/version/fetch` with `{app, os, arch}` (`src/fork/module/Base/index.ts:449`). Flutter is the exception (see below).
+- **Projects tab** (`src/render/components/LanguageProjects/`): per-project directory registration with per-project binary-version binding, optional "run as service" (custom start command or run-file, TCP port → `http://127.0.0.1:<port>`, env vars inline or from a file, sudo flag on mac/Linux, custom config-file and log-file paths). Started via fork `LanguageProject.startService` (`src/fork/module/LanguageProject/index.ts`) with optional "open in system terminal" (AppleScript on macOS, shell script on Linux, PowerShell on Windows). Sidebar switch starts/stops all service-enabled projects of the module (`LanguageProjects/ASide.vue`).
+- **License gate**: Projects feature locks when no active license and the module already has **more than 2 projects** (`LanguageProjects/index.vue:382-383`, `Project.ts:245`). No license gates found in VersionManager/ServiceManager for these modules.
+
+## Zig
+
+- Sidebar: "Zig" (language, asideIndex 19, tray-capable), `src/render/components/Zig/Module.ts`.
+- Page tabs: **Projects / Service / Version Manager** (`Zig/Index.vue`).
+- Install sources: Static (online list via one-env API, all OS) + Homebrew (`zig` + `zig@<ver>` formulas) + MacPorts (`^zig$`) on macOS; custom dirs everywhere. Fork: `src/fork/module/Zig/index.ts`.
+- Installs to `<AppDir>/zig/<ver>/`, binary `zig`/`zig.exe`; macOS quarantine fix (`binXattrFix`) after unpack.
+- Version detection: `zig version`.
+- Config files: none (`getConfigFiles` returns `[]`). Logs: none. No admin panel.
+- Thin module: version install + PATH + shared Projects integration only.
+
+## Bun
+
+- Sidebar: "Bun" (language), `Bun/Module.ts`.
+- Page tabs: **Projects / Service / Version Manager** (`Bun/Index.vue`).
+- Install sources: **Static only** — online list via one-env API; brew and MacPorts tabs explicitly disabled (`show-brew-lib=false`, `show-port-lib=false`); custom dirs. No `brewinfo`/`portinfo` in fork (`src/fork/module/Bun/index.ts`).
+- Installs to `<AppDir>/bun/<ver>/`; after install runs `bun completions`; macOS quarantine fix.
+- Version detection: `bun --version`.
+- Config: none. Logs: none. No admin panel.
+- Thin module: version install + PATH + Projects integration.
+
+## Deno
+
+- Sidebar: "Deno" (language), `Deno/Module.ts`.
+- Page tabs: **Projects / Service / Version Manager** (`Deno/Index.vue`).
+- Install sources: Static (one-env API) + Homebrew (`deno` formula only, no versioned variants) on macOS/Linux; MacPorts tab disabled in UI though `portinfo()` exists in fork (`src/fork/module/Deno/index.ts:117`); custom dirs.
+- Installs to `<AppDir>/deno/<ver>/`; macOS quarantine fix.
+- Version detection: `deno --version` (regex on `deno x.y.z`).
+- Config: none. Logs: none. No admin panel.
+- Thin module: version install + PATH + Projects integration.
+
+## Erlang
+
+- Sidebar: "Erlang" (language), `Erlang/Module.ts`.
+- Page tabs: **Erlang Projects / Service / Version Manager** (`Erlang/Index.vue`).
+- Install sources: macOS/Linux — Homebrew (`erlang` + `erlang@<ver>`) and MacPorts (`^erlang(\d+)?$`); Static tab hidden (`has-static=false`). Windows — Static online list (zip with `bin/erl.exe`). Also auto-scans `/opt/local/lib` for MacPorts installs + custom dirs (`src/fork/module/Erlang/index.ts:55`).
+- Version detection: `erl -version` on mac/Linux; on Windows parsed from install dir name `erlang-<ver>`.
+- Config: none. Logs: none. No admin panel.
+- Thin module: version install + PATH + Projects integration.
+
+## Gradle
+
+- Sidebar: "Gradle" (language), `Gradle/Module.ts` — notably **no** `isService`/`isTray` flags (unlike the others).
+- Page tabs: **Service / Version Manager** only — **no Projects tab**, no LanguageProjects aside (`Gradle/Index.vue`, `Gradle/aside.vue`).
+- Install sources: Static (one-env API, all OS) + Homebrew (`gradle`) + MacPorts (`^gradle$`) on macOS + **SDKMAN** (macOS/Linux; also auto-scans `~/.sdkman/candidates/gradle`, `src/fork/module/Gradle/index.ts:65`) + custom dirs. Filters out `gradle-completion` dirs.
+- Installs to `<AppDir>/gradle/<ver>/`, bin `bin/gradle` (`gradle.bat` on Windows); macOS quarantine fix.
+- Version detection: `gradle --version`.
+- Config: none. Logs: none. No admin panel. No license gating.
+- Thinnest module of the group: pure version install + PATH switching.
+
+## Flutter (by far the richest module)
+
+- Sidebar: "Flutter" (language, asideIndex 20, tray), `Flutter/Module.ts`. Icon is a generic code-library icon.
+- Page tabs: **General / Flutter Projects / Service / Version Manager / Android** (`Flutter/Index.vue`).
+- **General tab** (`Flutter/General.vue`): status cards (Flutter, Dart, Channel, Android SDK, ADB devices); SDK details panel (version, channel, source: PATH/default/custom/FlyEnv, scanned search dirs); parsed `flutter doctor -v` snapshot; a "Command Center" with sub-tabs — Flutter SDK (`flutter upgrade`, list/switch channel stable/beta/master), Pub Tools (`pub get/upgrade/outdated/deps` per project dir), Build (`build apk --debug/--release`, `build web`, `build windows`, `clean`), Quality (`analyze`, `test`, `dart format`), Doctor — all with a shared console output pane. Fork actions: `flutterSdkInfo`, `flutterDoctor`, `flutterAdvancedAction` (`src/fork/module/Flutter/index.ts`).
+- **Projects tab**: shared LanguageProjects table plus Flutter-specific **Create Project** dialog (`CreateProject.vue` → fork `flutterCreateProject`, `project.ts:577`): name, output dir, template (`app|package|plugin|module|skeleton`), org, Flutter version override, per-platform package names (Android package, iOS bundle ID, web app name, desktop bundle ID), pub.dev dependency search + add (incl. dev deps), Firebase config files per platform, app icons per platform, auto-add to projects. **Edit Project** dialog (`EditProject.vue` → `flutterReadProjectConfig`/`flutterApplyProjectConfig`): edit identity/package names, manage pubspec dependencies with outdated-package report (current vs latest, upgradable), firebase files, icons.
+- **Service tab**: standard installed-versions/PATH table. SDK discovery scans PATH, `FLUTTER_ROOT`, `~/development/flutter`, `~/flutter`, `/opt/flutter`, `/usr/local/flutter`, Windows scoop/AppData paths, custom dirs, and FlyEnv's own `static-flutter-*` dirs.
+- **Version Manager**: Static only (brew/port hidden). List fetched directly from Google's official `releases_{macos,linux,windows}.json` on `storage.googleapis.com/flutter_infra_release`, filtered to **stable/beta** channels (channel selector added in `Index.vue:76-89`), arch-aware on macOS. After unpack, runs `git init` in the SDK dir (Flutter requires a git checkout).
+- **Android tab** (`AndroidToolchain.vue` → fork `android.ts`): shows ANDROID_HOME/ANDROID_SDK_ROOT/JAVA_HOME; readiness checks for Android SDK, platform-tools, ADB, cmdline-tools, build-tools, JDK, Gradle, each with fix hints; **auto-fix** actions (`set-sdk-env`, `add-platform-tools-path`); ADB device list with set-target-device / disconnect / info; quick actions `flutter run` / `build apk` / `build appbundle` on a chosen project (target device passed via `FLYENV_FLUTTER_TARGET_DEVICE` env).
+- Config files: none module-level (`pubspec.yaml` etc. edited per project instead). Logs: no file viewers — command output shown in the General tab console (stdout/stderr, truncated to last 120 KB).
+- License gate: shared Projects limit (>2 projects without license) applies; Flutter's own panels are not license-gated.
+
+## Cross-module platform notes
+
+- Windows supports only Static installs + custom dirs for all six; brew/port/sdkman are macOS (port = macOS only) / Linux (brew + sdkman) sources.
+- No reverse-proxy, `.flyenv` env-file, or host/site integration exists for any of these six modules — project "links" are plain `http://127.0.0.1:<port>` when a project is run as a service.
+- No admin panels (pgAdmin-style) exist in this group.
+
+Ambiguity to flag: the tab labeled "Service" (`base.service`) for these runtimes is PATH/version management, not a running service — docs should describe it accordingly to avoid confusion with real server modules.</subagent>
+<subagent agent_id="agent-3" item="web servers: Nginx (components/Nginx), Apache (components/Apache), Caddy (components/Caddy), Tomcat (components/Tomcat), FrankenPHP (components/FrankenPHP). Also check how these integrate with components/Host (sites) at a high level." outcome="completed"># Web Servers module group — verified fact sheets
+
+Source root: `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv` (app v4.17.0). Shared infrastructure first, then per-module sheets.
+
+## Shared patterns (apply to all 5)
+
+- **Page structure**: every module page is a tab bar + panels built from shared components: `ServiceManager/index.vue` (Service tab: version list table with start/stop/restart, PATH-env status, alias, per-version note, custom-dir picker) and `VersionManager/index.vue` (`docs`… see `src/render/components/VersionManager/index.vue`).
+- **One running version at a time per module**: `ServiceManager/setup.ts:52` (`versionRunning` blocks any other start) and each fork module has a single `pidPath`. Multiple versions can be installed; only one runs.
+- **Version install sources** (`VersionManager/index.vue`): on macOS up to 4 sources — Static (online list), Homebrew, MacPorts, SDKMAN — gated by props `has-static`, `show-brew-lib` (default true), `show-port-lib` (default true), `show-sdkman-lib` (default false). On Linux: Static / Homebrew / SDKMAN (no MacPorts). On Windows: Static only. Static versions come from `https://api.one-env.com/api/version/fetch` (`src/fork/module/Base/index.ts:449`, per-OS/arch). Custom local dirs are always scannable via `versionLocalFetch(setup?.<type>?.dirs)` through the custom-path dialog in ServiceManager.
+- **Config editing** uses `components/Conf/index.vue` (Monaco raw editor, restore-from-default file) optionally with a "common settings" visual form (`:show-commond`).
+- **Tray**: all five declare `isTray: true` in their `Module.ts` (start/stop from system tray).
+- **License gating**: none inside these modules. The only gate is in Host: adding a 4th site (3+ existing) without a license is rejected (`src/fork/module/Host/index.ts:157-191`).
+
+## Nginx (`typeFlag: nginx`, asideIndex 2)
+
+- Tabs: **Service / Version Manager / Config File / Error Log / Log(access)** (`components/Nginx/Index.vue`).
+- Sources: macOS Static+Homebrew+MacPorts; Linux Static+Homebrew; Windows Static (`Index.vue` `:has-static="true"`; fork `Nginx/index.ts` brewinfo `nginx`, portinfo `^nginx\d*$`).
+- Start: `nginx -p <prefix> -e <errlog> -c <common/conf/nginx.conf> -g "pid …;error_log …;daemon off;"` on macOS; on Linux runs as root via Helper (ports 80/443); on Windows unpacks bundled `nginx.zip` conf and runs `nginx -p <dir>` (`fork/module/Nginx/index.ts:155-249`). One shared config for all versions: `<NginxDir>/common/conf/nginx.conf` (Windows: `conf/nginx.conf`).
+- Config UI: raw editor + visual "common settings" form (keepalive_timeout, gzip, gzip_min_length, gzip_comp_level, client_max_body_size, server_names_hash_bucket_size/max_size, client_header/body_buffer_size) (`components/Nginx/Config.vue`).
+- On start it auto-fixes the conf (`user`, temp paths) and generates `enable-php-<v>.conf` per PHP version used by sites (`#handlePhpEnableConf`).
+- Logs: error/access under `common/logs`; per-site logs also viewable from the Host module (`Host/Logs.vue`).
+- Host integration: every PHP-type site gets `vhost/nginx/<host.id>.conf`; per-site port (default 80/443), per-site URL rewrite with auto-detection for WordPress/Laravel/Yii (`autoFillNginxRewrite`, `fork/module/Nginx/Host.ts:46`), per-site reverse-proxy rules (`location ^~ … proxy_pass`).
+- No admin panel. PHP sites are served via PHP-FPM `enable-php-*.conf` includes, not by Nginx itself.
+
+## Apache (`typeFlag: apache`, asideIndex 1)
+
+- Tabs: **Service / Version Manager / Config File / Error Log / Log(access)** (`components/Apache/Index.vue`).
+- Sources: macOS Homebrew+MacPorts (`httpd` formula; port `^apache\d*$`), Linux Homebrew, Windows Static online list (Apache Lounge zip; `url` points to apachelounge.com). **No static source on macOS/Linux** (`has-static` not set; `fork fetchAllOnlineVersion` only builds `httpd.exe` paths).
+- Start: `httpd -f <conf> -c PidFile … -c CustomLog … -D FOREGROUND` (macOS), root Helper with `-k start` (Linux), `-f conf` spawn (Windows) (`fork/module/Apache/index.ts:337-444`).
+- Config is **per installed version**: `<ApacheDir>/common/conf/<md5(bin)>.conf` (Windows: `<version>.conf`), auto-generated from `httpd -V`, with modules force-enabled (headers, deflate, proxy, proxy_fcgi, ssl, rewrite, access_compat) and vhost include `vhost/apache/*.conf` (`#resetConf`).
+- On start it rewrites `Listen` directives from all sites' Apache ports, injected between `#FlyEnv-Apache-Listen-Begin/End#` markers (`#handleListenPort`).
+- Config UI: raw editor + visual form (Timeout, KeepAlive, KeepAliveTimeout, MaxKeepAliveRequests, LimitRequestBody) (`components/Apache/Config.vue`).
+- Logs: `common/logs/error_log` + `access_log` (Windows: `<version>.error/access.log`); per-site logs via Host module.
+- Host integration: per-site `vhost/apache/<host.id>.conf` with own port fields (default 80/443). No admin panel.
+
+## Caddy (`typeFlag: caddy`, asideIndex 3)
+
+- Tabs: **Service / Version Manager / Config File / Log** (`components/Caddy/Index.vue`).
+- Sources: macOS Static+Homebrew+MacPorts; Linux Static+Homebrew; Windows Static (GitHub releases link). 
+- Start: `caddy run --config <baseDir>/caddy/Caddyfile --watch` (foreground spawn; Linux uses root Helper `start --pidfile … --watch`) (`fork/module/Caddy/index.ts:97-156`). `--watch` means config changes auto-reload.
+- Single global `Caddyfile` generated from template with ssl dir, log file, and `import` of `vhost/caddy/*` (`initConfig`). Config UI: raw editor only (`show-commond=false`, `components/Caddy/Config.vue`).
+- Logs: single `caddy/caddy.log` tab; per-site logs `vhost/logs/<id>.caddy.log` viewable in Host module.
+- Host integration: on start, missing vhost confs are regenerated for all PHP-type sites (`#fixVHost`); per-site port (default 80/443), automatic HTTPS via `tls internal` or custom cert, per-site reverse proxy (`reverse_proxy` blocks) (`fork/module/Caddy/Host.ts`).
+- No admin panel.
+
+## Tomcat (`typeFlag: tomcat`, asideIndex 4)
+
+- Tabs: **Service / Version Manager / server.xml / web.xml / Log**; Service tab has an extra header row showing and editing **CATALINA_BASE** (default `<BaseDir>/tomcat/tomcat<major>`, user-choosable, persisted per version in `TomcatSetup`) (`components/Tomcat/Index.vue`, `setup.ts`).
+- Sources: macOS Static+Homebrew (searches `tomcat` + `tomcat@x` formulae), no MacPorts/SDKMAN; Linux Static+Homebrew; Windows Static (`:show-port-lib="false"`).
+- Start: CATALINA_BASE is created by copying `conf/*` from the install, then macOS runs `catalina.sh run` in foreground with `CATALINA_BASE`/`CATALINA_PID`/`JAVA_HOME` env (console → `logs/catalina.out`); Windows runs `startup.bat` via CMD and discovers the JVM PID by process-list search; Linux via root Helper (`fork/module/Tomcat/index.ts:139-298`). Requires Java (JAVA_HOME from env sync).
+- Config UI: raw editor for `server.xml` and `web.xml` tabs; fork also lists context.xml, tomcat-users.xml, logging.properties, catalina.properties, catalina.policy (`getConfigFiles`).
+- Logs: `logs/catalina.out` (macOS/Linux) or dated `catalina.<yyyy-MM-dd>.log` (Windows) (`components/Tomcat/Logs.vue`).
+- **Host integration is distinctive**: sites of `type: 'tomcat'` are real Tomcat `<Host>` entries reconciled into `server.xml` (snapshot/rollback on failure) via `saveSite` → `reconcileTomcatBase` (`fork/module/Tomcat/Site.ts`, `ServerXML.ts`); SSL requires cert/key (auto-SSL supported), and deleting a site cleans its auto cert. Tomcat sites are excluded from the nginx/apache/caddy/frankenphp vhost pipeline (`Host/index.ts:92-94`).
+- No admin panel (no manager app deployment in UI).
+
+## FrankenPHP (`typeFlag: frankenphp`, asideIndex 4)
+
+- Tabs: **Service / Version Manager / Config File / Log**; Service table adds **PHP** and **Caddy** version columns parsed from `frankenphp --version`, plus per-version actions: open dir, and (Windows only) edit the bundled `php.ini` via the PHP module's config dialog (`components/FrankenPHP/Index.vue`, `VersionActions.vue`).
+- Sources: macOS Static+Homebrew (auto-taps `dunglas/frankenphp`), no MacPorts/SDKMAN; Linux Static+Homebrew; Windows Static (`Index.vue` flags; `fork brewinfo`).
+- Install: macOS/Linux static = single binary copied + chmod + quarantine fix; Windows = zip with PHP runtime, auto-generates `php.ini` from template enabling only extensions present in `ext/` (`PhpIni.ts`, `_installSoftHandle`).
+- Start: `frankenphp run --config <baseDir>/frankenphp/Caddyfile --pidfile …` (root Helper on Linux); global Caddyfile from EN/ZH template importing `vhost/frankenphp/*` (`fork/module/FrankenPHP/index.ts:104-167`).
+- Config UI: raw editor only for the Caddyfile. Logs: `frankenphp.log` plus every `frankenphp-*.log` in the base dir enumerated dynamically.
+- Host integration: PHP-type sites get FrankenPHP vhosts (`php_server`) with their **own per-site ports** (`port.frankenphp`, falling back to the Caddy port for pre-existing sites), `tls internal` auto-HTTPS, and per-site reverse proxy (`fork/module/FrankenPHP/Host.ts`); missing vhosts regenerated on start (`fixVHost`).
+- No admin panel. Runs PHP sites directly (no PHP-FPM needed).
+
+## Host (sites) integration at a glance
+
+- Site types: `php` (default), `node`, `java` (springboot/other), `go`, `python`, `tomcat` (`Host/Edit.vue:367`, `Link.vue:42`, `Tomcat/site.ts:42`). Only php-type sites get vhost confs in all four web servers simultaneously (nginx + apache + caddy + frankenphp, `Host/index.ts:_addVhost`); each site has separate per-server ports (default 80/443 each) so any combination of servers can serve the same site at once; whichever is running is used when opening a site (see phpMyAdmin launch logic in `ServiceManager/setup.ts:149`).
+- Per-site features: aliases, auto-SSL via FlyEnv's CA/MkCert (`CA/<host.id>`), URL rewrite (nginx), reverse-proxy rules, system hosts file sync (`#X-HOSTS-BEGIN#` block; localhost names skipped), "park" sub-site generation, per-site log viewer (`Host/Logs.vue`), per-site vhost conf viewer (`Host/Vhost.vue`).
+- Same-name+same-port conflicts are rejected server-side (`Host/index.ts:196-228`); vhost files are named by `host.id` (rename-safe, #700).
+- Free tier: max 3 sites without a license.</subagent>
+<subagent agent_id="agent-4" item="database servers: MySQL (components/Mysql), PostgreSQL (components/PostgreSql), MariaDB (components/MariaDB), MongoDB (components/MongoDB), ClickHouse (components/ClickHouse), Neo4j (components/Neo4j), Qdrant (components/Qdrant)" outcome="completed"># Database Server Modules — Verified Fact Sheets
+
+Sources: FlyEnv app repo at `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`. All modules are `moduleType: 'dataBaseServer'`, `isService: true, isTray: true` (sidebar entry with run/stop switch + tray control).
+
+**Shared infrastructure** (applies to all):
+- Version Manager UI (`src/render/components/VersionManager/index.vue`): macOS = Homebrew + MacPorts (+Static if module opts in); Linux = Homebrew (+Static); Windows = Static list only. "Static" = online download list fetched from `https://api.one-env.com/api/version/fetch` (`src/fork/module/Base/index.ts:449-487`).
+- User-defined custom scan directories are always honored: each module's `allInstalledVersions(setup)` calls `versionLocalFetch(setup?.<module>?.dirs, ...)`.
+- No license/Pro gating found anywhere in these 7 modules (repo-wide grep for license checks in `src/render` returned nothing).
+- None of these DB modules have per-project binding / `.flyenv` env integration / reverse-proxy features; project integration lives in the PHP/Node/web-server modules, not here.
+
+---
+
+## MySQL — `components/Mysql`, `fork/module/Mysql`
+1. Sidebar "MySQL" (`Module.ts`, asideIndex 6). Tabs (`Index.vue`): **Service / Version Manager / Config File / Log / Slow Log / Group**.
+2. Versions: macOS = Homebrew (`mysql`, `mysql@x.y`) + MacPorts (`mysqlN-server`); Linux = Homebrew; Windows = static zip list (`mysqld.exe` under AppDir). Custom dirs scanned in all cases (`fork/module/Mysql/index.ts:832-916`).
+3. Lifecycle: runs real `mysqld` in foreground (not `mysqld_safe`) with `--defaults-file=my-{x.y}.cnf --port=...` (`index.ts:305-324`); port default 3306, from config; stop on Windows via `mysqladmin.exe ... shutdown`. Single "current" version in the Service tab, but the **Group** tab runs multiple instances concurrently.
+4. Config: `my-{major.minor}.cnf` under `Server.MysqlDir`; raw editor + visual "Common settings" form (`Config.vue`, `show-commond=true`: port, key_buffer_size, innodb_buffer_pool_size, etc.).
+5. Logs: `error.log` and `slow.log` in MysqlDir (`Logs.vue`).
+6. Admin UI: **phpMyAdmin** button in Service toolbar — downloads phpMyAdmin, creates a FlyEnv site `phpmyadmin.test` (needs a web server + PHP running), opens in browser (`ServiceManager/phpMyAdmin.vue`, `Mysql/Manage/index.vue:231-244`). Plus a per-version **Manage** drawer: add database, change root password (default root password is `root`), database list, backup via `mysqldump` to a settable backup dir (`Mysql/Manage/*`, `fork Mysql/index.ts:1266-1290`).
+7. Group feature: each instance = chosen version + own port + own data dir, with per-instance config and logs; sidebar switch starts/stops main service + all group instances together (`Mysql/Group/*`, `aside.vue` groupDo).
+8. Windows uses `mysqladmin.exe`/`mysqldump.exe` sibling binaries; macports data-dir fixing special-cased.
+
+## MariaDB — `components/MariaDB`, `fork/module/Mariadb`
+1. Sidebar "MariaDB" (asideIndex 7). Tabs: **Service / Version Manager / Config File / Log / Slow Log** (no Group).
+2. Versions: macOS = Homebrew (`mariadb`, `mariadb@x.y`) + MacPorts; Linux = Homebrew; Windows = static list (`mariadbd.exe`); custom dirs (`fork/module/Mariadb/index.ts:760-881`).
+3. Lifecycle: foreground `mariadbd` (not `mariadbd-safe`), `--defaults-file=my-{x.y}.cnf --port=...`, default port 3306 (`index.ts:640-659`); Windows stop via `mariadb-admin.exe ... shutdown`. One running version at a time.
+4. Config: `my-{x.y}.cnf` under `Server.MariaDBDir`; raw editor + visual common-settings form under `[mariadbd]` section (`Config.vue`, show-commond=true).
+5. Logs: `error.log`, `slow.log` in MariaDBDir (`Logs.vue`).
+6. Admin UI: **phpMyAdmin** (same mechanism as MySQL) + reuses MySQL's **Manage** drawer (add DB, root password default `root`, mysqldump-style backup via `mariadb-dump`) (`MariaDB/Index.vue:83-98`).
+7. Windows install handles both `bin/mariadbd.exe` and legacy layouts (`index.ts:768-781`).
+
+## PostgreSQL — `components/PostgreSql`, `fork/module/Postgresql`
+1. Sidebar "PostgreSQL" (asideIndex 9). Tabs: **Service / Version Manager / Config File / Log**. Service toolbar shows editable **data directory** path (`Index.vue:32-46`).
+2. Versions: macOS = Homebrew (`postgresql@x`) + MacPorts (`postgresqlN-server`); Linux = Homebrew; Windows = static list (`pg_ctl.exe`); custom dirs (`fork/.../index.ts:871-976`).
+3. Lifecycle: macOS/Linux run `postgres -D <datadir>` foreground (sibling of `pg_ctl`), log to `pg.log`; Windows uses `pg_ctl -D ... -l pg.log start` (`index.ts:629-724`). Auto-runs `initdb -U root` (superuser `root`, UTF-8, system locale) on first start when data dir is empty; per-major default dir `PostgreSqlDir/postgresql{major}`, overridable per version. Port read from `postgresql.conf` (default 5432).
+4. Config: `postgresql.conf` in the data dir, raw editor only (`Config.vue`, show-commond=false); `.default` copy kept.
+5. Logs: `pg.log` in data dir (`Logs.vue`); pgAdmin logs exist (`pgadmin4.log`, start out/err) per `getLogFiles`.
+6. Admin UI: **pgAdmin 4** button — pip-installs `pgadmin4` into the currently selected **FlyEnv Python version**, starts `pgAdmin4.py` on port 5050 (with retry), auto-registers the FlyEnv PostgreSQL server, then opens URL in external browser (`PgAdminPanel.ts`, `fork/.../pgAdmin.ts`). Shows a first-time "installing web panel" notice.
+7. Extension drawer (opened from the service row action, labeled "Extension"): installs **pgvector** by git-cloning latest tag and `sudo make/make install` in an embedded terminal (`PostgreSql/Extension/*`, `fork fetchLastedTag`/`installPgvector`). macOS-oriented (sudo/zsh shell).
+
+## MongoDB — `components/MongoDB`, `fork/module/Mongodb`
+1. Sidebar "MongoDB" (asideIndex 8). Tabs: **Service / Version Manager / Config File / Log**.
+2. Versions: macOS = Homebrew (`mongodb-community`/`mongodb-enterprise[@x]`) + MacPorts; Linux = Homebrew; Windows = static zip list (`mongod.exe`); custom dirs (`fork/.../index.ts:253-366`). Windows additionally downloads **mongosh** zip used for graceful shutdown (`db.shutdownServer()`).
+3. Lifecycle: `mongod --config mongodb-{x.y}.conf --logpath mongodb-{x.y}.log --pidfilepath ...` (`index.ts:202-250`); config generated from `static/tmpl/mongodb.conf` (bindIp 127.0.0.1+::1, no port set → default **27017**); data dir `MongoDBDir/data-{x.y}`. One version at a time.
+4. Config: `mongodb-{x.y}.conf` under MongoDBDir, raw YAML editor only (`Config.vue`).
+5. Logs: `mongodb-{x.y}.log` (`Logs.vue`).
+6. Admin UI: **DbGate** button — requires a selected **FlyEnv Node version**; npm-installs `dbgate-serve` into `BaseDir/dbgate`, serves on port 3000 (scans for free port), HTTP basic auth login `flyenv` with generated password embedded in the opened URL; opens in external browser (`MongoDB/DbGatePanel.ts`, `fork/module/DbGate/index.ts`).
+
+## ClickHouse — `components/ClickHouse`, `fork/module/ClickHouse`
+1. Sidebar "ClickHouse" (asideIndex 24), **macOS + Linux only** (`Module.ts: platform: ['macOS','Linux']`). Tabs: **Service / Version Manager / Config File / Log**.
+2. Versions: **Static online list only** (no Homebrew/MacPorts — `Index.vue` passes `has-static` + `show-brew-lib/port-lib=false`). macOS = bare binary download; Linux = `clickhouse-common-static` tgz, binary extracted (`fork/.../index.ts:533-583`). Custom dirs still scanned.
+3. Lifecycle: multi-call binary `clickhouse server --config-file=config.xml` (`index.ts:481-531`); auto-generates `config.xml`+`users.xml` in `Server.ClickHouseDir` with **http_port 8123, tcp_port 9000, listen 127.0.0.1** (`index.ts:383-425`). One version at a time.
+4. Config: two files switchable in UI — `config.xml` and `users.xml`, raw XML editors (`Config.vue`).
+5. Logs: server.log, server.err.log, server.start.out/err.log switcher (`Logs.vue`).
+6. Admin UI: **CH-UI** button — downloads the CH-UI binary from GitHub releases, runs it on **port 3488**, pre-configures connection "FlyEnv ClickHouse" to the running instance, opens in external browser (`ChUiPanel.ts`, `fork/.../chUI.ts`, `index.ts:73-203`).
+
+## Neo4j — `components/Neo4j`, `fork/module/Neo4j`
+1. Sidebar "Neo4j" (asideIndex 52). Tabs: **Service / Version Manager / Config File / Log**. Service table has a custom **Java column** with per-version JDK selection (`Index.vue`).
+2. Versions: **Static online list only** (zip on Windows, tar.gz elsewhere); custom dirs scanned (`fork/.../index.ts:351-409`). Only Neo4j **≥ 5.23.0** supported.
+3. Lifecycle: requires a compatible **Java from FlyEnv's Java module** — per-version JAVA_HOME binding; policy: Neo4j 5.x → Java 17/21, 2025.x → Java 21/25 (`shared/neo4j-policy.ts`). Start = `neo4j console` (PowerShell `neo4j.ps1 console` on Windows) with `JAVA_HOME`/`NEO4J_CONF` env, per-version instance dir under `Server.Neo4jDir` (`fork/.../start-command.ts`, `index.ts:232-295`).
+4. Ports: http **7474**, https 7473, bolt **7687** — parsed live from `neo4j.conf` (`index.ts:445-468`).
+5. Config: per-instance `conf/neo4j.conf` (copied from distribution), raw editor with link to Neo4j docs (`Config.vue`).
+6. Logs: start-out / start-error / neo4j.log / debug.log switcher (`Logs.vue`, `getLogFiles`).
+7. Admin UI: **Neo4j Browser** button opens `http://127.0.0.1:<http port>` in external browser (Browser is served by Neo4j itself; `controller.ts`).
+
+## Qdrant — `components/Qdrant`, `fork/module/Qdrant`
+1. Sidebar "Qdrant" (asideIndex 13). Tabs: **Service / Version Manager / Config File / Log / Error Log**.
+2. Versions: **Static online list only** (zip/tar.gz; `brewinfo`/`portinfo` return empty; UI hides brew/port tabs); custom dirs scanned (`fork/.../index.ts:115-245`).
+3. Lifecycle: bare `qdrant` binary spawned with pid under `BaseDir/qdrant` (`index.ts:71-113`); config auto-created from `static/tmpl/All/qdrant-config.yaml` in `<bin>/config/config.yaml`. Default REST/web port **6333** (dashboard URL hardcoded at `Index.vue:63`). One version at a time.
+4. Config: `config/config.yaml` next to the binary, raw YAML editor (`Config.vue`); note: config is per-version since it lives beside each binary.
+5. Logs: `qdrant-{version}-start-out.log` / `-error.log` under `BaseDir/qdrant` (`Logs.vue`).
+6. Admin UI: dashboard button opens `http://127.0.0.1:6333/dashboard`; on start/install FlyEnv downloads **qdrant-web-ui v0.2.13** from GitHub and serves it via `QDRANT__SERVICE__STATIC_CONTENT_DIR` (`index.ts:26-36, 201-233`).
+
+---
+
+**Cross-cutting notes for docs writing:**
+- phpMyAdmin (MySQL/MariaDB) is the only admin tool that depends on FlyEnv's web-server + PHP stack; pgAdmin needs a FlyEnv Python; DbGate needs a FlyEnv Node; CH-UI and Qdrant dashboard are self-contained downloads; Neo4j Browser ships inside Neo4j.
+- Only MySQL supports multiple concurrently running instances (Group tab).
+- ClickHouse is the only module in this group unavailable on Windows.</subagent>
+<subagent agent_id="agent-5" item="cache/queue + search + email: Redis (components/Redis), Memcached (components/Memcached), RabbitMQ (components/RabbitMQ), Elasticsearch (components/Elasticsearch), MeiliSearch (components/MeiliSearch), Typesense (components/Typesense), ZincSearch (components/ZincSearch), MailPit (components/MailPit)" outcome="completed">All research complete. Below are the verified fact sheets. All paths are relative to `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`.
+
+# Shared infrastructure (applies to all 8 modules)
+
+- Every module is a service (`isService: true`, `isTray: true` in each `Module.ts`) with a sidebar entry (icon + name + start/stop switch) via `src/render/core/ASide.ts`.
+- Main pages use tabs: **Service / Version Manager / Config File(s) / Log** (subset varies per module). Service tab is the shared `components/ServiceManager/index.vue`: version table with start/stop per version, "set as current", add-custom-dir button (`customPath.vue`), path open-in-Finder.
+- **Concurrency**: `Module.isOnlyRunOne = true` by default (`src/render/core/Module/Module.ts:23`); starting one version stops all other installed versions of the same module (`Module.ts:88`). None of these 8 modules override it → **single version at a time per module**.
+- **Online version list** ("Static" source) is fetched from `https://api.one-env.com/api/version/fetch` with app/os/arch (`src/fork/module/Base/index.ts:449-487`).
+- **Version sources by OS** (`components/VersionManager/index.vue`): macOS = Static + Homebrew + MacPorts (per-module toggles); Linux = Static + Homebrew (no MacPorts); Windows = Static only. All modules also scan user-configured custom dirs (`versionLocalFetch(setup?.<module>?.dirs …)`).
+- **No license gating**: no `license`/`checkLicense` code anywhere in `src/` — project is MIT, all features free.
+- **No project/host integration**: no references to these modules in `fork/module/Host`, `Project`, or `LanguageProject` — no per-project binding, no reverse proxy, no `.flyenv` env-file generation for them.
+
+# Redis — sidebar "Redis" (`moduleType: 'cacheAndQueue'`)
+
+- Tabs: Service / Version Manager / Config File / Log (`Redis/Index.vue`). Service tab shows an extra web-UI button (Redis Commander) when running.
+- Sources: macOS = Homebrew + MacPorts (brew `redis` + `redis@x.y` formulae; port `redis*`); Windows = Static zip (msys2 build, `redis-windows/redis-windows` releases); Linux = Homebrew only. Custom dirs scanned for `redis-server(.exe)` (`fork/module/Redis/index.ts:272-341`).
+- Start: `redis-server <RedisDir>/redis-<major>.conf`; pid at `RedisDir/redis.pid`. Conf auto-generated from `static/tmpl/<os>/redis.conf` (daemonize yes, port 6379, per-major db dir `db-<major>`). Windows copies conf next to binary as `pws-app-redis-<major>.conf` and stops via `taskkill` on command-line match (`index.ts:165-244`).
+- Config UI: raw editor (Monaco) + visual "common settings" form for port, timeout, maxclients, databases, requirepass, maxmemory (`Redis/Config.vue:56-105`). Files: `redis-<major>.conf` + `redis-<major>-default.conf`.
+- Logs UI tab shows `redis-<major>.log`. Fork also exposes Redis Commander start out/error logs (`index.ts:58-67`).
+- Admin panel: **Redis Commander** — requires a selected Node.js version; on first open installs `redis-commander` via npm into `<BaseDir>/redis-commander`, runs on 127.0.0.1 port 8081 (scans +20), connects to 127.0.0.1 + port/requirepass parsed from the redis conf, HTTP auth user `flyenv` with generated password, browser opened with one-time SSO JWT auto-login URL (`fork/module/Redis/RedisCommander.ts`, `RedisCommanderPanel.ts`). Stopped automatically when Redis stops.
+
+# Memcached — sidebar "Memcached" (`cacheAndQueue`)
+
+- Tabs: **Service / Version Manager only** — no config or log tabs (`Memcached/Index.vue`). Thinnest module in the group.
+- Sources: macOS = Homebrew (`memcached`) + MacPorts; Windows = Static zip from `github.com/nono303/memcached` (extracts `libevent-2.1/x64` or `cygwin/x64`); Linux = Homebrew only. Custom dirs scanned for `memcached(.exe)`.
+- Start: `memcached -P <MemcachedDir>/memcached.pid -vv` — foreground mode (no `-d`), no port arg → upstream default port 11211 (`fork/module/Memcached/index.ts:35-65`).
+- Config: **none** — explicitly command-line-args only (`getConfigFiles` returns `[]`, `index.ts:183-186`).
+- Logs: **none** — logs go to stdout/stderr via `-vv`, no log file written (`getLogFiles` returns `[]`, `index.ts:188-191`).
+- No admin UI, no project integration, no platform restrictions.
+
+# RabbitMQ — sidebar "RabbitMQ" (`cacheAndQueue`)
+
+- Tabs: Service / Version Manager / Config File / Log. Service tab has a button opening the management UI at `http://localhost:15672/` when running (`RabbitMQ/Index.vue:58-60`).
+- Sources: macOS = Homebrew (`rabbitmq`) + MacPorts (`rabbitmq-server`); Windows = Static zip (app dir `rabbitmq-<v>/sbin/rabbitmq-server.bat`); Linux = Homebrew only (Static tab hidden via `:has-static="false"`). Custom dirs scanned.
+- Start: `rabbitmq-server -detached` with `RABBITMQ_CONF_ENV_FILE` pointing to generated `<BaseDir>/rabbitmq/rabbitmq-<major>.conf` (`.bat` on Windows) setting `NODE_IP_ADDRESS=127.0.0.1`, `NODENAME=rabbit@localhost`, log/mnesia dirs. Broker self-daemonizes via Erlang/epmd; success detected by polling `<mnesia>/rabbit@localhost.pid` (`fork/module/RabbitMQ/index.ts:207-323`). AMQP on default 5672, management plugin on 15672.
+- Management plugin enabled by writing `[rabbitmq_management].` to `enabled_plugins-<major>` (escript-free approach); on macOS helper also runs `rabbitmq-plugins enable rabbitmq_management` (`index.ts:118-164`).
+- Config UI: raw editor only (`show-commond=false`) for `rabbitmq-<major>.conf|.bat`, `-default.conf`, `enabled_plugins-<major>`.
+- Log viewer: `log-<major>/rabbit@localhost.log`.
+- Windows-specific: requires Erlang — resolves `ERLANG_HOME` from env/PATH/app dirs, auto-starts `epmd.exe`; version probe via `rabbitmqctl.bat version` fails with "no epmd" error if epmd is down (`index.ts:53-205`). No admin UI beyond the upstream management console; no project integration.
+
+# Elasticsearch — sidebar "Elasticsearch" (`moduleType: 'searchEngine'`)
+
+- Tabs: Service / Version Manager / elasticsearch.yml / jvm.options / log4j2.properties / Log (`Elasticsearch/Index.vue`).
+- Sources: **Static only on all OSes** (`:show-brew-lib="false" :show-port-lib="false"`); installed to `<AppDir>/elasticsearch/v<version>/` from tar.gz/zip. Custom dirs scanned for `bin/elasticsearch(.bat)`.
+- Start: `bin/elasticsearch -p <BaseDir>/elasticsearch/elasticsearch.pid` (Windows adds `-d`) with env `ES_HOME=<version.path>`, `ES_PATH_CONF=<version.path>/config` (`fork/module/Elasticsearch/index.ts:36-101`). No FlyEnv-generated config — uses the bundled config of each version (upstream defaults: HTTP 9200, transport 9300).
+- Config UI: raw editor only, editing files inside the version's own `config/` dir (shared across that version's runs; `getConfigFiles` at `index.ts:225-235`).
+- Logs: viewer shows `<version.path>/logs/elasticsearch.log`; fork also lists `elasticsearch_server.json`, `elasticsearch_deprecation.json`, `gc.log` (`index.ts:237-251`).
+- No admin UI, no project integration. No platform restriction.
+
+# Meilisearch — sidebar "Meilisearch" (`searchEngine`)
+
+- Tabs: Service / Version Manager / Config File / Log. Service tab shows a web-UI button (when running) plus an editable **working directory** field per version (default `<BaseDir>/meilisearch/<major.minor>`, persisted per binary in `MeiliSearch/setup.ts`, passed as start ext param via `aside.vue`).
+- Sources: macOS/Linux = Static + Homebrew (`meilisearch`); Windows = Static (bare `meilisearch.exe` download copied into place, verified by running `--version`). Custom dirs scanned.
+- Start: `meilisearch --config-file-path <BaseDir>/meilisearch/meilisearch.toml` with cwd = working dir (`fork/module/MeiliSearch/index.ts:61-99`). Config template `static/tmpl/<os>/meilisearch.toml`: `http_addr = "localhost:7700"`, `db_path = "./data.ms"`, `env = "development"`.
+- Config UI: raw editor + rich visual form (`show-commond=true`) covering db_path, env, http_addr, master_key, SSL options, dumps/snapshots, log_level, metrics, etc. (`MeiliSearch/Config.vue` ~30 fields). Files: `meilisearch.toml` + `meilisearch.default.toml`.
+- Web UI: dashboard opened at `http://127.0.0.1:<port from toml>/` (default 7700).
+- Log viewer: `meilisearch-<version>-start-error.log` (start-out also written).
+- No project integration.
+
+# Typesense — sidebar "Typesense" (`searchEngine`)
+
+- Tabs: Service / Version Manager / Config File / Log. No admin-UI button.
+- **Platform restricted: macOS + Linux only** (`Module.ts: platform: ['macOS', 'Linux']`) — hidden on Windows even though fork code has Windows paths.
+- Sources: macOS/Linux = Static + Homebrew (`typesense/tap/typesense-server` + versioned `@x.y` formulae). Custom dirs scanned for `typesense-server`.
+- Start: `typesense-server --config=<BaseDir>/typesense/typesense-server.ini --log-dir=<BaseDir>/typesense/log` (`fork/module/Typesense/index.ts:68-114`). Default ini written inline: `api-key = xyz`, `api-port = 8108`, `data-dir = <BaseDir>/typesense/data`, `enable-cors = true` (`index.ts:50-56`).
+- Config UI: raw editor only, `typesense-server.ini` + `.ini.default`.
+- Log viewer: `typesense/log/typesense.log`.
+- No admin UI, no project integration.
+
+# ZincSearch — sidebar "ZincSearch" (`searchEngine`)
+
+- Tabs: Service / Version Manager / Config File / Log / Error Log (two separate log tabs, `type=out|error`). Service tab has "ZincSearch UI" button when running.
+- Sources: **Static only** on all OSes (`show-brew-lib=false, show-port-lib=false`; `brewinfo()` returns `{}`); GitHub releases binary, per-OS archive name taken from the download URL. macOS gets quarantine fix (`binXattrFix`). Custom dirs scanned.
+- Start: plain binary spawn with env parsed from `<BaseDir>/zincsearch/zincsearch.env` (`fork/module/ZincSearch/index.ts:109-146`). Defaults written by FlyEnv: `ZINC_FIRST_ADMIN_USER=admin`, `ZINC_FIRST_ADMIN_PASSWORD=admin`, `ZINC_SERVER_ADDRESS=127.0.0.1`, `ZINC_SERVER_PORT=4080`, data under `<BaseDir>/zincsearch/data`.
+- Config UI: raw editor (ini highlighting) for `zincsearch.env` + `zincsearch.env.default`. Also auto-creates a per-version `.env` next to each binary (`initVersionEnvFile`, `index.ts:91-107`).
+- Web UI: opened at host/port parsed from the env file (default `http://127.0.0.1:4080/`).
+- Logs: `zincsearch-<version>-start-out.log` and `-start-error.log` (the two tabs).
+- No project integration.
+
+# Mailpit — sidebar "Mailpit" (`moduleType: 'emailServer'`)
+
+- Tabs: Service / Version Manager / Config File / Log. Service tab has web-UI button when running.
+- Sources: macOS/Linux = Static + Homebrew (`mailpit`); Windows = Static zip (`axllent/mailpit` releases). macOS quarantine fix on install. Custom dirs scanned. Version probe uses `mailpit version --no-release-check`.
+- Start: bare `mailpit` binary with all `MP_*` lines from `<BaseDir>/mailpit/mailpit.conf` passed as environment variables (`fork/module/MailPit/index.ts:79-137`). Template defaults (`static/tmpl/<os>/mailpit.conf`): SMTP `0.0.0.0:1025`, Web UI `0.0.0.0:8025`, POP3 `0.0.0.0:1110`, `MP_MAX_MESSAGES=500`.
+- Config UI: raw editor + large visual form (`show-commond=true`) with ~45 togglable `MP_*` settings (database, storage limits, UI bind/TLS/auth, SpamAssassin, SMTP bind/TLS/auth/relay, POP3, tags — `MailPit/Config.vue`). Files: `mailpit.conf` + `mailpit.conf.default`.
+- Web UI: opened at `http://127.0.0.1:<port parsed from MP_UI_BIND_ADDR>/` (default 8025).
+- Logs: single viewer, path resolved via fork `fetchLogPath` from `MP_LOG_FILE` in the conf (default `<BaseDir>/mailpit/mailpit.log`).
+- No project/PHP integration found (nothing in `fork/module/Php*` or `Host` references mailpit; users must point their app's SMTP at 127.0.0.1:1025 themselves).
+
+**Notable caveat for docs**: Redis/RabbitMQ configs are per **major** version (file named `redis-<major>.conf`), while Meilisearch/Typesense/ZincSearch/Mailpit share one global config across all versions; Elasticsearch edits the config bundled inside each installed version directory.</subagent>
+<subagent agent_id="agent-6" item="infra services: Numa (components/Numa), DNS (components/DNS), pure-ftpd (components/FTP), ftp-srv (components/FTPSRV), Minio (components/Minio), Rustfs (components/Rustfs), Podman (components/Podman), Cloudflared (components/Cloudflared), CloudflareTunnel (components/CloudflareTunnel)" outcome="completed"># Infra Services Module Group — Verified Fact Sheets
+
+Source root: `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`. All facts cited from render components (`src/render/components/…`) and fork modules (`src/fork/module/…`).
+
+## 1. Numa (`components/Numa`, typeFlag `numa`)
+
+- Sidebar label: "Numa"; moduleType `dnsServer`, asideIndex 1, `isService` + `isTray` (`Numa/Module.ts:4-14`). Third-party DNS server by razvandimescu (https://numa.rs/).
+- Main page: 4 tabs — Service / Version Manager / Config File / Log (`Numa/Index.vue:46-51`). Service tab adds an "open in browser" button when running (`Numa/Index.vue:59-71`).
+- Versions: Static online list (GitHub releases; Windows `.zip`, macOS/Linux `.tgz`) + Homebrew via custom tap `razvandimescu/tap` (`Numa/Index.vue:18-26`, fork `Numa/index.ts:156-184,246-261`). MacPorts disabled (`:show-port-lib="false"`). Custom dirs supported (`versionLocalFetch`).
+- Start: single instance; runs `numa <numa.toml>` — spawn on macOS, elevated exec on Linux (`root: true`), CMD exec on Windows (`Numa/index.ts:74-154`). Fixed pid file `numa/numa.pid` → one version at a time.
+- Ports (default template `static/tmpl/numa.toml`): DNS `0.0.0.0:53`, API/web `api_port = 5380`, built-in HTTP proxy on ports 80/443 with local TLD `numa`; features ad-blocking lists (HaGeZi), upstream forward mode (9.9.9.9/1.1.1.1, fallback 8.8.8.8), cache, `[mobile]` section.
+- Config: raw TOML editor for `numa/numa.toml` (+ `numa.default.toml`), localized EN/ZH templates (`Numa/Config.vue`). No visual form.
+- Logs: per-version start-error log viewer `numa/numa-<version>-start-error.log` (`Numa/Logs.vue`); fork scans all `numa-*.log`.
+- Admin UI: Numa's own web interface, opened at `http://127.0.0.1:<api_port>` (parsed from numa.toml).
+- Platforms: macOS / Linux / Windows (no platform restriction in Module.ts). No license gating found.
+
+## 2. DNS Server (`components/DNS`, typeFlag `dns`)
+
+- Sidebar label: "DNS Server"; moduleType `dnsServer`, asideIndex 15, tray only (`isTray: true`, no `isService`) (`DNS/Module.ts`).
+- Main page: 2 tabs — Service / Config File (`DNS/Index.vue:22`).
+- **No version management at all** — this is FlyEnv's own built-in DNS server implemented in Node (`dns2` + `tangerine` libraries), not an external binary (`fork/DNS/index.ts:1-16`).
+- Lifecycle: in-app UDP+TCP server on port 53, bind address from config (default `0.0.0.0`, selectable per local IP) (`fork/DNS/index.ts:127-246`, `DNS/service.vue`).
+- Resolution behavior: static `resolveIP` map from `dns/dns.json` + system hosts file (re-read every 60 s) + **all FlyEnv site host names and aliases** (watched from AppStore.hosts, resolved to the primary local IP — `DNS/dns.ts:75-100`, `initAppHosts`); wildcard matching (`*.test` etc.); everything else forwarded to upstream resolvers via tangerine (defaults 1.1.1.1/8.8.8.8, or AliDNS/114DNS in zh locale).
+- Service tab shows a live query log table (host / resolved IP / TTL) with start/stop/restart and clear (`DNS/service.vue:59-76,138-165`). No log files.
+- Config: `dns/dns.json` (+ `dns.default.json`), raw JSON editor plus one visual field: `bind` IP dropdown (`DNS/Config.vue`).
+- Host integration: this is the key module — point the OS/browser DNS at `@<local-ip>` and all FlyEnv site domains resolve without editing the hosts file.
+- Platforms: all three. No license gating.
+
+## 3. Pure-FTPd (`components/FTP`, typeFlag `pure-ftpd`)
+
+- Sidebar label: "Pure-FTPd"; moduleType `ftpServer`, asideIndex 14, `isService` + `isTray`; **platform-restricted to macOS + Linux** (`FTP/Module.ts:14`).
+- Main page: 3 tabs — Service / Version Manager / Config File (`FTP/Index.vue:24`).
+- Versions: Homebrew + MacPorts (default props; no static source) (`FTP/Index.vue:10`; fork brewinfo/portinfo `PureFtpd/index.ts:317-348`). Custom dirs supported.
+- Start: `sudo ./pure-ftpd <pure-ftpd.conf>` (elevated exec; optional "open in Terminal" via AppleScript), pid `pure-ftpd.pid`; single version at a time (`PureFtpd/index.ts:54-97`).
+- Port: parsed from `Bind …,port` in conf, default 21; template sets `PassivePortRange 39000-40000`, PureDB at `pureftpd.pdb` (`static/tmpl/macOS/pure-ftpd.conf`).
+- FTP account management: Service tab is a user table (username / password / root dir, click-to-copy, open dir) with Add/Edit dialog (`FTP/Service.vue`, `FTP/Add.vue`); accounts created via `pure-pw useradd -u <uid> -g <gid> -d <dir>` (uid/gid taken from the chosen folder) and mirrored into `pureftpd.json` (`PureFtpd/index.ts:168-241`).
+- Running header shows copyable `ftp://<ip>:<port>` link with IP selector.
+- Config: raw editor for `pure-ftpd.conf` (+ `.default`) (`FTP/Config.vue`). No visual form.
+- Logs: none — code comment states pure-ftpd logs to syslog (`PureFtpd/index.ts:363-366`).
+- No admin web UI, no license gating.
+
+## 4. ftp-srv (`components/FTPSRV`, typeFlag `ftp-srv`)
+
+- Sidebar label: "ftp-srv"; moduleType `ftpServer`, asideIndex 15, `isService` + `isTray`, all platforms (`FTPSRV/Module.ts`). This is the cross-platform (incl. Windows) FTP option.
+- Main page: **Service tab only** (`FTPSRV/Index.vue:20`). A `Config.vue` file exists in the folder but is not wired into the page.
+- **No version management** — server is the bundled Node `ftp-srv` npm library run inside FlyEnv (`fork/FTPSrv/index.ts:6,59-65`).
+- Lifecycle: listens on fixed port 21 (`ftp://0.0.0.0:21/`), passive ports 49152–65535, dynamic PASV IP (127.0.0.1 for loopback clients, else primary LAN IP) (`FTPSrv/index.ts:49-65`).
+- Accounts: same user/pass/dir table UI as Pure-FTPd (`FTPSRV/Service.vue`, `Add.vue`); stored in `BaseDir/ftp-srv/ftp-srv.json`; login handler validates against that JSON; on Windows it migrates legacy `pureftpd.json` (`FTPSrv/index.ts:30-39,67-99`).
+- Config files exposed to the app: just `ftp-srv.json`; no log files (`getLogFiles` → `[]`). No admin UI, no license gating.
+
+## 5. MinIO (`components/Minio`, typeFlag `minio`)
+
+- Sidebar label: "MinIO"; moduleType `objectStorage`, asideIndex 4, `isService` + `isTray` (`Minio/Module.ts`).
+- Main page: 4 tabs — Service / Version Manager / Config File / Log (`Minio/Index.vue:70-75`).
+- Versions: Static online list + Homebrew; MacPorts disabled (`Minio/Index.vue:37-46`). Custom dirs. Installs chmod 0755 + xattr fix on macOS (`fork/Minio/index.ts:204-219`).
+- Start: `minio server <dataDir> [--address … --console-address … --certs-dir …]` built from `MINIO_*` env lines in `minio/minio.conf`; console address normalized to `127.0.0.1:9001` default; fixed pid → single instance (`Minio/index.ts:78-164`).
+- Data dir: per-version, user-changeable via folder picker in Service tab toolbar (stored per binary path; default `minio/data`) (`Minio/Index.vue:88-114`, `setup.ts`).
+- Config: `minio/minio.conf` raw editor **plus visual "Common Settings" form** with ~30 grouped keys (Network/Security/Storage/Cluster/Performance/General) — `MINIO_ADDRESS`, `MINIO_CONSOLE_ADDRESS`, `MINIO_ROOT_USER/PASSWORD` (default minioadmin/minioadmin), certs dir, browser on/off, erasure-code classes, etcd, API tuning, etc. (`Minio/Config.vue`).
+- Logs: per-version `minio-<version>-start-out.log` and `-start-error.log` viewer.
+- Admin UI: MinIO Console opened in browser at the console address (default `http://127.0.0.1:9001/`) (`Minio/Index.vue:115-126`).
+- Platforms: all three. No license gating.
+
+## 6. RustFS (`components/Rustfs`, typeFlag `rustfs`)
+
+- Sidebar label: "RustFS"; moduleType `objectStorage`, asideIndex 5, `isService` + `isTray` (`Rustfs/Module.ts`).
+- Main page: 5 tabs — Service / Version Manager / Config File / Log / Error Log (`Rustfs/Index.vue:70-76`).
+- Versions: Static online list only (`has-static`, `show-brew-lib=false`); note MacPorts tab is not explicitly hidden but fork has no `portinfo` implementation (`Rustfs/Index.vue:37-46`). Custom dirs. Windows/macOS/Linux binaries via zip.
+- Start: `rustfs server [args] <volumes>`; args translated from `RUSTFS_*` keys in `rustfs/rustfs.conf` — address, server-domains, access/secret key(+file), console-enable/address, obs-endpoint, tls-path, license, region, KMS (local/vault), buffer profiles; env also passed through (`fork/RustFS/index.ts:76-218`). Fixed pid → single instance.
+- Data dir: per-version editable path like MinIO (default `rustfs/data`).
+- Config: raw editor + visual form for ~19 `RUSTFS_*` keys grouped Network/Security/General/Advanced/Performance (`Rustfs/Config.vue`).
+- Logs: separate Log (start-out) and Error Log (start-error) tabs per version.
+- Admin UI: RustFS console opened in browser; port parsed from `RUSTFS_CONSOLE_ADDRESS`, default `http://127.0.0.1:9001/` (`Rustfs/Index.vue:116-130`).
+- Platforms: all three. No license gating.
+
+## 7. Podman (`components/Podman`, typeFlag `podman`)
+
+- Sidebar label: "Podman"; moduleType `containerRuntime`, asideIndex 19; **not** a service/tray module (`Podman/Module.ts`).
+- No VersionManager. FlyEnv detects a system `podman --version`; if missing, offers one-click install via Homebrew in an embedded xterm terminal (button only when Homebrew/BrewCellar exists — i.e. macOS/Linux brew; Windows users must install Podman themselves) (`Podman/Index.vue:89-152`).
+- Page structure: left panel = **machine list** (add/edit/start/stop/delete machines); right panel per-machine tabs: **Dashboard / Compose / Image / Container** (`Podman/left.vue`, `right.vue:31-67`).
+- Machine add/edit dialog: name, CPUs (1–16), memory MB (512–32768), disk size MB, set-as-default, rootful, Rosetta (macOS), SSH identity path, remote username (`Podman/machine/machineAdd.vue`). Machine dropdown actions hidden on Linux (native Podman, no VM needed) (`left.vue:57,131-133`).
+- Compose: manage existing docker-compose projects (stored list, running-state checks) and a **Compose Build generator** with per-service forms for ~29 stacks: PHP, Nginx, Apache, Caddy, MySQL, MariaDB, PostgreSQL, MongoDB, Redis, Memcached, RabbitMQ, Elasticsearch, Meilisearch, MinIO, Consul, Etcd, Mailpit, NodeJS, Bun, Deno, Go, Java, Python, Ruby, Rust, Perl, Erlang, Tomcat (`Podman/compose-build/`). Requires docker-compose or `docker compose` (`fork/Podman/index.ts:17-24`).
+- Images: pull UI with official-image catalog + tags fetched online (`image/`, `officialImages.ts`, `allImagesTags.json`, `fork/Podman/image.ts`). Containers: create/inspect/preview (`container/`).
+- Backend: all operations shell out to `podman machine …/podman …` CLI (`fork/Podman/index.ts`, 606 lines); socket paths handled on non-Windows.
+- Platforms: all three (no platform restriction; Windows uses `2>NUL` redirects). No license gating found.
+
+## 8. Cloudflared (`components/Cloudflared`, typeFlag `cloudflared`)
+
+- Sidebar label: "Cloudflared"; moduleType `networkTunnel`, asideIndex 20; not a service/tray module (`Cloudflared/Module.ts`).
+- Main page: 2 tabs — Service / Version Manager (`Cloudflared/Index.vue:35`).
+- **Thin module**: fork has no `_startServer`, no config files, no logs (`fork/Cloudflared/index.ts:127-133`). The "Service" tab is `ServiceManager/base.vue` — a version list with PATH/environment registration and custom-dir add.
+- Versions: Static online list (per-OS: `.tgz` macOS, `.exe` Windows, plain binary Linux) + Homebrew; MacPorts disabled (`Cloudflared/Index.vue:15-23`). macOS install unpacks tgz + xattr fix (`fork/Cloudflared/index.ts:114-125`).
+- Purpose: provide the cloudflared binary (also consumed by the Cloudflare Tunnel module). No ports, no admin UI, no license gating.
+
+## 9. Cloudflare Tunnel (`components/CloudflareTunnel`, typeFlag `cloudflare-tunnel`)
+
+- Sidebar label: "Cloudflare Tunnel"; moduleType `networkTunnel`, asideIndex 21, `isService` + `isTray` (`CloudflareTunnel/Module.ts`).
+- Main page: single Service tab = tunnel instance list with expandable DNS-rule sub-tables (`CloudflareTunnel/Index.vue`, `List.vue`). Components: add/edit tunnel, addDNS/editDNS, Logs viewer.
+- Tunnel setup dialog fields: cloudflared binary (select from installed Cloudflared versions — hard requirement, shows "CloudflaredNoFoundTips" otherwise), Cloudflare API Token, Account ID, Zones/Zone ID (`add.vue`).
+- DNS rule dialog: subdomain + zone name → local service (protocol http/https + host:port) (`addDNS.vue`).
+- How it works (fork `CloudflareTunnel/CloudflareTunnel.ts`): via Cloudflare API v4 — finds-or-creates a remotely-configured tunnel named `FlyEnv-Tunnel-<md5(token)[:12]>`, creates/updates proxied CNAME records (`<tunnelId>.cfargotunnel.com`), pushes ingress rules (each hostname → `http(s)://<localService>`, `httpHostHeader` set, 404 catch-all), then spawns `cloudflared tunnel --no-autoupdate run --token <token>` detached with per-tunnel logs/pid under `BaseDir/cloudflare-tunnel/{id}-out.log|{id}-error.log|{id}.pid`.
+- Logs: per-tunnel out/error log viewer (`Logs.vue` + `getLogFiles` scanning the dir).
+- No local config files ("managed via Cloudflare API" comment, `fork/CloudflareTunnel/index.ts:71-74`).
+- **License-gated**: without an active license you can create only 1 tunnel and that tunnel only 1 DNS rule; active license unlocks unlimited (`setup.ts:114-131`, lock icons in `List.vue:8-35`).
+- Platforms: all three (spawn uses `windowsHide: true`).
+
+## Cross-cutting notes
+
+- VersionManager sources per OS: macOS shows Static/Homebrew/MacPorts(/SDKMAN) tabs; Linux shows Static/Homebrew; Windows shows Static only (`VersionManager/index.vue:60-87`).
+- Of this group, only **Cloudflare Tunnel** has license gating; DNS and ftp-srv are built-in (no binaries/versions); Cloudflared is install+PATH only.
+- No `.flyenv` env-file or per-project binding integration exists in any of these modules (that mechanism lives in LanguageProject/PHP modules); the only host integration is the DNS module resolving FlyEnv site domains.</subagent>
+<subagent agent_id="agent-7" item="service governance: Consul (components/Consul), Etcd (components/Etcd), R-NACOS (components/Rnacos), Temporal (components/Temporal) + TemporalCli (components/TemporalCli)" outcome="completed">All research done. Verified against source at `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`.
+
+# Service Governance module group — fact sheets
+
+**Shared baseline (applies to all 5 unless noted):**
+- All are `moduleType: 'serviceGovernance'`, `isService: true`, `isTray: true` (sidebar toggle + tray), each `Module.ts` declares `typeFlag` and `label`.
+- Main page pattern: `ServiceManager` (tab 0) + `VersionManager` (tab 1) + `Config` + `Logs` tabs.
+- VersionManager sources (`components/VersionManager/index.vue:109-125`): macOS shows Static/Homebrew/MacPorts/SDKMAN per module flags (defaults: brew on, port on, sdkman off); Linux shows Static + Homebrew; Windows shows Static only. Every module also supports **custom install dirs** (`ServiceManager/customPath.vue`, stored in `setup.<flag>.dirs`, scanned by fork `allInstalledVersions`).
+- **Single version at a time**: `ServiceManager/setup.ts:99-101` blocks start while any version is running. Per-version PATH/alias integration exists via `ServiceManager/EXT` store.
+- **No license gating** found in any of these 5 modules (no license checks in render/fork code). **No project/host integration** (no per-project binding, reverse proxy, or `.flyenv` env file) in any of them.
+
+## 1. Consul (`typeFlag: 'consul'`, label "Consul", asideIndex 3)
+- Tabs: **Service / Version Manager / Config File / Log** (`components/Consul/Index.vue:64-69`). Service tab adds an "open UI" button and a per-version **editable data directory** (stored in localForage `flyenv-consul-storage-dir`, `Consul/setup.ts`; default `<BaseDir>/consul/consul-<major>-data`).
+- Sources: Static online list (`fork/module/Consul/index.ts:124` `_fetchOnlineVersion('consul')`, zip → `AppDir/consul/<v>/`) + Homebrew (`consul`) + MacPorts (`portinfo()` exists, port `consul`) on macOS; Static on Windows; Static+Brew on Linux.
+- Start: `consul agent -config-file=consul-<major>.json -data-dir=<dir> -log-file=consul.log -bind=<primary LAN IP> -pid-file=consul.pid`, detached spawn, no root (fork:74-122). Generated default config: `server:true, bootstrap_expect:1, client_addr:127.0.0.1, ui_config.enabled:true`; **Windows adds `raft_logstore.backend=boltdb`** to work around a Raft WAL fsync failure (fork:57-61).
+- Config: raw JSON editor for `consul/consul-<major>.json` (+ `.default`); no visual form.
+- Logs: single viewer on `consul/consul.log`.
+- Admin UI: Consul's **built-in web UI**; button opens `http://127.0.0.1:8500/ui/` externally, port read from `ports.http` in the JSON config (`Index.vue:111-128`).
+
+## 2. Etcd (`typeFlag: 'etcd'`, label "Etcd", asideIndex 3)
+- Tabs: **Service / Version Manager / Config File / Log / Error Log** (5 tabs, `components/Etcd/Index.vue:34-40`).
+- Sources: Static online (`_fetchOnlineVersion('etcd')`) + Homebrew (`etcd`); **MacPorts explicitly disabled** (`show-port-lib=false`, no `portinfo` in fork); custom dirs.
+- Start: `etcd --config-file etcd.yaml` (fork/ETCD/index.ts:63-95). Generated default yaml: client `0.0.0.0:2379`, peer `0.0.0.0:2380`, advertise on `127.0.0.1`, `log-level: info`, `log-outputs: [stdout]`. Ports 2379/2380.
+- Config: raw editor for `etcd/etcd.yaml` + `.default`.
+- Logs: two per-version viewers `etcd-<version>-start-out.log` and `-start-error.log`.
+- No admin UI / integrated panel.
+
+## 3. R-Nacos (`typeFlag: 'rnacos'`, label "R-Nacos", asideIndex 4)
+- Tabs: **Service / Version Manager / Config File / Log**. Service tab has an "open console" button → `http://127.0.0.1:10848/rnacos/` (`components/Rnacos/Index.vue:65-76`).
+- Sources: Static online (`_fetchOnlineVersion('r-nacos')`) + Homebrew **via auto-tap `r-nacos/r-nacos`** (`brewinfo()` runs `brew tap r-nacos/r-nacos` if missing, fork/Rnacos/index.ts:237-252); MacPorts disabled; custom dirs. macOS install runs `binXattrFix`.
+- Start: `rnacos -e rnacos.env`; fork parses the env file into process env and **forces `RNACOS_DATA_DIR=<BaseDir>/rnacos/data`** (fork:92-143). Generated env template (zh/en) documents defaults: HTTP 8848, gRPC 9848, console 10848, console account `admin/admin`, `RUST_LOG`.
+- Config: raw `.env`-style editor for `rnacos/rnacos.env` with template default and link to r-nacos env docs.
+- Logs: out/error toggle per version: `rnacos-<v>-start-out.log` / `-start-error.log`.
+- Admin UI: R-Nacos **built-in console**.
+- Discrepancy (possible bug): the console button reads port from `rnacos/rnacos.conf` while the fork actually writes/uses `rnacos.env` — a customized console port may not be picked up by the button.
+
+## 4. Temporal (`typeFlag: 'temporal'`, label "Temporal", asideIndex 50)
+- Tabs: **Service / Version Manager / Config File / Log**. Service tab has a "Temporal UI" button with loading/error states (`components/Temporal/Index.vue`).
+- Sources: **Static online only** (`_fetchOnlineVersion('temporal')`, `temporal-server` binary; `show-brew-lib=false, show-port-lib=false`; no `brewinfo`/`portinfo` in fork) + custom dirs.
+- Start: `temporal-server --config-file config/temporal-v<version>.yaml start` (fork/Temporal/index.ts:135-164, util.ts:23). Generated server yaml: **SQLite dual-store** (`default.db` + `visibility.db`, schema auto-setup), frontend gRPC **7233**, HTTP 7243, matching 7235, history 7234, pprof 7936, all bound to `127.0.0.1` (util.ts:31-100). After start it **auto-creates the `default` namespace** using the newest installed temporal-cli binary (3 retries, fork:230-282).
+- Temporal Web UI: **separate `ui-server` binary**, not version-managed. The UI button: checks install → if missing, queries GitHub API `temporalio/ui-server/releases/latest`, downloads + installs the platform asset (darwin/linux/windows × amd64/arm64) → starts `ui-server -r <baseDir> -c config -e temporal-ui start` (own pid file `temporal-ui.pid`) → opens `http://127.0.0.1:8233/` (Index.vue:102-152, fork:444-501). UI config `temporal-ui.yaml`: port 8233, gRPC `127.0.0.1:7233`. UI server is **stopped together** with the main server (SIGINT, fork:284-343).
+- Config: two sub-tabs **Server / UI** — `config/temporal-v<version>.yaml` and `config/temporal-ui.yaml` (+ `.default`), raw YAML editor.
+- Logs: 4 viewers — server-out, server-error, ui-out, ui-error.
+- Install handling: tar.gz/zip unpack, chmod 0755 + macOS xattr fix, `--version` smoke check.
+
+## 5. TemporalCli (`typeFlag: 'temporal-cli'`, label "Temporal CLI", asideIndex 51)
+- Despite the name, this is a **runnable service**: it launches `temporal server start-dev` (Temporal's all-in-one dev server with built-in UI).
+- Tabs: **Service / Version Manager / Config File / Log**. Service tab "open UI" button → `http://127.0.0.1:<ui-port>/` (default 8233).
+- Sources: **Static online only** (`_fetchOnlineVersion('temporal-cli')`) + custom dirs; brew/port disabled.
+- Start: `temporal server start-dev <flags>` where each line of per-version config `temporal-cli/temporal-cli-v<version>.conf` (`key=value`) is converted to `--key=value` (fork/TemporalCli/util.ts:6-25). Default conf: `ip=127.0.0.1, port=7233, http-port=7243, ui-ip=127.0.0.1, ui-port=8233, db-filename=<base>/data/dev.db, log-level=info, headless=false`.
+- Config: raw editor for the per-version `.conf` (+ `.default`).
+- Logs: render shows only `temporal-cli-<v>-start-out.log`; fork also declares `-start-error.log`.
+- Admin UI: the dev server's **built-in Temporal Web UI** (no separate install, unlike the Temporal module).
+- Install: chmod + macOS xattr fix + `--version` check.
+
+## Cross-module notes for docs writers
+- Version-switching workflow is identical everywhere: pick current version in Service tab, toggle switch; switching requires stopping the running version first.
+- Consul and R-Nacos expose data-dir/account settings through config; Temporal embeds DB paths in generated yaml/conf — users editing configs should know FlyEnv regenerates only missing files, it never overwrites existing ones (all `initConfig` paths check `existsSync` first).</subagent>
+<subagent agent_id="agent-8" item="AI coding CLIs: ClaudeCode (components/ClaudeCode), Codex (components/Codex), OpenCode (components/OpenCode), Kimi (components/Kimi), Antigravity (components/Antigravity), CopilotCli (components/CopilotCli). Note where their UIs differ vs share code." outcome="completed"># AI Coding CLI Modules — Verified Fact Sheets
+
+**Shared architecture (applies to all 6):** All are `moduleType: 'aiCoding'`, `isService: false`, `isTray: false` in their `Module.ts` — they are **not background services**. The sidebar toggle is hard-disabled (`ASide.ts:33-35` returns `serviceDisabled: true` in every module). None use `components/VersionManager/` or `ServiceManager/`; `fetchAllOnlineVersion()` and `allInstalledVersions()` in every fork module just `resolve([])`. There is **no multi-version support, no port/socket, no admin panel, no Host/Project/.flyenv integration, and no license gating** (grep for license in all six component dirs: zero hits). Installation is one-shot: an embedded xterm.js terminal runs the vendor's official install script (with FlyEnv proxy env vars injected via `@shared/installProxyEnv`). Detection is PATH-plus-candidate-dirs based (`src/fork/util/AiCli.ts` — scans `/usr/local/bin`, `/opt/homebrew/bin`, `~/.local/bin`, npm/yarn/volta/pnpm/bun globals on macOS/Linux; `%APPDATA%\npm`, WinGet Links, `~/.local/bin` on Windows). Sessions run in an **external system terminal** via `ExecCommand.runInTerminal` (`cd <workDir> && <cli> ...`), not inside FlyEnv.
+
+---
+
+**1. Claude Code** (`components/ClaudeCode`, fork `ClaudeCode/index.ts`, sidebar `asideIndex: 103`)
+1. Sidebar label "Claude Code"; tabs: **Service / Config File / Sessions / Plugins / MCP** (`Index.vue:28-34`).
+2. Install: `curl -fsSL https://claude.ai/install.sh | bash` (macOS/Linux), `irm https://claude.ai/install.ps1 | iex` (Windows) (`setup.ts:173-179`). No version manager.
+3. Lifecycle: n/a (not a service); sessions launched as `claude`, `claude --resume <id>`, `claude --continue` in external terminal (`fork:269-297`).
+4. Config: raw JSON editor + visual form for `settings.json` (fields: theme, model, includeCoAuthoredBy, cleanupPeriodDays) (`Config.vue:89-131`). Files: `~/.claude/settings.json`, `settings.local.json`, `plugins/known_marketplaces.json`, `~/.claude.json` (`fork:526-534`); home overridable via `CLAUDE_CONFIG_DIR`.
+5. Logs: none (`getLogFiles` returns `[]`).
+6. Admin panels: none.
+7. Sessions: parsed from `~/.claude/projects/**/*.jsonl`; grouped by workDir; delete/resume supported (`fork:108-267`).
+8. Distinctive: **Plugins tab** — full plugin marketplace management (list available/installed via `claude plugin list --available --json`, install in xterm, enable/disable/uninstall, add/remove marketplaces) (`setup.ts:336-453`). MCP from `~/.claude.json` mcpServers; HTTP/SSE servers added by direct file write, stdio via `claude mcp add`.
+9. Quick-command reference (copy-to-clipboard buttons): `claude doctor`, `claude update`, `claude setup-token`, etc. (`command.json`).
+
+**2. Codex** (`components/Codex`, `asideIndex: 104`)
+1. Sidebar "Codex"; tabs: **Service / Config File / Sessions / Plugins / MCP** (`Index.vue:28-34`).
+2. Install: `curl -fsSL https://chatgpt.com/codex/install.sh | sh` (macOS/Linux), `irm https://chatgpt.com/codex/install.ps1 | iex` (Windows) (`install.ts:3-8`).
+3. Lifecycle: n/a; terminal commands `codex`, `codex resume <id>`, `codex resume --last` (`fork:269-299`).
+4. Config: `~/.codex/config.toml` (TOML) with visual form — model, model_reasoning_effort, approval_policy, sandbox_mode (`Config.vue:95-132`); plus `auth.json` raw. Home overridable via `CODEX_HOME` (`fork:57-59`).
+5. Logs: none.
+6. None.
+7. Sessions from `~/.codex/sessions/` date-segmented `.jsonl` tree (`fork:105-145`).
+8. Plugins tab mirrors Claude Code's but backed by `codex plugin list --available --json`; **no marketplace add/remove** (fork has no marketplace methods). HTTP MCP servers are written into `config.toml` under `mcp_servers` and auto-enable `features.rmcp_client = true` (`fork:413-445`).
+9. Quick commands include `codex exec`, `codex review`, `codex login` (`command.json`).
+
+**3. OpenCode** (`components/OpenCode`, `asideIndex: 105`)
+1. Sidebar "OpenCode"; tabs: **Service / Config File / Sessions / MCP / Stats / Providers** — 6 tabs, the most of the group (`Index.vue:30-37`).
+2. Install: `npm install -g opencode-ai` on all platforms (`setup.ts:176`).
+3. Lifecycle: n/a; terminal commands `opencode`, `opencode --session <id>`, `opencode --continue` (`fork:178-208`).
+4. Config: `~/.config/opencode/opencode.jsonc` (falls back to `opencode.json`; XDG-aware) — **raw JSON editor only, no visual form** (`Config.vue:21-29`, `:show-commond="false"`).
+5. Logs: none.
+6. None.
+7. Sessions listed via CLI: `opencode session list --format json` (`fork:109-119`).
+8. Distinctive: **Stats tab** parses `opencode stats --models [--days N]` table output (ANSI-stripped) (`fork:319-357`, `Stats.vue`, `statsI18n.ts`); **Providers tab** reads authenticated providers from `~/.local/share/opencode/auth.json` (`fork:294-318`). MCP is read/written directly in the JSONC config with comment-stripping (`fork:206-224`).
+9. Quick commands: `opencode models`, `opencode upgrade`, `opencode agent list`, etc.
+
+**4. Kimi** (`components/Kimi`, `asideIndex: 102`)
+1. Sidebar "Kimi"; tabs: **Service / Config File / Log / Sessions / MCP** — the only one with a Log tab (`Index.vue:28-34`).
+2. Install: `curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash` / `irm https://code.kimi.com/kimi-code/install.ps1 | iex` (`setup.ts:154-156`).
+3. Lifecycle: n/a; terminal commands `kimi`, `kimi --session "<id>"`, `kimi --continue` (`fork:209-239`).
+4. Config: `~/.kimi-code/config.toml`, `tui.toml`, `mcp.json`; visual form on config.toml — default_permission_mode, default_thinking, default_plan_mode, telemetry (`Config.vue:111-148`). Home overridable via `KIMI_CODE_HOME`.
+5. Logs: **yes** — reads every `*.log` in `~/.kimi-code/logs/` into the shared Log viewer (`fork:148-182`, `Logs.vue`).
+6. None.
+7. Sessions from `~/.kimi-code/sessions/<bucket>/<id>/state.json`; distinctive **Export** action runs `kimi export "<id>"` in xterm (`setup.ts:358-372`).
+8. MCP: **HTTP/SSE only** — stdio adds are rejected ("Kimi only supports HTTP/SSE MCP config files"); written to `mcp.json` (`fork:64-95`).
+9. Quick commands: `kimi --plan`, `kimi --yolo`, `kimi vis`, `kimi provider list/add/remove`.
+
+**5. Antigravity CLI** (`components/Antigravity`, `asideIndex: 106`)
+1. Sidebar "Antigravity CLI"; tabs: **Service / Config File / Sessions / MCP / Skills** (`Index.vue:28-34`).
+2. Install: `curl -fsSL https://antigravity.google/cli/install.sh | bash` / `irm https://antigravity.google/cli/install.ps1 | iex` (`install.ts:5-10`). Binary is `agy`.
+3. Lifecycle: n/a; terminal commands `agy`, `agy --conversation <id>`, `agy --continue` (`fork:237-267`).
+4. Config: `~/.gemini/antigravity-cli/settings.json` (visual form: model, enableTerminalSandbox, toolPermission — `Config.vue:84-104`) and `~/.gemini/config/mcp_config.json`. Shares the **Gemini CLI config root** (`GEMINI_HOME` override) (`fork:43-65`).
+5. Logs: none.
+6. None.
+7. Sessions are **SQLite DBs** (`~/.gemini/antigravity-cli/conversations/<id>.db`); only id + workDir + mtime surfaced, title/prompt best-effort because payloads are protobuf (`fork:86-93`).
+8. Distinctive: **Skills tab** — lists user skills (`antigravity-cli/skills`) and builtin skills (`antigravity-cli/builtin/skills`) with a builtin tag; open-skills-dir button; **SkillView drawer** renders skill Markdown (code / preview / split views) (`fork:425-447`, `Skills.vue`, `SkillView.vue`).
+9. Quick commands: `agy plugin list`, `agy plugin import`, `agy install`, `agy models`.
+
+**6. GitHub Copilot CLI** (`components/CopilotCli`, `asideIndex: 107`)
+1. Sidebar "GitHub Copilot CLI"; tabs: **Service / Config File / Sessions / MCP / Skills** (`Index.vue:27-34`).
+2. Install: `npm install -g @github/copilot` on all platforms — the only module with a single cross-platform command (`install.ts:5,17-20`).
+3. Lifecycle: n/a; binary `copilot`; sessions via `copilot --resume`/`--continue` (`fork:215-245`).
+4. Config: `~/.copilot/config.json` and `~/.copilot/mcp-config.json` — **raw JSON editor only, no visual form** (`Config.vue`, no Common fields). Home overridable via `COPILOT_CONFIG_DIR` (`fork:47-50`).
+5. Logs: none.
+6. None.
+7. Sessions read from SQLite `~/.copilot/session-store.db` (`sessions` + `turns` tables — titles/prompts cleanly readable, unlike Antigravity) (`fork:104-151`); deletion also clears `session-state/<id>` dirs (`fork:183`).
+8. Skills tab: listed via `copilot skill list --json`, name suffixed with source; per-skill actions: open dir, reveal file, preview (`fork:342-368`, `Skills.vue`, `setup.ts:381-394`).
+9. Quick commands: `copilot login`, `copilot init`, `copilot skill list`, `copilot mcp list`.
+
+---
+
+**Where they share vs differ:** All six share the same page skeleton (Service card with install-in-xterm + version display + copyable command cheat-sheet from `command.json`; Sessions table grouped by workDir with run/resume/delete; MCP list/add/remove; raw config editor via `components/Conf/`). Differences: visual config forms only in Claude Code, Codex, Kimi, Antigravity; Plugins tab only in Claude Code (with marketplaces) and Codex (without); Logs tab only in Kimi; Stats + Providers tabs only in OpenCode; Skills tab only in Antigravity (filesystem-based, with Markdown preview drawer) and CopilotCli (CLI-based); session export only in Kimi. Session storage backends diverge: JSONL files (Claude Code, Codex), SQLite (Antigravity, CopilotCli), CLI query (OpenCode), state.json tree (Kimi).</subagent>
+<subagent agent_id="agent-9" item="AI modules: Ollama (components/Ollama), N8N (components/N8N), OpenClaw (components/OpenClaw), Hermes (components/Hermes), CliProxyAPI (components/CliProxyAPI), MCP (components/MCP)" outcome="completed">All six AI modules researched against the FlyEnv source. Fact sheets below; all paths are relative to `/Users/x/Desktop/WorkSpace/GitHub/FlyEnv`.
+
+## Ollama (`src/render/components/Ollama/`, fork `src/fork/module/Ollama/index.ts`)
+
+- Sidebar label "Ollama", `typeFlag: 'ollama'`, `isService: true, isTray: true` — has sidebar on/off switch and tray entry (`Module.ts`).
+- Page tabs: **Service / Version Manager / Model / Config File / Log** (`Index.vue:35-41`).
+- Version sources: shared `VersionManager` with Static downloads (from FlyEnv's API `api.one-env.com/api/version/fetch`, archives `.zip`/`.tgz`, `Ollama/index.ts:171-200`) + Homebrew (`brewinfo()` fetches formula `ollama`, `index.ts:308-319`); MacPorts hidden (`:show-port-lib="false"`). Custom dirs scanned via `versionLocalFetch` (bin `ollama`/`ollama.exe`).
+- Service: spawned detached as `ollama serve` via `serviceStartSpawn`, env vars parsed from `ollama.conf` (lines starting `OLLAMA_`); pid at `BaseDir/ollama/ollama.pid`. Single running version (ServiceManager model). Default host `0.0.0.0:11434` per Config defaults.
+- Config: `ollama.conf` (+ `.default`) at `BaseDir/ollama/`; raw editor plus visual "common settings" form for `OLLAMA_DEBUG`, `OLLAMA_HOST`, `OLLAMA_KEEP_ALIVE`, etc. (`Config.vue`).
+- Logs: per-version `ollama-<ver>-start-out.log` / `-start-error.log` viewer.
+- Model tab: Local list (via `ollama list`) and Library (online list from `api.one-env.com`, cached in localStorage); model pull/run via embedded xterm terminal, copy-command button, PC hardware report (`pcReport`, per-OS GPU/CPU/RAM info).
+- **License gate**: AI chat (app-wide AI drawer, `components/AI/AIOllama.ts` → fork `chat`) requires a valid license; otherwise a 3-day trial from first use (`index.ts:351-393`). Only license-gated module in this group.
+- Platforms: static installs on macOS/Linux/Windows; Linux post-install flattens archive dir (`moveChildDirToParent`).
+
+## n8n (`src/render/components/N8N/`, fork `src/fork/module/N8N/`)
+
+- Sidebar "n8n", `isService: true, isTray: true`. On app start it detects externally-started n8n via HTTP health check (`aside.vue:51-87`).
+- Page tabs: **Service / Version Manager / Config File / Users / Log** (`Index.vue:42-48`).
+- **No static download**: version list = last 20 stable versions from `registry.npmjs.org` (`version.ts:15-52`); install runs `npm install -g n8n@<ver>` in embedded xterm (`setup.ts:70-101`). Requires existing Node.js/npm. Installed detection scans npm-global dirs (`/usr/local/bin`, `/opt/homebrew/bin`, `~/.nvm`, `~/.volta`, Windows `%APPDATA%\npm`) + PATH (`version.ts:54-120`).
+- Service: runs `n8n start` with env from `BaseDir/n8n/n8n.env`; default port **5678**; pid resolved from process list; Windows stop kills by pid file, port listener, and `node.exe` cmd match. Health check `GET /healthz`.
+- Config: `n8n.env` raw editor + visual form for `N8N_PORT/HOST/PROTOCOL/PATH`, `DB_TYPE`, `N8N_USER_FOLDER`, `N8N_ENCRYPTION_KEY`, `WEBHOOK_URL`, log level/output, `EXECUTIONS_PROCESS/MODE`, `N8N_METRICS` (`Config.vue:72-155`). Also a danger-zone "Reset owner" button that deletes `database.sqlite` (`fork .../index.ts:282-298`).
+- **Auto owner setup**: if `N8N_OWNER_EMAIL`+`N8N_OWNER_PASSWORD` set and no DB exists, FlyEnv POSTs to `/rest/owner/setup` after start (`index.ts:305-343`).
+- Users tab: direct SQLite manipulation of n8n's `database.sqlite` — list/create/delete users, set role, disable, reset passwords, change owner password (bcrypt, works offline); data-dir selector with auto-scan of candidate locations (`Users.vue`, `fork .../database.ts`).
+- Admin UI: "open dashboard" button in Service tab opens `protocol://host:port/path` from env file in the browser (`Index.vue:70-87`).
+- Logs: per-version `n8n-<ver>-start-out.log` / `-start-error.log`.
+
+## OpenClaw (`src/render/components/OpenClaw/`, fork `src/fork/module/OpenClaw/`)
+
+- Sidebar "OpenClaw", `isService: false, isTray: false`, but aside still shows a gateway on/off switch (`aside.vue`, custom `ASide.ts`). Switch disabled until CLI **and** gateway installed.
+- Page tabs: only **Service / Config File** (`Index.vue:22`). **Thin module — thin wrapper around the OpenClaw CLI.**
+- Install: official script in xterm — `curl -fsSL https://openclaw.ai/install.sh | bash` (mac/linux), `iwr ... install.ps1 | iex` (Windows) (`setup.ts:173-207`). No version manager, no version list (fork `fetchAllOnlineVersion`/`allInstalledVersions` absent; version read from `openclaw --version`).
+- Gateway: `openclaw gateway install --force` then registered as OS service — macOS `launchctl bootstrap ... ai.openclaw.gateway.plist`, Linux `systemctl --user enable/start openclaw-gateway.service` (`setup.ts:102-134`, fork `index.ts:83-154`). Start/stop = `openclaw gateway start/stop` + process-kill fallback. Status/dashboard URL parsed from `openclaw gateway status` output (`status.ts`).
+- Service tab also exposes a categorized **command palette** (~110 commands across 13 categories: basic info, config, gateway, agents, browser, channels, nodes/devices, models, skills, system, sessions, backup/update, plugins) executed in embedded xterm; commands needing arguments pre-fill the terminal (`command.json`).
+- Config: `~/.openclaw/openclaw.json` (plus `ai.openclaw.gateway.plist` on macOS) — raw editor only.
+- **No log viewers** (`getLogFiles` returns `[]`).
+- Dashboard: opened in external browser via parsed URL (`setup.ts:165-171`).
+
+## Hermes (`src/render/components/Hermes/`, fork `src/fork/module/Hermes/index.ts`)
+
+- Sidebar "Hermes", `isService: false, isTray: false`, aside switch controls the Hermes **gateway** (`hermes gateway start/stop`); status parsed from `hermes gateway status` output.
+- Page tabs: **Service / Config File / Log / Skills / Sessions** (`Index.vue:28-34`).
+- Install: `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash` (mac/linux) or `irm .../install.ps1 | iex` (Windows) in xterm (`install.ts`). No version manager — `fetchAllOnlineVersion`/`allInstalledVersions` return empty (fork `index.ts:721-731`).
+- Service tab: version + gateway status display plus a categorized command palette (12 categories, ~78 commands: chat/session, gateway, config, model auth, skills/plugins, memory/tools, MCP, system/logs, backup/update, dashboard/TUI, profile) run in embedded xterm (`Service.vue`, `command.json`).
+- Config: raw editors for `~/.hermes/config.yaml`, `~/.hermes/.env`, `~/.hermes/SOUL.md` with per-file syntax highlighting (`Config.vue`).
+- Logs: viewer over `~/.hermes/logs/*.log` files; also `hermes logs <type> -n <lines>` fallback (fork `index.ts:396-437`).
+- Skills tab: installed list with enable/disable (writes `skills.disabled` into `config.yaml`), update/uninstall/reset, inspect modal, open skills dir; online browsing with pagination + search across sources **official, skills.sh, well-known, GitHub, ClawHub, LobeHub** (`Skills.vue`, fork `browseSkills`/`searchSkills`).
+- Sessions tab: list (`hermes sessions list`, parsed table) + delete via xterm (`Sessions.vue`).
+- `Providers.vue` (preset providers Ollama/OpenRouter/Anthropic/MiniMax with base-URL editor) exists but is **not wired into any tab** and its Save only shows a toast — treat as non-functional in UI.
+- No license gating.
+
+## CLIProxyAPI (`src/render/components/CliProxyAPI/`, fork `src/fork/module/CliProxyAPI/index.ts`)
+
+- Sidebar "CLIProxyAPI", `isService: true, isTray: true`.
+- Page tabs: **Service / Version Manager / Config File / Env / Log** (`Index.vue:49-55`).
+- Version sources: Static (FlyEnv API list, GitHub releases linked, `.zip`/`.tgz`, `index.ts:141-169`) + Homebrew formula `cliproxyapi` (`brewinfo()`); MacPorts hidden; custom dirs scanned for `cli-proxy-api`/`cliproxyapi` binaries. On macOS, quarantine xattr removed post-install (`binXattrFix`).
+- Service: spawned as `cli-proxy-api -config <BaseDir/cliproxyapi/config.yaml>` with env vars from `cliproxyapi.env`; pid `BaseDir/cliproxyapi/cliproxyapi.pid`; single running version.
+- Config: `config.yaml` raw editor seeded from bundled templates `static/tmpl/cliproxyapi.yaml` (and `cliproxyapi.zh.yaml` for Chinese UI); Env tab edits `cliproxyapi.env` (git/PostgreSQL/object-store backend variables: `GITSTORE_*`, `PGSTORE_*`, `OBJECTSTORE_*`, `MANAGEMENT_PASSWORD`).
+- **Admin UI**: green globe button opens built-in management panel `http://127.0.0.1:<port>/management.html` in browser; port read from `config.yaml`, default **8317** (`Index.vue:63-75`).
+- Logs: per-version `cliproxyapi-<ver>-start-out.log` / `-start-error.log` with out/error toggle.
+
+## FlyEnv MCP Server (`src/render/components/MCP/`, main process `src/main/core/MCP*.ts` — **no fork module**)
+
+- Sidebar "FlyEnv MCP Server", `isService: true, isTray: true`; `independentService` config removes it from the "start all" group (`ASide.ts:53-62`).
+- Page tabs: **Service / Client Config / Tools / Audit Log** (`Index.vue:26-31`).
+- **Not a version-managed module** — the server is FlyEnv itself, hosted in the Electron **main process** (`MCPServer.ts`, comment: "跑在 main 进程"). No install/version/PATH logic.
+- Service: MCP over **Streamable HTTP**, default `127.0.0.1:7682`, Bearer-token auth, non-loopback rejected unless `allowRemote` enabled (with warning dialog). Options: host, port (1024-65535), token regenerate, auto-start on app launch, independent service (`Service.vue`, `mcpClientConfig.ts`).
+- stdio transport: bridge script `flyenv-mcp-stdio.mjs` copied from asar to `userData/mcp/` for external Node execution (`MCPBridgeManager.ts`).
+- Client Config tab: copyable JSON/TOML snippets for **Claude Code, Antigravity CLI, Codex, GitHub Copilot CLI, OpenCode, Kimi** (HTTP and stdio variants) + one-click "Add to client" buttons that register `flyenv` into each CLI's MCP list via their fork `addMcp` (`ClientConfig.vue`, `setup.ts:200-231`).
+- Tools tab: 18 tools (`list_services`, `service_status`, `list_log_files`, `list_config_files`, `list_online_versions`, `list_sites`, `get_database_connection_info`, `resolve_site_runtime`, `get_service_exec_info`, `resolve_site_urls`, `get_managed_file_map`, `start/stop/restart_service`, `create/update/delete_site`, `install_service`); per-tool enable switch; 7 risky tools (lifecycle/site-write/install) with per-tool **auto/confirm approval policy**, default = confirm (`src/shared/mcpToolCatalog.ts`).
+- Audit Log tab: JSON-lines log viewer of every tool call at `BaseDir/mcp/audit.log` with secret masking (`MCPAudit.ts`, `Audit.vue`).
+- Requires the FlyEnv app to be running (server dies with the app); no platform differences of note; no license gating.</subagent>
+<subagent agent_id="agent-10" item="workflow/console modules: StartupGroup (components/StartupGroup), Cron (components/Cron), per-project runtime binding (src/fork/module/Project + components/LanguageProjects + .flyenv file mechanism), CustomerModule / user-custom modules (components/CustomerModule), integrated terminal/CLI features (components/Term或相关; also check components/Tools briefly for the CLI &amp; Terminal card context)" outcome="completed">## Fact sheets: workflow/console modules (verified against FlyEnv source)
+
+### 1. Startup Groups — `src/render/components/StartupGroup/`
+- Sidebar entry: "Startup Groups" (`typeFlag: 'startup-group'`, `moduleType: 'console'`, icon `switch.svg`, asideIndex 1, `isService/isTray: false`) — `Module.ts:62-72`, label in `src/lang/en/common.json:139`.
+- Main page: no tabs; card grid of groups (1 per row → 3 cols at 2xl), each card = `GroupCard.vue` with start/stop toggle, per-member toggle, edit/delete, "set as default" — `Index.vue`.
+- Member types: exactly two — `service-version` (installed version of a service module) and `language-project` (a project with `isService: true`) — `type.ts:3-19`. Candidates = service modules (`isService && moduleType !== 'language'`) plus `php-fpm` (mapped to `php` installed versions), plus language-module projects — `class/StartupGroupRuntime.ts:119-176`.
+- Execution: sequential in listed order for start, reverse order for stop; on start failure remaining members get `not-run` (start chain aborts, stop always continues); already-running members skipped — `class/StartupGroupRunner.ts:109-166`.
+- One default group (`defaultStartupGroupId`); the main sidebar group start/stop button drives the default group (falls back to legacy all-services mode if none) — `components/Aside/Index.vue:210-219,724-734`.
+- Auto-start: when Setup's `autoStartService` is on, app launch auto-starts the default group — `Aside/Index.vue:801-822` (`resolveGroupAutoStartAction` in `Aside/groupService.ts`).
+- Tray menu lists groups with start/stop — `tray.ts`. Hiding the module in sidebar settings stops all group members first — `Module.ts:15-60`.
+- Editor warnings for same-module or same-port duplicates — `type.ts:136` (`StartupGroupCandidateWarning`).
+- License gate: without an active license, max 1 group (`isCreationLocked`: `groups.length >= 1`) — `class/StartupGroupStore.ts:85-87`, `Index.vue:8-19`.
+- Cross-platform: pure orchestration over each module's own start/stop; no platform-specific code of its own.
+
+### 2. Cron — `src/render/components/Cron/` + `src/fork/module/Cron/`
+- Sidebar entry: "Cron Jobs" (`typeFlag: 'cron'`, console-type module, icon `time.svg`) — `Module.ts`, `lang/en/cron.json:2`.
+- Main page: two tabs — "Cron Jobs" (`ListTable.vue`) and "System Tasks" (`SystemTaskTable.vue`) — `Index.vue:93-95`.
+- Job fields: name, 5-field cron expression (validated via `@shared/CronExpression` with live preview + preset tags + `ScheduleHelper.vue` picker), shell command (textarea, presets for `php artisan schedule:run`, node, python, bash), working directory, scope global vs per-site (`hostId`, workdir auto-fills from site root), enable switch — `DialogAdd.vue`.
+- Scheduling backend: not an in-app daemon — installs into the OS scheduler. macOS/Linux: user `crontab` wrapped in `# FlyEnv Cron Start/End <id>` marker blocks calling a generated wrapper script — `UnixSystemScheduler.ts:180-215`. Windows: Task Scheduler tasks named `FlyEnv-Cron-<id>` running a base64-encoded PowerShell wrapper — `WindowsSystemScheduler.ts`.
+- Wrapper scripts: capture stdout/stderr/exit code/duration into JSONL run logs under the cron root, with a lock file to prevent overlapping runs — `UnixSystemScheduler.ts:44-101`.
+- Logs/records: per-job run history, limit 50 (`RUN_HISTORY_LIMIT = 50`, `types.ts:23`), viewed via `DialogOutput.vue`; "run now" action executes immediately — `ListTable.vue:140-153`, fork `index.ts:309-347`.
+- System Tasks tab: lists real OS entries (crontab lines / Windows tasks), tags FlyEnv-owned ones, allows deleting them — fork `index.ts:235-275`, `SystemTaskTable.vue`.
+- Config exposure: `getConfigFiles` returns the `cron-jobs.json` store; no log files — `fork/module/Cron/index.ts:356-362`.
+- License gate: without license, max 1 job — `Index.vue:109-111`.
+
+### 3. Per-project runtime binding — `components/LanguageProjects/` + `src/fork/module/LanguageProject/`
+- Shared UI used by language-module pages: PHP, NodeJS, Go, Python, Ruby, Rust, Bun, Deno, .NET, Java, Perl, Zig, Erlang, Flutter, Tomcat, plus RoadRunner and Swoole-CLI (own `ProjectEdit.vue` variants) — imports of `LanguageProjects/index.vue` / `ASide.vue`.
+- Page structure: a "Projects" tab in each module listing projects with path, site link `http://127.0.0.1:<port>`, port, bound version; double-click row = quick-edit of version/port/comment — `LanguageProjects/index.vue:42-120,445-510`.
+- Per-project fields (`ProjectItem.ts:16-40`): path, comment, bound binary (`binBin/binPath/binVersion`, or "use system version"), `isService`, run command or run file (`commandType: 'command'|'file'`), `projectPort` (default 3000), custom config files, log files, `pidPath`, `isSudo`, env vars (`envVarType: none|specify|file` with inline `KEY=VAL` lines or an env file path), `runInTerminal`.
+- `.flyenv` env-file mechanism: on add/edit, FlyEnv writes/updates `<project>/.flyenv` — zsh `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"` on macOS/Linux, PowerShell `$env:PATH = ...` on Windows — each line tagged `#FlyEnv-ID-<projectId>` and rewritten idempotently — `Project.ts:311-438`.
+- Shell hook: `initFlyEnvSH` sources `helper/flyenv.sh` from `~/.zshrc`/`~/.bashrc` (macOS/Linux); the script is a `chpwd` hook that auto-sources `.flyenv` only for dirs whitelisted in `bin/.flyenv.dir` (synced via `initAllowDir`) — `fork/module/Tool/init.ts:8-96`, `static/sh/macOS/fly-env.sh`. Windows: PowerShell profile integration via `ShellInitController` — `Tools/ShellInitController.ts`.
+- Running projects: fork `LanguageProject.startService` runs the command/file with env vars, cwd = project path, tracked via pid file; `openInTerminal` runs it in a real terminal instead (AppleScript Terminal.app on macOS, `exec-by-terminal.sh` on Linux, PowerShell on Windows); swoole-cli projects auto-set `PHPRC`/`CURL_CA_BUNDLE` — `fork/module/LanguageProject/index.ts:74-320`.
+- Sidebar: each module's aside has a switch to start/stop all its service projects, skipping port conflicts — `LanguageProjects/ASide.vue:28-50`.
+- Storage: `localForage` keys `flyenv-<typeFlag>-projects`; license gate: max 3 projects per module without license — `Project.ts:206-211,243-249`.
+- Config/log viewers: `ConfigViewer.vue` / `LogViewer.vue` per project; `.flyenv` file itself editable via `config.vue` — `index.vue:437-443`.
+
+### 4. Custom Modules (CustomerModule) — `components/CustomerModule/` + `src/fork/module/ModuleCustomer/`
+- Created in Settings → Modules (`Setup/Module/module/moduleAdd.vue`): user defines label, icon, `isService` switch, `isOnlyRunOne` (single-instance exclusive), plus module-level config and log file lists. Each custom module gets its own sidebar entry (`CustomerModule/aside.vue`) and page.
+- Each module holds exec items (`Setup/Module/module/moduleExecItemAdd.vue`): name, comment, `isSudo`, `commandType: 'command'|'file'` (shell command or script file), `pidPath` (required for service tracking), per-item config/log file lists.
+- Main page: dynamic tabs — "Service" (item list with start/stop/restart) + one tab per declared config file (`Config.vue`, raw editor) + one per log file (`Logs.vue`) — `CustomerModule/Index.vue:43-70`.
+- Lifecycle: fork `ModuleCustomer.startService` executes command/file headlessly, or in a real terminal (macOS AppleScript / Linux `exec-by-terminal.sh`); sudo prompts for password with "open in Terminal" fallback; stop kills by pid (-TERM then -INT on unix) — `fork/module/ModuleCustomer/index.ts:36-195`.
+- `isOnlyRunOne` services: single-flight start, auto-stops other items before starting, remembers last-started item — `render/core/ModuleCustomer.ts:215-257`.
+- Built-in logs: output/error logs auto-generated at `<BaseDir>/module-customer/<id>.out.log` / `.error.log` — `CustomerModule/List.vue:169-180`.
+- Hiding a custom module in settings stops its services (`watchShowHide`) — `core/ModuleCustomer.ts:308-321`.
+- No version management, no online installs, no admin UIs — this is a "define your own service with a command" feature.
+
+### 5. Integrated terminal / CLI — spread across Tools, Podman, fork runners
+- No standalone terminal module in the app; there is no `components/Term` directory. Terminal integration exists in four forms:
+- 1) Shell/PATH integration ("CLI"): `initFlyEnvSH` installs the `flyenv.sh` zsh/bash hook + `.flyenv` auto-load (see §3); on Windows, PowerShell profile integration via `Tools/ShellInitController.ts` (editions: windows-powershell + pwsh) — `fork/module/Tool/init.ts`, `Tools/ShellInitController.ts:6-18`.
+- 2) "Open in Terminal" for services/projects: macOS uses AppleScript `do script` in Terminal.app; Linux uses `static/sh/exec-by-terminal.sh`; Windows spawns PowerShell with an inline script — `fork/module/LanguageProject/index.ts:142-303`, `fork/module/ModuleCustomer/index.ts:80-180`.
+- 3) Embedded xterm terminal: `components/XTermExecDialog/` used only by Podman (container exec, image/container actions) — grep shows all usages under `components/Podman/`.
+- 4) Tools page: `SystenEnv` (system environment variable editor) and a CronParser tool; no "CLI & Terminal" card exists in `components/Tools/` (verified by grep — the card likely refers to docs-site marketing, not an app feature).
+- Cron command test-run also executes arbitrary commands in a working dir (`app-fork:cron runCommand`) — `fork/module/Cron/index.ts:349-354`.
+
+Note on questions 2/6 that don't apply: none of these modules have version-install sources or admin panels; the generic VersionManager/fetchAllOnlineVersion question is irrelevant here — Startup Groups reuse whatever versions/projects the underlying service and language modules already manage.</subagent>
+</agent_swarm_result>
