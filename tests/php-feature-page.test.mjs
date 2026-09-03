@@ -63,7 +63,7 @@ test('php feature page documents platform differences and limits', () => {
   assert.match(page, /MacPorts/)
   assert.match(page, /disable_functions/)
   assert.match(page, /\.flyenv/)
-  assert.match(page, /license/i)
+  assert.doesNotMatch(page, /licen[cs]e|trial/i)
 })
 
 test('php feature page keeps cross-links to related docs', () => {

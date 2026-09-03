@@ -92,8 +92,6 @@ Different projects often need different PHP versions. In **PHP → Projects**, r
 - **Open-in tools:** jump from a project row into Terminal, PowerShell, VSCode, PhpStorm, WebStorm or Sublime with the project environment loaded.
 - **Per-site PHP version:** each site in **Host** selects its own PHP-FPM version (or stays a static site), and the site list shows which version serves which site.
 
-Registering more than two projects requires a FlyEnv license.
-
 ![PHP projects list with per-project PHP version binding](https://oss.macphpstudy.com/image/features/php-10.webp)
 
 ## Composer management
