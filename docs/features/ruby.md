@@ -46,11 +46,11 @@ Install Ruby versions side by side from **Ruby → Version Manager** and keep th
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Ruby has no daemon process inside FlyEnv.
+Despite the label, the **Service** tab does not run a service — Ruby is an interpreter, so there is no daemon for FlyEnv to manage. The tab is an installed-versions table whose job is PATH control.
 
-- **Terminal version switching:** choose which installed version the terminal `ruby` command resolves to. FlyEnv adds or removes the version's bin directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each installation a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each version's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** selecting a version here decides which installation the terminal `ruby` command resolves to; FlyEnv adds that version's bin directory to your `PATH` (or removes it again) and flags whether the active PATH entry came from FlyEnv or from another tool.
+- **Per-version alias and remark:** every installation can carry a short alias plus a note, so near-identical builds remain easy to tell apart.
+- **Housekeeping:** each row exposes the version's install path and offers a delete action for versions you no longer need.
 
 ## Project-level Ruby runtimes
 

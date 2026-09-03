@@ -49,11 +49,11 @@ The dedicated **Rustup** tab detects an existing rustup installation (honoring `
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Rust has no daemon process inside FlyEnv.
+The **Service** tab's name is a leftover convention — Rust has no background process inside FlyEnv, so nothing here starts or stops. It is a table of installed toolchains combined with PATH management.
 
-- **Terminal version switching:** choose which installed toolchain the terminal `cargo` and `rustc` commands resolve to. FlyEnv adds or removes the toolchain's bin directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each toolchain a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each toolchain's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** choose which toolchain the terminal `cargo` and `rustc` commands resolve to. Switching adds the toolchain's bin directory to your `PATH` or takes it out again, and each entry is marked to show whether FlyEnv set it or another tool did.
+- **Per-version alias and remark:** label each toolchain with a short alias and a note so similar builds stay distinguishable in the list.
+- **Housekeeping:** the table lists every toolchain's install path, and unused toolchains can be deleted directly from it.
 
 ## Project-level Rust toolchains
 

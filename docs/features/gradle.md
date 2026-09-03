@@ -37,7 +37,7 @@ FlyEnv keeps multiple Gradle versions on one machine and switches the one your t
 
 Open **Gradle → Version Manager** to install and manage Gradle distributions side by side.
 
-- **Multiple install sources:** Static builds on macOS, Linux and Windows, plus Homebrew and MacPorts on macOS, Homebrew and SDKMAN on Linux, and SDKMAN on macOS — pick whichever source already manages the tools on your machine.
+- **Multiple install sources:** Static builds on macOS, Linux and Windows, Homebrew and MacPorts on macOS, and SDKMAN on macOS and Linux — pick whichever source already manages the tools on your machine.
 - **SDKMAN discovery:** FlyEnv automatically scans `~/.sdkman/candidates/gradle`, so versions you installed with SDKMAN appear in the list next to FlyEnv-managed ones.
 - **Custom versions:** point FlyEnv at any directory that contains your own Gradle distribution; it detects the `bin/gradle` binary (`gradle.bat` on Windows) and lists it alongside the managed versions.
 - **Clean installs:** static builds are unpacked into FlyEnv's own app directory as `gradle/<version>/`, verified with `gradle --version`, and macOS quarantine attributes are removed automatically after unpacking.

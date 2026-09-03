@@ -45,11 +45,11 @@ Install Zig versions side by side from **Zig → Version Manager** and keep them
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Zig is a compiler toolchain with no daemon process inside FlyEnv.
+The **Service** tab manages versions and PATH, not a process: Zig is a compiler toolchain, and FlyEnv runs no Zig daemon. Behind the name sits a straightforward installed-versions table.
 
-- **Terminal version switching:** choose which installed version the terminal `zig` command resolves to. FlyEnv adds or removes the version's directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each installation a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each version's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** decide which installed version the terminal `zig` command resolves to. FlyEnv edits your `PATH` by adding or removing the version's directory and marks whether the current PATH entry was created by FlyEnv or by another tool.
+- **Per-version alias and remark:** a short alias and an optional note per installation keep similar builds distinguishable in the list.
+- **Housekeeping:** install paths are displayed in the table, and deleting a version you no longer need is a one-click action.
 
 ## Project-level Zig toolchains
 

@@ -37,8 +37,8 @@ FlyEnv's Python module combines version management with a project runtime workfl
 
 Install and manage multiple Python versions side by side from **Python → Version Manager**. FlyEnv discovers interpreters from several sources, so versions you already have appear next to versions it manages.
 
-- **macOS:** versions installed through Homebrew and MacPorts are detected, and FlyEnv also auto-scans the MacPorts framework directory (`/opt/local/Library/Frameworks/Python.framework/Versions`) for interpreters installed there.
-- **Linux:** versions installed through Homebrew are detected and managed.
+- **macOS:** install Python directly from the Version Manager via Homebrew or MacPorts; FlyEnv also auto-scans the MacPorts framework directory (`/opt/local/Library/Frameworks/Python.framework/Versions`) for interpreters already installed there.
+- **Linux:** install Python via Homebrew.
 - **Windows:** FlyEnv downloads official Python installer packages from its online list, extracts and installs them into the app directory, and bootstraps pip automatically, so a fresh install is ready to use.
 - **Custom directories:** point FlyEnv at any directory containing your own Python build to list it next to the managed versions.
 

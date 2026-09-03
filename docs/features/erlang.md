@@ -37,7 +37,8 @@ FlyEnv's Erlang module keeps local Erlang/OTP development in one place: install 
 
 Install Erlang/OTP versions side by side from **Erlang → Version Manager** and keep them all available at once.
 
-- **macOS and Linux:** install from Homebrew (the `erlang` formula and versioned `erlang@<ver>` formulas) or MacPorts; there is no Static source on these platforms. FlyEnv also auto-scans the MacPorts library directory for existing Erlang installations.
+- **macOS:** install from Homebrew (the `erlang` formula and versioned `erlang@<ver>` formulas) or MacPorts; FlyEnv also auto-scans the MacPorts library directory for existing Erlang installations.
+- **Linux:** install from Homebrew; MacPorts is a macOS-only source. There is no Static source on macOS or Linux.
 - **Windows:** install from a Static online list of packaged builds, each containing the `bin/erl.exe` executable.
 - **Custom directories:** point FlyEnv at any directory containing your own Erlang build and it appears in the list next to the managed versions.
 - **Automatic version detection:** on macOS and Linux each installation is probed with `erl -version`; on Windows the version is read from the install directory name.
@@ -46,11 +47,11 @@ Install Erlang/OTP versions side by side from **Erlang → Version Manager** and
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Erlang has no daemon process inside FlyEnv.
+The **Service** tab contains no service at all — Erlang has no daemon process inside FlyEnv. It is an installed-versions table used for version and PATH management.
 
-- **Terminal version switching:** choose which installed version the terminal `erl` command resolves to. FlyEnv adds or removes the version's bin directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each installation a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each version's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** select which installed version the terminal `erl` command resolves to. FlyEnv then updates your `PATH`, adding or removing the version's bin directory, and marks whether the current PATH entry was set by FlyEnv or by another tool.
+- **Per-version alias and remark:** assign a short alias and a note to each installation so similar builds stay distinguishable in the list.
+- **Housekeeping:** each version's install path is visible in the table, and versions you no longer need can be deleted from it.
 
 ## Project-level Erlang runtimes
 

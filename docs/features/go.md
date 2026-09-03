@@ -44,17 +44,17 @@ Install Go versions side by side from **Go → Version Manager** and keep them a
 
 ![Go Version Manager with Static, Homebrew and MacPorts sources](https://oss.macphpstudy.com/image/features/go-2.webp)
 
-On macOS and Linux, the dedicated **GVM** tab integrates with the Go Version Manager directly. FlyEnv detects an existing GVM installation (in `~/.gvm` or via `GVM_ROOT`), offers a one-click GVM install in its embedded terminal, and lists the GVM-managed versions with install and use actions.
+On macOS and Linux, the dedicated **GVM** tab integrates with an existing GVM installation directly: FlyEnv detects GVM in `~/.gvm` or via `GVM_ROOT`, offers a one-click GVM install in its embedded terminal when none is present, and lists the GVM-managed versions with install and use actions.
 
 ![GVM tab listing GVM-managed Go versions](https://oss.macphpstudy.com/image/features/go-3.webp)
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Go has no daemon process inside FlyEnv.
+The name **Service** is misleading for Go: this tab never starts or stops anything, because FlyEnv runs no Go daemon. What you get is a table of installed versions with PATH management built in.
 
-- **Terminal version switching:** choose which installed version the terminal `go` command resolves to. FlyEnv adds or removes the version's bin directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each installation a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each version's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** pick the installed version your terminal `go` command should resolve to. FlyEnv rewrites your `PATH` by adding or removing the version's bin directory, and labels each entry so you can tell whether FlyEnv or another tool put it there.
+- **Per-version alias and remark:** attach a short alias and a free-form note to any installation, which keeps similar builds distinguishable in the list.
+- **Housekeeping:** install paths are shown right in the table, and versions you no longer need can be deleted from the same place.
 
 ## Project-level Go runtimes
 

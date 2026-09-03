@@ -46,11 +46,11 @@ Install Bun versions side by side from **Bun → Version Manager** and keep them
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Bun has no daemon process inside FlyEnv.
+Nothing runs as a service here: FlyEnv has no Bun daemon, so the **Service** tab is actually an installed-versions table focused on PATH management.
 
-- **Terminal version switching:** choose which installed version the terminal `bun` command resolves to. FlyEnv adds or removes the version's bin directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each installation a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each version's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** choose which installed version the terminal `bun` command resolves to. FlyEnv handles your `PATH` for you — adding the version's bin directory when you select it, removing it when you switch away — and shows whether the active PATH entry was set by FlyEnv or another tool.
+- **Per-version alias and remark:** give each installation its own short alias and note, so similar builds stay distinguishable in the list.
+- **Housekeeping:** every row shows where the version is installed, and versions you no longer need can be removed from the table.
 
 ## Project-level Bun runtimes
 

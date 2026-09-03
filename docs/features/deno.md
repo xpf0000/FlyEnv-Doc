@@ -45,11 +45,11 @@ Install Deno versions side by side from **Deno → Version Manager** and keep th
 
 ## Command-line version switching
 
-The **Service** tab is, despite its name, a version and PATH management table rather than a running service — Deno has no daemon process inside FlyEnv.
+The **Service** tab starts nothing — Deno is a runtime binary rather than a daemon, so what this tab actually shows is a version and PATH management table.
 
-- **Terminal version switching:** choose which installed version the terminal `deno` command resolves to. FlyEnv adds or removes the version's bin directory in your `PATH` and marks whether the current PATH entry was set by FlyEnv or by another tool.
-- **Per-version alias and remark:** give each installation a short alias and note so similar builds stay distinguishable in the list.
-- **Housekeeping:** the table shows each version's install path and lets you delete versions you no longer need.
+- **Terminal version switching:** pick the installed version your terminal `deno` command should resolve to. FlyEnv adds or removes the version's bin directory in your `PATH` accordingly and indicates whether the current PATH entry belongs to FlyEnv or to another tool.
+- **Per-version alias and remark:** each installation accepts a short alias and a note, keeping similar builds distinguishable in the list.
+- **Housekeeping:** the table surfaces each version's install path and lets you delete versions you no longer need.
 
 ## Project-level Deno runtimes
 
