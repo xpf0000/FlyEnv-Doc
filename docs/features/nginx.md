@@ -29,7 +29,7 @@ head:
 
 # Nginx in FlyEnv
 
-FlyEnv turns Nginx into a managed part of your local stack: install multiple versions side by side, run one of them as a background service from the sidebar or system tray, and edit `nginx.conf` through a visual form or a full source editor. Every site you create in FlyEnv gets its own generated vhost with per-site ports, framework-aware rewrite rules and reverse proxy support.
+FlyEnv turns Nginx into a managed part of your local stack: install multiple versions side by side, run one of them as a background service from the sidebar or system tray, and edit `nginx.conf` through a visual form or a full source editor. Every PHP-type site you create in FlyEnv gets its own generated Nginx vhost with per-site ports, framework-aware rewrite rules and reverse proxy support.
 
 ![FlyEnv Nginx module overview](https://oss.macphpstudy.com/image/features/nginx-1.webp)
 
@@ -38,7 +38,7 @@ FlyEnv turns Nginx into a managed part of your local stack: install multiple ver
 Install multiple Nginx versions from **Nginx → Version Manager** and keep them side by side.
 
 - **Multiple install sources:** Static builds on every platform, plus Homebrew on macOS and Linux and MacPorts on macOS.
-- **Custom versions:** point FlyEnv at any directory containing your own Nginx build; it scans for the binary and lists it next to the managed versions.
+- **Custom versions:** register a directory that holds your own Nginx build; FlyEnv locates the binary inside it and shows it alongside the managed versions.
 - **Shared configuration:** all installed versions use one common `nginx.conf`, so switching versions never loses your settings.
 
 ![Nginx Version Manager with install sources](https://oss.macphpstudy.com/image/features/nginx-2.webp)
@@ -64,9 +64,9 @@ The **Config File** tab edits the shared `nginx.conf` two ways.
 
 ## Site integration
 
-Nginx is the default web server behind the sites you create in FlyEnv's Host module; site creation itself is covered in the [Host guide](/guide/host).
+FlyEnv's Host module has no single default web server: PHP-type sites get vhost configurations in all four web servers — Nginx, Apache, Caddy and FrankenPHP — at the same time, and whichever server is running serves the site. Site creation itself is covered in the [Host guide](/guide/host).
 
-- **Per-site vhost and ports:** every site gets its own generated vhost file and its own Nginx ports (80/443 by default), independent of the ports used by Apache, Caddy or FrankenPHP — so the same site can be served by several web servers at once. Domains and HTTPS for sites are covered in [Local Sites, Custom Domains & HTTPS](/features/local-sites-https).
+- **Per-site vhost and ports:** every PHP-type site gets its own generated Nginx vhost file and its own Nginx ports (80/443 by default), independent of the ports used by Apache, Caddy or FrankenPHP — so the same site can be served by several web servers at once. Sites of other types are different: Node, Java, Go and Python sites are reached through reverse proxy, and Tomcat sites live in `server.xml`. Domains and HTTPS for sites are covered in [Local Sites, Custom Domains & HTTPS](/features/local-sites-https).
 - **Automatic rewrite rules:** FlyEnv detects WordPress, Laravel and Yii projects and pre-fills the matching URL rewrite rules in the site's vhost.
 - **Per-site reverse proxy:** add reverse proxy rules to a site to forward paths to local app servers — the [NestJS multi-server reverse proxy guide](/guide/reverse-proxy-nestjs-multi-servers) walks through a complete example.
 - **PHP via PHP-FPM:** PHP sites are served through per-version PHP-FPM includes, letting each site pick its own PHP version.
@@ -79,4 +79,4 @@ The Nginx module page includes dedicated **Error Log** and **Log (access)** tabs
 
 ## Compatibility Notes
 
-FlyEnv manages the Nginx binary, its process lifecycle and the generated configuration; it does not guarantee that every third-party Nginx module or build variant is available on every operating system. Available install sources differ by platform (MacPorts is macOS-only, and Windows uses static builds). Verify your site's requirements against the installed Nginx build, and treat the [Download page](/download) and current release notes as the source for supported packages.
+FlyEnv manages the Nginx binary, its process lifecycle and the generated configuration. All installed versions share one common `nginx.conf`, so changes made through the visual form or the raw editor apply no matter which version you start — keep that in mind before relying on a directive that only exists in newer releases. Available install sources differ by platform (MacPorts is macOS-only, and Windows uses static builds). Verify your site's requirements against the installed Nginx build, and treat the [Download page](/download) and current release notes as the source for supported packages.

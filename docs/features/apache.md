@@ -39,7 +39,7 @@ Install Apache builds side by side from **Apache → Version Manager** and switc
 
 - **Package-manager sources:** on macOS, install Apache from Homebrew (`httpd` formula) or MacPorts; on Linux, Homebrew is the install source. FlyEnv detects the installations those package managers already manage.
 - **Static builds on Windows:** the Windows install list downloads Apache Lounge builds directly.
-- **Custom versions:** point FlyEnv at any directory containing your own Apache build; it scans for the binary and lists it next to the managed versions.
+- **Custom versions:** already have an Apache build of your own? Add its directory and FlyEnv will detect the binary and list it with the other installations.
 
 ![Apache Version Manager with install sources](https://oss.macphpstudy.com/image/features/apache-2.webp)
 
@@ -48,7 +48,7 @@ Install Apache builds side by side from **Apache → Version Manager** and switc
 Apache is a single-instance service in FlyEnv: many versions can be installed, but only one runs at a time, so the site's port assignments stay unambiguous.
 
 - **Per-version lifecycle:** start, stop or restart the running Apache version from the Service tab, the sidebar switch or the system tray.
-- **Foreground operation:** on macOS, FlyEnv launches `httpd` with its own config file and explicit pid and log paths; on Linux it runs through FlyEnv's root helper; on Windows the server is spawned with the version's configuration. Starting a different version first stops the current one.
+- **Foreground operation:** on macOS, FlyEnv launches `httpd` with its own config file and explicit pid and log paths; on Linux it runs through FlyEnv's root helper; on Windows the server is spawned with the version's configuration. Starting another version while one is already running is blocked in the Service tab — stop the running version first to switch.
 - **PATH integration:** the Service table shows each installation's path, environment status, alias and per-version note.
 
 ## Configuration
