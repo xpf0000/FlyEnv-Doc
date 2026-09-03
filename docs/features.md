@@ -93,11 +93,11 @@ const categories = [
     description: 'Map code to friendly domains, HTTPS and the server that fits.', tone: 'bg-emerald-50 text-emerald-700',
     items: [
       { name: 'Local Sites & HTTPS', detail: 'Create local domains, HTTPS and proxies.', href: '/features/local-sites-https', logo: '' },
-      { name: 'FrankenPHP', detail: 'Serve modern PHP apps with FrankenPHP.', href: '/guide/deploy-php-projects-without-docker', logo: frankenPhpLogo },
-      { name: 'Nginx', detail: 'Run versioned Nginx sites and configs.', href: '/guide/host', logo: 'https://oss.macphpstudy.com/image/nginx.png' },
-      { name: 'Apache', detail: 'Serve PHP projects with Apache locally.', href: '/guide/host', logo: 'https://oss.macphpstudy.com/image/apache.png' },
-      { name: 'Caddy', detail: 'Serve local sites with automatic HTTPS.', href: '/guide/host', logo: 'https://oss.macphpstudy.com/image/caddy.svg' },
-      { name: 'Tomcat', detail: 'Run Java web apps with Tomcat.', href: '/guide/host', logo: 'https://oss.macphpstudy.com/image/tomcat.svg' }
+      { name: 'FrankenPHP', detail: 'Serve modern PHP apps with FrankenPHP.', href: '/features/frankenphp', logo: frankenPhpLogo },
+      { name: 'Nginx', detail: 'Run versioned Nginx sites and configs.', href: '/features/nginx', logo: 'https://oss.macphpstudy.com/image/nginx.png' },
+      { name: 'Apache', detail: 'Serve PHP projects with Apache locally.', href: '/features/apache', logo: 'https://oss.macphpstudy.com/image/apache.png' },
+      { name: 'Caddy', detail: 'Serve local sites with automatic HTTPS.', href: '/features/caddy', logo: 'https://oss.macphpstudy.com/image/caddy.svg' },
+      { name: 'Tomcat', detail: 'Run Java web apps with Tomcat.', href: '/features/tomcat', logo: 'https://oss.macphpstudy.com/image/tomcat.svg' }
     ]
   },
   {
