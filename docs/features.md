@@ -104,13 +104,13 @@ const categories = [
     id: 'databases', eyebrow: '03 / Persist with confidence', title: 'Databases & Database Management',
     description: 'Keep relational, document and analytical stores close to your code.', tone: 'bg-violet-50 text-violet-700',
     items: [
-      { name: 'MySQL', detail: 'Run MySQL versions and manage users.', href: '/guide/database-user-password', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
-      { name: 'PostgreSQL', detail: 'Run PostgreSQL and connect pgAdmin.', href: '/guide/database-user-password', logo: 'https://oss.macphpstudy.com/image/postgresql.svg' },
-      { name: 'MariaDB', detail: 'Run an isolated MySQL-compatible service.', href: '/guide/database-user-password', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
-      { name: 'MongoDB', detail: 'Start MongoDB for app development.', href: '/guide/database-user-password', logo: 'https://oss.macphpstudy.com/image/MongoDB.svg' },
-      { name: 'Qdrant', detail: 'Run a local vector database for AI apps.', href: '/demos', logo: qdrantLogo },
-      { name: 'ClickHouse', detail: 'Explore analytical workloads locally.', href: '/demos', logo: clickHouseLogo },
-      { name: 'Neo4j', detail: 'Prototype graph-backed applications locally.', href: '/demos', logo: neo4jLogo }
+      { name: 'MySQL', detail: 'Run MySQL versions and manage users.', href: '/features/mysql', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
+      { name: 'PostgreSQL', detail: 'Run PostgreSQL and connect pgAdmin.', href: '/features/postgresql', logo: 'https://oss.macphpstudy.com/image/postgresql.svg' },
+      { name: 'MariaDB', detail: 'Run an isolated MySQL-compatible service.', href: '/features/mariadb', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+      { name: 'MongoDB', detail: 'Start MongoDB for app development.', href: '/features/mongodb', logo: 'https://oss.macphpstudy.com/image/MongoDB.svg' },
+      { name: 'Qdrant', detail: 'Run a local vector database for AI apps.', href: '/features/qdrant', logo: qdrantLogo },
+      { name: 'ClickHouse', detail: 'Explore analytical workloads locally.', href: '/features/clickhouse', logo: clickHouseLogo },
+      { name: 'Neo4j', detail: 'Prototype graph-backed applications locally.', href: '/features/neo4j', logo: neo4jLogo }
     ]
   },
   {
