@@ -29,7 +29,7 @@ head:
 
 # R-NACOS in FlyEnv
 
-FlyEnv runs R-Nacos as a managed local service: install versions from static builds or Homebrew, start the `rnacos` binary with a generated `rnacos.env` file, edit that configuration in a built-in editor, and open the R-Nacos console for service discovery and configuration work in one click. To get FlyEnv itself, head to the [Download page](/download); hands-on walkthroughs live in the [demos](/demos).
+R-NACOS is an open source service registry and configuration center written in Rust, compatible with the Nacos protocol used across Alibaba's Java microservices ecosystem. Microservice stacks use it to register and discover service instances and to publish dynamic configuration that clients watch at runtime. FlyEnv runs R-Nacos as a managed local service: install versions from static builds or Homebrew, start the `rnacos` binary with a generated `rnacos.env` file, edit that configuration in a built-in editor, and open the R-Nacos console for service discovery and configuration work in one click. To get FlyEnv itself, head to the [Download page](/download); hands-on walkthroughs live in the [demos](/demos).
 
 ![FlyEnv R-Nacos module overview with Service, Version Manager, Config File and Log tabs](https://oss.macphpstudy.com/image/features/r-nacos-1.webp)
 

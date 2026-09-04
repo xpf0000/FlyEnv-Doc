@@ -29,7 +29,7 @@ head:
 
 # Meilisearch in FlyEnv
 
-FlyEnv runs Meilisearch as a managed local service: install versions from the Version Manager, start the real `meilisearch` binary against an editable `meilisearch.toml`, and open the built-in search dashboard from the Service tab. Each version gets its own working directory for its data, and configuration is covered by both a raw editor and a rich visual form of roughly 30 settings.
+Meilisearch is an open source, lightweight search engine that serves instant, typo-tolerant full-text search over a REST API. It is often picked to power the search box of a site or application when a full Elasticsearch deployment would be too heavy. FlyEnv runs it as a managed local service: install versions from the Version Manager, start the real `meilisearch` binary against an editable `meilisearch.toml`, and open the built-in search dashboard from the Service tab. Each version gets its own working directory for its data, and configuration is covered by both a raw editor and a rich visual form of roughly 30 settings.
 
 ![FlyEnv Meilisearch module overview with Service tab](https://oss.macphpstudy.com/image/features/meilisearch-1.webp)
 

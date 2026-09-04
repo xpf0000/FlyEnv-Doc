@@ -29,7 +29,7 @@ head:
 
 # Local Erlang Development with FlyEnv
 
-FlyEnv's Erlang module keeps local Erlang/OTP development in one place: install multiple Erlang versions, decide which one your terminal `erl` command resolves to, and bind each project to its own runtime. The module has three tabs — Erlang Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
+Erlang/OTP is a functional programming language and runtime platform built for highly concurrent, fault-tolerant systems. It is commonly used for telecom infrastructure, messaging platforms and other services that must stay available under heavy load. FlyEnv's Erlang module keeps local Erlang/OTP development in one place: install multiple Erlang versions, decide which one your terminal `erl` command resolves to, and bind each project to its own runtime. The module has three tabs — Erlang Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
 
 ![FlyEnv Erlang module overview](https://oss.macphpstudy.com/image/features/erlang-1.webp)
 

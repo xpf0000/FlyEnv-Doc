@@ -29,7 +29,7 @@ head:
 
 # Nginx in FlyEnv
 
-FlyEnv turns Nginx into a managed part of your local stack: install multiple versions side by side, run one of them as a background service from the sidebar or system tray, and edit `nginx.conf` through a visual form or a full source editor. Every PHP-type site you create in FlyEnv gets its own generated Nginx vhost with per-site ports, framework-aware rewrite rules and reverse proxy support.
+Nginx is an open source web server and reverse proxy, used both to serve sites directly and to route traffic to application servers such as PHP-FPM. FlyEnv turns Nginx into a managed part of your local stack: install multiple versions side by side, run one of them as a background service from the sidebar or system tray, and edit `nginx.conf` through a visual form or a full source editor. Every PHP-type site you create in FlyEnv gets its own generated Nginx vhost with per-site ports, framework-aware rewrite rules and reverse proxy support.
 
 ![FlyEnv Nginx module overview](https://oss.macphpstudy.com/image/features/nginx-1.webp)
 

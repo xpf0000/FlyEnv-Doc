@@ -29,7 +29,7 @@ head:
 
 # Elasticsearch in FlyEnv
 
-FlyEnv runs Elasticsearch as a managed local service on macOS, Windows and Linux: install multiple versions side by side, start and stop them from one window, and edit each version's own `elasticsearch.yml`, `jvm.options` and `log4j2.properties` without hunting through install directories. Logs for the running node open right inside the app.
+Elasticsearch is a distributed search and analytics engine built on Apache Lucene, used for full-text search, log analysis and aggregations over large datasets. FlyEnv runs it as a managed local service on macOS, Windows and Linux: install multiple versions side by side, start and stop them from one window, and edit each version's own `elasticsearch.yml`, `jvm.options` and `log4j2.properties` without hunting through install directories. Logs for the running node open right inside the app.
 
 ![FlyEnv Elasticsearch module overview](https://oss.macphpstudy.com/image/features/elasticsearch-1.webp)
 

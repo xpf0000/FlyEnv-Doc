@@ -29,7 +29,7 @@ head:
 
 # Codex CLI in FlyEnv
 
-FlyEnv gives the Codex CLI a management console: one-click installation through the official setup script, a visual form for `config.toml`, a Sessions table that resumes past conversations in your terminal, plus plugin and MCP server management. For the bigger picture of driving AI assistants from FlyEnv, see [how FlyEnv works with AI](/guide/flyenv-work-with-ai).
+Codex is OpenAI's open-source coding agent for the terminal — it takes natural-language tasks and edits, runs and reviews code inside your projects. FlyEnv gives the Codex CLI a management console: one-click installation through the official setup script, a visual form for `config.toml`, a Sessions table that resumes past conversations in your terminal, plus plugin and MCP server management. For the bigger picture of driving AI assistants from FlyEnv, see [how FlyEnv works with AI](/guide/flyenv-work-with-ai).
 
 ![FlyEnv Codex module overview](https://oss.macphpstudy.com/image/features/codex-1.webp)
 

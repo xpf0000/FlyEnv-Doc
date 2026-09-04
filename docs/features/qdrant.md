@@ -29,7 +29,7 @@ head:
 
 # Local Qdrant Development with FlyEnv
 
-FlyEnv's Qdrant module runs the Qdrant vector database as a managed local service: install versions from a curated online list, start and stop them from the sidebar, and edit each version's YAML config in a built-in editor. Every instance gets a generated configuration, per-version logs, and the Qdrant web dashboard served on port 6333 — no manual setup required.
+Qdrant is an open source vector database: it stores embedding vectors and finds the most similar ones quickly. It is a common building block for semantic search, recommendations and retrieval-augmented generation (RAG) applications. FlyEnv's Qdrant module runs it as a managed local service: install versions from a curated online list, start and stop them from the sidebar, and edit each version's YAML config in a built-in editor. Every instance gets a generated configuration, per-version logs, and the Qdrant web dashboard served on port 6333 — no manual setup required.
 
 ![FlyEnv Qdrant module overview](https://oss.macphpstudy.com/image/features/qdrant-1.webp)
 

@@ -29,7 +29,7 @@ head:
 
 # Podman Container Management with FlyEnv
 
-FlyEnv turns Podman into a visual workspace: create and tune Podman machines, generate Compose projects from a stack library, pull images from the official catalog, and run and inspect containers — all without memorizing CLI flags. FlyEnv detects your system Podman automatically and, on macOS and Linux with Homebrew, can install it in one click from the embedded terminal. For a step-by-step walkthrough, see the [Podman module guide](/guide/podman-module).
+Podman is an open source container engine for building and running OCI containers, compatible with Docker images and Compose files, and able to run rootless without a background daemon. FlyEnv turns Podman into a visual workspace: create and tune Podman machines, generate Compose projects from a stack library, pull images from the official catalog, and run and inspect containers — all without memorizing CLI flags. FlyEnv detects your system Podman automatically and, on macOS and Linux with Homebrew, can install it in one click from the embedded terminal. For a step-by-step walkthrough, see the [Podman module guide](/guide/podman-module).
 
 ![FlyEnv Podman module overview with machine list](https://oss.macphpstudy.com/image/features/podman-1.webp)
 

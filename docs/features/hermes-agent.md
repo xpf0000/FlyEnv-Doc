@@ -29,7 +29,7 @@ head:
 
 # Hermes Agent in FlyEnv
 
-FlyEnv wraps the Hermes agent CLI in a dedicated module: one-shot installation through the official script, start/stop control for the Hermes gateway, direct editing of its configuration files, a Skills manager with online browsing across multiple sources, and a Sessions view with cleanup. The module is organized into five tabs — Service, Config File, Log, Skills and Sessions. For how FlyEnv fits into AI-assisted workflows in general, see [FlyEnv Work with AI](/guide/flyenv-work-with-ai).
+Hermes is an open-source autonomous AI agent from Nous Research: a terminal-driven agent with its own gateway process, an extensible skill system and persistent sessions. FlyEnv wraps the Hermes agent CLI in a dedicated module: one-shot installation through the official script, start/stop control for the Hermes gateway, direct editing of its configuration files, a Skills manager with online browsing across multiple sources, and a Sessions view with cleanup. The module is organized into five tabs — Service, Config File, Log, Skills and Sessions. For how FlyEnv fits into AI-assisted workflows in general, see [FlyEnv Work with AI](/guide/flyenv-work-with-ai).
 
 ![FlyEnv Hermes module overview with Service, Config File, Log, Skills and Sessions tabs](https://oss.macphpstudy.com/image/features/hermes-agent-1.webp)
 

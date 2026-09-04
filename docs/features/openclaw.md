@@ -29,7 +29,7 @@ head:
 
 # OpenClaw in FlyEnv
 
-FlyEnv wraps the OpenClaw CLI in a compact control panel: it installs OpenClaw through the official script, registers and manages the OpenClaw gateway as a real operating-system service, and surfaces the CLI's roughly 110 sub-commands as a categorized palette that runs in FlyEnv's embedded terminal. The module is deliberately thin — FlyEnv stays out of the way and drives the same `openclaw` binary you would use by hand. For a task-oriented walkthrough, see the [OpenClaw guide](/guide/openclaw).
+OpenClaw is an open-source personal AI assistant that runs on your own machine: a local gateway connects chat channels such as WhatsApp and Telegram to a coding agent, so you can message your assistant from anywhere. FlyEnv wraps the OpenClaw CLI in a compact control panel: it installs OpenClaw through the official script, registers and manages the OpenClaw gateway as a real operating-system service, and surfaces the CLI's roughly 110 sub-commands as a categorized palette that runs in FlyEnv's embedded terminal. The module is deliberately thin — FlyEnv stays out of the way and drives the same `openclaw` binary you would use by hand. For a task-oriented walkthrough, see the [OpenClaw guide](/guide/openclaw).
 
 ![FlyEnv OpenClaw module showing the Service tab with gateway status](https://oss.macphpstudy.com/image/features/openclaw-1.webp)
 

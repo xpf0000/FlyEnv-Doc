@@ -29,7 +29,7 @@ head:
 
 # FrankenPHP in FlyEnv
 
-FrankenPHP is a modern PHP application server built on Caddy, and FlyEnv manages it as a dedicated module: install multiple FrankenPHP versions, start and stop them as services, edit the Caddyfile, and read logs without leaving the app. Because FrankenPHP serves PHP directly, your sites run without PHP-FPM — each site gets its own port and automatic HTTPS out of the box.
+FrankenPHP is a modern PHP application server built on top of Caddy: it embeds a full PHP runtime and serves PHP applications directly, without a separate PHP-FPM process. FlyEnv manages it as a dedicated module: install multiple FrankenPHP versions, start and stop them as services, edit the Caddyfile, and read logs without leaving the app. Your sites get their own port and automatic HTTPS out of the box, with no PHP-FPM to configure.
 
 ![FrankenPHP module overview in FlyEnv](https://oss.macphpstudy.com/image/features/frankenphp-1.webp)
 

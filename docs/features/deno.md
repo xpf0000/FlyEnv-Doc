@@ -29,7 +29,7 @@ head:
 
 # Local Deno Development with FlyEnv
 
-FlyEnv's Deno module is deliberately focused: it installs Deno versions, decides which one your terminal `deno` command resolves to, and binds each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — covering version installation, PATH control and project runtimes, with no configuration files or log viewers to manage.
+Deno is a runtime for JavaScript and TypeScript built on V8, created by the original author of Node.js, with built-in TypeScript support and a default-deny permission model. It is used for servers, scripts and tooling where a single self-contained binary is convenient. FlyEnv's Deno module is deliberately focused: it installs Deno versions, decides which one your terminal `deno` command resolves to, and binds each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — covering version installation, PATH control and project runtimes, with no configuration files or log viewers to manage.
 
 ![FlyEnv Deno module overview](https://oss.macphpstudy.com/image/features/deno-1.webp)
 

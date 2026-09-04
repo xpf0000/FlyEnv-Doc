@@ -29,7 +29,7 @@ head:
 
 # CLIProxyAPI in FlyEnv
 
-FlyEnv runs CLIProxyAPI as a managed local AI gateway: install versions from the Version Manager, start the `cli-proxy-api` process from the sidebar or the module page, edit `config.yaml` and the backend environment file inside the app, and open the built-in management panel in your browser. Startup output is captured to per-version log files, so a failed start is easy to diagnose.
+CLIProxyAPI is an open source local proxy that puts CLI-based AI tools — such as Gemini CLI, Claude Code and Codex — behind standard OpenAI-, Gemini- and Claude-compatible API endpoints. It lets applications that expect a hosted model API call these CLI accounts as if they were ordinary HTTP services, with several providers unified behind one local gateway. FlyEnv runs CLIProxyAPI as a managed local AI gateway: install versions from the Version Manager, start the `cli-proxy-api` process from the sidebar or the module page, edit `config.yaml` and the backend environment file inside the app, and open the built-in management panel in your browser. Startup output is captured to per-version log files, so a failed start is easy to diagnose.
 
 ![CLIProxyAPI module overview in FlyEnv](https://oss.macphpstudy.com/image/features/cliproxyapi-1.webp)
 

@@ -29,7 +29,7 @@ head:
 
 # Local Ruby Development with FlyEnv
 
-FlyEnv's Ruby module keeps local Ruby development in one place: install multiple Ruby versions, decide which one your terminal `ruby` command resolves to, and bind each project to its own runtime. The module has three tabs — Ruby Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
+Ruby is a dynamic, object-oriented programming language known for web development, most notably through the Ruby on Rails framework. FlyEnv's Ruby module keeps local Ruby development in one place: install multiple Ruby versions, decide which one your terminal `ruby` command resolves to, and bind each project to its own runtime. The module has three tabs — Ruby Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
 
 ![FlyEnv Ruby module overview](https://oss.macphpstudy.com/image/features/ruby-1.webp)
 

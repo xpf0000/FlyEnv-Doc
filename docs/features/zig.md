@@ -29,7 +29,7 @@ head:
 
 # Local Zig Development with FlyEnv
 
-FlyEnv's Zig module keeps local Zig toolchains organized in one place: install multiple Zig versions side by side, decide which one your terminal `zig` command resolves to, and bind each project to its own compiler version. The module has three tabs — Projects, Service and Version Manager — focused on version installation, PATH control and project toolchains.
+Zig is a general-purpose systems programming language and toolchain with manual memory management and built-in cross-compilation. It is used for system components, embedded targets and performance-sensitive tooling where C or C++ would traditionally be chosen. FlyEnv's Zig module keeps local Zig toolchains organized in one place: install multiple Zig versions side by side, decide which one your terminal `zig` command resolves to, and bind each project to its own compiler version. The module has three tabs — Projects, Service and Version Manager — focused on version installation, PATH control and project toolchains.
 
 ![FlyEnv Zig module overview](https://oss.macphpstudy.com/image/features/zig-1.webp)
 

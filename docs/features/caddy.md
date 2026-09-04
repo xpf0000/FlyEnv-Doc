@@ -29,7 +29,7 @@ head:
 
 # Caddy in FlyEnv
 
-FlyEnv makes Caddy a managed part of your local stack: install versions from several sources, run one of them as a service with automatic configuration reload, and let FlyEnv generate the vhost for every PHP-type site you create. Each such site gets its own Caddy ports, automatic internal HTTPS and per-site reverse proxy rules, all stitched together by one managed Caddyfile.
+Caddy is an open source web server configured through a single Caddyfile, with automatic HTTPS built in. FlyEnv makes Caddy a managed part of your local stack: install versions from several sources, run one of them as a service with automatic configuration reload, and let FlyEnv generate the vhost for every PHP-type site you create. Each such site gets its own Caddy ports, automatic internal HTTPS and per-site reverse proxy rules, all stitched together by one managed Caddyfile.
 
 ![FlyEnv Caddy module overview](https://oss.macphpstudy.com/image/features/caddy-1.webp)
 

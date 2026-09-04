@@ -29,7 +29,7 @@ head:
 
 # Local PHP Development with FlyEnv
 
-FlyEnv manages the whole PHP side of your local stack in one app: multiple PHP versions, per-version PHP-FPM, visual `php.ini` and extension management, project-level runtimes, Composer, and one-click scaffolding for common PHP applications.
+PHP is a server-side scripting language used to build dynamic websites and web applications, from WordPress sites to applications on frameworks like Laravel and Symfony. FlyEnv manages the whole PHP side of your local stack in one app: multiple PHP versions, per-version PHP-FPM, visual `php.ini` and extension management, project-level runtimes, Composer, and one-click scaffolding for common PHP applications.
 
 ![FlyEnv PHP module overview](https://oss.macphpstudy.com/image/features/php-1.webp)
 

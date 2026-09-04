@@ -29,7 +29,7 @@ head:
 
 # Apache in FlyEnv
 
-FlyEnv runs Apache as a managed local web server: install multiple Apache builds from package managers or the static download list, edit each version's configuration in place, and serve local sites through per-site vhost files. The `httpd` service starts in the foreground under FlyEnv's control, and port, log and module wiring is regenerated for you on every start.
+Apache HTTP Server (`httpd`) is an open source web server with a long history, still common in classic LAMP-style stacks and wherever `.htaccess` or module-based configuration is needed. FlyEnv runs Apache as a managed local web server: install multiple Apache builds from package managers or the static download list, edit each version's configuration in place, and serve local sites through per-site vhost files. The `httpd` service starts in the foreground under FlyEnv's control, and port, log and module wiring is regenerated for you on every start.
 
 ![FlyEnv Apache module overview](https://oss.macphpstudy.com/image/features/apache-1.webp)
 

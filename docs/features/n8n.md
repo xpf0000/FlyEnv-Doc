@@ -29,7 +29,7 @@ head:
 
 # Local n8n Automation with FlyEnv
 
-FlyEnv runs n8n as a managed local automation server: pick a version from the npm registry and install it in the embedded terminal, launch `n8n start` with a visual environment configuration, and administer accounts in the Users tab without opening a database tool. The server listens on port 5678 by default, and FlyEnv can even recognize an n8n instance you started outside the app through its health endpoint.
+n8n is an open source workflow automation tool with a visual, node-based editor for connecting APIs, databases and services. Teams self-host it to build integrations and automations — from data syncs to AI pipelines — without a hosted automation platform. FlyEnv runs n8n as a managed local automation server: pick a version from the npm registry and install it in the embedded terminal, launch `n8n start` with a visual environment configuration, and administer accounts in the Users tab without opening a database tool. The server listens on port 5678 by default, and FlyEnv can even recognize an n8n instance you started outside the app through its health endpoint.
 
 ![FlyEnv n8n module overview with service controls](https://oss.macphpstudy.com/image/features/n8n-1.webp)
 

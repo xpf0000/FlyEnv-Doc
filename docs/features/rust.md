@@ -29,7 +29,7 @@ head:
 
 # Local Rust Development with FlyEnv
 
-FlyEnv's Rust module keeps local Rust development in one place: install Rust toolchains side by side, manage rustup toolchains and target platforms, decide which toolchain your terminal `cargo` and `rustc` commands resolve to, and bind each project to its own toolchain. The module has four tabs — Rust Projects, Service, Version Manager and Rustup — covering installation, PATH control, rustup integration and project runtimes.
+Rust is a systems programming language focused on memory safety and performance, used for command-line tools, system components, WebAssembly and performance-critical services. FlyEnv's Rust module keeps local Rust development in one place: install Rust toolchains side by side, manage rustup toolchains and target platforms, decide which toolchain your terminal `cargo` and `rustc` commands resolve to, and bind each project to its own toolchain. The module has four tabs — Rust Projects, Service, Version Manager and Rustup — covering installation, PATH control, rustup integration and project runtimes.
 
 ![FlyEnv Rust module overview](https://oss.macphpstudy.com/image/features/rust-1.webp)
 

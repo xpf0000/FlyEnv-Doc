@@ -29,7 +29,7 @@ head:
 
 # Local Java Development with FlyEnv
 
-FlyEnv manages the Java side of your local stack in one app: multiple JDK versions from several install sources, a dedicated Maven version manager, terminal-level version switching, and per-project Java runtime binding. The Java module is organized into four tabs — Java Projects, Service, Version Manager and Maven.
+Java is a general-purpose, JVM-based programming language widely used for enterprise backends, Android apps and large-scale services, with Maven as one of its standard build tools. FlyEnv manages the Java side of your local stack in one app: multiple JDK versions from several install sources, a dedicated Maven version manager, terminal-level version switching, and per-project Java runtime binding. The Java module is organized into four tabs — Java Projects, Service, Version Manager and Maven.
 
 ![FlyEnv Java module overview](https://oss.macphpstudy.com/image/features/java-1.webp)
 

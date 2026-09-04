@@ -29,7 +29,7 @@ head:
 
 # Local RustFS Object Storage with FlyEnv
 
-FlyEnv turns RustFS into a managed local service, so you get S3-compatible object storage for development without containers or shell scripting. Install RustFS builds from inside the app, shape `rustfs.conf` through a grouped settings form, keep each version's objects in its own data directory, and reach the RustFS console in the browser with a single click.
+RustFS is an open source, distributed object storage system written in Rust that exposes an S3-compatible API. It fits workloads that want object storage on their own infrastructure — and, in development, a local stand-in for S3 without containers or cloud accounts. FlyEnv turns RustFS into a managed local service, so you get that storage without shell scripting. Install RustFS builds from inside the app, shape `rustfs.conf` through a grouped settings form, keep each version's objects in its own data directory, and reach the RustFS console in the browser with a single click.
 
 ![FlyEnv RustFS module overview](https://oss.macphpstudy.com/image/features/rustfs-1.webp)
 

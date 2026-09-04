@@ -29,7 +29,7 @@ head:
 
 # GitHub Copilot CLI in FlyEnv
 
-FlyEnv gives GitHub Copilot CLI a dedicated management page: one-click installation, a raw editor for its JSON config files, a Sessions browser with resume and cleanup, a Skills list with per-skill actions, and MCP server management. Copilot stays a normal terminal tool — FlyEnv organizes everything around it. For the broader workflow of driving FlyEnv from AI assistants, see [FlyEnv Work With AI](/guide/flyenv-work-with-ai).
+GitHub Copilot CLI is GitHub's AI coding agent for the terminal, part of the Copilot product family. FlyEnv gives it a dedicated management page: one-click installation, a raw editor for its JSON config files, a Sessions browser with resume and cleanup, a Skills list with per-skill actions, and MCP server management. Copilot stays a normal terminal tool — FlyEnv organizes everything around it. For the broader workflow of driving FlyEnv from AI assistants, see [FlyEnv Work With AI](/guide/flyenv-work-with-ai).
 
 ![GitHub Copilot CLI module overview in FlyEnv showing the Service card with install command, detected version and quick command cheat-sheet](https://oss.macphpstudy.com/image/features/github-copilot-cli-1.webp)
 

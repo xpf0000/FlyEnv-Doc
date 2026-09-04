@@ -29,7 +29,7 @@ head:
 
 # Local PostgreSQL Development with FlyEnv
 
-FlyEnv runs PostgreSQL as a managed local service you control from one window: install multiple versions, let FlyEnv initialize the data directory with `initdb` on first start, edit `postgresql.conf` in place, and watch `pg.log` without leaving the app. A built-in pgAdmin 4 launcher gives you a full web console in one click, and the Extension drawer installs pgvector for vector-search workloads.
+PostgreSQL is an open source relational database known for strict SQL standards support and a rich extension ecosystem. It is a common choice for applications that need complex queries, strong transactions or extensions such as pgvector. FlyEnv runs PostgreSQL as a managed local service you control from one window: install multiple versions, let FlyEnv initialize the data directory with `initdb` on first start, edit `postgresql.conf` in place, and watch `pg.log` without leaving the app. A built-in pgAdmin 4 launcher gives you a full web console in one click, and the Extension drawer installs pgvector for vector-search workloads.
 
 ![FlyEnv PostgreSQL module overview](https://oss.macphpstudy.com/image/features/postgresql-1.webp)
 

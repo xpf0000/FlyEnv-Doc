@@ -29,7 +29,7 @@ head:
 
 # Local Email Testing with FlyEnv
 
-FlyEnv runs Mailpit as a managed local email-catching service: install a version from the Version Manager, start the binary with one switch, and every message your application sends over SMTP lands in Mailpit's web inbox instead of reaching real recipients. The SMTP listener defaults to port 1025, the web UI to port 8025, and both the configuration and the log are editable and viewable directly inside the app.
+Mailpit is an open source SMTP testing tool for developers: it acts as a fake mail server that captures the mail your application sends and displays it in a web inbox, so test messages never reach real recipients. FlyEnv runs it as a managed local service: install a version from the Version Manager, start the binary with one switch, and every message your application sends over SMTP lands in Mailpit's web inbox instead of reaching real recipients. The SMTP listener defaults to port 1025, the web UI to port 8025, and both the configuration and the log are editable and viewable directly inside the app.
 
 ![FlyEnv Mailpit module overview](https://oss.macphpstudy.com/image/features/mailpit-1.webp)
 

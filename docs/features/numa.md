@@ -29,7 +29,7 @@ head:
 
 # Numa DNS in FlyEnv
 
-Numa is a third-party DNS server (by razvandimescu, [numa.rs](https://numa.rs/)) that FlyEnv installs and runs as a managed local service. From the Numa module you can install versions, start the server with one click, edit its TOML configuration, open its built-in web UI and read its logs — with ad-blocking lists and upstream forwarding available out of the box.
+Numa is a third-party DNS server (by razvandimescu, [numa.rs](https://numa.rs/)) that resolves queries locally, forwards them to upstream resolvers, and can block advertising and tracking domains — useful when you want a private, filterable DNS layer for your own machine or network. FlyEnv installs and runs it as a managed local service: from the Numa module you can install versions, start the server with one click, edit its TOML configuration, open its built-in web UI and read its logs — with ad-blocking lists and upstream forwarding available out of the box.
 
 ![FlyEnv Numa module overview with service controls](https://oss.macphpstudy.com/image/features/numa-1.webp)
 

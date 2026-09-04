@@ -29,7 +29,7 @@ head:
 
 # Cloudflare Tunnel with FlyEnv
 
-FlyEnv's Cloudflare Tunnel module exposes local services on public hostnames without touching your router or firewall. You connect your Cloudflare account once, add DNS rules that map subdomains to local `host:port` targets, and FlyEnv drives the whole setup through the Cloudflare API — creating the tunnel, writing CNAME records and pushing ingress rules for you. Each tunnel runs as a managed process with its own logs.
+Cloudflare Tunnel is a Cloudflare service that connects a local service to a public hostname over an outbound-only tunnel from your machine — no router port forwarding or public IP required, which makes it handy for demos and remote access to a dev environment. FlyEnv's Cloudflare Tunnel module exposes local services on public hostnames without touching your router or firewall. You connect your Cloudflare account once, add DNS rules that map subdomains to local `host:port` targets, and FlyEnv drives the whole setup through the Cloudflare API — creating the tunnel, writing CNAME records and pushing ingress rules for you. Each tunnel runs as a managed process with its own logs.
 
 ![FlyEnv Cloudflare Tunnel module with tunnel list](https://oss.macphpstudy.com/image/features/cloudflare-tunnel-1.webp)
 

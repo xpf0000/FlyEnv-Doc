@@ -29,7 +29,7 @@ head:
 
 # Tomcat in FlyEnv
 
-FlyEnv runs Apache Tomcat as a managed service: install multiple Tomcat versions side by side, give each one its own CATALINA_BASE, edit `server.xml` and `web.xml` from the built-in editors, and watch `catalina.out` without opening a terminal. Because Tomcat needs a JDK, FlyEnv picks up JAVA_HOME from the Java module's environment. Local sites of the Tomcat type are written straight into `server.xml` as Host entries, so Java web apps are served by Tomcat itself rather than through another web server.
+Apache Tomcat is an open source Java servlet container: it runs Java web applications packaged as WAR files, and it is what a project needs when it ships as a servlet-based web app rather than a self-contained jar. FlyEnv runs Apache Tomcat as a managed service: install multiple Tomcat versions side by side, give each one its own CATALINA_BASE, edit `server.xml` and `web.xml` from the built-in editors, and watch `catalina.out` without opening a terminal. Because Tomcat needs a JDK, FlyEnv picks up JAVA_HOME from the Java module's environment. Local sites of the Tomcat type are written straight into `server.xml` as Host entries, so Java web apps are served by Tomcat itself rather than through another web server.
 
 ![FlyEnv Tomcat module overview](https://oss.macphpstudy.com/image/features/tomcat-1.webp)
 

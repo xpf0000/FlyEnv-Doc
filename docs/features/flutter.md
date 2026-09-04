@@ -29,7 +29,7 @@ head:
 
 # Flutter Development with FlyEnv
 
-FlyEnv covers the whole local Flutter setup in one module: installing and switching Flutter SDK versions straight from Google's official release list, a parsed Flutter Doctor snapshot, a Command Center for everyday Flutter and Dart commands, guided project creation and editing, and an Android toolchain checker with automatic fixes.
+Flutter is Google's open source UI toolkit for building cross-platform mobile, web and desktop apps from a single Dart codebase. FlyEnv covers the whole local Flutter setup in one module: installing and switching Flutter SDK versions straight from Google's official release list, a parsed Flutter Doctor snapshot, a Command Center for everyday Flutter and Dart commands, guided project creation and editing, and an Android toolchain checker with automatic fixes.
 
 ![FlyEnv Flutter module overview](https://oss.macphpstudy.com/image/features/flutter-1.webp)
 

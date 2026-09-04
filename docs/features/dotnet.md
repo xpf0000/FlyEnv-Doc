@@ -29,7 +29,7 @@ head:
 
 # Local .NET Development with FlyEnv
 
-FlyEnv manages local .NET SDKs in one place: it installs multiple SDK versions side by side, switches the `dotnet` command between them, and binds a specific SDK to each project so terminals and editors pick up the right runtime. The .NET module is organized into three tabs — .NET Projects, Service and Version Manager.
+.NET is Microsoft's open source developer platform for building web, desktop, mobile and cloud applications, with C# as its primary language. FlyEnv manages local .NET SDKs in one place: it installs multiple SDK versions side by side, switches the `dotnet` command between them, and binds a specific SDK to each project so terminals and editors pick up the right runtime. The .NET module is organized into three tabs — .NET Projects, Service and Version Manager.
 
 ![FlyEnv .NET module with Projects, Service and Version Manager tabs](https://oss.macphpstudy.com/image/features/dotnet-1.webp)
 

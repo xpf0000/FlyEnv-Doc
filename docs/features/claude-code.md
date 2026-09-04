@@ -29,7 +29,7 @@ head:
 
 # Claude Code in FlyEnv
 
-FlyEnv gives Claude Code a graphical control center: one-click installation through the official script, a visual editor for `settings.json`, a Sessions browser that resumes past conversations, full plugin and marketplace management, and MCP server configuration — all from the **Claude Code** module in the sidebar. FlyEnv fits naturally into an AI-assisted workflow; see [how FlyEnv works with AI tools](/guide/flyenv-work-with-ai) for the bigger picture.
+Claude Code is Anthropic's command-line AI coding agent: it reads your codebase, edits files and runs commands to carry out development tasks from the terminal. FlyEnv gives Claude Code a graphical control center: one-click installation through the official script, a visual editor for `settings.json`, a Sessions browser that resumes past conversations, full plugin and marketplace management, and MCP server configuration — all from the **Claude Code** module in the sidebar. FlyEnv fits naturally into an AI-assisted workflow; see [how FlyEnv works with AI tools](/guide/flyenv-work-with-ai) for the bigger picture.
 
 ![Claude Code module in FlyEnv with the Service tab and install terminal](https://oss.macphpstudy.com/image/features/claude-code-1.webp)
 

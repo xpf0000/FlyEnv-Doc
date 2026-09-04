@@ -29,7 +29,7 @@ head:
 
 # OpenCode in FlyEnv
 
-FlyEnv gives OpenCode a dedicated management page with six tabs — Service, Config File, Sessions, MCP, Stats and Providers — the richest tab set among FlyEnv's AI coding tools. From one place you can install the CLI, edit its JSONC configuration, browse and resume past Sessions, review per-model Stats, inspect authenticated Providers, and manage MCP servers. It fits naturally into the broader [AI-assisted workflow with FlyEnv](/guide/flyenv-work-with-ai).
+OpenCode is an open-source AI coding agent that runs in the terminal and works with many different model providers, so you are not tied to a single vendor's models. FlyEnv gives OpenCode a dedicated management page with six tabs — Service, Config File, Sessions, MCP, Stats and Providers — the richest tab set among FlyEnv's AI coding tools. From one place you can install the CLI, edit its JSONC configuration, browse and resume past Sessions, review per-model Stats, inspect authenticated Providers, and manage MCP servers. It fits naturally into the broader [AI-assisted workflow with FlyEnv](/guide/flyenv-work-with-ai).
 
 ![OpenCode module in FlyEnv with Service, Config File, Sessions, MCP, Stats and Providers tabs](https://oss.macphpstudy.com/image/features/opencode-1.webp)
 

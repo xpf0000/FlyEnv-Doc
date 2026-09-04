@@ -29,7 +29,7 @@ head:
 
 # Etcd in FlyEnv
 
-FlyEnv runs etcd as a managed local service: install one or more etcd versions, start the selected one from the sidebar switch or the system tray, edit its `etcd.yaml` configuration in place, and read per-version startup logs without leaving the app. The generated defaults listen for client traffic on port 2379 and peer traffic on port 2380, ready for local service-discovery and distributed-configuration work.
+etcd is a distributed, strongly consistent key-value store — the same one Kubernetes uses to hold its cluster state. It is the standard building block for service discovery, distributed configuration and leader election. FlyEnv runs etcd as a managed local service: install one or more etcd versions, start the selected one from the sidebar switch or the system tray, edit its `etcd.yaml` configuration in place, and read per-version startup logs without leaving the app. The generated defaults listen for client traffic on port 2379 and peer traffic on port 2380, ready for local service-discovery and distributed-configuration work.
 
 ![FlyEnv etcd module overview](https://oss.macphpstudy.com/image/features/etcd-1.webp)
 

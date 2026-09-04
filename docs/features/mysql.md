@@ -29,7 +29,7 @@ head:
 
 # Local MySQL Development with FlyEnv
 
-FlyEnv turns MySQL into a managed local service you control from one window: install multiple versions, run `mysqld` with an editable `my-<version>.cnf`, watch the error and slow logs, and reach your data through phpMyAdmin or the built-in Manage drawer. When one server is not enough, the Group feature runs several MySQL instances side by side, each with its own version, port and data directory.
+MySQL is an open source relational database, and for years it has been the default choice behind WordPress, Laravel and countless other web stacks. FlyEnv turns MySQL into a managed local service you control from one window: install multiple versions, run `mysqld` with an editable `my-<version>.cnf`, watch the error and slow logs, and reach your data through phpMyAdmin or the built-in Manage drawer. When one server is not enough, the Group feature runs several MySQL instances side by side, each with its own version, port and data directory.
 
 ![FlyEnv MySQL module overview](https://oss.macphpstudy.com/image/features/mysql-1.webp)
 

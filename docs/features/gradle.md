@@ -29,7 +29,7 @@ head:
 
 # Gradle Version Management with FlyEnv
 
-FlyEnv keeps multiple Gradle versions on one machine and switches the one your terminal uses. The Gradle module focuses on two things: installing versions from several sources, and controlling which `gradle` binary your shell resolves to. It runs no background service — there is nothing to start or stop.
+Gradle is a build automation tool used primarily for Java, Kotlin and Android projects, handling compilation, dependency management, testing and packaging. FlyEnv keeps multiple Gradle versions on one machine and switches the one your terminal uses. The Gradle module focuses on two things: installing versions from several sources, and controlling which `gradle` binary your shell resolves to. It runs no background service — there is nothing to start or stop.
 
 ![FlyEnv Gradle module overview](https://oss.macphpstudy.com/image/features/gradle-1.webp)
 

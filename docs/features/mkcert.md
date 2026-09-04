@@ -29,7 +29,7 @@ head:
 
 # Local HTTPS Certificates with FlyEnv
 
-FlyEnv integrates [mkcert](https://github.com/FiloSottile/mkcert), the standard tool for locally trusted development certificates, and turns it into a point-and-click workflow: install the binary, trust its root CA once, then generate certificates for any of your [local sites](/features/local-sites-https) without touching the command line.
+mkcert is a small open source tool for locally trusted development certificates: it creates its own root CA, and once that CA is installed in your system trust store, every certificate it signs is accepted by your browsers without warnings. FlyEnv integrates [mkcert](https://github.com/FiloSottile/mkcert) and turns it into a point-and-click workflow: install the binary, trust its root CA once, then generate certificates for any of your [local sites](/features/local-sites-https) without touching the command line.
 
 ![FlyEnv MkCert module overview](https://oss.macphpstudy.com/image/features/mkcert-1.webp)
 

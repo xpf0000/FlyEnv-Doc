@@ -29,7 +29,7 @@ head:
 
 # Local Bun Development with FlyEnv
 
-FlyEnv's Bun module covers the essentials of local Bun work in one place: install Bun versions from static builds, decide which one your terminal `bun` command resolves to, and bind each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
+Bun is a JavaScript and TypeScript runtime that also bundles a package manager, bundler and test runner in a single executable. It is used as an alternative to Node.js for servers, scripts and frontend tooling. FlyEnv's Bun module covers the essentials of local Bun work in one place: install Bun versions from static builds, decide which one your terminal `bun` command resolves to, and bind each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
 
 ![FlyEnv Bun module overview](https://oss.macphpstudy.com/image/features/bun-1.webp)
 

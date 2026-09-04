@@ -29,7 +29,7 @@ head:
 
 # Consul in FlyEnv
 
-FlyEnv runs HashiCorp Consul as a managed local server agent: install one or more versions, start the agent with a generated single-node server configuration, keep its data in a per-version data directory you can relocate, and open Consul's built-in web UI in the browser with one click. Configuration, logs and service controls all live in the same module page.
+Consul is HashiCorp's service discovery and service mesh platform: services register themselves, health checks track their availability, and a built-in key/value store distributes configuration. It is typically used by microservice stacks that need a registry for finding and monitoring services — including locally, when you want development to match production. FlyEnv runs HashiCorp Consul as a managed local server agent: install one or more versions, start the agent with a generated single-node server configuration, keep its data in a per-version data directory you can relocate, and open Consul's built-in web UI in the browser with one click. Configuration, logs and service controls all live in the same module page.
 
 ![FlyEnv Consul module Service tab](https://oss.macphpstudy.com/image/features/consul-1.webp)
 

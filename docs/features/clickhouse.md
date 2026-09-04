@@ -29,7 +29,7 @@ head:
 
 # Local ClickHouse Development with FlyEnv
 
-FlyEnv runs ClickHouse as a managed local service on macOS and Linux: it installs versions from an online list, starts the server with an auto-generated configuration, and gives you editable config files, log viewers, and a one-click CH-UI web client. The ClickHouse module is available on macOS and Linux only.
+ClickHouse is an open source columnar database built for fast analytical queries over very large datasets. It is commonly used for log analytics, metrics and event-data workloads where aggregations over billions of rows must return in seconds. FlyEnv runs ClickHouse as a managed local service on macOS and Linux: it installs versions from an online list, starts the server with an auto-generated configuration, and gives you editable config files, log viewers, and a one-click CH-UI web client. The ClickHouse module is available on macOS and Linux only.
 
 ![FlyEnv ClickHouse module overview](https://oss.macphpstudy.com/image/features/clickhouse-1.webp)
 

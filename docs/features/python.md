@@ -29,7 +29,7 @@ head:
 
 # Local Python Development with FlyEnv
 
-FlyEnv's Python module combines version management with a project runtime workflow: install the interpreters you need, decide which one your terminal resolves to, and bind a specific Python to each project. When an app should stay running, FlyEnv can run it as a managed project service with its own port and environment variables, and built-in templates scaffold common Python frameworks in one step.
+Python is a general-purpose programming language used for web backends, scripting, data analysis, automation and machine learning. FlyEnv's Python module combines version management with a project runtime workflow: install the interpreters you need, decide which one your terminal resolves to, and bind a specific Python to each project. When an app should stay running, FlyEnv can run it as a managed project service with its own port and environment variables, and built-in templates scaffold common Python frameworks in one step.
 
 ![FlyEnv Python module overview with projects, service and version manager tabs](https://oss.macphpstudy.com/image/features/python-1.webp)
 

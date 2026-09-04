@@ -29,7 +29,7 @@ head:
 
 # Run Ollama Locally with FlyEnv
 
-FlyEnv manages Ollama as a first-class local service: install Ollama from static builds or Homebrew, start `ollama serve` with one click, tune `OLLAMA_*` environment settings through a visual form, and manage models from a dedicated **Model** tab — browse the online library, pull new models and run them in the embedded terminal. Once a model is pulled, you can build on it with the [local offline AI agent guide](/guide/build-local-offline-ai-agent).
+Ollama is an open source tool for running large language models on your own machine, serving them through a local API that any application can call. It is the common choice when you want chat, code or embedding models available locally — including fully offline. FlyEnv manages Ollama as a first-class local service: install Ollama from static builds or Homebrew, start `ollama serve` with one click, tune `OLLAMA_*` environment settings through a visual form, and manage models from a dedicated **Model** tab — browse the online library, pull new models and run them in the embedded terminal. Once a model is pulled, you can build on it with the [local offline AI agent guide](/guide/build-local-offline-ai-agent).
 
 ![FlyEnv Ollama module overview with service controls](https://oss.macphpstudy.com/image/features/ollama-1.webp)
 

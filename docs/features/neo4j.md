@@ -29,7 +29,7 @@ head:
 
 # Local Neo4j Development with FlyEnv
 
-FlyEnv runs Neo4j as a managed local service: install versions from the static online list, bind each one to a compatible Java runtime from FlyEnv's Java module, edit its `neo4j.conf`, and watch its logs — all from the Neo4j module's **Service / Version Manager / Config File / Log** tabs. The **Neo4j Browser** button opens the database's own web UI once the service is up.
+Neo4j is an open source graph database that stores data as nodes and relationships rather than tables, queried with its Cypher language. It suits workloads where the connections between entities matter — social graphs, knowledge graphs, recommendations and fraud detection. FlyEnv runs Neo4j as a managed local service: install versions from the static online list, bind each one to a compatible Java runtime from FlyEnv's Java module, edit its `neo4j.conf`, and watch its logs — all from the Neo4j module's **Service / Version Manager / Config File / Log** tabs. The **Neo4j Browser** button opens the database's own web UI once the service is up.
 
 ![FlyEnv Neo4j module overview](https://oss.macphpstudy.com/image/features/neo4j-1.webp)
 

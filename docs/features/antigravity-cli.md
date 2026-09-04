@@ -29,7 +29,7 @@ head:
 
 # Antigravity CLI in FlyEnv
 
-FlyEnv gives Google's Antigravity CLI a proper control panel: install the `agy` binary through an embedded terminal, adjust its settings from a visual form, pick up previous conversations from a grouped Sessions list, and browse user and builtin Skills with a rendered Markdown preview. The module is part of FlyEnv's AI tooling set — see [how FlyEnv works with AI coding tools](/guide/flyenv-work-with-ai) for the bigger picture.
+Antigravity CLI (`agy`) is Google's terminal-based AI coding agent, the command-line companion to the Antigravity IDE. FlyEnv gives it a proper control panel: install the `agy` binary through an embedded terminal, adjust its settings from a visual form, pick up previous conversations from a grouped Sessions list, and browse user and builtin Skills with a rendered Markdown preview. The module is part of FlyEnv's AI tooling set — see [how FlyEnv works with AI coding tools](/guide/flyenv-work-with-ai) for the bigger picture.
 
 ![Antigravity CLI module overview in FlyEnv](https://oss.macphpstudy.com/image/features/antigravity-cli-1.webp)
 

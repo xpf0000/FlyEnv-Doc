@@ -29,7 +29,7 @@ head:
 
 # Local Go Development with FlyEnv
 
-FlyEnv keeps local Go development in one app: install multiple Go versions side by side, decide which one your terminal `go` command resolves to, integrate with GVM on macOS and Linux, and bind each project to its own Go runtime. The Go module has five tabs — Go Projects, Service, Version Manager, New Project and GVM — covering version installation, PATH control, project runtimes and scaffolding.
+Go is a compiled, statically typed programming language commonly used for network services, command-line tools and cloud infrastructure software. FlyEnv keeps local Go development in one app: install multiple Go versions side by side, decide which one your terminal `go` command resolves to, integrate with GVM on macOS and Linux, and bind each project to its own Go runtime. The Go module has five tabs — Go Projects, Service, Version Manager, New Project and GVM — covering version installation, PATH control, project runtimes and scaffolding.
 
 ![FlyEnv Go module overview](https://oss.macphpstudy.com/image/features/go-1.webp)
 

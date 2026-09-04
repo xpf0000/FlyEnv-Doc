@@ -29,7 +29,7 @@ head:
 
 # Local Object Storage with FlyEnv
 
-FlyEnv runs MinIO as a managed local service, giving you S3-compatible object storage for development without Docker or manual setup. Install MinIO versions from the app, edit `minio.conf` through a visual settings form, give each version its own data directory, and open the MinIO Console in your browser with one click.
+MinIO is an open source object storage server that speaks the Amazon S3 API. Developers reach for it when an application needs S3-compatible storage during development and testing without provisioning real cloud buckets. FlyEnv runs MinIO as a managed local service, giving you that storage without Docker or manual setup. Install MinIO versions from the app, edit `minio.conf` through a visual settings form, give each version its own data directory, and open the MinIO Console in your browser with one click.
 
 ![FlyEnv MinIO module overview](https://oss.macphpstudy.com/image/features/minio-1.webp)
 

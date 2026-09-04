@@ -29,7 +29,7 @@ head:
 
 # Local MongoDB Development with FlyEnv
 
-FlyEnv runs MongoDB as a managed local service: install versions from the Version Manager, start `mongod` with a generated `mongodb-<version>.conf`, keep each version's data in its own directory, and read the server log without leaving the app. A one-click DbGate button adds a full web UI for browsing and querying your databases.
+MongoDB is an open source document database that stores records as JSON-like documents instead of rows in tables. It fits applications with flexible or evolving data models, such as content platforms and API backends. FlyEnv runs MongoDB as a managed local service: install versions from the Version Manager, start `mongod` with a generated `mongodb-<version>.conf`, keep each version's data in its own directory, and read the server log without leaving the app. A one-click DbGate button adds a full web UI for browsing and querying your databases.
 
 ![FlyEnv MongoDB module overview](https://oss.macphpstudy.com/image/features/mongodb-1.webp)
 

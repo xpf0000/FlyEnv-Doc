@@ -29,7 +29,7 @@ head:
 
 # Local MariaDB Development with FlyEnv
 
-FlyEnv turns MariaDB into a managed local service you control from one window: install multiple versions, run `mariadbd` with an editable `my-<version>.cnf`, watch the error and slow logs, and reach your data through phpMyAdmin or the built-in Manage drawer. Everything runs against the real MariaDB binaries, so what you test locally matches what you deploy.
+MariaDB is an open source relational database that began as a fork of MySQL and stays broadly compatible with it, so most applications written for MySQL run on it unchanged. Teams often pick it as a drop-in MySQL replacement. FlyEnv turns MariaDB into a managed local service you control from one window: install multiple versions, run `mariadbd` with an editable `my-<version>.cnf`, watch the error and slow logs, and reach your data through phpMyAdmin or the built-in Manage drawer. Everything runs against the real MariaDB binaries, so what you test locally matches what you deploy.
 
 ![FlyEnv MariaDB module overview](https://oss.macphpstudy.com/image/features/mariadb-1.webp)
 

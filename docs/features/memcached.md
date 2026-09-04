@@ -29,7 +29,7 @@ head:
 
 # Memcached in FlyEnv
 
-FlyEnv runs Memcached as a managed local service: install one or more versions from the Version Manager, start and stop the daemon from the Service tab, and reach the cache on the default port 11211 without touching a package manager or a startup script by hand.
+Memcached is an open source, in-memory key-value cache, typically used to speed up web applications by keeping database query results, rendered fragments or session data in RAM. FlyEnv runs it as a managed local service: install one or more versions from the Version Manager, start and stop the daemon from the Service tab, and reach the cache on the default port 11211 without touching a package manager or a startup script by hand.
 
 ![FlyEnv Memcached module overview](https://oss.macphpstudy.com/image/features/memcached-1.webp)
 

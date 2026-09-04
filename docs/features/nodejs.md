@@ -29,7 +29,7 @@ head:
 
 # Node.js development in FlyEnv
 
-FlyEnv's Node.js module combines version management with a project service workflow. Pick the runtime a project needs, run its command from the project directory, and keep its port, environment variables and logs visible beside your other local services.
+Node.js is a JavaScript runtime built on the V8 engine that runs JavaScript outside the browser, most often for web servers, APIs and command-line tools. FlyEnv's Node.js module combines version management with a project service workflow. Pick the runtime a project needs, run its command from the project directory, and keep its port, environment variables and logs visible beside your other local services.
 
 ## Manage Node.js versions
 

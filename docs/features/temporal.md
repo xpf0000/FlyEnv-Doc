@@ -29,7 +29,7 @@ head:
 
 # Local Temporal Development with FlyEnv
 
-FlyEnv turns a local Temporal setup into a one-click service: it installs `temporal-server`, generates a ready-to-run configuration backed by SQLite, creates the `default` namespace for you after the first start, and can launch the Temporal Web UI as a managed companion process — all bound to `127.0.0.1` for safe local development.
+Temporal is a durable workflow orchestration platform: it persists workflow state so long-running, multi-step processes survive crashes, retries and deploys. Applications model sagas, scheduled jobs and other business processes as code instead of stitching together queues and cron jobs by hand. FlyEnv turns a local Temporal setup into a one-click service: it installs `temporal-server`, generates a ready-to-run configuration backed by SQLite, creates the `default` namespace for you after the first start, and can launch the Temporal Web UI as a managed companion process — all bound to `127.0.0.1` for safe local development.
 
 ![FlyEnv Temporal module overview with the Service tab](https://oss.macphpstudy.com/image/features/temporal-1.webp)
 

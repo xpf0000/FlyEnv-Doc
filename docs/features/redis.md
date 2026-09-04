@@ -29,7 +29,7 @@ head:
 
 # Local Redis Development with FlyEnv
 
-FlyEnv turns Redis into a managed local service you control from one window: install multiple versions, run `redis-server` with an auto-generated per-version config, adjust port and memory settings from a visual form, watch the server log, and browse your keys in a one-click Redis Commander web UI. If you are new to FlyEnv, the [getting started guide](/guide/getting-started) shows how modules are installed and started.
+Redis is an open source in-memory data store, commonly used as a cache, session store, queue backend or pub/sub channel in web applications. FlyEnv turns it into a managed local service you control from one window: install multiple versions, run `redis-server` with an auto-generated per-version config, adjust port and memory settings from a visual form, watch the server log, and browse your keys in a one-click Redis Commander web UI. If you are new to FlyEnv, the [getting started guide](/guide/getting-started) shows how modules are installed and started.
 
 ![FlyEnv Redis module overview](https://oss.macphpstudy.com/image/features/redis-1.webp)
 

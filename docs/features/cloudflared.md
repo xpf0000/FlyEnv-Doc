@@ -29,7 +29,7 @@ head:
 
 # Cloudflared in FlyEnv
 
-FlyEnv's Cloudflared module manages the `cloudflared` command-line binary: install multiple versions side by side, decide which one your terminal resolves, and register your own builds from custom directories. Its main job inside FlyEnv is to supply the binary that the [Cloudflare Tunnel module](/features/cloudflare-tunnel) runs your tunnels with — the module itself has no daemon, no config files and no logs, just two tabs: Service and Version Manager.
+cloudflared is Cloudflare's open source command-line client for Cloudflare Tunnel — the daemon that connects a local service to Cloudflare's edge so it can be reached through a public hostname. FlyEnv's Cloudflared module manages the `cloudflared` command-line binary: install multiple versions side by side, decide which one your terminal resolves, and register your own builds from custom directories. Its main job inside FlyEnv is to supply the binary that the [Cloudflare Tunnel module](/features/cloudflare-tunnel) runs your tunnels with — the module itself has no daemon, no config files and no logs, just two tabs: Service and Version Manager.
 
 ![FlyEnv Cloudflared module overview](https://oss.macphpstudy.com/image/features/cloudflared-1.webp)
 

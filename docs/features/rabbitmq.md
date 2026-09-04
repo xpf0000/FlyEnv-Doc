@@ -29,7 +29,7 @@ head:
 
 # RabbitMQ in FlyEnv
 
-FlyEnv runs RabbitMQ as a managed local message broker: install versions from the Version Manager, start the broker with a generated environment config, enable the management plugin out of the box, and read the server log per major version — all from the RabbitMQ module's Service, Version Manager, Config File and Log tabs.
+RabbitMQ is an open source message broker: applications hand it messages over protocols such as AMQP, and it routes them into queues for other services to consume asynchronously. It is a common choice for decoupling services — background jobs, task queues and event-driven workflows. FlyEnv runs it as a managed local broker: install versions from the Version Manager, start the broker with a generated environment config, enable the management plugin out of the box, and read the server log per major version — all from the RabbitMQ module's Service, Version Manager, Config File and Log tabs.
 
 ![FlyEnv RabbitMQ module overview](https://oss.macphpstudy.com/image/features/rabbitmq-1.webp)
 
