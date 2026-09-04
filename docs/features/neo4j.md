@@ -38,7 +38,7 @@ FlyEnv runs Neo4j as a managed local service: install versions from the static o
 Install Neo4j versions from **Neo4j → Version Manager**.
 
 - **Static online list only:** Neo4j is installed from FlyEnv's static package list — zip archives on Windows, tar.gz elsewhere. Homebrew and MacPorts sources are not offered for this module.
-- **Supported versions:** only Neo4j **5.23.0 and newer** are supported; older releases are not listed or accepted.
+- **Supported versions:** only Neo4j **5.23.0 and newer** are supported; older releases are not supported.
 - **Custom versions:** add a directory containing your own Neo4j installation and FlyEnv scans it, listing those builds next to the managed versions.
 
 ![Neo4j Version Manager with the static online list](https://oss.macphpstudy.com/image/features/neo4j-2.webp)

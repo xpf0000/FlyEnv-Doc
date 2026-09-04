@@ -78,7 +78,7 @@ For day-to-day work there is no need to leave the app: the per-version **Manage*
 
 ## Multiple instances with Groups
 
-The **Group** tab runs several MySQL instances concurrently alongside the main service. Each instance combines a chosen MySQL version with its own port and its own data directory, and keeps per-instance configuration and logs — so a project pinned to MySQL 5.7 can run next to one on MySQL 8.x without touching each other's data. The sidebar switch (also available in the system tray) starts or stops the main service and all Group instances together.
+The **Group** tab runs several MySQL instances concurrently alongside the main service. Each instance combines a chosen MySQL version with its own port and its own data directory, and keeps per-instance configuration and logs — so a project pinned to MySQL 5.7 can run next to one on MySQL 8.x without touching each other's data. The group power switch in the sidebar header — also available in the system tray — starts or stops the main service and all Group instances together.
 
 ![MySQL Group tab with multiple concurrent instances](https://oss.macphpstudy.com/image/features/mysql-7.webp)
 

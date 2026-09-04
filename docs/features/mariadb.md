@@ -56,7 +56,7 @@ Each version gets its own `my-<major.minor>.cnf` under FlyEnv's MariaDB director
 
 ## Logs
 
-The **Log** and **Slow Log** tabs open the server's `error.log` and `slow.log` directly inside FlyEnv. The error log is the first stop when a version fails to start, and the slow log shows which queries exceed the long-query threshold once slow query logging is enabled in the configuration — useful when profiling a local application against realistic data.
+Two dedicated tabs — **Log** and **Slow Log** — bring the server's `error.log` and `slow.log` into FlyEnv. Check the error log first whenever a version refuses to start; once slow query logging is enabled in the configuration, the slow log records every query that crosses the long-query threshold — handy when profiling a local application against realistic data.
 
 ![MariaDB error and slow log viewers](https://oss.macphpstudy.com/image/features/mariadb-4.webp)
 

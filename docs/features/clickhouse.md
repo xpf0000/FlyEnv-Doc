@@ -54,7 +54,7 @@ ClickHouse ships as a multi-call binary, and FlyEnv starts it as `clickhouse ser
 
 ## Logs
 
-The Log tab switches between the four log files FlyEnv captures for the ClickHouse service: the main server log, the server error log, and the startup stdout and stderr logs. Search and refresh are built in, so a failed start or a slow query is easy to trace.
+The Log tab switches between the log files FlyEnv captures for the ClickHouse service: the main server log, the server error log, the startup stdout and stderr logs, and the CH-UI client's startup logs. The view refreshes automatically as the file changes, and the toolbar can open the file in your file manager, reload it on demand or clear it — so a failed start or a slow query is easy to trace.
 
 ![Switching between ClickHouse server and startup logs](https://oss.macphpstudy.com/image/features/clickhouse-4.webp)
 

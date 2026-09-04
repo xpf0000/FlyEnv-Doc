@@ -56,7 +56,7 @@ Pair the running service with the local apps from the [demos](/demos), or grab F
 
 ## Compatibility Notes
 
-- The Memcached module has **no configuration file editing**: Memcached is configured entirely through command-line arguments, and FlyEnv starts it with its built-in argument set rather than a generated config file. To change settings such as memory size or port, edit the startup approach outside the module or rely on the defaults.
+- The Memcached module has **no configuration file editing**: Memcached is configured entirely through command-line arguments, and FlyEnv starts it with its built-in argument set rather than a generated config file.
 - The module has **no log viewer tab**: output goes to stdout/stderr via `-vv` and no log file is written, so there is nothing to tail from inside the app.
 - The service always listens on the **default port 11211**; FlyEnv does not pass a port override.
 - There is no admin panel and no project or site integration for this module — it manages the daemon only. Available versions depend on your platform's install sources, as listed on the [Download page](/download).

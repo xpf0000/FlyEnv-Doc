@@ -37,7 +37,7 @@ FlyEnv runs Elasticsearch as a managed local service on macOS, Windows and Linux
 
 Install and keep multiple Elasticsearch versions side by side from **Elasticsearch → Version Manager**.
 
-- **Static packages on every platform:** Elasticsearch is installed from FlyEnv's online static package list on macOS, Windows and Linux alike — there are no Homebrew or MacPorts sources for this module, so the version list is the same everywhere.
+- **Static packages on every platform:** Elasticsearch is installed from FlyEnv's online static package list on macOS, Windows and Linux alike — there are no Homebrew or MacPorts sources for this module.
 - **Managed install location:** each version is unpacked from its tar.gz or zip archive into FlyEnv's own `elasticsearch/v<version>/` directory, keeping the app-managed builds separate from anything else on your machine.
 - **Custom versions:** point FlyEnv at any directory containing your own Elasticsearch installation; it scans for the `bin/elasticsearch` binary (`elasticsearch.bat` on Windows) and lists those builds next to the managed ones.
 

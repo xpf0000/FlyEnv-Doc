@@ -46,7 +46,7 @@ Install and keep multiple PostgreSQL versions side by side from **PostgreSQL →
 
 The Service tab runs the selected version as your local PostgreSQL server. On macOS and Linux, FlyEnv launches the real `postgres -D <data directory>` binary in the foreground; on Windows it starts the server with `pg_ctl -D ... -l pg.log start`. The port is read from `postgresql.conf` and defaults to 5432.
 
-Each version gets its own data directory — `postgresql<major>` under FlyEnv's PostgreSQL directory by default — and the path is editable per version right in the Service toolbar. When the data directory is empty on first start, FlyEnv automatically runs `initdb -U root`, so the cluster is created for you with superuser `root`, UTF-8 encoding and your system locale. The out-of-the-box superuser is `root` with no password; the [database user and password guide](/guide/database-user-password) covers the default credentials across FlyEnv's database modules.
+Each version gets its own data directory — `postgresql<major>` under FlyEnv's PostgreSQL directory by default — and the path is editable per version right in the Service toolbar. When the data directory is empty on first start, FlyEnv automatically runs `initdb -U root`, so the cluster is created for you with superuser `root`, UTF-8 encoding and your system locale. `initdb` is invoked with `-U root` and no password option, so the out-of-the-box superuser is `root` with no password; the [database user and password guide](/guide/database-user-password) covers the default credentials across FlyEnv's database modules.
 
 ![PostgreSQL Service tab with editable data directory](https://oss.macphpstudy.com/image/features/postgresql-3.webp)
 
@@ -73,6 +73,8 @@ The **pgAdmin 4** button in the Service toolbar sets up the full pgAdmin web con
 ## pgvector extension
 
 The **Extension** action on a service row opens a drawer that installs pgvector — the PostgreSQL extension for vector storage and similarity search used by AI and embedding workloads. FlyEnv clones the latest pgvector tag from its git repository and runs `sudo make` / `make install` in the embedded terminal, so you see the real build output. The install flow is macOS-oriented (it uses `sudo` and the zsh shell).
+
+![pgvector install running in the Extension drawer's embedded terminal](https://oss.macphpstudy.com/image/features/postgresql-7.webp)
 
 ## Compatibility Notes
 
