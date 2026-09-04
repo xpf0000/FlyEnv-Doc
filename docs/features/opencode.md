@@ -47,7 +47,7 @@ OpenCode is an AI coding CLI, not a background service — there is nothing to s
 OpenCode keeps its settings in `~/.config/opencode/opencode.jsonc` — a JSON-with-comments file. FlyEnv is XDG-aware and falls back to `opencode.json` when that is what your setup uses.
 
 - **Raw JSONC editor:** the Config File tab opens the real file in a full source editor. There is intentionally no visual form here — you edit exactly what OpenCode reads.
-- **Comment-friendly:** because the file is JSONC, the explanatory comments OpenCode ships with are preserved while you edit.
+- **Comment-friendly:** because the file is JSONC, comments in the file are preserved while you edit.
 
 ## Sessions
 

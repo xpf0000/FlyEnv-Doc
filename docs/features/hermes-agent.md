@@ -39,7 +39,7 @@ Hermes is installed from its vendor script, executed inside FlyEnv's embedded te
 
 - **One command per platform:** on macOS and Linux FlyEnv runs `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`; on Windows it runs the PowerShell equivalent `irm .../install.ps1 | iex`.
 - **No version manager:** there is no online version list and no side-by-side version switching for Hermes. Once installed, the Service tab shows the detected version.
-- **Supported platforms:** Hermes can be installed on macOS, Windows and Linux; current builds are linked from the [Download page](/download).
+- **Supported platforms:** Hermes can be installed on macOS, Windows and Linux — the same platforms FlyEnv itself ships for on the [Download page](/download).
 
 ## Gateway management
 

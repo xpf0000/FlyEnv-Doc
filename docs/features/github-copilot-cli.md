@@ -70,7 +70,7 @@ The **Skills** tab lists the Skills known to Copilot CLI by querying the CLI dir
 
 ![Skills tab listing Copilot skills with source labels and open, reveal and preview actions](https://oss.macphpstudy.com/image/features/github-copilot-cli-4.webp)
 
-## MCP Servers
+## MCP servers
 
 The **MCP** tab manages the MCP servers Copilot CLI connects to, backed by the `~/.copilot/mcp-config.json` file.
 
@@ -82,4 +82,4 @@ The **MCP** tab manages the MCP servers Copilot CLI connects to, backed by the `
 
 ## Compatibility Notes
 
-GitHub Copilot CLI is not a background service: FlyEnv adds no start/stop switch, port or process lifecycle for it, and every interactive session runs in an external system terminal. Installation is npm-based and identical on macOS, Linux and Windows, which means Node.js with npm must be present first — if you need one, install it from FlyEnv's Node.js module or grab FlyEnv itself from the [Download page](/download). Configuration is exposed as raw JSON only; there is no visual form, and questions about individual keys belong to Copilot CLI's own documentation. Session data lives in the CLI's SQLite store under `~/.copilot` (or wherever `COPILOT_CONFIG_DIR` points), and FlyEnv only reads and deletes what Copilot CLI has written there.
+GitHub Copilot CLI is not a background service: FlyEnv adds no start/stop switch, port or process lifecycle for it, and every interactive session runs in an external system terminal. Installation is npm-based and identical on macOS, Linux and Windows, which means Node.js with npm must be present first — if you need one, install it from FlyEnv's [Node.js module](/features/nodejs) or grab FlyEnv itself from the [Download page](/download). Configuration is exposed as raw JSON only; there is no visual form, and questions about individual keys belong to Copilot CLI's own documentation. Session data lives in the CLI's SQLite store under `~/.copilot` (or wherever `COPILOT_CONFIG_DIR` points), and FlyEnv only reads and deletes what Copilot CLI has written there.

@@ -52,7 +52,7 @@ A module holds one or more exec items — the individual commands that make up t
 
 Each item defines:
 
-- **Command or file:** either a shell command line typed directly, or a script file (`.sh`, `.ps1`, `.cmd`, `.bat`) that FlyEnv executes.
+- **Command or file:** either a shell command line typed directly, or a script file chosen from disk that FlyEnv executes.
 - **Name and comment:** keep similar items distinguishable in the list.
 - **Run with sudo:** for commands that need elevated privileges, FlyEnv prompts for the password, with an "open in Terminal" fallback when interactive elevation is required.
 - **PID file path:** the pid file lets FlyEnv track whether the item is running and stop it cleanly — on Unix, stop sends SIGTERM followed by SIGINT to the recorded pid.

@@ -62,7 +62,7 @@ The **Sessions** tab lists your past conversations so you can get back into one 
 
 ## Skills
 
-The **Skills** tab is unique to the Antigravity module in FlyEnv and browses the skill folders on disk.
+The **Skills** tab browses the skill folders on disk directly — unlike the [GitHub Copilot CLI](/features/github-copilot-cli) module, whose Skills tab queries the CLI itself, Antigravity's list is read straight from the filesystem.
 
 - **User and builtin skills:** your own skills from `antigravity-cli/skills` are listed alongside the builtin ones from `antigravity-cli/builtin/skills`, the latter marked with a builtin tag.
 - **Markdown preview drawer:** opening a skill renders its Markdown in a drawer with code, preview and split views, so you can read a skill's instructions formatted before deciding to use or edit it.

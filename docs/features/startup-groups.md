@@ -60,7 +60,7 @@ Exactly one group can be the default group, and it becomes the target of FlyEnv'
 
 - **Sidebar switch:** the group start/stop button in the main sidebar drives the default group. If no default group is set, that button falls back to the classic behavior of starting or stopping all services at once.
 - **Auto-start on launch:** when "auto-start services" is enabled in Setup, launching FlyEnv automatically starts the default group — your working stack is up by the time you sit down.
-- **Tray control:** the system tray menu lists your groups with start/stop actions, so you can switch stacks without opening the main window. You can also stop the whole stack from the tray in one click.
+- **Tray control:** the system tray menu lists your groups, each with its own start/stop switch, so you can bring a whole stack down — or switch stacks — without opening the main window.
 
 ![Tray menu listing startup groups with start and stop actions](https://oss.macphpstudy.com/image/features/startup-groups-3.webp)
 

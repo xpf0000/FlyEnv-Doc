@@ -48,7 +48,7 @@ Both modules appear in the FlyEnv sidebar as services you can start, stop and pi
 Every FTP account is a row in the Service tab table, with Add and Edit dialogs for creating and changing credentials.
 
 - **Username, password and root directory:** each account gets its own credentials and its own root folder. The table supports click-to-copy on the values and can open the root directory directly in the file manager.
-- **Real system users under Pure-FTPd:** accounts are created through `pure-pw useradd`, with the uid and gid taken from the folder you choose as the root, and stored in the server's PureDB (`pureftpd.pdb`). FlyEnv also mirrors the account list into `pureftpd.json` for its own bookkeeping.
+- **Virtual users under Pure-FTPd:** accounts are Pure-FTPd virtual users created through `pure-pw useradd`, with the uid and gid taken from the folder you choose as the root, and stored in the server's PureDB (`pureftpd.pdb`) — they are not operating-system accounts. FlyEnv also mirrors the account list into `pureftpd.json` for its own bookkeeping.
 - **JSON-backed accounts under ftp-srv:** credentials are stored in `ftp-srv.json` inside the FlyEnv data directory and validated by the server's login handler. On Windows, legacy entries from `pureftpd.json` are migrated automatically.
 - **Copyable address while running:** the running header shows an `ftp://<ip>:<port>` link you can copy, with an IP selector for choosing which local address to hand to a client.
 
@@ -60,10 +60,10 @@ Pure-FTPd runs from a `pure-ftpd.conf` file that FlyEnv generates from its templ
 
 - **Raw config editor:** the Config File tab opens `pure-ftpd.conf` in a full editor, with a `.default` copy kept alongside as the reference. There is no visual settings form for this module.
 - **Port from the config:** the listening port is parsed from the `Bind …,port` directive and defaults to port 21. The template also pre-sets a passive port range of 39000–40000.
-- **ftp-srv has no config file to edit:** the bundled server listens on fixed port 21 with passive ports 49152–65535, and picks its PASV address dynamically — 127.0.0.1 for loopback clients, otherwise the primary LAN IP.
+- **ftp-srv has no server settings file to edit:** the bundled server listens on fixed port 21 with passive ports 49152–65535, and picks its PASV address dynamically — 127.0.0.1 for loopback clients, otherwise the primary LAN IP. The only JSON it keeps is `ftp-srv.json`, the account store the Service tab table manages for you, not a configuration file you edit by hand.
 
 ![Editing pure-ftpd.conf in the Config File tab](https://oss.macphpstudy.com/image/features/ftp-server-4.webp)
 
 ## Compatibility Notes
 
-FlyEnv manages the local FTP runtime, its accounts and its configuration files; what is available depends on your platform. **Pure-FTPd is restricted to macOS and Linux**, and its installable versions depend on what Homebrew or MacPorts publish. **ftp-srv runs on every platform FlyEnv supports**, which makes it the only option on Windows — at the cost of no version management and no editable config file. Pure-FTPd starts with elevated privileges (`sudo`) and writes its log output to syslog, so FlyEnv shows no in-app log viewer for it; ftp-srv exposes no log files either. Both implementations listen on port 21 by default, so only one of them can serve that port at a time. Point an account's root directory wherever you like — for example at a site folder you manage in [Host](/guide/host).
+FlyEnv manages the local FTP runtime, its accounts and its configuration files; what is available depends on your platform. **Pure-FTPd is restricted to macOS and Linux**, and its installable versions depend on what Homebrew or MacPorts publish. **ftp-srv runs on every platform FlyEnv supports**, which makes it the only option on Windows — at the cost of no version management and no editable server configuration. Pure-FTPd starts with elevated privileges (`sudo`) and writes its log output to syslog, so FlyEnv shows no in-app log viewer for it; ftp-srv exposes no log files either. Both implementations listen on port 21 by default, so only one of them can serve that port at a time. Point an account's root directory wherever you like — for example at a site folder you manage in [Host](/guide/host).

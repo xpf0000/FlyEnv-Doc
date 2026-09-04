@@ -29,7 +29,7 @@ head:
 
 # Terminal Integration in FlyEnv
 
-FlyEnv does not ship its own terminal app — instead it wires itself into the terminals you already use. A shell hook loads the right project environment when you `cd` into a project, services and projects can be launched in a real terminal window with one click, long-running installs run in embedded xterm terminals inside the app, and a Tools-page utility edits system environment variables directly.
+FlyEnv does not ship its own terminal app — instead it wires itself into the terminals you already use. A shell hook loads the right project environment when you `cd` into a project, services and projects can be launched in a real terminal window with one click, long-running installs run in embedded xterm terminals inside the app, and a Tools-page utility opens the files and PATH entries behind your environment variables for editing.
 
 ![FlyEnv project list with bound runtime versions and terminal actions](https://oss.macphpstudy.com/image/features/cli-terminal-1.webp)
 
@@ -65,11 +65,11 @@ For one-off, interactive workloads FlyEnv embeds xterm-based terminal sessions d
 
 ## System environment variables tool
 
-The Tools page includes a system environment variable editor, so the settings that normally live behind OS dialogs are reachable from the same window as your runtimes.
+The Tools page includes a system environment variables utility whose shape follows the platform, so the settings that normally live behind OS dialogs or scattered shell files are reachable from the same window as your runtimes.
 
-- **View and manage PATH:** inspect the directories on your `PATH` and adjust them without opening the system control panels — the companion workflow to the version-table toggles described above.
-- **Beyond PATH:** the editor works with system environment variables in general, not only the path list, which is useful when a toolchain expects variables such as `CARGO_HOME` or `JAVA_HOME` to be present.
-- **Pairs with the shell hook:** variables you set here apply system-wide, while `.flyenv` files and the shell hook handle the per-project layer on top.
+- **On Windows — a PATH editor:** the directories on your `PATH` are listed in a table where you can add, edit, delete and reorder entries before saving — the companion workflow to the version-table toggles described above. A shortcut button opens the operating system's own environment-variables dialog when you need to touch more than PATH.
+- **On macOS and Linux — the shell files themselves:** the tool lists the startup files where environment variables are actually defined — `~/.zshrc`, `~/.bashrc`, `/etc/paths` and their relatives — and opens each one in an editor, or reveals it in the file manager.
+- **Pairs with the shell hook:** the files and PATH entries edited here provide the base environment layer, while `.flyenv` files and the shell hook handle the per-project layer on top.
 
 ![System environment variables editor on the FlyEnv Tools page](https://oss.macphpstudy.com/image/features/cli-terminal-4.webp)
 

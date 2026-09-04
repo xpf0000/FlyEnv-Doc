@@ -35,13 +35,13 @@ FlyEnv ships its own DNS server, implemented in Node.js directly inside the app 
 
 ## How resolution works
 
-When a query arrives, the server checks several sources in order before asking the internet:
+When a query arrives, the server looks the name up in a single in-memory map built from several sources, and asks the internet only when nothing matches:
 
-- **FlyEnv site domains first:** every host name and alias from your [local sites](/features/local-sites-https) is resolved automatically to your primary local IP address. The list is watched live, so a newly created site resolves immediately — no restart, no manual mapping.
-- **Wildcard matching:** patterns such as `*.test` are supported, so whole domain suffixes can be covered by a single rule.
-- **System hosts file:** entries from the OS hosts file are honored too; the file is re-read every 60 seconds, so outside edits are picked up on their own.
+- **FlyEnv site domains:** every host name and alias from your [local sites](/features/local-sites-https) is resolved automatically to your primary local IP address. The list is watched live, so a newly created site resolves immediately — no restart, no manual mapping.
+- **System hosts file:** entries from the OS hosts file join the same map; the file is re-read at most every 60 seconds, so outside edits are picked up on their own.
 - **Static map in `dns.json`:** a `resolveIP` map in the configuration file pins specific names to fixed addresses of your choice.
-- **Upstream forwarding:** anything that matches none of the above is forwarded to public resolvers — 1.1.1.1 and 8.8.8.8 by default (AliDNS and 114DNS in the Chinese locale) — so the server can act as the machine's only DNS without breaking normal browsing.
+- **Conflict order:** when the same name appears in more than one source, the site domain wins over the hosts file, which wins over `resolveIP`. An exact name match answers first; if none exists, wildcard patterns such as `*.test` in the map are tried, so whole domain suffixes can be covered by a single rule.
+- **Upstream forwarding:** anything that matches neither an exact name nor a wildcard is forwarded to public resolvers — 1.1.1.1 and 8.8.8.8 by default (AliDNS and 114DNS among the defaults in the Chinese locale) — so the server can act as the machine's only DNS without breaking normal browsing.
 
 Point your operating system's DNS setting at the local address FlyEnv binds to, and all of this applies system-wide. The [host management guide](/guide/host) covers the site side of the setup.
 
@@ -68,4 +68,4 @@ The DNS server keeps its settings in a single JSON file, `dns.json` (with `dns.d
 
 ## Compatibility Notes
 
-The built-in DNS server runs on macOS, Windows and Linux, serving both UDP and TCP on port 53. Binding port 53 is a privileged operation on most systems, so the OS may ask for elevated permission when the server starts, and no other resolver (such as another local DNS tool) can hold the port at the same time. The server answers queries only while it is running — when stopped, the system falls back to whatever other DNS is configured, and FlyEnv site domains resolve only if they are also present in the hosts file. Query history is shown live in the Service tab and is not written to log files. For the exact behavior of a given release, treat the in-app module and the [Download page](/download) release notes as the reference.
+The built-in DNS server runs on macOS, Windows and Linux, serving both UDP and TCP on port 53. Port 53 is a privileged port on Unix-like systems, so running the server there can require elevated permission depending on the platform, and no other resolver (such as another local DNS tool) can hold the port at the same time — if the bind fails, starting the server simply reports an error. The server answers queries only while it is running, and query history is shown live in the Service tab without being written to log files. For the exact behavior of a given release, treat the in-app module and the [Download page](/download) release notes as the reference.
