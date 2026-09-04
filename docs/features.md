@@ -61,6 +61,7 @@ import ollamaLogo from './components/SVG/Ollama.svg'
 import rustFsLogo from './components/SVG/RustFS.svg'
 import minioLogo from './components/SVG/Minio.svg'
 import podmanLogo from './components/SVG/Podman.svg'
+import sslMakeLogo from './components/SVG/sslmake.svg'
 import cloudflareLogo from './components/SVG/cloudflare.svg'
 import rNacosLogo from './components/SVG/R-NACOS.svg'
 import consulLogo from './components/SVG/Consul.svg'
@@ -93,6 +94,7 @@ const categories = [
     description: 'Map code to friendly domains, HTTPS and the server that fits.', tone: 'bg-emerald-50 text-emerald-700',
     items: [
       { name: 'Local Sites & HTTPS', detail: 'Create local domains, HTTPS and proxies.', href: '/features/local-sites-https', logo: '' },
+      { name: 'MkCert', detail: 'Generate trusted local HTTPS certificates.', href: '/features/mkcert', logo: sslMakeLogo },
       { name: 'FrankenPHP', detail: 'Serve modern PHP apps with FrankenPHP.', href: '/features/frankenphp', logo: frankenPhpLogo },
       { name: 'Nginx', detail: 'Run versioned Nginx sites and configs.', href: '/features/nginx', logo: 'https://oss.macphpstudy.com/image/nginx.png' },
       { name: 'Apache', detail: 'Serve PHP projects with Apache locally.', href: '/features/apache', logo: 'https://oss.macphpstudy.com/image/apache.png' },

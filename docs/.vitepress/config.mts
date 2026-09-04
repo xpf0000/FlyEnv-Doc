@@ -252,6 +252,7 @@ export default defineConfigWithTheme({
               text: 'Web Servers & Local Sites',
               items: [
                 { text: 'Local Sites & HTTPS', link: '/features/local-sites-https' },
+                { text: 'MkCert', link: '/features/mkcert' },
                 { text: 'FrankenPHP', link: '/features/frankenphp' },
                 { text: 'Nginx', link: '/features/nginx' },
                 { text: 'Apache', link: '/features/apache' },

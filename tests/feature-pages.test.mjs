@@ -10,6 +10,7 @@ const manifest = {
   php: { terms: ['PHP-FPM', 'php.ini', 'Composer', 'WordPress'], minImages: 13 },
   nodejs: { terms: ['Version Manager', 'Run as service', 'reverse'], minImages: 0 },
   'local-sites-https': { terms: ['HTTPS', 'domain', 'reverse'], minImages: 0 },
+  mkcert: { terms: ['mkcert', 'CAROOT', 'Certificates', 'Homebrew'], minImages: 3 },
   python: { terms: ['Homebrew', 'MacPorts', '.flyenv', 'FastAPI', 'Django'], minImages: 5 },
   java: { terms: ['JDK', 'SDKMAN', 'Maven', '.flyenv'], minImages: 5 },
   go: { terms: ['GVM', 'Version Manager', '.flyenv', 'Projects'], minImages: 4 },
