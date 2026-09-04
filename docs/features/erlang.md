@@ -37,7 +37,7 @@ Erlang/OTP is a functional programming language and runtime platform built for h
 
 Install Erlang/OTP versions side by side from **Erlang → Version Manager** and keep them all available at once.
 
-- **macOS:** install from Homebrew (the `erlang` formula and versioned `erlang@<ver>` formulas) or MacPorts; FlyEnv also auto-scans the MacPorts library directory for existing Erlang installations.
+- **macOS:** install from Homebrew (the `erlang` formula and versioned `erlang@<ver>` formulas) or MacPorts; FlyEnv also auto-scans the MacPorts library directory for existing Erlang installations. This covers most local needs, including running an Erlang-based service such as [RabbitMQ](/features/rabbitmq) alongside your own projects.
 - **Linux:** install from Homebrew; MacPorts is a macOS-only source. There is no Static source on macOS or Linux.
 - **Windows:** install from a Static online list of packaged builds, each containing the `bin/erl.exe` executable.
 - **Custom directories:** point FlyEnv at any directory containing your own Erlang build and it appears in the list next to the managed versions.
@@ -49,7 +49,7 @@ Install Erlang/OTP versions side by side from **Erlang → Version Manager** and
 
 The **Service** tab contains no service at all — Erlang has no daemon process inside FlyEnv. It is an installed-versions table used for version and PATH management.
 
-- **Terminal version switching:** select which installed version the terminal `erl` command resolves to. FlyEnv then updates your `PATH`, adding or removing the version's bin directory, and marks whether the current PATH entry was set by FlyEnv or by another tool.
+- **Terminal version switching:** select which installed version the terminal `erl` command resolves to. FlyEnv then updates your `PATH`, adding or removing the version's bin directory, and marks whether the current PATH entry was set by FlyEnv or by another tool. The [system PATH environment guide](/guide/setup-system-path-environment) explains how this PATH editing works in detail.
 - **Per-version alias and remark:** assign a short alias and a note to each installation so similar builds stay distinguishable in the list.
 - **Housekeeping:** each version's install path is visible in the table, and versions you no longer need can be deleted from it.
 
@@ -57,7 +57,7 @@ The **Service** tab contains no service at all — Erlang has no daemon process 
 
 In **Erlang → Projects**, register each project folder and bind it to a specific Erlang version instead of relying on whichever version happens to be in PATH.
 
-- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Erlang automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) for how the mechanism works.
+- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Erlang automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) and the [Per-Project Runtimes feature](/features/per-project-runtimes) for how the mechanism works.
 - **Run as service:** optionally run a project directly from FlyEnv with a custom start command, a TCP port exposed as a `http://127.0.0.1:<port>` link, environment variables set inline or from a file, and a sudo flag on macOS and Linux. The sidebar switch starts or stops all service-enabled Erlang projects at once.
 - **Open-in tools:** jump from a project row into the system terminal with the project environment loaded.
 

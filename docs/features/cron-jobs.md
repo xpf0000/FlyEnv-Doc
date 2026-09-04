@@ -39,8 +39,8 @@ Click **Add** on the Cron Jobs tab to open the job editor.
 
 - **Name and enable switch:** every job has a display name and can be toggled on or off without deleting it.
 - **Expression with live validation:** the five-field cron expression is checked as you type, with a preview of what the schedule means, quick preset tags and a schedule helper picker so you do not have to memorize field order.
-- **Command presets:** the command textarea offers ready-made starting points for common stacks — `php artisan schedule:run`, node, python and bash — which you then adapt to your project.
-- **Working directory and scope:** a job can be global or bound to a specific site; for site-scoped jobs the working directory auto-fills from that site's root.
+- **Command presets:** the command textarea offers ready-made starting points for common stacks — `php artisan schedule:run` (the classic [Laravel](/solutions/laravel) scheduler entry point; see [running Laravel on FlyEnv](/guide/run-laravel-use-flyenv) for the surrounding setup), node, python and bash — which you then adapt to your project.
+- **Working directory and scope:** a job can be global or bound to a specific site; for site-scoped jobs the working directory auto-fills from that site's root in your [local sites](/features/local-sites-https) list.
 - **Test-run before scheduling:** a test-run button inside the job editor executes the command immediately in its working directory and shows the captured output, exit code and duration, so quoting or path mistakes surface before the job ever reaches the scheduler.
 
 ![Cron job editor with expression validation, preset tags and command textarea](https://oss.macphpstudy.com/image/features/cron-jobs-2.webp)

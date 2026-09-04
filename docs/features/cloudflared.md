@@ -45,7 +45,7 @@ Install cloudflared versions side by side from **Cloudflared → Version Manager
 
 The **Service** tab does not run a background service — cloudflared here is just a binary, so there is no daemon for FlyEnv to manage. The tab is an installed-versions table whose job is PATH control.
 
-- **Terminal version switching:** selecting a version here registers that installation's binary on your `PATH` (or removes it again), so the terminal `cloudflared` command resolves to the version you picked.
+- **Terminal version switching:** selecting a version here registers that installation's binary on your `PATH` (or removes it again), so the terminal `cloudflared` command resolves to the version you picked — the same mechanism described in the [system PATH environment guide](/guide/setup-system-path-environment).
 - **Per-version alias:** give near-identical builds a short alias so they stay easy to tell apart in the list.
 - **Housekeeping:** each row exposes the version's install path and offers a delete action for versions you no longer need.
 
@@ -53,4 +53,4 @@ The **Service** tab does not run a background service — cloudflared here is ju
 
 ## Compatibility Notes
 
-This module deliberately stops at binaries and PATH: it provides and switches cloudflared versions, but it does not create or run tunnels itself. Tunnel instances, DNS rules and per-tunnel logs live in the separate [Cloudflare Tunnel module](/features/cloudflare-tunnel), which asks you to pick one of the cloudflared versions installed here when you add a tunnel. For an end-to-end walkthrough of exposing a local site through a tunnel, see the [Cloudflare Tunnel local development guide](/guide/cloudflare-tunnel-local-development).
+This module deliberately stops at binaries and PATH: it provides and switches cloudflared versions, but it does not create or run tunnels itself. Tunnel instances, DNS rules and per-tunnel logs live in the separate [Cloudflare Tunnel module](/features/cloudflare-tunnel), which asks you to pick one of the cloudflared versions installed here when you add a tunnel. For an end-to-end walkthrough of exposing a [local site](/features/local-sites-https) through a tunnel, see the [Cloudflare Tunnel local development guide](/guide/cloudflare-tunnel-local-development).

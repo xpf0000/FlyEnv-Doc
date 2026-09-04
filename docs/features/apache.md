@@ -29,7 +29,7 @@ head:
 
 # Apache in FlyEnv
 
-Apache HTTP Server (`httpd`) is an open source web server with a long history, still common in classic LAMP-style stacks and wherever `.htaccess` or module-based configuration is needed. FlyEnv runs Apache as a managed local web server: install multiple Apache builds from package managers or the static download list, edit each version's configuration in place, and serve local sites through per-site vhost files. The `httpd` service starts in the foreground under FlyEnv's control, and port, log and module wiring is regenerated for you on every start.
+Apache HTTP Server (`httpd`) is an open source web server with a long history, still common in classic LAMP-style stacks and wherever `.htaccess` or module-based configuration is needed. FlyEnv runs Apache as a managed local web server: install multiple Apache builds from package managers or the static download list, edit each version's configuration in place, and serve local sites through per-site vhost files. The `httpd` service starts in the foreground under FlyEnv's control, and port, log and module wiring is regenerated for you on every start. If you are coming from a XAMPP-style bundle, the [FlyEnv vs XAMPP comparison](/compare/xampp) explains how this managed approach differs.
 
 ![FlyEnv Apache module overview](https://oss.macphpstudy.com/image/features/apache-1.webp)
 
@@ -65,7 +65,7 @@ Every installed Apache version gets its own main configuration file, generated a
 
 ## Site integration
 
-Every site in the Host module that Apache serves gets its own vhost file with its own port fields (default 80/443), so Apache can serve the same site alongside Nginx or Caddy, each on its own ports. PHP sites are handed to PHP-FPM through the proxy_fcgi module. Site domains, HTTPS certificates and per-site vhost inspection are covered in [Local Sites, Custom Domains & HTTPS](/features/local-sites-https), and the [multi-server HTML-as-PHP guide](/guide/parse-html-as-php-multi-servers) shows how Apache fits into a stack where several servers serve one site.
+Every site in the Host module that Apache serves gets its own vhost file with its own port fields (default 80/443), so Apache can serve the same site alongside Nginx or Caddy, each on its own ports. PHP sites are handed to PHP-FPM through the proxy_fcgi module, using whichever version you have installed in the [PHP module](/features/php); classic stacks like [WordPress](/solutions/wordpress) run on this setup out of the box. Site creation is covered in the [Host guide](/guide/host). Site domains, HTTPS certificates and per-site vhost inspection are covered in [Local Sites, Custom Domains & HTTPS](/features/local-sites-https), and the [multi-server HTML-as-PHP guide](/guide/parse-html-as-php-multi-servers) shows how Apache fits into a stack where several servers serve one site.
 
 ![Site vhost and port settings for Apache](https://oss.macphpstudy.com/image/features/apache-4.webp)
 

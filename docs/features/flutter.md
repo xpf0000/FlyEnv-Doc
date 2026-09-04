@@ -85,8 +85,8 @@ The **Flutter Projects** tab lists your projects and binds each one to its own F
 
 The **Android** tab checks everything Flutter needs for Android builds and helps you fix what is missing.
 
-- **Environment variables:** shows the current `ANDROID_HOME`, `ANDROID_SDK_ROOT` and `JAVA_HOME` values.
-- **Readiness checks:** verifies the Android SDK, platform-tools, ADB, cmdline-tools, build-tools, the JDK and Gradle, each with a fix hint when something is missing or misconfigured.
+- **Environment variables:** shows the current `ANDROID_HOME`, `ANDROID_SDK_ROOT` and `JAVA_HOME` values. The [system PATH environment guide](/guide/setup-system-path-environment) explains how FlyEnv manages this kind of variable and PATH entry across tools.
+- **Readiness checks:** verifies the Android SDK, platform-tools, ADB, cmdline-tools, build-tools, the JDK and Gradle, each with a fix hint when something is missing or misconfigured. FlyEnv's [Java](/features/java) and [Gradle](/features/gradle) modules can install and manage both of those dependencies.
 - **Automatic fixes:** one-click actions set the SDK environment variables and add platform-tools to your `PATH`.
 - **ADB devices:** lists connected devices with actions to set the target device, disconnect a device or view its info.
 - **Quick actions:** run `flutter run`, `flutter build apk` or `flutter build appbundle` on a chosen project, targeted at the selected device.

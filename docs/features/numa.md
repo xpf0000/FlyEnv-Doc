@@ -51,7 +51,7 @@ The **Config File** tab edits `numa/numa.toml` in a raw TOML editor — there is
 
 - **DNS listener:** `0.0.0.0:53` — point your system or browser DNS at the machine to route all queries through Numa.
 - **Web UI / API:** `api_port = 5380`.
-- **Built-in HTTP proxy:** ports 80/443 with the local TLD `numa`.
+- **Built-in HTTP proxy:** ports 80/443 with the local TLD `numa` — the same ports a web server such as [Nginx](/features/nginx) would claim, so remap one side if you run both.
 - **Ad-blocking lists:** the template ships with the HaGeZi blocklist enabled.
 - **Upstream forwarding:** forward mode via 9.9.9.9 and 1.1.1.1, with 8.8.8.8 as fallback, plus response caching and a `[mobile]` section.
 
@@ -69,4 +69,4 @@ The **Log** tab shows the per-version start-error log `numa/numa-<version>-start
 
 ## Compatibility Notes
 
-Numa is available on macOS, Linux and Windows. On Linux the service needs elevated privileges to bind port 53. MacPorts is not offered as an install source for this module — use the static list or Homebrew instead. The configuration editor is raw TOML only, and the web UI is Numa's own interface, so its features and layout follow the upstream project rather than FlyEnv. FlyEnv also ships a [built-in DNS server](/features/dns-server) that resolves your local site domains without any extra install. To see which Numa versions your platform can install, check the Version Manager in the app after getting FlyEnv from the [Download page](/download); hands-on walkthroughs are collected on the [Demos page](/demos).
+Numa is available on macOS, Linux and Windows. On Linux the service needs elevated privileges to bind port 53. MacPorts is not offered as an install source for this module — use the static list or Homebrew instead. The configuration editor is raw TOML only, and the web UI is Numa's own interface, so its features and layout follow the upstream project rather than FlyEnv. FlyEnv also ships a [built-in DNS server](/features/dns-server) that resolves the [local site domains](/guide/host) you configure for projects without any extra install. To see which Numa versions your platform can install, check the Version Manager in the app after getting FlyEnv from the [Download page](/download); hands-on walkthroughs are collected on the [Demos page](/demos).

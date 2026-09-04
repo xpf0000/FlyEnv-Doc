@@ -29,7 +29,7 @@ head:
 
 # ZincSearch in FlyEnv
 
-ZincSearch is an open source search engine written in Go, positioned as a lightweight alternative to Elasticsearch for full-text indexing and log search. It runs as a single binary with a built-in web console, which makes it easy to drop into small projects and local development. FlyEnv runs it as a managed local search service: install versions from the Version Manager, start the server with an editable `zincsearch.env`, and open the built-in ZincSearch web UI in one click. Defaults are written for you — the server listens on `127.0.0.1:4080` with an initial admin account, and its data lives inside FlyEnv's own directory.
+ZincSearch is an open source search engine written in [Go](/features/go), positioned as a lightweight alternative to [Elasticsearch](/features/elasticsearch) for full-text indexing and log search — in the same lightweight-search family as [Meilisearch](/features/meilisearch) and [Typesense](/features/typesense). It runs as a single binary with a built-in web console, which makes it easy to drop into small projects and local development. FlyEnv runs it as a managed local search service: install versions from the Version Manager, start the server with an editable `zincsearch.env`, and open the built-in ZincSearch web UI in one click. Defaults are written for you — the server listens on `127.0.0.1:4080` with an initial admin account, and its data lives inside FlyEnv's own directory.
 
 ![FlyEnv ZincSearch module overview](https://oss.macphpstudy.com/image/features/zincsearch-1.webp)
 

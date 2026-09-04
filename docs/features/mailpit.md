@@ -60,7 +60,7 @@ The configuration is shared across all installed Mailpit versions, so switching 
 
 While the service is running, the Service tab shows an open-in-browser button that takes you straight to the Mailpit web UI. FlyEnv parses the port from `MP_UI_BIND_ADDR` in your configuration and opens `http://127.0.0.1:<port>/` — 8025 by default. There you can inspect every captured message, its headers, HTML and plain-text rendering, and attachments.
 
-To capture mail, point your application's SMTP settings at `127.0.0.1:1025`. The [local email testing guide](/guide/local-email-testing-mailpit) walks through the full setup, and the [Laravel solution](/solutions/laravel) shows how a typical framework project wires its mailer to Mailpit.
+To capture mail, point your application's SMTP settings at `127.0.0.1:1025`. The [local email testing guide](/guide/local-email-testing-mailpit) walks through the full setup, and the [Laravel solution](/solutions/laravel) shows how a typical framework project wires its mailer to Mailpit; [WordPress](/solutions/wordpress) sites can route their notification mail through an SMTP plugin the same way.
 
 ![Opening the Mailpit web UI from the Service tab](https://oss.macphpstudy.com/image/features/mailpit-4.webp)
 
@@ -72,4 +72,4 @@ The **Log** tab opens the Mailpit log directly inside FlyEnv. The path is resolv
 
 ## Compatibility Notes
 
-FlyEnv manages the local Mailpit runtime, its `mailpit.conf` configuration and its log file; it does not wire Mailpit into your projects or PHP settings automatically — point each application's SMTP host and port at `127.0.0.1:1025` yourself. The versions offered in Version Manager depend on your platform (Static and Homebrew on macOS and Linux, static release archives on Windows) and on what those sources publish. Mailpit uses one global configuration shared by all installed versions rather than per-version config files. Treat the in-app version list and the [Download page](/download) as the source of truth for what can be installed on your machine.
+FlyEnv manages the local Mailpit runtime, its `mailpit.conf` configuration and its log file; it does not wire Mailpit into your projects or [PHP](/features/php) settings automatically — point each application's SMTP host and port at `127.0.0.1:1025` yourself. The versions offered in Version Manager depend on your platform (Static and Homebrew on macOS and Linux, static release archives on Windows) and on what those sources publish. Mailpit uses one global configuration shared by all installed versions rather than per-version config files. Treat the in-app version list and the [Download page](/download) as the source of truth for what can be installed on your machine.

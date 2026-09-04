@@ -61,4 +61,5 @@ The **Log** and **Error Log** tabs give every installed etcd version its own pai
 
 - The etcd module does not offer a MacPorts install source on macOS; use the static list, Homebrew or a custom directory instead.
 - FlyEnv manages the etcd process, its `etcd.yaml` and its log files only — it does not bundle an etcd browser or admin panel, so key inspection and data operations go through `etcdctl` or your own client.
-- Which etcd versions are offered depends on your platform and on what the online list and Homebrew publish; check the in-app Version Manager or the [Download page](/download) for what installs on your machine. For a walkthrough of etcd in a real local stack, see the [demos](/demos).
+- Which etcd versions are offered depends on your platform and on what the online list and Homebrew publish; check the in-app Version Manager or the [Download page](/download) for what installs on your machine.
+- Other FlyEnv modules build on a running etcd: the [MinIO](/features/minio) configuration exposes etcd tuning keys for distributed setups, and sibling modules like [Consul](/features/consul) and [R-Nacos](/features/r-nacos) cover adjacent service-discovery and configuration needs. For a walkthrough of etcd in a real local stack, see the [demos](/demos).

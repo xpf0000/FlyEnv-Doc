@@ -29,7 +29,7 @@ head:
 
 # Startup Groups in FlyEnv
 
-A real project rarely needs just one service — it needs the database, the cache and the app runtime all up at once. Startup Groups let you bundle those pieces into a named group and bring the whole set up or down with a single action, in the order you choose. One group can be marked as the default group, which the sidebar switch, the tray menu and app auto-start all drive. If you are new to FlyEnv, the [getting started guide](/guide/getting-started) covers installing and starting individual modules first.
+A real project rarely needs just one service — a [Laravel](/solutions/laravel) app, for example, needs the database, the cache and the app runtime all up at once. Startup Groups let you bundle those pieces into a named group and bring the whole set up or down with a single action, in the order you choose. One group can be marked as the default group, which the sidebar switch, the tray menu and app auto-start all drive. If you are new to FlyEnv, the [getting started guide](/guide/getting-started) covers installing and starting individual modules first.
 
 ![Startup Groups page with a card grid of groups](https://oss.macphpstudy.com/image/features/startup-groups-1.webp)
 
@@ -39,8 +39,8 @@ Open **Startup Groups** from the sidebar and add a group; each group appears as 
 
 A group member is one of exactly two things:
 
-- **A service version:** an installed version of a service module — databases, web servers, queues and the like. PHP-FPM counts too: it maps to your installed PHP versions, so a specific PHP-FPM version can sit in the group next to Nginx and MySQL.
-- **A project runtime:** a language-module project that has "run as service" enabled — your Node.js, Python, Go or similar app with its own run command and port.
+- **A service version:** an installed version of a service module — databases, web servers, queues and the like. PHP-FPM counts too: it maps to your installed PHP versions, so a specific PHP-FPM version can sit in the group next to [Nginx](/features/nginx) and [MySQL](/features/mysql).
+- **A project runtime:** a language-module project that has "run as service" enabled — your Node.js, Python, Go or similar app with its own run command and port, managed through [per-project runtimes](/features/per-project-runtimes).
 
 The group editor watches for conflicts as you pick members and warns you when two entries come from the same module or would claim the same port, so a broken combination is caught before you ever press start.
 

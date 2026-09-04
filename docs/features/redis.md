@@ -29,7 +29,7 @@ head:
 
 # Local Redis Development with FlyEnv
 
-Redis is an open source in-memory data store, commonly used as a cache, session store, queue backend or pub/sub channel in web applications. FlyEnv turns it into a managed local service you control from one window: install multiple versions, run `redis-server` with an auto-generated per-version config, adjust port and memory settings from a visual form, watch the server log, and browse your keys in a one-click Redis Commander web UI. If you are new to FlyEnv, the [getting started guide](/guide/getting-started) shows how modules are installed and started.
+Redis is an open source in-memory data store, commonly used as a cache, session store, queue backend or pub/sub channel in web applications — where a lighter, cache-only daemon such as [Memcached](/features/memcached) is not enough. FlyEnv turns it into a managed local service you control from one window: install multiple versions, run `redis-server` with an auto-generated per-version config, adjust port and memory settings from a visual form, watch the server log, and browse your keys in a one-click Redis Commander web UI. If you are new to FlyEnv, the [getting started guide](/guide/getting-started) shows how modules are installed and started.
 
 ![FlyEnv Redis module overview](https://oss.macphpstudy.com/image/features/redis-1.webp)
 
@@ -62,7 +62,7 @@ The **Log** tab opens the server's `redis-<major>.log` directly inside FlyEnv �
 
 The **Redis Commander** button appears in the Service toolbar whenever Redis is running and opens a full web UI for browsing keys, editing values and running commands against the local server.
 
-- **One-click setup:** on first open, FlyEnv installs the `redis-commander` package with npm and starts it for you — no manual tooling required. It uses the Node.js version selected in FlyEnv.
+- **One-click setup:** on first open, FlyEnv installs the `redis-commander` package with npm and starts it for you — no manual tooling required. It uses the [Node.js](/features/nodejs) version selected in FlyEnv, so [managing multiple Node.js versions](/guide/manage-multiple-node-php-versions) also controls which runtime the web UI launches on.
 - **Pre-configured connection:** Redis Commander connects to the running server automatically, with the port and `requirepass` password read from the current Redis configuration.
 - **Secured by default:** the UI runs on 127.0.0.1 behind HTTP authentication, and FlyEnv opens your browser with a one-time auto-login link. Redis Commander stops automatically when the Redis service stops.
 

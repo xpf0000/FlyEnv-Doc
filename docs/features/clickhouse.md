@@ -29,7 +29,7 @@ head:
 
 # Local ClickHouse Development with FlyEnv
 
-ClickHouse is an open source columnar database built for fast analytical queries over very large datasets. It is commonly used for log analytics, metrics and event-data workloads where aggregations over billions of rows must return in seconds. FlyEnv runs ClickHouse as a managed local service on macOS and Linux: it installs versions from an online list, starts the server with an auto-generated configuration, and gives you editable config files, log viewers, and a one-click CH-UI web client. The ClickHouse module is available on macOS and Linux only.
+ClickHouse is an open source columnar database built for fast analytical queries over very large datasets, complementing row-oriented databases such as [PostgreSQL](/features/postgresql). It is commonly used for log analytics, metrics and event-data workloads where aggregations over billions of rows must return in seconds, and BI tools such as [Metabase](/solutions/metabase) can sit on top of it. FlyEnv runs ClickHouse as a managed local service on macOS and Linux: it installs versions from an online list, starts the server with an auto-generated configuration, and gives you editable config files, log viewers, and a one-click CH-UI web client. The ClickHouse module is available on macOS and Linux only.
 
 ![FlyEnv ClickHouse module overview](https://oss.macphpstudy.com/image/features/clickhouse-1.webp)
 
@@ -48,7 +48,7 @@ Install ClickHouse versions from **ClickHouse → Version Manager** and switch b
 ClickHouse ships as a multi-call binary, and FlyEnv starts it as `clickhouse server` with a configuration it manages for you.
 
 - **Auto-generated configuration:** on first start FlyEnv creates `config.xml` and `users.xml` in its ClickHouse directory, pre-configured with HTTP port 8123, native TCP port 9000, and a loopback-only listen address of 127.0.0.1.
-- **Two config files in one editor:** the Config File tab switches between `config.xml` and `users.xml`, each opened as a full XML source editor, so ports, paths, users and profiles are all editable without hunting for files.
+- **Two config files in one editor:** the Config File tab switches between `config.xml` and `users.xml`, each opened as a full XML source editor, so ports, paths, users and profiles are all editable without hunting for files; the [database user and password guide](/guide/database-user-password) explains the default accounts across FlyEnv's database modules.
 
 ![Editing ClickHouse config.xml in the source editor](https://oss.macphpstudy.com/image/features/clickhouse-3.webp)
 

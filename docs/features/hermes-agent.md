@@ -29,7 +29,7 @@ head:
 
 # Hermes Agent in FlyEnv
 
-Hermes is an open-source autonomous AI agent from Nous Research: a terminal-driven agent with its own gateway process, an extensible skill system and persistent sessions. FlyEnv wraps the Hermes agent CLI in a dedicated module: one-shot installation through the official script, start/stop control for the Hermes gateway, direct editing of its configuration files, a Skills manager with online browsing across multiple sources, and a Sessions view with cleanup. The module is organized into five tabs — Service, Config File, Log, Skills and Sessions. For how FlyEnv fits into AI-assisted workflows in general, see [FlyEnv Work with AI](/guide/flyenv-work-with-ai).
+Hermes is an open-source autonomous AI agent from Nous Research: a terminal-driven agent with its own gateway process, an extensible skill system and persistent sessions. FlyEnv wraps the Hermes agent CLI in a dedicated module: one-shot installation through the official script, start/stop control for the Hermes gateway, direct editing of its configuration files, a Skills manager with online browsing across multiple sources, and a Sessions view with cleanup. The module is organized into five tabs — Service, Config File, Log, Skills and Sessions. For how FlyEnv fits into AI-assisted workflows in general, see [FlyEnv Work with AI](/guide/flyenv-work-with-ai). Pair Hermes with a local model runtime such as [Ollama](/features/ollama) — as shown in the [local offline AI agent guide](/guide/build-local-offline-ai-agent) — to run the whole stack without cloud models.
 
 ![FlyEnv Hermes module overview with Service, Config File, Log, Skills and Sessions tabs](https://oss.macphpstudy.com/image/features/hermes-agent-1.webp)
 
@@ -47,7 +47,7 @@ The sidebar switch for the Hermes module — and the controls on the Service tab
 
 - **Start and stop:** FlyEnv runs `hermes gateway start` and `hermes gateway stop` when you flip the switch.
 - **Live status:** the Service tab shows the installed version together with the gateway state, parsed from the output of `hermes gateway status`.
-- **Command palette:** the Service tab also offers a categorized palette of roughly 78 Hermes commands across 12 categories — chat/session, gateway, config, model auth, skills/plugins, memory/tools, MCP, system/logs, backup/update, dashboard/TUI and profile — each executed in the embedded terminal.
+- **Command palette:** the Service tab also offers a categorized palette of roughly 78 Hermes commands across 12 categories — chat/session, gateway, config, model auth, skills/plugins, memory/tools, MCP, system/logs, backup/update, dashboard/TUI and profile — each executed in the embedded terminal. The MCP category works well with FlyEnv's own [MCP Server](/features/mcp-server), which exposes your local services to MCP-capable agents.
 
 ![Hermes Service tab with version, gateway status and the categorized command palette](https://oss.macphpstudy.com/image/features/hermes-agent-2.webp)
 
@@ -83,4 +83,4 @@ The Log tab reads the files under `~/.hermes/logs/` directly, with a viewer for 
 
 ## Compatibility Notes
 
-Hermes is not a FlyEnv-managed background service: the module does not register a daemon or tray process, and the sidebar switch only controls the gateway through the `hermes` CLI. Installation is a one-shot run of the vendor's official script in the embedded terminal — a shell script on macOS and Linux, PowerShell on Windows — and FlyEnv offers no version list or multi-version management for it. Configuration, logs and skills all live under `~/.hermes` in your home directory and belong to the agent itself; FlyEnv edits and displays those files but does not define their schema. Which platforms and releases are currently offered is reflected on the [Download page](/download) and in the app itself.
+Hermes is not a FlyEnv-managed background service: the module does not register a daemon or tray process, and the sidebar switch only controls the gateway through the `hermes` CLI. Installation is a one-shot run of the vendor's official script in the embedded terminal — a shell script on macOS and Linux, PowerShell on Windows — and FlyEnv offers no version list or multi-version management for it. Configuration, logs and skills all live under `~/.hermes` in your home directory and belong to the agent itself; FlyEnv edits and displays those files but does not define their schema. Which platforms and releases are currently offered is reflected on the [Download page](/download) and in the app itself. FlyEnv manages another gateway-based personal assistant the same way — see the [OpenClaw](/features/openclaw) module.

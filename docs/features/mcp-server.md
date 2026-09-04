@@ -41,7 +41,7 @@ The server runs inside the FlyEnv app itself, so there is nothing to install —
 - **Bearer-token authentication:** clients must present the generated token on every request. Regenerate it with one click to revoke all existing clients at once.
 - **Auto-start on launch:** the server can come up automatically whenever FlyEnv opens, so your assistants are never left pointing at a dead endpoint.
 - **Independent service:** FlyEnv MCP Server is excluded from the global "start all" group, so bulk-starting your stack never brings the AI interface up unintentionally.
-- **stdio bridge:** for clients that prefer stdio, FlyEnv copies a `flyenv-mcp-stdio.mjs` bridge script into its data directory, ready to be executed by an external Node.js runtime.
+- **stdio bridge:** for clients that prefer stdio, FlyEnv copies a `flyenv-mcp-stdio.mjs` bridge script into its data directory, ready to be executed by an external [Node.js](/features/nodejs) runtime.
 
 ![Service tab with host, port and token options](https://oss.macphpstudy.com/image/features/mcp-server-2.webp)
 
@@ -49,7 +49,7 @@ The server runs inside the FlyEnv app itself, so there is nothing to install —
 
 The **Client Config** tab wires the server into the six AI CLI tools FlyEnv already manages: Claude Code, Antigravity CLI, Codex, GitHub Copilot CLI, OpenCode and Kimi.
 
-- **One-click registration:** an "Add to client" button per tool writes the `flyenv` server entry straight into that CLI's own MCP configuration — no manual file editing.
+- **One-click registration:** an "Add to client" button per tool writes the `flyenv` server entry straight into that CLI's own MCP configuration — no manual file editing, whether the client is [Codex](/features/codex), [OpenCode](/features/opencode) or [Kimi](/features/kimi).
 - **Copyable snippets:** ready-made JSON or TOML blocks in both HTTP and stdio variants, for pasting into clients you configured yourself or tools outside FlyEnv's management.
 - **Pairs with the managed CLIs:** each of these assistants has its own FlyEnv module — see [Claude Code](/features/claude-code) for an example of the install, session and plugin management they get.
 
@@ -70,7 +70,7 @@ The **Tools** tab lists the 18 tools the server exposes and decides which of the
 
 The **Audit Log** tab is a live viewer over `audit.log` in FlyEnv's MCP data directory — a JSON-lines record of every tool call the server processes.
 
-- **Full call history:** each entry captures which tool ran and with what, giving you a reviewable trail of everything your AI assistants touched.
+- **Full call history:** each entry captures which tool ran and with what, giving you a reviewable trail of everything your AI assistants touched — essential context when you [work with AI assistants](/guide/flyenv-work-with-ai) day to day.
 - **Secret masking:** tokens and passwords are masked before they reach the log, so reviewing or sharing the file does not leak credentials.
 
 ![Audit Log tab showing recorded tool calls](https://oss.macphpstudy.com/image/features/mcp-server-5.webp)

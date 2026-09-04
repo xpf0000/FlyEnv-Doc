@@ -53,6 +53,7 @@ The **Maven** tab inside the Java module is a full version manager of its own, s
 - Install and keep multiple Maven versions side by side.
 - Maven installs are available from Homebrew, MacPorts, static builds and SDKMAN, depending on your platform.
 - Add your own Maven installations from custom directories.
+- Teams standardized on Gradle get the same multi-source version management from the dedicated [Gradle module](/features/gradle).
 
 ![Maven version manager inside the Java module](https://oss.macphpstudy.com/image/features/java-4.webp)
 
@@ -73,7 +74,7 @@ Different projects often need different JDKs. In **Java → Java Projects**, reg
 - **Project config and logs:** register your own config files and log files per project and view them with the built-in viewers.
 - **Open in IDE:** jump from a project row straight into IntelliJ IDEA with the project environment loaded.
 
-The [Java development environment guide](/guide/set-up-java-development-environment) walks through a full setup, and the [Spring Boot solution](/solutions/spring-boot) shows how a project-level JDK fits into a complete framework stack.
+The [Java development environment guide](/guide/set-up-java-development-environment) walks through a full setup, and the [Spring Boot solution](/solutions/spring-boot) shows how a project-level JDK fits into a complete framework stack. For servlet-container deployments, the [Tomcat module](/features/tomcat) runs WAR-style applications against the JDKs managed here, and the [Metabase solution](/solutions/metabase) is an example of a ready-made Java application stack.
 
 ![Java projects list with per-project JDK binding](https://oss.macphpstudy.com/image/features/java-5.webp)
 

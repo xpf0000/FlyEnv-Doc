@@ -57,7 +57,7 @@ The Certificates tab lists the sites you have created in FlyEnv, each with its c
 
 - **Domains and aliases covered:** the generated certificate includes the site's domain and every alias you configured, via `mkcert -cert-file … -key-file …`.
 - **Managed storage:** certificates and keys are written to FlyEnv's own `CA` directory, one folder per site.
-- **SSL enabled for you:** if the site did not have HTTPS turned on, FlyEnv enables it with the freshly generated certificate once generation finishes — no manual wiring into [your site's settings](/guide/host).
+- **SSL enabled for you:** if the site did not have HTTPS turned on, FlyEnv enables it with the freshly generated certificate once generation finishes — no manual wiring into [your site's settings](/guide/host). The certificate files are referenced directly by the site's vhosts in [Nginx](/features/nginx), [Apache](/features/apache) and [Caddy](/features/caddy).
 
 ![Generating an HTTPS certificate for a FlyEnv site](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
 

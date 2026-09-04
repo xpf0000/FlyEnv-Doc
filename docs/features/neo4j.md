@@ -29,7 +29,7 @@ head:
 
 # Local Neo4j Development with FlyEnv
 
-Neo4j is an open source graph database that stores data as nodes and relationships rather than tables, queried with its Cypher language. It suits workloads where the connections between entities matter — social graphs, knowledge graphs, recommendations and fraud detection. FlyEnv runs Neo4j as a managed local service: install versions from the static online list, bind each one to a compatible Java runtime from FlyEnv's Java module, edit its `neo4j.conf`, and watch its logs — all from the Neo4j module's **Service / Version Manager / Config File / Log** tabs. The **Neo4j Browser** button opens the database's own web UI once the service is up.
+Neo4j is an open source graph database that stores data as nodes and relationships rather than tables, queried with its Cypher language — a different data model from document stores such as [MongoDB](/features/mongodb). It suits workloads where the connections between entities matter — social graphs, knowledge graphs, recommendations and fraud detection. FlyEnv runs Neo4j as a managed local service: install versions from the static online list, bind each one to a compatible Java runtime from FlyEnv's Java module, edit its `neo4j.conf`, and watch its logs — all from the Neo4j module's **Service / Version Manager / Config File / Log** tabs. The **Neo4j Browser** button opens the database's own web UI once the service is up.
 
 ![FlyEnv Neo4j module overview](https://oss.macphpstudy.com/image/features/neo4j-1.webp)
 
@@ -48,7 +48,7 @@ Install Neo4j versions from **Neo4j → Version Manager**.
 Neo4j runs on the JVM, so every installed version needs a Java runtime. The Service table has a dedicated **Java column** where you pick the JDK for each Neo4j version, using Java installations managed by FlyEnv's [Java module](/features/java).
 
 - **Per-version JAVA_HOME:** the selected JDK is bound to that Neo4j version and passed as `JAVA_HOME` when the service starts.
-- **Compatibility policy:** Neo4j 5.x runs on Java 17 or 21; Neo4j 2025.x requires Java 21 or 25. Bind a compatible JDK before starting the service.
+- **Compatibility policy:** Neo4j 5.x runs on Java 17 or 21; Neo4j 2025.x requires Java 21 or 25. Bind a compatible JDK before starting the service — the [Java development environment guide](/guide/set-up-java-development-environment) walks through installing JDKs in FlyEnv.
 
 ![Neo4j service table with the per-version Java column](https://oss.macphpstudy.com/image/features/neo4j-3.webp)
 

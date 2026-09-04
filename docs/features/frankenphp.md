@@ -29,7 +29,7 @@ head:
 
 # FrankenPHP in FlyEnv
 
-FrankenPHP is a modern PHP application server built on top of Caddy: it embeds a full PHP runtime and serves PHP applications directly, without a separate PHP-FPM process. FlyEnv manages it as a dedicated module: install multiple FrankenPHP versions, start and stop them as services, edit the Caddyfile, and read logs without leaving the app. Your sites get their own port and automatic HTTPS out of the box, with no PHP-FPM to configure.
+FrankenPHP is a modern PHP application server built on top of [Caddy](/features/caddy): it embeds a full PHP runtime and serves PHP applications directly, without a separate PHP-FPM process. FlyEnv manages it as a dedicated module: install multiple FrankenPHP versions, start and stop them as services, edit the Caddyfile, and read logs without leaving the app. Your sites get their own port and automatic HTTPS out of the box, with no PHP-FPM to configure.
 
 ![FrankenPHP module overview in FlyEnv](https://oss.macphpstudy.com/image/features/frankenphp-1.webp)
 
@@ -65,10 +65,10 @@ The **Config File** tab edits the global Caddyfile that FrankenPHP runs with.
 
 ## Site integration
 
-PHP-type sites created in **Host** automatically get a FrankenPHP vhost using the `php_server` directive, so they run as real FrankenPHP applications rather than plain static file serving.
+PHP-type sites created in **Host** automatically get a FrankenPHP vhost using the `php_server` directive, so they run as real FrankenPHP applications rather than plain static file serving — the [Laravel solution](/solutions/laravel) shows a complete framework stack running on this kind of setup.
 
-- **Per-site ports:** each site gets its own dedicated FrankenPHP port (`port.frankenphp`), so FrankenPHP can serve the same site in parallel with Nginx, Apache or Caddy. Sites created before this behavior existed fall back to the shared Caddy port.
-- **Automatic HTTPS:** vhosts include `tls internal`, giving every site a locally trusted certificate without extra setup.
+- **Per-site ports:** each site gets its own dedicated FrankenPHP port (`port.frankenphp`), so FrankenPHP can serve the same site in parallel with [Nginx](/features/nginx), Apache or Caddy. Sites created before this behavior existed fall back to the shared Caddy port.
+- **Automatic HTTPS:** vhosts include `tls internal`, giving every site a locally trusted certificate without extra setup; site domains and certificates are covered in [Local Sites, Custom Domains & HTTPS](/features/local-sites-https).
 - **Per-site reverse proxy:** a site can instead reverse proxy to another local service through its FrankenPHP vhost.
 - **Self-healing vhosts:** when a FrankenPHP version starts, FlyEnv regenerates any missing site vhosts before launching the process.
 

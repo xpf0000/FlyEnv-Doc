@@ -68,7 +68,7 @@ The **Model** tab is where models are pulled, listed and run.
 
 ![Pulling an Ollama model in the embedded terminal](https://oss.macphpstudy.com/image/features/ollama-5.webp)
 
-A running Ollama service on port 11434 also pairs well with other FlyEnv modules — for example, you can call the local API from workflows built in [n8n](/features/n8n).
+A running Ollama service on port 11434 also pairs well with other FlyEnv modules — call the local API from workflows built in [n8n](/features/n8n), store embeddings from local models in the [Qdrant](/features/qdrant) vector database, or run CLI-based AI accounts behind OpenAI-compatible endpoints with [CLIProxyAPI](/features/cliproxyapi). The guide on [FlyEnv working with AI assistants](/guide/flyenv-work-with-ai) shows how these pieces fit into a wider setup.
 
 ## Logs
 

@@ -29,7 +29,7 @@ head:
 
 # Kimi CLI in FlyEnv
 
-Kimi is Moonshot AI's command-line coding agent, powered by the Kimi models. FlyEnv gives the Kimi coding CLI a dedicated management page: install it from the Service card, edit `config.toml` through a visual form, resume or export past Sessions, read Kimi's own log files without leaving the app, and manage HTTP/SSE MCP servers. It is one of several AI coding clients FlyEnv manages — the [AI assistant workflow guide](/guide/flyenv-work-with-ai) shows how these modules fit into day-to-day development.
+Kimi is Moonshot AI's command-line coding agent, powered by the Kimi models. FlyEnv gives the Kimi coding CLI a dedicated management page: install it from the Service card, edit `config.toml` through a visual form, resume or export past Sessions, read Kimi's own log files without leaving the app, and manage HTTP/SSE MCP servers. It is one of several AI coding clients FlyEnv manages — alongside [Claude Code](/features/claude-code) and [OpenCode](/features/opencode) — and the [AI assistant workflow guide](/guide/flyenv-work-with-ai) shows how these modules fit into day-to-day development.
 
 ![FlyEnv Kimi module with Service, Config File, Log, Sessions and MCP tabs](https://oss.macphpstudy.com/image/features/kimi-1.webp)
 
@@ -66,7 +66,7 @@ Kimi is the only AI coding CLI module in FlyEnv with a dedicated **Log** tab. It
 
 ## MCP servers
 
-The **MCP** tab lists the servers registered for Kimi and lets you add or remove entries. Kimi accepts HTTP/SSE MCP servers only — stdio servers are rejected by design — and FlyEnv writes additions into `mcp.json` in the config home, the same file the CLI reads. FlyEnv's own [MCP Server](/features/mcp-server) can register itself here with one click from its Client Config tab.
+The **MCP** tab lists the servers registered for Kimi and lets you add or remove entries — the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) shows how MCP servers extend AI coding tools. Kimi accepts HTTP/SSE MCP servers only — stdio servers are rejected by design — and FlyEnv writes additions into `mcp.json` in the config home, the same file the CLI reads. FlyEnv's own [MCP Server](/features/mcp-server) can register itself here with one click from its Client Config tab.
 
 ![Managing HTTP/SSE MCP servers for Kimi](https://oss.macphpstudy.com/image/features/kimi-4.webp)
 

@@ -29,7 +29,7 @@ head:
 
 # Per-Project Runtimes in FlyEnv
 
-FlyEnv lets every project folder carry its own runtime version, so a legacy PHP codebase and a modern Node.js app can live side by side on the same machine. Register a project in any language module's **Projects** tab, pick the exact binary version it should use, and FlyEnv records that choice inside the project itself. From then on, terminals, editors and run commands started for that project resolve the right toolchain automatically — the step-by-step workflow is covered in the [project-level runtime environment guide](/guide/project-level-runtime-environment).
+FlyEnv lets every project folder carry its own runtime version, so a legacy PHP codebase and a modern Node.js app can live side by side on the same machine — see [managing multiple Node and PHP versions](/guide/manage-multiple-node-php-versions) for the version-manager side of this. Register a project in any language module's **Projects** tab, pick the exact binary version it should use, and FlyEnv records that choice inside the project itself. From then on, terminals, editors and run commands started for that project resolve the right toolchain automatically — the step-by-step workflow is covered in the [project-level runtime environment guide](/guide/project-level-runtime-environment).
 
 ![FlyEnv Projects tab listing registered projects with their bound runtime versions](https://oss.macphpstudy.com/image/features/per-project-runtimes-1.webp)
 
@@ -39,7 +39,7 @@ When you add a project or change its bound version, FlyEnv writes a small `.flye
 
 - **PATH prepending:** on macOS and Linux the file contains an `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"` line pointing at the bound runtime's directories; on Windows it uses the equivalent PowerShell `$env:PATH` assignment.
 - **Tagged and idempotent:** every line FlyEnv writes is marked with a `#FlyEnv-ID-<projectId>` tag, so re-editing the project rewrites the same lines in place instead of appending duplicates.
-- **Per language module:** the Projects tab is shared across the language modules — PHP, NodeJS, Python, Go, Ruby, Rust, Java, .NET, Bun, Deno and more — each keeping its own project list with the bound version shown next to the project path.
+- **Per language module:** the Projects tab is shared across the language modules — PHP, [NodeJS](/features/nodejs), [Python](/features/python), Go, Ruby, Rust, Java, .NET, Bun, Deno and more — each keeping its own project list with the bound version shown next to the project path.
 - **Editable in the app:** the `.flyenv` file itself can be opened and adjusted from the project's config view when you need something beyond the default PATH entry.
 
 ![A .flyenv file written by FlyEnv with the tagged PATH export line](https://oss.macphpstudy.com/image/features/per-project-runtimes-2.webp)
@@ -64,7 +64,7 @@ Because the binding lives in the project rather than in a global setting, any to
 
 ## Per-site version selection
 
-Project binding covers the command line; browser-facing sites get their own version choice. Each site created in the **Host** module selects the PHP-FPM version that serves it (or stays a static site), and several PHP-FPM versions can run simultaneously — each on its own socket — so different sites are served by different PHP builds at the same time. The site list shows which version serves which site, and the web-server integration config is regenerated when a version starts. The full capability set is documented on the [PHP feature page](/features/php).
+Project binding covers the command line; browser-facing sites get their own version choice. Each site created in the [Host](/features/local-sites-https) module selects the PHP-FPM version that serves it (or stays a static site), and several PHP-FPM versions can run simultaneously — each on its own socket — so different sites are served by different PHP builds at the same time. The site list shows which version serves which site, and the web-server integration config is regenerated when a version starts. The full capability set is documented on the [PHP feature page](/features/php).
 
 ![Host module site list showing the PHP version bound to each site](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
 

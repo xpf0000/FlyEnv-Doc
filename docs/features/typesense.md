@@ -29,7 +29,7 @@ head:
 
 # Typesense in FlyEnv
 
-Typesense is an open source search engine focused on fast, typo-tolerant search with a simple API, commonly used for site search and instant search-as-you-type experiences. FlyEnv runs it as a managed local search server on macOS and Linux: install versions from a static list or Homebrew, start `typesense-server` with a FlyEnv-managed configuration file, and watch its log without leaving the app. The Typesense module is available on macOS and Linux only.
+Typesense is an open source search engine focused on fast, typo-tolerant search with a simple API, commonly used for site search and instant search-as-you-type experiences — a lighter alternative to [Elasticsearch](/features/elasticsearch), in the same family as [Meilisearch](/features/meilisearch) and [ZincSearch](/features/zincsearch). FlyEnv runs it as a managed local search server on macOS and Linux: install versions from a static list or Homebrew, start `typesense-server` with a FlyEnv-managed configuration file, and watch its log without leaving the app. The Typesense module is available on macOS and Linux only.
 
 ![FlyEnv Typesense module overview](https://oss.macphpstudy.com/image/features/typesense-1.webp)
 

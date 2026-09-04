@@ -29,7 +29,7 @@ head:
 
 # RabbitMQ in FlyEnv
 
-RabbitMQ is an open source message broker: applications hand it messages over protocols such as AMQP, and it routes them into queues for other services to consume asynchronously. It is a common choice for decoupling services — background jobs, task queues and event-driven workflows. FlyEnv runs it as a managed local broker: install versions from the Version Manager, start the broker with a generated environment config, enable the management plugin out of the box, and read the server log per major version — all from the RabbitMQ module's Service, Version Manager, Config File and Log tabs.
+RabbitMQ is an open source message broker: applications hand it messages over protocols such as AMQP, and it routes them into queues for other services to consume asynchronously. It is a common choice for decoupling services — background jobs, task queues and event-driven workflows, such as the queue driver of a [Laravel](/solutions/laravel) application; for lighter queue needs, [Redis](/features/redis) can double as a queue backend too. FlyEnv runs it as a managed local broker: install versions from the Version Manager, start the broker with a generated environment config, enable the management plugin out of the box, and read the server log per major version — all from the RabbitMQ module's Service, Version Manager, Config File and Log tabs.
 
 ![FlyEnv RabbitMQ module overview](https://oss.macphpstudy.com/image/features/rabbitmq-1.webp)
 
@@ -45,7 +45,7 @@ Install and keep multiple RabbitMQ versions from **RabbitMQ → Version Manager*
 
 ## Service and configuration
 
-FlyEnv starts the broker with `rabbitmq-server -detached`, pointing `RABBITMQ_CONF_ENV_FILE` at a generated `rabbitmq-<major>.conf` (`rabbitmq-<major>.bat` on Windows) that pins the node to `NODE_IP_ADDRESS=127.0.0.1` and `NODENAME=rabbit@localhost`, along with its log and mnesia directories. The broker daemonizes itself through Erlang's epmd, and FlyEnv detects a successful start by watching for the node's pid file. AMQP listens on the default port 5672.
+FlyEnv starts the broker with `rabbitmq-server -detached`, pointing `RABBITMQ_CONF_ENV_FILE` at a generated `rabbitmq-<major>.conf` (`rabbitmq-<major>.bat` on Windows) that pins the node to `NODE_IP_ADDRESS=127.0.0.1` and `NODENAME=rabbit@localhost`, along with its log and mnesia directories. The broker daemonizes itself through [Erlang](/features/erlang)'s epmd, and FlyEnv detects a successful start by watching for the node's pid file. AMQP listens on the default port 5672.
 
 Each major version gets its own set of files under FlyEnv's RabbitMQ directory, editable from the **Config File** tab with a raw editor:
 

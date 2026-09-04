@@ -29,7 +29,7 @@ head:
 
 # OpenClaw in FlyEnv
 
-OpenClaw is an open-source personal AI assistant that runs on your own machine: a local gateway connects chat channels such as WhatsApp and Telegram to a coding agent, so you can message your assistant from anywhere. FlyEnv wraps the OpenClaw CLI in a compact control panel: it installs OpenClaw through the official script, registers and manages the OpenClaw gateway as a real operating-system service, and surfaces the CLI's roughly 110 sub-commands as a categorized palette that runs in FlyEnv's embedded terminal. The module is deliberately thin — FlyEnv stays out of the way and drives the same `openclaw` binary you would use by hand. For a task-oriented walkthrough, see the [OpenClaw guide](/guide/openclaw).
+OpenClaw is an open-source personal AI assistant that runs on your own machine: a local gateway connects chat channels such as WhatsApp and Telegram to a coding agent, so you can message your assistant from anywhere. FlyEnv wraps the OpenClaw CLI in a compact control panel: it installs OpenClaw through the official script, registers and manages the OpenClaw gateway as a real operating-system service, and surfaces the CLI's roughly 110 sub-commands as a categorized palette that runs in FlyEnv's embedded terminal. The module is deliberately thin — FlyEnv stays out of the way and drives the same `openclaw` binary you would use by hand. For a task-oriented walkthrough, see the [OpenClaw guide](/guide/openclaw); for the bigger picture of AI assistants in FlyEnv, see [FlyEnv Work with AI](/guide/flyenv-work-with-ai).
 
 ![FlyEnv OpenClaw module showing the Service tab with gateway status](https://oss.macphpstudy.com/image/features/openclaw-1.webp)
 
@@ -53,7 +53,7 @@ The gateway is the one long-lived piece of an OpenClaw setup, and FlyEnv registe
 
 ## Command palette
 
-The Service tab includes a categorized command palette covering roughly 110 OpenClaw commands across 13 categories — basic info, config, gateway, agents, browser, channels, nodes and devices, models, skills, system, sessions, backup and update, and plugins.
+The Service tab includes a categorized command palette covering roughly 110 OpenClaw commands across 13 categories — basic info, config, gateway, agents, browser, channels, nodes and devices, models, skills, system, sessions, backup and update, and plugins. The models category pairs naturally with a local model runtime such as [Ollama](/features/ollama) — see the [local offline AI agent guide](/guide/build-local-offline-ai-agent) — if you want the gateway to answer without cloud models.
 
 - **Runs in the embedded terminal:** each command executes in FlyEnv's built-in xterm, so full CLI output stays visible and scrollable.
 - **Argument pre-fill:** commands that need parameters are typed into the terminal for you, ready to complete and run.
@@ -71,4 +71,4 @@ The **Config File** tab edits OpenClaw's own files in place — there is no sett
 
 ## Compatibility Notes
 
-The OpenClaw module is a thin wrapper around the CLI: it is not a background service module of its own and has no tray entry — the only persistent process is the gateway, and that is owned by the operating system's service manager once registered. Gateway service registration relies on `launchctl` on macOS and a user-level systemd unit on Linux; on Windows there is no such OS-service registration step, and the gateway is controlled purely through the CLI's `openclaw gateway start/stop` commands. FlyEnv provides no log viewers for OpenClaw (`openclaw gateway status` and the CLI's own output are the source of runtime information), and there is no version manager — what the official install script delivers is what you run. Check the [Download page](/download) for the current FlyEnv release that ships this module.
+The OpenClaw module is a thin wrapper around the CLI: it is not a background service module of its own and has no tray entry — the only persistent process is the gateway, and that is owned by the operating system's service manager once registered. Gateway service registration relies on `launchctl` on macOS and a user-level systemd unit on Linux; on Windows there is no such OS-service registration step, and the gateway is controlled purely through the CLI's `openclaw gateway start/stop` commands. FlyEnv provides no log viewers for OpenClaw (`openclaw gateway status` and the CLI's own output are the source of runtime information), and there is no version manager — what the official install script delivers is what you run. Check the [Download page](/download) for the current FlyEnv release that ships this module. FlyEnv manages another gateway-based personal assistant the same way — see the [Hermes Agent](/features/hermes-agent) module.

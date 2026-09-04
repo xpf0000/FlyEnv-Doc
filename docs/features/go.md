@@ -61,9 +61,9 @@ The name **Service** is misleading for Go: this tab never starts or stops anythi
 In **Go → Projects**, register each project folder and bind it to a specific Go version instead of relying on whichever version happens to be in PATH. The [project-level runtime environment guide](/guide/project-level-runtime-environment) explains the mechanism in detail.
 
 - **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Go toolchain automatically.
-- **Run as service:** optionally run a project directly from FlyEnv with a custom run command or run file, a project port exposed as a `http://127.0.0.1:<port>` link, environment variables set inline or from an env file, and a sudo toggle on macOS and Linux.
+- **Run as service:** optionally run a project directly from FlyEnv with a custom run command or run file, a project port exposed as a `http://127.0.0.1:<port>` link, environment variables set inline or from an env file, and a sudo toggle on macOS and Linux. To put that port behind a local domain with HTTPS, the [reverse proxy guide](/guide/reverse-proxy-nestjs-multi-servers) covers the Nginx, Apache and Caddy setup.
 - **Open-in tools:** jump from a project row into the system terminal or open the project in GoLand with its environment loaded.
-- **New Project templates:** scaffold a plain `go mod init` module or a project based on Gin, Echo, Fiber, Iris, GoFrame or Buffalo without leaving the app.
+- **New Project templates:** scaffold a plain `go mod init` module or a project based on Gin, Echo, Fiber, Iris, GoFrame or Buffalo without leaving the app. The [Gitea solution](/solutions/gitea) shows a production-grade Go application served through FlyEnv's site management.
 
 ![Go Projects list with per-project Go version binding](https://oss.macphpstudy.com/image/features/go-4.webp)
 

@@ -50,7 +50,7 @@ Each version gets its own data directory — `postgresql<major>` under FlyEnv's 
 
 ![PostgreSQL Service tab with editable data directory](https://oss.macphpstudy.com/image/features/postgresql-3.webp)
 
-Point your application at `127.0.0.1:5432` — the [Django](/solutions/django) solution shows a complete local stack wired to PostgreSQL this way.
+Point your application at `127.0.0.1:5432` — the [Django](/solutions/django) and [Strapi](/solutions/strapi) solutions show complete local stacks wired to PostgreSQL this way.
 
 ## Configuration
 
@@ -66,13 +66,13 @@ The **Log** tab opens `pg.log` from the data directory directly inside FlyEnv �
 
 ## pgAdmin 4
 
-The **pgAdmin 4** button in the Service toolbar sets up the full pgAdmin web console in one step. pgAdmin 4 is a Python application, so on first use FlyEnv pip-installs `pgadmin4` into your currently selected FlyEnv Python version — you will see an "installing web panel" notice while this happens. It then starts `pgAdmin4.py` on port 5050 (with retry), auto-registers the running FlyEnv PostgreSQL server as a connection, and opens the console in your browser.
+The **pgAdmin 4** button in the Service toolbar sets up the full pgAdmin web console in one step. pgAdmin 4 is a Python application, so on first use FlyEnv pip-installs `pgadmin4` into your currently selected FlyEnv [Python](/features/python) version — you will see an "installing web panel" notice while this happens. It then starts `pgAdmin4.py` on port 5050 (with retry), auto-registers the running FlyEnv PostgreSQL server as a connection, and opens the console in your browser.
 
 ![pgAdmin 4 web console launched from FlyEnv](https://oss.macphpstudy.com/image/features/postgresql-6.webp)
 
 ## pgvector extension
 
-The **Extension** action on a service row opens a drawer that installs pgvector — the PostgreSQL extension for vector storage and similarity search used by AI and embedding workloads. FlyEnv clones the latest pgvector tag from its git repository and runs `sudo make` / `make install` in the embedded terminal, so you see the real build output. The install flow is macOS-oriented (it uses `sudo` and the zsh shell).
+The **Extension** action on a service row opens a drawer that installs pgvector — the PostgreSQL extension for vector storage and similarity search used by AI and embedding workloads (for a dedicated vector database, see the [Qdrant module](/features/qdrant)). FlyEnv clones the latest pgvector tag from its git repository and runs `sudo make` / `make install` in the embedded terminal, so you see the real build output. The install flow is macOS-oriented (it uses `sudo` and the zsh shell).
 
 ![pgvector install running in the Extension drawer's embedded terminal](https://oss.macphpstudy.com/image/features/postgresql-7.webp)
 

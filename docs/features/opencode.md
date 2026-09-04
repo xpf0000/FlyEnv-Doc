@@ -79,7 +79,7 @@ The Providers tab shows which model providers your OpenCode is authenticated wit
 
 ## MCP servers
 
-The MCP tab manages the Model Context Protocol servers OpenCode connects to. FlyEnv reads and writes the MCP entries directly inside the JSONC config file, stripping comments during parsing so hand-edited files stay valid.
+The MCP tab manages the Model Context Protocol servers OpenCode connects to — the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) covers what MCP servers can add to an AI coding setup. FlyEnv reads and writes the MCP entries directly inside the JSONC config file, stripping comments during parsing so hand-edited files stay valid.
 
 - **List, add, remove:** review configured MCP servers and add or remove entries without hunting through the config yourself.
 - **Config-native storage:** changes land in `opencode.jsonc`, keeping a single source of truth for both FlyEnv and manual edits.
@@ -87,4 +87,4 @@ The MCP tab manages the Model Context Protocol servers OpenCode connects to. Fly
 
 ## Compatibility Notes
 
-OpenCode is not a background service: FlyEnv does not start, stop or monitor it, and the sidebar service toggle is disabled for this module by design. Installation on every platform goes through `npm install -g opencode-ai` run in FlyEnv's embedded terminal, so a working Node.js/npm environment is a prerequisite, and detection depends on the binary living on your `PATH` or in one of the standard install locations FlyEnv scans. Sessions, Stats and Providers data come from the OpenCode CLI and its own files, so their accuracy depends on the installed OpenCode version; upgrading OpenCode can change what these tabs report. Interactive work happens in an external system terminal, not inside FlyEnv. For the supported platforms and the current release, check the [Download page](/download).
+OpenCode is not a background service: FlyEnv does not start, stop or monitor it, and the sidebar service toggle is disabled for this module by design. Installation on every platform goes through `npm install -g opencode-ai` run in FlyEnv's embedded terminal, so a working Node.js/npm environment — installable from FlyEnv's [Node.js module](/features/nodejs) — is a prerequisite, and detection depends on the binary living on your `PATH` or in one of the standard install locations FlyEnv scans. Sessions, Stats and Providers data come from the OpenCode CLI and its own files, so their accuracy depends on the installed OpenCode version; upgrading OpenCode can change what these tabs report. Interactive work happens in an external system terminal, not inside FlyEnv. For the supported platforms and the current release, check the [Download page](/download).

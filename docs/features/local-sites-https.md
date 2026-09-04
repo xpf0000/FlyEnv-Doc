@@ -41,7 +41,7 @@ The Host module maps a local project to a browser-friendly address and the web s
 - **Reverse proxy:** map a path such as `/api` to a local service URL such as `http://127.0.0.1:3000`.
 - **HTTPS:** enable Auto SSL for a locally generated certificate, or provide certificate and key files for a custom setup.
 
-FlyEnv writes the configured host mappings to the operating system hosts file when the site needs a local name. The helper permission is why first-time setup may request an administrator password.
+FlyEnv writes the configured host mappings to the operating system hosts file when the site needs a local name — the [built-in DNS server](/features/dns-server) is an alternative that resolves site domains without touching the hosts file at all. The helper permission is why first-time setup may request an administrator password.
 
 ## A predictable local-site workflow
 
@@ -69,7 +69,7 @@ Use the [Node.js Feature page](/features/nodejs) for the project-service side of
 
 ## HTTPS and certificates
 
-Auto SSL creates a FlyEnv local Certificate Authority when needed, issues a certificate for the site's aliases and stores the certificate/key with the site configuration. The MkCert integration can also generate locally trusted development certificates. If a browser or operating system does not trust the CA automatically, follow the platform-specific certificate instructions in the [Host guide](/guide/host).
+Auto SSL creates a FlyEnv local Certificate Authority when needed, issues a certificate for the site's aliases and stores the certificate/key with the site configuration. The [MkCert](/features/mkcert) integration can also generate locally trusted development certificates. If a browser or operating system does not trust the CA automatically, follow the platform-specific certificate instructions in the [Host guide](/guide/host).
 
 Do not use a local certificate as proof that a site is publicly trusted: these certificates are for local development and testing. For a public preview, pair the local service with [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development) or deploy it to an environment intended for external traffic.
 

@@ -48,7 +48,7 @@ Install Ruby versions side by side from **Ruby → Version Manager** and keep th
 
 Despite the label, the **Service** tab does not run a service — Ruby is an interpreter, so there is no daemon for FlyEnv to manage. The tab is an installed-versions table whose job is PATH control.
 
-- **Terminal version switching:** selecting a version here decides which installation the terminal `ruby` command resolves to; FlyEnv adds that version's bin directory to your `PATH` (or removes it again) and flags whether the active PATH entry came from FlyEnv or from another tool.
+- **Terminal version switching:** selecting a version here decides which installation the terminal `ruby` command resolves to; FlyEnv adds that version's bin directory to your `PATH` (or removes it again) and flags whether the active PATH entry came from FlyEnv or from another tool. The [system PATH environment guide](/guide/setup-system-path-environment) explains this mechanism in detail.
 - **Per-version alias and remark:** every installation can carry a short alias plus a note, so near-identical builds remain easy to tell apart.
 - **Housekeeping:** each row exposes the version's install path and offers a delete action for versions you no longer need.
 
@@ -56,7 +56,7 @@ Despite the label, the **Service** tab does not run a service — Ruby is an int
 
 In **Ruby → Projects**, register each project folder and bind it to a specific Ruby version instead of relying on whichever version happens to be in PATH.
 
-- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Ruby automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) for how the mechanism works.
+- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Ruby automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) and the [Per-Project Runtimes feature](/features/per-project-runtimes) for how the mechanism works, and the [video demos](/demos) for a walkthrough of project runtimes in action.
 - **Run as service:** optionally run a project directly from FlyEnv with a custom start command, a TCP port exposed as a `http://127.0.0.1:<port>` link, environment variables set inline or from a file, and a sudo flag on macOS and Linux. The sidebar switch starts or stops all service-enabled Ruby projects at once.
 - **Open-in tools:** jump from a project row into the system terminal or open the project in RubyMine with its environment loaded.
 

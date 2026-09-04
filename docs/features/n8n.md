@@ -35,7 +35,7 @@ n8n is an open source workflow automation tool with a visual, node-based editor 
 
 ## Version management
 
-Unlike modules that ship binary downloads, the **n8n → Version Manager** tab works through the package registry, so a working Node.js installation with npm is a prerequisite.
+Unlike modules that ship binary downloads, the **n8n → Version Manager** tab works through the package registry, so a working [Node.js](/features/nodejs) installation with npm is a prerequisite.
 
 - **Registry-backed version list:** FlyEnv pulls the last 20 stable n8n releases straight from `registry.npmjs.org`, so the offered versions always track what upstream publishes.
 - **Install in the embedded terminal:** installing a version runs `npm install -g n8n@<version>` inside FlyEnv's built-in terminal, where you watch the real npm output instead of a progress bar.
@@ -67,7 +67,7 @@ The **Users** tab talks to n8n's `database.sqlite` directly, so account administ
 
 ## Dashboard
 
-When the service is running, the Service tab's dashboard button opens the n8n editor in your browser at the address assembled from your configuration — protocol, host, port and path are all read from `n8n.env`, so a custom `N8N_PATH` or a non-default port is reflected in the link automatically. From there you build workflows against your local stack; the [local AI workflow guide](/guide/build-local-ai-workflow-by-n8n) shows n8n working together with models served by the [Ollama module](/features/ollama).
+When the service is running, the Service tab's dashboard button opens the n8n editor in your browser at the address assembled from your configuration — protocol, host, port and path are all read from `n8n.env`, so a custom `N8N_PATH` or a non-default port is reflected in the link automatically. From there you build workflows against your local stack — SMTP nodes can point at [Mailpit](/features/mailpit) so notification workflows never send real mail during testing; the [local AI workflow guide](/guide/build-local-ai-workflow-by-n8n) shows n8n working together with models served by the [Ollama module](/features/ollama).
 
 ![n8n editor dashboard opened from FlyEnv](https://oss.macphpstudy.com/image/features/n8n-5.webp)
 

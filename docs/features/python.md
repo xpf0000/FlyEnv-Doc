@@ -69,7 +69,7 @@ For a full walkthrough of the project-service model across Python, Node.js and G
 
 **Python → New Project** scaffolds common Python applications without leaving the app. FlyEnv runs the framework's creation command in its embedded terminal with per-OS pip or uv commands, so you see the real output while the project is created.
 
-Supported templates: FastAPI, Django, Flask, Streamlit, Masonite, uv, Wagtail, Sanic, Litestar, Mezzanine and PDM.
+Supported templates: [FastAPI](/solutions/fastapi), [Django](/solutions/django), Flask, Streamlit, Masonite, uv, Wagtail, Sanic, Litestar, Mezzanine and PDM. The linked solution pages show each framework running as a complete local stack with a database and a browser-facing site.
 
 ![New Python project dialog with framework template selection](https://oss.macphpstudy.com/image/features/python-5.webp)
 

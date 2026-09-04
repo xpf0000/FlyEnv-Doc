@@ -37,7 +37,7 @@ GitHub Copilot CLI is GitHub's AI coding agent for the terminal, part of the Cop
 
 The **GitHub Copilot CLI → Service** tab detects an existing `copilot` binary and shows its version, or offers a one-click install when none is found.
 
-- **Single cross-platform command:** installation runs `npm install -g @github/copilot`, the same command on macOS, Linux and Windows, so a working Node.js/npm setup is the only prerequisite.
+- **Single cross-platform command:** installation runs `npm install -g @github/copilot`, the same command on macOS, Linux and Windows, so a working Node.js/npm setup is the only prerequisite — FlyEnv's [Node.js version management](/guide/manage-multiple-node-php-versions) can provide one if needed.
 - **Embedded terminal:** the npm command runs in FlyEnv's built-in terminal, with FlyEnv's proxy environment variables applied, so you watch the real install output instead of a silent progress bar.
 - **Existing installs recognized:** FlyEnv scans `PATH` plus common global install locations — npm, yarn, pnpm, bun and volta global bin directories among them — so a Copilot CLI you installed yourself is picked up without reinstalling.
 - **Command cheat-sheet:** copyable shortcuts for everyday commands such as `copilot login`, `copilot init`, `copilot skill list` and `copilot mcp list` sit right on the Service card.
@@ -63,7 +63,7 @@ Copilot Sessions are read from the CLI's own SQLite store at `~/.copilot/session
 
 ## Skills
 
-The **Skills** tab lists the Skills known to Copilot CLI by querying the CLI directly with `copilot skill list --json`, with each skill's name suffixed by its source.
+The **Skills** tab lists the Skills known to Copilot CLI by querying the CLI directly with `copilot skill list --json`, with each skill's name suffixed by its source — unlike the [Antigravity CLI](/features/antigravity-cli) module, which reads its skill folders straight from disk, this list always comes from the CLI itself.
 
 - **Per-skill actions:** open the skill's directory, reveal the skill file in your file manager, or preview its contents without leaving FlyEnv.
 - **Always current:** because the list comes from the CLI rather than a cached snapshot, newly added Skills appear as soon as `copilot skill list` sees them.

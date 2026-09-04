@@ -74,7 +74,7 @@ The **Plugins** tab is a full plugin manager built on Claude Code's own plugin s
 
 ## MCP servers
 
-The **MCP** tab manages the Model Context Protocol servers stored in the `mcpServers` section of `~/.claude.json`.
+The **MCP** tab manages the Model Context Protocol servers stored in the `mcpServers` section of `~/.claude.json` — the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) explains how these servers extend AI coding tools.
 
 - **List and remove:** see every configured MCP server and delete entries you no longer use.
 - **HTTP and SSE servers:** remote servers are added by writing the definition straight into `~/.claude.json`.
@@ -85,4 +85,4 @@ The **MCP** tab manages the Model Context Protocol servers stored in the `mcpSer
 
 ## Compatibility Notes
 
-Claude Code in FlyEnv is a management layer over the CLI, not a hosted runtime. The module is not a background service — FlyEnv does not run Claude Code for you; interactive sessions are always launched in an external system terminal with the project directory as the working directory. Installation goes through Anthropic's official scripts inside the embedded terminal, and there is no multi-version management. Session history is read from the `~/.claude/projects` JSONL transcripts, so only sessions Claude Code itself has recorded can appear; configuration edits apply to the standard files under `~/.claude` (or the directory named by `CLAUDE_CONFIG_DIR`). Platform coverage follows the FlyEnv build you are running — check the [Download page](/download) for the current release per operating system.
+Claude Code in FlyEnv is a management layer over the CLI, not a hosted runtime. The module is not a background service — FlyEnv does not run Claude Code for you; interactive sessions are always launched in an external system terminal with the project directory as the working directory. Installation goes through Anthropic's official scripts inside the embedded terminal, and there is no multi-version management. Session history is read from the `~/.claude/projects` JSONL transcripts, so only sessions Claude Code itself has recorded can appear; configuration edits apply to the standard files under `~/.claude` (or the directory named by `CLAUDE_CONFIG_DIR`). Platform coverage follows the FlyEnv build you are running — check the [Download page](/download) for the current release per operating system. FlyEnv manages other AI coding CLIs the same way — see the [Codex](/features/codex), [OpenCode](/features/opencode) and [Kimi](/features/kimi) modules.

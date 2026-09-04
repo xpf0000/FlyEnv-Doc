@@ -29,7 +29,7 @@ head:
 
 # Local Rust Development with FlyEnv
 
-Rust is a systems programming language focused on memory safety and performance, used for command-line tools, system components, WebAssembly and performance-critical services. FlyEnv's Rust module keeps local Rust development in one place: install Rust toolchains side by side, manage rustup toolchains and target platforms, decide which toolchain your terminal `cargo` and `rustc` commands resolve to, and bind each project to its own toolchain. The module has four tabs — Rust Projects, Service, Version Manager and Rustup — covering installation, PATH control, rustup integration and project runtimes.
+Rust is a systems programming language focused on memory safety and performance, used for command-line tools, system components, WebAssembly and performance-critical services — the S3-compatible [RustFS object store](/features/rustfs) is one Rust-built service FlyEnv manages. FlyEnv's Rust module keeps local Rust development in one place: install Rust toolchains side by side, manage rustup toolchains and target platforms, decide which toolchain your terminal `cargo` and `rustc` commands resolve to, and bind each project to its own toolchain. The module has four tabs — Rust Projects, Service, Version Manager and Rustup — covering installation, PATH control, rustup integration and project runtimes.
 
 ![FlyEnv Rust module overview](https://oss.macphpstudy.com/image/features/rust-1.webp)
 
@@ -51,7 +51,7 @@ The dedicated **Rustup** tab detects an existing rustup installation (honoring `
 
 The **Service** tab's name is a leftover convention — Rust has no background process inside FlyEnv, so nothing here starts or stops. It is a table of installed toolchains combined with PATH management.
 
-- **Terminal version switching:** choose which toolchain the terminal `cargo` and `rustc` commands resolve to. Switching adds the toolchain's bin directory to your `PATH` or takes it out again, and each entry is marked to show whether FlyEnv set it or another tool did.
+- **Terminal version switching:** choose which toolchain the terminal `cargo` and `rustc` commands resolve to. Switching adds the toolchain's bin directory to your `PATH` or takes it out again, and each entry is marked to show whether FlyEnv set it or another tool did. The [system PATH environment guide](/guide/setup-system-path-environment) covers the underlying mechanism.
 - **Per-version alias and remark:** label each toolchain with a short alias and a note so similar builds stay distinguishable in the list.
 - **Housekeeping:** the table lists every toolchain's install path, and unused toolchains can be deleted directly from it.
 
@@ -59,7 +59,7 @@ The **Service** tab's name is a leftover convention — Rust has no background p
 
 In **Rust → Projects**, register each project folder and bind it to a specific Rust toolchain instead of relying on whichever version happens to be in PATH.
 
-- **Per-project toolchain:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Rust automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) for how the mechanism works.
+- **Per-project toolchain:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Rust automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) and the [Per-Project Runtimes feature](/features/per-project-runtimes) for how the mechanism works.
 - **Run as service:** optionally run a project directly from FlyEnv with a custom start command, a TCP port exposed as a `http://127.0.0.1:<port>` link, environment variables set inline or from a file, and a sudo flag on macOS and Linux. The sidebar switch starts or stops all service-enabled Rust projects at once.
 - **Open-in tools:** jump from a project row into the system terminal or open the project in RustRover with its environment loaded.
 

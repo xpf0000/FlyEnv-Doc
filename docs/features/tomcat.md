@@ -47,7 +47,7 @@ Install multiple Tomcat versions side by side from the **Version Manager** tab a
 Start, stop and restart each Tomcat version from the **Service** tab, with per-version environment handling built in.
 
 - **CATALINA_BASE per version:** the Service tab shows an extra header row with the version's CATALINA_BASE path, which you can change; the choice is persisted per version. On first start, FlyEnv creates the base directory by copying the `conf` files from the installation.
-- **JAVA_HOME from the Java module:** Tomcat requires Java, and FlyEnv supplies JAVA_HOME through the environment it syncs from the Java module, so the running Tomcat uses the JDK you manage in FlyEnv.
+- **JAVA_HOME from the Java module:** Tomcat requires Java, and FlyEnv supplies JAVA_HOME through the environment it syncs from the [Java module](/features/java), so the running Tomcat uses the JDK you manage in FlyEnv. The [Java development environment guide](/guide/set-up-java-development-environment) covers installing and switching JDKs.
 - **Platform-native startup:** on macOS, Tomcat runs in the foreground via `catalina.sh run` with CATALINA_BASE, CATALINA_PID and JAVA_HOME set, with console output captured to `logs/catalina.out`; on Windows it starts through `startup.bat` and FlyEnv discovers the JVM process; on Linux it runs through the root helper.
 
 ![Tomcat Service tab with editable CATALINA_BASE row](https://oss.macphpstudy.com/image/features/tomcat-3.webp)
@@ -63,7 +63,7 @@ Every Tomcat version keeps its configuration in its CATALINA_BASE, editable from
 
 ## Site integration
 
-Sites you create in FlyEnv with the **Tomcat** type are not reverse-proxied vhosts — they become real Tomcat `<Host>` entries reconciled directly into the version's `server.xml`.
+Sites you create in FlyEnv with the **Tomcat** type are not reverse-proxied vhosts — they become real Tomcat `<Host>` entries reconciled directly into the version's `server.xml`. Site creation itself works the same as for any other type; see the [Host guide](/guide/host).
 
 - **Reconciled with rollback:** when a site is saved, FlyEnv rewrites `server.xml` with the site's Host entry, keeping a snapshot so the file can be rolled back if the update fails.
 - **SSL per site:** Tomcat sites support HTTPS with a certificate and key, including FlyEnv's automatic certificate; deleting a site also cleans up its auto-generated certificate.

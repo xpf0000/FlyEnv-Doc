@@ -29,7 +29,7 @@ head:
 
 # Local Qdrant Development with FlyEnv
 
-Qdrant is an open source vector database: it stores embedding vectors and finds the most similar ones quickly. It is a common building block for semantic search, recommendations and retrieval-augmented generation (RAG) applications. FlyEnv's Qdrant module runs it as a managed local service: install versions from a curated online list, start and stop them from the sidebar, and edit each version's YAML config in a built-in editor. Every instance gets a generated configuration, per-version logs, and the Qdrant web dashboard served on port 6333 — no manual setup required.
+Qdrant is an open source vector database: it stores embedding vectors and finds the most similar ones quickly. It is a common building block for semantic search, recommendations and retrieval-augmented generation (RAG) applications — often paired with a local model runner such as [Ollama](/features/ollama); the [local offline AI agent guide](/guide/build-local-offline-ai-agent) shows that kind of stack end to end. FlyEnv's Qdrant module runs it as a managed local service: install versions from a curated online list, start and stop them from the sidebar, and edit each version's YAML config in a built-in editor. Every instance gets a generated configuration, per-version logs, and the Qdrant web dashboard served on port 6333 — no manual setup required.
 
 ![FlyEnv Qdrant module overview](https://oss.macphpstudy.com/image/features/qdrant-1.webp)
 
@@ -68,4 +68,4 @@ FlyEnv sets this up automatically: on start or install it downloads the official
 
 ## Compatibility Notes
 
-FlyEnv manages Qdrant version installation, the service lifecycle, per-version config and logs, and the bundled dashboard; it does not manage collections, snapshots or API keys — those stay inside Qdrant itself. The dashboard button always targets the default port 6333, so keep that port in the config if you rely on it. For the packages FlyEnv can install, treat the [Download page](/download) and current release notes as the source of truth, and see the [demos](/demos) for the module in action.
+FlyEnv manages Qdrant version installation, the service lifecycle, per-version config and logs, and the bundled dashboard; it does not manage collections, snapshots or API keys — those stay inside Qdrant itself. PostgreSQL users can get similar vector search inside a relational database through pgvector — see the [PostgreSQL module](/features/postgresql). The dashboard button always targets the default port 6333, so keep that port in the config if you rely on it. For the packages FlyEnv can install, treat the [Download page](/download) and current release notes as the source of truth, and see the [demos](/demos) for the module in action.

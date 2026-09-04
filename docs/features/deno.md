@@ -29,7 +29,7 @@ head:
 
 # Local Deno Development with FlyEnv
 
-Deno is a runtime for JavaScript and TypeScript built on V8, created by the original author of Node.js, with built-in TypeScript support and a default-deny permission model. It is used for servers, scripts and tooling where a single self-contained binary is convenient. FlyEnv's Deno module is deliberately focused: it installs Deno versions, decides which one your terminal `deno` command resolves to, and binds each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — covering version installation, PATH control and project runtimes, with no configuration files or log viewers to manage.
+Deno is a runtime for JavaScript and TypeScript built on V8, created by the original author of [Node.js](/features/nodejs), with built-in TypeScript support and a default-deny permission model. It is used for servers, scripts and tooling where a single self-contained binary is convenient. FlyEnv's Deno module is deliberately focused: it installs Deno versions, decides which one your terminal `deno` command resolves to, and binds each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — covering version installation, PATH control and project runtimes, with no configuration files or log viewers to manage.
 
 ![FlyEnv Deno module overview](https://oss.macphpstudy.com/image/features/deno-1.webp)
 
@@ -47,7 +47,7 @@ Install Deno versions side by side from **Deno → Version Manager** and keep th
 
 The **Service** tab starts nothing — Deno is a runtime binary rather than a daemon, so what this tab actually shows is a version and PATH management table.
 
-- **Terminal version switching:** pick the installed version your terminal `deno` command should resolve to. FlyEnv adds or removes the version's bin directory in your `PATH` accordingly and indicates whether the current PATH entry belongs to FlyEnv or to another tool.
+- **Terminal version switching:** pick the installed version your terminal `deno` command should resolve to. FlyEnv adds or removes the version's bin directory in your `PATH` accordingly and indicates whether the current PATH entry belongs to FlyEnv or to another tool. The [system PATH environment guide](/guide/setup-system-path-environment) explains this PATH editing in detail.
 - **Per-version alias and remark:** each installation accepts a short alias and a note, keeping similar builds distinguishable in the list.
 - **Housekeeping:** the table surfaces each version's install path and lets you delete versions you no longer need.
 
@@ -55,7 +55,7 @@ The **Service** tab starts nothing — Deno is a runtime binary rather than a da
 
 In **Deno → Projects**, register each project folder and bind it to a specific Deno version instead of relying on whichever version happens to be in PATH.
 
-- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Deno automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) for how the mechanism works.
+- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Deno automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) and the [Per-Project Runtimes feature](/features/per-project-runtimes) for how the mechanism works.
 - **Run as service:** optionally run a project directly from FlyEnv with a custom start command; the project link is a plain `http://127.0.0.1:<port>` address, with no reverse-proxy or site integration.
 - **Open-in tools:** jump from a project row into a terminal or editor with the project environment loaded.
 

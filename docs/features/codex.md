@@ -69,7 +69,7 @@ The **Plugins** tab shows the plugins Codex reports, listing both available and 
 
 ## MCP servers
 
-The **MCP** tab manages the Model Context Protocol servers Codex can call, with list, add and remove actions.
+The **MCP** tab manages the Model Context Protocol servers Codex can call, with list, add and remove actions — see the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) for how MCP servers plug AI coding tools into your local environment.
 
 - **Written into `config.toml`:** HTTP MCP servers you add are stored under `mcp_servers` in `~/.codex/config.toml`, keeping everything in one configuration file.
 - **Remote client enabled automatically:** adding an HTTP server also turns on `features.rmcp_client = true` so Codex can reach remote MCP endpoints.
@@ -79,4 +79,4 @@ The **MCP** tab manages the Model Context Protocol servers Codex can call, with 
 
 ## Compatibility Notes
 
-Codex runs as an interactive CLI in your own terminal; FlyEnv manages its installation, configuration, session history, plugins and MCP servers, but the conversations themselves always happen in the external system terminal, on all supported platforms. Installation uses the vendor's official script, so what gets installed — and whether the install succeeds — depends on that script and your network. Detection covers `PATH` plus common install locations; an unusually placed binary may need a standard install first. There is no multi-version management for Codex, and the configuration paths described above follow `CODEX_HOME` when it is set. For the platforms FlyEnv itself supports, check the [Download page](/download).
+Codex runs as an interactive CLI in your own terminal; FlyEnv manages its installation, configuration, session history, plugins and MCP servers, but the conversations themselves always happen in the external system terminal, on all supported platforms. Installation uses the vendor's official script, so what gets installed — and whether the install succeeds — depends on that script and your network. Detection covers `PATH` plus common install locations; an unusually placed binary may need a standard install first. There is no multi-version management for Codex, and the configuration paths described above follow `CODEX_HOME` when it is set. For the platforms FlyEnv itself supports, check the [Download page](/download). FlyEnv manages other AI coding CLIs the same way — see the [Claude Code](/features/claude-code) and [Kimi](/features/kimi) modules.

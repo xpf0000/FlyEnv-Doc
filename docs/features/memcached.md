@@ -29,7 +29,7 @@ head:
 
 # Memcached in FlyEnv
 
-Memcached is an open source, in-memory key-value cache, typically used to speed up web applications by keeping database query results, rendered fragments or session data in RAM. FlyEnv runs it as a managed local service: install one or more versions from the Version Manager, start and stop the daemon from the Service tab, and reach the cache on the default port 11211 without touching a package manager or a startup script by hand.
+Memcached is an open source, in-memory key-value cache, typically used to speed up web applications by keeping database query results, rendered fragments or session data in RAM — a simpler, cache-only sibling of [Redis](/features/redis). FlyEnv runs it as a managed local service: install one or more versions from the Version Manager, start and stop the daemon from the Service tab, and reach the cache on the default port 11211 without touching a package manager or a startup script by hand.
 
 ![FlyEnv Memcached module overview](https://oss.macphpstudy.com/image/features/memcached-1.webp)
 
@@ -51,6 +51,8 @@ The Service tab starts the selected version's real `memcached` binary in the for
 - **Start and stop with one click:** control the service from the Service tab, the sidebar switch or the system tray, like every other service module in FlyEnv.
 - **Verbose output while running:** the daemon runs with `-vv`, so clients connecting to port 11211 get a standard memcached server while activity goes to the process's own output streams.
 - **Switch versions:** pick any installed version as the one the service runs; each version keeps its own installation untouched.
+
+With the daemon running on port 11211, point your applications at it as their object cache: PHP stacks such as [WordPress](/solutions/wordpress) (via an object-cache drop-in) and [Magento](/solutions/magento) both support Memcached as a cache or session backend, which makes a local Memcached instance handy for reproducing production caching behavior.
 
 Pair the running service with the local apps from the [demos](/demos), or grab FlyEnv for your platform on the [Download page](/download).
 

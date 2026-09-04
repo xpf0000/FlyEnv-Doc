@@ -41,7 +41,7 @@ When a query arrives, the server looks the name up in a single in-memory map bui
 - **System hosts file:** entries from the OS hosts file join the same map; the file is re-read at most every 60 seconds, so outside edits are picked up on their own.
 - **Static map in `dns.json`:** a `resolveIP` map in the configuration file pins specific names to fixed addresses of your choice.
 - **Conflict order:** when the same name appears in more than one source, the site domain wins over the hosts file, which wins over `resolveIP`. An exact name match answers first; if none exists, wildcard patterns such as `*.test` in the map are tried, so whole domain suffixes can be covered by a single rule.
-- **Upstream forwarding:** anything that matches neither an exact name nor a wildcard is forwarded to public resolvers — 1.1.1.1 and 8.8.8.8 by default (AliDNS and 114DNS among the defaults in the Chinese locale) — so the server can act as the machine's only DNS without breaking normal browsing.
+- **Upstream forwarding:** anything that matches neither an exact name nor a wildcard is forwarded to public resolvers — 1.1.1.1 and 8.8.8.8 by default (AliDNS and 114DNS among the defaults in the Chinese locale) — so the server can act as the machine's only DNS without breaking normal browsing. If ad-blocking DNS resolution is what you are after instead, the [Numa](/features/numa) module provides that flavor of local DNS.
 
 Point your operating system's DNS setting at the local address FlyEnv binds to, and all of this applies system-wide. The [host management guide](/guide/host) covers the site side of the setup.
 

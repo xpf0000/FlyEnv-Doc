@@ -29,7 +29,7 @@ head:
 
 # Elasticsearch in FlyEnv
 
-Elasticsearch is a distributed search and analytics engine built on Apache Lucene, used for full-text search, log analysis and aggregations over large datasets. FlyEnv runs it as a managed local service on macOS, Windows and Linux: install multiple versions side by side, start and stop them from one window, and edit each version's own `elasticsearch.yml`, `jvm.options` and `log4j2.properties` without hunting through install directories. Logs for the running node open right inside the app.
+Elasticsearch is a distributed search and analytics engine built on Apache Lucene, used for full-text search, log analysis and aggregations over large datasets — it is also the search engine a local [Magento](/solutions/magento) stack expects. If a full cluster is more than your project needs, the lighter [Meilisearch](/features/meilisearch), [Typesense](/features/typesense) and [ZincSearch](/features/zincsearch) modules cover the same instant-search ground. FlyEnv runs it as a managed local service on macOS, Windows and Linux: install multiple versions side by side, start and stop them from one window, and edit each version's own `elasticsearch.yml`, `jvm.options` and `log4j2.properties` without hunting through install directories. Logs for the running node open right inside the app.
 
 ![FlyEnv Elasticsearch module overview](https://oss.macphpstudy.com/image/features/elasticsearch-1.webp)
 

@@ -48,13 +48,13 @@ Install multiple .NET SDK versions side by side from **.NET → Version Manager*
 
 The **Service** tab is the installed-versions table for .NET — despite its name, it manages versions, PATH entries and aliases, not running background processes.
 
-- **PATH switching:** set which .NET SDK your terminal `dotnet` command resolves to. FlyEnv adds or removes the version's directory in your `PATH` and marks whether the current entry was set by FlyEnv or by another tool.
+- **PATH switching:** set which .NET SDK your terminal `dotnet` command resolves to. FlyEnv adds or removes the version's directory in your `PATH` and marks whether the current entry was set by FlyEnv or by another tool; the [system PATH environment guide](/guide/setup-system-path-environment) explains how this works.
 - **Per-version alias and remark:** give each installation a short alias and note so similar SDKs stay distinguishable in the list.
 - **Custom versions:** point FlyEnv at any directory that contains your own .NET SDK build to list it next to the managed versions.
 
 ## Project-level .NET runtimes
 
-In **.NET → Projects**, register each project folder and bind it to its own .NET SDK — or keep it on the system version. See the [project-level runtime guide](/guide/project-level-runtime-environment) for the full workflow.
+In **.NET → Projects**, register each project folder and bind it to its own .NET SDK — or keep it on the system version. See the [project-level runtime guide](/guide/project-level-runtime-environment) and the [Per-Project Runtimes feature](/features/per-project-runtimes) for the full workflow.
 
 - **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right SDK automatically.
 - **Run as service:** mark a project as a service with a custom start command or run file, a TCP port, environment variables and an optional sudo flag; the sidebar switch starts or stops all service-enabled .NET projects at once.

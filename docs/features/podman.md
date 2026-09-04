@@ -29,7 +29,7 @@ head:
 
 # Podman Container Management with FlyEnv
 
-Podman is an open source container engine for building and running OCI containers, compatible with Docker images and Compose files, and able to run rootless without a background daemon. FlyEnv turns Podman into a visual workspace: create and tune Podman machines, generate Compose projects from a stack library, pull images from the official catalog, and run and inspect containers — all without memorizing CLI flags. FlyEnv detects your system Podman automatically and, on macOS and Linux with Homebrew, can install it in one click from the embedded terminal. For a step-by-step walkthrough, see the [Podman module guide](/guide/podman-module).
+Podman is an open source container engine for building and running OCI containers, compatible with Docker images and Compose files, and able to run rootless without a background daemon. FlyEnv turns Podman into a visual workspace: create and tune Podman machines, generate Compose projects from a stack library, pull images from the official catalog, and run and inspect containers — all without memorizing CLI flags. FlyEnv detects your system Podman automatically and, on macOS and Linux with Homebrew, can install it in one click from the embedded terminal. For a step-by-step walkthrough, see the [Podman module guide](/guide/podman-module); for how this container-based approach compares to FlyEnv's native modules, see [FlyEnv vs Docker and XAMPP](/guide/flyenv-vs-docker-xampp).
 
 ![FlyEnv Podman module overview with machine list](https://oss.macphpstudy.com/image/features/podman-1.webp)
 
@@ -50,7 +50,7 @@ The left panel lists every Podman machine, with actions to add, edit, start, sto
 
 The **Compose** tab manages your existing docker-compose projects — FlyEnv keeps a stored list of projects and checks their running state — and includes a **Compose Build** generator that assembles a stack through per-service forms instead of hand-written YAML.
 
-The generator covers around 29 technology stacks, including PHP, Nginx, Apache, Caddy, MySQL, MariaDB, PostgreSQL, MongoDB, Redis, Memcached, RabbitMQ, Elasticsearch, Meilisearch, MinIO, Consul, Etcd, Mailpit, NodeJS, Bun, Deno, Go, Java, Python, Ruby, Rust, Perl, Erlang and Tomcat. Each service gets its own form, so you configure only the options that stack exposes. Compose operations require `docker-compose` or the `docker compose` plugin to be installed.
+The generator covers around 29 technology stacks, including [PHP](/features/php), [Nginx](/features/nginx), Apache, Caddy, [MySQL](/features/mysql), MariaDB, PostgreSQL, MongoDB, Redis, Memcached, RabbitMQ, Elasticsearch, Meilisearch, MinIO, Consul, Etcd, Mailpit, NodeJS, Bun, Deno, Go, Java, Python, Ruby, Rust, Perl, Erlang and Tomcat. Each service gets its own form, so you configure only the options that stack exposes. Compose operations require `docker-compose` or the `docker compose` plugin to be installed.
 
 ![Compose Build generator with per-service stack forms](https://oss.macphpstudy.com/image/features/podman-3.webp)
 
@@ -70,7 +70,7 @@ The **Container** tab covers the day-to-day container lifecycle on the selected 
 
 - **Create containers** from any pulled image through a form rather than a long `podman run` command.
 - **Inspect and preview** each container's configuration and state.
-- **Embedded terminal exec:** open a shell inside a running container using FlyEnv's built-in terminal, so debugging happens where the container lives.
+- **Embedded terminal exec:** open a shell inside a running container using FlyEnv's [built-in terminal](/features/cli-terminal), so debugging happens where the container lives.
 
 ![Container list with inspect and terminal exec actions](https://oss.macphpstudy.com/image/features/podman-5.webp)
 

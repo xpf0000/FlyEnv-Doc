@@ -29,7 +29,7 @@ head:
 
 # Local MySQL Development with FlyEnv
 
-MySQL is an open source relational database, and for years it has been the default choice behind WordPress, Laravel and countless other web stacks. FlyEnv turns MySQL into a managed local service you control from one window: install multiple versions, run `mysqld` with an editable `my-<version>.cnf`, watch the error and slow logs, and reach your data through phpMyAdmin or the built-in Manage drawer. When one server is not enough, the Group feature runs several MySQL instances side by side, each with its own version, port and data directory.
+MySQL is an open source relational database, and for years it has been the default choice behind [WordPress](/solutions/wordpress), Laravel and countless other web stacks. FlyEnv turns MySQL into a managed local service you control from one window: install multiple versions, run `mysqld` with an editable `my-<version>.cnf`, watch the error and slow logs, and reach your data through phpMyAdmin or the built-in Manage drawer. When one server is not enough, the Group feature runs several MySQL instances side by side, each with its own version, port and data directory.
 
 ![FlyEnv MySQL module overview](https://oss.macphpstudy.com/image/features/mysql-1.webp)
 
@@ -86,4 +86,4 @@ Groups are handy when matching production setups locally — for example when a 
 
 ## Compatibility Notes
 
-FlyEnv manages the local MySQL runtime, its configuration files and its data directories; it does not guarantee that every MySQL version is available on every operating system or install source. The versions offered in Version Manager depend on your platform (Homebrew and MacPorts on macOS, Homebrew on Linux, static packages on Windows) and on what those sources publish. Treat the in-app version list and the [Download page](/download) as the source of truth for what can be installed on your machine.
+FlyEnv manages the local MySQL runtime, its configuration files and its data directories; it does not guarantee that every MySQL version is available on every operating system or install source. The versions offered in Version Manager depend on your platform (Homebrew and MacPorts on macOS, Homebrew on Linux, static packages on Windows) and on what those sources publish. If your stack uses MariaDB as a drop-in MySQL replacement, the [MariaDB module](/features/mariadb) offers the same one-window workflow. Treat the in-app version list and the [Download page](/download) as the source of truth for what can be installed on your machine.

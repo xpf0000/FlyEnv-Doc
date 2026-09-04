@@ -42,7 +42,7 @@ Custom modules are defined in **Settings → Modules**. Each module you create b
 - **Single-instance mode:** mark the module so only one of its items runs at a time — useful for tools that bind a fixed port. Starting an item then automatically stops the others first, and FlyEnv remembers which item you started last.
 - **Config and log file lists:** declare the module's configuration files and log files up front; each one becomes a tab on the module's page.
 
-Hiding a custom module from the sidebar stops its running services, so a hidden module never leaves stray processes behind. The [custom modules guide](/guide/user-customizable-modules) walks through a complete example built around etcd.
+Hiding a custom module from the sidebar stops its running services, so a hidden module never leaves stray processes behind. The [custom modules guide](/guide/user-customizable-modules) walks through a complete example built around [etcd](/features/etcd).
 
 ![Defining a custom module in Settings → Modules](https://oss.macphpstudy.com/image/features/user-modules-2.webp)
 
@@ -58,7 +58,7 @@ Each item defines:
 - **PID file path:** the pid file lets FlyEnv track whether the item is running and stop it cleanly — on Unix, stop sends SIGTERM followed by SIGINT to the recorded pid.
 - **Per-item config and log files:** each item can attach its own configuration and log files, opened from the item's operation popup.
 
-Items normally run headlessly in the background; where a process needs a visible session, FlyEnv can launch it in a real terminal window instead (Terminal.app on macOS, a terminal script on Linux).
+Items normally run headlessly in the background; where a process needs a visible session, FlyEnv can launch it in a real terminal window instead (Terminal.app on macOS, a terminal script on Linux) — the same [terminal integration](/features/cli-terminal) the rest of the app uses.
 
 ![Adding an exec item with command, sudo and pid file settings](https://oss.macphpstudy.com/image/features/user-modules-3.webp)
 
@@ -74,4 +74,4 @@ The module page is built dynamically from what you declared: a **Service** tab w
 
 ## Compatibility Notes
 
-Custom modules wrap commands and scripts you provide; FlyEnv does not install or version the underlying tool — there is no version manager, no online download source and no admin web UI for a custom module, so the binary itself must already exist on your machine. Accurate service state depends on the pid file you configure, so the command should actually write its pid to that path. Terminal launching differs by platform (AppleScript on macOS, a shell script on Linux), and behavior around elevated privileges follows the host operating system's rules. Custom modules are available on every platform FlyEnv runs on — see the [Download page](/download) for supported operating systems — and treat what your own command or script supports as the real boundary of what the module can do.
+Custom modules wrap commands and scripts you provide; FlyEnv does not install or version the underlying tool — there is no version manager, no online download source and no admin web UI for a custom module, so the binary itself must already exist on your machine — and be resolvable on your [system PATH](/guide/setup-system-path-environment) or referenced by absolute path. Accurate service state depends on the pid file you configure, so the command should actually write its pid to that path. Terminal launching differs by platform (AppleScript on macOS, a shell script on Linux), and behavior around elevated privileges follows the host operating system's rules. Custom modules are available on every platform FlyEnv runs on — see the [Download page](/download) for supported operating systems — and treat what your own command or script supports as the real boundary of what the module can do.

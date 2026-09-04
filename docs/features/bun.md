@@ -29,7 +29,7 @@ head:
 
 # Local Bun Development with FlyEnv
 
-Bun is a JavaScript and TypeScript runtime that also bundles a package manager, bundler and test runner in a single executable. It is used as an alternative to Node.js for servers, scripts and frontend tooling. FlyEnv's Bun module covers the essentials of local Bun work in one place: install Bun versions from static builds, decide which one your terminal `bun` command resolves to, and bind each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
+Bun is a JavaScript and TypeScript runtime that also bundles a package manager, bundler and test runner in a single executable. It is used as an alternative to [Node.js](/features/nodejs) for servers, scripts and frontend tooling. FlyEnv's Bun module covers the essentials of local Bun work in one place: install Bun versions from static builds, decide which one your terminal `bun` command resolves to, and bind each project to its own runtime. The module has three tabs — Projects, Service and Version Manager — focused on version installation, PATH control and project runtimes.
 
 ![FlyEnv Bun module overview](https://oss.macphpstudy.com/image/features/bun-1.webp)
 
@@ -48,7 +48,7 @@ Install Bun versions side by side from **Bun → Version Manager** and keep them
 
 Nothing runs as a service here: FlyEnv has no Bun daemon, so the **Service** tab is actually an installed-versions table focused on PATH management.
 
-- **Terminal version switching:** choose which installed version the terminal `bun` command resolves to. FlyEnv handles your `PATH` for you — adding the version's bin directory when you select it, removing it when you switch away — and shows whether the active PATH entry was set by FlyEnv or another tool.
+- **Terminal version switching:** choose which installed version the terminal `bun` command resolves to. FlyEnv handles your `PATH` for you — adding the version's bin directory when you select it, removing it when you switch away — and shows whether the active PATH entry was set by FlyEnv or another tool. See the [system PATH environment guide](/guide/setup-system-path-environment) for how PATH management works.
 - **Per-version alias and remark:** give each installation its own short alias and note, so similar builds stay distinguishable in the list.
 - **Housekeeping:** every row shows where the version is installed, and versions you no longer need can be removed from the table.
 
@@ -56,7 +56,7 @@ Nothing runs as a service here: FlyEnv has no Bun daemon, so the **Service** tab
 
 In **Bun → Projects**, register each project folder and bind it to a specific Bun version instead of relying on whichever version happens to be in PATH.
 
-- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Bun automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) for how the mechanism works.
+- **Per-project runtime:** the version choice is stored in a `.flyenv` file inside the project directory, so terminals and editors launched from FlyEnv pick up the right Bun automatically. See the [project-level runtime environment guide](/guide/project-level-runtime-environment) and the [Per-Project Runtimes feature](/features/per-project-runtimes) for how the mechanism works.
 - **Run as service:** optionally run a project directly from FlyEnv with a custom start command or run file, a TCP port exposed as a `http://127.0.0.1:<port>` link, environment variables set inline or from a file, and a sudo flag on macOS and Linux.
 - **Open-in tools:** jump from a project row into the system terminal or an editor with the project environment loaded.
 

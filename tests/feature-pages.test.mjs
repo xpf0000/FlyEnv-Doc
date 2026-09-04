@@ -120,9 +120,9 @@ for (const [slug, { terms, minImages }] of Object.entries(manifest)) {
     // no license/trial marketing blockers
     assert.doesNotMatch(page, /licen[cs]e|trial/i)
 
-    // at least two internal links
-    const links = body.match(/\]\(\/(guide|solutions|features|download|demos)[^)]*\)/g) ?? []
-    assert.ok(links.length >= 2, 'at least two internal links')
+    // at least four internal links
+    const links = body.match(/\]\(\/(guide|solutions|features|download|demos|community|compare)[^)]*\)/g) ?? []
+    assert.ok(links.length >= 4, 'at least four internal links')
 
     // key terms
     for (const term of terms) {

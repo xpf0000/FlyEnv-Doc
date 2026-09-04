@@ -51,13 +51,13 @@ On start, FlyEnv finds — or creates if it does not exist yet — a remotely-co
 Each tunnel row expands into a table of DNS rules. A rule maps a public hostname to a local service:
 
 - **Subdomain and zone:** the public hostname, e.g. `demo.example.com`.
-- **Protocol and target:** `http` or `https`, plus the local `host:port` that should receive the traffic — typically a site from the [Local Sites & HTTPS](/features/local-sites-https) module.
+- **Protocol and target:** `http` or `https` — for `https` targets, certificates from the [MkCert module](/features/mkcert) work well — plus the local `host:port` that should receive the traffic, typically a site from the [Local Sites & HTTPS](/features/local-sites-https) module.
 
 When you save a rule, FlyEnv writes both sides of the configuration through the Cloudflare API: it creates or updates a proxied CNAME record pointing the hostname at `<tunnelId>.cfargotunnel.com`, and pushes the tunnel's ingress rules — each hostname routed to its `http(s)://host:port` target with the `Host` header set, ending in a 404 catch-all for anything unmatched. Editing or deleting a rule updates the CNAME and ingress entries accordingly.
 
 ![DNS rule mapping a subdomain to a local host and port](https://oss.macphpstudy.com/image/features/cloudflare-tunnel-3.webp)
 
-For a complete walkthrough of exposing a local site, see the [Cloudflare Tunnel for local development guide](/guide/cloudflare-tunnel-local-development).
+For a complete walkthrough of exposing a site you created through the [Host guide](/guide/host) workflow, see the [Cloudflare Tunnel for local development guide](/guide/cloudflare-tunnel-local-development).
 
 ## Tunnel logs
 

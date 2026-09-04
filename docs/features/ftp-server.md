@@ -35,10 +35,10 @@ FlyEnv ships two ways to run a local FTP server and exposes both through the sam
 
 ## Two Implementations, One Account Table
 
-Both modules appear in the FlyEnv sidebar as services you can start, stop and pin to the system tray. The difference is where the server binary comes from and which platforms it covers.
+Both modules appear in the FlyEnv sidebar as services you can start, stop and pin to the system tray — and like other services they can join a [startup group](/features/startup-groups) so the FTP server comes up with the rest of your stack. The difference is where the server binary comes from and which platforms it covers.
 
 - **Pure-FTPd (macOS and Linux only):** a real `pure-ftpd` daemon that FlyEnv installs, launches and tracks for you. Its page has three tabs — Service, Version Manager and Config File. Versions come from Homebrew and MacPorts, and custom directories containing your own Pure-FTPd build are supported as well. Only one version runs at a time.
-- **ftp-srv (all platforms):** the cross-platform option, including Windows. The server is the bundled `ftp-srv` npm library running inside FlyEnv itself, so there is nothing to install and no Version Manager — the page has a Service tab only.
+- **ftp-srv (all platforms):** the cross-platform option, including Windows. The server is the bundled `ftp-srv` npm library running on the app's own [Node.js](/features/nodejs) runtime inside FlyEnv itself, so there is nothing to install and no Version Manager — the page has a Service tab only.
 - **Same account workflow:** whichever implementation you use, the Service tab shows the same username / password / root directory table, so switching between them does not change how you work.
 
 ![Pure-FTPd Service tab with the FTP account table](https://oss.macphpstudy.com/image/features/ftp-server-2.webp)
@@ -66,4 +66,4 @@ Pure-FTPd runs from a `pure-ftpd.conf` file that FlyEnv generates from its templ
 
 ## Compatibility Notes
 
-FlyEnv manages the local FTP runtime, its accounts and its configuration files; what is available depends on your platform. **Pure-FTPd is restricted to macOS and Linux**, and its installable versions depend on what Homebrew or MacPorts publish. **ftp-srv runs on every platform FlyEnv supports**, which makes it the only option on Windows — at the cost of no version management and no editable server configuration. Pure-FTPd starts with elevated privileges (`sudo`) and writes its log output to syslog, so FlyEnv shows no in-app log viewer for it; ftp-srv exposes no log files either. Both implementations listen on port 21 by default, so only one of them can serve that port at a time. Point an account's root directory wherever you like — for example at a site folder you manage in [Host](/guide/host).
+FlyEnv manages the local FTP runtime, its accounts and its configuration files; what is available depends on your platform. **Pure-FTPd is restricted to macOS and Linux**, and its installable versions depend on what Homebrew or MacPorts publish. **ftp-srv runs on every platform FlyEnv supports**, which makes it the only option on Windows — at the cost of no version management and no editable server configuration. Pure-FTPd starts with elevated privileges (`sudo`) and writes its log output to syslog, so FlyEnv shows no in-app log viewer for it; ftp-srv exposes no log files either. Both implementations listen on port 21 by default, so only one of them can serve that port at a time. Point an account's root directory wherever you like — for example at a site folder you manage in [Host](/guide/host) as part of your [local sites](/features/local-sites-https) setup.

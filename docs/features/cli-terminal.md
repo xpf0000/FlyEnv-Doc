@@ -50,15 +50,15 @@ Sometimes a process belongs in a real terminal window — to watch its output, a
 
 - **Projects:** enable the run-in-terminal option on a language project and its run command or run file opens in a system terminal window, with the project directory as the working directory and the project's environment applied.
 - **Platform-native launching:** macOS drives Terminal.app through AppleScript, Linux launches through a bundled helper script, and Windows spawns a PowerShell window running an inline script — the same action, three native implementations.
-- **Custom modules and elevated starts:** user-defined service modules offer the same terminal launch, and items that need sudo can fall back to opening the command in a terminal where the system password prompt works normally.
+- **Custom modules and elevated starts:** [user-defined service modules](/features/user-modules) offer the same terminal launch, and items that need sudo can fall back to opening the command in a terminal where the system password prompt works normally.
 
 ## Embedded xterm terminals
 
 For one-off, interactive workloads FlyEnv embeds xterm-based terminal sessions directly in its own window, so you see the genuine command output without leaving the app.
 
 - **One-click installs:** runtimes and tools bootstrap through their official installers in an embedded terminal — rustup for Rust, GVM for Go, Podman via Homebrew on macOS and Linux, and the AI command-line tools' vendor scripts with FlyEnv's proxy environment injected.
-- **Package operations:** building the PostgreSQL pgvector extension, pulling and running Ollama models, or installing n8n through npm all stream their real output into the embedded view.
-- **Command palettes:** gateway-style modules such as OpenClaw and Hermes expose categorized command palettes whose entries execute in the embedded terminal, pre-filling commands that need arguments.
+- **Package operations:** building the [PostgreSQL](/features/postgresql) pgvector extension, pulling and running [Ollama](/features/ollama) models, or installing [n8n](/features/n8n) through npm all stream their real output into the embedded view.
+- **Command palettes:** gateway-style modules such as [OpenClaw](/features/openclaw) and [Hermes](/features/hermes-agent) expose categorized command palettes whose entries execute in the embedded terminal, pre-filling commands that need arguments.
 - **Podman operations:** container exec sessions and image or container actions open in a dedicated embedded terminal dialog.
 
 ![Embedded xterm terminal running an install script inside FlyEnv](https://oss.macphpstudy.com/image/features/cli-terminal-3.webp)
