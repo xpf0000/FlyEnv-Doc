@@ -79,6 +79,7 @@ The **MCP** tab manages the Model Context Protocol servers stored in the `mcpSer
 - **List and remove:** see every configured MCP server and delete entries you no longer use.
 - **HTTP and SSE servers:** remote servers are added by writing the definition straight into `~/.claude.json`.
 - **Stdio servers:** local command-based servers are registered through `claude mcp add`, so they are created exactly the way the CLI expects.
+- **One-click FlyEnv registration:** FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list from its Client Config tab.
 
 ![MCP server list with add and remove controls](https://oss.macphpstudy.com/image/features/claude-code-5.webp)
 

@@ -49,7 +49,7 @@ Starting the service launches `n8n start` with every environment variable read f
 
 - **Visual form for common keys:** adjust `N8N_PORT`, `N8N_HOST`, `N8N_PROTOCOL` and `N8N_PATH`, choose `DB_TYPE`, set `N8N_USER_FOLDER` and `N8N_ENCRYPTION_KEY`, define the `WEBHOOK_URL`, tune log level and output, switch `EXECUTIONS_PROCESS`/`EXECUTIONS_MODE`, and toggle `N8N_METRICS` — all without editing the file by hand.
 - **Raw editor:** a full source view of `n8n.env` covers any variable the form does not expose.
-- **Automatic owner setup:** when `N8N_OWNER_EMAIL` and `N8N_OWNER_PASSWORD` are set and no database exists yet, FlyEnv completes the initial owner registration for you right after the server starts — a fresh install opens already signed in.
+- **Automatic owner setup:** when `N8N_OWNER_EMAIL` and `N8N_OWNER_PASSWORD` are set and no database exists yet, FlyEnv completes the initial owner registration for you right after the server starts.
 - **Reset owner escape hatch:** a danger-zone action deletes `database.sqlite` when you deliberately want to start over.
 - **Managed lifecycle:** the sidebar and system-tray switches start and stop the server, the running state is confirmed against the `/healthz` endpoint, and on Windows FlyEnv reliably terminates the process by pid file, port listener and command match.
 

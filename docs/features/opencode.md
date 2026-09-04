@@ -83,6 +83,7 @@ The MCP tab manages the Model Context Protocol servers OpenCode connects to. Fly
 
 - **List, add, remove:** review configured MCP servers and add or remove entries without hunting through the config yourself.
 - **Config-native storage:** changes land in `opencode.jsonc`, keeping a single source of truth for both FlyEnv and manual edits.
+- **One-click FlyEnv registration:** FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list from its Client Config tab.
 
 ## Compatibility Notes
 

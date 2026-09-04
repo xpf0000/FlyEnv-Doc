@@ -132,8 +132,8 @@ const categories = [
     description: 'Model the supporting services your local and distributed systems rely on.', tone: 'bg-cyan-50 text-cyan-700',
     items: [
       { name: 'Numa', detail: 'Run local DNS with Numa.', href: '/features/numa', mark: 'Numa' },
-      { name: 'DNS Server', detail: 'Manage local DNS services.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/dns.svg' },
-      { name: 'FTP Server', detail: 'Run an FTP service for local testing.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/ftp.svg' },
+      { name: 'DNS Server', detail: 'Manage local DNS services.', href: '/features/dns-server', logo: 'https://oss.macphpstudy.com/image/dns.svg' },
+      { name: 'FTP Server', detail: 'Run an FTP service for local testing.', href: '/features/ftp-server', logo: 'https://oss.macphpstudy.com/image/ftp.svg' },
       { name: 'Minio', detail: 'Run S3-compatible storage locally.', href: '/features/minio', logo: minioLogo },
       { name: 'RustFS', detail: 'Prototype S3-compatible storage locally.', href: '/features/rustfs', logo: rustFsLogo },
       { name: 'Podman', detail: 'Use containers when a project calls for them.', href: '/features/podman', logo: podmanLogo },
@@ -148,11 +148,11 @@ const categories = [
     id: 'workflow', eyebrow: '06 / Make it repeatable', title: 'Developer Workflow & Productivity',
     description: 'Turn recurring setup, commands and project services into one-click workflows.', tone: 'bg-amber-50 text-amber-700',
     items: [
-      { name: 'Startup Groups', detail: "Start a project's services together.", href: '/guide/getting-started', logo: '' },
-      { name: 'Per-Project Runtimes', detail: 'Scope versions and ports per project.', href: '/guide/project-level-runtime-environment', logo: '' },
-      { name: 'Cron Jobs', detail: 'Schedule local commands and jobs.', href: '/guide/getting-started', logo: '' },
-      { name: 'User Modules', detail: 'Create and share custom modules.', href: '/guide/user-customizable-modules', logo: '' },
-      { name: 'CLI & Terminal', detail: 'Use an integrated terminal with FlyEnv context.', href: '/guide/code-playground-and-code-library', logo: '' },
+      { name: 'Startup Groups', detail: "Start a project's services together.", href: '/features/startup-groups', logo: '' },
+      { name: 'Per-Project Runtimes', detail: 'Scope versions and ports per project.', href: '/features/per-project-runtimes', logo: '' },
+      { name: 'Cron Jobs', detail: 'Schedule local commands and jobs.', href: '/features/cron-jobs', logo: '' },
+      { name: 'User Modules', detail: 'Create and share custom modules.', href: '/features/user-modules', logo: '' },
+      { name: 'CLI & Terminal', detail: 'Use an integrated terminal with FlyEnv context.', href: '/features/cli-terminal', logo: '' },
       { name: 'Temporal', detail: 'Run durable workflows locally.', href: '/features/temporal', logo: temporalLogo }
     ]
   },
@@ -160,7 +160,7 @@ const categories = [
     id: 'ai', eyebrow: '07 / Build with context', title: 'AI, MCP & Automation',
     description: 'Give AI coding tools a secure bridge to the local environment you control.', tone: 'bg-indigo-50 text-indigo-700',
     items: [
-      { name: 'MCP Server', detail: 'Connect AI tools to local project state.', href: '/guide/ai-coding-workspace-mcp', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'MCP Server', detail: 'Connect AI tools to local project state.', href: '/features/mcp-server', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
       { name: 'Claude Code', detail: 'Use Claude Code beside your local stack.', href: '/features/claude-code', logo: claudeCodeLogo },
       { name: 'Codex', detail: 'Keep Codex close to project services.', href: '/features/codex', logo: codexLogo },
       { name: 'OpenCode', detail: 'Run OpenCode with local project context.', href: '/features/opencode', logo: openCodeLogo },

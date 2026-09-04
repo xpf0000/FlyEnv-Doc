@@ -66,7 +66,7 @@ Kimi is the only AI coding CLI module in FlyEnv with a dedicated **Log** tab. It
 
 ## MCP servers
 
-The **MCP** tab lists the servers registered for Kimi and lets you add or remove entries. Kimi accepts HTTP/SSE MCP servers only — stdio servers are rejected by design — and FlyEnv writes additions into `mcp.json` in the config home. Changes are picked up the next time you start a session in your terminal.
+The **MCP** tab lists the servers registered for Kimi and lets you add or remove entries. Kimi accepts HTTP/SSE MCP servers only — stdio servers are rejected by design — and FlyEnv writes additions into `mcp.json` in the config home. Changes are picked up the next time you start a session in your terminal. FlyEnv's own [MCP Server](/features/mcp-server) can register itself here with one click from its Client Config tab.
 
 ![Managing HTTP/SSE MCP servers for Kimi](https://oss.macphpstudy.com/image/features/kimi-4.webp)
 

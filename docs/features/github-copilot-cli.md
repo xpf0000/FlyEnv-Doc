@@ -75,7 +75,7 @@ The **Skills** tab lists the Skills known to Copilot CLI by querying the CLI dir
 The **MCP** tab manages the MCP servers Copilot CLI connects to, backed by the `~/.copilot/mcp-config.json` file.
 
 - **List, add, remove:** see the currently registered servers and add or remove entries from the UI; changes are written back to the MCP config file.
-- **Works with FlyEnv's own MCP server:** the FlyEnv MCP Server module can register itself into Copilot CLI's MCP list, letting Copilot inspect and operate your local services and sites.
+- **Works with FlyEnv's own MCP server:** the [FlyEnv MCP Server](/features/mcp-server) module can register itself into Copilot CLI's MCP list, letting Copilot inspect and operate your local services and sites.
 - **Verify in the terminal:** the `copilot mcp list` quick command on the Service card is the fastest way to confirm what the CLI actually loaded.
 
 ![MCP servers tab listing registered servers with add and remove actions](https://oss.macphpstudy.com/image/features/github-copilot-cli-5.webp)

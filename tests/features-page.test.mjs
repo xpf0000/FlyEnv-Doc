@@ -26,7 +26,7 @@ test('features page links users to verified workflows', () => {
     '/features/nodejs',
     '/features/local-sites-https',
     '/guide/getting-started',
-    '/guide/ai-coding-workspace-mcp',
+    '/features/mcp-server',
     '/download'
   ]) {
     assert.match(page, new RegExp(link.replaceAll('/', '\\/')))

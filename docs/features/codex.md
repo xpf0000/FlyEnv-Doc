@@ -73,6 +73,7 @@ The **MCP** tab manages the Model Context Protocol servers Codex can call, with 
 
 - **Written into `config.toml`:** HTTP MCP servers you add are stored under `mcp_servers` in `~/.codex/config.toml`, keeping everything in one configuration file.
 - **Remote client enabled automatically:** adding an HTTP server also turns on `features.rmcp_client = true` so Codex can reach remote MCP endpoints.
+- **One-click FlyEnv registration:** FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list from its Client Config tab.
 
 ![Managing Codex MCP servers](https://oss.macphpstudy.com/image/features/codex-4.webp)
 

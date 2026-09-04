@@ -39,7 +39,7 @@ Install and keep several RustFS builds from **RustFS → Version Manager**, then
 
 - **Static source only:** RustFS versions come from FlyEnv's online list of ready-made builds, packaged as zip archives for Windows, macOS and Linux. Homebrew and MacPorts are not offered as install sources for this module.
 - **Custom directories:** point FlyEnv at a folder holding your own RustFS binary and it appears in the installed list alongside the managed builds.
-- **Single running instance:** a fixed pid file keeps the module to one RustFS server at a time; starting a version stops the previously running one.
+- **Single running instance:** a fixed pid file keeps the module to one RustFS server at a time.
 
 ![RustFS Version Manager with the static online build list](https://oss.macphpstudy.com/image/features/rustfs-2.webp)
 

@@ -72,7 +72,7 @@ The **Skills** tab is unique to the Antigravity module in FlyEnv and browses the
 
 ## MCP servers
 
-The **MCP** tab manages the Model Context Protocol servers that Antigravity CLI connects to, read from and written to `~/.gemini/config/mcp_config.json`. List the servers currently configured, add a new one, or remove entries you no longer need — no manual JSON editing required.
+The **MCP** tab manages the Model Context Protocol servers that Antigravity CLI connects to, read from and written to `~/.gemini/config/mcp_config.json`. List the servers currently configured, add a new one, or remove entries you no longer need — no manual JSON editing required. FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list with one click from its Client Config tab.
 
 ## Compatibility Notes
 
