@@ -117,14 +117,14 @@ const categories = [
     id: 'services', eyebrow: '04 / Add what your app needs', title: 'Cache, Messaging & Search',
     description: 'Bring queues, caches and search indexes into the same workspace.', tone: 'bg-rose-50 text-rose-700',
     items: [
-      { name: 'Redis', detail: 'Run Redis for cache, sessions and queues.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/redis.png' },
-      { name: 'Memcached', detail: 'Test lightweight application caching locally.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/memcached.png' },
-      { name: 'RabbitMQ', detail: 'Run RabbitMQ and inspect local queues.', href: '/demos', logo: rabbitMqLogo },
-      { name: 'Elasticsearch', detail: 'Build search features with local Elasticsearch.', href: '/demos', logo: elasticsearchLogo },
-      { name: 'Meilisearch', detail: 'Prototype fast local search experiences.', href: '/demos', logo: meilisearchLogo },
-      { name: 'Typesense', detail: 'Test typo-tolerant search locally.', href: '/demos', logo: typesenseLogo },
-      { name: 'ZincSearch', detail: 'Run a lightweight local search engine.', href: '/demos', logo: '/home/zincsearch.png' },
-      { name: 'Mailpit', detail: 'Capture local email and SMTP traffic.', href: '/demos', logo: mailpitLogo }
+      { name: 'Redis', detail: 'Run Redis for cache, sessions and queues.', href: '/features/redis', logo: 'https://oss.macphpstudy.com/image/redis.png' },
+      { name: 'Memcached', detail: 'Test lightweight application caching locally.', href: '/features/memcached', logo: 'https://oss.macphpstudy.com/image/memcached.png' },
+      { name: 'RabbitMQ', detail: 'Run RabbitMQ and inspect local queues.', href: '/features/rabbitmq', logo: rabbitMqLogo },
+      { name: 'Elasticsearch', detail: 'Build search features with local Elasticsearch.', href: '/features/elasticsearch', logo: elasticsearchLogo },
+      { name: 'Meilisearch', detail: 'Prototype fast local search experiences.', href: '/features/meilisearch', logo: meilisearchLogo },
+      { name: 'Typesense', detail: 'Test typo-tolerant search locally.', href: '/features/typesense', logo: typesenseLogo },
+      { name: 'ZincSearch', detail: 'Run a lightweight local search engine.', href: '/features/zincsearch', logo: '/home/zincsearch.png' },
+      { name: 'Mailpit', detail: 'Capture local email and SMTP traffic.', href: '/features/mailpit', logo: mailpitLogo }
     ]
   },
   {
@@ -134,7 +134,7 @@ const categories = [
       { name: 'Numa', detail: 'Run local DNS with Numa.', href: '/demos', mark: 'Numa' },
       { name: 'DNS Server', detail: 'Manage local DNS services.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/dns.svg' },
       { name: 'FTP Server', detail: 'Run an FTP service for local testing.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/ftp.svg' },
-      { name: 'Minio', detail: 'Run S3-compatible storage locally.', href: '/demos', logo: minioLogo },
+      { name: 'Minio', detail: 'Run S3-compatible storage locally.', href: '/features/minio', logo: minioLogo },
       { name: 'RustFS', detail: 'Prototype S3-compatible storage locally.', href: '/demos', logo: rustFsLogo },
       { name: 'Podman', detail: 'Use containers when a project calls for them.', href: '/features/podman', logo: podmanLogo },
       { name: 'Cloudflared', detail: 'Run the Cloudflare connector locally.', href: '/features/cloudflared', logo: cloudflareLogo },
