@@ -131,17 +131,17 @@ const categories = [
     id: 'infrastructure', eyebrow: '05 / Connect the edges', title: 'Infrastructure, Storage & Network',
     description: 'Model the supporting services your local and distributed systems rely on.', tone: 'bg-cyan-50 text-cyan-700',
     items: [
-      { name: 'Numa', detail: 'Run local DNS with Numa.', href: '/demos', mark: 'Numa' },
+      { name: 'Numa', detail: 'Run local DNS with Numa.', href: '/features/numa', mark: 'Numa' },
       { name: 'DNS Server', detail: 'Manage local DNS services.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/dns.svg' },
       { name: 'FTP Server', detail: 'Run an FTP service for local testing.', href: '/demos', logo: 'https://oss.macphpstudy.com/image/ftp.svg' },
       { name: 'Minio', detail: 'Run S3-compatible storage locally.', href: '/features/minio', logo: minioLogo },
-      { name: 'RustFS', detail: 'Prototype S3-compatible storage locally.', href: '/demos', logo: rustFsLogo },
+      { name: 'RustFS', detail: 'Prototype S3-compatible storage locally.', href: '/features/rustfs', logo: rustFsLogo },
       { name: 'Podman', detail: 'Use containers when a project calls for them.', href: '/features/podman', logo: podmanLogo },
       { name: 'Cloudflared', detail: 'Run the Cloudflare connector locally.', href: '/features/cloudflared', logo: cloudflareLogo },
       { name: 'Cloudflare Tunnel', detail: 'Expose local sites for webhooks and reviews.', href: '/features/cloudflare-tunnel', logo: cloudflareLogo },
-      { name: 'R-NACOS', detail: 'Test service discovery and configuration locally.', href: '/demos', logo: rNacosLogo },
-      { name: 'Consul', detail: 'Run service discovery in your workspace.', href: '/demos', logo: consulLogo },
-      { name: 'Etcd', detail: 'Test distributed configuration locally.', href: '/demos', logo: etcdLogo }
+      { name: 'R-NACOS', detail: 'Test service discovery and configuration locally.', href: '/features/r-nacos', logo: rNacosLogo },
+      { name: 'Consul', detail: 'Run service discovery in your workspace.', href: '/features/consul', logo: consulLogo },
+      { name: 'Etcd', detail: 'Test distributed configuration locally.', href: '/features/etcd', logo: etcdLogo }
     ]
   },
   {
@@ -153,7 +153,7 @@ const categories = [
       { name: 'Cron Jobs', detail: 'Schedule local commands and jobs.', href: '/guide/getting-started', logo: '' },
       { name: 'User Modules', detail: 'Create and share custom modules.', href: '/guide/user-customizable-modules', logo: '' },
       { name: 'CLI & Terminal', detail: 'Use an integrated terminal with FlyEnv context.', href: '/guide/code-playground-and-code-library', logo: '' },
-      { name: 'Temporal', detail: 'Run durable workflows locally.', href: '/demos', logo: temporalLogo }
+      { name: 'Temporal', detail: 'Run durable workflows locally.', href: '/features/temporal', logo: temporalLogo }
     ]
   },
   {
@@ -169,9 +169,9 @@ const categories = [
       { name: 'GitHub Copilot CLI', detail: 'Bring Copilot CLI into your terminal workflow.', href: '/guide/flyenv-work-with-ai', logo: githubLogo },
       { name: 'Hermes Agent', detail: 'Connect an AI agent to local services.', href: '/guide/flyenv-work-with-ai', logo: hermesLogo },
       { name: 'OpenClaw', detail: 'Build local agent workflows with OpenClaw.', href: '/guide/flyenv-work-with-ai', logo: openClawLogo },
-      { name: 'n8n', detail: 'Prototype local automations and integrations.', href: '/guide/build-local-ai-workflow-by-n8n', logo: n8nLogo },
-      { name: 'Ollama', detail: 'Run offline models beside your stack.', href: '/guide/build-local-offline-ai-agent', logo: ollamaLogo },
-      { name: 'CLIProxyAPI', detail: 'Route local AI providers through one gateway.', href: '/demos', mark: 'CLIProxyAPI' }
+      { name: 'n8n', detail: 'Prototype local automations and integrations.', href: '/features/n8n', logo: n8nLogo },
+      { name: 'Ollama', detail: 'Run offline models beside your stack.', href: '/features/ollama', logo: ollamaLogo },
+      { name: 'CLIProxyAPI', detail: 'Route local AI providers through one gateway.', href: '/features/cliproxyapi', mark: 'CLIProxyAPI' }
     ]
   }
 ]
