@@ -135,6 +135,7 @@ export default defineConfigWithTheme({
         ],
         nav: [
           { text: 'Download', link: '/download' },
+          { text: 'Features', link: '/features' },
           { text: 'Solutions', link: '/solutions' },
           { text: 'Demos', link: '/demos' },
           { text: 'Guide', link: '/guide/what-is-flyenv' },
@@ -152,6 +153,13 @@ export default defineConfigWithTheme({
                 { text: 'Quick Start Guide', link: '/guide/getting-started' },
                 { text: 'About FlyEnv Helper', link: '/guide/about-flyenv-helper' },
                 { text: 'License & Support', link: '/guide/about-license' },
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Compare',
+              items: [
+                { text: 'FlyEnv vs XAMPP', link: '/compare/xampp' },
               ],
               collapsed: false
             },
@@ -210,6 +218,119 @@ export default defineConfigWithTheme({
                 { text: 'PHP Debugging with Xdebug', link: '/guide/php-debug-with-xdebug' }, // 移到排障这里更合理
                 { text: 'Fix Common PHP Issues (icu4c)', link: '/guide/php-icu4c-issues' },
                 { text: 'Dynamically Load I18n Packs', link: '/guide/dynamically-load-I18n-language-packs' },
+              ],
+              collapsed: false
+            }
+          ],
+          '/features/': [
+            {
+              text: 'Features',
+              items: [{ text: 'Overview', link: '/features' }],
+              collapsed: false
+            },
+            {
+              text: 'Languages & Runtimes',
+              items: [
+                { text: 'PHP', link: '/features/php' },
+                { text: 'Node.js', link: '/features/nodejs' },
+                { text: 'Python', link: '/features/python' },
+                { text: 'Java', link: '/features/java' },
+                { text: 'Go', link: '/features/go' },
+                { text: 'Erlang', link: '/features/erlang' },
+                { text: 'Ruby', link: '/features/ruby' },
+                { text: 'Rust', link: '/features/rust' },
+                { text: '.NET', link: '/features/dotnet' },
+                { text: 'Zig', link: '/features/zig' },
+                { text: 'Bun', link: '/features/bun' },
+                { text: 'Deno', link: '/features/deno' },
+                { text: 'Flutter', link: '/features/flutter' },
+                { text: 'Gradle', link: '/features/gradle' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Web Servers & Local Sites',
+              items: [
+                { text: 'Local Sites & HTTPS', link: '/features/local-sites-https' },
+                { text: 'FrankenPHP', link: '/features/frankenphp' },
+                { text: 'Nginx', link: '/features/nginx' },
+                { text: 'Apache', link: '/features/apache' },
+                { text: 'Caddy', link: '/features/caddy' },
+                { text: 'Tomcat', link: '/features/tomcat' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Databases',
+              items: [
+                { text: 'MySQL', link: '/features/mysql' },
+                { text: 'PostgreSQL', link: '/features/postgresql' },
+                { text: 'MariaDB', link: '/features/mariadb' },
+                { text: 'MongoDB', link: '/features/mongodb' },
+                { text: 'Qdrant', link: '/features/qdrant' },
+                { text: 'ClickHouse', link: '/features/clickhouse' },
+                { text: 'Neo4j', link: '/features/neo4j' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Cache, Messaging & Search',
+              items: [
+                { text: 'Redis', link: '/features/redis' },
+                { text: 'Memcached', link: '/features/memcached' },
+                { text: 'RabbitMQ', link: '/features/rabbitmq' },
+                { text: 'Elasticsearch', link: '/features/elasticsearch' },
+                { text: 'Meilisearch', link: '/features/meilisearch' },
+                { text: 'Typesense', link: '/features/typesense' },
+                { text: 'ZincSearch', link: '/features/zincsearch' },
+                { text: 'Mailpit', link: '/features/mailpit' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Infrastructure, Storage & Network',
+              items: [
+                { text: 'Numa', link: '/features/numa' },
+                { text: 'DNS Server', link: '/features/dns-server' },
+                { text: 'FTP Server', link: '/features/ftp-server' },
+                { text: 'MinIO', link: '/features/minio' },
+                { text: 'RustFS', link: '/features/rustfs' },
+                { text: 'Podman', link: '/features/podman' },
+                { text: 'Cloudflared', link: '/features/cloudflared' },
+                { text: 'Cloudflare Tunnel', link: '/features/cloudflare-tunnel' },
+                { text: 'R-NACOS', link: '/features/r-nacos' },
+                { text: 'Consul', link: '/features/consul' },
+                { text: 'Etcd', link: '/features/etcd' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Developer Workflow',
+              items: [
+                { text: 'Startup Groups', link: '/features/startup-groups' },
+                { text: 'Per-Project Runtimes', link: '/features/per-project-runtimes' },
+                { text: 'Cron Jobs', link: '/features/cron-jobs' },
+                { text: 'User Modules', link: '/features/user-modules' },
+                { text: 'CLI & Terminal', link: '/features/cli-terminal' },
+                { text: 'Temporal', link: '/features/temporal' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'AI, MCP & Automation',
+              items: [
+                { text: 'MCP Server', link: '/features/mcp-server' },
+                { text: 'Claude Code', link: '/features/claude-code' },
+                { text: 'Codex', link: '/features/codex' },
+                { text: 'OpenCode', link: '/features/opencode' },
+                { text: 'Kimi', link: '/features/kimi' },
+                { text: 'Antigravity CLI', link: '/features/antigravity-cli' },
+                { text: 'GitHub Copilot CLI', link: '/features/github-copilot-cli' },
+                { text: 'Hermes Agent', link: '/features/hermes-agent' },
+                { text: 'OpenClaw', link: '/features/openclaw' },
+                { text: 'n8n', link: '/features/n8n' },
+                { text: 'Ollama', link: '/features/ollama' },
+                { text: 'CLIProxyAPI', link: '/features/cliproxyapi' }
               ],
               collapsed: false
             }
