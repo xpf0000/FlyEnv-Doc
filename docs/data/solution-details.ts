@@ -19,6 +19,26 @@ export type SolutionSlug =
   | 'directus'
   | 'matomo'
   | 'metabase'
+  | 'nextjs'
+  | 'nestjs'
+  | 'nuxt'
+  | 'express'
+  | 'react-vite'
+  | 'vue-vite'
+  | 'sveltekit'
+  | 'adonisjs'
+  | 'hono'
+  | 'payload'
+  | 'medusa'
+  | 'node-red'
+  | 'flask'
+  | 'apache-superset'
+  | 'quarkus'
+  | 'keycloak'
+  | 'gin'
+  | 'pocketbase'
+  | 'ruby-on-rails'
+  | 'aspnet-core'
 
 interface ProjectResource {
   label: string
@@ -50,7 +70,191 @@ export interface SolutionDetail {
   }
 }
 
+const additionalSolutionDetails: Record<SolutionSlug, SolutionDetail> = {
+  nextjs: {
+    summary: 'Next.js projects commonly combine Node.js with a database, optional Redis, and a reverse proxy for local full-stack development. FlyEnv keeps those services available per project.',
+    overview: 'Next.js is a React framework for full-stack web applications and server rendering.',
+    resources: [{ label: 'Official Website', href: 'https://nextjs.org/' }, { label: 'GitHub Repository', href: 'https://github.com/vercel/next.js' }, { label: 'Official Documentation', href: 'https://nextjs.org/docs' }],
+    stack: [{ component: 'Node.js', role: 'Runs the Next.js application and tooling.' }, { component: 'PostgreSQL / MySQL', role: 'Stores application data when configured.' }, { component: 'Redis', role: 'May support cache, sessions, or queues.' }, { component: 'Nginx / Caddy', role: 'May proxy a local application domain.' }],
+    help: [{ title: 'Match Node.js versions', description: 'Use the runtime supported by the project.' }, { title: 'Run local services', description: 'Start only the database and cache services the app uses.' }, { title: 'Test secure origins', description: 'Use a local domain and HTTPS for browser integrations.' }],
+    setupSteps: ['Follow the Next.js documentation to create or install the project.', 'Select the Node.js version required by the project.', 'Start the configured database and Redis when used.', 'Configure a local domain, reverse proxy, and HTTPS when useful.'],
+    relatedSlugs: ['nestjs', 'nuxt', 'payload']
+  },
+  nestjs: {
+    summary: 'NestJS services typically use Node.js, a database, Redis, and a reverse proxy. FlyEnv manages those local dependencies around a TypeScript backend.',
+    overview: 'NestJS is a TypeScript framework for structured and scalable server-side applications.',
+    resources: [{ label: 'Official Website', href: 'https://nestjs.com/' }, { label: 'GitHub Repository', href: 'https://github.com/nestjs/nest' }, { label: 'Official Documentation', href: 'https://docs.nestjs.com/' }],
+    stack: [{ component: 'Node.js', role: 'Runs the NestJS service.' }, { component: 'PostgreSQL / MySQL', role: 'Stores service data.' }, { component: 'Redis', role: 'May support cache, queues, or rate limiting.' }, { component: 'Nginx / Caddy', role: 'May proxy a local API domain.' }],
+    help: [{ title: 'Use project Node.js', description: 'Keep the runtime aligned with the service.' }, { title: 'Group dependencies', description: 'Start the API and its data services together.' }, { title: 'Use a local API URL', description: 'Configure HTTPS when client testing needs it.' }],
+    setupSteps: ['Follow the NestJS documentation for project installation.', 'Select the Node.js version required by the service.', 'Start the configured database and Redis services.', 'Add a local domain and reverse proxy when clients need one.'],
+    relatedSlugs: ['nextjs', 'express', 'adonisjs']
+  },
+  nuxt: {
+    summary: 'Nuxt applications run on Node.js and may use a database or reverse proxy for local full-stack development. FlyEnv manages the selected runtime and services.',
+    overview: 'Nuxt is a Vue framework for full-stack web applications and server rendering.',
+    resources: [{ label: 'Official Website', href: 'https://nuxt.com/' }, { label: 'GitHub Repository', href: 'https://github.com/nuxt/nuxt' }, { label: 'Official Documentation', href: 'https://nuxt.com/docs' }],
+    stack: [{ component: 'Node.js', role: 'Runs the Nuxt application and tooling.' }, { component: 'PostgreSQL / MySQL', role: 'Stores data when the application uses a database.' }, { component: 'Nginx / Caddy', role: 'May proxy a local application domain.' }],
+    help: [{ title: 'Match the Node.js runtime', description: 'Use the version supported by the Nuxt project.' }, { title: 'Keep project services local', description: 'Start the selected data services near the application.' }, { title: 'Test browser flows', description: 'Use a local domain and HTTPS when needed.' }],
+    setupSteps: ['Install the project according to Nuxt documentation.', 'Select the required Node.js version.', 'Start the database only when the application configuration needs it.', 'Configure a local domain and proxy for integration testing when useful.'],
+    relatedSlugs: ['nextjs', 'vue-vite', 'sveltekit']
+  },
+  express: {
+    summary: 'Express applications use Node.js with the database, cache, and proxy chosen by the project. FlyEnv helps keep this flexible local API stack organized.',
+    overview: 'Express is a minimal Node.js framework for web applications and APIs.',
+    resources: [{ label: 'Official Website', href: 'https://expressjs.com/' }, { label: 'GitHub Repository', href: 'https://github.com/expressjs/express' }, { label: 'Official Documentation', href: 'https://expressjs.com/' }],
+    stack: [{ component: 'Node.js', role: 'Runs the Express application.' }, { component: 'PostgreSQL / MongoDB', role: 'Stores application data when configured.' }, { component: 'Redis', role: 'May support cache, queues, or sessions.' }, { component: 'Nginx / Caddy', role: 'May proxy a local web or API domain.' }],
+    help: [{ title: 'Keep runtime versions isolated', description: 'Use the Node.js release required by the project.' }, { title: 'Select only required services', description: 'Run the configured database and cache locally.' }, { title: 'Expose local endpoints', description: 'Configure a domain and HTTPS for client testing.' }],
+    setupSteps: ['Install dependencies using the project package manager.', 'Select the required Node.js runtime.', 'Start the configured database and Redis services.', 'Add a local proxy and HTTPS when the application needs them.'],
+    relatedSlugs: ['nestjs', 'hono', 'adonisjs']
+  },
+  'react-vite': {
+    summary: 'React and Vite projects need a Node.js runtime for development and builds, with an optional local web server for production-like previews. FlyEnv manages that environment per project.',
+    overview: 'React + Vite is a fast workflow for building modern React applications.',
+    resources: [{ label: 'React Website', href: 'https://react.dev/' }, { label: 'Vite Website', href: 'https://vite.dev/' }, { label: 'Vite Documentation', href: 'https://vite.dev/guide/' }],
+    stack: [{ component: 'Node.js', role: 'Runs the Vite development server and build tooling.' }, { component: 'Nginx / Caddy', role: 'May serve built static assets through a local domain.' }],
+    help: [{ title: 'Match project Node.js', description: 'Keep tooling on the version the project expects.' }, { title: 'Use local HTTPS', description: 'Test browser APIs that need a secure origin.' }, { title: 'Separate frontend projects', description: 'Keep each build toolchain isolated by project.' }],
+    setupSteps: ['Install project dependencies with the chosen package manager.', 'Select the required Node.js runtime.', 'Run the Vite development command.', 'Configure a local server and HTTPS for production-like testing when useful.'],
+    relatedSlugs: ['vue-vite', 'nextjs', 'sveltekit']
+  },
+  'vue-vite': {
+    summary: 'Vue 3 and Vite projects use Node.js for their local development server and build tooling. FlyEnv manages the runtime and optional local web server.',
+    overview: 'Vue 3 + Vite is a modern workflow for building Vue applications.',
+    resources: [{ label: 'Vue Website', href: 'https://vuejs.org/' }, { label: 'Vite Website', href: 'https://vite.dev/' }, { label: 'Vue Documentation', href: 'https://vuejs.org/guide/' }],
+    stack: [{ component: 'Node.js', role: 'Runs the Vite development server and build tooling.' }, { component: 'Nginx / Caddy', role: 'May serve built assets through a local domain.' }],
+    help: [{ title: 'Use the expected Node.js release', description: 'Keep the toolchain compatible with the project.' }, { title: 'Test a local domain', description: 'Use HTTPS for secure browser features.' }, { title: 'Keep frontend environments separate', description: 'Avoid global version conflicts between projects.' }],
+    setupSteps: ['Install the Vue project dependencies.', 'Select the required Node.js runtime.', 'Run the Vite development command.', 'Configure a local web server and HTTPS when useful.'],
+    relatedSlugs: ['nuxt', 'react-vite', 'sveltekit']
+  },
+  sveltekit: {
+    summary: 'SvelteKit applications use Node.js with optional data services and a reverse proxy. FlyEnv keeps the local full-stack environment manageable per project.',
+    overview: 'SvelteKit is a framework for building fast full-stack Svelte applications.',
+    resources: [{ label: 'Official Website', href: 'https://svelte.dev/' }, { label: 'GitHub Repository', href: 'https://github.com/sveltejs/kit' }, { label: 'Official Documentation', href: 'https://svelte.dev/docs/kit' }],
+    stack: [{ component: 'Node.js', role: 'Runs the SvelteKit application and tooling.' }, { component: 'PostgreSQL / MySQL', role: 'Stores data when configured.' }, { component: 'Nginx / Caddy', role: 'May proxy a local app domain.' }],
+    help: [{ title: 'Match Node.js support', description: 'Use the runtime required by the application.' }, { title: 'Start selected data services', description: 'Keep project dependencies local.' }, { title: 'Use secure local URLs', description: 'Configure HTTPS for browser integration testing.' }],
+    setupSteps: ['Follow SvelteKit documentation to install the project.', 'Select the required Node.js runtime.', 'Start the configured database service.', 'Add a local proxy and HTTPS when useful.'],
+    relatedSlugs: ['nextjs', 'nuxt', 'react-vite']
+  },
+  adonisjs: {
+    summary: 'AdonisJS applications combine a TypeScript Node.js runtime with a database, optional Redis, and a local web server. FlyEnv coordinates those services.',
+    overview: 'AdonisJS is a TypeScript-first Node.js framework for full-stack web applications.',
+    resources: [{ label: 'Official Website', href: 'https://adonisjs.com/' }, { label: 'GitHub Repository', href: 'https://github.com/adonisjs/core' }, { label: 'Official Documentation', href: 'https://docs.adonisjs.com/' }],
+    stack: [{ component: 'Node.js', role: 'Runs the AdonisJS application.' }, { component: 'MySQL / PostgreSQL', role: 'Stores application data.' }, { component: 'Redis', role: 'May support cache and queues.' }, { component: 'Nginx / Caddy', role: 'May serve a local domain.' }],
+    help: [{ title: 'Use the project runtime', description: 'Keep Node.js aligned with the project.' }, { title: 'Run the configured database', description: 'Start only the data services the application needs.' }, { title: 'Group app services', description: 'Launch the application and dependencies together.' }],
+    setupSteps: ['Install the project according to AdonisJS documentation.', 'Select the required Node.js runtime.', 'Start the configured database and Redis services.', 'Configure a local domain and HTTPS when useful.'],
+    relatedSlugs: ['nestjs', 'express', 'laravel']
+  },
+  hono: {
+    summary: 'Hono APIs can run on Node.js or Bun with the database and proxy selected by the project. FlyEnv manages those lightweight local API environments.',
+    overview: 'Hono is a small and fast web framework for JavaScript and TypeScript runtimes.',
+    resources: [{ label: 'Official Website', href: 'https://hono.dev/' }, { label: 'GitHub Repository', href: 'https://github.com/honojs/hono' }, { label: 'Official Documentation', href: 'https://hono.dev/docs/' }],
+    stack: [{ component: 'Node.js / Bun', role: 'Runs the Hono application.' }, { component: 'PostgreSQL / MySQL', role: 'Stores data when configured.' }, { component: 'Nginx / Caddy', role: 'May proxy a local API domain.' }],
+    help: [{ title: 'Choose the project runtime', description: 'Use Node.js or Bun as the project requires.' }, { title: 'Keep API services close', description: 'Start only configured data services.' }, { title: 'Test secure origins', description: 'Add a local domain and HTTPS for clients.' }],
+    setupSteps: ['Follow Hono documentation for the selected runtime adapter.', 'Select the required Node.js or Bun runtime.', 'Start the configured database service.', 'Configure a local proxy and HTTPS when needed.'],
+    relatedSlugs: ['express', 'nestjs', 'gin']
+  },
+  payload: {
+    summary: 'Payload CMS projects use Node.js, MongoDB or another configured database, optional Redis, and a local proxy. FlyEnv manages the surrounding local services.',
+    overview: 'Payload is a TypeScript headless CMS and application framework.',
+    resources: [{ label: 'Official Website', href: 'https://payloadcms.com/' }, { label: 'GitHub Repository', href: 'https://github.com/payloadcms/payload' }, { label: 'Official Documentation', href: 'https://payloadcms.com/docs' }],
+    stack: [{ component: 'Node.js', role: 'Runs Payload and project tooling.' }, { component: 'MongoDB / PostgreSQL', role: 'Stores CMS and application data.' }, { component: 'Redis', role: 'May support caching or queues.' }, { component: 'Nginx / Caddy', role: 'May serve a local CMS domain.' }],
+    help: [{ title: 'Match Node.js support', description: 'Use the runtime required by the Payload release.' }, { title: 'Run the selected database', description: 'Keep CMS data services local.' }, { title: 'Use a secure local URL', description: 'Configure HTTPS for admin and frontend testing.' }],
+    setupSteps: ['Create or install the project according to Payload documentation.', 'Select the required Node.js runtime.', 'Start the configured database and optional Redis.', 'Configure a local domain and HTTPS when useful.'],
+    relatedSlugs: ['strapi', 'directus', 'nextjs']
+  },
+  medusa: {
+    summary: 'Medusa projects use Node.js, PostgreSQL, Redis, and often a local proxy. FlyEnv keeps this TypeScript commerce stack organized for local development.',
+    overview: 'Medusa is a composable commerce platform built with Node.js and TypeScript.',
+    resources: [{ label: 'Official Website', href: 'https://medusajs.com/' }, { label: 'GitHub Repository', href: 'https://github.com/medusajs/medusa' }, { label: 'Official Documentation', href: 'https://docs.medusajs.com/' }],
+    stack: [{ component: 'Node.js', role: 'Runs Medusa services and tooling.' }, { component: 'PostgreSQL', role: 'Stores commerce data.' }, { component: 'Redis', role: 'Supports events, cache, or workflow services.' }, { component: 'Nginx / Caddy', role: 'May proxy local storefront and API domains.' }],
+    help: [{ title: 'Match Node.js versions', description: 'Keep the runtime compatible with Medusa.' }, { title: 'Start commerce dependencies together', description: 'Run PostgreSQL and Redis with the API.' }, { title: 'Use local HTTPS', description: 'Test storefront and payment integrations securely.' }],
+    setupSteps: ['Follow Medusa documentation for project setup.', 'Select the required Node.js runtime.', 'Start PostgreSQL and Redis.', 'Configure local API and storefront domains when needed.'],
+    relatedSlugs: ['nextjs', 'nestjs', 'magento']
+  },
+  'node-red': {
+    summary: 'Node-RED runs on Node.js and can be exposed through a local proxy for integrations and webhooks. FlyEnv manages the runtime and local access configuration.',
+    overview: 'Node-RED is a flow-based programming tool for event-driven integrations and automation.',
+    resources: [{ label: 'Official Website', href: 'https://nodered.org/' }, { label: 'GitHub Repository', href: 'https://github.com/node-red/node-red' }, { label: 'Official Documentation', href: 'https://nodered.org/docs/' }],
+    stack: [{ component: 'Node.js', role: 'Runs the Node-RED runtime.' }, { component: 'Nginx / Caddy', role: 'May proxy a local editor or webhook domain.' }],
+    help: [{ title: 'Select a supported Node.js version', description: 'Keep the runtime aligned with Node-RED.' }, { title: 'Use local HTTPS', description: 'Test webhook and browser integrations securely.' }, { title: 'Keep automation isolated', description: 'Run flows separately from unrelated projects.' }],
+    setupSteps: ['Install Node-RED according to its official documentation.', 'Select the supported Node.js runtime.', 'Start the Node-RED process.', 'Configure a local domain and HTTPS when integration testing needs it.'],
+    relatedSlugs: ['hono', 'strapi', 'directus']
+  },
+  flask: {
+    summary: 'Flask applications use Python with the database, Redis, and reverse proxy selected by the project. FlyEnv keeps that lightweight local web stack organized.',
+    overview: 'Flask is a lightweight Python framework for web applications and APIs.',
+    resources: [{ label: 'Official Website', href: 'https://flask.palletsprojects.com/' }, { label: 'GitHub Repository', href: 'https://github.com/pallets/flask' }, { label: 'Official Documentation', href: 'https://flask.palletsprojects.com/' }],
+    stack: [{ component: 'Python', role: 'Runs the Flask application.' }, { component: 'PostgreSQL / MySQL', role: 'Stores application data when configured.' }, { component: 'Redis', role: 'May support cache or background work.' }, { component: 'Nginx / Caddy', role: 'May proxy a local domain.' }],
+    help: [{ title: 'Use the project Python release', description: 'Match the runtime to dependency requirements.' }, { title: 'Run selected services', description: 'Start only the configured database and cache.' }, { title: 'Test browser integrations', description: 'Use a local domain and HTTPS when needed.' }],
+    setupSteps: ['Create the virtual environment and install dependencies.', 'Select the Python runtime required by the project.', 'Start the configured database and Redis services.', 'Configure a local proxy and HTTPS when useful.'],
+    relatedSlugs: ['django', 'fastapi', 'apache-superset']
+  },
+  'apache-superset': {
+    summary: 'Apache Superset uses Python, a metadata database, Redis, and a reverse proxy. FlyEnv helps manage these local analytics services together.',
+    overview: 'Apache Superset is an open-source data exploration and business intelligence platform.',
+    resources: [{ label: 'Official Website', href: 'https://superset.apache.org/' }, { label: 'GitHub Repository', href: 'https://github.com/apache/superset' }, { label: 'Official Documentation', href: 'https://superset.apache.org/docs/' }],
+    stack: [{ component: 'Python', role: 'Runs Superset and its local tooling.' }, { component: 'PostgreSQL / MySQL', role: 'Stores Superset metadata.' }, { component: 'Redis', role: 'Supports cache and asynchronous work.' }, { component: 'Nginx / Caddy', role: 'May proxy a local analytics domain.' }],
+    help: [{ title: 'Manage the Python runtime', description: 'Use the version supported by the Superset release.' }, { title: 'Start analytics services together', description: 'Keep metadata and Redis services available with Superset.' }, { title: 'Use local HTTPS', description: 'Test browser and SSO integrations securely.' }],
+    setupSteps: ['Follow Apache Superset documentation for the selected installation method.', 'Select the required Python runtime.', 'Start the metadata database and Redis.', 'Configure a local proxy and HTTPS when useful.'],
+    relatedSlugs: ['metabase', 'flask', 'matomo']
+  },
+  quarkus: {
+    summary: 'Quarkus services run on Java with project-specific databases, Redis, and local proxy configuration. FlyEnv manages those dependencies around the service.',
+    overview: 'Quarkus is a Java framework optimized for cloud-native applications and APIs.',
+    resources: [{ label: 'Official Website', href: 'https://quarkus.io/' }, { label: 'GitHub Repository', href: 'https://github.com/quarkusio/quarkus' }, { label: 'Official Documentation', href: 'https://quarkus.io/guides/' }],
+    stack: [{ component: 'Java', role: 'Runs the Quarkus service.' }, { component: 'PostgreSQL / MySQL', role: 'Stores service data.' }, { component: 'Redis', role: 'May support caching or messaging.' }, { component: 'Nginx / Caddy', role: 'May proxy a local API domain.' }],
+    help: [{ title: 'Select the required JDK', description: 'Match the Java runtime to the service.' }, { title: 'Keep dependencies local', description: 'Run only the configured data services.' }, { title: 'Test a local API URL', description: 'Configure HTTPS for client integrations.' }],
+    setupSteps: ['Build or run the service according to Quarkus documentation.', 'Select the required Java runtime.', 'Start the configured database and Redis services.', 'Configure a local proxy and HTTPS when useful.'],
+    relatedSlugs: ['spring-boot', 'keycloak', 'gin']
+  },
+  keycloak: {
+    summary: 'Keycloak uses Java and a database, with a local proxy when testing browser-based authentication. FlyEnv manages those local identity service dependencies.',
+    overview: 'Keycloak is an open-source identity and access management platform for applications and APIs.',
+    resources: [{ label: 'Official Website', href: 'https://www.keycloak.org/' }, { label: 'GitHub Repository', href: 'https://github.com/keycloak/keycloak' }, { label: 'Official Documentation', href: 'https://www.keycloak.org/documentation' }],
+    stack: [{ component: 'Java', role: 'Runs the Keycloak server.' }, { component: 'PostgreSQL / MySQL', role: 'Stores realm and identity data.' }, { component: 'Nginx / Caddy', role: 'May proxy a local identity domain.' }],
+    help: [{ title: 'Choose the supported JDK', description: 'Use the Java runtime supported by Keycloak.' }, { title: 'Keep identity data local', description: 'Run a database for local realms and users.' }, { title: 'Use HTTPS for auth flows', description: 'Test redirect URIs and secure cookies locally.' }],
+    setupSteps: ['Install Keycloak following its official documentation.', 'Select the required Java runtime.', 'Start the configured database.', 'Configure a local HTTPS domain for browser authentication testing.'],
+    relatedSlugs: ['spring-boot', 'quarkus', 'nestjs']
+  },
+  gin: {
+    summary: 'Gin services use Go with the database, Redis, and proxy selected by each project. FlyEnv helps keep this lightweight API stack ready locally.',
+    overview: 'Gin is a high-performance Go framework for web services and APIs.',
+    resources: [{ label: 'Official Website', href: 'https://gin-gonic.com/' }, { label: 'GitHub Repository', href: 'https://github.com/gin-gonic/gin' }, { label: 'Official Documentation', href: 'https://gin-gonic.com/docs/' }],
+    stack: [{ component: 'Go', role: 'Builds and runs the Gin service.' }, { component: 'PostgreSQL / MySQL', role: 'Stores service data.' }, { component: 'Redis', role: 'May support cache or queue patterns.' }, { component: 'Nginx / Caddy', role: 'May proxy a local API domain.' }],
+    help: [{ title: 'Match Go versions', description: 'Use the Go release required by the project.' }, { title: 'Run selected services', description: 'Keep data dependencies local to the API.' }, { title: 'Expose local endpoints', description: 'Use a domain and HTTPS for client testing.' }],
+    setupSteps: ['Install the project dependencies with Go modules.', 'Select the required Go runtime.', 'Start the configured database and Redis services.', 'Configure a local proxy and HTTPS when useful.'],
+    relatedSlugs: ['gitea', 'pocketbase', 'hono']
+  },
+  pocketbase: {
+    summary: 'PocketBase is a compact Go backend with an embedded SQLite database and can be exposed through a local proxy. FlyEnv manages its runtime and local URL.',
+    overview: 'PocketBase is a backend platform with an embedded database, APIs, auth, and file storage.',
+    resources: [{ label: 'Official Website', href: 'https://pocketbase.io/' }, { label: 'GitHub Repository', href: 'https://github.com/pocketbase/pocketbase' }, { label: 'Official Documentation', href: 'https://pocketbase.io/docs/' }],
+    stack: [{ component: 'Go', role: 'Runs or builds the PocketBase executable.' }, { component: 'SQLite', role: 'Stores application data in the embedded database.' }, { component: 'Nginx / Caddy', role: 'May proxy a local backend domain.' }],
+    help: [{ title: 'Keep the backend isolated', description: 'Run the selected PocketBase instance per project.' }, { title: 'Use a local HTTPS URL', description: 'Test auth and browser clients securely.' }, { title: 'Avoid unnecessary services', description: 'Use the embedded database when it meets the project needs.' }],
+    setupSteps: ['Download or build PocketBase according to its documentation.', 'Select the required Go runtime when building from source.', 'Start the PocketBase service.', 'Configure a local proxy and HTTPS when client testing needs it.'],
+    relatedSlugs: ['gin', 'directus', 'hono']
+  },
+  'ruby-on-rails': {
+    summary: 'Rails applications commonly use Ruby with PostgreSQL, Redis, and a reverse proxy. FlyEnv keeps these local full-stack dependencies organized around each project.',
+    overview: 'Ruby on Rails is a full-stack Ruby framework for database-backed web applications.',
+    resources: [{ label: 'Official Website', href: 'https://rubyonrails.org/' }, { label: 'GitHub Repository', href: 'https://github.com/rails/rails' }, { label: 'Official Documentation', href: 'https://guides.rubyonrails.org/' }],
+    stack: [{ component: 'Ruby', role: 'Runs the Rails application and tooling.' }, { component: 'PostgreSQL / MySQL', role: 'Stores application data.' }, { component: 'Redis', role: 'May support cache, jobs, and Action Cable.' }, { component: 'Nginx / Caddy', role: 'May serve a local application domain.' }],
+    help: [{ title: 'Match Ruby versions', description: 'Use the runtime required by the Rails project.' }, { title: 'Run app services locally', description: 'Start the configured database and Redis together.' }, { title: 'Test secure browser flows', description: 'Use a local domain and HTTPS when useful.' }],
+    setupSteps: ['Install dependencies using Bundler and the project instructions.', 'Select the required Ruby runtime.', 'Start the configured database and Redis services.', 'Configure a local domain and HTTPS when useful.'],
+    relatedSlugs: ['laravel', 'django', 'aspnet-core']
+  },
+  'aspnet-core': {
+    summary: 'ASP.NET Core projects use the .NET runtime with project-specific data services and a local reverse proxy. FlyEnv coordinates this cross-platform local web stack.',
+    overview: 'ASP.NET Core is a cross-platform .NET framework for modern web applications and APIs.',
+    resources: [{ label: 'Official Website', href: 'https://dotnet.microsoft.com/apps/aspnet' }, { label: 'GitHub Repository', href: 'https://github.com/dotnet/aspnetcore' }, { label: 'Official Documentation', href: 'https://learn.microsoft.com/aspnet/core/' }],
+    stack: [{ component: '.NET', role: 'Runs the ASP.NET Core application.' }, { component: 'PostgreSQL / MySQL', role: 'Stores application data.' }, { component: 'Redis', role: 'May support cache and distributed services.' }, { component: 'Nginx / Caddy', role: 'May proxy a local application domain.' }],
+    help: [{ title: 'Select the project .NET runtime', description: 'Match the SDK and runtime to the application.' }, { title: 'Start selected services', description: 'Keep the configured database and Redis local.' }, { title: 'Use HTTPS locally', description: 'Test browser, cookie, and API integrations securely.' }],
+    setupSteps: ['Restore and run the project using its .NET instructions.', 'Select the required .NET SDK or runtime.', 'Start the configured database and Redis services.', 'Configure a local domain and HTTPS when useful.'],
+    relatedSlugs: ['spring-boot', 'ruby-on-rails', 'nestjs']
+  }
+}
+
 export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
+  ...additionalSolutionDetails,
   laravel: {
     summary:
       'Laravel projects commonly combine PHP, a database, a web server, and optional services such as Redis. FlyEnv manages that local environment around the application on Windows, macOS, and Linux.',

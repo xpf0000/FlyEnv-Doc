@@ -128,10 +128,55 @@
             {{ copy.about }} {{ solution.name }}
           </h2>
           <p
+            v-for="paragraph in aboutParagraphs"
+            :key="paragraph"
             class="!mb-0 !mt-4 max-w-[720px] text-base leading-7 text-[#4b5565] dark:text-[#b1bdcc]"
           >
-            {{ detail.overview }}
+            {{ paragraph }}
           </p>
+          <section
+            v-if="aboutContent?.capabilities.length"
+            class="mt-7"
+            aria-labelledby="solution-capabilities-title"
+          >
+            <h3
+              id="solution-capabilities-title"
+              class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]"
+            >
+              {{ copy.coreCapabilities }}
+            </h3>
+            <ul class="!mb-0 !mt-4 flex !list-none flex-wrap gap-2 !p-0">
+              <li
+                v-for="capability in aboutContent.capabilities"
+                :key="capability"
+                class="!mt-0 rounded-md bg-[#edf4ff] px-3 py-1.5 text-sm font-semibold text-[#1769f9] dark:bg-[#172b50] dark:text-[#9bc5ff]"
+              >
+                {{ capability }}
+              </li>
+            </ul>
+          </section>
+          <section v-if="aboutContent?.useCases.length" class="mt-7" aria-labelledby="solution-use-cases-title">
+            <h3 id="solution-use-cases-title" class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]">
+              {{ copy.commonUseCases }}
+            </h3>
+            <ul class="!mb-0 !mt-4 grid !list-none grid-cols-1 gap-2 !p-0 sm:grid-cols-2">
+              <li v-for="useCase in aboutContent.useCases" :key="useCase" class="!mt-0 border-l-2 border-[#1769f9] pl-3.5 text-sm leading-6 text-[#4b5565] dark:text-[#b1bdcc]">
+                {{ useCase }}
+              </li>
+            </ul>
+          </section>
+          <section v-if="aboutContent?.localEnvironment?.items.length" class="mt-7 rounded-lg border border-[#dfe6ef] bg-[#f8fbff] p-5 dark:border-[#3a4760] dark:bg-[#131d2d]" aria-labelledby="solution-local-environment-title">
+            <h3 id="solution-local-environment-title" class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]">
+              {{ aboutContent.localEnvironment.title }}
+            </h3>
+            <p class="!mb-0 !mt-3 text-sm leading-6 text-[#4b5565] dark:text-[#b1bdcc]">{{ aboutContent.localEnvironment.description }}</p>
+            <dl class="!mb-0 !mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div v-for="item in aboutContent.localEnvironment.items" :key="item.title" class="min-w-0">
+                <dt class="text-sm font-bold text-[#172033] dark:text-[#e9edf5]">{{ item.title }}</dt>
+                <dd class="!ml-0 !mt-1 text-sm leading-6 text-[#5b6473] dark:text-[#b1bdcc]">{{ item.description }}</dd>
+              </div>
+            </dl>
+          </section>
         </div>
         <div
           class="rounded-lg border border-[#dfe6ef] bg-[#f8fbff] p-5 dark:border-[#3a4760] dark:bg-[#131d2d]"
@@ -468,6 +513,7 @@
   import { demos } from '../../data/demos'
   import { solutions } from '../../data/solutions'
   import { solutionDetails } from '../../data/solution-details'
+  import { solutionAboutContentByLocale } from '../../data/solution-use-cases'
   import type { SolutionSlug } from '../../data/solution-details'
   import {
     solutionCategoryLabelsByLocale,
@@ -488,6 +534,17 @@
   const solutionsHref = computed(() => `${routePrefix.value}/solutions`)
   const downloadHref = computed(() => `${routePrefix.value}/download`)
   const categoryLabels = computed(() => solutionCategoryLabelsByLocale[props.locale])
+  const aboutContent = computed(() => solutionAboutContentByLocale[props.locale][props.slug])
+  const aboutParagraphs = computed(() => {
+    if (!detail.value) return []
+    if (aboutContent.value?.replaceOverview) {
+      return aboutContent.value.paragraphs ?? [detail.value.overview]
+    }
+
+    return [detail.value.overview, aboutContent.value?.introduction].filter(
+      (paragraph): paragraph is string => Boolean(paragraph)
+    )
+  })
   const detail = computed(() => {
     const source = solutionDetails[props.slug as SolutionSlug]
     const localized = solutionContentByLocale[props.locale][props.slug]
@@ -572,6 +629,8 @@
       localProjectStack: 'Local project stack',
       managedServices: 'Services FlyEnv can manage around',
       about: 'About',
+      commonUseCases: 'Common use cases',
+      coreCapabilities: 'Core capabilities',
       projectResources: 'Project resources',
       resourcesDescriptionStart:
         'For installation commands, supported versions, and project-specific configuration, refer to the official',
@@ -609,6 +668,8 @@
       localProjectStack: '本地项目技术栈',
       managedServices: 'FlyEnv 可管理的服务：',
       about: '关于',
+      commonUseCases: '常见使用场景',
+      coreCapabilities: '核心能力',
       projectResources: '项目资源',
       resourcesDescriptionStart: '安装命令、支持版本和项目配置请参阅',
       resourcesDescriptionEnd: '官方文档。',
@@ -644,6 +705,8 @@
       localProjectStack: 'Stack proyek lokal',
       managedServices: 'Layanan yang dapat dikelola FlyEnv untuk',
       about: 'Tentang',
+      commonUseCases: 'Kasus penggunaan umum',
+      coreCapabilities: 'Kemampuan inti',
       projectResources: 'Sumber daya proyek',
       resourcesDescriptionStart:
         'Untuk perintah instalasi, versi yang didukung, dan konfigurasi proyek, lihat dokumentasi resmi',
