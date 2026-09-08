@@ -71,6 +71,118 @@ export const solutions: Solution[] = [
     stack: ['Java', 'PostgreSQL', 'Redis', 'Nginx']
   },
   {
+    name: 'Next.js',
+    slug: 'nextjs',
+    category: 'frameworks',
+    description: 'React framework for full-stack web applications and server rendering.',
+    logo: 'https://cdn.simpleicons.org/nextdotjs/000000',
+    stack: ['Node.js', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'NestJS',
+    slug: 'nestjs',
+    category: 'frameworks',
+    description: 'TypeScript framework for structured and scalable server-side applications.',
+    logo: 'https://cdn.simpleicons.org/nestjs/E0234E',
+    stack: ['Node.js', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'Nuxt',
+    slug: 'nuxt',
+    category: 'frameworks',
+    description: 'Vue framework for full-stack web applications and server rendering.',
+    logo: 'https://cdn.simpleicons.org/nuxt/00DC82',
+    stack: ['Node.js', 'PostgreSQL', 'Nginx']
+  },
+  {
+    name: 'Express',
+    slug: 'express',
+    category: 'frameworks',
+    description: 'Minimal Node.js framework for web applications and APIs.',
+    logo: 'https://cdn.simpleicons.org/express/000000',
+    stack: ['Node.js', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'React + Vite',
+    slug: 'react-vite',
+    category: 'frameworks',
+    description: 'Fast React application development with the Vite build tool.',
+    logo: 'https://cdn.simpleicons.org/react/61DAFB',
+    stack: ['Node.js', 'Nginx']
+  },
+  {
+    name: 'Vue 3 + Vite',
+    slug: 'vue-vite',
+    category: 'frameworks',
+    description: 'Modern Vue application development with the Vite build tool.',
+    logo: 'https://cdn.simpleicons.org/vuedotjs/4FC08D',
+    stack: ['Node.js', 'Nginx']
+  },
+  {
+    name: 'SvelteKit',
+    slug: 'sveltekit',
+    category: 'frameworks',
+    description: 'Svelte framework for fast full-stack web applications.',
+    logo: 'https://cdn.simpleicons.org/svelte/FF3E00',
+    stack: ['Node.js', 'PostgreSQL', 'Nginx']
+  },
+  {
+    name: 'AdonisJS',
+    slug: 'adonisjs',
+    category: 'frameworks',
+    description: 'TypeScript-first Node.js framework for full-stack web applications.',
+    logo: 'https://cdn.simpleicons.org/adonisjs/5A45FF',
+    stack: ['Node.js', 'MySQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'Hono',
+    slug: 'hono',
+    category: 'frameworks',
+    description: 'Small, fast web framework for JavaScript and TypeScript runtimes.',
+    logo: 'https://cdn.simpleicons.org/hono/E36002',
+    stack: ['Node.js', 'Bun', 'PostgreSQL', 'Nginx']
+  },
+  {
+    name: 'Flask',
+    slug: 'flask',
+    category: 'frameworks',
+    description: 'Lightweight Python framework for web applications and APIs.',
+    logo: 'https://cdn.simpleicons.org/flask/000000',
+    stack: ['Python', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'Quarkus',
+    slug: 'quarkus',
+    category: 'frameworks',
+    description: 'Java framework optimized for cloud-native applications and APIs.',
+    logo: 'https://cdn.simpleicons.org/quarkus/4695EB',
+    stack: ['Java', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'Gin',
+    slug: 'gin',
+    category: 'frameworks',
+    description: 'High-performance Go framework for web services and APIs.',
+    logo: 'https://cdn.simpleicons.org/go/00ADD8',
+    stack: ['Go', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'Ruby on Rails',
+    slug: 'ruby-on-rails',
+    category: 'frameworks',
+    description: 'Full-stack Ruby framework for database-backed web applications.',
+    logo: 'https://cdn.simpleicons.org/rubyonrails/D30001',
+    stack: ['Ruby', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
+    name: 'ASP.NET Core',
+    slug: 'aspnet-core',
+    category: 'frameworks',
+    description: 'Cross-platform .NET framework for modern web applications and APIs.',
+    logo: 'https://cdn.simpleicons.org/dotnet/512BD4',
+    stack: ['.NET', 'PostgreSQL', 'Redis', 'Nginx']
+  },
+  {
     name: 'WordPress',
     slug: 'wordpress',
     category: 'cms',
@@ -103,6 +215,14 @@ export const solutions: Solution[] = [
     stack: ['PHP', 'MySQL', 'Redis', 'Nginx']
   },
   {
+    name: 'Payload CMS',
+    slug: 'payload',
+    category: 'cms',
+    description: 'TypeScript headless CMS and application framework.',
+    logo: 'https://cdn.simpleicons.org/payloadcms/000000',
+    stack: ['Node.js', 'MongoDB', 'Redis', 'Nginx']
+  },
+  {
     name: 'Magento',
     slug: 'magento',
     category: 'ecommerce',
@@ -125,6 +245,14 @@ export const solutions: Solution[] = [
     description: 'Simple online store platform for selling products.',
     logo: 'https://raw.githubusercontent.com/opencart/opencart/master/upload/image/catalog/opencart-logo.png',
     stack: ['PHP', 'MySQL', 'Nginx']
+  },
+  {
+    name: 'Medusa',
+    slug: 'medusa',
+    category: 'ecommerce',
+    description: 'Composable commerce platform built with Node.js and TypeScript.',
+    logo: 'https://cdn.simpleicons.org/medusa/000000',
+    stack: ['Node.js', 'PostgreSQL', 'Redis', 'Nginx']
   },
   {
     name: 'ERPNext',
@@ -183,6 +311,30 @@ export const solutions: Solution[] = [
     stack: ['Node.js', 'PostgreSQL', 'Redis']
   },
   {
+    name: 'Node-RED',
+    slug: 'node-red',
+    category: 'developer-tools',
+    description: 'Flow-based programming tool for event-driven integrations and automation.',
+    logo: 'https://cdn.simpleicons.org/nodered/8F0000',
+    stack: ['Node.js', 'Nginx']
+  },
+  {
+    name: 'Keycloak',
+    slug: 'keycloak',
+    category: 'developer-tools',
+    description: 'Open-source identity and access management for applications and APIs.',
+    logo: 'https://cdn.simpleicons.org/keycloak/4D4D4D',
+    stack: ['Java', 'PostgreSQL', 'Nginx']
+  },
+  {
+    name: 'PocketBase',
+    slug: 'pocketbase',
+    category: 'developer-tools',
+    description: 'Backend platform with an embedded database, APIs, auth, and file storage.',
+    logo: 'https://cdn.simpleicons.org/pocketbase/B8DBE4',
+    stack: ['Go', 'SQLite', 'Nginx']
+  },
+  {
     name: 'Matomo',
     slug: 'matomo',
     category: 'data-analytics',
@@ -197,5 +349,13 @@ export const solutions: Solution[] = [
     description: 'Open-source business intelligence and data exploration tool.',
     logo: 'https://cdn.simpleicons.org/metabase/509EE3',
     stack: ['Java', 'PostgreSQL', 'Nginx']
+  },
+  {
+    name: 'Apache Superset',
+    slug: 'apache-superset',
+    category: 'data-analytics',
+    description: 'Open-source data exploration and business intelligence platform.',
+    logo: 'https://cdn.simpleicons.org/apache/0D6EFD',
+    stack: ['Python', 'PostgreSQL', 'Redis', 'Nginx']
   }
 ]
