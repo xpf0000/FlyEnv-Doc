@@ -1,3 +1,7 @@
+---
+description: 'Configure HTTP, HTTPS, and SOCKS proxy variables in FlyEnv so terminal downloads and installers can use your local proxy.'
+---
+
 # Use Proxy
 
 This reference is created specifically for users with 'network issues' (such as Chinese users). If everything is normal on your network, you can skip this reference

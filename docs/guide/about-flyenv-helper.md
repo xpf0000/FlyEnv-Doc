@@ -1,3 +1,7 @@
+---
+description: 'Learn why FlyEnv Helper needs elevated privileges, which system tasks it performs, and how to install or remove it safely.'
+---
+
 # 📜 Detailed Guide to FlyEnv Helper
 
 When using FlyEnv, the system typically prompts users to install the **FlyEnv Helper**. This article explains in detail why FlyEnv requires this helper program, its specific functions, and the installation and uninstallation methods across different operating systems.

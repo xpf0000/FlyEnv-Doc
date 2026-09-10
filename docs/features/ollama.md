@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/ollama
+      content: https://flyenv.com/features/ollama
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/ollama
+      href: https://flyenv.com/features/ollama
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Run Ollama Locally with FlyEnv
 
@@ -73,6 +77,8 @@ A running Ollama service on port 11434 also pairs well with other FlyEnv modules
 ## Logs
 
 The **Log** tab opens the per-version server logs directly inside FlyEnv: `ollama-<version>-start-out.log` for standard output and `ollama-<version>-start-error.log` for errors. These are the first place to look when a version fails to start or the API on port 11434 stops responding.
+
+<FeatureRelatedLinks slug="ollama" />
 
 ## Compatibility Notes
 

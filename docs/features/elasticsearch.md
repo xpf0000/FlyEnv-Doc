@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/elasticsearch
+      content: https://flyenv.com/features/elasticsearch
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/elasticsearch
+      href: https://flyenv.com/features/elasticsearch
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Elasticsearch in FlyEnv
 
@@ -68,6 +72,8 @@ Elasticsearch keeps three dedicated editor tabs in FlyEnv — **elasticsearch.ym
 The **Log** tab opens the node's log output from inside FlyEnv. The primary view shows the version's own `logs/elasticsearch.log`, the first place to look when a node fails to start or a cluster change misbehaves. The server, deprecation and garbage-collector logs (`elasticsearch_server.json`, `elasticsearch_deprecation.json`, `gc.log`) written by the node are available alongside it.
 
 ![Elasticsearch log viewer showing the node log](https://oss.macphpstudy.com/image/features/elasticsearch-5.webp)
+
+<FeatureRelatedLinks slug="elasticsearch" />
 
 ## Compatibility Notes
 

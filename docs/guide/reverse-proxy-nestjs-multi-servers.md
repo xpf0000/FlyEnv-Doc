@@ -1,16 +1,16 @@
 ---
-title: 'Reverse Proxy Setup for NestJS, Node.js, Next.js: Nginx, Apache, Caddy Guide'
+title: 'Reverse Proxy for NestJS and Node.js with Nginx or Caddy'
 head:
   - - meta
     - name: description
-      content: 'Deploy Node.js apps behind reverse proxy with Nginx, Apache, or Caddy. Learn production-ready configurations for NestJS, Next.js, Express without Docker complexity.'
+      content: 'Configure reverse proxies for NestJS, Node.js, and Next.js with FlyEnv, including WebSocket forwarding, HTTPS, and 502 troubleshooting.'
 ---
 
 # Reverse Proxy Setup for NestJS, Node.js, Next.js: Nginx, Apache, Caddy Guide
 
 Your Node.js app runs perfectly on localhost:3000. But how do you deploy it properly? Direct port access is insecure, managing PM2 plus firewall rules is painful, and Docker feels like overkill.
 
-**The solution: a reverse proxy.** It handles SSL termination, load balancing, and clean URLs while your Node app focuses on business logic. This guide shows production-ready configurations for Nginx, Apache, and Caddy—all managed through FlyEnv's visual interface.
+**The solution: a reverse proxy.** It handles SSL termination, load balancing, and clean URLs while your Node app focuses on business logic. This guide shows practical local-development configurations for Nginx, Apache, and Caddy—all managed through FlyEnv's visual interface. Review security, capacity, and observability separately before adapting them for production.
 
 ## Why Use a Reverse Proxy?
 

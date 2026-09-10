@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/cron-jobs
+      content: https://flyenv.com/features/cron-jobs
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/cron-jobs
+      href: https://flyenv.com/features/cron-jobs
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Cron Jobs in FlyEnv
 
@@ -72,6 +76,8 @@ The second tab, **System Tasks**, is a read window into the real OS scheduler.
 - FlyEnv-owned entries can be deleted directly from this tab, giving you cleanup control without opening `crontab -e` or the Windows Task Scheduler console.
 
 ![System Tasks tab showing real OS scheduler entries with FlyEnv-owned tasks tagged](https://oss.macphpstudy.com/image/features/cron-jobs-4.webp)
+
+<FeatureRelatedLinks slug="cron-jobs" />
 
 ## Compatibility Notes
 

@@ -8,23 +8,23 @@ head:
       content: 'Jalankan framework, CMS, aplikasi e-commerce, ERP, CRM, dan alat developer populer secara lokal dengan FlyEnv di Windows, macOS, dan Linux.'
   - - link
     - rel: canonical
-      href: https://flyenv.com/id/solutions.html
+      href: https://flyenv.com/id/solutions
   - - link
     - rel: alternate
       hreflang: en
-      href: https://flyenv.com/solutions.html
+      href: https://flyenv.com/solutions
   - - link
     - rel: alternate
       hreflang: zh-CN
-      href: https://flyenv.com/zh/solutions.html
+      href: https://flyenv.com/zh/solutions
   - - link
     - rel: alternate
       hreflang: id-ID
-      href: https://flyenv.com/id/solutions.html
+      href: https://flyenv.com/id/solutions
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"Solusi FlyEnv","inLanguage":"id-ID","url":"https://flyenv.com/id/solutions.html"}
+      {"@context":"https://schema.org","@type":"CollectionPage","name":"Solusi FlyEnv","inLanguage":"id-ID","url":"https://flyenv.com/id/solutions"}
 ---
 
 <script setup>

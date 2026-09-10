@@ -1,12 +1,12 @@
 ---
-title: 如何让 AI 编程助手效率翻倍：FlyEnv + Claude Code/Codex 完整工作流
+title: 使用 FlyEnv 稳定 Claude Code、Codex 与其他 AI CLI 工作流
 head:
   - - meta
     - name: description
       content: AI Agent 总是因为环境错误浪费 Token？本文详解如何用 FlyEnv 为 Claude Code、Codex 等 AI CLI 打造稳定的原生本地开发环境，实现项目级隔离、自动版本切换和全自动测试修复，无需 Docker。
 ---
 
-# 如何让 AI 编程助手效率翻倍：FlyEnv + Claude Code/Codex 完整工作流
+# 使用 FlyEnv 稳定 Claude Code、Codex 与其他 AI CLI 工作流
 
 当你使用 Claude Code、Codex 或 Kimi CLI 等 AI 编程助手时，最消耗时间的往往不是代码生成本身，而是 AI 运行测试后报出的那一连串环境错误："PHP 版本不匹配"、"MySQL 连接失败"、"Node 模块缺失"。AI 没有人类开发者的直觉，它不会 "猜" 你电脑上到底装了哪个版本的 PHP，也不会手动去改配置文件。结果就是，AI 在反复试错中烧掉大量 Token 和时间，而你最终还得亲自介入修环境。
 

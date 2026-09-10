@@ -2,7 +2,7 @@
 layout: page
 titleTemplate: false
 title: 'Run Magento Locally with FlyEnv'
-description: 'Set up and manage a local Magento development environment with PHP, MySQL or MariaDB, OpenSearch or Elasticsearch, Redis and Nginx using FlyEnv on Windows, macOS and Linux.'
+description: 'Run Magento locally with PHP, MySQL or MariaDB, OpenSearch or Elasticsearch, Redis, Nginx, and HTTPS using FlyEnv.'
 head:
   - - meta
     - name: keywords
@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Magento environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/magento.html
+      content: https://flyenv.com/solutions/magento
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/magento.html
+      href: https://flyenv.com/solutions/magento
 ---
 
 <script setup>

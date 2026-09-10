@@ -1,3 +1,7 @@
+---
+description: 'Understand FlyEnv evaluation limits, the $10 license, activation workflow, device policy, and contribution-based license requests.'
+---
+
 # FlyEnv Licensing Guide
 
 The FlyEnv licensing model provides a paid software license for users who need continued access to premium features while helping fund ongoing development. Our goal is **not to block core local development**, but to make the long-term maintenance of an independent developer tool sustainable.

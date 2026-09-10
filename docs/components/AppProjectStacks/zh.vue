@@ -23,9 +23,9 @@
 
 <script setup lang="ts">
 const stacks = [
-  { kind: 'PHP 应用', name: 'Laravel', image: '/home/stacks/laravel.svg', platforms: 'macOS · Windows · Linux', description: '用日常开发需要的服务，搭建可重复的本地 Laravel 环境。', services: ['PHP', 'MySQL', 'Redis', 'Nginx', 'HTTPS'], href: '/zh/guide/run-laravel-use-flyenv', link: '本地运行 Laravel' },
-  { kind: 'Python 应用', name: 'Django', image: '/home/stacks/django.svg', platforms: 'macOS · Windows · Linux', description: '在一个工作区中管理 Python 项目、数据库、缓存、反向代理和本地域名。', services: ['Python', 'PostgreSQL', 'Redis', 'Nginx', 'HTTPS'], href: '/zh/guide/deploy-nodejs-python-go-without-docker', link: '本地部署 Python' },
-  { kind: 'Python 业务平台', name: 'ERPNext', image: '/home/stacks/erpnext.svg', platforms: 'macOS · Windows · Linux', description: '在一个工作区中运行 ERPNext 所需的 Python、MariaDB、Redis、反向代理和本地域名。', services: ['Python', 'MariaDB', 'Redis', 'Nginx'], href: 'https://www.youtube.com/watch?v=ZhvJ8a9Fp_4', link: '查看 ERPNext 工作流' },
-  { kind: '自托管 Git 服务', name: 'Gitea', image: '/home/stacks/gitea.svg', platforms: 'macOS · Windows · Linux', description: '让私有 Git 服务与代码保持在一起，并配置数据库、反向代理和可信本地 HTTPS。', services: ['Gitea', 'MySQL', 'Nginx', 'HTTPS'], href: 'https://www.youtube.com/watch?v=hKIx2LdNz0Y', link: '查看 Gitea 工作流' }
+  { kind: 'PHP 应用', name: 'Laravel', image: 'https://oss.macphpstudy.com/image/assets/home/stacks/laravel.svg', platforms: 'macOS · Windows · Linux', description: '用日常开发需要的服务，搭建可重复的本地 Laravel 环境。', services: ['PHP', 'MySQL', 'Redis', 'Nginx', 'HTTPS'], href: '/zh/guide/run-laravel-use-flyenv', link: '本地运行 Laravel' },
+  { kind: 'Python 应用', name: 'Django', image: 'https://oss.macphpstudy.com/image/assets/home/stacks/django.svg', platforms: 'macOS · Windows · Linux', description: '在一个工作区中管理 Python 项目、数据库、缓存、反向代理和本地域名。', services: ['Python', 'PostgreSQL', 'Redis', 'Nginx', 'HTTPS'], href: '/zh/guide/deploy-nodejs-python-go-without-docker', link: '本地部署 Python' },
+  { kind: 'Python 业务平台', name: 'ERPNext', image: 'https://oss.macphpstudy.com/image/assets/home/stacks/erpnext.svg', platforms: 'macOS · Windows · Linux', description: '在一个工作区中运行 ERPNext 所需的 Python、MariaDB、Redis、反向代理和本地域名。', services: ['Python', 'MariaDB', 'Redis', 'Nginx'], href: 'https://www.youtube.com/watch?v=ZhvJ8a9Fp_4', link: '查看 ERPNext 工作流' },
+  { kind: '自托管 Git 服务', name: 'Gitea', image: 'https://oss.macphpstudy.com/image/assets/home/stacks/gitea.svg', platforms: 'macOS · Windows · Linux', description: '让私有 Git 服务与代码保持在一起，并配置数据库、反向代理和可信本地 HTTPS。', services: ['Gitea', 'MySQL', 'Nginx', 'HTTPS'], href: 'https://www.youtube.com/watch?v=hKIx2LdNz0Y', link: '查看 Gitea 工作流' }
 ]
 </script>

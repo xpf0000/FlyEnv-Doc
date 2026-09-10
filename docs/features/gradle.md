@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/gradle
+      content: https://flyenv.com/features/gradle
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/gradle
+      href: https://flyenv.com/features/gradle
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Gradle Version Management with FlyEnv
 
@@ -54,6 +58,8 @@ The **Service** tab is an installed-versions table — despite the name, Gradle 
 - **Easy removal:** delete versions you no longer need directly from the table.
 
 Gradle needs a [Java](/features/java) runtime on `PATH`; the [Java environment setup guide](/guide/set-up-java-development-environment) covers installing a JDK with FlyEnv. Get the app itself from the [Download page](/download).
+
+<FeatureRelatedLinks slug="gradle" />
 
 ## Compatibility Notes
 

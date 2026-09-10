@@ -3,31 +3,29 @@ title: '将本地服务暴露到互联网：Cloudflare Tunnel 替代 ngrok'
 head:
   - - meta
     - name: description
-      content: 'ngrok 的免费替代方案：学习如何在 FlyEnv 中使用 Cloudflare Tunnel 将本地服务暴露到互联网。获取永久 URL、自定义域名和增强的安全性，全部免费，一键设置。'
+      content: '了解如何在 FlyEnv 中配置 Cloudflare Tunnel，把本地服务映射到公共主机名，并结合访问策略安全地用于演示与 Webhook 测试。'
 ---
 
 # 将本地服务暴露到互联网：Cloudflare Tunnel 替代 ngrok
 
 需要与客户端分享您的本地开发站点？测试需要公共 URL 的 Webhooks？您可能用过 ngrok——并且为自定义域名等基础功能支付了月费。
 
-**有一个免费且更好的选择。** Cloudflare Tunnel（原 Argo Tunnel）提供：
-- ✅ 免费自定义域名
-- ✅ 永久 URL（非随机字符串）
-- ✅ 无带宽限制
+**Cloudflare Tunnel 是另一种选择。** Cloudflare Tunnel（原 Argo Tunnel）提供：
+- ✅ 使用 Cloudflare 托管域名配置公共主机名
+- ✅ Tunnel 重启后仍可复用的稳定主机名
+- ✅ 具体用量和功能遵循当前 Cloudflare 套餐及政策
 - ✅ **FlyEnv 一键设置——无需命令行**
 
 ## 开发者为何从 ngrok 切换
 
 | 功能 | ngrok 免费版 | ngrok 专业版 ($8/月) | **Cloudflare Tunnel** |
 |---------|------------|-------------------|----------------------|
-| 自定义域名 | ❌ | ✅ | ✅ 免费 |
-| 永久 URL | ❌ | ✅ | ✅ 免费 |
-| HTTP/2 支持 | ✅ | ✅ | ✅ 免费 |
-| 带宽限制 | 1GB/月 | 无限 | 无限 免费 |
-| 身份验证 | ❌ | ✅ | ✅ 免费 |
+| 自定义域名 | ❌ | ✅ | ✅，视套餐而定 |
+| 稳定主机名 | ❌ | ✅ | ✅，需托管 DNS |
+| HTTP/2 支持 | ✅ | ✅ | ✅ |
+| 用量限制 | 视套餐而定 | 视套餐而定 | 查看 Cloudflare 当前条款 |
+| 身份验证 | ❌ | ✅ | 可通过 Cloudflare Access 配置 |
 | **设置复杂度** | 简单 | 简单 | **FlyEnv 一键设置** |
-
-**年度节省：** 每位开发者 $96+
 
 ## FlyEnv 一键设置（推荐）
 
@@ -112,7 +110,7 @@ FlyEnv 将 Cloudflare Tunnel 直接集成到界面中。无需终端命令，无
 
 ### 先决条件
 
-1. 一个 Cloudflare 账户（免费版完全可用）
+1. 一个 Cloudflare 账户，并选择满足所需功能的套餐
 2. 一个已添加到 Cloudflare 的域名
 3. 已安装 Cloudflared（可在 FlyEnv 的 Cloudflared 模块中找到）
 
@@ -286,11 +284,11 @@ tunnel: tunnel-id-2
 
 **Q: Cloudflare Tunnel 真的免费吗？**
 
-A: 是的。所有讨论的功能——自定义域名、无限带宽、身份验证——都包含在 Cloudflare 的免费版中。FlyEnv 的集成也是完全免费的。
+A: Cloudflare 免费套餐可满足不少开发隧道场景，但限额和 Access 功能可能调整。正式依赖某项功能前，请核对 Cloudflare 当前套餐说明。
 
 **Q: 我需要付费的 Cloudflare 套餐吗？**
 
-A: 不需要。免费的 Cloudflare 套餐与 tunnels 完美配合。
+A: 不一定。许多本地预览场景可使用免费套餐，但仍取决于主机名、Access 策略、用量及 Cloudflare 当前条款。
 
 **Q: 我可以使用任何域名吗？**
 
@@ -298,7 +296,7 @@ A: 您需要控制该域名的 DNS（将其添加到 Cloudflare）。免费域�
 
 **Q: 这有多安全？**
 
-A: 非常安全。tunnel 是从您的机器单向出去的。Cloudflare 的基础设施处理 DDoS 防护、WAF 和 SSL。您的本地机器永远不会直接暴露。
+A: connector 会从本机主动建立出站连接，因此无需开放路由器入站端口。但公共主机名仍可能被互联网访问，应按需配置 Cloudflare Access、应用身份验证和源站限制。
 
 **Q: 这会降低我的本地开发速度吗？**
 
@@ -306,7 +304,7 @@ A: 影响很小。Tunnel 增加约 50-100ms 延迟——对于预览和 webhooks
 
 **Q: WebSockets 呢？**
 
-A: Cloudflare Tunnel 完全支持。实时应用运行良好。
+A: Cloudflare Tunnel 支持 WebSocket，但实际表现仍取决于源站、代理设置与 Cloudflare 套餐。
 
 **Q: 我可以在多台机器上使用同一个 tunnel 吗？**
 
@@ -326,7 +324,7 @@ A: 是的。Tunnel 通过 FlyEnv 的 Cloudflare Tunnel 模块运行。关闭 Fly
 
 ## 准备放弃 ngrok？
 
-停止为基本 tunneling 功能付费。Cloudflare Tunnel 与 FlyEnv 集成，为您提供企业级网络，一键即可使用。
+FlyEnv 集成的 Cloudflare Tunnel 界面可简化本地开发公共主机名的配置与管理。
 
 [下载 FlyEnv](/zh/download) 开始使用内置的 Cloudflare Tunnel 支持。
 

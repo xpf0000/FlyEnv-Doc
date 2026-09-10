@@ -18,20 +18,24 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/cli-terminal
+      content: https://flyenv.com/features/cli-terminal
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/cli-terminal
+      href: https://flyenv.com/features/cli-terminal
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Terminal Integration in FlyEnv
 
 FlyEnv does not ship its own terminal app — instead it wires itself into the terminals you already use. A shell hook loads the right project environment when you `cd` into a project, services and projects can be launched in a real terminal window with one click, long-running installs run in embedded xterm terminals inside the app, and a Tools-page utility opens the files and PATH entries behind your environment variables for editing.
 
-![FlyEnv project list with bound runtime versions and terminal actions](https://oss.macphpstudy.com/image/features/cli-terminal-1.webp)
+![FlyEnv project list with bound runtime versions and terminal actions](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## Shell hook and PATH integration
 
@@ -52,6 +56,8 @@ Sometimes a process belongs in a real terminal window — to watch its output, a
 - **Platform-native launching:** macOS drives Terminal.app through AppleScript, Linux launches through a bundled helper script, and Windows spawns a PowerShell window running an inline script — the same action, three native implementations.
 - **Custom modules and elevated starts:** [user-defined service modules](/features/user-modules) offer the same terminal launch, and items that need sudo can fall back to opening the command in a terminal where the system password prompt works normally.
 
+![Open in Terminal by FlyEnv](https://oss.macphpstudy.com/image/features/cli-terminal-3.webp)
+
 ## Embedded xterm terminals
 
 For one-off, interactive workloads FlyEnv embeds xterm-based terminal sessions directly in its own window, so you see the genuine command output without leaving the app.
@@ -60,8 +66,6 @@ For one-off, interactive workloads FlyEnv embeds xterm-based terminal sessions d
 - **Package operations:** building the [PostgreSQL](/features/postgresql) pgvector extension, pulling and running [Ollama](/features/ollama) models, or installing [n8n](/features/n8n) through npm all stream their real output into the embedded view.
 - **Command palettes:** gateway-style modules such as [OpenClaw](/features/openclaw) and [Hermes](/features/hermes-agent) expose categorized command palettes whose entries execute in the embedded terminal, pre-filling commands that need arguments.
 - **Podman operations:** container exec sessions and image or container actions open in a dedicated embedded terminal dialog.
-
-![Embedded xterm terminal running an install script inside FlyEnv](https://oss.macphpstudy.com/image/features/cli-terminal-3.webp)
 
 ## System environment variables tool
 
@@ -72,6 +76,8 @@ The Tools page includes a system environment variables utility whose shape follo
 - **Pairs with the shell hook:** the files and PATH entries edited here provide the base environment layer, while `.flyenv` files and the shell hook handle the per-project layer on top.
 
 ![System environment variables editor on the FlyEnv Tools page](https://oss.macphpstudy.com/image/features/cli-terminal-4.webp)
+
+<FeatureRelatedLinks slug="cli-terminal" />
 
 ## Compatibility Notes
 

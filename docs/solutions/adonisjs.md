@@ -9,7 +9,7 @@ head:
       content: AdonisJS local development, Node.js, TypeScript, MySQL, Redis, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/adonisjs.html
+      href: https://flyenv.com/solutions/adonisjs
 ---
 
 <script setup>

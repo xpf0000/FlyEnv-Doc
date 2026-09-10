@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/redis
+      content: https://flyenv.com/features/redis
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/redis
+      href: https://flyenv.com/features/redis
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Redis Development with FlyEnv
 
@@ -69,6 +73,8 @@ The **Redis Commander** button appears in the Service toolbar whenever Redis is 
 This pairs well with local framework work — for example inspecting the cache and queue keys of a [Laravel](/solutions/laravel) project while it runs.
 
 ![Redis Commander web UI opened from FlyEnv](https://oss.macphpstudy.com/image/features/redis-4.webp)
+
+<FeatureRelatedLinks slug="redis" />
 
 ## Compatibility Notes
 

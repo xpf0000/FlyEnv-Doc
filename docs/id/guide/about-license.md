@@ -1,3 +1,7 @@
+---
+description: 'Pahami batas evaluasi FlyEnv, lisensi $10, alur aktivasi, kebijakan perangkat, dan permintaan lisensi melalui kontribusi komunitas.'
+---
+
 # Panduan Lisensi FlyEnv
 
 Model lisensi FlyEnv menyediakan lisensi perangkat lunak berbayar untuk pengguna yang membutuhkan akses berkelanjutan ke fitur premium sekaligus membantu mendanai pengembangan. Tujuan kami **bukan membatasi pengembangan lokal inti**, melainkan membuat pemeliharaan jangka panjang alat pengembang independen tetap berkelanjutan.

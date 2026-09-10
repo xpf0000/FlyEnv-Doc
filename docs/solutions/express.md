@@ -9,7 +9,7 @@ head:
       content: Express local development, Node.js, JavaScript, API, PostgreSQL, Redis, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/express.html
+      href: https://flyenv.com/solutions/express
 ---
 
 <script setup>

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/hermes-agent
+      content: https://flyenv.com/features/hermes-agent
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/hermes-agent
+      href: https://flyenv.com/features/hermes-agent
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Hermes Agent in FlyEnv
 
@@ -80,6 +84,8 @@ The Sessions tab lists the sessions reported by `hermes sessions list`, parsed i
 ## Logs
 
 The Log tab reads the files under `~/.hermes/logs/` directly, with a viewer for each `*.log` file. When a log file is not available on disk, FlyEnv falls back to `hermes logs <type> -n <lines>` to fetch recent output from the CLI instead.
+
+<FeatureRelatedLinks slug="hermes-agent" />
 
 ## Compatibility Notes
 

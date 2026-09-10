@@ -1,5 +1,5 @@
 ---
-title: 'What Is FlyEnv? Native Local Stack, AI Coding CLI, and MCP Workspace'
+title: 'What Is FlyEnv? Native Local Stack and AI Workspace'
 head:
   - - meta
     - name: description

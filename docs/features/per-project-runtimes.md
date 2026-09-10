@@ -18,20 +18,24 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/per-project-runtimes
+      content: https://flyenv.com/features/per-project-runtimes
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/per-project-runtimes
+      href: https://flyenv.com/features/per-project-runtimes
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Per-Project Runtimes in FlyEnv
 
 FlyEnv lets every project folder carry its own runtime version, so a legacy PHP codebase and a modern Node.js app can live side by side on the same machine — see [managing multiple Node and PHP versions](/guide/manage-multiple-node-php-versions) for the version-manager side of this. Register a project in any language module's **Projects** tab, pick the exact binary version it should use, and FlyEnv records that choice inside the project itself. From then on, terminals, editors and run commands started for that project resolve the right toolchain automatically — the step-by-step workflow is covered in the [project-level runtime environment guide](/guide/project-level-runtime-environment).
 
-![FlyEnv Projects tab listing registered projects with their bound runtime versions](https://oss.macphpstudy.com/image/features/per-project-runtimes-1.webp)
+![FlyEnv Projects tab listing registered projects with their bound runtime versions](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## How .flyenv works
 
@@ -67,6 +71,8 @@ Because the binding lives in the project rather than in a global setting, any to
 Project binding covers the command line; browser-facing sites get their own version choice. Each site created in the [Host](/features/local-sites-https) module selects the PHP-FPM version that serves it (or stays a static site), and several PHP-FPM versions can run simultaneously — each on its own socket — so different sites are served by different PHP builds at the same time. The site list shows which version serves which site, and the web-server integration config is regenerated when a version starts. The full capability set is documented on the [PHP feature page](/features/php).
 
 ![Host module site list showing the PHP version bound to each site](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
+
+<FeatureRelatedLinks slug="per-project-runtimes" />
 
 ## Compatibility Notes
 

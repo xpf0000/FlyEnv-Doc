@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Gitea environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/gitea.html
+      content: https://flyenv.com/solutions/gitea
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/gitea.html
+      href: https://flyenv.com/solutions/gitea
 ---
 
 <script setup>

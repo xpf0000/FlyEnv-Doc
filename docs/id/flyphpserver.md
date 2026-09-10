@@ -2,6 +2,7 @@
 layout: home
 
 title: 'FlyPHPServer'
+description: 'FlyPHPServer adalah aplikasi macOS ringan untuk menjalankan PHP dan server web lokal dengan pengelolaan situs serta konfigurasi sederhana.'
 titleTemplate: 'FlyPHPServer - PHP dan Server Web Minimalis'
 
 hero:

@@ -1,3 +1,7 @@
+---
+description: 'Improve local website response times on Windows by fixing hostname resolution, database connections, antivirus scanning, and firewall settings.'
+---
+
 # Windows Website Performance Optimization Guide
 
 ## Introduction

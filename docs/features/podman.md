@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/podman
+      content: https://flyenv.com/features/podman
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/podman
+      href: https://flyenv.com/features/podman
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Podman Container Management with FlyEnv
 
@@ -73,6 +77,8 @@ The **Container** tab covers the day-to-day container lifecycle on the selected 
 - **Embedded terminal exec:** open a shell inside a running container using FlyEnv's [built-in terminal](/features/cli-terminal), so debugging happens where the container lives.
 
 ![Container list with inspect and terminal exec actions](https://oss.macphpstudy.com/image/features/podman-5.webp)
+
+<FeatureRelatedLinks slug="podman" />
 
 ## Compatibility Notes
 

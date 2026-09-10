@@ -104,11 +104,20 @@
               aria-label="Project stack components"
             >
               <li
-                v-for="item in detail.stack"
+                v-for="item in linkedStack"
                 :key="item.component"
                 class="!mt-0 rounded-md bg-[#edf4ff] px-2.5 py-1 text-xs font-semibold leading-5 text-[#1769f9] dark:bg-[#172b50] dark:text-[#9bc5ff]"
               >
-                {{ item.component }}
+                <template v-for="(part, index) in item.links" :key="part.label">
+                  <span v-if="index" aria-hidden="true" class="mx-1">/</span>
+                  <a
+                    v-if="part.href"
+                    :href="part.href"
+                    class="!text-inherit no-underline underline-offset-2 hover:underline focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                    >{{ part.label }}</a
+                  >
+                  <span v-else>{{ part.label }}</span>
+                </template>
               </li>
             </ul>
           </section>
@@ -155,25 +164,53 @@
               </li>
             </ul>
           </section>
-          <section v-if="aboutContent?.useCases.length" class="mt-7" aria-labelledby="solution-use-cases-title">
-            <h3 id="solution-use-cases-title" class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]">
+          <section
+            v-if="aboutContent?.useCases.length"
+            class="mt-7"
+            aria-labelledby="solution-use-cases-title"
+          >
+            <h3
+              id="solution-use-cases-title"
+              class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]"
+            >
               {{ copy.commonUseCases }}
             </h3>
             <ul class="!mb-0 !mt-4 grid !list-none grid-cols-1 gap-2 !p-0 sm:grid-cols-2">
-              <li v-for="useCase in aboutContent.useCases" :key="useCase" class="!mt-0 border-l-2 border-[#1769f9] pl-3.5 text-sm leading-6 text-[#4b5565] dark:text-[#b1bdcc]">
+              <li
+                v-for="useCase in aboutContent.useCases"
+                :key="useCase"
+                class="!mt-0 border-l-2 border-[#1769f9] pl-3.5 text-sm leading-6 text-[#4b5565] dark:text-[#b1bdcc]"
+              >
                 {{ useCase }}
               </li>
             </ul>
           </section>
-          <section v-if="aboutContent?.localEnvironment?.items.length" class="mt-7 rounded-lg border border-[#dfe6ef] bg-[#f8fbff] p-5 dark:border-[#3a4760] dark:bg-[#131d2d]" aria-labelledby="solution-local-environment-title">
-            <h3 id="solution-local-environment-title" class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]">
+          <section
+            v-if="aboutContent?.localEnvironment?.items.length"
+            class="mt-7 rounded-lg border border-[#dfe6ef] bg-[#f8fbff] p-5 dark:border-[#3a4760] dark:bg-[#131d2d]"
+            aria-labelledby="solution-local-environment-title"
+          >
+            <h3
+              id="solution-local-environment-title"
+              class="!mb-0 !mt-0 !border-0 !pt-0 text-lg font-bold leading-[1.25] text-[#172033] dark:text-[#e9edf5]"
+            >
               {{ aboutContent.localEnvironment.title }}
             </h3>
-            <p class="!mb-0 !mt-3 text-sm leading-6 text-[#4b5565] dark:text-[#b1bdcc]">{{ aboutContent.localEnvironment.description }}</p>
+            <p class="!mb-0 !mt-3 text-sm leading-6 text-[#4b5565] dark:text-[#b1bdcc]">{{
+              aboutContent.localEnvironment.description
+            }}</p>
             <dl class="!mb-0 !mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div v-for="item in aboutContent.localEnvironment.items" :key="item.title" class="min-w-0">
-                <dt class="text-sm font-bold text-[#172033] dark:text-[#e9edf5]">{{ item.title }}</dt>
-                <dd class="!ml-0 !mt-1 text-sm leading-6 text-[#5b6473] dark:text-[#b1bdcc]">{{ item.description }}</dd>
+              <div
+                v-for="item in aboutContent.localEnvironment.items"
+                :key="item.title"
+                class="min-w-0"
+              >
+                <dt class="text-sm font-bold text-[#172033] dark:text-[#e9edf5]">{{
+                  item.title
+                }}</dt>
+                <dd class="!ml-0 !mt-1 text-sm leading-6 text-[#5b6473] dark:text-[#b1bdcc]">{{
+                  item.description
+                }}</dd>
               </div>
             </dl>
           </section>
@@ -226,11 +263,20 @@
           aria-label="Typical local stack components"
         >
           <li
-            v-for="item in detail.stack"
+            v-for="item in linkedStack"
             :key="item.component"
             class="!mt-0 rounded-md border border-[#d4e1f5] bg-white px-3 py-1.5 text-sm font-semibold leading-5 text-[#354153] dark:border-[#3a4760] dark:bg-[#131d2d] dark:text-[#d4deeb]"
           >
-            {{ item.component }}
+            <template v-for="(part, index) in item.links" :key="part.label">
+              <span v-if="index" aria-hidden="true" class="mx-1">/</span>
+              <a
+                v-if="part.href"
+                :href="part.href"
+                class="!text-[#1769f9] no-underline underline-offset-2 hover:underline focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:!text-[#8fbcff]"
+                >{{ part.label }}</a
+              >
+              <span v-else>{{ part.label }}</span>
+            </template>
           </li>
         </ul>
         <div
@@ -251,15 +297,25 @@
             </thead>
             <tbody>
               <tr
-                v-for="item in detail.stack"
+                v-for="item in linkedStack"
                 :key="item.component"
                 class="border-t border-[#e6eaf0] dark:border-[#2e3a4f]"
               >
                 <th
                   scope="row"
                   class="border-0 break-words px-3 py-3 text-sm font-bold text-[#172033] dark:text-[#e9edf5] sm:px-4"
-                  >{{ item.component }}</th
                 >
+                  <template v-for="(part, index) in item.links" :key="part.label">
+                    <span v-if="index" aria-hidden="true" class="mx-1">/</span>
+                    <a
+                      v-if="part.href"
+                      :href="part.href"
+                      class="!text-[#1769f9] no-underline underline-offset-2 hover:underline focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:!text-[#8fbcff]"
+                      >{{ part.label }}</a
+                    >
+                    <span v-else>{{ part.label }}</span>
+                  </template>
+                </th>
                 <td
                   class="border-0 break-words px-3 py-3 text-sm leading-6 text-[#5b6473] dark:text-[#b1bdcc] sm:px-4"
                   >{{ item.role }}</td
@@ -513,6 +569,7 @@
   import { demos } from '../../data/demos'
   import { solutions } from '../../data/solutions'
   import { solutionDetails } from '../../data/solution-details'
+  import { resolveSolutionStackLinks } from '../../data/solution-stack-links'
   import { solutionAboutContentByLocale } from '../../data/solution-use-cases'
   import type { SolutionSlug } from '../../data/solution-details'
   import {
@@ -616,6 +673,12 @@
         : undefined
     }
   })
+  const linkedStack = computed(() =>
+    (detail.value?.stack ?? []).map((item) => ({
+      ...item,
+      links: resolveSolutionStackLinks(item.component, props.locale)
+    }))
+  )
   const categoryLabel = computed(() =>
     solution.value ? categoryLabels.value[solution.value.category] : 'FlyEnv'
   )

@@ -1,5 +1,5 @@
 ---
-title: 'Mengelola Banyak Versi Node.js dan PHP Tanpa NVM atau PHP Monitor'
+title: 'Kelola Versi Node.js dan PHP per Proyek'
 head:
   - - meta
     - name: description

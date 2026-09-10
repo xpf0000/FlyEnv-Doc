@@ -50,7 +50,7 @@ const copy = computed(() =>
         title: '开发者如何使用 FlyEnv',
         subtitle: '来自 PHP、Laravel、Linux 与多服务本地开发场景的公开开发者故事。',
         hub: '查看全部开发者故事',
-        hubPath: '/zh/community.html'
+        hubPath: '/zh/community'
       }
     : props.locale === 'id'
       ? {
@@ -58,14 +58,14 @@ const copy = computed(() =>
           subtitle:
             'Cerita publik dari developer yang menggunakan FlyEnv untuk PHP, Laravel, Linux, dan alur kerja lokal dengan banyak layanan.',
           hub: 'Lihat semua cerita developer',
-          hubPath: '/id/community.html'
+          hubPath: '/id/community'
         }
     : {
         title: 'How Developers Use FlyEnv',
         subtitle:
           'Public stories from developers using FlyEnv across local PHP, Laravel, Linux, and multi-service workflows.',
         hub: 'Explore all developer stories',
-        hubPath: '/community.html'
+        hubPath: '/community'
       }
 )
 

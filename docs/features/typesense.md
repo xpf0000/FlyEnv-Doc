@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/typesense
+      content: https://flyenv.com/features/typesense
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/typesense
+      href: https://flyenv.com/features/typesense
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Typesense in FlyEnv
 
@@ -55,6 +59,8 @@ FlyEnv starts the real `typesense-server` binary with `--config=<BaseDir>/typese
 ## Logs
 
 The **Log** tab opens the server's log file at `typesense/log/typesense.log` directly inside FlyEnv. Since FlyEnv passes the log directory to `typesense-server` at startup, every version you run writes to the same place — the first stop when a version fails to start or a search request misbehaves.
+
+<FeatureRelatedLinks slug="typesense" />
 
 ## Compatibility Notes
 

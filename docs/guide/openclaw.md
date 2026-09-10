@@ -1,14 +1,14 @@
 ---
-title: OpenClaw + Ollama Guide - Build a Self-Hosted AI Agent Without API Costs
+title: 'Run OpenClaw with Ollama Locally'
 head:
   - - meta
     - name: description
-      content: Set up OpenClaw with Ollama to create a powerful self-hosted AI agent that controls WhatsApp, Telegram, Discord via messaging. Zero API fees, complete privacy, runs entirely on your hardware with FlyEnv.
+      content: 'Set up OpenClaw with Ollama in FlyEnv, connect selected messaging channels, and keep model execution on hardware you control.'
 ---
 
-# OpenClaw + Ollama Setup Guide: Build Your Self-Hosted AI Agent (Zero API Costs)
+# OpenClaw + Ollama Setup Guide for a Self-Hosted AI Agent
 
-Imagine having an AI assistant that doesn't just chat—but actually **does things** for you. It can read your files, execute commands, send messages on your behalf, and integrate with your favorite messaging apps like WhatsApp and Telegram. All running **locally on your machine**, with **zero API fees**, and **complete data privacy**.
+Imagine having an AI assistant that does more than chat. It can read permitted files, execute commands, and connect to messaging platforms such as WhatsApp or Telegram. With a local Ollama model, inference can stay on your machine and avoid per-request model API fees; connected platforms and third-party tools still have their own privacy and pricing terms.
 
 That's exactly what **OpenClaw** delivers. Unlike ChatGPT or other cloud AI tools that simply respond to prompts, OpenClaw is a full-fledged **AI agent framework** that can take real actions on your computer. Paired with **Ollama** for local LLM execution, you get a powerful automation system that works entirely offline.
 
@@ -22,7 +22,7 @@ By the end of this guide, you'll have:
 - Integration with messaging apps (WhatsApp, Telegram, Discord, iMessage, and more)
 - Local LLM processing through Ollama—no API keys, no usage limits
 - An agent that can read/write files, execute commands, and automate tasks
-- Complete data privacy—your messages and files never leave your hardware
+- Local model execution can keep prompts on your hardware when no cloud-backed integration is enabled
 
 ![OpenClaw Dashboard](https://oss.macphpstudy.com/image/openclaw-1.webp)
 
@@ -325,7 +325,7 @@ Prefer watching? See Build a 100% Local AI Agent: OpenClaw + Ollama Setup via Fl
 
 ### Q: How does this compare to ChatGPT with plugins?
 
-**A:** ChatGPT plugins run in OpenAI's cloud environment. OpenClaw runs **on your hardware** with direct file system access. It's faster for local operations, works offline, and maintains complete privacy. However, it requires more technical setup.
+**A:** Cloud assistants process requests on remote infrastructure. OpenClaw can run on your hardware with direct access to permitted local resources and can work offline with a local model. Privacy still depends on which messaging channels, APIs, and integrations you enable, and the setup requires more administration.
 
 ### Q: Is this suitable for business/enterprise use?
 
@@ -341,4 +341,4 @@ Now that you have a self-hosted AI agent running:
 
 ---
 
-**Ready to build your personal AI agent?** [Download FlyEnv](/download) today and join the self-hosted AI revolution—zero API costs, complete privacy, unlimited possibilities.
+**Ready to build your personal AI agent?** [Download FlyEnv](/download) and start with a local model, then add only the messaging channels and integrations you need.

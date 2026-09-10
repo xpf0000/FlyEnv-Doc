@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/claude-code
+      content: https://flyenv.com/features/claude-code
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/claude-code
+      href: https://flyenv.com/features/claude-code
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Claude Code in FlyEnv
 
@@ -82,6 +86,8 @@ The **MCP** tab manages the Model Context Protocol servers stored in the `mcpSer
 - **One-click FlyEnv registration:** FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list from its Client Config tab.
 
 ![MCP server list with add and remove controls](https://oss.macphpstudy.com/image/features/claude-code-5.webp)
+
+<FeatureRelatedLinks slug="claude-code" />
 
 ## Compatibility Notes
 

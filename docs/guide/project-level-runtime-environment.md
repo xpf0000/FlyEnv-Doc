@@ -3,7 +3,7 @@ title: Project-Level Version Isolation Without Docker - FlyEnv Guide
 head:
   - - meta
     - name: description
-      content: Stop juggling Node.js/PHP versions manually. Learn how FlyEnv's project-level environment isolation automatically switches runtimes when you cd into directories—no Docker needed, 80% less RAM usage.
+      content: 'Bind Node.js, PHP, Python, and other runtime versions to each project so FlyEnv terminals and shell sessions switch environments automatically.'
 ---
 
 <script setup>
@@ -34,7 +34,7 @@ FlyEnv solves this with **true project-level environment isolation**. It's a lig
 FlyEnv brings **native, instant environment switching** without the Docker overhead:
 
 - ✅ **Zero-config switching**: Walk into a project folder, the right version loads automatically
-- ✅ **80% less RAM**: Native binaries vs Docker containers
+- ✅ **Lower virtualization overhead**: Native binaries run without a container VM
 - ✅ **One-click setup**: No terminal commands to memorize
 - ✅ **Cross-platform**: Identical workflow on macOS and Windows
 - ✅ **6 languages supported**: Node.js, PHP, Python, Go, Ruby, Java
@@ -166,7 +166,7 @@ Prefer watching? See FlyEnv's project isolation in action:
 ## Frequently Asked Questions (FAQ)
 
 **Q: Does FlyEnv use Docker containers?**  
-A: No. FlyEnv runs native binaries compiled for your OS (macOS/Windows/Linux). This means startup times under 100ms and memory usage up to 80% lower than Docker Desktop.
+A: No. FlyEnv runs binaries compiled for your OS (macOS/Windows/Linux), avoiding the baseline VM overhead of Docker Desktop. Actual startup time and memory use depend on the runtimes and services in your project.
 
 **Q: Can I use this as an NVM alternative?**  
 A: Absolutely. FlyEnv handles Node.js version management with zero-config directory-based switching—no more typing `nvm use` or forgetting to switch versions.
@@ -183,7 +183,7 @@ A: They can still use the project with their own version manager. FlyEnv doesn't
 **Q: How do I uninstall a version?**  
 A: Go to the main language tab in FlyEnv, right-click the version, and select "Uninstall". Projects using that version will gracefully fall back or prompt you to select a new one.
 
-<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="flyenv-on-linux-actually-fixed-my-php-version-headache" guide-path="/guide/project-level-runtime-environment.html" />
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="flyenv-on-linux-actually-fixed-my-php-version-headache" guide-path="/guide/project-level-runtime-environment" />
 
 ## Next Steps
 

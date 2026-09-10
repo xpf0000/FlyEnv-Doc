@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/mongodb
+      content: https://flyenv.com/features/mongodb
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/mongodb
+      href: https://flyenv.com/features/mongodb
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local MongoDB Development with FlyEnv
 
@@ -61,6 +65,8 @@ The **Log** tab opens the running version's `mongodb-<version>.log` inside FlyEn
 The **DbGate** button in the Service toolbar sets up a complete web UI in one step. It requires a selected Node version in FlyEnv's [Node module](/features/nodejs): FlyEnv uses it to npm-install `dbgate-serve` into its own directory, then serves DbGate on port 3000 (scanning for a free port if needed). Access is protected by HTTP basic auth — the login user is `flyenv` with a generated password, which is embedded in the URL FlyEnv opens in your browser. The [database user and password guide](/guide/database-user-password) covers how credentials are handled across FlyEnv's database modules.
 
 ![DbGate web UI opened from the MongoDB module](https://oss.macphpstudy.com/image/features/mongodb-4.webp)
+
+<FeatureRelatedLinks slug="mongodb" />
 
 ## Compatibility Notes
 

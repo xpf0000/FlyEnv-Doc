@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/n8n
+      content: https://flyenv.com/features/n8n
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/n8n
+      href: https://flyenv.com/features/n8n
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local n8n Automation with FlyEnv
 
@@ -74,6 +78,8 @@ When the service is running, the Service tab's dashboard button opens the n8n ed
 ## Logs
 
 Each installed version gets its own start logs — `n8n-<version>-start-out.log` and `n8n-<version>-start-error.log` — viewable from the Log tab inside FlyEnv. When a version refuses to come up or the health check never passes, these two files are the first place to look.
+
+<FeatureRelatedLinks slug="n8n" />
 
 ## Compatibility Notes
 

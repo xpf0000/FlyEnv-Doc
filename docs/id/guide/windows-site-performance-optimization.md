@@ -1,3 +1,7 @@
+---
+description: 'Percepat respons situs lokal di Windows dengan memperbaiki resolusi hostname, koneksi database, pemindaian antivirus, dan firewall.'
+---
+
 # Panduan Optimasi Performa Situs di Windows
 
 ## Pendahuluan

@@ -15,10 +15,10 @@ head:
       content: 'Manage a local PrestaShop environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/prestashop.html
+      content: https://flyenv.com/solutions/prestashop
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/prestashop.html
+      href: https://flyenv.com/solutions/prestashop
 ---
 
 <script setup>

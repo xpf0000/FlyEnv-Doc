@@ -9,7 +9,7 @@ head:
       content: Quarkus local development, Java, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/quarkus.html
+      href: https://flyenv.com/solutions/quarkus
 ---
 
 <script setup>

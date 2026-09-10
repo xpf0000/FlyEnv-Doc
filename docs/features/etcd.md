@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/etcd
+      content: https://flyenv.com/features/etcd
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/etcd
+      href: https://flyenv.com/features/etcd
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Etcd in FlyEnv
 
@@ -51,11 +55,15 @@ The Service tab controls the running etcd process. FlyEnv launches the real `etc
 - **Raw editor:** the **Config File** tab opens `etcd.yaml` directly, with a `.default` copy alongside it so you can always compare against or restore the original.
 - **No hidden layer:** because etcd reads `etcd.yaml` verbatim, any etcd setting — clustering, TLS, quotas — works exactly as the upstream documentation describes.
 
+![etcd service and configuration](https://oss.macphpstudy.com/image/features/etcd-3.webp)
+
 ## Logs
 
 The **Log** and **Error Log** tabs give every installed etcd version its own pair of viewers: `etcd-<version>-start-out.log` captures the server's stdout stream, and `etcd-<version>-start-error.log` captures stderr. When a version refuses to start, the error log is the first place to look — port conflicts on 2379 or a malformed `etcd.yaml` both show up there immediately.
 
-![Per-version etcd startup and error log viewers](https://oss.macphpstudy.com/image/features/etcd-3.webp)
+![Per-version etcd startup and error log viewers](https://oss.macphpstudy.com/image/features/etcd-4.webp)
+
+<FeatureRelatedLinks slug="etcd" />
 
 ## Compatibility Notes
 

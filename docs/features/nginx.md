@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/nginx
+      content: https://flyenv.com/features/nginx
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/nginx
+      href: https://flyenv.com/features/nginx
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Nginx in FlyEnv
 
@@ -76,6 +80,8 @@ FlyEnv's Host module has no single default web server: PHP-type sites get vhost 
 The Nginx module page includes dedicated **Error Log** and **Log (access)** tabs for the server-wide logs. Each site also writes its own access and error logs, which you can open from the site's log viewer in the Host module — useful when debugging a single domain without wading through the global log.
 
 ![Nginx error and access log viewers](https://oss.macphpstudy.com/image/features/nginx-5.webp)
+
+<FeatureRelatedLinks slug="nginx" />
 
 ## Compatibility Notes
 

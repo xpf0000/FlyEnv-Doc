@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/openclaw
+      content: https://flyenv.com/features/openclaw
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/openclaw
+      href: https://flyenv.com/features/openclaw
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # OpenClaw in FlyEnv
 
@@ -68,6 +72,10 @@ The **Config File** tab edits OpenClaw's own files in place — there is no sett
 - **`~/.openclaw/openclaw.json`:** the main OpenClaw configuration file, editable as plain source.
 - **Gateway service file on macOS:** the generated `ai.openclaw.gateway.plist` is also exposed for direct editing.
 - Changes are written back to the same files the OpenClaw CLI reads, so manual edits outside FlyEnv never conflict with a separate copy.
+
+![OpenClaw Configuration](https://oss.macphpstudy.com/image/features/openclaw-4.webp)
+
+<FeatureRelatedLinks slug="openclaw" />
 
 ## Compatibility Notes
 

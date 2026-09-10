@@ -1,9 +1,9 @@
 ---
-title: 'Build a Privacy-First Offline AI Agent Locally (Qwen, DeepSeek, Llama)'
+title: 'Build an Offline AI Agent with Ollama, Qwen and Llama'
 head:
   - - meta
     - name: description
-      content: 'Run AI models locally without cloud APIs or data privacy concerns. Learn how to set up Ollama with FlyEnv for offline coding assistance using Qwen, DeepSeek, and Llama models.'
+      content: 'Run AI models locally with Ollama and FlyEnv for offline coding assistance using Qwen, DeepSeek, or Llama on your own hardware.'
 ---
 
 # Build a Privacy-First Offline AI Agent Locally (Qwen, DeepSeek, Llama)
@@ -335,7 +335,7 @@ Want an AI that doesn't just chat—but actually **does things** for you? OpenCl
 - **Send messages** via WhatsApp, Telegram, Discord
 - **Make HTTP requests** and interact with APIs
 
-👉 **[OpenClaw + Ollama Setup Guide](/guide/openclaw)** — Build a self-hosted AI agent with zero API costs
+👉 **[OpenClaw + Ollama Setup Guide](/guide/openclaw)** — Build a self-hosted AI agent around a local model
 
 ---
 

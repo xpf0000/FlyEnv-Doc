@@ -1,19 +1,20 @@
 ---
 layout: home
+markdownStyles: false
 
-title: 'FlyEnv - Lingkungan Pengembangan Lokal Native'
+title: 'FlyEnv - Lingkungan Pengembangan Lokal Open Source untuk Agen AI'
 titleTemplate: false
 
 head:
   - - meta
     - name: description
-      content: 'FlyEnv adalah lingkungan pengembangan lokal native untuk Windows, macOS, dan Linux. Jalankan runtime, database, server web, situs lokal, HTTPS, dan alat AI dari satu aplikasi desktop.'
+      content: 'FlyEnv adalah workspace pengembangan lokal open source untuk agen AI di macOS, Windows, dan Linux, dengan runtime, database, server web, situs, HTTPS, dan MCP.'
   - - meta
     - property: og:title
-      content: 'FlyEnv - Lingkungan Pengembangan Lokal Native'
+      content: 'FlyEnv - Lingkungan Pengembangan Lokal Open Source untuk Agen AI'
   - - meta
     - property: og:description
-      content: 'FlyEnv adalah lingkungan pengembangan lokal native untuk Windows, macOS, dan Linux. Jalankan runtime, database, server web, situs lokal, HTTPS, dan alat AI dari satu aplikasi desktop.'
+      content: 'FlyEnv adalah lingkungan pengembangan lokal open-source untuk agen AI di macOS, Windows, dan Linux. Kelola PHP, Node.js, Python, database, server web, situs lokal, dan HTTPS melalui FlyEnv MCP.'
   - - meta
     - property: og:type
       content: website
@@ -28,10 +29,10 @@ head:
       content: summary
   - - meta
     - name: twitter:title
-      content: 'FlyEnv - Lingkungan Pengembangan Lokal Native'
+      content: 'FlyEnv - Lingkungan Pengembangan Lokal Open Source untuk Agen AI'
   - - meta
     - name: twitter:description
-      content: 'FlyEnv adalah lingkungan pengembangan lokal native untuk Windows, macOS, dan Linux.'
+      content: 'FlyEnv adalah lingkungan pengembangan lokal open-source untuk agen AI di macOS, Windows, dan Linux.'
   - - meta
     - name: twitter:image
       content: https://oss.macphpstudy.com/image/app-icon.png
@@ -57,49 +58,11 @@ head:
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"id-ID","description":"FlyEnv adalah lingkungan pengembangan lokal native untuk Windows, macOS, dan Linux. Jalankan runtime, database, server web, situs lokal, HTTPS, dan alat AI dari satu aplikasi desktop.","url":"https://flyenv.com/id/","downloadUrl":"https://flyenv.com/id/download","softwareHelp":"https://flyenv.com/id/guide/what-is-flyenv","sameAs":["https://github.com/xpf0000/FlyEnv"],"author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://flyenv.com/"}}
-
-hero:
-  name: 'FlyEnv'
-  text: 'Jalankan seluruh stack pengembangan lokal Anda secara native.'
-  tagline: 'Kelola runtime, database, server web, situs lokal, dan HTTPS dari satu aplikasi desktop di Windows, macOS, dan Linux, dengan alat pemrograman AI serta MCP yang sudah terintegrasi.'
-  image:
-    src: 'https://oss.macphpstudy.com/image/app-icon.png'
-    alt: 'FlyEnv'
-  actions:
-    - theme: brand
-      text: 'Unduh Gratis'
-      link: /id/download
-    - theme: alt
-      text: 'Mulai Cepat'
-      link: /id/guide/getting-started
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"id-ID","description":"FlyEnv adalah lingkungan pengembangan lokal open-source untuk agen AI di macOS, Windows, dan Linux. Kelola PHP, Node.js, Python, database, server web, situs lokal, dan HTTPS melalui FlyEnv MCP.","url":"https://flyenv.com/id/","downloadUrl":"https://flyenv.com/id/download","softwareHelp":"https://flyenv.com/id/guide/what-is-flyenv","sameAs":["https://github.com/xpf0000/FlyEnv"],"author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://flyenv.com/"}}
 ---
 
 <script setup>
-import AppSvgIcon from '../components/VueSvgIcon/svg.vue'
-import AppAiWorkflow from '../components/AppAiWorkflow/id.vue'
-import AppGitHubModules from '../components/AppGithub/id.vue'
-import AppCommunityEvidence from '../components/AppCommunityEvidence/HomepageProof.vue'
-import communityPosts from '../data/community-posts.json'
-import { communityEvidence } from '../data/community-evidence'
-import AppHomePositioning from '../components/AppHomePositioning/id.vue'
-import AppProjectStacks from '../components/AppProjectStacks/id.vue'
-import AppFeaturedModules from '../components/AppFeaturedModules/id.vue'
-import AppHomeFinalCta from '../components/AppHomeFinalCta/id.vue'
+import AppNewHome from '../components/AppNewHome/id.vue'
 </script>
 
-<AppSvgIcon />
-
-<AppHomePositioning />
-
-<AppProjectStacks />
-
-<AppCommunityEvidence :posts="communityPosts" :evidence="communityEvidence.id" locale="id" />
-
-<AppFeaturedModules />
-
-<AppAiWorkflow />
-
-<AppGitHubModules />
-
-<AppHomeFinalCta />
+<AppNewHome />

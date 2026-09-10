@@ -1,5 +1,5 @@
 ---
-title: 'Apa Itu FlyEnv? Stack Lokal Native, CLI Coding AI, dan Ruang Kerja MCP'
+title: 'Apa Itu FlyEnv? Stack Lokal dan Ruang Kerja AI'
 head:
   - - meta
     - name: description

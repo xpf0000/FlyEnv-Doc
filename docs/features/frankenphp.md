@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/frankenphp
+      content: https://flyenv.com/features/frankenphp
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/frankenphp
+      href: https://flyenv.com/features/frankenphp
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # FrankenPHP in FlyEnv
 
@@ -63,6 +67,8 @@ The **Config File** tab edits the global Caddyfile that FrankenPHP runs with.
 - **Template-based:** the file is generated from a template (available in English and Chinese) and imports every site vhost from `vhost/frankenphp/*`, so site configuration stays separate from the global settings.
 - **Windows `php.ini`:** because Windows FrankenPHP builds bundle their own PHP runtime, the version's `php.ini` can be opened and adjusted from the version's action menu using the PHP module's config dialog.
 
+![FrankenPHP log viewer](https://oss.macphpstudy.com/image/features/frankenphp-4.webp)
+
 ## Site integration
 
 PHP-type sites created in **Host** automatically get a FrankenPHP vhost using the `php_server` directive, so they run as real FrankenPHP applications rather than plain static file serving — the [Laravel solution](/solutions/laravel) shows a complete framework stack running on this kind of setup.
@@ -78,7 +84,9 @@ For a broader look at when to pick FrankenPHP over PHP-FPM, RoadRunner or Swoole
 
 The **Log** tab tails `frankenphp.log` and also enumerates every `frankenphp-*.log` file in the FrankenPHP base directory, so version-specific and site-specific log files are all readable in one place.
 
-![FrankenPHP log viewer](https://oss.macphpstudy.com/image/features/frankenphp-4.webp)
+![FrankenPHP log viewer](https://oss.macphpstudy.com/image/features/frankenphp-5.webp)
+
+<FeatureRelatedLinks slug="frankenphp" />
 
 ## Compatibility Notes
 

@@ -1,3 +1,7 @@
+---
+description: '了解 FlyEnv Helper 为什么需要管理员权限、会执行哪些系统任务，以及如何安全安装或卸载。'
+---
+
 # 📜 FlyEnv 帮助程序 (FlyEnv Helper) 详细说明
 
 在使用 FlyEnv 时，系统通常会提示用户安装 **FlyEnv Helper（帮助程序）**。本文将详细解释为什么 FlyEnv 需要依赖该程序，它的具体作用，以及在不同操作系统下的安装与卸载方法。

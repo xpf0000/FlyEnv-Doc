@@ -9,7 +9,7 @@ head:
       content: NestJS local development, Node.js, TypeScript, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/nestjs.html
+      href: https://flyenv.com/solutions/nestjs
 ---
 
 <script setup>

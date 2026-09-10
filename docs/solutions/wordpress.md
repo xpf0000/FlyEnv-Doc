@@ -15,10 +15,10 @@ head:
       content: 'Manage a local WordPress environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/wordpress.html
+      content: https://flyenv.com/solutions/wordpress
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/wordpress.html
+      href: https://flyenv.com/solutions/wordpress
 ---
 
 <script setup>

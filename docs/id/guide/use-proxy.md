@@ -1,3 +1,7 @@
+---
+description: 'Atur variabel proxy HTTP, HTTPS, dan SOCKS di FlyEnv agar unduhan terminal serta installer dapat memakai proxy lokal.'
+---
+
 # Menggunakan Proxy
 
 Referensi ini dibuat khusus untuk pengguna yang mengalami masalah jaringan. Jika koneksi jaringan Anda normal, Anda dapat melewati panduan ini.

@@ -1,3 +1,7 @@
+---
+description: 'Bandingkan teknik obfuscation PHP, dampaknya terhadap pemeliharaan, dan cara praktis melindungi kode sumber sebelum distribusi.'
+---
+
 # Obfuscation Kode PHP
 
 Obfuscation mengubah bentuk kode sumber agar lebih sulit dibaca manusia, tanpa mengubah perilakunya saat dijalankan. Ini dapat membantu melindungi distribusi kode PHP, tetapi bukan pengganti lisensi, kontrol akses, atau pengelolaan rahasia yang benar.

@@ -15,10 +15,10 @@ head:
       content: 'Manage a local OpenCart environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/opencart.html
+      content: https://flyenv.com/solutions/opencart
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/opencart.html
+      href: https://flyenv.com/solutions/opencart
 ---
 
 <script setup>

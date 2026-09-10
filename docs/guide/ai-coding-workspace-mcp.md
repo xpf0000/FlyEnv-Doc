@@ -1,5 +1,5 @@
 ---
-title: 'Build a Local AI Coding Workspace with MCP for Claude Code, Codex, and More'
+title: 'Local AI Coding Workspace with MCP, Claude Code and Codex'
 head:
   - - meta
     - name: description

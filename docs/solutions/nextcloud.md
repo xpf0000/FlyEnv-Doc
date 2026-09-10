@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Nextcloud environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/nextcloud.html
+      content: https://flyenv.com/solutions/nextcloud
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/nextcloud.html
+      href: https://flyenv.com/solutions/nextcloud
 ---
 
 <script setup>

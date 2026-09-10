@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/caddy
+      content: https://flyenv.com/features/caddy
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/caddy
+      href: https://flyenv.com/features/caddy
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Caddy in FlyEnv
 
@@ -73,6 +77,8 @@ Caddy is one of the web servers that can serve the sites you create in FlyEnv's 
 ## Logs
 
 The Caddy module page includes a single **Log** tab showing the server-wide `caddy/caddy.log`. Sites also keep their own access and error logs, opened from the log viewer of each site in the Host module — handy for isolating one domain's traffic. There is no built-in admin panel; the log tab and the managed Caddyfile are the whole operational surface.
+
+<FeatureRelatedLinks slug="caddy" />
 
 ## Compatibility Notes
 

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/qdrant
+      content: https://flyenv.com/features/qdrant
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/qdrant
+      href: https://flyenv.com/features/qdrant
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Qdrant Development with FlyEnv
 
@@ -49,6 +53,8 @@ The **Service** tab is the running-instance table: start or stop a version, pick
 
 Each installed version gets its own configuration: on first use FlyEnv generates `config/config.yaml` from a template and places it next to that version's binary. Because the file lives beside the binary, config changes are per version — editing one version's YAML never affects another. The **Config File** tab opens this file in a raw YAML editor, and the template defaults the REST and web port to 6333.
 
+![Qdrant configuration](https://oss.macphpstudy.com/image/features/qdrant-3.webp)
+
 ## Logs
 
 Qdrant writes two log files per installed version, both viewable without leaving FlyEnv:
@@ -58,13 +64,17 @@ Qdrant writes two log files per installed version, both viewable without leaving
 
 The split into per-version out and error logs makes it easy to see exactly what a specific Qdrant build printed during startup or while serving requests.
 
+![Qdrant Logs](https://oss.macphpstudy.com/image/features/qdrant-4.webp)
+
 ## Web dashboard
 
 While a Qdrant version is running, the Service tab shows a dashboard button that opens `http://127.0.0.1:6333/dashboard` in your browser.
 
 FlyEnv sets this up automatically: on start or install it downloads the official qdrant-web-ui from GitHub and has Qdrant serve it through the `QDRANT__SERVICE__STATIC_CONTENT_DIR` setting, so the dashboard works out of the box against the instance on port 6333 — no separate web server or manual asset download needed.
 
-![Qdrant web dashboard opened from FlyEnv](https://oss.macphpstudy.com/image/features/qdrant-3.webp)
+![Qdrant web dashboard opened from FlyEnv](https://oss.macphpstudy.com/image/features/qdrant-5.webp)
+
+<FeatureRelatedLinks slug="qdrant" />
 
 ## Compatibility Notes
 

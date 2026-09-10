@@ -1,9 +1,9 @@
 ---
-title: 'Meningkatkan Produktivitas Asisten Coding AI: Alur Kerja FlyEnv + Claude Code / Codex'
+title: 'Alur FlyEnv untuk Claude Code, Codex, dan CLI AI'
 head:
   - - meta
     - name: description
-      content: Kurangi token yang terbuang akibat galat lingkungan. Pasangkan FlyEnv dengan Claude Code, Codex, dan CLI AI lain untuk lingkungan lokal native yang stabil dengan isolasi proyek serta pergantian versi otomatis.
+      content: 'Pasangkan FlyEnv dengan Claude Code, Codex, dan CLI AI lain untuk menyediakan runtime, layanan lokal, serta pergantian versi per proyek.'
 ---
 
 # Meningkatkan Produktivitas Asisten Coding AI: Alur Kerja FlyEnv + Claude Code / Codex

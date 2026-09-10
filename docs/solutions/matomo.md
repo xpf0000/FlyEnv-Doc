@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Matomo environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/matomo.html
+      content: https://flyenv.com/solutions/matomo
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/matomo.html
+      href: https://flyenv.com/solutions/matomo
 ---
 
 <script setup>

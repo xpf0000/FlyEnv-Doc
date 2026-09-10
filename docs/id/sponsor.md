@@ -1,5 +1,6 @@
 ---
 title: 'Lisensi FlyEnv'
+description: 'URL sponsor FlyEnv lama ini dialihkan ke halaman lisensi dan dukungan saat ini.'
 layout: home
 
 head:

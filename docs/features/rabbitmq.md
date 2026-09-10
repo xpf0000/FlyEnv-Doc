@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/rabbitmq
+      content: https://flyenv.com/features/rabbitmq
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/rabbitmq
+      href: https://flyenv.com/features/rabbitmq
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # RabbitMQ in FlyEnv
 
@@ -69,6 +73,8 @@ The management plugin is enabled for you — FlyEnv writes `[rabbitmq_management
 The **Log** tab opens `log-<major>/rabbit@localhost.log` directly inside FlyEnv. Because logs are kept per major version, each installed RabbitMQ line keeps its own log file — the first stop when a version fails to start or a queue behaves unexpectedly.
 
 ![RabbitMQ server log viewer](https://oss.macphpstudy.com/image/features/rabbitmq-5.webp)
+
+<FeatureRelatedLinks slug="rabbitmq" />
 
 ## Compatibility Notes
 

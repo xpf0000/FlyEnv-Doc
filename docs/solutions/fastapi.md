@@ -15,10 +15,10 @@ head:
       content: 'Manage a local FastAPI environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/fastapi.html
+      content: https://flyenv.com/solutions/fastapi
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/fastapi.html
+      href: https://flyenv.com/solutions/fastapi
 ---
 
 <script setup>

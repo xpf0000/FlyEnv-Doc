@@ -1,3 +1,7 @@
+---
+description: 'Diagnose and repair Homebrew PHP startup failures caused by missing or mismatched ICU libraries on macOS.'
+---
+
 # PHP icu4c issues
 
 For PHP installed using Homebrew. Sometimes it may be encountered that it can be displayed in the Service panel But the color is red and it cannot start. It's show some error message like this:

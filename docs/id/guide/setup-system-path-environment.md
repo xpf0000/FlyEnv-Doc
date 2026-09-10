@@ -1,3 +1,7 @@
+---
+description: 'Pahami cara kerja PATH dan gunakan FlyEnv untuk mengekspos perintah runtime serta alat secara aman pada terminal tiap platform.'
+---
+
 # Mengatur Variabel Lingkungan PATH Sistem
 
 ## Apa Tepatnya Variabel PATH Itu?

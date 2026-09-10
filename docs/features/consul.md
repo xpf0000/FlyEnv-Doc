@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/consul
+      content: https://flyenv.com/features/consul
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/consul
+      href: https://flyenv.com/features/consul
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Consul in FlyEnv
 
@@ -66,6 +70,8 @@ From the UI you can browse registered services and nodes, inspect health checks,
 The **Log** tab opens the agent's `consul.log` directly inside FlyEnv. Because FlyEnv starts the agent with `-log-file=consul.log`, everything the agent writes — startup messages, Raft events, join and sync activity — lands in this single file, making it the first place to check when a version fails to start or a service does not register as expected.
 
 ![Consul log viewer in FlyEnv](https://oss.macphpstudy.com/image/features/consul-5.webp)
+
+<FeatureRelatedLinks slug="consul" />
 
 ## Compatibility Notes
 

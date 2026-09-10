@@ -1,0 +1,5 @@
+# FlyEnv LLM Index
+
+> The canonical machine-readable documentation index is published at `/llms.txt`.
+
+- [Open the canonical FlyEnv LLM index](https://flyenv.com/llms.txt)

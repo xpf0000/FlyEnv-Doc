@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/codex
+      content: https://flyenv.com/features/codex
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/codex
+      href: https://flyenv.com/features/codex
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Codex CLI in FlyEnv
 
@@ -67,6 +71,8 @@ Sessions always run in an external system terminal window, never inside FlyEnv i
 
 The **Plugins** tab shows the plugins Codex reports, listing both available and installed entries via `codex plugin list --available --json`. From the same tab you can install plugins in the embedded terminal and manage the ones already installed. Unlike a full plugin marketplace, Codex exposes no marketplace sources to add or remove, so FlyEnv manages plugins directly against the CLI.
 
+![Managing Codex Plugins](https://oss.macphpstudy.com/image/features/codex-4.webp)
+
 ## MCP servers
 
 The **MCP** tab manages the Model Context Protocol servers Codex can call, with list, add and remove actions — see the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) for how MCP servers plug AI coding tools into your local environment.
@@ -75,7 +81,9 @@ The **MCP** tab manages the Model Context Protocol servers Codex can call, with 
 - **Remote client enabled automatically:** adding an HTTP server also turns on `features.rmcp_client = true` so Codex can reach remote MCP endpoints.
 - **One-click FlyEnv registration:** FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list from its Client Config tab.
 
-![Managing Codex MCP servers](https://oss.macphpstudy.com/image/features/codex-4.webp)
+![Managing Codex MCP servers](https://oss.macphpstudy.com/image/features/codex-5.webp)
+
+<FeatureRelatedLinks slug="codex" />
 
 ## Compatibility Notes
 

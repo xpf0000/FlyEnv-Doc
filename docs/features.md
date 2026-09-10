@@ -18,13 +18,13 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features
+      content: https://flyenv.com/features
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features
+      href: https://flyenv.com/features
 ---
 
 <script setup lang="ts">
@@ -125,7 +125,7 @@ const categories = [
       { name: 'Elasticsearch', detail: 'Build search features with local Elasticsearch.', href: '/features/elasticsearch', logo: elasticsearchLogo },
       { name: 'Meilisearch', detail: 'Prototype fast local search experiences.', href: '/features/meilisearch', logo: meilisearchLogo },
       { name: 'Typesense', detail: 'Test typo-tolerant search locally.', href: '/features/typesense', logo: typesenseLogo },
-      { name: 'ZincSearch', detail: 'Run a lightweight local search engine.', href: '/features/zincsearch', logo: '/home/zincsearch.png' },
+      { name: 'ZincSearch', detail: 'Run a lightweight local search engine.', href: '/features/zincsearch', logo: 'https://oss.macphpstudy.com/image/assets/home/zincsearch.png' },
       { name: 'Mailpit', detail: 'Capture local email and SMTP traffic.', href: '/features/mailpit', logo: mailpitLogo }
     ]
   },
@@ -150,11 +150,11 @@ const categories = [
     id: 'workflow', eyebrow: '06 / Make it repeatable', title: 'Developer Workflow & Productivity',
     description: 'Turn recurring setup, commands and project services into one-click workflows.', tone: 'bg-amber-50 text-amber-700',
     items: [
-      { name: 'Startup Groups', detail: "Start a project's services together.", href: '/features/startup-groups', logo: '' },
-      { name: 'Per-Project Runtimes', detail: 'Scope versions and ports per project.', href: '/features/per-project-runtimes', logo: '' },
-      { name: 'Cron Jobs', detail: 'Schedule local commands and jobs.', href: '/features/cron-jobs', logo: '' },
-      { name: 'User Modules', detail: 'Create and share custom modules.', href: '/features/user-modules', logo: '' },
-      { name: 'CLI & Terminal', detail: 'Use an integrated terminal with FlyEnv context.', href: '/features/cli-terminal', logo: '' },
+      { name: 'Startup Groups', detail: "Start a project's services together.", href: '/features/startup-groups', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'Per-Project Runtimes', detail: 'Scope versions and ports per project.', href: '/features/per-project-runtimes', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'Cron Jobs', detail: 'Schedule local commands and jobs.', href: '/features/cron-jobs', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'User Modules', detail: 'Create and share custom modules.', href: '/features/user-modules', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'CLI & Terminal', detail: 'Use an integrated terminal with FlyEnv context.', href: '/features/cli-terminal', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
       { name: 'Temporal', detail: 'Run durable workflows locally.', href: '/features/temporal', logo: temporalLogo }
     ]
   },
@@ -192,7 +192,7 @@ const jumps = categories.map(({ id, title }) => ({ id, title }))
         <div class="mt-9 flex flex-wrap gap-3"><a href="/download" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 active:translate-y-0">Download FlyEnv <span class="ml-2">→</span></a><a href="/guide/getting-started" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold !text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0">Read the quick start</a></div>
         <div class="mt-12 grid max-w-lg grid-cols-1 gap-3 text-sm text-slate-600 sm:grid-cols-3 sm:gap-5"><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">✦</span>Native desktop app</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">⌘</span>Container-free local workflows</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">◌</span>Works offline</div></div>
       </div>
-      <div class="relative lg:justify-self-end"><div class="absolute -inset-5 -z-10 rounded-[2rem] bg-blue-200/40 blur-3xl"></div><div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-950 p-2 shadow-[0_28px_80px_-32px_rgba(15,23,42,0.45)]"><img src="/home/flyenv-mcp-screen.webp" alt="FlyEnv MCP Server and local runtime controls" class="block w-full rounded-[1.1rem]" /></div><div class="absolute -bottom-5 -left-5 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-xl sm:block"><p class="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">One workspace</p><p class="mt-1 text-sm font-semibold text-slate-900">Your stack, in context.</p></div></div>
+      <div class="relative lg:justify-self-end"><div class="absolute -inset-5 -z-10 rounded-[2rem] bg-blue-200/40 blur-3xl"></div><div class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-950 p-2 shadow-[0_28px_80px_-32px_rgba(15,23,42,0.45)]"><img src="https://oss.macphpstudy.com/image/assets/home/flyenv-mcp-screen.webp" alt="FlyEnv MCP Server and local runtime controls" class="block w-full rounded-[1.1rem]" /></div><div class="absolute -bottom-5 -left-5 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-xl sm:block"><p class="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">One workspace</p><p class="mt-1 text-sm font-semibold text-slate-900">Your stack, in context.</p></div></div>
     </div>
   </section>
 

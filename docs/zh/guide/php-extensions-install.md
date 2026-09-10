@@ -1,3 +1,7 @@
+---
+description: '在 macOS、Linux 和 Windows 上通过 PECL、软件包或扩展库为 FlyEnv PHP 安装并启用扩展。'
+---
+
 # PHP扩展安装
 
 ## macOS & Linux

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/python
+      content: https://flyenv.com/features/python
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/python
+      href: https://flyenv.com/features/python
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Python Development with FlyEnv
 
@@ -72,6 +76,8 @@ For a full walkthrough of the project-service model across Python, Node.js and G
 Supported templates: [FastAPI](/solutions/fastapi), [Django](/solutions/django), Flask, Streamlit, Masonite, uv, Wagtail, Sanic, Litestar, Mezzanine and PDM. The linked solution pages show each framework running as a complete local stack with a database and a browser-facing site.
 
 ![New Python project dialog with framework template selection](https://oss.macphpstudy.com/image/features/python-5.webp)
+
+<FeatureRelatedLinks slug="python" />
 
 ## Compatibility Notes
 

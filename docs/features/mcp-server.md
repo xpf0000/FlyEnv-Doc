@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/mcp-server
+      content: https://flyenv.com/features/mcp-server
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/mcp-server
+      href: https://flyenv.com/features/mcp-server
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # FlyEnv MCP Server
 
@@ -43,7 +47,7 @@ The server runs inside the FlyEnv app itself, so there is nothing to install —
 - **Independent service:** FlyEnv MCP Server is excluded from the global "start all" group, so bulk-starting your stack never brings the AI interface up unintentionally.
 - **stdio bridge:** for clients that prefer stdio, FlyEnv copies a `flyenv-mcp-stdio.mjs` bridge script into its data directory, ready to be executed by an external [Node.js](/features/nodejs) runtime.
 
-![Service tab with host, port and token options](https://oss.macphpstudy.com/image/features/mcp-server-2.webp)
+![Service tab with host, port and token options](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
 
 ## Client Config
 
@@ -53,7 +57,7 @@ The **Client Config** tab wires the server into the six AI CLI tools FlyEnv alre
 - **Copyable snippets:** ready-made JSON or TOML blocks in both HTTP and stdio variants, for pasting into clients you configured yourself or tools outside FlyEnv's management.
 - **Pairs with the managed CLIs:** each of these assistants has its own FlyEnv module — see [Claude Code](/features/claude-code) for an example of the install, session and plugin management they get.
 
-![Client Config tab with one-click registration for six CLIs](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
+![Client Config tab with one-click registration for six CLIs](https://oss.macphpstudy.com/image/features/mcp-server-2.webp)
 
 ## Tools
 
@@ -64,7 +68,7 @@ The **Tools** tab lists the 18 tools the server exposes and decides which of the
 - **Per-tool enable switch:** turn any individual tool off to remove it from what clients can call at all.
 - **Approval policies for risky tools:** the 7 lifecycle, site-write and install tools each carry an auto/confirm policy — default is confirm, so sensitive operations wait for your approval unless you deliberately relax it.
 
-![Tools tab with per-tool switches and approval policies](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
+![Tools tab with per-tool switches and approval policies](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
 ## Audit Log
 
@@ -73,7 +77,9 @@ The **Audit Log** tab is a live viewer over `audit.log` in FlyEnv's MCP data dir
 - **Full call history:** each entry captures which tool ran and with what, giving you a reviewable trail of everything your AI assistants touched — essential context when you [work with AI assistants](/guide/flyenv-work-with-ai) day to day.
 - **Secret masking:** tokens and passwords are masked before they reach the log, so reviewing or sharing the file does not leak credentials.
 
-![Audit Log tab showing recorded tool calls](https://oss.macphpstudy.com/image/features/mcp-server-5.webp)
+![Audit Log tab showing recorded tool calls](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
+
+<FeatureRelatedLinks slug="mcp-server" />
 
 ## Compatibility Notes
 

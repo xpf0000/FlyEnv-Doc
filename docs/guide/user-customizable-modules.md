@@ -1,3 +1,7 @@
+---
+description: 'Turn a custom binary or command into a FlyEnv module with version management, service controls, configuration, and logs.'
+---
+
 # Custom Modules Guide
 
 ## Introduction

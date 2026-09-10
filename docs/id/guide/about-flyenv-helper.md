@@ -1,3 +1,7 @@
+---
+description: 'Pelajari alasan FlyEnv Helper memerlukan hak administrator, tugas sistem yang dijalankannya, serta cara memasang atau menghapusnya dengan aman.'
+---
+
 # Panduan Lengkap FlyEnv Helper
 
 Saat menggunakan FlyEnv, sistem biasanya meminta Anda memasang **FlyEnv Helper**. Artikel ini menjelaskan alasan FlyEnv memerlukan program pembantu tersebut, fungsi-fungsinya, serta cara pemasangan dan penghapusannya di setiap sistem operasi.

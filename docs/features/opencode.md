@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/opencode
+      content: https://flyenv.com/features/opencode
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/opencode
+      href: https://flyenv.com/features/opencode
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # OpenCode in FlyEnv
 
@@ -49,6 +53,8 @@ OpenCode keeps its settings in `~/.config/opencode/opencode.jsonc` — a JSON-wi
 - **Raw JSONC editor:** the Config File tab opens the real file in a full source editor. There is intentionally no visual form here — you edit exactly what OpenCode reads.
 - **Comment-friendly:** because the file is JSONC, comments in the file are preserved while you edit.
 
+![OpenCode Configuration](https://oss.macphpstudy.com/image/features/opencode-2.webp)
+
 ## Sessions
 
 The Sessions tab lists your past OpenCode conversations by asking the CLI itself: FlyEnv runs `opencode session list --format json` and renders the result.
@@ -57,7 +63,7 @@ The Sessions tab lists your past OpenCode conversations by asking the CLI itself
 - **Run, resume, delete:** start a new session in a project folder, resume a specific one, continue the most recent, or remove sessions you no longer need.
 - **External terminal:** sessions always open in your system's own terminal window, running `opencode`, `opencode --session <id>` or `opencode --continue` from the session's working directory — never inside an embedded pane, so the full interactive UI works as designed.
 
-![OpenCode Sessions tab grouped by working directory with resume and delete actions](https://oss.macphpstudy.com/image/features/opencode-2.webp)
+![OpenCode Sessions tab grouped by working directory with resume and delete actions](https://oss.macphpstudy.com/image/features/opencode-3.webp)
 
 ## Stats
 
@@ -66,7 +72,7 @@ The Stats tab turns OpenCode's usage reporting into a readable table. FlyEnv run
 - **Per-model breakdown:** see how much work each model has handled for you.
 - **Adjustable time window:** narrow the report to recent days to watch current usage patterns.
 
-![OpenCode Stats tab showing the per-model usage table](https://oss.macphpstudy.com/image/features/opencode-3.webp)
+![OpenCode Stats tab showing the per-model usage table](https://oss.macphpstudy.com/image/features/opencode-4.webp)
 
 ## Providers
 
@@ -75,7 +81,7 @@ The Providers tab shows which model providers your OpenCode is authenticated wit
 - **Authenticated providers at a glance:** confirm an API key or login took effect without opening the file by hand.
 - **Always in sync:** because the data comes straight from OpenCode's auth file, adding a provider in the CLI shows up in FlyEnv on the next read.
 
-![OpenCode Providers tab listing authenticated model providers](https://oss.macphpstudy.com/image/features/opencode-4.webp)
+![OpenCode Providers tab listing authenticated model providers](https://oss.macphpstudy.com/image/features/opencode-5.webp)
 
 ## MCP servers
 
@@ -84,6 +90,10 @@ The MCP tab manages the Model Context Protocol servers OpenCode connects to — 
 - **List, add, remove:** review configured MCP servers and add or remove entries without hunting through the config yourself.
 - **Config-native storage:** changes land in `opencode.jsonc`, keeping a single source of truth for both FlyEnv and manual edits.
 - **One-click FlyEnv registration:** FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list from its Client Config tab.
+
+![OpenCode MCP servers](https://oss.macphpstudy.com/image/features/opencode-6.webp)
+
+<FeatureRelatedLinks slug="opencode" />
 
 ## Compatibility Notes
 

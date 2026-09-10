@@ -1,14 +1,14 @@
 ---
-title: 'Mengekspos Localhost ke Internet: Alternatif ngrok dengan Cloudflare Tunnel'
+title: 'Cloudflare Tunnel untuk Localhost di FlyEnv'
 head:
   - - meta
     - name: description
-      content: Pelajari cara mengekspos localhost ke internet melalui Cloudflare Tunnel di FlyEnv. Dapatkan URL tetap, domain kustom, dan SSL dengan penyiapan sekali klik.
+      content: Pelajari cara mengekspos layanan lokal melalui Cloudflare Tunnel di FlyEnv, mengatur hostname publik dan domain kustom, serta memeriksa log akses.
 ---
 
 # Mengekspos Localhost ke Internet: Alternatif ngrok dengan Cloudflare Tunnel
 
-Perlu membagikan situs pengembangan lokal kepada klien atau menguji webhook yang membutuhkan URL publik? Cloudflare Tunnel menyediakan domain kustom, URL tetap, SSL, dan bandwidth tanpa batas pada paket gratis. FlyEnv mengintegrasikannya langsung tanpa konfigurasi command line.
+Perlu membagikan situs pengembangan lokal atau menguji webhook yang membutuhkan URL publik? Named tunnel dapat memakai hostname kustom yang stabil ketika akun Cloudflare dan zona DNS sudah dikonfigurasi. Batas penggunaan tetap mengikuti ketentuan paket Cloudflare yang berlaku.
 
 ## Penyiapan Sekali Klik di FlyEnv
 

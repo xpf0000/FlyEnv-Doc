@@ -465,7 +465,7 @@
     >
       <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">Search Engine</span>
       <div class="aspect-square flex shrink-0 overflow-hidden items-center justify-center w-full p-5">
-        <img src="/home/zincsearch.png" />
+        <img src="https://oss.macphpstudy.com/image/assets/home/zincsearch.png" />
       </div>
       <span class="shrink-0 select-text text-[#3c3c43] dark:text-[#dfdff6]">ZincSearch</span>
       <div class="absolute inset-0 flex items-center justify-center z-20">

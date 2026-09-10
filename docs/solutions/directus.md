@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Directus environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/directus.html
+      content: https://flyenv.com/solutions/directus
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/directus.html
+      href: https://flyenv.com/solutions/directus
 ---
 
 <script setup>

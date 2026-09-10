@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/cliproxyapi
+      content: https://flyenv.com/features/cliproxyapi
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/cliproxyapi
+      href: https://flyenv.com/features/cliproxyapi
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # CLIProxyAPI in FlyEnv
 
@@ -64,6 +68,8 @@ While the service is running, the Service tab shows a button that opens CLIProxy
 The Log tab displays the captured output of each version as `cliproxyapi-<version>-start-out.log` and `cliproxyapi-<version>-start-error.log`, with a toggle between the two streams. When a version refuses to start or the management page does not respond, the error log is the first place to look.
 
 ![CLIProxyAPI start log viewer with out and error toggle](https://oss.macphpstudy.com/image/features/cliproxyapi-5.webp)
+
+<FeatureRelatedLinks slug="cliproxyapi" />
 
 ## Compatibility Notes
 

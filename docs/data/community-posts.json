@@ -85,7 +85,7 @@
     "quality_score": 110,
     "relevance_score": 10,
     "seoTitle": "FlyEnv Complete Setup Guide: All-in-One Local Dev Environment for PHP & Node.js",
-    "seoSummary": "Install and configure FlyEnv as your all-in-one development environment. Native binaries for PHP, Node.js and Java with instant version switching, project isolation, and 80% less RAM than Docker."
+    "seoSummary": "Install and configure FlyEnv as an all-in-one development environment with native PHP, Node.js and Java runtimes, quick version switching, and project isolation."
   },
   {
     "id": "memaksimalkan-pengembangan-laravel-dengan-flyenv-solusi-all",

@@ -3,7 +3,7 @@ title: 无需 Docker 部署 Node.js/Python/Go 项目（本地开发终极指南�
 head:
   - - meta
     - name: description
-      content: 学习如何在不使用 Docker 的情况下本地部署 Node.js、Python 和 Go 项目。FlyEnv 提供原生性能，内存占用减少 80%，并支持按项目自动切换运行时版本。
+      content: 学习如何在不使用 Docker 的情况下本地运行 Node.js、Python 和 Go 项目，并通过 FlyEnv 管理原生运行时、HTTPS、反向代理和项目级版本。
 ---
 
 # 无需 Docker 部署 Node.js、Python 和 Go 项目
@@ -187,7 +187,7 @@ go run main.go
 
 **Q: 这比 Docker 占用更少的内存吗？**
 
-是的，显著减少。Docker Desktop 通常仅虚拟机就需要 2-4 GB 内存。FlyEnv 运行原生二进制文件，开销极小，通常可节省 80% 的内存。
+FlyEnv 直接运行本地二进制文件，因此不会产生 Docker Desktop 的基础虚拟机开销。实际内存占用取决于所运行的项目、服务以及用于比较的容器配置。
 
 **Q: 我可以运行使用不同 Node.js 版本的多个项目吗？**
 

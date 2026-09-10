@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/rustfs
+      content: https://flyenv.com/features/rustfs
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/rustfs
+      href: https://flyenv.com/features/rustfs
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local RustFS Object Storage with FlyEnv
 
@@ -62,6 +66,8 @@ RustFS ships with its own web console, and FlyEnv wires the address up for you. 
 ## Logs
 
 RustFS gets two dedicated log tabs inside FlyEnv: **Log** shows the per-version `start-out` output and **Error Log** shows the matching `start-error` file. When a build refuses to start — a taken port, an unreadable data directory, a bad TLS path — the Error Log is where the cause surfaces first.
+
+<FeatureRelatedLinks slug="rustfs" />
 
 ## Compatibility Notes
 

@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Strapi environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/strapi.html
+      content: https://flyenv.com/solutions/strapi
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/strapi.html
+      href: https://flyenv.com/solutions/strapi
 ---
 
 <script setup>

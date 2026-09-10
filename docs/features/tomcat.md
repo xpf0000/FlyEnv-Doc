@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/tomcat
+      content: https://flyenv.com/features/tomcat
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/tomcat
+      href: https://flyenv.com/features/tomcat
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Tomcat in FlyEnv
 
@@ -74,6 +78,8 @@ Sites you create in FlyEnv with the **Tomcat** type are not reverse-proxied vhos
 ## Logs
 
 The **Log** tab opens the Tomcat console log with search and refresh built in. On macOS and Linux this is `logs/catalina.out` under the version's CATALINA_BASE; on Windows, FlyEnv reads the dated `catalina.<yyyy-MM-dd>.log` files.
+
+<FeatureRelatedLinks slug="tomcat" />
 
 ## Compatibility Notes
 

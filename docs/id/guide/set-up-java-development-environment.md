@@ -1,3 +1,7 @@
+---
+description: 'Pasang dan kelola versi JDK, Maven, dan Tomcat dengan FlyEnv serta atur JAVA_HOME dan PATH untuk pengembangan Java.'
+---
+
 # Menyiapkan lingkungan pengembangan Java dengan FlyEnv
 
 FlyEnv mendukung penyiapan lingkungan pengembangan Java. Dengan FlyEnv, Anda dapat mengunduh dan memasang Java, Maven, serta Tomcat dengan cepat. FlyEnv mendukung OpenJDK 8 hingga versi JDK terbaru, Maven 2.x hingga versi terbaru, dan Tomcat 8 hingga versi terbaru.

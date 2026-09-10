@@ -9,7 +9,7 @@ head:
       content: PocketBase local development, Go, SQLite, backend, authentication, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/pocketbase.html
+      href: https://flyenv.com/solutions/pocketbase
 ---
 
 <script setup>

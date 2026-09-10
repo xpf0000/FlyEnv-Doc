@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/neo4j
+      content: https://flyenv.com/features/neo4j
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/neo4j
+      href: https://flyenv.com/features/neo4j
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Neo4j Development with FlyEnv
 
@@ -68,6 +72,8 @@ The **Log** tab switches between the server's log files: the start-out and start
 ## Neo4j Browser
 
 Neo4j ships its own web interface, and FlyEnv does not replace it: the **Neo4j Browser** button in the Service toolbar opens `http://127.0.0.1:<http port>` in your external browser, where you can run Cypher queries and inspect the graph against the running instance. See the [demos](/demos) for this workflow in action.
+
+<FeatureRelatedLinks slug="neo4j" />
 
 ## Compatibility Notes
 

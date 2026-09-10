@@ -43,8 +43,8 @@
         break
       default:
         const url = window.location.href.includes('/zh/')
-          ? '/zh/guide/getting-started.html'
-          : '/guide/getting-started.html'
+          ? '/zh/guide/getting-started'
+          : '/guide/getting-started'
         trackEvent('download_click', { os, target: url, release_file: '' })
         window.location.href = url
         return

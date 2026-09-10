@@ -1,3 +1,7 @@
+---
+description: 'Identifikasi dan perbaiki kegagalan startup PHP Homebrew akibat pustaka ICU yang hilang atau versinya tidak cocok di macOS.'
+---
+
 # Masalah PHP icu4c
 
 Pada PHP yang dipasang menggunakan Homebrew, kadang layanan terlihat di panel Services tetapi berwarna merah dan tidak dapat dimulai. Pesan kesalahannya dapat terlihat seperti berikut:

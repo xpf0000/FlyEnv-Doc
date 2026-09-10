@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/deno
+      content: https://flyenv.com/features/deno
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/deno
+      href: https://flyenv.com/features/deno
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Deno Development with FlyEnv
 
@@ -60,6 +64,8 @@ In **Deno → Projects**, register each project folder and bind it to a specific
 - **Open-in tools:** jump from a project row into a terminal or editor with the project environment loaded.
 
 ![Deno Projects list with per-project Deno version binding](https://oss.macphpstudy.com/image/features/deno-3.webp)
+
+<FeatureRelatedLinks slug="deno" />
 
 ## Compatibility Notes
 

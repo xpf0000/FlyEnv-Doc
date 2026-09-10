@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/erlang
+      content: https://flyenv.com/features/erlang
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/erlang
+      href: https://flyenv.com/features/erlang
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Erlang Development with FlyEnv
 
@@ -62,6 +66,8 @@ In **Erlang → Projects**, register each project folder and bind it to a specif
 - **Open-in tools:** jump from a project row into the system terminal with the project environment loaded.
 
 ![Erlang Projects list with per-project Erlang version binding](https://oss.macphpstudy.com/image/features/erlang-3.webp)
+
+<FeatureRelatedLinks slug="erlang" />
 
 ## Compatibility Notes
 

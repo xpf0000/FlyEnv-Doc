@@ -9,7 +9,7 @@ head:
       content: Flask local development, Python, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/flask.html
+      href: https://flyenv.com/solutions/flask
 ---
 
 <script setup>

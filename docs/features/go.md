@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/go
+      content: https://flyenv.com/features/go
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/go
+      href: https://flyenv.com/features/go
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Go Development with FlyEnv
 
@@ -36,7 +40,7 @@ Go is a compiled, statically typed programming language commonly used for networ
 ## Go version management
 
 Install Go versions side by side from **Go → Version Manager** and keep them all available at once.
-
+[gradle.md](gradle.md)
 - **Static builds on every platform:** FlyEnv downloads official Go releases — `.tar.gz` archives from the go.dev release list on macOS and Linux, zip packages on Windows — and unpacks them into its own managed directory.
 - **Package-manager sources:** on macOS you can also install the `go` formula from Homebrew or MacPorts; on Linux, Homebrew is available as an additional source.
 - **Custom directories:** point FlyEnv at any directory containing your own Go build and it appears in the list next to the managed versions.
@@ -68,6 +72,8 @@ In **Go → Projects**, register each project folder and bind it to a specific G
 ![Go Projects list with per-project Go version binding](https://oss.macphpstudy.com/image/features/go-4.webp)
 
 For running these projects as persistent background services, see the guide on [deploying Node.js, Python and Go projects without Docker](/guide/deploy-nodejs-python-go-without-docker).
+
+<FeatureRelatedLinks slug="go" />
 
 ## Compatibility Notes
 

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/apache
+      content: https://flyenv.com/features/apache
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/apache
+      href: https://flyenv.com/features/apache
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Apache in FlyEnv
 
@@ -72,6 +76,8 @@ Every site in the Host module that Apache serves gets its own vhost file with it
 ## Logs
 
 The **Error Log** and **Log(access)** tabs show the shared Apache error and access logs, with search and refresh built in. Each site also has its own per-site logs, viewable from the Host module, so a busy site never drowns the rest.
+
+<FeatureRelatedLinks slug="apache" />
 
 ## Compatibility Notes
 

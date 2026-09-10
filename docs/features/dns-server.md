@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/dns-server
+      content: https://flyenv.com/features/dns-server
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/dns-server
+      href: https://flyenv.com/features/dns-server
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Built-in DNS Server in FlyEnv
 
@@ -55,7 +59,7 @@ The Service tab is more than a start/stop switch — it doubles as a traffic mon
 
 Because the log updates as queries arrive, it is the quickest way to confirm that a browser or device is actually using FlyEnv as its resolver.
 
-![Live DNS query log showing host, resolved IP and TTL per query](https://oss.macphpstudy.com/image/features/dns-server-2.webp)
+![Live DNS query log showing host, resolved IP and TTL per query](https://oss.macphpstudy.com/image/features/dns-server-1.webp)
 
 ## Configuration
 
@@ -64,7 +68,9 @@ The DNS server keeps its settings in a single JSON file, `dns.json` (with `dns.d
 - **Bind IP dropdown:** the one visual setting — choose which local address the server listens on. The default `0.0.0.0` accepts queries on every interface, which is what you want when other devices on the network should also resolve your site domains; picking a specific IP restricts it to that interface.
 - **Raw JSON editor:** for everything else, edit the file directly — including the `resolveIP` static map that fixes individual names to chosen addresses.
 
-![DNS configuration tab with the bind IP dropdown and dns.json editor](https://oss.macphpstudy.com/image/features/dns-server-3.webp)
+![DNS configuration tab with the bind IP dropdown and dns.json editor](https://oss.macphpstudy.com/image/features/dns-server-2.webp)
+
+<FeatureRelatedLinks slug="dns-server" />
 
 ## Compatibility Notes
 

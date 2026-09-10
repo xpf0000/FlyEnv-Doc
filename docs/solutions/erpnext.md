@@ -15,10 +15,10 @@ head:
       content: 'Manage a local ERPNext environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/erpnext.html
+      content: https://flyenv.com/solutions/erpnext
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/erpnext.html
+      href: https://flyenv.com/solutions/erpnext
 ---
 
 <script setup>

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/postgresql
+      content: https://flyenv.com/features/postgresql
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/postgresql
+      href: https://flyenv.com/features/postgresql
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local PostgreSQL Development with FlyEnv
 
@@ -75,6 +79,8 @@ The **pgAdmin 4** button in the Service toolbar sets up the full pgAdmin web con
 The **Extension** action on a service row opens a drawer that installs pgvector — the PostgreSQL extension for vector storage and similarity search used by AI and embedding workloads (for a dedicated vector database, see the [Qdrant module](/features/qdrant)). FlyEnv clones the latest pgvector tag from its git repository and runs `sudo make` / `make install` in the embedded terminal, so you see the real build output. The install flow is macOS-oriented (it uses `sudo` and the zsh shell).
 
 ![pgvector install running in the Extension drawer's embedded terminal](https://oss.macphpstudy.com/image/features/postgresql-7.webp)
+
+<FeatureRelatedLinks slug="postgresql" />
 
 ## Compatibility Notes
 

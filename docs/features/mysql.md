@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/mysql
+      content: https://flyenv.com/features/mysql
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/mysql
+      href: https://flyenv.com/features/mysql
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local MySQL Development with FlyEnv
 
@@ -60,13 +64,11 @@ The **Log** and **Slow Log** tabs open the server's `error.log` and `slow.log` d
 
 ![MySQL error log viewer](https://oss.macphpstudy.com/image/features/mysql-4.webp)
 
-![MySQL slow log viewer](https://oss.macphpstudy.com/image/features/mysql-5.webp)
-
 ## phpMyAdmin
 
 The **phpMyAdmin** button in the Service toolbar sets up a full phpMyAdmin site in one step: FlyEnv downloads phpMyAdmin, creates a local site `phpmyadmin.test` served by your web server and PHP version, and opens it in the browser. It works against the running MySQL service, so you get a familiar web UI for browsing tables and running queries without installing anything manually.
 
-![Setting up phpMyAdmin from the MySQL module](https://oss.macphpstudy.com/image/features/mysql-6.webp)
+![Setting up phpMyAdmin from the MySQL module](https://oss.macphpstudy.com/image/features/mysql-5.webp)
 
 ## Database management
 
@@ -80,9 +82,11 @@ For day-to-day work there is no need to leave the app: the per-version **Manage*
 
 The **Group** tab runs several MySQL instances concurrently alongside the main service. Each instance combines a chosen MySQL version with its own port and its own data directory, and keeps per-instance configuration and logs — so a project pinned to MySQL 5.7 can run next to one on MySQL 8.x without touching each other's data. The group power switch in the sidebar header — also available in the system tray — starts or stops the main service and all Group instances together.
 
-![MySQL Group tab with multiple concurrent instances](https://oss.macphpstudy.com/image/features/mysql-7.webp)
+![MySQL Group tab with multiple concurrent instances](https://oss.macphpstudy.com/image/features/mysql-6.webp)
 
 Groups are handy when matching production setups locally — for example when a [Laravel](/solutions/laravel) project expects a specific MySQL major version.
+
+<FeatureRelatedLinks slug="mysql" />
 
 ## Compatibility Notes
 

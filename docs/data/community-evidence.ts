@@ -16,8 +16,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'A Windows developer uses FlyEnv for Laravel, WordPress, and plain PHP projects that need different PHP versions without changing global settings.',
       relatedGuides: [
-        '/guide/project-level-runtime-environment.html',
-        '/guide/run-laravel-use-flyenv.html'
+        '/guide/project-level-runtime-environment',
+        '/guide/run-laravel-use-flyenv'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -30,8 +30,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'A Mac developer describes replacing heavier Docker and Valet workflows with native service control, per-project PHP versions, local HTTPS domains, and databases.',
       relatedGuides: [
-        '/guide/flyenv-vs-docker-xampp.html',
-        '/guide/project-level-runtime-environment.html'
+        '/guide/flyenv-vs-docker-xampp',
+        '/guide/project-level-runtime-environment'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -44,8 +44,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'A PHP developer describes moving from a long-standing XAMPP workflow and handling projects that need different PHP versions.',
       relatedGuides: [
-        '/guide/flyenv-vs-docker-xampp.html',
-        '/guide/project-level-runtime-environment.html'
+        '/guide/flyenv-vs-docker-xampp',
+        '/guide/project-level-runtime-environment'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -56,7 +56,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['laragon-migration', 'laravel-local-development'],
       editorialSummary:
         'A Laravel developer describes moving from Laragon to a FlyEnv workflow for PHP, PostgreSQL, and everyday project work.',
-      relatedGuides: ['/guide/flyenv-vs-docker-xampp.html', '/guide/run-laravel-use-flyenv.html'],
+      relatedGuides: ['/guide/flyenv-vs-docker-xampp', '/guide/run-laravel-use-flyenv'],
       featuredPlacements: ['community-hero', 'guide']
     },
     {
@@ -67,8 +67,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'A Linux Mint developer explains how they manage legacy and current PHP projects alongside local services without repeated system-wide version changes.',
       relatedGuides: [
-        '/guide/project-level-runtime-environment.html',
-        '/guide/manage-multiple-node-php-versions.html'
+        '/guide/project-level-runtime-environment',
+        '/guide/manage-multiple-node-php-versions'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -80,7 +80,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['multiple-runtime-versions', 'local-services', 'ai-assisted-development'],
       editorialSummary:
         'A full-stack developer presents FlyEnv as one desktop workspace for runtimes, databases, and local development tools.',
-      relatedGuides: ['/guide/what-is-flyenv.html', '/guide/flyenv-work-with-ai.html'],
+      relatedGuides: ['/guide/what-is-flyenv', '/guide/flyenv-work-with-ai'],
       featuredPlacements: ['home', 'community-hero']
     },
     {
@@ -91,7 +91,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['xampp-migration', 'docker-alternative', 'multiple-runtime-versions'],
       editorialSummary:
         'A developer on a low-RAM computer replaces XAMPP and Docker with FlyEnv for faster PHP switching and a lighter daily workflow.',
-      relatedGuides: ['/guide/flyenv-vs-docker-xampp.html', '/guide/project-level-runtime-environment.html'],
+      relatedGuides: ['/guide/flyenv-vs-docker-xampp', '/guide/project-level-runtime-environment'],
       featuredPlacements: ['home', 'community-hero']
     },
     {
@@ -102,7 +102,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['multiple-runtime-versions', 'local-services'],
       editorialSummary:
         'After six months with FlyEnv, a PHP developer shares a practical workflow for several projects, shared services, and runtime cleanup.',
-      relatedGuides: ['/guide/project-level-runtime-environment.html', '/guide/manage-multiple-node-php-versions.html'],
+      relatedGuides: ['/guide/project-level-runtime-environment', '/guide/manage-multiple-node-php-versions'],
       featuredPlacements: ['home', 'community-hero']
     }
   ],
@@ -120,8 +120,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         '一位 Windows PHP 插件开发者记录从 ServBay 迁移到 FlyEnv 后的真实工作流，包括项目级 PHP 版本、HTTPS 站点以及 AI 编程 CLI 和 MCP Server。',
       relatedGuides: [
-        '/zh/guide/project-level-runtime-environment.html',
-        '/zh/guide/flyenv-work-with-ai.html'
+        '/zh/guide/project-level-runtime-environment',
+        '/zh/guide/flyenv-work-with-ai'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -134,8 +134,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         '作者分享了用统一图形界面安装运行时、按项目切换版本、管理本地服务、配置站点并查看日志的实际场景。',
       relatedGuides: [
-        '/zh/guide/project-level-runtime-environment.html',
-        '/zh/guide/manage-multiple-node-php-versions.html'
+        '/zh/guide/project-level-runtime-environment',
+        '/zh/guide/manage-multiple-node-php-versions'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -147,8 +147,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         '作者从多项目本地开发中的版本、服务和站点管理问题出发，分享如何将运行时、数据库、Web 服务和 AI 工具集中到同一工作台，并说明与 Docker 的适用边界。',
       relatedGuides: [
-        '/zh/guide/project-level-runtime-environment.html',
-        '/zh/guide/flyenv-work-with-ai.html'
+        '/zh/guide/project-level-runtime-environment',
+        '/zh/guide/flyenv-work-with-ai'
       ],
       featuredPlacements: ['community-hero', 'guide']
     },
@@ -159,7 +159,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['macos-local-development', 'multiple-runtime-versions'],
       editorialSummary:
         '一位 macOS 开发者介绍了在一个桌面环境中管理 Web 服务、数据库和多版本语言运行时的本地开发体验。',
-      relatedGuides: ['/zh/guide/manage-multiple-node-php-versions.html'],
+      relatedGuides: ['/zh/guide/manage-multiple-node-php-versions'],
       featuredPlacements: ['community-hero']
     },
     {
@@ -169,7 +169,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['docker-alternative', 'xampp-migration'],
       editorialSummary:
         '一位开发者从本地服务、运行时版本和跨平台使用场景出发，分享了 FlyEnv 作为 Docker 与 XAMPP 替代方案的体验。',
-      relatedGuides: ['/zh/guide/flyenv-vs-docker-xampp.html'],
+      relatedGuides: ['/zh/guide/flyenv-vs-docker-xampp'],
       featuredPlacements: ['community-hero', 'guide']
     },
     {
@@ -180,7 +180,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['windows-local-development', 'local-services', 'multiple-runtime-versions'],
       editorialSummary:
         '一位独立开发者用 FlyEnv 管理 Laravel、Python、Node.js、PostgreSQL 和 Redis，为古籍资料库项目搭建完整的本地工作流。',
-      relatedGuides: ['/zh/guide/project-level-runtime-environment.html', '/zh/guide/flyenv-vs-docker-xampp.html'],
+      relatedGuides: ['/zh/guide/project-level-runtime-environment', '/zh/guide/flyenv-vs-docker-xampp'],
       featuredPlacements: ['home', 'community-hero']
     },
     {
@@ -191,7 +191,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['multiple-runtime-versions', 'windows-local-development'],
       editorialSummary:
         '一篇面向 Java 开发者的实践文章，记录如何在 macOS、Windows 和 Linux 上用 FlyEnv 减少本地环境配置工作。',
-      relatedGuides: ['/zh/guide/set-up-java-development-environment.html'],
+      relatedGuides: ['/zh/guide/set-up-java-development-environment'],
       featuredPlacements: ['home', 'community-hero']
     },
     {
@@ -202,7 +202,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['multiple-runtime-versions', 'local-services'],
       editorialSummary:
         '作者从实际使用出发，分享 FlyEnv 对多版本运行时、数据库、Redis、Web Server 和本地站点的集中管理体验。',
-      relatedGuides: ['/zh/guide/project-level-runtime-environment.html', '/zh/guide/manage-multiple-node-php-versions.html'],
+      relatedGuides: ['/zh/guide/project-level-runtime-environment', '/zh/guide/manage-multiple-node-php-versions'],
       featuredPlacements: ['home', 'community-hero']
     }
   ],
@@ -216,8 +216,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'Seorang developer Windows memakai FlyEnv untuk proyek Laravel, WordPress, dan PHP biasa yang memerlukan versi PHP berbeda tanpa mengubah pengaturan global.',
       relatedGuides: [
-        '/id/guide/project-level-runtime-environment.html',
-        '/id/guide/run-laravel-use-flyenv.html'
+        '/id/guide/project-level-runtime-environment',
+        '/id/guide/run-laravel-use-flyenv'
       ],
       featuredPlacements: []
     },
@@ -230,8 +230,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'Seorang developer Mac mengganti alur kerja Docker dan Valet yang lebih berat dengan kontrol layanan native, versi PHP per proyek, domain HTTPS lokal, dan database.',
       relatedGuides: [
-        '/id/guide/flyenv-vs-docker-xampp.html',
-        '/id/guide/project-level-runtime-environment.html'
+        '/id/guide/flyenv-vs-docker-xampp',
+        '/id/guide/project-level-runtime-environment'
       ],
       featuredPlacements: []
     },
@@ -244,8 +244,8 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       editorialSummary:
         'Seorang developer PHP menjelaskan perpindahan dari alur kerja XAMPP yang telah lama digunakan dan pengelolaan proyek yang membutuhkan versi PHP berbeda.',
       relatedGuides: [
-        '/id/guide/flyenv-vs-docker-xampp.html',
-        '/id/guide/project-level-runtime-environment.html'
+        '/id/guide/flyenv-vs-docker-xampp',
+        '/id/guide/project-level-runtime-environment'
       ],
       featuredPlacements: []
     },
@@ -257,7 +257,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['xampp-migration', 'docker-alternative', 'multiple-runtime-versions'],
       editorialSummary:
         'Fahdi Labib menceritakan perpindahan dari Docker ke FlyEnv untuk multi-versi PHP, SSL lokal otomatis, dan penggunaan RAM yang lebih ringan.',
-      relatedGuides: ['/id/guide/flyenv-vs-docker-xampp.html', '/id/guide/project-level-runtime-environment.html'],
+      relatedGuides: ['/id/guide/flyenv-vs-docker-xampp', '/id/guide/project-level-runtime-environment'],
       featuredPlacements: ['home']
     },
     {
@@ -268,7 +268,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['xampp-migration', 'docker-alternative', 'multiple-runtime-versions'],
       editorialSummary:
         'Muhammad Faiz membagikan alasan meninggalkan XAMPP dan Docker, dengan switching PHP instan untuk proyek legacy dan modern.',
-      relatedGuides: ['/id/guide/flyenv-vs-docker-xampp.html', '/id/guide/project-level-runtime-environment.html'],
+      relatedGuides: ['/id/guide/flyenv-vs-docker-xampp', '/id/guide/project-level-runtime-environment'],
       featuredPlacements: ['home']
     },
     {
@@ -279,7 +279,7 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       useCases: ['multiple-runtime-versions', 'local-services'],
       editorialSummary:
         'Setelah enam bulan menggunakan FlyEnv, kiki membagikan cara mengatur beberapa project PHP, runtime, Redis, object storage, dan layanan pasif.',
-      relatedGuides: ['/id/guide/project-level-runtime-environment.html', '/id/guide/manage-multiple-node-php-versions.html'],
+      relatedGuides: ['/id/guide/project-level-runtime-environment', '/id/guide/manage-multiple-node-php-versions'],
       featuredPlacements: ['home']
     }
   ]

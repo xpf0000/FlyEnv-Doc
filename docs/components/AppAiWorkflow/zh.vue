@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-950">
-        <img src="/home/flyenv-mcp.jpeg" alt="FlyEnv MCP 工作流，将本地项目与服务接入 AI 编程客户端" class="w-full cursor-pointer" data-x-image-preview="" loading="lazy" />
+        <img src="https://oss.macphpstudy.com/image/assets/home/flyenv-mcp.jpeg" alt="FlyEnv MCP 工作流，将本地项目与服务接入 AI 编程客户端" class="w-full cursor-pointer" data-x-image-preview="" loading="lazy" />
       </div>
     </div>
   </section>

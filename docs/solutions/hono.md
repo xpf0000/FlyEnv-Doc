@@ -9,7 +9,7 @@ head:
       content: Hono local development, Node.js, Bun, TypeScript, API, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/hono.html
+      href: https://flyenv.com/solutions/hono
 ---
 
 <script setup>

@@ -9,7 +9,7 @@ head:
       content: Nuxt local development, Node.js, Vue, PostgreSQL, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/nuxt.html
+      href: https://flyenv.com/solutions/nuxt
 ---
 
 <script setup>

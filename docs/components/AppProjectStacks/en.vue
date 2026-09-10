@@ -60,7 +60,7 @@ const stacks = [
   {
     kind: 'PHP application',
     name: 'Laravel',
-    image: '/home/stacks/laravel.svg',
+    image: 'https://oss.macphpstudy.com/image/assets/home/stacks/laravel.svg',
     platforms: 'macOS · Windows · Linux',
     description: 'A repeatable local Laravel setup with the services most teams need during daily development.',
     services: ['PHP', 'MySQL', 'Redis', 'Nginx', 'HTTPS'],
@@ -70,7 +70,7 @@ const stacks = [
   {
     kind: 'Python application',
     name: 'Django',
-    image: '/home/stacks/django.svg',
+    image: 'https://oss.macphpstudy.com/image/assets/home/stacks/django.svg',
     platforms: 'macOS · Windows · Linux',
     description: 'Keep a Python web project, its database, cache, reverse proxy, and local domain in one workspace.',
     services: ['Python', 'PostgreSQL', 'Redis', 'Nginx', 'HTTPS'],
@@ -80,7 +80,7 @@ const stacks = [
   {
     kind: 'Python business platform',
     name: 'ERPNext',
-    image: '/home/stacks/erpnext.svg',
+    image: 'https://oss.macphpstudy.com/image/assets/home/stacks/erpnext.svg',
     platforms: 'macOS · Windows · Linux',
     description: 'Run ERPNext with its Python runtime, MariaDB, Redis, reverse proxy, and local site in one workspace.',
     services: ['Python', 'MariaDB', 'Redis', 'Nginx'],
@@ -90,7 +90,7 @@ const stacks = [
   {
     kind: 'Self-hosted Git service',
     name: 'Gitea',
-    image: '/home/stacks/gitea.svg',
+    image: 'https://oss.macphpstudy.com/image/assets/home/stacks/gitea.svg',
     platforms: 'macOS · Windows · Linux',
     description: 'Keep a private Git service close to your code with a database, reverse proxy, and trusted local HTTPS.',
     services: ['Gitea', 'MySQL', 'Nginx', 'HTTPS'],

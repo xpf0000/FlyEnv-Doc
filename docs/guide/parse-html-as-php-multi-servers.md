@@ -1,5 +1,5 @@
 ---
-title: 'Parse HTML as PHP in Nginx, Apache & Caddy: Complete Guide'
+title: 'Parse HTML as PHP with Nginx, Apache and Caddy'
 head:
   - - meta
     - name: description

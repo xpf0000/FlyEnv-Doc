@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/temporal
+      content: https://flyenv.com/features/temporal
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/temporal
+      href: https://flyenv.com/features/temporal
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Temporal Development with FlyEnv
 
@@ -75,6 +79,8 @@ The Log tab provides four viewers so you can tell server and UI output apart:
 - **UI errors** — Web UI error stream, useful when the UI cannot reach the gRPC endpoint on 7233.
 
 ![Temporal log viewer with server and UI log selection](https://oss.macphpstudy.com/image/features/temporal-5.webp)
+
+<FeatureRelatedLinks slug="temporal" />
 
 ## Compatibility Notes
 

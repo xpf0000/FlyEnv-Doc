@@ -1,9 +1,9 @@
 ---
-title: Deploy Node.js/Python/Go Apps Without Docker (Ultimate Local Development Guide)
+title: 'Run Node.js, Python and Go Locally Without Docker'
 head:
   - - meta
     - name: description
-      content: Learn how to deploy Node.js, Python, and Go projects locally without Docker. FlyEnv offers native performance, 80% less RAM usage, and auto-switching runtime versions per project.
+      content: 'Run Node.js, Python, and Go projects locally without Docker, with native runtimes, project-level version switching, HTTPS, and reverse proxies.'
 ---
 
 # Deploy Node.js, Python & Go Projects Without Docker
@@ -187,7 +187,7 @@ Prefer watching? See Ditch Docker for Local Dev, Run Node, Python & Go as Native
 
 **Q: Does this use less RAM than Docker?**
 
-Yes, significantly. Docker Desktop typically consumes 2-4 GB of RAM just for the VM. FlyEnv runs native binaries with minimal overhead, often using 80% less memory.
+FlyEnv avoids the baseline virtual-machine overhead of Docker Desktop by running local binaries directly. Actual memory use depends on the runtimes, services, and container configuration being compared.
 
 **Q: Can I run multiple projects with different Node.js versions?**
 

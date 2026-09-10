@@ -1,3 +1,7 @@
+---
+description: 'Understand PATH and use FlyEnv to expose selected runtime and tool commands safely in terminal sessions on each platform.'
+---
+
 # Setting System PATH Environment Variable
 
 ## **What Exactly is the PATH Variable? Essential Knowledge for Developers!**

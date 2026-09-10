@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/dotnet
+      content: https://flyenv.com/features/dotnet
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/dotnet
+      href: https://flyenv.com/features/dotnet
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local .NET Development with FlyEnv
 
@@ -61,6 +65,8 @@ In **.NET → Projects**, register each project folder and bind it to its own .N
 - **Open in VS Code:** jump from a project row straight into VS Code with the project environment loaded.
 
 ![.NET Projects list with per-project SDK binding](https://oss.macphpstudy.com/image/features/dotnet-3.webp)
+
+<FeatureRelatedLinks slug="dotnet" />
 
 ## Compatibility Notes
 

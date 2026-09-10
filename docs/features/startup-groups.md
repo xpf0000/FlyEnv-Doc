@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/startup-groups
+      content: https://flyenv.com/features/startup-groups
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/startup-groups
+      href: https://flyenv.com/features/startup-groups
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Startup Groups in FlyEnv
 
@@ -63,6 +67,8 @@ Exactly one group can be the default group, and it becomes the target of FlyEnv'
 - **Tray control:** the system tray menu lists your groups, each with its own start/stop switch, so you can bring a whole stack down — or switch stacks — without opening the main window.
 
 ![Tray menu listing startup groups with start and stop actions](https://oss.macphpstudy.com/image/features/startup-groups-3.webp)
+
+<FeatureRelatedLinks slug="startup-groups" />
 
 ## Compatibility Notes
 

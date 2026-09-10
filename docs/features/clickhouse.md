@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/clickhouse
+      content: https://flyenv.com/features/clickhouse
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/clickhouse
+      href: https://flyenv.com/features/clickhouse
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local ClickHouse Development with FlyEnv
 
@@ -64,6 +68,8 @@ CH-UI is a web-based ClickHouse client, and FlyEnv sets it up for you.
 
 - **One-click setup:** the CH-UI button downloads the CH-UI binary from its GitHub releases and runs it on port 3488.
 - **Pre-configured connection:** FlyEnv adds a connection named "FlyEnv ClickHouse" pointing at the running instance, then opens CH-UI in your browser — no manual host or port entry needed.
+
+<FeatureRelatedLinks slug="clickhouse" />
 
 ## Compatibility Notes
 

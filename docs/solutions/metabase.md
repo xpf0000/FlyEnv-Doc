@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Metabase environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/metabase.html
+      content: https://flyenv.com/solutions/metabase
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/metabase.html
+      href: https://flyenv.com/solutions/metabase
 ---
 
 <script setup>

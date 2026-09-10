@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/zig
+      content: https://flyenv.com/features/zig
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/zig
+      href: https://flyenv.com/features/zig
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Zig Development with FlyEnv
 
@@ -59,6 +63,8 @@ In **Zig → Projects**, register each project folder and bind it to a specific 
 - **Run as service:** optionally run a project directly from FlyEnv with a custom start command, a TCP port exposed as a `http://127.0.0.1:<port>` link, and environment variables set inline or from a file. The sidebar switch starts or stops all service-enabled Zig projects at once.
 
 ![Zig Projects list with per-project Zig version binding](https://oss.macphpstudy.com/image/features/zig-3.webp)
+
+<FeatureRelatedLinks slug="zig" />
 
 ## Compatibility Notes
 

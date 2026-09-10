@@ -1,3 +1,7 @@
+---
+description: 'Compare PHP code obfuscation techniques, their maintenance tradeoffs, and practical ways to protect source code before distribution.'
+---
+
 # PHP Code Obfuscation
 
 PHP code obfuscation refers to the conversion of PHP code into an unintelligible form to protect the security and confidentiality of the code. The following are common PHP code obfuscation techniques:

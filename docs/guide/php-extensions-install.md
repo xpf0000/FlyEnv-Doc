@@ -1,3 +1,7 @@
+---
+description: 'Install and enable PHP extensions in FlyEnv on macOS, Linux, and Windows using PECL, package sources, or the extension library.'
+---
+
 # PHP Extensions Install
 
 ## macOS & Linux

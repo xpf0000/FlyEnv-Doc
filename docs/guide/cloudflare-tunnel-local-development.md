@@ -1,33 +1,31 @@
 ---
-title: 'Expose Localhost to Internet: Cloudflare Tunnel Alternative to ngrok'
+title: 'Cloudflare Tunnel for Local Development'
 head:
   - - meta
     - name: description
-      content: 'Free alternative to ngrok: Learn how to expose localhost to the internet using Cloudflare Tunnel in FlyEnv. Get permanent URLs, custom domains, and enhanced security for free with one-click setup.'
+      content: 'Expose a FlyEnv local service through Cloudflare Tunnel, configure public hostnames and custom domains, and review access logs.'
 ---
 
 # Expose Localhost to Internet: Cloudflare Tunnel Alternative to ngrok
 
 Need to share your local development site with a client? Testing webhooks that require a public URL? You've probably used ngrok—and paid their monthly fees for basic features like custom domains.
 
-**There's a free, better alternative.** Cloudflare Tunnel (formerly Argo Tunnel) offers:
-- ✅ Free custom domains
-- ✅ Permanent URLs (not random strings)
-- ✅ No bandwidth limits
+**Cloudflare Tunnel is another option.** Cloudflare Tunnel (formerly Argo Tunnel) offers:
+- ✅ Public hostnames on domains you manage in Cloudflare
+- ✅ Stable hostnames that can be reused after a tunnel restarts
+- ✅ Usage subject to your current Cloudflare plan and policies
 - ✅ **One-click setup in FlyEnv—no command line needed**
 
 ## Why Developers Are Switching from ngrok
 
 | Feature | ngrok Free | ngrok Pro ($8/mo) | **Cloudflare Tunnel** |
 |---------|------------|-------------------|----------------------|
-| Custom domains | ❌ | ✅ | ✅ FREE |
-| Permanent URLs | ❌ | ✅ | ✅ FREE |
-| HTTP/2 support | ✅ | ✅ | ✅ FREE |
-| Bandwidth limits | 1GB/month | Unlimited | Unlimited FREE |
-| Authentication | ❌ | ✅ | ✅ FREE |
+| Custom domains | ❌ | ✅ | ✅, subject to plan |
+| Stable hostnames | ❌ | ✅ | ✅, with managed DNS |
+| HTTP/2 support | ✅ | ✅ | ✅ |
+| Usage limits | Plan-dependent | Plan-dependent | Check current Cloudflare terms |
+| Authentication | ❌ | ✅ | Available through Cloudflare Access |
 | **Setup complexity** | Simple | Simple | **One-click in FlyEnv** |
-
-**Annual savings:** $96+ per developer
 
 ## FlyEnv One-Click Setup (Recommended)
 
@@ -113,7 +111,7 @@ For advanced users who prefer command-line control, here's the traditional setup
 
 ### Prerequisites
 
-1. A Cloudflare account (free tier works perfectly)
+1. A Cloudflare account with a plan that supports the features you need
 2. A domain added to Cloudflare
 3. Cloudflared installed (available in FlyEnv's Cloudflared module)
 
@@ -287,11 +285,11 @@ tunnel: tunnel-id-2
 
 **Q: Is Cloudflare Tunnel really free?**
 
-A: Yes. All features discussed—custom domains, unlimited bandwidth, authentication—are included in Cloudflare's free tier. FlyEnv's integration is also completely free.
+A: Cloudflare offers a free plan that can be sufficient for many development tunnels. Limits and included Access features can change, so check Cloudflare's current plan documentation before relying on a feature.
 
 **Q: Do I need a paid Cloudflare plan?**
 
-A: No. The free Cloudflare plan works perfectly with tunnels.
+A: Not necessarily. Many local preview workflows work on the free plan, but requirements depend on the hostname, Access policies, usage, and current Cloudflare terms.
 
 **Q: Can I use any domain?**
 
@@ -299,7 +297,7 @@ A: You need to control the domain's DNS (add it to Cloudflare). Free domains wor
 
 **Q: How secure is this?**
 
-A: Very. The tunnel is outbound-only from your machine. Cloudflare's infrastructure handles DDoS protection, WAF, and SSL. Your local machine is never directly exposed.
+A: The connector initiates an outbound connection, so you do not need to open an inbound router port. The public hostname is still internet-accessible unless you add suitable Cloudflare Access policies, application authentication, and origin controls.
 
 **Q: Will this slow down my local development?**
 
@@ -307,7 +305,7 @@ A: Minimal impact. The tunnel adds ~50-100ms latency—acceptable for previews a
 
 **Q: What about WebSockets?**
 
-A: Fully supported through Cloudflare Tunnel. Real-time apps work perfectly.
+A: Cloudflare Tunnel supports WebSockets, but application behavior still depends on your origin, proxy settings, and Cloudflare plan.
 
 **Q: Can I use the same tunnel on multiple machines?**
 
@@ -327,7 +325,7 @@ A: Yes. The tunnel runs through FlyEnv's Cloudflare Tunnel module. Closing FlyEn
 
 ## Ready to Ditch ngrok?
 
-Stop paying for basic tunneling features. Cloudflare Tunnel integrated with FlyEnv gives you enterprise-grade networking with one-click simplicity.
+Cloudflare Tunnel integrated with FlyEnv provides a convenient UI for configuring public hostnames for local development.
 
 [Download FlyEnv](/download) to get started with built-in Cloudflare Tunnel support.
 

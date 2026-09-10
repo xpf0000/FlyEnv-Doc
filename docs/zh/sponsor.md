@@ -1,5 +1,6 @@
 ---
 title: 'FlyEnv 许可证'
+description: '此 FlyEnv 旧赞助地址会跳转到当前的许可证与支持页面。'
 layout: home
 
 head:

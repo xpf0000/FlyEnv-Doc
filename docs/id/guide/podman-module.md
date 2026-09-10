@@ -1,9 +1,9 @@
 ---
-title: 'Manajemen Kontainer Podman di FlyEnv: Alternatif Docker Tanpa Root'
+title: 'Kelola Kontainer Podman di FlyEnv'
 head:
   - - meta
     - name: description
-      content: Kelola Podman, image, container, dan proyek Compose dari FlyEnv. Gunakan kontainer saat diperlukan tanpa menjadikan seluruh lingkungan lokal bergantung pada Docker Desktop.
+      content: 'Kelola mesin Podman, image, container, dan proyek Compose di FlyEnv tanpa menjadikan seluruh lingkungan lokal bergantung pada container.'
 ---
 
 # Manajemen Kontainer Podman di FlyEnv: Alternatif Docker Tanpa Root

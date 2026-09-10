@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/cloudflared
+      content: https://flyenv.com/features/cloudflared
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/cloudflared
+      href: https://flyenv.com/features/cloudflared
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Cloudflared in FlyEnv
 
@@ -41,6 +45,8 @@ Install cloudflared versions side by side from **Cloudflared → Version Manager
 - **Homebrew:** on macOS and Linux, install cloudflared from Homebrew alongside the static builds.
 - **Custom directories:** point FlyEnv at any folder containing your own cloudflared build and it appears in the installed list next to the managed versions.
 
+![Cloudflared version management](https://oss.macphpstudy.com/image/features/cloudflared-2.webp)
+
 ## Command-line version switching
 
 The **Service** tab does not run a background service — cloudflared here is just a binary, so there is no daemon for FlyEnv to manage. The tab is an installed-versions table whose job is PATH control.
@@ -49,7 +55,7 @@ The **Service** tab does not run a background service — cloudflared here is ju
 - **Per-version alias:** give near-identical builds a short alias so they stay easy to tell apart in the list.
 - **Housekeeping:** each row exposes the version's install path and offers a delete action for versions you no longer need.
 
-![Cloudflared installed versions list with PATH registration](https://oss.macphpstudy.com/image/features/cloudflared-2.webp)
+<FeatureRelatedLinks slug="cloudflared" />
 
 ## Compatibility Notes
 

@@ -9,7 +9,7 @@ head:
       content: Gin local development, Go, API, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/gin.html
+      href: https://flyenv.com/solutions/gin
 ---
 
 <script setup>

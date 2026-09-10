@@ -9,7 +9,7 @@ head:
       content: Ruby on Rails local development, Ruby, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/ruby-on-rails.html
+      href: https://flyenv.com/solutions/ruby-on-rails
 ---
 
 <script setup>

@@ -3,7 +3,7 @@ title: 'Local Email Testing Without Mailhog: Mailpit Setup Guide'
 head:
   - - meta
     - name: description
-      content: 'Replace Mailhog with Mailpit for local email testing. Learn how to capture, preview, and test emails in development without sending real messages or using external services.'
+      content: 'Use Mailpit in FlyEnv to capture, preview, and test application email locally without sending messages to real recipients.'
 ---
 
 # Local Email Testing Without Mailhog: Mailpit Setup Guide

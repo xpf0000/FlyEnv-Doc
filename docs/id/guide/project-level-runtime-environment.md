@@ -3,7 +3,7 @@ title: Isolasi Versi per Proyek Tanpa Docker - Panduan FlyEnv
 head:
   - - meta
     - name: description
-      content: Hentikan pergantian versi Node.js dan PHP secara manual. Pelajari cara FlyEnv mengganti runtime otomatis ketika Anda masuk ke direktori proyek, tanpa Docker dan dengan penggunaan RAM lebih rendah.
+      content: 'Tautkan versi Node.js, PHP, Python, dan runtime lain ke setiap proyek agar terminal serta sesi shell FlyEnv beralih lingkungan secara otomatis.'
 ---
 
 # Isolasi Versi per Proyek Tanpa Docker

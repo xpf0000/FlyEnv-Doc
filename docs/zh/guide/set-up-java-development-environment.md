@@ -1,3 +1,7 @@
+---
+description: '使用 FlyEnv 安装和管理 JDK、Maven 与 Tomcat，并为 Java 开发配置 JAVA_HOME 和 PATH。'
+---
+
 # 使用FlyEnv搭建Java开发环境
 
 FlyEnv已经支持搭建Java开发环境。使用FlyEnv，您可以快速下载并安装Java、Maven和Tomcat。支持openjdk8到最新版本的JDK。支持Maven从2.x到最新版本。支持Tomcat8到最新版本的Tomcat。

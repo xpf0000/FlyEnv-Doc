@@ -1,5 +1,5 @@
 ---
-title: 'Deploy PHP Projects Without Docker in FlyEnv: PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI and Workerman'
+title: 'Run PHP Projects Without Docker in FlyEnv'
 head:
   - - meta
     - name: description

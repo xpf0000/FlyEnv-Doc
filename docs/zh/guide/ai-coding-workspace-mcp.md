@@ -229,10 +229,10 @@ A：可以。FlyEnv 提供工具级开关、高风险操作审批模式，以及
 
 如果你想把本地运行时、服务、AI 编程 CLI 和 MCP 放进同一套工作流，可以先安装 FlyEnv，启动 MCP Server，再把你常用的 AI 客户端接进来。
 
-[下载 FlyEnv](/download)，开始搭建本地 AI 编程工作区。
+[下载 FlyEnv](/zh/download)，开始搭建本地 AI 编程工作区。
 
 ## 相关阅读
 
-- 想看更偏生产力方法论的文章： [AI 编程助手效率翻倍工作流](/zh/guide/flyenv-work-with-ai)
+- 想看更偏生产力方法论的文章： [AI 编程助手稳定工作流](/zh/guide/flyenv-work-with-ai)
 - 想跑本地 LLM： [本地离线 AI 智能体](/zh/guide/build-local-offline-ai-agent)
 - 想叠加自动化： [使用 n8n 构建本地 AI 工作流](/zh/guide/build-local-ai-workflow-by-n8n)

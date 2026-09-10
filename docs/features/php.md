@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/php
+      content: https://flyenv.com/features/php
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/php
+      href: https://flyenv.com/features/php
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local PHP Development with FlyEnv
 
@@ -131,6 +135,8 @@ For application-server style PHP, FlyEnv has dedicated modules that complement t
 - **Swoole CLI** — Native Swoole, Hyperf, EasySwoole, Laravel Octane and custom script presets.
 
 The [PHP deployment guide](/guide/deploy-php-projects-without-docker) explains how to choose between them. For browser-facing sites, continue with [Local Sites, Custom Domains & HTTPS](/features/local-sites-https); framework-specific stacks are covered in the [Laravel](/solutions/laravel) and [WordPress](/solutions/wordpress) solutions.
+
+<FeatureRelatedLinks slug="php" />
 
 ## Compatibility Notes
 

@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Django environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/django.html
+      content: https://flyenv.com/solutions/django
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/django.html
+      href: https://flyenv.com/solutions/django
 ---
 
 <script setup>

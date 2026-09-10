@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/r-nacos
+      content: https://flyenv.com/features/r-nacos
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/r-nacos
+      href: https://flyenv.com/features/r-nacos
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # R-NACOS in FlyEnv
 
@@ -52,15 +56,19 @@ FlyEnv launches the real binary as `rnacos -e rnacos.env`: it parses the env fil
 - **Raw editor:** the **Config File** tab edits `rnacos.env` directly in `.env` style, keeps the template as a restore reference, and links out to the official R-Nacos environment-variable documentation.
 - **Never overwrites your edits:** FlyEnv only generates the env file when it is missing; once you have customized it, your version stays untouched.
 
+![R-Nacos configuration](https://oss.macphpstudy.com/image/features/r-nacos-3.webp)
+
 ## Console (10848)
 
 R-Nacos ships its own built-in web console, and FlyEnv wires it into the Service tab. While the service is running, the console button opens `http://127.0.0.1:10848/rnacos/` in your browser — sign in with the account from `rnacos.env` (`admin/admin` by default) to register instances, watch service health, and publish or edit configuration entries.
 
-![R-Nacos console opened in the browser from FlyEnv](https://oss.macphpstudy.com/image/features/r-nacos-3.webp)
+![R-Nacos console opened in the browser from FlyEnv](https://oss.macphpstudy.com/image/features/r-nacos-4.webp)
 
 ## Logs
 
 The **Log** tab switches between the per-version start-up streams — `rnacos-<version>-start-out.log` and `rnacos-<version>-start-error.log`. When a version fails to start or a client cannot connect on 8848, the error log is the first place to look.
+
+<FeatureRelatedLinks slug="r-nacos" />
 
 ## Compatibility Notes
 

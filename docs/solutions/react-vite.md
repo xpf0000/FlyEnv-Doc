@@ -9,7 +9,7 @@ head:
       content: React Vite local development, Node.js, JavaScript, TypeScript, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/react-vite.html
+      href: https://flyenv.com/solutions/react-vite
 ---
 
 <script setup>

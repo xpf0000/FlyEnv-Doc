@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Spring Boot environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/spring-boot.html
+      content: https://flyenv.com/solutions/spring-boot
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/spring-boot.html
+      href: https://flyenv.com/solutions/spring-boot
 ---
 
 <script setup>

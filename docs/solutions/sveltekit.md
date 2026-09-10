@@ -9,7 +9,7 @@ head:
       content: SvelteKit local development, Node.js, Svelte, PostgreSQL, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/sveltekit.html
+      href: https://flyenv.com/solutions/sveltekit
 ---
 
 <script setup>

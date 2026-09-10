@@ -1,5 +1,5 @@
 ---
-title: 'Custom Domains & Auto SSL for Local Development: Complete Guide'
+title: 'Custom Domains and Automatic HTTPS with FlyEnv'
 head:
   - - meta
     - name: description

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/zincsearch
+      content: https://flyenv.com/features/zincsearch
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/zincsearch
+      href: https://flyenv.com/features/zincsearch
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # ZincSearch in FlyEnv
 
@@ -59,6 +63,8 @@ ZincSearch ships with its own web UI, and FlyEnv surfaces it directly: while the
 ## Logs
 
 ZincSearch has two separate log tabs — **Log** and **Error Log**. They open the per-version startup logs `zincsearch-<version>-start-out.log` and `zincsearch-<version>-start-error.log` inside FlyEnv, so standard output and startup errors are easy to tell apart when a version fails to come up.
+
+<FeatureRelatedLinks slug="zincsearch" />
 
 ## Compatibility Notes
 

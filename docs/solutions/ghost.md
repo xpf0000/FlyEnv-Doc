@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Ghost environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/ghost.html
+      content: https://flyenv.com/solutions/ghost
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/ghost.html
+      href: https://flyenv.com/solutions/ghost
 ---
 
 <script setup>

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/user-modules
+      content: https://flyenv.com/features/user-modules
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/user-modules
+      href: https://flyenv.com/features/user-modules
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Custom Modules in FlyEnv
 
@@ -71,6 +75,8 @@ The module page is built dynamically from what you declared: a **Service** tab w
 - **Built-in output capture:** for every started item, FlyEnv automatically records its standard output and standard error to `<BaseDir>/module-customer/<id>.out.log` and `.error.log`, so there is always a log to inspect even if you declare none yourself.
 
 ![Config and log tabs on a custom module page](https://oss.macphpstudy.com/image/features/user-modules-4.webp)
+
+<FeatureRelatedLinks slug="user-modules" />
 
 ## Compatibility Notes
 

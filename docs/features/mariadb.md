@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/mariadb
+      content: https://flyenv.com/features/mariadb
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/mariadb
+      href: https://flyenv.com/features/mariadb
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local MariaDB Development with FlyEnv
 
@@ -73,6 +77,8 @@ For day-to-day work there is no need to leave the app: the per-version **Manage*
 - **Add database:** create a new database from the database list.
 - **Root password:** change the root password for the instance — the default root password on fresh installs is `root`. The [database user and password guide](/guide/database-user-password) covers this in more detail.
 - **Backups:** dump any database with `mariadb-dump` into a backup directory you choose, straight from the drawer.
+
+<FeatureRelatedLinks slug="mariadb" />
 
 ## Compatibility Notes
 

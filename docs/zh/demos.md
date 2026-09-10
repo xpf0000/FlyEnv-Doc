@@ -16,7 +16,7 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://flyenv.com/zh/demos.html
+      content: https://flyenv.com/zh/demos
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
@@ -34,27 +34,27 @@ head:
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://flyenv.com/zh/demos.html
+      href: https://flyenv.com/zh/demos
   - - link
     - rel: alternate
       hreflang: en
-      href: https://flyenv.com/demos.html
+      href: https://flyenv.com/demos
   - - link
     - rel: alternate
       hreflang: zh-CN
-      href: https://flyenv.com/zh/demos.html
+      href: https://flyenv.com/zh/demos
   - - link
     - rel: alternate
       hreflang: id-ID
-      href: https://flyenv.com/id/demos.html
+      href: https://flyenv.com/id/demos
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://flyenv.com/demos.html
+      href: https://flyenv.com/demos
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv 演示","inLanguage":"zh-CN","description":"按任务浏览 FlyEnv 本地开发演示。","url":"https://flyenv.com/zh/demos.html"}
+      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv 演示","inLanguage":"zh-CN","description":"按任务浏览 FlyEnv 本地开发演示。","url":"https://flyenv.com/zh/demos"}
 ---
 
 <script setup>

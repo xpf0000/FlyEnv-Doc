@@ -1,9 +1,9 @@
 ---
-title: 'Menjalankan Laravel Secara Lokal: Panduan Lengkap dengan FlyEnv'
+title: 'Jalankan Laravel Lokal dengan FlyEnv'
 head:
   - - meta
     - name: description
-      content: Siapkan lingkungan Laravel dalam beberapa menit dengan FlyEnv. Pemasangan Laravel sekali klik, URL rewrite otomatis, SSL, dan konfigurasi basis data untuk macOS, Windows, serta Linux.
+      content: 'Siapkan Laravel lokal dengan FlyEnv memakai PHP, database, aturan URL rewrite, dan HTTPS pada macOS, Windows, atau Linux.'
 ---
 
 # Menjalankan Laravel Secara Lokal: Panduan Lengkap dengan FlyEnv

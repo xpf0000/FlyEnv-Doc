@@ -292,7 +292,7 @@
           <div
             class="grid h-16 w-16 place-items-center rounded-[10px] border border-white/70 bg-white text-4xl text-[#1769f9] md:h-[78px] md:w-[78px]"
           >
-            <img src="/assets/rocket.svg" alt="" class="h-9 w-9 md:h-10 md:w-10" />
+            <img src="https://oss.macphpstudy.com/image/assets/rocket.svg" alt="" class="h-9 w-9 md:h-10 md:w-10" />
           </div>
           <div>
             <h2
@@ -399,21 +399,21 @@
   const searchQuery = ref('')
 
   const heroProjects = [
-    { name: 'WordPress', logo: '/assets/demo-logos/wordpress.svg' },
-    { name: 'Laravel', logo: '/assets/demo-logos/laravel.svg' },
-    { name: 'Django', logo: '/assets/demo-logos/django.svg' },
-    { name: 'ERPNext', logo: '/assets/demo-logos/erpnext.svg' },
-    { name: 'Gitea', logo: '/assets/demo-logos/gitea.svg' }
+    { name: 'WordPress', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/wordpress.svg' },
+    { name: 'Laravel', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/laravel.svg' },
+    { name: 'Django', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/django.svg' },
+    { name: 'ERPNext', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/erpnext.svg' },
+    { name: 'Gitea', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/gitea.svg' }
   ]
 
   const heroServices = [
-    { name: 'PHP', logo: '/assets/demo-logos/php.svg' },
-    { name: 'Python', logo: '/assets/demo-logos/python.svg' },
-    { name: 'Node.js', logo: '/assets/demo-logos/nodedotjs.svg' },
-    { name: 'MySQL', logo: '/assets/demo-logos/mysql.svg' },
-    { name: 'PostgreSQL', logo: '/assets/demo-logos/postgresql.svg' },
-    { name: 'Redis', logo: '/assets/demo-logos/redis.svg' },
-    { name: 'Nginx', logo: '/assets/demo-logos/nginx.svg' }
+    { name: 'PHP', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/php.svg' },
+    { name: 'Python', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/python.svg' },
+    { name: 'Node.js', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/nodedotjs.svg' },
+    { name: 'MySQL', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/mysql.svg' },
+    { name: 'PostgreSQL', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/postgresql.svg' },
+    { name: 'Redis', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/redis.svg' },
+    { name: 'Nginx', logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/nginx.svg' }
   ]
 
   const helpStepsByLocale = {

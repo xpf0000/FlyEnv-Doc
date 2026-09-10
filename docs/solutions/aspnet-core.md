@@ -9,7 +9,7 @@ head:
       content: ASP.NET Core local development, .NET, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/aspnet-core.html
+      href: https://flyenv.com/solutions/aspnet-core
 ---
 
 <script setup>

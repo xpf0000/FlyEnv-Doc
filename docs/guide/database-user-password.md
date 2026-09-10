@@ -1,9 +1,9 @@
 ---
-title: 'Database User Management & Password Configuration in FlyEnv'
+title: 'Manage Database Users and Passwords in FlyEnv'
 head:
   - - meta
     - name: description
-      content: 'Manage MySQL, MariaDB, PostgreSQL, and MongoDB users and passwords in FlyEnv. Built-in database management interface for creating databases, resetting passwords, and managing users with one-click operations.'
+      content: 'Manage users and passwords for MySQL, MariaDB, PostgreSQL, and MongoDB in FlyEnv, including database creation and password resets.'
 ---
 
 # Database User Management & Password Configuration in FlyEnv

@@ -1,9 +1,9 @@
 ---
-title: 'How to Manage Multiple Node.js & PHP Versions Without NVM or PHP Monitor'
+title: 'Manage Node.js and PHP Versions per Project'
 head:
   - - meta
     - name: description
-      content: 'Stop struggling with NVM and PHP version managers. Learn how FlyEnv handles multiple Node.js and PHP versions with automatic per-project switching—no command line required.'
+      content: 'Install multiple Node.js and PHP versions in FlyEnv and switch them automatically for each project through shell integration.'
 ---
 
 <script setup>
@@ -244,7 +244,7 @@ A: FlyEnv uses your system's default versions or a global default you configure.
 
 A: Yes. Project configuration in FlyEnv doesn't interfere with teammates using other tools.
 
-<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="flyenv-on-linux-actually-fixed-my-php-version-headache" guide-path="/guide/manage-multiple-node-php-versions.html" />
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="flyenv-on-linux-actually-fixed-my-php-version-headache" guide-path="/guide/manage-multiple-node-php-versions" />
 
 ## Ready to Stop Managing Versions Manually?
 

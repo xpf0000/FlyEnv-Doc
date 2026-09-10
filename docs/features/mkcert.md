@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/mkcert
+      content: https://flyenv.com/features/mkcert
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/mkcert
+      href: https://flyenv.com/features/mkcert
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local HTTPS Certificates with FlyEnv
 
@@ -60,6 +64,8 @@ The Certificates tab lists the sites you have created in FlyEnv, each with its c
 - **SSL enabled for you:** if the site did not have HTTPS turned on, FlyEnv enables it with the freshly generated certificate once generation finishes — no manual wiring into [your site's settings](/guide/host). The certificate files are referenced directly by the site's vhosts in [Nginx](/features/nginx), [Apache](/features/apache) and [Caddy](/features/caddy).
 
 ![Generating an HTTPS certificate for a FlyEnv site](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
+
+<FeatureRelatedLinks slug="mkcert" />
 
 ## Compatibility Notes
 

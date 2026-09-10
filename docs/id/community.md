@@ -17,7 +17,7 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://flyenv.com/id/community.html
+      content: https://flyenv.com/id/community
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
@@ -35,27 +35,27 @@ head:
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://flyenv.com/id/community.html
+      href: https://flyenv.com/id/community
   - - link
     - rel: alternate
       hreflang: en
-      href: https://flyenv.com/community.html
+      href: https://flyenv.com/community
   - - link
     - rel: alternate
       hreflang: zh-CN
-      href: https://flyenv.com/zh/community.html
+      href: https://flyenv.com/zh/community
   - - link
     - rel: alternate
       hreflang: id-ID
-      href: https://flyenv.com/id/community.html
+      href: https://flyenv.com/id/community
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://flyenv.com/community.html
+      href: https://flyenv.com/community
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"Cerita Komunitas FlyEnv","inLanguage":"id-ID","description":"Tutorial, ulasan, dan cerita komunitas FlyEnv dari pengembang di seluruh dunia.","url":"https://flyenv.com/id/community.html"}
+      {"@context":"https://schema.org","@type":"CollectionPage","name":"Cerita Komunitas FlyEnv","inLanguage":"id-ID","description":"Tutorial, ulasan, dan cerita komunitas FlyEnv dari pengembang di seluruh dunia.","url":"https://flyenv.com/id/community"}
 ---
 
 <script setup>

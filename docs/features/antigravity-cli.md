@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/antigravity-cli
+      content: https://flyenv.com/features/antigravity-cli
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/antigravity-cli
+      href: https://flyenv.com/features/antigravity-cli
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Antigravity CLI in FlyEnv
 
@@ -68,11 +72,15 @@ The **Skills** tab browses the skill folders on disk directly — unlike the [Gi
 - **Markdown preview drawer:** opening a skill renders its Markdown in a drawer with code, preview and split views, so you can read a skill's instructions formatted before deciding to use or edit it.
 - **Open the skills directory:** one button jumps to the skills folder in your file manager when you want to add or edit files directly.
 
-![Skill Markdown preview drawer](https://oss.macphpstudy.com/image/features/antigravity-cli-4.webp)
+![Skill](https://oss.macphpstudy.com/image/features/antigravity-cli-4.webp)
 
 ## MCP servers
 
 The **MCP** tab manages the Model Context Protocol servers that Antigravity CLI connects to, read from and written to `~/.gemini/config/mcp_config.json` — the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) explains the role MCP servers play in an AI coding workspace. List the servers currently configured, add a new one, or remove entries you no longer need — no manual JSON editing required. FlyEnv's own [MCP Server](/features/mcp-server) can register itself into this list with one click from its Client Config tab.
+
+![MCP servers](https://oss.macphpstudy.com/image/features/antigravity-cli-5.webp)
+
+<FeatureRelatedLinks slug="antigravity-cli" />
 
 ## Compatibility Notes
 

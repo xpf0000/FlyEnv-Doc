@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/rust
+      content: https://flyenv.com/features/rust
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/rust
+      href: https://flyenv.com/features/rust
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Rust Development with FlyEnv
 
@@ -64,6 +68,8 @@ In **Rust → Projects**, register each project folder and bind it to a specific
 - **Open-in tools:** jump from a project row into the system terminal or open the project in RustRover with its environment loaded.
 
 ![Rust Projects list with per-project toolchain binding](https://oss.macphpstudy.com/image/features/rust-3.webp)
+
+<FeatureRelatedLinks slug="rust" />
 
 ## Compatibility Notes
 

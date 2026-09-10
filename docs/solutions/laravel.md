@@ -15,10 +15,10 @@ head:
       content: 'Manage a local Laravel environment with FlyEnv on Windows, macOS, and Linux.'
   - - meta
     - property: og:url
-      content: https://flyenv.com/solutions/laravel.html
+      content: https://flyenv.com/solutions/laravel
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/laravel.html
+      href: https://flyenv.com/solutions/laravel
 ---
 
 <script setup>

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/github-copilot-cli
+      content: https://flyenv.com/features/github-copilot-cli
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/github-copilot-cli
+      href: https://flyenv.com/features/github-copilot-cli
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # GitHub Copilot CLI in FlyEnv
 
@@ -42,8 +46,6 @@ The **GitHub Copilot CLI → Service** tab detects an existing `copilot` binary 
 - **Existing installs recognized:** FlyEnv scans `PATH` plus common global install locations — npm, yarn, pnpm, bun and volta global bin directories among them — so a Copilot CLI you installed yourself is picked up without reinstalling.
 - **Command cheat-sheet:** copyable shortcuts for everyday commands such as `copilot login`, `copilot init`, `copilot skill list` and `copilot mcp list` sit right on the Service card.
 
-![Installing GitHub Copilot CLI with npm in FlyEnv's embedded terminal](https://oss.macphpstudy.com/image/features/github-copilot-cli-2.webp)
-
 ## Configuration
 
 The **Config File** tab edits Copilot CLI's configuration as raw JSON — there is no visual settings form for this module.
@@ -51,6 +53,8 @@ The **Config File** tab edits Copilot CLI's configuration as raw JSON — there 
 - **Two files:** `~/.copilot/config.json` for the main configuration and `~/.copilot/mcp-config.json` for MCP server definitions, both opened in the full editor.
 - **Custom home respected:** if you relocate the Copilot home with the `COPILOT_CONFIG_DIR` environment variable, FlyEnv follows it and edits the files at their real location.
 - **Nothing is rewritten for you:** FlyEnv opens the files as they are on disk; Copilot CLI itself owns their schema and defaults.
+
+![Configuration](https://oss.macphpstudy.com/image/features/github-copilot-cli-2.webp)
 
 ## Sessions
 
@@ -79,6 +83,8 @@ The **MCP** tab manages the MCP servers Copilot CLI connects to, backed by the `
 - **Verify in the terminal:** the `copilot mcp list` quick command on the Service card is the fastest way to confirm what the CLI actually loaded.
 
 ![MCP servers tab listing registered servers with add and remove actions](https://oss.macphpstudy.com/image/features/github-copilot-cli-5.webp)
+
+<FeatureRelatedLinks slug="github-copilot-cli" />
 
 ## Compatibility Notes
 

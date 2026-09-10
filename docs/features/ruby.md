@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/ruby
+      content: https://flyenv.com/features/ruby
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/ruby
+      href: https://flyenv.com/features/ruby
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Ruby Development with FlyEnv
 
@@ -61,6 +65,8 @@ In **Ruby → Projects**, register each project folder and bind it to a specific
 - **Open-in tools:** jump from a project row into the system terminal or open the project in RubyMine with its environment loaded.
 
 ![Ruby Projects list with per-project Ruby version binding](https://oss.macphpstudy.com/image/features/ruby-3.webp)
+
+<FeatureRelatedLinks slug="ruby" />
 
 ## Compatibility Notes
 

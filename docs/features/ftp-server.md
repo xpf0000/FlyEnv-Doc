@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/ftp-server
+      content: https://flyenv.com/features/ftp-server
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/ftp-server
+      href: https://flyenv.com/features/ftp-server
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # FTP Server in FlyEnv
 
@@ -41,7 +45,7 @@ Both modules appear in the FlyEnv sidebar as services you can start, stop and pi
 - **ftp-srv (all platforms):** the cross-platform option, including Windows. The server is the bundled `ftp-srv` npm library running on the app's own [Node.js](/features/nodejs) runtime inside FlyEnv itself, so there is nothing to install and no Version Manager — the page has a Service tab only.
 - **Same account workflow:** whichever implementation you use, the Service tab shows the same username / password / root directory table, so switching between them does not change how you work.
 
-![Pure-FTPd Service tab with the FTP account table](https://oss.macphpstudy.com/image/features/ftp-server-2.webp)
+![Pure-FTPd Service tab with the FTP account table](https://oss.macphpstudy.com/image/features/ftp-server-1.webp)
 
 ## Account Management
 
@@ -52,7 +56,7 @@ Every FTP account is a row in the Service tab table, with Add and Edit dialogs f
 - **JSON-backed accounts under ftp-srv:** credentials are stored in `ftp-srv.json` inside the FlyEnv data directory and validated by the server's login handler. On Windows, legacy entries from `pureftpd.json` are migrated automatically.
 - **Copyable address while running:** the running header shows an `ftp://<ip>:<port>` link you can copy, with an IP selector for choosing which local address to hand to a client.
 
-![Adding an FTP account with username, password and root directory](https://oss.macphpstudy.com/image/features/ftp-server-3.webp)
+![Adding an FTP account with username, password and root directory](https://oss.macphpstudy.com/image/features/ftp-server-2.webp)
 
 ## Configuration
 
@@ -62,7 +66,9 @@ Pure-FTPd runs from a `pure-ftpd.conf` file that FlyEnv generates from its templ
 - **Port from the config:** the listening port is parsed from the `Bind …,port` directive and defaults to port 21. The template also pre-sets a passive port range of 39000–40000.
 - **ftp-srv has no server settings file to edit:** the bundled server listens on fixed port 21 with passive ports 49152–65535, and picks its PASV address dynamically — 127.0.0.1 for loopback clients, otherwise the primary LAN IP. The only JSON it keeps is `ftp-srv.json`, the account store the Service tab table manages for you, not a configuration file you edit by hand.
 
-![Editing pure-ftpd.conf in the Config File tab](https://oss.macphpstudy.com/image/features/ftp-server-4.webp)
+![Editing pure-ftpd.conf in the Config File tab](https://oss.macphpstudy.com/image/features/ftp-server-3.webp)
+
+<FeatureRelatedLinks slug="ftp-server" />
 
 ## Compatibility Notes
 

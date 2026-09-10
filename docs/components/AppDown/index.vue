@@ -68,7 +68,7 @@
                 class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-200"
                 ><img
                   v-if="group.icon === 'linux'"
-                  src="/icons/linux.svg"
+                  src="https://oss.macphpstudy.com/image/assets/icons/linux.svg"
                   alt=""
                   aria-hidden="true"
                   class="h-6 w-6" /><svg
@@ -106,7 +106,7 @@
                     class="rounded-lg bg-slate-100 p-2 text-slate-500 dark:bg-slate-800 dark:text-slate-300"
                     ><img
                       v-if="item.icon === 'linux'"
-                      src="/icons/linux.svg"
+                      src="https://oss.macphpstudy.com/image/assets/icons/linux.svg"
                       alt=""
                       aria-hidden="true"
                       class="h-5 w-5" /><svg
@@ -237,7 +237,7 @@
   import { CircleCheckFilled, Cpu, Download, InfoFilled, Link } from '@element-plus/icons-vue'
 
   const { lang } = useData()
-  const version = 'v4.18.1'
+  const version = 'v4.18.2'
 
   const locale = computed(() =>
     lang.value === 'zh-CN' ? 'zh' : lang.value === 'id-ID' ? 'id' : 'en'
@@ -425,19 +425,19 @@
   const copy = computed(() => copyByLocale[locale.value])
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-Setup-4.18.1.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-Setup-4.18.2.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-Portable-4.18.1.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-4.18.1.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-4.18.1-arm64.dmg',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-Portable-4.18.2.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-arm64.dmg',
     linuxDebX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-4.18.1-x64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-x64.deb',
     linuxDebArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-4.18.1-arm64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-arm64.deb',
     linuxRpmX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-4.18.1-x64.rpm',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-x64.rpm',
     linuxRpmArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.1/FlyEnv-4.18.1-arm64.rpm'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-arm64.rpm'
   }
   const osIconPaths = {
     windows:

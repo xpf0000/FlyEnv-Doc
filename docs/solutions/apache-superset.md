@@ -9,7 +9,7 @@ head:
       content: Apache Superset local development, Python, business intelligence, PostgreSQL, Redis, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/apache-superset.html
+      href: https://flyenv.com/solutions/apache-superset
 ---
 
 <script setup>

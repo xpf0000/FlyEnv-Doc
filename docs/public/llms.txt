@@ -1,0 +1,55 @@
+# FlyEnv Documentation
+
+> Official documentation for FlyEnv, a desktop workspace for managing local runtimes, services, HTTPS sites, databases, developer tools, and AI-assisted workflows on macOS, Windows, and Linux.
+
+FlyEnv installs and manages native development services through one interface. Use these pages to understand the product, choose a workflow, and find the current setup instructions for a module.
+
+## Start here
+
+- [What is FlyEnv?](https://flyenv.com/guide/what-is-flyenv): Product scope, supported platforms, and the main local-development workflow.
+- [Getting started](https://flyenv.com/guide/getting-started): Install FlyEnv and create a first local development environment.
+- [Download](https://flyenv.com/download): Official downloads for macOS, Windows, and Linux.
+- [Features](https://flyenv.com/features): Index of runtimes, web servers, databases, infrastructure services, and developer tools.
+- [Solutions](https://flyenv.com/solutions): Task-oriented stacks and application workflows.
+
+## Core capabilities
+
+- [Local sites and HTTPS](https://flyenv.com/features/local-sites-https): Configure local domains, virtual hosts, and trusted development certificates.
+- [Per-project runtimes](https://flyenv.com/features/per-project-runtimes): Assign runtime versions and services by project.
+- [PHP](https://flyenv.com/features/php): Install, switch, configure, and run PHP versions.
+- [Node.js](https://flyenv.com/features/nodejs): Manage Node.js versions and project tooling.
+- [Databases](https://flyenv.com/guide/database-user-password): Work with local database services and credentials.
+- [MCP Server](https://flyenv.com/features/mcp-server): Let compatible AI clients inspect and operate selected FlyEnv capabilities.
+- [CLI and terminal](https://flyenv.com/features/cli-terminal): Use FlyEnv-managed commands and terminal environments.
+
+## Common workflows
+
+- [Manage multiple Node.js and PHP versions](https://flyenv.com/guide/manage-multiple-node-php-versions): Keep projects on different runtime versions.
+- [Project-level runtime environments](https://flyenv.com/guide/project-level-runtime-environment): Isolate runtime and service choices per project.
+- [Local email testing with Mailpit](https://flyenv.com/guide/local-email-testing-mailpit): Capture application email during development.
+- [PHP debugging with Xdebug](https://flyenv.com/guide/php-debug-with-xdebug): Configure local step debugging.
+- [Run Laravel with FlyEnv](https://flyenv.com/guide/run-laravel-use-flyenv): Set up a Laravel project and its local services.
+- [Cloudflare Tunnel](https://flyenv.com/guide/cloudflare-tunnel-local-development): Publish a local service through a managed public hostname for development use.
+- [AI coding workspace](https://flyenv.com/guide/ai-coding-workspace-mcp): Connect supported AI coding tools to the FlyEnv MCP Server.
+
+## Solutions and comparisons
+
+- [Solution index](https://flyenv.com/solutions): Browse application stacks and supported workflows.
+- [Comparison index](https://flyenv.com/compare/): Compare FlyEnv with XAMPP, Laragon, MAMP, Laravel Herd, ServBay, and Docker.
+- [FlyEnv vs Docker](https://flyenv.com/compare/docker): Compare native local services with container-based development.
+- [FlyEnv vs XAMPP](https://flyenv.com/compare/xampp): Compare runtime, service, HTTPS, and project-isolation workflows.
+
+## Languages
+
+- [English documentation](https://flyenv.com/): Default documentation locale.
+- [中文文档](https://flyenv.com/zh/): Chinese documentation.
+- [Dokumentasi Bahasa Indonesia](https://flyenv.com/id/): Indonesian documentation.
+
+## Project resources
+
+- [GitHub repository](https://github.com/xpf0000/FlyEnv): Source code, releases, and issue tracker.
+- [Sitemap](https://flyenv.com/sitemap.xml): Complete canonical URL inventory for the public documentation.
+- [Community](https://flyenv.com/community): Tutorials, reviews, and community resources.
+- [License and support](https://flyenv.com/license): Current licensing and support information.
+
+Use the linked documentation page as the source of truth for commands, compatibility notes, limitations, and security guidance. FlyEnv manages local development environments; production deployment still requires the controls appropriate to the target platform.

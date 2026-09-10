@@ -43,7 +43,7 @@ export const solutions: Solution[] = [
     slug: 'laravel',
     category: 'frameworks',
     description: 'Modern PHP framework for expressive web applications.',
-    logo: '/assets/demo-logos/laravel.svg',
+    logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/laravel.svg',
     stack: ['PHP', 'MySQL', 'Redis', 'Nginx']
   },
   {
@@ -51,7 +51,7 @@ export const solutions: Solution[] = [
     slug: 'django',
     category: 'frameworks',
     description: 'High-level Python framework for secure, database-driven sites.',
-    logo: '/assets/demo-logos/django.svg',
+    logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/django.svg',
     stack: ['Python', 'PostgreSQL', 'Redis', 'Nginx']
   },
   {
@@ -187,7 +187,7 @@ export const solutions: Solution[] = [
     slug: 'wordpress',
     category: 'cms',
     description: "The world's most popular CMS for building websites.",
-    logo: '/assets/demo-logos/wordpress.svg',
+    logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/wordpress.svg',
     stack: ['PHP', 'MySQL', 'Nginx']
   },
   {
@@ -211,7 +211,7 @@ export const solutions: Solution[] = [
     slug: 'nextcloud',
     category: 'cms',
     description: 'Self-hosted platform for file sharing and collaboration.',
-    logo: '/assets/demo-logos/nextcloud.svg',
+    logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/nextcloud.svg',
     stack: ['PHP', 'MySQL', 'Redis', 'Nginx']
   },
   {
@@ -259,7 +259,7 @@ export const solutions: Solution[] = [
     slug: 'erpnext',
     category: 'erp',
     description: 'Open-source ERP for managing day-to-day business operations.',
-    logo: '/assets/demo-logos/erpnext.svg',
+    logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/erpnext.svg',
     stack: ['Python', 'MariaDB', 'Redis', 'Nginx']
   },
   {
@@ -291,7 +291,7 @@ export const solutions: Solution[] = [
     slug: 'gitea',
     category: 'developer-tools',
     description: 'Self-hosted Git service for teams and individual developers.',
-    logo: '/assets/demo-logos/gitea.svg',
+    logo: 'https://oss.macphpstudy.com/image/assets/demo-logos/gitea.svg',
     stack: ['Go', 'MySQL', 'Nginx']
   },
   {

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/meilisearch
+      content: https://flyenv.com/features/meilisearch
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/meilisearch
+      href: https://flyenv.com/features/meilisearch
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Meilisearch in FlyEnv
 
@@ -65,6 +69,8 @@ When the service is running, the Service tab shows a web-UI button that opens th
 The **Log** tab opens the per-version start logs directly inside FlyEnv. The start-error log (`meilisearch-<version>-start-error.log`) is the first stop when a version fails to launch — for example when the port in `meilisearch.toml` is already taken — and the start output is captured alongside it.
 
 ![Meilisearch start-error log viewer](https://oss.macphpstudy.com/image/features/meilisearch-5.webp)
+
+<FeatureRelatedLinks slug="meilisearch" />
 
 ## Compatibility Notes
 

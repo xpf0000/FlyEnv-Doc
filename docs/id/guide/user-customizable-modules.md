@@ -1,3 +1,7 @@
+---
+description: 'Ubah binary atau perintah kustom menjadi modul FlyEnv dengan pengelolaan versi, kontrol layanan, konfigurasi, dan log.'
+---
+
 # Panduan Modul Kustom
 
 ## Pendahuluan

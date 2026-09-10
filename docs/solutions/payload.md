@@ -9,7 +9,7 @@ head:
       content: Payload CMS local development, Node.js, TypeScript, MongoDB, Redis, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/payload.html
+      href: https://flyenv.com/solutions/payload
 ---
 
 <script setup>

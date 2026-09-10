@@ -1,9 +1,9 @@
 ---
-title: 'Membangun Agen AI Offline yang Mengutamakan Privasi (Qwen, DeepSeek, Llama)'
+title: 'Agen AI Offline Privat dengan Ollama'
 head:
   - - meta
     - name: description
-      content: Jalankan model AI secara lokal tanpa API cloud dan kekhawatiran privasi data. Siapkan Ollama bersama FlyEnv untuk bantuan coding offline dengan model Qwen, DeepSeek, dan Llama.
+      content: 'Jalankan model AI secara lokal dengan Ollama dan FlyEnv untuk bantuan coding offline memakai Qwen, DeepSeek, atau Llama pada perangkat sendiri.'
 ---
 
 # Membangun Agen AI Offline yang Mengutamakan Privasi (Qwen, DeepSeek, Llama)

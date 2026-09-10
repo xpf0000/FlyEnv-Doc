@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/mailpit
+      content: https://flyenv.com/features/mailpit
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/mailpit
+      href: https://flyenv.com/features/mailpit
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Email Testing with FlyEnv
 
@@ -69,6 +73,8 @@ To capture mail, point your application's SMTP settings at `127.0.0.1:1025`. The
 The **Log** tab opens the Mailpit log directly inside FlyEnv. The path is resolved from the `MP_LOG_FILE` setting in your configuration — by default `mailpit.log` under FlyEnv's Mailpit directory — so the viewer always follows the file the running service actually writes to. It is the first stop when the service fails to start or messages do not arrive as expected.
 
 ![Mailpit log viewer](https://oss.macphpstudy.com/image/features/mailpit-5.webp)
+
+<FeatureRelatedLinks slug="mailpit" />
 
 ## Compatibility Notes
 

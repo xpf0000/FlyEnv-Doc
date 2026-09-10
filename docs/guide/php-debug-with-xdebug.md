@@ -1,9 +1,9 @@
 ---
-title: 'PHP Debugging with Xdebug: Step-by-Step Guide for PhpStorm & VSCode'
+title: 'Debug PHP with Xdebug in PhpStorm and VS Code'
 head:
   - - meta
     - name: description
-      content: 'Set up Xdebug for PHP step-through debugging in PhpStorm and VSCode with FlyEnv. One-click Xdebug installation, IDE configuration, and breakpoint debugging for Laravel and PHP projects.'
+      content: 'Install and configure Xdebug for FlyEnv PHP, then connect PhpStorm or VS Code for breakpoints, variable inspection, and profiling.'
 ---
 
 # PHP Debugging with Xdebug: Step-by-Step Guide for PhpStorm & VSCode

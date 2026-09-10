@@ -123,7 +123,7 @@ A：可以。FlyEnv 能直接管理支持的 AI 编程 CLI，也能通过 FlyEnv
 
 A：核心环境管理能力可以在无许可证情况下使用。当前评估版会对部分高级流程设置限制，详细规则请查看 [许可证指南](/zh/guide/about-license)。
 
-<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="csdn-145736318" guide-path="/zh/guide/flyenv-vs-docker-xampp.html" />
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="csdn-145736318" guide-path="/zh/guide/flyenv-vs-docker-xampp" />
 
 ## 下一步
 

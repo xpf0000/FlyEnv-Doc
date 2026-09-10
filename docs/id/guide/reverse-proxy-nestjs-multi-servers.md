@@ -1,5 +1,5 @@
 ---
-title: 'Reverse Proxy untuk NestJS, Node.js, dan Next.js: Nginx, Apache, Caddy'
+title: 'Reverse Proxy NestJS dan Node.js dengan FlyEnv'
 head:
   - - meta
     - name: description

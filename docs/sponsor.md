@@ -1,5 +1,6 @@
 ---
 title: 'FlyEnv License'
+description: 'This legacy FlyEnv sponsor URL redirects to the current license and support page.'
 layout: home
 
 head:

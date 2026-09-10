@@ -1,9 +1,9 @@
 ---
-title: 'Manajemen Pengguna Database & Konfigurasi Kata Sandi di FlyEnv'
+title: 'Kelola Pengguna dan Kata Sandi Database'
 head:
   - - meta
     - name: description
-      content: 'Kelola pengguna dan kata sandi MySQL, MariaDB, PostgreSQL, dan MongoDB di FlyEnv. Gunakan antarmuka bawaan untuk membuat database, mengatur ulang kata sandi, dan mengelola pengguna tanpa perintah SQL rutin.'
+      content: 'Kelola pengguna dan kata sandi MySQL, MariaDB, PostgreSQL, serta MongoDB di FlyEnv, termasuk pembuatan database dan pengaturan ulang kata sandi.'
 ---
 
 # Manajemen Pengguna Database & Konfigurasi Kata Sandi di FlyEnv

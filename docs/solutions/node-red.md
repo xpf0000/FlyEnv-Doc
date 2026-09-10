@@ -9,7 +9,7 @@ head:
       content: Node-RED local development, Node.js, automation, webhook, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/node-red.html
+      href: https://flyenv.com/solutions/node-red
 ---
 
 <script setup>

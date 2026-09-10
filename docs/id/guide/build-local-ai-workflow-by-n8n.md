@@ -1,5 +1,5 @@
 ---
-title: 'Membangun Alur AI Self-Hosted dengan n8n dan Ollama Tanpa Docker'
+title: 'Alur AI Lokal dengan n8n dan Ollama'
 head:
   - - meta
     - name: description

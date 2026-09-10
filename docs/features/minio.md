@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/minio
+      content: https://flyenv.com/features/minio
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/minio
+      href: https://flyenv.com/features/minio
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Object Storage with FlyEnv
 
@@ -57,11 +61,15 @@ The Service tab starts the selected MinIO version as a real foreground process �
 
 MinIO ships with its own web Console, and FlyEnv wires it up for you. The console address is normalized to `127.0.0.1:9001` by default (adjustable via `MINIO_CONSOLE_ADDRESS` in the configuration), and the Console button in the Service toolbar opens it directly in your browser — no separate install, no port hunting. Sign in with the root credentials from the configuration to manage buckets, objects and access policies through the official MinIO web UI.
 
+![MinIO Console](https://oss.macphpstudy.com/image/features/minio-4.webp)
+
 ## Logs
 
 The Log tab opens the per-version log files directly inside FlyEnv: `minio-<version>-start-out.log` for standard output and `minio-<version>-start-error.log` for errors. When a version fails to start, the error log is the first place to look — port conflicts and data-directory problems show up there immediately.
 
-![MinIO per-version log viewer](https://oss.macphpstudy.com/image/features/minio-4.webp)
+![MinIO per-version log viewer](https://oss.macphpstudy.com/image/features/minio-5.webp)
+
+<FeatureRelatedLinks slug="minio" />
 
 ## Compatibility Notes
 

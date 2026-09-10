@@ -123,7 +123,7 @@ A: Yes. FlyEnv can manage supported AI coding CLIs directly and expose local con
 
 A: Core environment management remains accessible without a license. The current evaluation version applies limits to some premium flows. See the [Licensing Guide](/guide/about-license) for the current details.
 
-<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="mencoba-flyenv-setelah-lama-menggunakan-xampp" guide-path="/guide/flyenv-vs-docker-xampp.html" />
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.en" locale="en" post-id="mencoba-flyenv-setelah-lama-menggunakan-xampp" guide-path="/guide/flyenv-vs-docker-xampp" />
 
 ## Next Steps
 

@@ -1,5 +1,5 @@
 ---
-title: '使用 FlyEnv 无需 Docker 部署 PHP 项目：PHP-FPM、FrankenPHP、RoadRunner、Swoole CLI 与 Workerman'
+title: '用 FlyEnv 无需 Docker 运行 PHP 项目'
 head:
   - - meta
     - name: description

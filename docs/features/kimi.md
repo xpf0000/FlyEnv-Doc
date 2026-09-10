@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/kimi
+      content: https://flyenv.com/features/kimi
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/kimi
+      href: https://flyenv.com/features/kimi
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Kimi CLI in FlyEnv
 
@@ -69,6 +73,8 @@ Kimi is the only AI coding CLI module in FlyEnv with a dedicated **Log** tab. It
 The **MCP** tab lists the servers registered for Kimi and lets you add or remove entries — the [MCP and AI workspace guide](/guide/ai-coding-workspace-mcp) shows how MCP servers extend AI coding tools. Kimi accepts HTTP/SSE MCP servers only — stdio servers are rejected by design — and FlyEnv writes additions into `mcp.json` in the config home, the same file the CLI reads. FlyEnv's own [MCP Server](/features/mcp-server) can register itself here with one click from its Client Config tab.
 
 ![Managing HTTP/SSE MCP servers for Kimi](https://oss.macphpstudy.com/image/features/kimi-4.webp)
+
+<FeatureRelatedLinks slug="kimi" />
 
 ## Compatibility Notes
 

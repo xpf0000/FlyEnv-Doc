@@ -1,3 +1,7 @@
+---
+description: 'Pasang dan aktifkan ekstensi PHP FlyEnv di macOS, Linux, dan Windows melalui PECL, paket, atau pustaka ekstensi.'
+---
+
 # Memasang Ekstensi PHP
 
 ## macOS & Linux

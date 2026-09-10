@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/memcached
+      content: https://flyenv.com/features/memcached
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/memcached
+      href: https://flyenv.com/features/memcached
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Memcached in FlyEnv
 
@@ -55,6 +59,8 @@ The Service tab starts the selected version's real `memcached` binary in the for
 With the daemon running on port 11211, point your applications at it as their object cache: PHP stacks such as [WordPress](/solutions/wordpress) (via an object-cache drop-in) and [Magento](/solutions/magento) both support Memcached as a cache or session backend, which makes a local Memcached instance handy for reproducing production caching behavior.
 
 Pair the running service with the local apps from the [demos](/demos), or grab FlyEnv for your platform on the [Download page](/download).
+
+<FeatureRelatedLinks slug="memcached" />
 
 ## Compatibility Notes
 

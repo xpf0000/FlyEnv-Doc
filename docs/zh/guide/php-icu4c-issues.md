@@ -1,3 +1,7 @@
+---
+description: '诊断并修复 macOS 上因 ICU 动态库缺失或版本不匹配导致的 Homebrew PHP 启动失败。'
+---
+
 # PHP icu4c 问题
 
 适用于使用Homebrew安装的PHP。有时可能会遇到，它可以显示在服务面板中，但颜色是红色，无法启动。它显示了类似这样的错误消息：

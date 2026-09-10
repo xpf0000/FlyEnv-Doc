@@ -9,7 +9,7 @@ head:
       content: Next.js local development, Node.js, React, PostgreSQL, Redis, Nginx, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/nextjs.html
+      href: https://flyenv.com/solutions/nextjs
 ---
 
 <script setup>

@@ -17,7 +17,7 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://flyenv.com/zh/community.html
+      content: https://flyenv.com/zh/community
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
@@ -35,27 +35,27 @@ head:
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://flyenv.com/zh/community.html
+      href: https://flyenv.com/zh/community
   - - link
     - rel: alternate
       hreflang: en
-      href: https://flyenv.com/community.html
+      href: https://flyenv.com/community
   - - link
     - rel: alternate
       hreflang: zh-CN
-      href: https://flyenv.com/zh/community.html
+      href: https://flyenv.com/zh/community
   - - link
     - rel: alternate
       hreflang: id-ID
-      href: https://flyenv.com/id/community.html
+      href: https://flyenv.com/id/community
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://flyenv.com/community.html
+      href: https://flyenv.com/community
   - - script
     - type: application/ld+json
     - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv 社区故事、教程与开发者评测","inLanguage":"zh-CN","description":"来自全球开发者的 FlyEnv 教程、评测和真实故事。","url":"https://flyenv.com/zh/community.html","mainEntity":{"@type":"ItemList","name":"FlyEnv 社区文章","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"TechArticle","headline":"告别“散装”本地环境：FlyEnv 如何把多版本运行时、服务与 AI 工具收进一个工作台","url":"https://juejin.cn/post/7674818461377495050","description":"文章从多项目维护的日常问题出发，介绍 FlyEnv 对多版本运行时、数据库与 Web 服务、本地站点和 AI 工具的集中管理，并讨论迁移步骤以及与 Docker 的适用边界。","author":{"@type":"Person","name":"用户7376317088702"},"publisher":{"@type":"Organization","name":"掘金"},"datePublished":"2026-08-17","about":{"@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"]}}},{"@type":"ListItem","position":2,"item":{"@type":"TechArticle","headline":"环境管理神器flyenv","url":"https://juejin.cn/post/7666754297045614628","description":"作者从维护多个 PHP、Node.js 与数据库服务项目的日常场景出发，介绍了通过统一图形界面安装不同运行时、按项目切换版本、管理本地服务、配置站点并查看日志的体验与适用场景。","author":{"@type":"Person","name":"西雨东晴"},"publisher":{"@type":"Organization","name":"掘金"},"datePublished":"2026-07-27","about":{"@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"]}}}]}}
+      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv 社区故事、教程与开发者评测","inLanguage":"zh-CN","description":"来自全球开发者的 FlyEnv 教程、评测和真实故事。","url":"https://flyenv.com/zh/community","mainEntity":{"@type":"ItemList","name":"FlyEnv 社区文章","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"TechArticle","headline":"告别“散装”本地环境：FlyEnv 如何把多版本运行时、服务与 AI 工具收进一个工作台","url":"https://juejin.cn/post/7674818461377495050","description":"文章从多项目维护的日常问题出发，介绍 FlyEnv 对多版本运行时、数据库与 Web 服务、本地站点和 AI 工具的集中管理，并讨论迁移步骤以及与 Docker 的适用边界。","author":{"@type":"Person","name":"用户7376317088702"},"publisher":{"@type":"Organization","name":"掘金"},"datePublished":"2026-08-17","about":{"@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"]}}},{"@type":"ListItem","position":2,"item":{"@type":"TechArticle","headline":"环境管理神器flyenv","url":"https://juejin.cn/post/7666754297045614628","description":"作者从维护多个 PHP、Node.js 与数据库服务项目的日常场景出发，介绍了通过统一图形界面安装不同运行时、按项目切换版本、管理本地服务、配置站点并查看日志的体验与适用场景。","author":{"@type":"Person","name":"西雨东晴"},"publisher":{"@type":"Organization","name":"掘金"},"datePublished":"2026-07-27","about":{"@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["macOS","Windows","Linux"]}}}]}}
   - - script
     - type: application/ld+json
     - |

@@ -3,6 +3,7 @@
 layout: home
 
 title: 'FlyPHPServer'
+description: 'FlyPHPServer is a lightweight macOS app for running PHP and local web servers with simple site and configuration management.'
 
 titleTemplate: 'FlyPHPServer-Minimalist PHP and Web Server'
 

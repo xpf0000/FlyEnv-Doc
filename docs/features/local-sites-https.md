@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/local-sites-https
+      content: https://flyenv.com/features/local-sites-https
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/local-sites-https
+      href: https://flyenv.com/features/local-sites-https
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local sites, custom domains and HTTPS in FlyEnv
 
@@ -73,12 +77,7 @@ Auto SSL creates a FlyEnv local Certificate Authority when needed, issues a cert
 
 Do not use a local certificate as proof that a site is publicly trusted: these certificates are for local development and testing. For a public preview, pair the local service with [Cloudflare Tunnel](/guide/cloudflare-tunnel-local-development) or deploy it to an environment intended for external traffic.
 
-## Related workflows
-
-- [Run Laravel on FlyEnv](/guide/run-laravel-use-flyenv) — document roots, rewrite rules and PHP versions.
-- [Gitea with MySQL and HTTPS demo](/demos) — a multi-service local site.
-- [Keycloak with Nginx and PostgreSQL demo](/demos) — a reverse-proxied application stack.
-- [Download FlyEnv](/download) — install the desktop app before creating a site.
+<FeatureRelatedLinks slug="local-sites-https" />
 
 ## Compatibility Notes
 

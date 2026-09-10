@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/nodejs
+      content: https://flyenv.com/features/nodejs
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/nodejs
+      href: https://flyenv.com/features/nodejs
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Node.js development in FlyEnv
 
@@ -71,6 +75,8 @@ Useful links:
 ## See the workflow
 
 The [Node project runtime demo](/demos) shows version selection, project services and Nginx working together. The [native Node.js, Python and Go services demo](/demos) shows the same service controls across several runtimes.
+
+<FeatureRelatedLinks slug="nodejs" />
 
 ## Compatibility Notes
 

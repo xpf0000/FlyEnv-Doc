@@ -9,7 +9,7 @@ head:
       content: Medusa local development, Node.js, TypeScript, e-commerce, PostgreSQL, Redis, FlyEnv
   - - link
     - rel: canonical
-      href: https://flyenv.com/solutions/medusa.html
+      href: https://flyenv.com/solutions/medusa
 ---
 
 <script setup>

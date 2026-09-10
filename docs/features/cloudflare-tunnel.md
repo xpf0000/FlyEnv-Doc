@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/cloudflare-tunnel
+      content: https://flyenv.com/features/cloudflare-tunnel
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/cloudflare-tunnel
+      href: https://flyenv.com/features/cloudflare-tunnel
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Cloudflare Tunnel with FlyEnv
 
@@ -64,6 +68,8 @@ For a complete walkthrough of exposing a site you created through the [Host guid
 Every tunnel keeps its own output and error logs under FlyEnv's data directory, alongside its pid file. The built-in log viewer lists the log files per tunnel, so you can confirm that the connection to Cloudflare's edge is established and diagnose DNS or ingress problems without leaving the app.
 
 ![Per-tunnel out and error log viewer](https://oss.macphpstudy.com/image/features/cloudflare-tunnel-4.webp)
+
+<FeatureRelatedLinks slug="cloudflare-tunnel" />
 
 ## Compatibility Notes
 

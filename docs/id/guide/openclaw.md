@@ -1,12 +1,12 @@
 ---
-title: 'Panduan OpenClaw + Ollama: Membangun Agen AI Self-Hosted Tanpa Biaya API'
+title: 'Jalankan OpenClaw dan Ollama Secara Lokal'
 head:
   - - meta
     - name: description
-      content: Siapkan OpenClaw dengan Ollama untuk membuat agen AI self-hosted yang terhubung ke WhatsApp, Telegram, dan Discord. Jalankan pada perangkat sendiri dengan FlyEnv dan kontrol aksesnya dengan hati-hati.
+      content: 'Siapkan OpenClaw dengan Ollama di FlyEnv, hubungkan kanal pesan yang dipilih, dan jalankan model pada perangkat yang Anda kendalikan.'
 ---
 
-# Panduan OpenClaw + Ollama: Membangun Agen AI Self-Hosted Tanpa Biaya API
+# Panduan OpenClaw + Ollama untuk Agen AI Self-Hosted
 
 OpenClaw adalah gateway AI open-source yang menghubungkan aplikasi pesan dengan agen yang dapat melakukan tindakan nyata: membaca dan menulis berkas, menjalankan perintah, mengirim pesan, dan memanggil HTTP API. Dipadukan dengan Ollama, pemrosesan model dapat dilakukan secara lokal tanpa biaya token cloud.
 

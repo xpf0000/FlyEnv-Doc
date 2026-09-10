@@ -3,7 +3,7 @@ title: 'FlyEnv vs Docker & XAMPP untuk Pengembangan Lokal'
 head:
   - - meta
     - name: description
-      content: 'Bandingkan FlyEnv dengan Docker dan stack lokal bergaya XAMPP untuk pengembangan modern. Lihat bagaimana runtime native, CLI pemrograman AI, dan MCP mengubah alur kerja lokal.'
+      content: 'Bandingkan FlyEnv dengan Docker dan stack bergaya XAMPP, termasuk runtime native, isolasi, layanan lokal, CLI coding AI, dan MCP.'
 ---
 
 # FlyEnv vs Docker & XAMPP untuk Pengembangan Lokal

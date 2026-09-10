@@ -35,9 +35,9 @@ const stats = computed(() => ({
 }))
 
 const licensePath = computed(() => {
-  if (isZh.value) return '/zh/guide/about-license.html'
-  if (isId.value) return '/id/guide/about-license.html'
-  return '/guide/about-license.html'
+  if (isZh.value) return '/zh/guide/about-license'
+  if (isId.value) return '/id/guide/about-license'
+  return '/guide/about-license'
 })
 
 const t = computed(() =>

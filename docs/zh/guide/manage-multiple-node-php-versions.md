@@ -244,7 +244,7 @@ A：FlyEnv 使用你系统的默认版本或你配置的全局默认值。
 
 A：可以。FlyEnv 中的项目配置不会干扰队友使用其他工具。
 
-<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="juejin-7666754297045614628" guide-path="/zh/guide/manage-multiple-node-php-versions.html" />
+<AppGuideCommunityProof :posts="communityPosts" :evidence="communityEvidence.zh" locale="zh" post-id="juejin-7666754297045614628" guide-path="/zh/guide/manage-multiple-node-php-versions" />
 
 ## 准备好停止手动管理版本了吗？
 

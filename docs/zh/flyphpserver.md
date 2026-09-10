@@ -3,6 +3,7 @@
 layout: home
 
 title: 'FlyPHPServer'
+description: 'FlyPHPServer 是一款轻量的 macOS PHP 与本地 Web 服务器工具，提供简洁的站点和配置管理。'
 
 titleTemplate: 'FlyPHPServer-极简主义PHP和Web服务器'
 

@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/flutter
+      content: https://flyenv.com/features/flutter
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/flutter
+      href: https://flyenv.com/features/flutter
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Flutter Development with FlyEnv
 
@@ -92,6 +96,8 @@ The **Android** tab checks everything Flutter needs for Android builds and helps
 - **Quick actions:** run `flutter run`, `flutter build apk` or `flutter build appbundle` on a chosen project, targeted at the selected device.
 
 ![Android toolchain checks with fix actions and ADB device list](https://oss.macphpstudy.com/image/features/flutter-6.webp)
+
+<FeatureRelatedLinks slug="flutter" />
 
 ## Compatibility Notes
 

@@ -1,9 +1,9 @@
 ---
-title: Build Self-Hosted AI Workflows with n8n & Ollama (No Docker Required)
+title: 'Self-Hosted AI Workflows with n8n and Ollama'
 head:
   - - meta
     - name: description
-      content: Learn how to build privacy-first AI automation workflows locally using n8n and Ollama. FlyEnv makes setup easy with native binaries, auto SSL, and Cloudflare Tunnel for secure remote access.
+      content: 'Build private local AI automation with n8n and Ollama in FlyEnv, including native services, HTTPS, and controlled remote access.'
 ---
 
 # Build Self-Hosted AI Workflows with n8n & Ollama (No Docker Required)
@@ -24,7 +24,7 @@ This guide shows you how to create a fully self-hosted, offline-capable AI workf
 | Requires internet connection | Works offline completely |
 | Complex API rate limits | Unlimited local API calls |
 
-FlyEnv's native approach means n8n and Ollama run as native binaries—not bloated containers—using up to 80% less RAM than Docker-based solutions.
+FlyEnv runs n8n and Ollama as local processes, avoiding the baseline virtual-machine overhead of Docker Desktop. Actual resource use depends on the selected model, workflows, and services.
 
 ---
 
@@ -161,12 +161,12 @@ FlyEnv automatically generates and manages local SSL certificates:
 
 ## Step 5: Expose to Internet with Cloudflare Tunnel
 
-Want to access your AI workflow from anywhere? FlyEnv's integrated Cloudflare Tunnel module provides secure tunneling without opening firewall ports. Unlike ngrok, you get **permanent URLs, custom domains, and unlimited bandwidth—for free**.
+Want to access your AI workflow remotely? FlyEnv's Cloudflare Tunnel module can publish it without opening inbound firewall ports. Named tunnels can use stable custom hostnames when your Cloudflare account and DNS zone are configured; plan limits remain subject to Cloudflare's current terms.
 
 | Feature | ngrok Free | **Cloudflare Tunnel** |
 |---------|------------|----------------------|
 | Custom domains | ❌ Random URLs | ✅ FREE |
-| Permanent URLs | ❌ Changes every restart | ✅ FREE |
+| Stable custom hostname | Paid plan or reserved domain | Available with a configured named tunnel |
 | Bandwidth limits | 1GB/month | Unlimited FREE |
 | Setup in FlyEnv | Manual CLI | **One-click UI** |
 
@@ -258,13 +258,13 @@ Prefer watching? See Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (No
 ## Frequently Asked Questions (FAQ)
 
 ### Does this setup use less RAM than Docker?
-**Yes.** FlyEnv runs n8n and Ollama as native binaries directly on your system. Compared to Docker Desktop + containers, you'll typically see 60-80% lower memory usage. On macOS, Docker Desktop alone consumes 2-4GB just for the VM—FlyEnv has zero overhead.
+**Often, but it depends on the workload.** FlyEnv runs n8n and Ollama directly on your system and avoids a container VM. Model size, active workflows, databases, and the Docker configuration determine the actual difference.
 
 ### Can I use this completely offline?
 **Absolutely.** Once n8n and Ollama are installed, the entire workflow runs locally without any internet connection. This is ideal for air-gapped environments or privacy-sensitive applications.
 
 ### Is n8n with Ollama better than paid automation tools?
-For developers and privacy-conscious users: **yes.** You get unlimited workflows, no usage caps, zero subscription fees, and complete data privacy. The trade-off is self-management, which FlyEnv significantly simplifies.
+For developers who want local control: **often yes.** Self-hosted n8n and local models can reduce recurring service costs and keep selected data on your machine, but third-party APIs, messaging services, and infrastructure may still have their own limits or fees. The trade-off is self-management, which FlyEnv simplifies.
 
 ### How does Cloudflare Tunnel compare to ngrok?
 Cloudflare Tunnel (via FlyEnv's integration) offers persistent URLs, custom domains, built-in SSL, and is completely free for personal use—unlike ngrok's random URLs and connection limits. Plus, it doesn't require installing additional software beyond FlyEnv.

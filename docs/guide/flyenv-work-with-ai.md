@@ -1,12 +1,12 @@
 ---
-title: 'How to Double AI Coding Assistant Productivity: FlyEnv + Claude Code / Codex Workflow'
+title: 'FlyEnv Workflow for Claude Code, Codex and AI CLIs'
 head:
   - - meta
     - name: description
-      content: Tired of AI agents wasting tokens on environment errors? Learn how to pair FlyEnv with Claude Code, Codex, and other AI CLIs for a stable, native local dev environment with project-level isolation and automatic version switching—no Docker required.
+      content: 'Pair FlyEnv with Claude Code, Codex, and other AI CLIs to provide stable local runtimes, services, and project-level version switching.'
 ---
 
-# How to Double AI Coding Assistant Productivity: FlyEnv + Claude Code / Codex Workflow
+# A Stable FlyEnv Workflow for Claude Code, Codex, and Other AI CLIs
 
 When you're using AI coding assistants like Claude Code, Codex, or Kimi CLI, the biggest time sink usually isn't code generation—it's the cascade of environment errors after the AI runs a test: "PHP version mismatch", "MySQL connection failed", "Node modules missing". Unlike human developers, AI agents don't have intuition. They won't "guess" which PHP version is installed on your machine, and they won't manually tweak config files. The result? The AI burns through tokens and time in a loop of trial and error, and you still have to step in to fix the environment.
 

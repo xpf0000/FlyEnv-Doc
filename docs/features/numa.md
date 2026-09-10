@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/numa
+      content: https://flyenv.com/features/numa
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/numa
+      href: https://flyenv.com/features/numa
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Numa DNS in FlyEnv
 
@@ -66,6 +70,10 @@ Numa ships its own administration interface, served by the server itself. When t
 ## Logs
 
 The **Log** tab shows the per-version start-error log `numa/numa-<version>-start-error.log` — the first place to look when a Numa version fails to launch. FlyEnv also indexes every `numa-*.log` file it finds in the Numa directory, so logs from earlier runs stay reachable.
+
+![Numa Logs](https://oss.macphpstudy.com/image/features/numa-5.webp)
+
+<FeatureRelatedLinks slug="numa" />
 
 ## Compatibility Notes
 

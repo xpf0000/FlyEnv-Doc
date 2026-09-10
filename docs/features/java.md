@@ -18,14 +18,18 @@ head:
       content: website
   - - meta
     - property: og:url
-      content: https://www.flyenv.com/features/java
+      content: https://flyenv.com/features/java
   - - meta
     - property: og:image
       content: https://oss.macphpstudy.com/image/app-icon.png
   - - link
     - rel: canonical
-      href: https://www.flyenv.com/features/java
+      href: https://flyenv.com/features/java
 ---
+
+<script setup>
+import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
+</script>
 
 # Local Java Development with FlyEnv
 
@@ -77,6 +81,8 @@ Different projects often need different JDKs. In **Java → Java Projects**, reg
 The [Java development environment guide](/guide/set-up-java-development-environment) walks through a full setup, and the [Spring Boot solution](/solutions/spring-boot) shows how a project-level JDK fits into a complete framework stack. For servlet-container deployments, the [Tomcat module](/features/tomcat) runs WAR-style applications against the JDKs managed here, and the [Metabase solution](/solutions/metabase) is an example of a ready-made Java application stack.
 
 ![Java projects list with per-project JDK binding](https://oss.macphpstudy.com/image/features/java-5.webp)
+
+<FeatureRelatedLinks slug="java" />
 
 ## Compatibility Notes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Membangun Ruang Kerja Coding AI Lokal dengan MCP untuk Claude Code, Codex, dan Lainnya'
+title: 'Ruang Kerja Coding AI Lokal dengan MCP'
 head:
   - - meta
     - name: description

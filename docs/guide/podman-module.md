@@ -1,9 +1,9 @@
 ---
-title: 'Podman Container Management in FlyEnv: Docker Alternative Without Root'
+title: 'Manage Podman Containers in FlyEnv'
 head:
   - - meta
     - name: description
-      content: 'Run containers without Docker Desktop using Podman in FlyEnv. Rootless containers, Docker Compose support, and legacy software isolation for macOS, Windows, and Linux development.'
+      content: 'Manage Podman machines, images, containers, and Compose projects in FlyEnv while keeping container use separate from native local services.'
 ---
 
 # Podman Container Management in FlyEnv: Docker Alternative Without Root
