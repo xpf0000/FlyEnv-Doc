@@ -386,6 +386,30 @@ const copy = {
     resultSummary: (count: number, categoryCount: number) => `${count} demo dalam ${categoryCount} kategori`,
     watchOn: (platform: DemoPlatform) => `Tonton di ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
     openOn: (platform: DemoPlatform) => `Buka di ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
+  },
+  es: {
+    kicker: 'Demostraciones de FlyEnv',
+    title: 'Mira lo que se ejecuta en local con FlyEnv',
+    intro: 'Explora demostraciones de proyectos reales, runtimes, bases de datos, herramientas de desarrollo y flujos de trabajo de IA ejecutándose en local con FlyEnv.',
+    controlsLabel: 'Explorar demostraciones de FlyEnv',
+    categoryLabel: 'Filtrar por categoría',
+    searchLabel: 'Buscar demostraciones',
+    searchPlaceholder: 'Busca proyectos, stacks y herramientas',
+    all: 'Todas las demos',
+    featuredTitle: 'Demos destacadas',
+    catalogTitle: 'Todas las demostraciones',
+    viewAll: () => 'Ver todas →',
+    tagsLabel: 'Etiquetas de la demo',
+    emptyTitle: 'Ninguna demostración coincide con esta búsqueda',
+    emptyIntro: 'Borra los filtros actuales para volver al catálogo completo.',
+    reset: 'Borrar filtros',
+    play: 'Reproducir demo',
+    relatedLink: 'Guía relacionada →',
+    close: 'Cerrar reproductor de video',
+    resultSummary: (count: number, categoryCount: number) =>
+      `${count} ${count === 1 ? 'demo' : 'demos'} en ${categoryCount} ${categoryCount === 1 ? 'categoría' : 'categorías'}`,
+    watchOn: (platform: DemoPlatform) => `Ver en ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
+    openOn: (platform: DemoPlatform) => `Abrir en ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   }
 }
 

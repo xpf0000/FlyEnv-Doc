@@ -580,7 +580,7 @@
   const props = withDefaults(
     defineProps<{
       slug: string
-      locale?: 'en' | 'zh' | 'id'
+      locale?: 'en' | 'zh' | 'id' | 'es'
     }>(),
     { locale: 'en' }
   )
@@ -609,10 +609,13 @@
 
     const name = solution.value?.name ?? 'project'
     const isChinese = props.locale === 'zh'
+    const isSpanish = props.locale === 'es'
     const role = (component: string) =>
       isChinese
         ? `用于本地 ${name} 环境的 ${component} 服务。`
-        : `Menjalankan ${component} untuk lingkungan ${name} lokal.`
+        : isSpanish
+          ? `Ejecuta ${component} para el entorno local de ${name}.`
+          : `Menjalankan ${component} untuk lingkungan ${name} lokal.`
     const help = isChinese
       ? [
           { title: '匹配项目运行时', description: `为 ${name} 选择项目所需的运行时版本。` },
@@ -620,25 +623,46 @@
           { title: '保持项目隔离', description: '让不同项目使用各自的版本和服务配置。' },
           { title: '配置本地域名', description: '需要时可通过本地域名和 HTTPS 访问项目。' }
         ]
-      : [
-          {
-            title: 'Cocokkan runtime proyek',
-            description: `Pilih versi runtime yang dibutuhkan ${name}.`
-          },
-          {
-            title: 'Kelola layanan lokal',
-            description:
-              'Jalankan database, cache, dan layanan lain hanya saat proyek membutuhkannya.'
-          },
-          {
-            title: 'Jaga isolasi proyek',
-            description: 'Gunakan versi dan konfigurasi layanan tersendiri untuk setiap proyek.'
-          },
-          {
-            title: 'Atur domain lokal',
-            description: 'Akses proyek melalui domain lokal dan HTTPS saat diperlukan.'
-          }
-        ]
+      : isSpanish
+        ? [
+            {
+              title: 'Adapta el runtime del proyecto',
+              description: `Elige la versión de runtime que necesita ${name}.`
+            },
+            {
+              title: 'Gestiona los servicios locales',
+              description:
+                'Inicia bases de datos, cachés y otros servicios solo cuando el proyecto los necesite.'
+            },
+            {
+              title: 'Mantén los proyectos aislados',
+              description:
+                'Permite que cada proyecto use sus propias versiones y configuraciones de servicios.'
+            },
+            {
+              title: 'Configura dominios locales',
+              description: 'Accede a los proyectos mediante dominios locales y HTTPS cuando sea necesario.'
+            }
+          ]
+        : [
+            {
+              title: 'Cocokkan runtime proyek',
+              description: `Pilih versi runtime yang dibutuhkan ${name}.`
+            },
+            {
+              title: 'Kelola layanan lokal',
+              description:
+                'Jalankan database, cache, dan layanan lain hanya saat proyek membutuhkannya.'
+            },
+            {
+              title: 'Jaga isolasi proyek',
+              description: 'Gunakan versi dan konfigurasi layanan tersendiri untuk setiap proyek.'
+            },
+            {
+              title: 'Atur domain lokal',
+              description: 'Akses proyek melalui domain lokal dan HTTPS saat diperlukan.'
+            }
+          ]
     const setupSteps = isChinese
       ? [
           `按照 ${name} 官方文档安装项目和依赖。`,
@@ -648,14 +672,23 @@
           '按需配置本地 Web 服务器、域名和 HTTPS。',
           '将相关服务加入启动组，方便重复启动。'
         ]
-      : [
-          `Pasang proyek dan dependensinya mengikuti dokumentasi resmi ${name}.`,
-          'Pilih versi runtime yang dibutuhkan proyek di FlyEnv.',
-          'Jalankan layanan database yang ditentukan dalam konfigurasi proyek.',
-          'Mulai cache, pencarian, atau layanan pendukung lain hanya bila diperlukan.',
-          'Konfigurasikan server web, domain lokal, dan HTTPS sesuai kebutuhan.',
-          'Kelompokkan layanan terkait agar mudah dijalankan kembali bersama-sama.'
-        ]
+      : isSpanish
+        ? [
+            `Instala el proyecto y sus dependencias siguiendo la documentación oficial de ${name}.`,
+            'Selecciona en FlyEnv la versión de runtime que necesita el proyecto.',
+            'Inicia los servicios de base de datos indicados en la configuración del proyecto.',
+            'Inicia la caché, la búsqueda u otros servicios auxiliares solo cuando sean necesarios.',
+            'Configura el servidor web local, los dominios y HTTPS según sea necesario.',
+            'Agrupa los servicios relacionados para iniciarlos juntos de nuevo con facilidad.'
+          ]
+        : [
+            `Pasang proyek dan dependensinya mengikuti dokumentasi resmi ${name}.`,
+            'Pilih versi runtime yang dibutuhkan proyek di FlyEnv.',
+            'Jalankan layanan database yang ditentukan dalam konfigurasi proyek.',
+            'Mulai cache, pencarian, atau layanan pendukung lain hanya bila diperlukan.',
+            'Konfigurasikan server web, domain lokal, dan HTTPS sesuai kebutuhan.',
+            'Kelompokkan layanan terkait agar mudah dijalankan kembali bersama-sama.'
+          ]
 
     return {
       ...source,
@@ -667,7 +700,11 @@
       guide: source.guide
         ? {
             ...source.guide,
-            label: isChinese ? `阅读 ${name} 指南` : `Baca panduan ${name}`,
+            label: isChinese
+              ? `阅读 ${name} 指南`
+              : isSpanish
+                ? `Lee la guía de ${name}`
+                : `Baca panduan ${name}`,
             href: `${routePrefix.value}${source.guide.href}`
           }
         : undefined
@@ -797,12 +834,52 @@
       emailCopied: 'Alamat email disalin',
       notFound: 'Solusi tidak ditemukan',
       browseAllSolutions: 'Jelajahi semua solusi'
+    },
+    es: {
+      solutions: 'Soluciones',
+      allSolutions: 'Todas las soluciones',
+      solution: 'solución',
+      downloadFlyEnv: 'Descargar FlyEnv',
+      officialDocumentation: 'Documentación oficial',
+      localProjectStack: 'Stack del proyecto local',
+      managedServices: 'Servicios que FlyEnv puede gestionar para',
+      about: 'Acerca de',
+      commonUseCases: 'Casos de uso comunes',
+      coreCapabilities: 'Capacidades principales',
+      projectResources: 'Recursos del proyecto',
+      resourcesDescriptionStart:
+        'Para los comandos de instalación, las versiones compatibles y la configuración específica del proyecto, consulta la documentación oficial de',
+      resourcesDescriptionEnd: '.',
+      typicalLocalStack: 'Stack local típico',
+      typicalStackDescription:
+        'Los servicios exactos dependen del proyecto, su versión y su configuración local. Esta es una configuración local común, no un requisito fijo.',
+      component: 'Componente',
+      typicalRole: 'Rol típico',
+      howFlyEnvHelps: 'Cómo ayuda FlyEnv',
+      setupLocalEnvironment: 'Configura el entorno local',
+      setupDescription:
+        'La instalación del proyecto sigue la documentación oficial. FlyEnv gestiona los runtimes, las bases de datos, los servidores web y los servicios auxiliares que lo rodean.',
+      watchDemo: 'Ver la demo',
+      thumbnailFor: 'Miniatura de',
+      relatedSolutions: 'Soluciones relacionadas',
+      readyToRun: '¿Listo para ejecutar',
+      locallyQuestion: 'en local?',
+      finalCtaDescriptionStart:
+        'Usa FlyEnv para gestionar los runtimes, las bases de datos, los servidores web y los servicios que rodean a tu entorno local de',
+      finalCtaDescriptionEnd: '.',
+      supportTitle: '¿Tienes preguntas sobre el uso de FlyEnv?',
+      githubIssues: 'GitHub Issues',
+      copyEmail: 'Copiar dirección de correo electrónico',
+      emailCopied: 'Dirección de correo electrónico copiada',
+      notFound: 'Solución no encontrada',
+      browseAllSolutions: 'Explorar todas las soluciones'
     }
   } as const
   const copy = computed(() => copyByLocale[props.locale])
   const projectTitle = computed(() => {
     if (!solution.value) return ''
     if (props.locale === 'zh') return `在 FlyEnv 中本地运行 ${solution.value.name}`
+    if (props.locale === 'es') return `Ejecuta ${solution.value.name} en local con FlyEnv`
     if (props.locale === 'id') return `Jalankan ${solution.value.name} Lokal dengan FlyEnv`
     return `Run ${solution.value.name} Locally with FlyEnv`
   })

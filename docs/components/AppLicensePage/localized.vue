@@ -412,7 +412,7 @@
   import { computed, ref } from 'vue'
   import { usePaddleCheckout } from '../AppSponsorPage/usePaddleCheckout'
 
-  type Locale = 'zh' | 'id'
+  type Locale = 'zh' | 'id' | 'es'
 
   type Faq = {
     question: string
@@ -735,6 +735,157 @@
       guidePath: '/id/guide/about-license',
       communityPath: '/id/community',
       paddleError: 'Checkout Paddle sementara tidak tersedia. Silakan coba lagi nanti.'
+    },
+    es: {
+      eyebrow: 'Licencia de FlyEnv',
+      title: 'Obtén una licencia de FlyEnv',
+      description:
+        'Una compra única desbloquea las funciones premium en un dispositivo. Sin suscripción.',
+      benefitsLabel: 'Beneficios de la licencia',
+      benefits: [
+        '$10 pago único',
+        '1 dispositivo',
+        'Actualizaciones futuras',
+        'Activación por dispositivo'
+      ],
+      licenseName: 'Licencia de FlyEnv',
+      oneTimePayment: 'Pago único',
+      features: [
+        'Un dispositivo por licencia',
+        'Sin cuotas recurrentes',
+        'Incluye actualizaciones futuras',
+        'Activación basada en el dispositivo'
+      ],
+      buyWithPaddle: 'Comprar de forma segura con Paddle',
+      openingCheckout: 'Abriendo el pago...',
+      termsLink: 'Términos de la licencia ->',
+      activationGuideLink: 'Guía de activación ->',
+      howItWorks: 'Cómo funciona',
+      steps: [
+        { title: 'Compra', description: 'Completa tu compra de forma segura a través de Paddle.' },
+        {
+          title: 'Solicita una licencia en FlyEnv',
+          description:
+            'Abre la Configuración de FlyEnv -> Licencia, luego envía el ID de tu pedido de Paddle o el correo del recibo junto con un correo de contacto.'
+        },
+        {
+          title: 'Recibe tu licencia',
+          description:
+            'Tu solicitud se revisa manualmente y la licencia se emite una vez verificada.'
+        }
+      ],
+      deviceTransfer:
+        'Las licencias están vinculadas a un dispositivo. Para cambiar a un dispositivo nuevo, inicia sesión con GitHub, desvincula tu dispositivo anterior en My Licenses y luego vincula el nuevo.',
+      otherWaysTitle: 'Otras formas de apoyar FlyEnv u obtener una licencia',
+      otherWaysDescription:
+        '¿Prefieres otro método? También puedes contribuir o pagar con un código QR.',
+      methods: [
+        {
+          kind: 'wechat',
+          title: 'WeChat Pay',
+          description: 'Escanea el código QR para pagar con WeChat Pay.',
+          icon: 'WX',
+          headerClass:
+            'flex h-24 items-center justify-center bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-500/10 dark:to-emerald-500/10',
+          iconClass:
+            'inline-flex h-10 w-10 items-center justify-center rounded-md border border-green-200 bg-white text-xs font-extrabold text-green-600 shadow-sm dark:border-green-400/30 dark:bg-slate-900 dark:text-green-300',
+          action: 'Escanear código QR',
+          actionClass:
+            'mt-9 md:mt-auto flex min-h-14 items-center justify-center rounded-md bg-green-600 px-5 text-base font-semibold text-white',
+          qrImage: 'https://oss.macphpstudy.com/image/qrcode1@2x.png',
+          qrAlt: 'Código QR de WeChat Pay'
+        },
+        {
+          kind: 'alipay',
+          title: 'Alipay',
+          description: 'Escanea el código QR para pagar con Alipay.',
+          icon: 'ALI',
+          headerClass:
+            'flex h-24 items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-500/10 dark:to-cyan-500/10',
+          iconClass:
+            'inline-flex h-10 w-10 items-center justify-center rounded-md border border-blue-200 bg-white text-xs font-extrabold text-blue-600 shadow-sm dark:border-blue-400/30 dark:bg-slate-900 dark:text-blue-300',
+          action: 'Escanear código QR',
+          actionClass:
+            'mt-9 md:mt-auto flex min-h-14 items-center justify-center rounded-md bg-blue-600 px-5 text-base font-semibold text-white',
+          qrImage: 'https://oss.macphpstudy.com/image/qrcode2@2x.png',
+          qrAlt: 'Código QR de Alipay'
+        },
+        {
+          kind: 'contribute',
+          title: 'Contribuir',
+          description:
+            'Escribe un artículo original o contribuye con código para optar a una licencia.',
+          icon: '+',
+          headerClass:
+            'flex h-24 items-center justify-center bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-500/10 dark:to-fuchsia-500/10',
+          iconClass:
+            'inline-flex h-10 w-10 items-center justify-center rounded-md border border-violet-200 bg-white text-sm font-extrabold text-violet-600 shadow-sm dark:border-violet-400/30 dark:bg-slate-900 dark:text-violet-300',
+          action: 'Opciones de contribución',
+          actionClass:
+            'mt-9 md:mt-auto flex min-h-14 items-center justify-center rounded-md bg-violet-600 px-5 text-base font-semibold !text-white no-underline transition hover:bg-violet-700 hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600',
+          items: [
+            {
+              icon: 'A',
+              label: 'Escribe un artículo',
+              iconClass:
+                'flex h-14 w-14 items-center justify-center rounded-full bg-violet-50 text-xl font-bold text-violet-600 dark:bg-violet-400/10 dark:text-violet-300'
+            },
+            {
+              icon: '</>',
+              label: 'Envía un PR',
+              iconClass:
+                'flex h-14 w-14 items-center justify-center rounded-full bg-violet-50 font-mono text-xl font-bold text-violet-600 dark:bg-violet-400/10 dark:text-violet-300'
+            }
+          ]
+        }
+      ],
+      communityLink: 'Explora las contribuciones de la comunidad ->',
+      faqTitle: 'Preguntas frecuentes',
+      faqs: [
+        {
+          question: '¿Es una suscripción?',
+          answer:
+            'No. La licencia actual de FlyEnv es una compra única sin cuotas recurrentes.'
+        },
+        {
+          question: '¿Cuántos dispositivos puedo activar?',
+          answer: 'Cada licencia puede tener un dispositivo activo a la vez.'
+        },
+        {
+          question: '¿Puedo trasladar mi licencia a otro ordenador?',
+          answer:
+            'Sí. Inicia sesión con GitHub, desvincula el dispositivo anterior en My Licenses y luego vincula el nuevo.'
+        },
+        {
+          question: '¿Se incluyen las actualizaciones futuras?',
+          answer: 'Sí. Las actualizaciones futuras de FlyEnv están incluidas en la licencia actual.'
+        },
+        {
+          question: '¿Ofrecen licencias para equipos o educativas?',
+          answer:
+            'Sí. Las licencias para equipos y educativas se pueden acordar caso por caso. Contáctame en',
+          email: 'alexpengfeixu@gmail.com',
+          emailSuffix: 'indicando tu caso de uso, el número de dispositivos y los datos de tu organización.'
+        }
+      ],
+      copyEmail: 'Copiar dirección de correo',
+      emailCopied: 'Dirección de correo copiada',
+      thanksTitle: 'Agradecimientos especiales',
+      thanksDescription: 'Gracias a cada amigo que ayuda a FlyEnv a seguir mejorando.',
+      fastAdminPrefix: 'Fundador de ',
+      fastAdminSuffix: ', por financiar el dominio flyenv.com.',
+      signPathPrefix:
+        'La firma de código gratuita de FlyEnv en Windows es proporcionada por ',
+      signPathMiddle: ', con el certificado proporcionado por ',
+      signPathSuffix: '.',
+      finalTitle: '¿Listo para obtener tu licencia?',
+      finalDescription: 'Usa FlyEnv sin límites y apoya el desarrollo continuo.',
+      buyLicense: 'Comprar licencia',
+      licenseTerms: 'Términos de la licencia',
+      guidePath: '/es/guide/about-license',
+      communityPath: '/es/community',
+      paddleError:
+        'El pago con Paddle no está disponible temporalmente. Inténtalo de nuevo más tarde.'
     }
   }
 

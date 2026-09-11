@@ -56,48 +56,67 @@ const featureLabelsId: Record<string, string> = {
   zincsearch: 'ZincSearch'
 }
 
+const featureLabelsEs: Record<string, string> = {
+  'antigravity-cli': 'Antigravity CLI', apache: 'Apache', bun: 'Bun', caddy: 'Caddy',
+  'claude-code': 'Claude Code', 'cli-terminal': 'CLI y terminal', clickhouse: 'ClickHouse',
+  cliproxyapi: 'CLIProxyAPI', 'cloudflare-tunnel': 'Cloudflare Tunnel', cloudflared: 'Cloudflared',
+  codex: 'Codex', consul: 'Consul', 'cron-jobs': 'Tareas cron', deno: 'Deno', 'dns-server': 'Servidor DNS',
+  dotnet: '.NET', elasticsearch: 'Elasticsearch', erlang: 'Erlang', etcd: 'Etcd', flutter: 'Flutter',
+  frankenphp: 'FrankenPHP', 'ftp-server': 'Servidor FTP', 'github-copilot-cli': 'GitHub Copilot CLI', go: 'Go',
+  gradle: 'Gradle', 'hermes-agent': 'Hermes Agent', java: 'Java', kimi: 'Kimi',
+  'local-sites-https': 'Sitios locales y HTTPS', mailpit: 'Mailpit', mariadb: 'MariaDB', 'mcp-server': 'Servidor MCP',
+  meilisearch: 'Meilisearch', memcached: 'Memcached', minio: 'MinIO', mkcert: 'MkCert', mongodb: 'MongoDB',
+  mysql: 'MySQL', n8n: 'n8n', neo4j: 'Neo4j', nginx: 'Nginx', nodejs: 'Node.js', numa: 'Numa', ollama: 'Ollama',
+  openclaw: 'OpenClaw', opencode: 'OpenCode', 'per-project-runtimes': 'Runtimes por proyecto', php: 'PHP',
+  podman: 'Podman', postgresql: 'PostgreSQL', python: 'Python', qdrant: 'Qdrant', 'r-nacos': 'R-NACOS',
+  rabbitmq: 'RabbitMQ', redis: 'Redis', ruby: 'Ruby', rust: 'Rust', rustfs: 'RustFS', 'startup-groups': 'Grupos de inicio',
+  temporal: 'Temporal', tomcat: 'Tomcat', typesense: 'Typesense', 'user-modules': 'Módulos de usuario', zig: 'Zig',
+  zincsearch: 'ZincSearch'
+}
+
 const featureGroups = [
-  { key: 'overview', en: 'Features', zh: '特性', id: 'Fitur', slugs: [] },
+  { key: 'overview', en: 'Features', zh: '特性', id: 'Fitur', es: 'Funcionalidades', slugs: [] },
   {
-    key: 'runtimes', en: 'Languages & Runtimes', zh: '语言与运行时', id: 'Bahasa & Runtime',
+    key: 'runtimes', en: 'Languages & Runtimes', zh: '语言与运行时', id: 'Bahasa & Runtime', es: 'Lenguajes y runtimes',
     slugs: ['php', 'nodejs', 'python', 'java', 'go', 'erlang', 'ruby', 'rust', 'dotnet', 'zig', 'bun', 'deno', 'flutter', 'gradle']
   },
   {
-    key: 'web', en: 'Web Servers & Local Sites', zh: 'Web 服务器与本地站点', id: 'Server Web & Situs Lokal',
+    key: 'web', en: 'Web Servers & Local Sites', zh: 'Web 服务器与本地站点', id: 'Server Web & Situs Lokal', es: 'Servidores web y sitios locales',
     slugs: ['local-sites-https', 'mkcert', 'frankenphp', 'nginx', 'apache', 'caddy', 'tomcat']
   },
   {
-    key: 'databases', en: 'Databases', zh: '数据库', id: 'Database',
+    key: 'databases', en: 'Databases', zh: '数据库', id: 'Database', es: 'Bases de datos',
     slugs: ['mysql', 'postgresql', 'mariadb', 'mongodb', 'qdrant', 'clickhouse', 'neo4j']
   },
   {
-    key: 'search', en: 'Cache, Messaging & Search', zh: '缓存、消息与搜索', id: 'Cache, Pesan & Pencarian',
+    key: 'search', en: 'Cache, Messaging & Search', zh: '缓存、消息与搜索', id: 'Cache, Pesan & Pencarian', es: 'Caché, mensajería y búsqueda',
     slugs: ['redis', 'memcached', 'rabbitmq', 'elasticsearch', 'meilisearch', 'typesense', 'zincsearch', 'mailpit']
   },
   {
-    key: 'infra', en: 'Infrastructure, Storage & Network', zh: '基础设施、存储与网络', id: 'Infrastruktur, Penyimpanan & Jaringan',
+    key: 'infra', en: 'Infrastructure, Storage & Network', zh: '基础设施、存储与网络', id: 'Infrastruktur, Penyimpanan & Jaringan', es: 'Infraestructura, almacenamiento y red',
     slugs: ['numa', 'dns-server', 'ftp-server', 'minio', 'rustfs', 'podman', 'cloudflared', 'cloudflare-tunnel', 'r-nacos', 'consul', 'etcd']
   },
   {
-    key: 'workflow', en: 'Developer Workflow', zh: '开发者工作流', id: 'Alur Kerja Pengembang',
+    key: 'workflow', en: 'Developer Workflow', zh: '开发者工作流', id: 'Alur Kerja Pengembang', es: 'Flujo de trabajo del desarrollador',
     slugs: ['startup-groups', 'per-project-runtimes', 'cron-jobs', 'user-modules', 'cli-terminal', 'temporal']
   },
   {
-    key: 'ai', en: 'AI, MCP & Automation', zh: 'AI、MCP 与自动化', id: 'AI, MCP & Otomasi',
+    key: 'ai', en: 'AI, MCP & Automation', zh: 'AI、MCP 与自动化', id: 'AI, MCP & Otomasi', es: 'IA, MCP y automatización',
     slugs: ['mcp-server', 'claude-code', 'codex', 'opencode', 'kimi', 'antigravity-cli', 'github-copilot-cli', 'hermes-agent', 'openclaw', 'n8n', 'ollama', 'cliproxyapi']
   }
 ]
 
-const featureSidebarFor = (locale: 'zh' | 'id') => featureGroups.map((group) => ({
+const featureSidebarFor = (locale: 'zh' | 'id' | 'es') => featureGroups.map((group) => ({
   text: group[locale],
   items: group.key === 'overview'
-    ? [{ text: locale === 'zh' ? '特性总览' : 'Ikhtisar Fitur', link: `/${locale}/features` }]
-    : group.slugs.map((slug) => ({ text: (locale === 'zh' ? featureLabelsZh : featureLabelsId)[slug] ?? slug, link: `/${locale}/features/${slug}` })),
+    ? [{ text: locale === 'zh' ? '特性总览' : locale === 'id' ? 'Ikhtisar Fitur' : 'Resumen de funcionalidades', link: `/${locale}/features` }]
+    : group.slugs.map((slug) => ({ text: (locale === 'zh' ? featureLabelsZh : locale === 'id' ? featureLabelsId : featureLabelsEs)[slug] ?? slug, link: `/${locale}/features/${slug}` })),
   collapsed: false
 }))
 
 const featureSidebarZh = featureSidebarFor('zh')
 const featureSidebarId = featureSidebarFor('id')
+const featureSidebarEs = featureSidebarFor('es')
 
 const compareSidebarZh = [
   { text: '比较总览', link: '/zh/compare/' },
@@ -116,6 +135,15 @@ const compareSidebarId = [
   { text: 'FlyEnv vs Laravel Herd', link: '/id/compare/herd' },
   { text: 'FlyEnv vs ServBay', link: '/id/compare/servbay' },
   { text: 'FlyEnv vs Docker', link: '/id/compare/docker' }
+]
+const compareSidebarEs = [
+  { text: 'Resumen de comparativas', link: '/es/compare/' },
+  { text: 'FlyEnv vs XAMPP', link: '/es/compare/xampp' },
+  { text: 'FlyEnv vs Laragon', link: '/es/compare/laragon' },
+  { text: 'FlyEnv vs MAMP / MAMP Pro', link: '/es/compare/mamp' },
+  { text: 'FlyEnv vs Laravel Herd', link: '/es/compare/herd' },
+  { text: 'FlyEnv vs ServBay', link: '/es/compare/servbay' },
+  { text: 'FlyEnv vs Docker', link: '/es/compare/docker' }
 ]
 
 const head: any = [['link', { rel: 'icon', href: '/favicon.ico' }]]
@@ -169,15 +197,15 @@ export default defineConfigWithTheme({
   sitemap: {
     hostname: AppHost,
     transformItems(items) {
-      return items.filter(({ url }) => !/^(?:404|(?:zh\/|id\/)?sponsor)$/.test(url))
+      return items.filter(({ url }) => !/^(?:404|(?:zh\/|id\/|es\/)?sponsor)$/.test(url))
     }
   },
   transformPageData(pageData) {
     const relativePath = pageData.relativePath.replace(/\.md$/, '')
-    const locale = relativePath.startsWith('zh/') ? 'zh' : relativePath.startsWith('id/') ? 'id' : 'en'
-    const localizedSolutionMatch = relativePath.match(/^(zh|id)\/solutions\/([^/]+)$/)
+    const locale = relativePath.startsWith('zh/') ? 'zh' : relativePath.startsWith('id/') ? 'id' : relativePath.startsWith('es/') ? 'es' : 'en'
+    const localizedSolutionMatch = relativePath.match(/^(zh|id|es)\/solutions\/([^/]+)$/)
     if (localizedSolutionMatch) {
-      const solutionLocale = localizedSolutionMatch[1] as 'zh' | 'id'
+      const solutionLocale = localizedSolutionMatch[1] as 'zh' | 'id' | 'es'
       const solutionSlug = localizedSolutionMatch[2]
       const solutionSummary = solutionContentByLocale[solutionLocale][solutionSlug]?.summary
       if (solutionSummary) pageData.description = solutionSummary
@@ -189,7 +217,8 @@ export default defineConfigWithTheme({
     const genericDescriptions = {
       en: 'All-in-One Full-Stack Environment Management Tool. Support macOS / Windows / Linux',
       zh: '一体化全栈环境管理工具. 支持macOS / Windows / Linux',
-      id: 'Pengelola lingkungan pengembangan full-stack terpadu untuk macOS, Windows, dan Linux.'
+      id: 'Pengelola lingkungan pengembangan full-stack terpadu untuk macOS, Windows, dan Linux.',
+      es: 'Herramienta todo en uno para gestionar entornos de desarrollo full-stack. Compatible con macOS, Windows y Linux.'
     }
     if ((!pageData.description || pageData.description === genericDescriptions[locale]) && relativePath !== '404') {
       const pageTitle = String(pageData.title || 'FlyEnv')
@@ -197,34 +226,38 @@ export default defineConfigWithTheme({
         ? `${pageTitle}：了解配置方法、使用步骤和常见问题，适用于 macOS、Windows 和 Linux 本地开发。`
         : locale === 'id'
           ? `${pageTitle}: panduan penyiapan, konfigurasi, dan alur kerja untuk pengembangan lokal di macOS, Windows, dan Linux.`
-          : `${pageTitle}: setup, configuration, and workflow guidance for local development on macOS, Windows, and Linux.`
+          : locale === 'es'
+            ? `${pageTitle}: guía de instalación, configuración y flujo de trabajo para desarrollo local en macOS, Windows y Linux.`
+            : `${pageTitle}: setup, configuration, and workflow guidance for local development on macOS, Windows, and Linux.`
     }
     return pageData
   },
   transformHead({ page, title, description, head }) {
-    const match = page.match(/^(?:(zh|id)\/)?(.+?)\.md$/)
+    const match = page.match(/^(?:(zh|id|es)\/)?(.+?)\.md$/)
     if (!match) return
 
     const pagePath = match[2]
     if (pagePath === '404' || pagePath === 'sponsor') return
 
-    const locale = (match[1] ?? 'en') as 'en' | 'zh' | 'id'
+    const locale = (match[1] ?? 'en') as 'en' | 'zh' | 'id' | 'es'
     const isIndexPage = /(?:^|\/)index$/.test(pagePath)
     const normalizedPath = pagePath.replace(/\/index$/, '').replace(/^index$/, '')
     const relative = isIndexPage
       ? `${normalizedPath ? `/${normalizedPath}` : ''}/`
       : `/${normalizedPath}`
     const localePath = locale === 'en' ? '' : `/${locale}`
-    const language = locale === 'zh' ? 'zh-CN' : locale === 'id' ? 'id-ID' : 'en'
+    const language = locale === 'zh' ? 'zh-CN' : locale === 'id' ? 'id-ID' : locale === 'es' ? 'es-ES' : 'en'
     const url = `${AppHost}${localePath}${relative}`
-    const localizedUrl = (targetLocale: 'en' | 'zh' | 'id') =>
+    const localizedUrl = (targetLocale: 'en' | 'zh' | 'id' | 'es') =>
       `${AppHost}${targetLocale === 'en' ? '' : `/${targetLocale}`}${relative}`
-    const ogLocale = locale === 'zh' ? 'zh_CN' : locale === 'id' ? 'id_ID' : 'en_US'
+    const ogLocale = locale === 'zh' ? 'zh_CN' : locale === 'id' ? 'id_ID' : locale === 'es' ? 'es_ES' : 'en_US'
     const socialImageAlt = locale === 'zh'
       ? 'FlyEnv 应用图标'
       : locale === 'id'
         ? 'Ikon aplikasi FlyEnv'
-        : 'FlyEnv application icon'
+        : locale === 'es'
+          ? 'Icono de la aplicación FlyEnv'
+          : 'FlyEnv application icon'
     const additions: any[] = []
 
     for (let index = head.length - 1; index >= 0; index -= 1) {
@@ -248,6 +281,7 @@ export default defineConfigWithTheme({
       ['link', { rel: 'alternate', hreflang: 'en', href: localizedUrl('en') }],
       ['link', { rel: 'alternate', hreflang: 'zh-CN', href: localizedUrl('zh') }],
       ['link', { rel: 'alternate', hreflang: 'id-ID', href: localizedUrl('id') }],
+      ['link', { rel: 'alternate', hreflang: 'es-ES', href: localizedUrl('es') }],
       ['link', { rel: 'alternate', hreflang: 'x-default', href: localizedUrl('en') }],
       ['link', { rel: 'describedby', href: `${AppHost}/llms.txt` }]
     )
@@ -265,11 +299,11 @@ export default defineConfigWithTheme({
     upsert('meta', 'name', 'twitter:image', { name: 'twitter:image', content: socialImage })
     upsert('meta', 'name', 'twitter:image:alt', { name: 'twitter:image:alt', content: socialImageAlt })
 
-    const solutionMatch = page.match(/^(?:(zh|id)\/)?solutions\/([a-z0-9-]+)\.md$/)
+    const solutionMatch = page.match(/^(?:(zh|id|es)\/)?solutions\/([a-z0-9-]+)\.md$/)
     const solution = solutionMatch && solutions.find((item) => item.slug === solutionMatch[2])
     if (solution) {
       const solutionDescription = solutionContentByLocale[locale][solution.slug]?.summary ?? description
-      const solutionsLabel = locale === 'zh' ? '解决方案' : locale === 'id' ? 'Solusi' : 'Solutions'
+      const solutionsLabel = locale === 'zh' ? '解决方案' : locale === 'id' ? 'Solusi' : locale === 'es' ? 'Soluciones' : 'Solutions'
       const schema = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -841,6 +875,106 @@ export default defineConfigWithTheme({
                   text: 'Memuat Paket I18n Secara Dinamis',
                   link: '/id/guide/dynamically-load-I18n-language-packs'
                 }
+              ],
+              collapsed: false
+            }
+          ]
+        }
+      }
+    },
+    es: {
+      label: 'Español',
+      lang: 'es-ES',
+      link: '/es/',
+      title: 'FlyEnv',
+      description:
+        'Herramienta todo en uno para gestionar entornos de desarrollo full-stack. Compatible con macOS, Windows y Linux.',
+      themeConfig: {
+        footer: {
+          message: FootMessage,
+          copyright:
+            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/es/terms">Términos de servicio</a> · <a href="/es/privacy">Política de privacidad</a> · <a href="/es/refund-policy">Política de reembolso</a>'
+        },
+        socialLinks: [{ icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }],
+        nav: [
+          { text: 'Descargar', link: '/es/download' },
+          { text: 'Comparativas', link: '/es/compare/' },
+          { text: 'Funcionalidades', link: '/es/features' },
+          { text: 'Soluciones', link: '/es/solutions' },
+          { text: 'Demos', link: '/es/demos' },
+          { text: 'Guía', link: '/es/guide/what-is-flyenv' },
+          { text: 'Comunidad', link: '/es/community' },
+          { text: 'Licencia', link: '/es/license' }
+        ],
+        sidebar: {
+          '/es/compare/': [
+            { text: 'Comparativas', items: compareSidebarEs, collapsed: false }
+          ],
+          '/es/features/': [
+            ...featureSidebarEs
+          ],
+          '/es/guide/': [
+            {
+              text: 'Primeros pasos',
+              items: [
+                { text: '¿Qué es FlyEnv?', link: '/es/guide/what-is-flyenv' },
+                { text: 'FlyEnv vs Docker & XAMPP', link: '/es/guide/flyenv-vs-docker-xampp' },
+                { text: 'Guía de inicio rápido', link: '/es/guide/getting-started' },
+                { text: 'Acerca de FlyEnv Helper', link: '/es/guide/about-flyenv-helper' },
+                { text: 'Licencia y soporte', link: '/es/guide/about-license' }
+              ],
+              collapsed: false
+            },
+            { text: 'Comparativas', items: compareSidebarEs, collapsed: false },
+            {
+              text: 'Configuración del entorno principal',
+              items: [
+                { text: 'Aislamiento de versiones por proyecto', link: '/es/guide/project-level-runtime-environment' },
+                { text: 'Gestionar versiones de Node.js y PHP', link: '/es/guide/manage-multiple-node-php-versions' },
+                { text: 'Gestión del PATH del sistema', link: '/es/guide/setup-system-path-environment' },
+                { text: 'Configurar el entorno de desarrollo Java', link: '/es/guide/set-up-java-development-environment' },
+                { text: 'Instalar extensiones de PHP', link: '/es/guide/php-extensions-install' },
+                { text: 'Base de datos y seguridad', link: '/es/guide/database-user-password' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'IA y herramientas de productividad',
+              items: [
+                { text: 'Guía de FlyEnv AI Workspace y MCP', link: '/es/guide/ai-coding-workspace-mcp' },
+                { text: 'Flujo de trabajo con asistentes de programación IA', link: '/es/guide/flyenv-work-with-ai' },
+                { text: 'Crear un agente de IA local sin conexión', link: '/es/guide/build-local-offline-ai-agent' },
+                { text: 'Flujos de trabajo de IA autoalojados con n8n', link: '/es/guide/build-local-ai-workflow-by-n8n' },
+                { text: 'Guía de OpenClaw + Ollama', link: '/es/guide/openclaw' },
+                { text: 'Herramienta de ofuscación de código PHP', link: '/es/guide/php-code-obfuscation' },
+                { text: 'Exponer localhost con Cloudflare Tunnel', link: '/es/guide/cloudflare-tunnel-local-development' },
+                { text: 'Pruebas de correo local (Mailpit)', link: '/es/guide/local-email-testing-mailpit' },
+                { text: 'Code Playground y biblioteca de código', link: '/es/guide/code-playground-and-code-library' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Servidores web y proxy inverso',
+              items: [
+                { text: 'Dominios personalizados y SSL automático', link: '/es/guide/host' },
+                { text: 'Desplegar proyectos PHP sin Docker', link: '/es/guide/deploy-php-projects-without-docker' },
+                { text: 'Interpretar HTML como PHP (Nginx/Apache/Caddy)', link: '/es/guide/parse-html-as-php-multi-servers' },
+                { text: 'Configuración de proxy inverso (NestJS/Node.js)', link: '/es/guide/reverse-proxy-nestjs-multi-servers' },
+                { text: 'Desplegar Node/Python/Go sin Docker', link: '/es/guide/deploy-nodejs-python-go-without-docker' },
+                { text: 'Configuración de red y proxy', link: '/es/guide/use-proxy' },
+                { text: 'Módulos personalizables por el usuario', link: '/es/guide/user-customizable-modules' },
+                { text: 'Guía del módulo Podman', link: '/es/guide/podman-module' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Solución de problemas y optimización',
+              items: [
+                { text: 'Optimización del rendimiento de sitios en Windows', link: '/es/guide/windows-site-performance-optimization' },
+                { text: 'Ejecutar Laravel en FlyEnv', link: '/es/guide/run-laravel-use-flyenv' },
+                { text: 'Depuración de PHP con Xdebug', link: '/es/guide/php-debug-with-xdebug' },
+                { text: 'Solucionar problemas comunes de PHP (icu4c)', link: '/es/guide/php-icu4c-issues' },
+                { text: 'Cargar paquetes de idiomas I18n dinámicamente', link: '/es/guide/dynamically-load-I18n-language-packs' }
               ],
               collapsed: false
             }

@@ -17,12 +17,12 @@
   import { detectOperatingSystem, trackEvent } from '../../utils/analytics'
 
   const props = defineProps<{
-    i18n: 'en' | 'zh'
+    i18n: 'en' | 'zh' | 'es'
     isLink?: boolean
   }>()
 
   const title = computed(() => {
-    return props?.i18n === 'zh' ? '下载' : 'Download'
+    return props?.i18n === 'zh' ? '下载' : props?.i18n === 'es' ? 'Descargar' : 'Download'
   })
 
   const down = () => {
@@ -44,7 +44,9 @@
       default:
         const url = window.location.href.includes('/zh/')
           ? '/zh/guide/getting-started'
-          : '/guide/getting-started'
+          : window.location.href.includes('/es/')
+            ? '/es/guide/getting-started'
+            : '/guide/getting-started'
         trackEvent('download_click', { os, target: url, release_file: '' })
         window.location.href = url
         return

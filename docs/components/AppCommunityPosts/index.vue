@@ -154,7 +154,7 @@ interface FilterDefinition {
 
 const props = defineProps<{
   posts: Post[]
-  locale?: 'en' | 'zh' | 'id'
+  locale?: 'en' | 'zh' | 'id' | 'es'
 }>()
 
 const locale = computed(() => props.locale || 'en')
@@ -276,6 +276,64 @@ const copy = {
       postgresql: 'PostgreSQL',
       ai: 'AI',
       'case-study': 'Studi kasus'
+    }
+  },
+  es: {
+    kicker: 'Historias de la comunidad',
+    title: 'Historias de desarrolladores, reunidas en un solo lugar',
+    intro:
+      'Artículos públicos, tutoriales y reseñas te ayudan a ver cómo otros desarrolladores usan FlyEnv antes de probarlo tú mismo.',
+    coverageLabel: 'Cobertura de historias de la comunidad',
+    stories: 'Historias',
+    authors: 'Autores',
+    languages: 'Idiomas',
+    platforms: 'Plataformas',
+    leadLabel: 'Última historia',
+    browseTitle: 'Explora según el problema que estás resolviendo',
+    browseIntro: 'Empieza por la experiencia más cercana a tu flujo de trabajo.',
+    filterLabel: 'Filtrar historias de la comunidad',
+    libraryTitle: 'Biblioteca de la comunidad',
+    resultSummary: (count: number) =>
+      `${count} ${count === 1 ? 'historia' : 'historias'} para explorar`,
+    readStory: 'Leer historia',
+    showMore: (count: number) => `Mostrar ${count} ${count === 1 ? 'historia' : 'historias'} más`,
+    emptyTitle: 'Aún no hay historias en este tema',
+    emptyIntro: 'Prueba con otro tema para explorar toda la biblioteca de la comunidad.',
+    resetFilter: 'Ver todas las historias',
+    filters: {
+      all: 'Todas las historias',
+      switch: 'Cambio de stack',
+      php: 'PHP y Laravel',
+      runtimes: 'Múltiples runtimes',
+      platforms: 'Trabajo multiplataforma',
+      video: 'Guías en video'
+    },
+    content: {
+      video: 'Video',
+      tutorial: 'Tutorial',
+      comparison: 'Comparación',
+      review: 'Reseña',
+      story: 'Historia'
+    },
+    tags: {
+      tutorial: 'Tutorial',
+      comparison: 'Comparación',
+      review: 'Reseña',
+      video: 'Video',
+      php: 'PHP',
+      laravel: 'Laravel',
+      nodejs: 'Node.js',
+      java: 'Java',
+      docker: 'Docker',
+      xampp: 'XAMPP',
+      laragon: 'Laragon',
+      macos: 'macOS',
+      windows: 'Windows',
+      linux: 'Linux',
+      wordpress: 'WordPress',
+      postgresql: 'PostgreSQL',
+      ai: 'IA',
+      'case-study': 'Caso práctico'
     }
   },
   zh: {
@@ -422,11 +480,20 @@ function languageLabel(language: string) {
 }
 
 function formatDate(date: string) {
-  return new Intl.DateTimeFormat(locale.value === 'zh' ? 'zh-CN' : locale.value === 'id' ? 'id-ID' : 'en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  }).format(new Date(date))
+  return new Intl.DateTimeFormat(
+    locale.value === 'zh'
+      ? 'zh-CN'
+      : locale.value === 'id'
+        ? 'id-ID'
+        : locale.value === 'es'
+          ? 'es-ES'
+          : 'en-US',
+    {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }
+  ).format(new Date(date))
 }
 </script>
 

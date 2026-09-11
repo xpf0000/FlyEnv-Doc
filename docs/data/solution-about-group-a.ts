@@ -22,6 +22,7 @@ export const solutionAboutGroupA: {
   en: Partial<Record<SolutionSlug, SolutionAboutContent>>
   zh: Partial<Record<SolutionSlug, SolutionAboutContent>>
   id: Partial<Record<SolutionSlug, SolutionAboutContent>>
+  es: Partial<Record<SolutionSlug, SolutionAboutContent>>
 } = {
   en: {
     laravel: {
@@ -1807,6 +1808,644 @@ export const solutionAboutGroupA: {
             title: 'Storage, Redis, dan mail bila dikonfigurasi',
             description:
               'Adapter file, layanan cache, dan SMTP hanya milik konfigurasi Directus yang sedang diuji.'
+          }
+        ]
+      }
+    }
+  },
+  es: {
+    laravel: {
+      replaceOverview: true,
+      paragraphs: [
+        'Laravel es un framework PHP para aplicaciones web full-stack y APIs. Sus convenciones integran el enrutamiento, la inyección de dependencias, los modelos Eloquent, la validación, la autenticación, los eventos y las plantillas en una estructura de aplicación coherente.',
+        'Un proyecto Laravel suele empezar con PHP, Composer y una base de datos. Funciones como las notificaciones en cola, los comandos programados, los datos en caché y los assets compilados con Vite añaden procesos propios del framework que deben ejecutarse junto a la aplicación.'
+      ],
+      capabilities: [
+        'Eloquent ORM',
+        'Artisan CLI',
+        'Blade Templates',
+        'Queues & Events',
+        'Task Scheduler',
+        'Migrations'
+      ],
+      useCases: [
+        'Productos de suscripción y portales de clientes',
+        'Sistemas de negocio con flujos de trabajo basados en roles',
+        'Backends de comercio electrónico',
+        'Aplicaciones web basadas en contenido',
+        'APIs REST para clientes web o móviles'
+      ],
+      localEnvironment: {
+        title: 'Un entorno Laravel incluye su flujo de trabajo de aplicación',
+        description:
+          'El stack exacto varía según el proyecto, pero los equipos de Laravel suelen desarrollar el código de la aplicación, los cambios de esquema, los workers y los assets de frontend de forma conjunta.',
+        items: [
+          {
+            title: 'PHP y Composer',
+            description: 'Ejecuta la aplicación e instala los paquetes registrados en composer.lock.'
+          },
+          {
+            title: 'MySQL o PostgreSQL',
+            description:
+              'Los modelos Eloquent y las migraciones de Laravel suelen gestionar aquí el esquema del proyecto.'
+          },
+          {
+            title: 'Workers de Artisan y scheduler',
+            description:
+              'Ejecuta queue:work y schedule:work solo cuando haya trabajos en cola o comandos programados configurados.'
+          },
+          {
+            title: 'Redis y Vite cuando se usan',
+            description:
+              'Redis es un backend habitual para caché, sesiones o colas; Node.js y Vite son necesarios en proyectos que compilan assets de frontend.'
+          }
+        ]
+      }
+    },
+    django: {
+      replaceOverview: true,
+      paragraphs: [
+        'Django es un framework web de alto nivel para Python construido en torno a aplicaciones reutilizables, un ORM maduro, migraciones, formularios, autenticación y una interfaz de administración automática. Es especialmente adecuado para sitios basados en bases de datos cuyas reglas de negocio y modelos de contenido evolucionan juntos.',
+        'El desarrollo suele comenzar dentro de un entorno virtual de Python, con manage.py coordinando el proyecto. Las aplicaciones desplegables también pueden necesitar una base de datos relacional, gestión de archivos estáticos y de medios, y procesos de Celery cuando el trabajo asíncrono forma parte del diseño.'
+      ],
+      capabilities: [
+        'Django ORM',
+        'Admin Site',
+        'Migrations',
+        'Forms',
+        'Authentication',
+        'ASGI Support'
+      ],
+      useCases: [
+        'Sitios web editoriales y de membresía',
+        'Aplicaciones de negocio con muchos datos',
+        'Herramientas de back-office construidas en torno al admin',
+        'Plataformas de marketplace o directorios',
+        'APIs junto con Django REST Framework'
+      ],
+      localEnvironment: {
+        title: 'Un proyecto Django es más que runserver',
+        description:
+          'manage.py coordina las tareas del framework, mientras que las decisiones del proyecto determinan qué procesos de apoyo se necesitan en local.',
+        items: [
+          {
+            title: 'Entorno de Python',
+            description:
+              'Un entorno de venv, uv o Poetry mantiene aislados Django y las dependencias del proyecto.'
+          },
+          {
+            title: 'PostgreSQL o MySQL',
+            description:
+              'Los proyectos de Django cercanos a producción suelen usar una base de datos relacional y aplicar los cambios de esquema con manage.py migrate.'
+          },
+          {
+            title: 'Archivos estáticos y de medios',
+            description:
+              'Las plantillas, los assets estáticos recolectados y las subidas de los usuarios requieren rutas y configuración locales separadas.'
+          },
+          {
+            title: 'Broker y worker de Celery cuando están configurados',
+            description:
+              'Redis o RabbitMQ y un worker de Celery solo son relevantes en proyectos que ejecutan tareas en segundo plano.'
+          }
+        ]
+      }
+    },
+    fastapi: {
+      replaceOverview: true,
+      paragraphs: [
+        'FastAPI es un framework de Python para construir APIs HTTP tipadas. Las anotaciones de tipo impulsan la validación, la serialización, la inyección de dependencias y la documentación OpenAPI, mientras que su base ASGI admite endpoints asíncronos y WebSockets.',
+        'Un servicio FastAPI local suele ejecutarse a través de un servidor ASGI como Uvicorn. El resto del entorno debe seguir al propio servicio: una base de datos con ORM para los datos persistentes, migraciones y procesos de worker o broker opcionales para las cargas de trabajo asíncronas.'
+      ],
+      capabilities: [
+        'Validación basada en tipos',
+        'Documentación OpenAPI',
+        'Inyección de dependencias',
+        'Endpoints ASGI asíncronos',
+        'WebSockets',
+        'Modelos Pydantic'
+      ],
+      useCases: [
+        'APIs REST tipadas',
+        'Servicios backend para aplicaciones móviles',
+        'Endpoints de servicios de datos y ML',
+        'APIs de integración asíncronas',
+        'Plataformas de API internas'
+      ],
+      localEnvironment: {
+        title: 'Un entorno FastAPI sigue el contrato del servicio',
+        description:
+          'El framework en sí es deliberadamente pequeño, así que las dependencias locales deben reflejar la implementación de la API y no un stack predefinido.',
+        items: [
+          {
+            title: 'Python y servidor ASGI',
+            description:
+              'Ejecuta la aplicación con sus dependencias de Python fijadas y un servidor ASGI como Uvicorn.'
+          },
+          {
+            title: 'Base de datos y migraciones',
+            description:
+              'PostgreSQL u otra base de datos elegida se combina con el ORM y la herramienta de migraciones del proyecto.'
+          },
+          {
+            title: 'Clientes de API y origen seguro',
+            description:
+              'Un dominio local y HTTPS pueden ser importantes para clientes de navegador, redirecciones de OAuth o pruebas de callbacks de webhooks.'
+          },
+          {
+            title: 'Broker y workers cuando forman parte del diseño',
+            description:
+              'Redis, RabbitMQ o un proceso worker solo tienen sentido donde la API delega explícitamente trabajo en segundo plano.'
+          }
+        ]
+      }
+    },
+    flask: {
+      replaceOverview: true,
+      paragraphs: [
+        'Flask es un framework web ligero de Python centrado en el enrutamiento, el manejo de peticiones, las plantillas Jinja y la elección explícita de extensiones. Su núcleo reducido permite a los equipos decidir cómo organizar los blueprints, la persistencia, la autenticación, las tareas de línea de comandos y el despliegue.',
+        'Esa flexibilidad hace que el entorno local de Flask sea específico de cada proyecto. Una aplicación pequeña puede usar solo un entorno virtual y el servidor de desarrollo de Flask; una aplicación con SQLAlchemy, migraciones de Alembic, compilación de assets o tareas en segundo plano incorpora esos servicios de forma deliberada.'
+      ],
+      capabilities: [
+        'Blueprints',
+        'Jinja Templates',
+        'Werkzeug Routing',
+        'CLI Commands',
+        'Extension Ecosystem',
+        'WSGI Applications'
+      ],
+      useCases: [
+        'Aplicaciones web pequeñas',
+        'Herramientas internas a medida',
+        'APIs JSON',
+        'Prototipos de servicios',
+        'Sitios renderizados en servidor con arquitectura propia'
+      ],
+      localEnvironment: {
+        title: 'Flask mantiene el stack local intencionadamente explícito',
+        description:
+          'A diferencia de un framework con todo incluido, Flask no da por sentado ningún servicio de apoyo; la configuración del proyecto es la fuente de verdad.',
+        items: [
+          {
+            title: 'Entorno virtual de Python',
+            description: 'Aísla Flask y las extensiones elegidas por la aplicación.'
+          },
+          {
+            title: 'CLI de Flask y servidor de desarrollo',
+            description:
+              'Ejecuta los comandos flask para la app factory configurada, las tareas de shell o el servidor local.'
+          },
+          {
+            title: 'Base de datos y Alembic cuando se usan',
+            description:
+              'Las aplicaciones basadas en SQLAlchemy suelen añadir una base de datos y un flujo de migraciones con Alembic.'
+          },
+          {
+            title: 'Worker de tareas solo cuando está configurado',
+            description:
+              'Celery, RQ u otro servicio de workers es opcional y debe coincidir con el código de la aplicación.'
+          }
+        ]
+      }
+    },
+    wordpress: {
+      replaceOverview: true,
+      paragraphs: [
+        'WordPress es un sistema de gestión de contenidos en PHP cuyo núcleo, temas, plugins, editor de bloques, biblioteca de medios y jerarquía de plantillas hacen que los sitios de publicación sean extensibles sin convertir cada cambio de contenido en un despliegue.',
+        'El trabajo local con WordPress suele centrarse en un servidor web PHP, MySQL o MariaDB y una dirección de sitio local estable. El desarrollo de temas y plugins también implica subidas de archivos, reglas de reescritura y WP-CLI; Node.js solo es relevante cuando el tema o las herramientas de bloques elegidas lo utilizan.'
+      ],
+      capabilities: [
+        'Block Editor',
+        'Theme Hierarchy',
+        'Plugin API',
+        'Media Library',
+        'Custom Post Types',
+        'WP-CLI'
+      ],
+      useCases: [
+        'Sitios web de marketing y empresas',
+        'Publicaciones editoriales',
+        'Sitios de membresía o comunidades',
+        'Desarrollo de temas y plugins personalizados',
+        'Pequeñas tiendas con WooCommerce'
+      ],
+      localEnvironment: {
+        title: 'Un sitio WordPress incluye flujos de trabajo de contenido y extensiones',
+        description:
+          'La configuración local debe comportarse como un sitio, no solo ejecutar PHP, para que autores y desarrolladores puedan probar URLs, assets y extensiones de forma conjunta.',
+        items: [
+          {
+            title: 'Servidor web PHP y dominio local',
+            description:
+              'Sirve el sitio a través de su URL local compatible con los enlaces permanentes y con la versión de PHP soportada por la versión instalada.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description:
+              'Almacena entradas, usuarios, opciones, taxonomías y ajustes de plugins o temas.'
+          },
+          {
+            title: 'Subidas y extensiones de wp-content',
+            description:
+              'Mantén las subidas de medios, los temas y los plugins disponibles como parte del conjunto de pruebas del proyecto.'
+          },
+          {
+            title: 'WP-CLI y Node.js cuando se necesitan',
+            description:
+              'WP-CLI permite tareas repetibles del sitio; Node.js es opcional para temas o pipelines de compilación de bloques personalizados.'
+          }
+        ]
+      }
+    },
+    drupal: {
+      replaceOverview: true,
+      paragraphs: [
+        'Drupal es un CMS en PHP para experiencias digitales estructuradas y altamente configurables. Las entidades de contenido, los campos, la taxonomía, Views, la gestión de configuración, los permisos y las herramientas multilingües permiten a los equipos modelar información y flujos editoriales complejos.',
+        'El desarrollo con Drupal suele combinar código PHP gestionado por Composer con una base de datos relacional y un servidor web. La sincronización de configuración, los comandos Drush, el almacenamiento de archivos y las compilaciones opcionales de frontend son tan importantes para un proyecto local fiable como abrir la página de inicio.'
+      ],
+      capabilities: [
+        'Content Entities',
+        'Fields & Taxonomy',
+        'Views',
+        'Configuration Management',
+        'Permissions',
+        'Multilingual Content'
+      ],
+      useCases: [
+        'Sitios web gubernamentales y de servicios públicos',
+        'Sitios institucionales multilingües',
+        'Plataformas de contenido con taxonomías complejas',
+        'Sitios editoriales con flujos de trabajo gobernados',
+        'Desarrollo de módulos personalizados'
+      ],
+      localEnvironment: {
+        title: 'Un entorno Drupal preserva la estructura y la configuración',
+        description:
+          'Los modelos de contenido y la configuración exportada son el centro del trabajo con Drupal, por lo que la configuración local debe admitir importaciones repetibles y cambios de extensiones.',
+        items: [
+          {
+            title: 'PHP y Composer',
+            description:
+              'Composer gestiona el núcleo de Drupal, los módulos contribuidos y las bibliotecas del proyecto.'
+          },
+          {
+            title: 'Base de datos y sincronización de configuración',
+            description:
+              'La base de datos guarda el contenido, mientras que la configuración exportada se suele importar y exportar con las herramientas de Drupal.'
+          },
+          {
+            title: 'Drush',
+            description:
+              'Drush se usa para reconstruir la caché, actualizar, ejecutar comandos de configuración y otras tareas de desarrollo repetibles.'
+          },
+          {
+            title: 'Archivos públicos y privados',
+            description:
+              'Las subidas y los archivos privados necesitan rutas locales que coincidan con la configuración del sitio; Node.js es opcional para la compilación de temas.'
+          }
+        ]
+      }
+    },
+    ghost: {
+      replaceOverview: true,
+      paragraphs: [
+        'Ghost es una plataforma de publicación en Node.js centrada en la escritura profesional, las membresías, las newsletters y las suscripciones. Ofrece un editor, una capa de temas, gestión de miembros, funciones de envío de correo y las APIs de Content y Admin en torno a una publicación, en lugar de un ecosistema de plugins de CMS generalista.',
+        'Una instalación local de Ghost se ejecuta sobre Node.js y usa la base de datos seleccionada para el entorno. El trabajo con temas se beneficia de URLs y ajustes de correo realistas, mientras que las integraciones externas de envío de correo y almacenamiento solo deben añadirse cuando la configuración de la publicación las usa.'
+      ],
+      capabilities: [
+        'Publishing Editor',
+        'Memberships',
+        'Newsletters',
+        'Theme API',
+        'Content API',
+        'Subscription Tiers'
+      ],
+      useCases: [
+        'Publicaciones independientes',
+        'Newsletters de pago',
+        'Sitios de membresía para creadores',
+        'Sitios de marca editorial',
+        'Desarrollo de temas personalizados de Ghost'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Ghost sigue un flujo de trabajo de publicación',
+        description:
+          'Los aspectos clave en local son la base de datos de la publicación, el comportamiento del tema, las URLs orientadas a los miembros y las integraciones de entrega configuradas.',
+        items: [
+          {
+            title: 'Node.js y Ghost CLI',
+            description:
+              'Ejecuta la instancia de Ghost y usa sus herramientas de instalación y desarrollo soportadas.'
+          },
+          {
+            title: 'Base de datos',
+            description:
+              'SQLite es adecuado por defecto para el desarrollo local; MySQL se usa cuando la configuración elegida lo requiere.'
+          },
+          {
+            title: 'Archivos de tema y URL local',
+            description:
+              'El desarrollo de temas necesita una URL local de publicación para probar el enrutamiento, los miembros y los assets del navegador.'
+          },
+          {
+            title: 'Envío de correo cuando está configurado',
+            description:
+              'Usa SMTP solo para probar correos transaccionales; las newsletters de Ghost requieren la integración configurada de la API de Mailgun.'
+          }
+        ]
+      }
+    },
+    magento: {
+      replaceOverview: true,
+      paragraphs: [
+        'Magento Open Source es una plataforma de comercio en PHP para tiendas con catálogos, precios, promociones, grupos de clientes, comportamiento de checkout y múltiples storefronts complejos. Su arquitectura modular convierte el trabajo de extensiones e integraciones en una parte central de la implementación.',
+        'El desarrollo local de Magento es notablemente más complejo que el de un sitio PHP básico. Las dependencias de Composer, MySQL, la indexación de búsqueda, la caché o las sesiones con Redis, cron, los consumidores de colas, el código generado y el contenido estático pueden estar activos según la configuración del proyecto.'
+      ],
+      capabilities: [
+        'Catalog & Inventory',
+        'Multi-store',
+        'Promotions',
+        'Checkout',
+        'Search Indexing',
+        'Extension Modules'
+      ],
+      useCases: [
+        'Operaciones minoristas multi-tienda',
+        'Catálogos B2B y precios por cliente',
+        'Catálogos de productos de gran tamaño',
+        'Integraciones de comercio con sistemas ERP o PIM',
+        'Desarrollo personalizado de checkout y extensiones'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Magento coordina un stack de comercio',
+        description:
+          'Un catálogo sencillo puede no activar todos los servicios, pero el trabajo real con Magento suele requerir varios procesos para exponer la indexación, la caché y el comportamiento asíncrono.',
+        items: [
+          {
+            title: 'PHP, Composer y código generado',
+            description:
+              'Magento usa paquetes de Composer y clases generadas; los comandos CLI gestionan la compilación y los cambios de instalación.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description:
+              'Almacena el catálogo, los clientes, las ventas, la configuración y los datos relacionados con los índices.'
+          },
+          {
+            title: 'OpenSearch o Elasticsearch',
+            description:
+              'Requerido por las versiones soportadas de Magento para la búsqueda e indexación del catálogo; usa el motor que exija la versión del proyecto.'
+          },
+          {
+            title: 'Redis, cron y consumidores cuando están activados',
+            description:
+              'Redis suele dar soporte a la caché o las sesiones, mientras que cron y los consumidores de la cola de mensajes solo son necesarios para las funciones configuradas para usarlos.'
+          },
+          {
+            title: 'Herramientas de contenido estático',
+            description:
+              'Las herramientas de Node.js son opcionales, pero el despliegue de contenido estático de Magento y los assets del tema deben reconstruirse cuando el flujo de trabajo del proyecto lo requiera.'
+          }
+        ]
+      }
+    },
+    prestashop: {
+      replaceOverview: true,
+      paragraphs: [
+        'PrestaShop es una plataforma de comercio electrónico en PHP para comerciantes que gestionan catálogos de productos, pedidos, pagos, envíos y promociones. Sus módulos y temas permiten a las tiendas adaptar el storefront y el back office sin sustituir el núcleo de comercio.',
+        'Una tienda PrestaShop local suele necesitar PHP, MySQL o MariaDB, un servidor web y una URL propia de la tienda. El trabajo con módulos y temas debe preservar la base de datos y los assets de imágenes; Node.js solo corresponde a proyectos que lo usan para las herramientas de assets del tema.'
+      ],
+      capabilities: [
+        'Product Catalog',
+        'Order Management',
+        'Modules',
+        'Themes',
+        'Carrier Rules',
+        'Multi-language Storefronts'
+      ],
+      useCases: [
+        'Tiendas online pequeñas y medianas',
+        'Personalización del storefront del comerciante',
+        'Integración de módulos de pago y transportistas',
+        'Sitios de catálogo localizados',
+        'Desarrollo de temas y módulos'
+      ],
+      localEnvironment: {
+        title: 'Un entorno PrestaShop es una tienda en funcionamiento',
+        description:
+          'El estado del catálogo, los módulos, los assets del tema y el comportamiento del navegador deben estar disponibles a la vez para probar un cambio de forma realista.',
+        items: [
+          {
+            title: 'Servidor web PHP',
+            description:
+              'Ejecuta la tienda con la versión de PHP y las extensiones soportadas por su versión de PrestaShop.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description: 'Contiene productos, clientes, pedidos, configuración y datos de los módulos.'
+          },
+          {
+            title: 'URL de la tienda y archivos de imagen',
+            description:
+              'Usa un dominio local para el comportamiento del storefront y conserva las rutas de las imágenes de producto al probar importaciones o temas.'
+          },
+          {
+            title: 'Herramientas de assets del tema cuando se usan',
+            description:
+              'Node.js es opcional y solo debe iniciarse para temas o flujos de frontend que lo declaren.'
+          }
+        ]
+      }
+    },
+    opencart: {
+      replaceOverview: true,
+      paragraphs: [
+        'OpenCart es una plataforma de comercio electrónico en PHP para crear y operar tiendas online. Su catálogo, su sistema de pedidos, sus extensiones, sus temas y su soporte multi-tienda ofrecen a los comerciantes un camino relativamente directo desde los datos del producto hasta un storefront orientado al cliente.',
+        'El trabajo local con OpenCart suele centrarse en PHP, una base de datos compatible con MySQL, un servidor web y una URL de tienda. Los cambios de extensiones, las imágenes de producto, el comportamiento de reescritura y los callbacks de pago o envío son más relevantes para este flujo que un stack genérico de servicios de aplicación.'
+      ],
+      capabilities: [
+        'Product Catalog',
+        'Order Processing',
+        'Extensions',
+        'Theme System',
+        'Multi-store',
+        'Language Packs'
+      ],
+      useCases: [
+        'Pequeñas tiendas online',
+        'Storefronts de catálogo personalizados',
+        'Trabajo con extensiones de pago y envío',
+        'Configuraciones multi-tienda para comerciantes',
+        'Personalización de temas de OpenCart'
+      ],
+      localEnvironment: {
+        title: 'Una instalación de OpenCart debe comportarse como un storefront',
+        description:
+          'Probar una tienda significa conservar los datos del catálogo, las rutas de las imágenes, la reescritura de URLs y los ajustes de integración orientados al navegador.',
+        items: [
+          {
+            title: 'PHP y servidor web',
+            description:
+              'Sirve OpenCart con la versión de PHP y las extensiones requeridas por la versión instalada.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description:
+              'Almacena los datos del catálogo, las cuentas de clientes, los pedidos, los ajustes y la configuración de las extensiones.'
+          },
+          {
+            title: 'Imágenes y URL local de la tienda',
+            description:
+              'Mantén disponibles los directorios de imágenes y usa un dominio local para probar los enlaces del storefront y las reglas de reescritura.'
+          },
+          {
+            title: 'HTTPS para callbacks cuando se necesita',
+            description:
+              'Un origen local seguro es útil cuando un proveedor de pagos, un flujo de OAuth o un callback externo lo requiere.'
+          }
+        ]
+      }
+    },
+    payload: {
+      replaceOverview: true,
+      paragraphs: [
+        'Payload CMS es un CMS headless y framework de aplicaciones con TypeScript como prioridad. Las colecciones, los campos, los hooks, el control de acceso, el panel de administración generado, las subidas y las APIs REST o GraphQL se definen en el código de la aplicación en lugar de ensamblarse a través de una capa de configuración de CMS separada.',
+        'Un proyecto Payload suele usar Node.js con un adaptador de base de datos seleccionado en su configuración. El trabajo local a menudo incluye cambios de esquema, acceso al admin, almacenamiento de subidas y código de servidor personalizado; Redis, el almacenamiento de objetos o los servicios de correo son integraciones opcionales y no requisitos del framework.'
+      ],
+      capabilities: [
+        'Code-defined Collections',
+        'Admin Panel',
+        'Access Control',
+        'Hooks',
+        'REST & GraphQL',
+        'Upload Collections'
+      ],
+      useCases: [
+        'APIs de contenido headless',
+        'Aplicaciones editoriales personalizadas',
+        'Sitios de producto basados en contenido',
+        'Backends de aplicaciones TypeScript',
+        'Extensiones de CMS con reglas de acceso personalizadas'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Payload parte de su configuración TypeScript',
+        description:
+          'El adaptador de base de datos y la estrategia de subidas seleccionados definen la mayor parte del entorno local de apoyo.',
+        items: [
+          {
+            title: 'Node.js y gestor de paquetes',
+            description: 'Ejecuta el servidor de Payload, las herramientas de TypeScript y los scripts del proyecto.'
+          },
+          {
+            title: 'Adaptador de base de datos configurado',
+            description:
+              'MongoDB, PostgreSQL, SQLite u otro adaptador soportado debe coincidir con la configuración y las migraciones del proyecto.'
+          },
+          {
+            title: 'URL del admin y almacenamiento de medios',
+            description:
+              'Una URL local estable facilita las pruebas del admin y la autenticación; las subidas necesitan el adaptador de almacenamiento local o externo configurado.'
+          },
+          {
+            title: 'Servicios externos cuando están integrados',
+            description:
+              'Redis, SMTP y el almacenamiento de objetos son opcionales y solo deben incluirse para plugins o funciones de la aplicación configurados.'
+          }
+        ]
+      }
+    },
+    strapi: {
+      replaceOverview: true,
+      paragraphs: [
+        'Strapi es un CMS headless en Node.js que modela contenido estructurado y lo expone a través de un panel de administración y APIs REST o GraphQL. Los tipos de contenido, el comportamiento del ciclo de vida, los roles, los plugins y la gestión de medios lo convierten en un backend para muchos clientes frontend distintos.',
+        'Un entorno local de Strapi está liderado por Node.js y la base de datos elegida. Los cambios en los tipos de contenido afectan al esquema y al comportamiento de la API, mientras que los proveedores de subidas, el correo, Redis y los ajustes de proxy son integraciones del proyecto que solo deben representarse cuando están configuradas.'
+      ],
+      capabilities: [
+        'Content-Type Builder',
+        'REST & GraphQL APIs',
+        'Roles and Permissions',
+        'Admin Panel',
+        'Media Library',
+        'Lifecycle Hooks'
+      ],
+      useCases: [
+        'CMS headless para frontends web',
+        'APIs de contenido para móviles',
+        'Sistemas editoriales multicanal',
+        'APIs de contenido de productos y catálogos',
+        'Desarrollo de plugins personalizados de Strapi'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Strapi se centra en los tipos de contenido y las APIs',
+        description:
+          'El stack local debe hacer que los cambios de esquema, la administración, los medios y las integraciones seleccionadas se comporten de forma coherente.',
+        items: [
+          {
+            title: 'Runtime de Node.js',
+            description: 'Ejecuta Strapi, la compilación de su administración y los scripts del proyecto.'
+          },
+          {
+            title: 'Base de datos SQL configurada',
+            description:
+              'SQLite es adecuado para trabajos locales sencillos; PostgreSQL o MySQL son habituales al reproducir un proyecto desplegado.'
+          },
+          {
+            title: 'Proveedor de medios',
+            description:
+              'Usa subidas locales para el desarrollo, salvo que el proyecto configure un proveedor externo compatible con S3 u otro.'
+          },
+          {
+            title: 'Redis o SMTP cuando están configurados',
+            description:
+              'Los servicios de caché, colas y correo son integraciones opcionales, no un requisito por defecto de Strapi.'
+          }
+        ]
+      }
+    },
+    directus: {
+      replaceOverview: true,
+      paragraphs: [
+        'Directus es una plataforma de datos que superpone un estudio, autenticación, permisos, automatizaciones, archivos y APIs REST o GraphQL sobre una base de datos SQL existente. Está diseñada en torno al esquema de la base de datos como fuente de verdad, en lugar de un modelo de contenido code-first.',
+        'El trabajo local con Directus comienza con Node.js y la base de datos que se expone. Los snapshots del esquema, las reglas de roles, el almacenamiento de archivos y los Flows suelen probarse juntos; Redis, el almacenamiento de objetos y el correo son servicios opcionales seleccionados por la configuración del proyecto.'
+      ],
+      capabilities: [
+        'Database Introspection',
+        'Data Studio',
+        'REST & GraphQL APIs',
+        'Roles and Permissions',
+        'Flows Automation',
+        'File Management'
+      ],
+      useCases: [
+        'APIs sobre datos SQL existentes',
+        'Administración interna de datos',
+        'Operaciones de contenido headless',
+        'Automatización de flujos de trabajo en torno a registros',
+        'Portales de datos para socios o clientes'
+      ],
+      localEnvironment: {
+        title: 'Un entorno Directus está anclado al esquema de la base de datos',
+        description:
+          'La base de datos seleccionada y sus cambios de esquema son el centro; los servicios auxiliares solo deben añadirse donde Directus esté configurado para usarlos.',
+        items: [
+          {
+            title: 'Node.js y servicio Directus',
+            description: 'Ejecuta la API, el Data Studio y las extensiones del proyecto.'
+          },
+          {
+            title: 'Base de datos SQL',
+            description:
+              'PostgreSQL, MySQL, SQLite u otra base de datos soportada proporciona tanto el modelo de datos como los metadatos de Directus.'
+          },
+          {
+            title: 'Snapshots de esquema y extensiones',
+            description:
+              'Mantén los snapshots del esquema, los endpoints personalizados, los hooks y las extensiones de interfaz junto al servicio local.'
+          },
+          {
+            title: 'Almacenamiento, Redis y correo cuando están configurados',
+            description:
+              'Los adaptadores de archivos, los servicios de caché y SMTP pertenecen solo a la configuración de Directus que se está probando.'
           }
         ]
       }

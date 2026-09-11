@@ -26,7 +26,7 @@ const reset = () => {
 };
 
 const resetLang = () => {
-  const l = lang.value === 'zh-CN' ? 'zh' : 'en'
+  const l = lang.value === 'zh-CN' ? 'zh' : lang.value === 'es-ES' ? 'es' : 'en'
   console.log('resetLang: ', l)
   const iframe: any = document.querySelector('iframe.app-iframe');
   if (!iframe) {

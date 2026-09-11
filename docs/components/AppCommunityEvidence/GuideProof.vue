@@ -32,5 +32,11 @@ const proof = computed(() =>
 )
 
 const story = computed(() => (proof.value ? getEvidencePost(props.posts, proof.value) : undefined))
-const heading = computed(() => (props.locale === 'zh' ? '来自社区的真实使用场景' : 'From the community'))
+const heading = computed(() =>
+  props.locale === 'zh'
+    ? '来自社区的真实使用场景'
+    : props.locale === 'es'
+      ? 'Escenarios reales de la comunidad'
+      : 'From the community'
+)
 </script>

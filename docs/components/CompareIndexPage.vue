@@ -226,14 +226,16 @@
 
 <script setup lang="ts">
   import { computed } from 'vue'
-  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' }>()
+  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' }>()
   const locale = props.locale || 'en'
   const localizedHref = (href: string) => locale === 'en' || href.startsWith('http') ? href : href.replace(/^\//, `/${locale}/`)
   const copy = computed(() => locale === 'zh'
     ? { kicker: '本地开发工具对比', title: '将 FlyEnv 与热门本地开发工具进行比较', description: '探索 FlyEnv 与 XAMPP、Laragon、MAMP / MAMP Pro、Laravel Herd、ServBay 和 Docker 的关键差异，为项目找到合适工具。', browse: '浏览对比', projects: '你的项目。', environment: '你的环境。', freeOpen: '免费且开源', start: '选择比较起点', select: '选择工具，查看 FlyEnv 的差异。', view: '查看对比', glance: '快速了解', glanceIntro: '快速概览，帮助你选择合适的对比。', tool: '工具', bestFit: '适合场景', difference: '与 FlyEnv 的主要差异', ready: '准备开始比较', ctaTitle: '尝试适合项目的工作流', ctaText: '比较工具并选择适合项目的工作流。', download: '下载 FlyEnv', features: '查看特性' }
     : locale === 'id'
       ? { kicker: 'Bandingkan alat pengembangan lokal', title: 'Bandingkan FlyEnv dengan alat pengembangan lokal populer', description: 'Jelajahi perbedaan utama FlyEnv dengan XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay, dan Docker untuk menemukan alat yang tepat.', browse: 'Lihat perbandingan', projects: 'Proyek Anda.', environment: 'Lingkungan Anda.', freeOpen: 'Gratis dan sumber terbuka', start: 'Pilih titik awal', select: 'Pilih alat untuk melihat perbandingan FlyEnv.', view: 'Lihat perbandingan', glance: 'Sekilas', glanceIntro: 'Ringkasan cepat untuk membantu memilih perbandingan.', tool: 'Alat', bestFit: 'Paling cocok untuk', difference: 'Perbedaan utama dari FlyEnv', ready: 'Siap membandingkan', ctaTitle: 'Coba alur kerja yang sesuai proyek', ctaText: 'Bandingkan alat dan pilih alur kerja yang sesuai.', download: 'Unduh FlyEnv', features: 'Lihat fitur' }
-      : { kicker: 'Compare local development tools', title: 'Compare FlyEnv with popular local development tools', description: 'Explore the key differences between FlyEnv and XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay, and Docker to find the right tool for your projects.', browse: 'Browse comparisons', projects: 'Your projects.', environment: 'Your environment.', freeOpen: 'Free and open source', start: 'Choose your starting point', select: 'Select a tool to see how FlyEnv compares.', view: 'View comparison', glance: 'At a glance', glanceIntro: 'A quick overview to help you choose the right comparison.', tool: 'Tool', bestFit: 'Best fit', difference: 'Main difference from FlyEnv', ready: 'Ready to compare', ctaTitle: 'Try the workflow that fits your projects', ctaText: 'Compare tools and choose the workflow that fits your projects.', download: 'Download FlyEnv', features: 'View Features' })
+      : locale === 'es'
+        ? { kicker: 'Compara herramientas de desarrollo local', title: 'Compara FlyEnv con herramientas populares de desarrollo local', description: 'Explora las diferencias clave entre FlyEnv y XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay y Docker para encontrar la herramienta adecuada para tus proyectos.', browse: 'Explorar comparaciones', projects: 'Tus proyectos.', environment: 'Tu entorno.', freeOpen: 'Gratuito y de código abierto', start: 'Elige tu punto de partida', select: 'Selecciona una herramienta para ver cómo se compara FlyEnv.', view: 'Ver comparación', glance: 'De un vistazo', glanceIntro: 'Un resumen rápido para ayudarte a elegir la comparación adecuada.', tool: 'Herramienta', bestFit: 'Ideal para', difference: 'Diferencia principal con FlyEnv', ready: 'Listo para comparar', ctaTitle: 'Prueba el flujo de trabajo que se adapta a tus proyectos', ctaText: 'Compara herramientas y elige el flujo de trabajo adecuado para tus proyectos.', download: 'Descargar FlyEnv', features: 'Ver características' }
+        : { kicker: 'Compare local development tools', title: 'Compare FlyEnv with popular local development tools', description: 'Explore the key differences between FlyEnv and XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay, and Docker to find the right tool for your projects.', browse: 'Browse comparisons', projects: 'Your projects.', environment: 'Your environment.', freeOpen: 'Free and open source', start: 'Choose your starting point', select: 'Select a tool to see how FlyEnv compares.', view: 'View comparison', glance: 'At a glance', glanceIntro: 'A quick overview to help you choose the right comparison.', tool: 'Tool', bestFit: 'Best fit', difference: 'Main difference from FlyEnv', ready: 'Ready to compare', ctaTitle: 'Try the workflow that fits your projects', ctaText: 'Compare tools and choose the workflow that fits your projects.', download: 'Download FlyEnv', features: 'View Features' })
   const tools = [
     {
       name: 'XAMPP',
@@ -316,7 +318,15 @@
       ServBay: ['All-in-one', 'Inti bersama besar dengan prioritas berbeda', 'Pengembangan lokal all-in-one yang luas'],
       Docker: ['Kontainer', 'Layanan lokal native vs kontainer', 'Pengembang yang familiar dengan kontainer']
     }
-    const map = locale === 'zh' ? zh : id
+    const es: Record<string, [string, string, string]> = {
+      XAMPP: ['Stack compartido', 'Stack de PHP compartido vs entornos específicos por proyecto', 'Desarrolladores que quieren un stack de PHP conocido'],
+      Laragon: ['Enfocado en Windows', 'Cambio global vs configuración específica por proyecto', 'Desarrolladores de Windows que prefieren un entorno local ligero'],
+      'MAMP / MAMP Pro': ['Stack de hosting web', 'Stack estilo hosting web vs un espacio de trabajo más amplio', 'Desarrolladores de PHP / WordPress con flujos basados en hosting'],
+      'Laravel Herd': ['Enfocado en Laravel', 'Flujo de trabajo centrado en Laravel vs espacio de trabajo independiente del framework', 'Desarrolladores de Laravel'],
+      ServBay: ['Todo en uno', 'Núcleo compartido grande con prioridades diferentes', 'Desarrollo local amplio y todo en uno'],
+      Docker: ['Contenedores', 'Servicios locales nativos vs contenedores', 'Desarrolladores familiarizados con los contenedores']
+    }
+    const map = locale === 'zh' ? zh : locale === 'es' ? es : id
     return tools.map((tool) => {
       const v = map[tool.name]
       return v ? { ...tool, tag: v[0], tagline: v[1], bestFit: v[2] } : tool

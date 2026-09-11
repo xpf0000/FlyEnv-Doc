@@ -22,6 +22,7 @@ export const solutionAboutGroupC: {
   en: Partial<Record<SolutionSlug, SolutionAboutContent>>
   zh: Partial<Record<SolutionSlug, SolutionAboutContent>>
   id: Partial<Record<SolutionSlug, SolutionAboutContent>>
+  es: Partial<Record<SolutionSlug, SolutionAboutContent>>
 } = {
   en: {
     'spring-boot': {
@@ -1937,6 +1938,698 @@ export const solutionAboutGroupC: {
             title: 'Sumber data analitik',
             description:
               'Hubungkan hanya database atau warehouse yang diperlukan untuk memverifikasi dataset dan dasbor.'
+          }
+        ]
+      }
+    }
+  },
+  es: {
+    'spring-boot': {
+      replaceOverview: true,
+      paragraphs: [
+        'Spring Boot es la capa de convención sobre configuración del ecosistema Spring para crear servicios Java independientes. Su autoconfiguración y sus dependencias starter permiten que un servicio exponga endpoints HTTP, persistencia, seguridad y funciones operativas sin ensamblar cada integración a mano.',
+        'Un servicio Spring Boot local suele ejecutarse con Maven o Gradle, un JDK seleccionado y un archivo de configuración específico del profile. La base de datos, la herramienta de migraciones, el cliente de mensajería y los endpoints de Actuator deben reflejar las dependencias realmente habilitadas por ese servicio.'
+      ],
+      capabilities: [
+        'Autoconfiguración',
+        'Spring MVC / WebFlux',
+        'Spring Data',
+        'Spring Security',
+        'Actuator',
+        'Dependencias starter'
+      ],
+      useCases: [
+        'Servicios REST de negocio',
+        'APIs de integración empresarial',
+        'Sistemas transaccionales de back-office',
+        'Plataformas basadas en microservicios'
+      ],
+      localEnvironment: {
+        title: 'Un entorno Spring Boot empieza con más que un JAR',
+        description:
+          'El JDK y la herramienta de build son centrales; los almacenes de datos y los brokers solo deben acompañar al servicio cuando su profile activo los configura.',
+        items: [
+          {
+            title: 'JDK, Maven o Gradle',
+            description: 'Compila, prueba y ejecuta el servicio con su grafo de dependencias declarado.'
+          },
+          {
+            title: 'Base de datos y migraciones del profile',
+            description:
+              'PostgreSQL, MySQL y Flyway o Liquibase son habituales cuando el servicio persiste datos de dominio.'
+          },
+          {
+            title: 'Actuator y endpoints de integración',
+            description:
+              'Exponen health, métricas, callbacks o redirecciones OAuth en local; un broker como Kafka es opcional y depende del servicio.'
+          }
+        ]
+      }
+    },
+    quarkus: {
+      replaceOverview: true,
+      paragraphs: [
+        'Quarkus es un framework Java diseñado para un arranque rápido, un bajo consumo de memoria y despliegues cloud-native. Combina las conocidas APIs de Jakarta, REST, persistencia y programación reactiva con configuración basada en extensiones y un modo de desarrollo que recarga el código y la configuración rápidamente.',
+        'El trabajo local con Quarkus suele centrarse en `quarkus dev`, el JDK elegido y las extensiones declaradas por el proyecto. Dev Services puede aprovisionar ciertos contenedores automáticamente, pero una base de datos, Kafka, Redis o una herramienta de build nativa solo deben iniciarse cuando la aplicación los usa.'
+      ],
+      capabilities: [
+        'Modo Dev',
+        'Ecosistema de extensiones',
+        'RESTEasy Reactive',
+        'CDI con ArC',
+        'Dev Services',
+        'Builds de ejecutables nativos'
+      ],
+      useCases: [
+        'APIs Java cloud-native',
+        'Microservicios container-first',
+        'Servicios orientados a eventos',
+        'Endpoints backend de baja latencia'
+      ],
+      localEnvironment: {
+        title: 'El trabajo local con Quarkus sigue las extensiones seleccionadas',
+        description:
+          'Un proyecto REST pequeño puede ejecutarse solo con un JDK, mientras que las extensiones de persistencia o mensajería introducen sus propios servicios locales.',
+        items: [
+          {
+            title: 'JDK y quarkus dev',
+            description: 'Ejecuta pruebas continuas y recarga en vivo durante el desarrollo.'
+          },
+          {
+            title: 'Servicios respaldados por extensiones',
+            description:
+              'Un datasource configurado, un cliente Redis o un canal de Kafka pueden necesitar un servicio local correspondiente; Dev Services puede encargarse de algunas configuraciones.'
+          },
+          {
+            title: 'Toolchain de build nativo',
+            description:
+              'GraalVM o Mandrel solo se necesitan cuando el proyecto compila y prueba un ejecutable nativo.'
+          }
+        ]
+      }
+    },
+    gin: {
+      replaceOverview: true,
+      paragraphs: [
+        'Gin es un framework HTTP de Go ligero centrado en un enrutado rápido y una cadena de middleware pequeña y explícita. Suele usarse para construir APIs JSON donde los grupos de rutas, el binding, la validación y la composición de handlers permanecen cerca del código de la aplicación.',
+        'Un proyecto Gin se desarrolla con el toolchain de Go y sus módulos, no con un runtime de framework separado. Su forma local la define la configuración de la aplicación: una base de datos SQL, Redis, clientes de API generados o un proxy inverso son dependencias del proyecto, no requisitos de Gin.'
+      ],
+      capabilities: [
+        'Enrutado con radix tree',
+        'Cadena de middleware',
+        'Grupos de rutas',
+        'Binding de JSON',
+        'Validación',
+        'Manejo del context'
+      ],
+      useCases: [
+        'APIs JSON de alto rendimiento',
+        'Servicios Go internos',
+        'Receptores de webhooks',
+        'Endpoints de gateway e integración'
+      ],
+      localEnvironment: {
+        title: 'Un servicio Gin se rige por los módulos de Go y la configuración',
+        description:
+          'El framework en sí solo necesita Go; los servicios locales de datos e integración deben coincidir con los repositorios importados por el servicio.',
+        items: [
+          {
+            title: 'Toolchain y módulos de Go',
+            description: 'Ejecuta `go run`, pruebas, builds y la resolución de dependencias de módulos.'
+          },
+          {
+            title: 'Almacén de datos configurado',
+            description:
+              'PostgreSQL, MySQL o Redis solo son relevantes cuando los handlers o la capa de repositorio los usan.'
+          },
+          {
+            title: 'Cliente de API y origen de webhooks',
+            description:
+              'Un dominio local con HTTPS es útil cuando clientes de navegador, webhooks firmados o callbacks de OAuth requieren un origen estable.'
+          }
+        ]
+      }
+    },
+    'aspnet-core': {
+      replaceOverview: true,
+      paragraphs: [
+        'ASP.NET Core es el framework multiplataforma de .NET para APIs HTTP y aplicaciones web renderizadas en el servidor. Combina un modelo de hosting, una pipeline de middleware, inyección de dependencias, proveedores de configuración y stacks web como Minimal APIs, MVC, Razor Pages y SignalR.',
+        'El desarrollo suele usar el SDK del proyecto mediante `dotnet run` o un perfil de inicio del IDE. La configuración local puede seleccionar certificados de Kestrel, migraciones de Entity Framework Core, user secrets y únicamente los servicios de respaldo como SQL Server, PostgreSQL, Redis o un broker de mensajes que la aplicación realmente configure.'
+      ],
+      capabilities: [
+        'Minimal APIs',
+        'MVC y Razor Pages',
+        'Inyección de dependencias integrada',
+        'Pipeline de middleware',
+        'ASP.NET Core Identity',
+        'SignalR'
+      ],
+      useCases: [
+        'Aplicaciones web de línea de negocio',
+        'Servicios REST y gRPC',
+        'Paneles en tiempo real',
+        'APIs empresariales multiplataforma'
+      ],
+      localEnvironment: {
+        title: 'Un proyecto ASP.NET Core toma forma según su perfil de inicio',
+        description:
+          'El SDK de .NET y Kestrel pueden bastar para una aplicación pequeña; los datos persistentes y las funciones distribuidas añaden servicios seleccionados.',
+        items: [
+          {
+            title: '.NET SDK y Kestrel',
+            description:
+              'Compila y ejecuta la aplicación mediante `dotnet run` con la configuración de desarrollo.'
+          },
+          {
+            title: 'Base de datos de EF Core',
+            description:
+              'SQL Server, PostgreSQL u otro proveedor se usa cuando el proyecto aplica migraciones y almacena el estado de la aplicación.'
+          },
+          {
+            title: 'HTTPS y secrets de desarrollo',
+            description:
+              'El certificado de desarrollo local y Secret Manager permiten flujos seguros en el navegador sin colocar credenciales en el control de versiones.'
+          }
+        ]
+      }
+    },
+    nextcloud: {
+      replaceOverview: true,
+      paragraphs: [
+        'Nextcloud es una plataforma de colaboración autoalojada centrada en la sincronización y el uso compartido de archivos, además de aplicaciones de equipo extensibles. Su servidor combina el almacenamiento de usuarios con apps de calendario, contactos, integración ofimática, notificaciones y almacenamiento externo.',
+        'Una instalación local de Nextcloud es una aplicación web PHP con una base de datos y un directorio de datos escribible, que suele administrarse con el comando `occ`. Redis, un backend de búsqueda de texto completo, un servidor ofimático y un proxy inverso son añadidos habituales en ciertos despliegues, pero no son obligatorios en todas las instancias.'
+      ],
+      capabilities: [
+        'Sincronización y uso compartido de archivos',
+        'Ecosistema de apps',
+        'Calendario y contactos',
+        'Almacenamiento externo',
+        'Uso compartido federado',
+        'Administración con occ'
+      ],
+      useCases: [
+        'Uso compartido privado de archivos en equipo',
+        'Portales de colaboración autoalojados',
+        'Pruebas de sincronización de documentos',
+        'Desarrollo de apps personalizadas de Nextcloud'
+      ],
+      localEnvironment: {
+        title: 'Nextcloud necesita almacenamiento, acceso web y mantenimiento programado',
+        description:
+          'El directorio de datos y la base de datos son el núcleo. Los demás servicios dependen de las apps habilitadas, la escala y la forma en que se integra la instancia.',
+        items: [
+          {
+            title: 'Servidor web PHP y directorio de datos',
+            description:
+              'Sirven la aplicación y conservan los archivos de los usuarios fuera del código de la aplicación.'
+          },
+          {
+            title: 'Base de datos y occ',
+            description:
+              'MySQL, MariaDB o PostgreSQL almacenan los metadatos, mientras que `occ` realiza la instalación, las actualizaciones y el mantenimiento.'
+          },
+          {
+            title: 'Cron y Redis opcional',
+            description:
+              'Los trabajos en segundo plano deben ejecutarse con cron; Redis suele configurarse para bloqueos o caché, pero es opcional en una instancia básica.'
+          },
+          {
+            title: 'Servicio ofimático o de búsqueda opcional',
+            description:
+              'Collabora, OnlyOffice o un backend de búsqueda solo se inician cuando esas integraciones están habilitadas.'
+          }
+        ]
+      }
+    },
+    erpnext: {
+      replaceOverview: true,
+      paragraphs: [
+        'ERPNext es un ERP de código abierto construido sobre Frappe Framework para contabilidad, ventas, inventario, fabricación, RR. HH. y flujos operativos. Su modelo se basa en DocTypes configurables, formularios con roles, informes y procesos de negocio, y no solo en un servidor de peticiones Python independiente.',
+        'El desarrollo local usa Bench para gestionar sitios, entornos de Python, assets, workers y comandos de procesos. Un stack habitual incluye MariaDB y Redis; Node.js se usa para los flujos de assets, mientras que un scheduler, un proceso Socket.IO y las colas de workers forman parte del modelo de procesos de Frappe.'
+      ],
+      capabilities: [
+        'DocTypes',
+        'Libro mayor contable',
+        'Flujos de inventario',
+        'Informes y formatos de impresión',
+        'Permisos por rol',
+        'Frappe Bench'
+      ],
+      useCases: [
+        'Contabilidad y facturación',
+        'Inventario y compras',
+        'Operaciones de fabricación',
+        'Flujos de RR. HH. y nómina',
+        'Aplicaciones de negocio personalizadas sobre Frappe'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo de ERPNext es un stack multiproceso gestionado por Bench',
+        description:
+          'A diferencia de un sitio Python sencillo, un bench local coordina la base de datos del sitio, las colas respaldadas por Redis, los assets, los workers y el scheduler.',
+        items: [
+          {
+            title: 'Bench y entorno de Python',
+            description: 'Crea sitios y ejecuta comandos de Frappe o ERPNext como `bench start`.'
+          },
+          {
+            title: 'MariaDB y Redis',
+            description:
+              'MariaDB almacena los datos del sitio; Redis da soporte a la caché, las colas y los servicios relacionados con Socket.IO.'
+          },
+          {
+            title: 'Workers, scheduler y Socket.IO',
+            description:
+              'Procesan trabajos en segundo plano, documentos programados y actualizaciones en tiempo real durante un desarrollo realista.'
+          },
+          {
+            title: 'Flujo de assets con Node.js',
+            description:
+              'Bench lo requiere para compilar los assets; no sustituye a los procesos de la aplicación ERPNext.'
+          }
+        ]
+      }
+    },
+    odoo: {
+      replaceOverview: true,
+      paragraphs: [
+        'Odoo es una suite modular de aplicaciones de negocio que cubre ventas, contabilidad, inventario, fabricación, CRM y más. Los cambios funcionales suelen entregarse como módulos instalables que definen modelos, vistas, reglas de acceso, archivos de datos y lógica de negocio sobre el ORM de Odoo.',
+        'Una instancia local de Odoo se ejecuta con un entorno de Python compatible con la versión y una base de datos PostgreSQL. En desarrollo es habitual apuntar `addons_path` a módulos personalizados y usar `odoo-bin` para instalarlos o actualizarlos; longpolling, SMTP, un proxy o workers externos solo se necesitan para las funciones que los usan.'
+      ],
+      capabilities: [
+        'Addons modulares',
+        'ORM de Odoo',
+        'Vistas y acciones',
+        'Listas de control de acceso',
+        'Acciones automatizadas',
+        'Soporte multiempresa'
+      ],
+      useCases: [
+        'Operaciones de ventas y CRM',
+        'Contabilidad y facturación',
+        'Gestión de almacenes',
+        'Planificación de fabricación',
+        'Módulos verticales de negocio personalizados'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo de Odoo se centra en los addons y PostgreSQL',
+        description:
+          'El runtime y la base de datos son el núcleo; los servicios de despliegue solo deben introducirse cuando un módulo personalizado o un flujo de prueba los necesita.',
+        items: [
+          {
+            title: 'Python y odoo-bin',
+            description:
+              'Ejecutan el servidor, cargan una configuración de desarrollo y actualizan módulos con `-u`.'
+          },
+          {
+            title: 'PostgreSQL',
+            description:
+              'Almacena cada base de datos de Odoo, el registro de módulos, los registros y los metadatos de los adjuntos.'
+          },
+          {
+            title: 'Ruta de addons personalizados',
+            description:
+              'Mantiene los módulos locales separados del código fuente de Odoo y los pone a disposición de la instancia.'
+          },
+          {
+            title: 'Servicios de correo y proxy opcionales',
+            description:
+              'SMTP o un proxy inverso solo son relevantes cuando se prueban flujos de correo, URLs públicas o enrutado similar al de producción.'
+          }
+        ]
+      }
+    },
+    suitecrm: {
+      replaceOverview: true,
+      paragraphs: [
+        'SuiteCRM es un sistema de gestión de relaciones con clientes (CRM) en PHP para ventas, marketing, soporte y automatización de procesos de negocio. Se organiza en torno a módulos como Accounts, Contacts, Leads, Opportunities, workflows, informes y campos configurables, en lugar de una estructura genérica de proyecto PHP.',
+        'Una instalación local necesita PHP, una base de datos MySQL o MariaDB compatible y un servidor web. Los administradores y desarrolladores trabajan con Module Builder, Studio, herramientas de reparación, trabajos programados y configuración de correo; los servicios de búsqueda o caché no son requisitos inherentes y solo deben añadirse cuando se configuran.'
+      ],
+      capabilities: [
+        'Módulos CRM',
+        'Studio y Module Builder',
+        'Automatización de workflows',
+        'Informes y paneles',
+        'Seguridad por roles',
+        'Trabajos programados'
+      ],
+      useCases: [
+        'Gestión del pipeline de ventas',
+        'Operaciones de soporte al cliente',
+        'Seguimiento de campañas de marketing',
+        'Desarrollo de módulos CRM personalizados'
+      ],
+      localEnvironment: {
+        title: 'El trabajo local con SuiteCRM sigue sus módulos y trabajos programados',
+        description:
+          'Un stack web PHP y la base de datos del CRM son esenciales. Los servicios en segundo plano y de integración dependen de los flujos de negocio habilitados.',
+        items: [
+          {
+            title: 'Stack web PHP',
+            description:
+              'Ejecuta SuiteCRM con Apache, Nginx con PHP-FPM u otro servidor web local compatible.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description:
+              'Almacena los registros de clientes, los metadatos de los módulos, la configuración y los datos de relaciones.'
+          },
+          {
+            title: 'Scheduler con cron',
+            description:
+              'Ejecuta los trabajos programados configurados, las acciones de campañas y las tareas de mantenimiento.'
+          },
+          {
+            title: 'Sandbox SMTP opcional',
+            description:
+              'Útil al desarrollar plantillas de correo y el comportamiento del correo entrante o saliente.'
+          }
+        ]
+      }
+    },
+    espocrm: {
+      replaceOverview: true,
+      paragraphs: [
+        'EspoCRM es una plataforma CRM en PHP construida en torno a definiciones de entidades, metadatos de relaciones, roles, layouts y lógica de negocio extensible. Ofrece flujos de ventas, marketing, soporte e informes, y permite a los equipos añadir entidades e integraciones personalizadas mediante su modelo basado en metadatos.',
+        'Un proyecto local de EspoCRM se ejecuta con PHP, MySQL o MariaDB y un servidor web. El endpoint integrado de trabajos programados debe ser activado por cron para que la automatización funcione, mientras que los servicios relacionados con IMAP, SMTP, WebSocket o Redis solo son relevantes en instalaciones configuradas para usar esas integraciones.'
+      ],
+      capabilities: [
+        'Entity Manager',
+        'Metadatos de relaciones',
+        'Acceso basado en roles',
+        'BPM y workflows',
+        'Scripts de fórmulas',
+        'REST API'
+      ],
+      useCases: [
+        'Gestión de ventas y cuentas',
+        'Seguimiento del soporte al cliente',
+        'Cualificación de leads',
+        'Aplicaciones CRM personalizadas basadas en relaciones'
+      ],
+      localEnvironment: {
+        title: 'EspoCRM combina metadatos de entidades con automatización programada',
+        description:
+          'El stack local principal es deliberadamente compacto; los servicios de integración dependen de las funciones en desarrollo.',
+        items: [
+          {
+            title: 'PHP y servidor web',
+            description: 'Sirven la aplicación CRM y su API en una URL local.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description:
+              'Persisten entidades, relaciones, configuración de usuarios y metadatos personalizados.'
+          },
+          {
+            title: 'Cron para trabajos programados',
+            description:
+              'Invoca el procesamiento de trabajos programados de EspoCRM para que la automatización se comporte como en una instalación en ejecución.'
+          },
+          {
+            title: 'Integración de correo opcional',
+            description:
+              'Las pruebas locales de SMTP o IMAP solo son necesarias para las funciones de sincronización de correo y notificaciones.'
+          }
+        ]
+      }
+    },
+    gitea: {
+      replaceOverview: true,
+      paragraphs: [
+        'Gitea es una forja Git autoalojada que ofrece alojamiento de repositorios, pull requests, issues, actions, paquetes y gestión de organizaciones. Es un servicio desplegable con comportamiento Git por SSH y HTTP, no simplemente un proyecto Go que los desarrolladores ejecutan como framework de API.',
+        'Una instancia local de Gitea puede usar SQLite embebido para una evaluación pequeña, o MySQL, MariaDB o PostgreSQL para una configuración de servidor más representativa. Su `app.ini` controla el almacenamiento de repositorios, SSH, OAuth, correo, actions y la base de datos; Go solo es necesario cuando se compila el servicio desde el código fuente.'
+      ],
+      capabilities: [
+        'Git por SSH y HTTP',
+        'Pull requests',
+        'Issues y proyectos',
+        'Gitea Actions',
+        'Registro de paquetes',
+        'Gestión de organizaciones'
+      ],
+      useCases: [
+        'Alojamiento Git privado para equipos',
+        'Experimentación con CI autogestionado',
+        'Pruebas de integración de control de versiones',
+        'Publicación interna de paquetes'
+      ],
+      localEnvironment: {
+        title: 'Gitea combina un servicio de forja con el transporte Git',
+        description:
+          'Una evaluación compacta puede ser un solo ejecutable más SQLite, mientras que la autenticación, las actions y un almacenamiento similar al de producción añaden dependencias específicas.',
+        items: [
+          {
+            title: 'Servicio Gitea y app.ini',
+            description:
+              'Ejecuta la forja web y configura sus repositorios, el puerto SSH, los ajustes de seguridad y el almacenamiento.'
+          },
+          {
+            title: 'Elección de base de datos',
+            description:
+              'SQLite es adecuado para una instancia local pequeña; MySQL, MariaDB o PostgreSQL se usan cuando se configura un entorno de estilo compartido.'
+          },
+          {
+            title: 'SSH y dominio local',
+            description:
+              'Permiten probar URLs de clonación, claves SSH, webhooks y flujos de navegador con los mismos endpoints que usarán los clientes.'
+          },
+          {
+            title: 'Runner de Actions opcional',
+            description: 'Solo se necesita un runner al validar workflows de Gitea Actions.'
+          }
+        ]
+      }
+    },
+    keycloak: {
+      replaceOverview: true,
+      paragraphs: [
+        'Keycloak es un servidor de gestión de identidad y acceso para single sign-on, OAuth 2.0, OpenID Connect, SAML e identity brokering. Sus conceptos centrales son realms, clients, usuarios, roles, grupos, scopes y flujos de autenticación, que las aplicaciones consumen mediante protocolos estándar.',
+        'El desarrollo local con Keycloak gira principalmente en torno a una URL de issuer estable y redirect URIs realistas. El servidor de desarrollo puede usar una base de datos de desarrollo, mientras que PostgreSQL es habitual para realms locales persistentes; la federación de usuarios externa, SMTP y el HTTPS del proxy inverso solo deben introducirse cuando se prueban esos flujos.'
+      ],
+      capabilities: [
+        'Realms y clients',
+        'OAuth 2.0 y OpenID Connect',
+        'SAML',
+        'Flujos de autenticación',
+        'Identity brokering',
+        'Federación de usuarios'
+      ],
+      useCases: [
+        'Single sign-on para aplicaciones',
+        'Pruebas de integración OAuth/OIDC',
+        'Gestión centralizada de roles',
+        'Federación de proveedores de identidad'
+      ],
+      localEnvironment: {
+        title: 'Las pruebas de Keycloak dependen de las URLs de issuer y redirección',
+        description:
+          'El servidor de autenticación y un almacén persistente de realms son lo esencial; los demás servicios derivan del escenario de autenticación.',
+        items: [
+          {
+            title: 'Servidor Keycloak e importación de realms',
+            description:
+              'Ejecuta el proveedor de identidad y puede cargar clients, roles y usuarios de prueba repetibles.'
+          },
+          {
+            title: 'PostgreSQL para realms persistentes',
+            description:
+              'Habitual para datos de identidad locales duraderos; el modo de desarrollo puede usar otra opción soportada para experimentos rápidos.'
+          },
+          {
+            title: 'Dominio HTTPS y redirect URIs',
+            description:
+              'Permiten que los clients de navegador, las cookies, CORS y la validación de callbacks se comporten como en un entorno integrado.'
+          },
+          {
+            title: 'SMTP o IdP externo opcional',
+            description:
+              'Necesarios solo para la verificación de correo, la recuperación de contraseña o los flujos de inicio de sesión con broker.'
+          }
+        ]
+      }
+    },
+    pocketbase: {
+      replaceOverview: true,
+      paragraphs: [
+        'PocketBase es una aplicación backend compacta que integra una base de datos SQLite embebida, autenticación, APIs REST, suscripciones en tiempo real, almacenamiento de archivos y una UI de administración. Su modelo de despliegue favorece un solo ejecutable y un directorio de datos local, en lugar de un servidor de base de datos operado por separado para los proyectos habituales.',
+        'Un flujo de trabajo local con PocketBase inicia el ejecutable con su directorio `pb_data` y prueba conjuntamente collections, reglas de API, hooks, migraciones y clientes en tiempo real. Go se necesita para extensiones basadas en el código fuente o builds personalizados, mientras que un proxy inverso y HTTPS son opcionales cuando las pruebas de origen de navegador o callbacks de OAuth los requieren.'
+      ],
+      capabilities: [
+        'SQLite embebido',
+        'Reglas de API de collections',
+        'Autenticación',
+        'Suscripciones en tiempo real',
+        'Almacenamiento de archivos',
+        'Hooks de JavaScript y Go'
+      ],
+      useCases: [
+        'Backends de productos pequeños',
+        'APIs de prototipos',
+        'Herramientas administrativas en tiempo real',
+        'Aplicaciones internas autocontenidas'
+      ],
+      localEnvironment: {
+        title: 'PocketBase mantiene la mayor parte del estado local en un solo servicio',
+        description:
+          'Su almacén de datos embebido elimina la necesidad de un servidor SQL separado en muchos proyectos, aunque las integraciones de clientes pueden seguir requiriendo un origen local estable.',
+        items: [
+          {
+            title: 'Ejecutable de PocketBase y pb_data',
+            description:
+              'Ejecutan el backend y conservan localmente los datos de SQLite embebido y el almacenamiento de archivos.'
+          },
+          {
+            title: 'Flujo de migraciones y hooks',
+            description:
+              'Mantén los cambios de las collections en `pb_migrations` y prueba el comportamiento de las extensiones de JavaScript o Go con datos locales.'
+          },
+          {
+            title: 'Proxy HTTPS opcional',
+            description:
+              'Útil para proveedores OAuth, cookies seguras o clientes de navegador que requieren una URL de callback HTTPS.'
+          }
+        ]
+      }
+    },
+    matomo: {
+      replaceOverview: true,
+      paragraphs: [
+        'Matomo es una plataforma de analítica web autoalojada centrada en mantener los datos analíticos bajo el control de quien la opera. Registra las visitas a través de un endpoint de tracking y convierte los eventos almacenados en informes de sitios web, campañas, objetivos, actividad de comercio electrónico y medición respetuosa con la privacidad.',
+        'El desarrollo local de Matomo usa PHP, una base de datos compatible con MySQL y un servidor web, con el proceso de archivado ejecutándose de forma programada para obtener informes similares a los de producción. Se necesita un sitio de prueba o un cliente de tracking para generar eventos; Redis, una configuración de Tag Manager o un proxy solo deben usarse cuando la instalación elegida los habilita.'
+      ],
+      capabilities: [
+        'Tracker de JavaScript',
+        'Objetivos y conversiones',
+        'Analítica de comercio electrónico',
+        'Informes personalizados',
+        'Controles de privacidad',
+        'Archivado programado'
+      ],
+      useCases: [
+        'Analítica web autoalojada',
+        'Pruebas de atribución de campañas',
+        'Informes de conversión de comercio electrónico',
+        'Despliegues de medición sensibles a la privacidad'
+      ],
+      localEnvironment: {
+        title: 'Matomo necesita tanto tráfico de tracking como archivado de informes',
+        description:
+          'La aplicación de analítica y la base de datos son el núcleo, pero los informes son más representativos cuando se ejercitan las visitas locales y los trabajos de archivado programados.',
+        items: [
+          {
+            title: 'Aplicación web PHP',
+            description: 'Sirve la UI de Matomo y el endpoint de tracking que usan los sitios de prueba.'
+          },
+          {
+            title: 'MySQL o MariaDB',
+            description:
+              'Almacena la configuración, los registros de visitas, las conversiones y los datos de informes procesados.'
+          },
+          {
+            title: 'Trabajo cron de archivado',
+            description:
+              'Ejecuta `core:archive` de forma programada para generar informes, en lugar de depender solo del archivado activado por el navegador.'
+          },
+          {
+            title: 'Origen de tracking de prueba',
+            description:
+              'Un sitio local o cliente de prueba proporciona peticiones de tracking y comportamiento de consentimiento realistas.'
+          }
+        ]
+      }
+    },
+    metabase: {
+      replaceOverview: true,
+      paragraphs: [
+        'Metabase es una aplicación de business intelligence para explorar datos, componer preguntas, publicar dashboards y distribuir alertas. Mantiene sus propios metadatos de aplicación separados de las bases de datos que consultan los analistas, de modo que permisos, colecciones, tarjetas y conexiones pueden gestionarse independientemente de los datos de negocio.',
+        'Una instancia local de Metabase se ejecuta sobre Java con una base de datos de aplicación como PostgreSQL para metadatos duraderos. También necesita una o más fuentes de datos de ejemplo accesibles para un desarrollo significativo; SMTP, SSO, la configuración de embedding y un proxy inverso son integraciones opcionales que elige el despliegue.'
+      ],
+      capabilities: [
+        'Constructor visual de consultas',
+        'Editor SQL',
+        'Dashboards',
+        'Alertas y suscripciones',
+        'Colecciones y permisos',
+        'Embedding'
+      ],
+      useCases: [
+        'Dashboards operativos',
+        'Exploración de datos self-service',
+        'Analítica embebida en productos',
+        'Informes de negocio programados'
+      ],
+      localEnvironment: {
+        title: 'Metabase separa sus metadatos de las fuentes de datos analíticas',
+        description:
+          'Una base de datos de aplicación duradera y un objetivo de consulta realista hacen que los dashboards locales sean reproducibles; los servicios de integración dependen del escenario.',
+        items: [
+          {
+            title: 'Runtime de Java y aplicación Metabase',
+            description: 'Inician el servidor y su interfaz de administración.'
+          },
+          {
+            title: 'Base de datos de metadatos de la aplicación',
+            description:
+              'PostgreSQL u otra base de datos soportada persiste usuarios, tarjetas, dashboards y conexiones.'
+          },
+          {
+            title: 'Fuente de datos de ejemplo conectada',
+            description:
+              'Se necesita una base de datos del proyecto accesible para construir y verificar preguntas, modelos y dashboards.'
+          },
+          {
+            title: 'SMTP o SSO opcional',
+            description:
+              'Úsalos solo al probar suscripciones, aprovisionamiento de usuarios o autenticación empresarial.'
+          }
+        ]
+      }
+    },
+    'apache-superset': {
+      replaceOverview: true,
+      paragraphs: [
+        'Apache Superset es una plataforma open source de analítica y exploración de datos construida en torno a conexiones SQLAlchemy, SQL Lab, definiciones de gráficos, dashboards y permisos detallados. Suele usarse para consultar almacenes de datos analíticos existentes, no para ser dueña de los datos de negocio en sí.',
+        'Un entorno local de Superset usa Python y una base de datos de metadatos, con Redis y Celery gestionando habitualmente la caché, las consultas asíncronas, las alertas y los informes. La CLI `superset` inicializa los metadatos y los roles; un broker, un servicio SMTP o un proxy inverso solo son necesarios cuando las funciones seleccionadas los usan.'
+      ],
+      capabilities: [
+        'SQL Lab',
+        'Capa semántica de datasets',
+        'Explorador de gráficos',
+        'Dashboards',
+        'Permisos por rol',
+        'Alertas e informes'
+      ],
+      useCases: [
+        'Análisis SQL exploratorio',
+        'Dashboards de analítica operativa',
+        'BI embebida',
+        'Entrega programada de informes',
+        'Pruebas de integración de fuentes de datos'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo local de Superset abarca metadatos, caché y motores de datos',
+        description:
+          'Una instancia básica puede iniciarse de forma sencilla, pero las funciones de analítica asíncrona necesitan la misma topología de workers configurada para el proyecto.',
+        items: [
+          {
+            title: 'Entorno de Python y CLI de superset',
+            description:
+              'Ejecutan el servidor web y comandos como `superset db upgrade` y `superset init`.'
+          },
+          {
+            title: 'Base de datos de metadatos',
+            description:
+              'PostgreSQL o MySQL suelen persistir usuarios, datasets, gráficos, dashboards y la configuración.'
+          },
+          {
+            title: 'Workers de Redis y Celery',
+            description:
+              'Habituales cuando se habilitan la caché, las consultas asíncronas de SQL Lab, las alertas o los informes.'
+          },
+          {
+            title: 'Fuentes de datos analíticas',
+            description:
+              'Conecta solo las bases de datos o data warehouses necesarios para probar datasets y dashboards.'
           }
         ]
       }

@@ -3,7 +3,7 @@ import { solutionAboutGroupA, type SolutionAboutContent } from './solution-about
 import { solutionAboutGroupB } from './solution-about-group-b'
 import { solutionAboutGroupC } from './solution-about-group-c'
 
-export type SolutionAboutLocale = 'en' | 'zh' | 'id'
+export type SolutionAboutLocale = 'en' | 'zh' | 'id' | 'es'
 
 const nextjsAboutContentByLocale: Record<
   SolutionAboutLocale,
@@ -153,6 +153,59 @@ const nextjsAboutContentByLocale: Record<
         ]
       }
     }
+  },
+  es: {
+    nextjs: {
+      replaceOverview: true,
+      paragraphs: [
+        'Next.js es un framework de React para crear aplicaciones web que combinan un frontend pulido con capacidades del lado del servidor. Admite App Router, Server Components, renderizado en el servidor, generación estática y endpoints de API en una misma base de código, de modo que los equipos pueden elegir el modelo de renderizado adecuado para cada ruta.',
+        'FlyEnv puede usarse como entorno de desarrollo local para proyectos Next.js que dependen de Node.js, PostgreSQL, MySQL, Redis, Nginx, Caddy y otros servicios locales. Esto mantiene el proyecto cerca de sus condiciones reales de funcionamiento sin convertir el desarrollo local en una colección de instaladores inconexos y configuración manual.'
+      ],
+      capabilities: [
+        'App Router',
+        'Server Components',
+        'SSR / SSG / ISR',
+        'Route Handlers',
+        'Middleware',
+        'Optimización de imágenes y fuentes'
+      ],
+      useCases: [
+        'Aplicaciones SaaS y paneles de clientes',
+        'Tiendas de comercio electrónico y flujos de pago',
+        'Sitios de contenido y marketing centrados en SEO',
+        'Aplicaciones web full-stack y APIs BFF',
+        'Herramientas internas y portales de operaciones'
+      ],
+      localEnvironment: {
+        title: 'Un entorno real de Next.js es más que next dev',
+        description:
+          'Un proyecto sencillo puede necesitar solo Node.js. A medida que crece para incluir usuarios, datos de negocio, caché, subidas de archivos, correo y callbacks de terceros, el entorno local suele crecer con él.',
+        items: [
+          {
+            title: 'Runtime de Node.js',
+            description: 'Ejecuta Next.js, las herramientas de desarrollo local y las tareas de build.'
+          },
+          {
+            title: 'Base de datos',
+            description: 'Almacena usuarios, pedidos, contenido de la aplicación y otros datos de negocio.'
+          },
+          {
+            title: 'Redis',
+            description: 'Admite caché, sesiones, colas y patrones de limitación de velocidad.'
+          },
+          {
+            title: 'HTTPS y dominio personalizado',
+            description:
+              'Proporciona un origen local similar a producción para cookies, OAuth y callbacks.'
+          },
+          {
+            title: 'Correo y almacenamiento',
+            description:
+              'Cubre correo transaccional, subida de archivos y otras dependencias reales del producto.'
+          }
+        ]
+      }
+    }
   }
 }
 
@@ -177,5 +230,11 @@ export const solutionAboutContentByLocale: Record<
     ...solutionAboutGroupB.id,
     ...solutionAboutGroupC.id,
     nextjs: nextjsAboutContentByLocale.id.nextjs
+  } as Record<SolutionSlug, SolutionAboutContent>,
+  es: {
+    ...solutionAboutGroupA.es,
+    ...solutionAboutGroupB.es,
+    ...solutionAboutGroupC.es,
+    nextjs: nextjsAboutContentByLocale.es.nextjs
   } as Record<SolutionSlug, SolutionAboutContent>
 }

@@ -38,10 +38,17 @@ const copy = computed(() =>
         title: '开发者如何使用 FlyEnv',
         subtitle: '按开发者实际解决的本地开发问题浏览公开故事。'
       }
-    : {
-        title: 'How developers use FlyEnv',
-        subtitle: 'Explore public stories by the local-development problem each developer was solving.'
-      }
+    : props.locale === 'es'
+      ? {
+          title: 'Cómo usan FlyEnv los desarrolladores',
+          subtitle:
+            'Explora historias públicas según el problema de desarrollo local que resolvía cada desarrollador.'
+        }
+      : {
+          title: 'How developers use FlyEnv',
+          subtitle:
+            'Explore public stories by the local-development problem each developer was solving.'
+        }
 )
 
 const stories = computed(() =>

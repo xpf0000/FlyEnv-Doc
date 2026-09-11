@@ -502,7 +502,7 @@
             ><div class="aspect-[16/10] bg-slate-950 p-4"
               ><img
                 src="https://oss.macphpstudy.com/image/quick-start-2.webp"
-                :alt="locale === 'zh' ? 'FlyEnv 运行时版本安装界面' : locale === 'id' ? 'Antarmuka instalasi versi runtime FlyEnv' : 'FlyEnv runtime version installation interface'"
+                :alt="locale === 'zh' ? 'FlyEnv 运行时版本安装界面' : locale === 'id' ? 'Antarmuka instalasi versi runtime FlyEnv' : locale === 'es' ? 'Interfaz de instalación de versiones de runtime de FlyEnv' : 'FlyEnv runtime version installation interface'"
                 class="h-full w-full rounded-2xl object-cover object-top"
                 loading="lazy"
               /></div
@@ -523,7 +523,7 @@
             ><div class="aspect-[16/10] bg-slate-950 p-4"
               ><img
                 src="https://oss.macphpstudy.com/image/host-1.webp"
-                :alt="locale === 'zh' ? 'FlyEnv 本地站点 HTTPS 配置界面' : locale === 'id' ? 'Antarmuka konfigurasi HTTPS situs lokal FlyEnv' : 'FlyEnv local site HTTPS configuration interface'"
+                :alt="locale === 'zh' ? 'FlyEnv 本地站点 HTTPS 配置界面' : locale === 'id' ? 'Antarmuka konfigurasi HTTPS situs lokal FlyEnv' : locale === 'es' ? 'Interfaz de configuración HTTPS de sitios locales de FlyEnv' : 'FlyEnv local site HTTPS configuration interface'"
                 class="h-full w-full rounded-2xl object-cover object-top"
                 loading="lazy"
               /></div
@@ -544,7 +544,7 @@
             ><div class="aspect-[16/10] bg-slate-950 p-4"
               ><img
                 src="https://oss.macphpstudy.com/image/features/startup-groups-1.webp"
-                :alt="locale === 'zh' ? 'FlyEnv 服务管理界面' : locale === 'id' ? 'Antarmuka pengelolaan layanan FlyEnv' : 'FlyEnv service management interface'"
+                :alt="locale === 'zh' ? 'FlyEnv 服务管理界面' : locale === 'id' ? 'Antarmuka pengelolaan layanan FlyEnv' : locale === 'es' ? 'Interfaz de gestión de servicios de FlyEnv' : 'FlyEnv service management interface'"
                 class="h-full w-full rounded-2xl object-cover object-top"
                 loading="lazy"
               /></div
@@ -834,7 +834,7 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' }>()
+  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' }>()
   const locale = props.locale || 'en'
   const localizedHref = (path: string) => (locale === 'en' ? path : `/${locale}${path}`)
   const copy = props.locale === 'zh'
@@ -844,6 +844,10 @@
     : props.locale === 'id'
       ? {
           badge: 'Perbandingan', heroTagline: 'Satu stack bersama atau lingkungan khusus tiap proyek?', heroDesc: 'XAMPP adalah stack PHP all-in-one yang sederhana untuk penggunaan umum. FlyEnv memungkinkan setiap proyek lokal memakai runtime, server web, database, dan layanan yang dibutuhkannya.', download: 'Unduh FlyEnv', readSummary: 'Baca ringkasan cepat', freeOpen: 'Gratis dan sumber terbuka', xamppShared: 'Satu stack bersama untuk semua proyek', webRoot: 'satu direktori root web', xamppCaption: 'Semua proyek berbagi stack dan konfigurasi yang sama.', flyenvDedicated: 'Lingkungan khusus tiap proyek', flyenvCaption: 'Setiap proyek memiliki runtime, layanan, port, dan konfigurasi sendiri.', differencesTitle: 'Tiga perbedaan praktis', differencesSubtitle: 'Bukan sekadar stack yang berbeda, melainkan cara pengembangan yang berbeda.', diff1Title: 'Beberapa versi runtime', diff1Desc: 'Jalankan berbagai versi PHP, Node.js, Python, dan lainnya secara berdampingan sambil menjaga proyek tetap independen.', diff2Title: 'Bangun stack sesuai kebutuhan proyek', diff2Desc: 'Pilih Nginx, Apache, Caddy, database, cache, pengujian email, penyimpanan objek, atau layanan proyek sendiri.', diff3Title: 'Domain khusus dan HTTPS', diff3Desc: 'Beri setiap situs lokal domain sendiri dan kelola sertifikat, port, aturan penulisan ulang, serta log dari satu tempat.', modelTitle: 'Satu stack bersama vs lingkungan per proyek', modelSubtitle: 'Idenya sama, pengalaman pengembangannya sangat berbeda.', sharedPhp: 'Stack PHP bersama', projectEnv: 'Lingkungan berbasis proyek', xamppBullets: ['Proyek biasanya berbagi versi runtime yang sama.', 'Kebutuhan berbeda memerlukan konfigurasi tambahan.', 'Konfigurasi runtime dan server umumnya dibagi bersama.'], flyenvBullets: ['Setiap proyek dapat memakai runtime dan layanan yang sesuai.', 'Situs lokal, port, log, dan HTTPS tetap terkelola bersama.', 'Mulai layanan terkait secara bersamaan saat dibutuhkan proyek.'], dailyTitle: 'Seperti apa dalam pengembangan sehari-hari', dailySubtitle: 'Lihat konfigurasi yang sama dalam alur runtime, situs, dan layanan FlyEnv.', card1Title: 'Beberapa versi runtime', card1Desc: 'Instal dan jalankan beberapa versi PHP serta runtime lain tanpa konflik.', card1Link: 'Jelajahi PHP di FlyEnv', card2Title: 'Domain lokal dan HTTPS', card2Desc: 'Buat situs lokal dengan domain khusus dan kelola sertifikat tanpa aturan htdocs.', card2Link: 'Jelajahi situs lokal', card3Title: 'Layanan lokal full-stack', card3Desc: 'Jalankan database, cache, pengujian email, penyimpanan objek, dan lainnya di samping proyek.', card3Link: 'Lihat lingkungan proyek', featureTitle: 'Perbandingan fitur', featureSubtitle: 'Perbandingan praktis kemampuan pengembangan lokal yang umum digunakan.', capability: 'Kemampuan', workflowTitle: 'Alur kerja Laravel umum', workflowSubtitle: 'Salah satu perbedaan lingkungan ini dalam praktik.', withXampp: 'Dengan XAMPP', withFlyenv: 'Dengan FlyEnv', choiceTitle: 'Mana yang harus dipilih?', choiceSubtitle: 'Keduanya berguna; pilihan tepat bergantung pada cara proyek Anda diatur.', chooseXampp: 'Pilih XAMPP jika', xamppChoices: ['Anda ingin bundel Apache + PHP + MariaDB yang familier.', 'Proyek dapat memakai lingkungan PHP yang hampir sama.', 'Anda terutama mengerjakan aplikasi PHP tradisional.', 'Anda menyukai stack lokal yang sederhana dan mapan.'], chooseFlyenv: 'Pilih FlyEnv jika', flyenvChoices: ['Proyek memerlukan versi PHP, Node.js, atau runtime lain yang berbeda.', 'Anda memakai Nginx, Caddy, PostgreSQL, Redis, atau layanan lokal lain.', 'Anda ingin mengelola domain khusus dan HTTPS dari satu tempat.', 'Anda menggunakan klien pengodean AI atau layanan AI lokal seperti Ollama dan ingin mengelolanya bersama stack proyek.'], choiceNote: 'Keduanya adalah pilihan yang valid—kecocokannya bergantung pada kebutuhan akan stack PHP bersama yang sederhana atau lingkungan khusus proyek.', migrationTitle: 'Beralih dari XAMPP ke FlyEnv', migrationSubtitle: 'Memindahkan proyek yang ada itu mudah; biasanya tidak perlu menulis ulang aplikasi.', migrationSteps: [{ title: 'Pindahkan proyek', desc: 'Pindahkan atau simpan proyek di lokasi mana pun. Proyek tidak lagi harus berada di dalam `htdocs`.' }, { title: 'Buat situs lokal', desc: 'Impor atau buat situs di FlyEnv lalu pilih runtime dan layanan yang diperlukan.' }, { title: 'Impor database', desc: 'Impor dump dengan kredensial yang didokumentasikan, jalankan pengujian aplikasi, lalu sesuaikan ekstensi atau variabel lingkungan.' }], guideLead: 'Butuh konteks lebih? Baca', guideLink: 'panduan lengkap FlyEnv vs Docker & XAMPP', faqTitle: 'Pertanyaan umum', ctaTitle: 'Coba proyek berikutnya di FlyEnv', ctaDesc: 'Buat situs lokal, pilih runtime dan layanan yang dibutuhkan, lalu mulai bekerja.'
+        }
+      : props.locale === 'es'
+      ? {
+          badge: 'Comparación', heroTagline: '¿Un stack compartido o un entorno por proyecto?', heroDesc: 'XAMPP es un stack PHP simple y todo en uno para uso general. FlyEnv permite que cada proyecto local use los runtimes, servidores web, bases de datos y servicios que necesita.', download: 'Descargar FlyEnv', readSummary: 'Leer resumen rápido', freeOpen: 'Gratis y de código abierto', xamppShared: 'Un stack compartido para todos los proyectos', webRoot: 'una raíz web', xamppCaption: 'Todos los proyectos comparten el mismo stack y la misma configuración.', flyenvDedicated: 'Un entorno dedicado por proyecto', flyenvCaption: 'Cada proyecto tiene sus propios runtimes, servicios, puertos y configuración.', differencesTitle: 'Tres diferencias prácticas', differencesSubtitle: 'No es solo un stack diferente, es una forma diferente de desarrollar.', diff1Title: 'Múltiples versiones de runtime', diff1Desc: 'Ejecuta diferentes versiones de PHP, Node.js, Python y más en paralelo, manteniendo los proyectos independientes.', diff2Title: 'Construye el stack que cada proyecto necesita', diff2Desc: 'Elige Nginx, Apache, Caddy, bases de datos, cachés, pruebas de correo, almacenamiento de objetos o tu propio servicio de proyecto.', diff3Title: 'Dominios personalizados y HTTPS', diff3Desc: 'Asigna a cada sitio local su propio dominio y gestiona certificados, puertos, reglas de reescritura y registros desde un solo lugar.', modelTitle: 'Un stack compartido frente a un entorno por proyecto', modelSubtitle: 'La misma idea, una experiencia de desarrollo muy diferente.', sharedPhp: 'Stack PHP compartido', projectEnv: 'Entornos basados en proyectos', xamppBullets: ['Los proyectos suelen compartir las mismas versiones de runtime.', 'Los requisitos diferentes necesitan configuración adicional.', 'La configuración del runtime y del servidor generalmente se comparte.'], flyenvBullets: ['Cada proyecto puede usar los runtimes y servicios que necesita.', 'Los sitios locales, puertos, registros y HTTPS se gestionan juntos.', 'Inicia los servicios relacionados a la vez cuando un proyecto los necesita.'], dailyTitle: 'Cómo se ve esto en el desarrollo diario', dailySubtitle: 'Mira la misma configuración en los flujos de trabajo de runtimes, sitios y servicios de FlyEnv.', card1Title: 'Múltiples versiones de runtime', card1Desc: 'Instala y ejecuta varias versiones de PHP y otros runtimes sin conflictos.', card1Link: 'Explorar PHP en FlyEnv', card2Title: 'Dominios locales y HTTPS', card2Desc: 'Crea sitios locales con dominios personalizados y gestiona certificados sin seguir las convenciones de htdocs.', card2Link: 'Explorar sitios locales', card3Title: 'Servicios locales full-stack', card3Desc: 'Ejecuta bases de datos, caché, pruebas de correo, almacenamiento de objetos y más junto al proyecto.', card3Link: 'Ver entornos de proyecto', featureTitle: 'Comparación de funciones', featureSubtitle: 'Una comparación práctica de las capacidades de desarrollo local más usadas.', capability: 'Capacidad', workflowTitle: 'Un flujo de trabajo típico de Laravel', workflowSubtitle: 'Una forma común en la que estos entornos difieren en la práctica.', withXampp: 'Con XAMPP', withFlyenv: 'Con FlyEnv', choiceTitle: '¿Cuál deberías elegir?', choiceSubtitle: 'Ambas herramientas son útiles; la elección correcta depende de cómo organices tus proyectos.', chooseXampp: 'Elige XAMPP si', xamppChoices: ['Quieres un paquete familiar de Apache + PHP + MariaDB.', 'Tus proyectos pueden usar prácticamente el mismo entorno PHP.', 'Trabajas principalmente con aplicaciones PHP tradicionales.', 'Prefieres un stack local simple y consolidado.'], chooseFlyenv: 'Elige FlyEnv si', flyenvChoices: ['Tus proyectos necesitan diferentes versiones de PHP, Node.js u otros runtimes.', 'Usas Nginx, Caddy, PostgreSQL, Redis u otros servicios locales.', 'Quieres gestionar dominios personalizados y HTTPS desde un solo lugar.', 'Usas clientes de programación con IA o servicios de IA locales como Ollama y quieres gestionarlos junto con el stack de tu proyecto.'], choiceNote: 'Ambas son opciones válidas: la mejor depende de si necesitas un stack PHP compartido y simple o entornos específicos por proyecto.', migrationTitle: 'Migrar de XAMPP a FlyEnv', migrationSubtitle: 'Migrar tus proyectos existentes es fácil; en la mayoría de los casos no hace falta reescribir la aplicación.', migrationSteps: [{ title: 'Mueve tu proyecto', desc: 'Mueve o mantén tu proyecto donde prefieras; ya no es necesario que esté dentro de `htdocs`.' }, { title: 'Crea un sitio local', desc: 'Importa o crea un sitio en FlyEnv y selecciona el runtime y los servicios necesarios.' }, { title: 'Importa tu base de datos', desc: 'Importa un volcado con las credenciales documentadas, ejecuta las pruebas de tu aplicación y ajusta extensiones o variables de entorno.' }], guideLead: '¿Necesitas más contexto? Lee la', guideLink: 'guía completa de FlyEnv frente a Docker y XAMPP', faqTitle: 'Preguntas frecuentes', ctaTitle: 'Prueba tu próximo proyecto en FlyEnv', ctaDesc: 'Crea un sitio local, selecciona los runtimes y servicios que necesita y empieza a trabajar.'
         }
       : {
           badge: 'Comparison', heroTagline: 'One shared stack or one environment per project?', heroDesc: 'XAMPP is a simple, all-in-one PHP stack for general use. FlyEnv lets each local project use the runtimes, web servers, databases, and services it needs.', download: 'Download FlyEnv', readSummary: 'Read quick summary', freeOpen: 'Free and open source', xamppShared: 'One shared stack for all projects', webRoot: 'one web root', xamppCaption: 'All projects share the same stack and configuration.', flyenvDedicated: 'A dedicated environment per project', flyenvCaption: 'Each project has its own runtimes, services, ports, and configuration.', differencesTitle: 'Three practical differences', differencesSubtitle: 'Not just a different stack, but a different way to develop.', diff1Title: 'Multiple runtime versions', diff1Desc: 'Run different versions of PHP, Node.js, Python, and more side by side while keeping projects independent.', diff2Title: 'Build the stack each project needs', diff2Desc: 'Choose Nginx, Apache, Caddy, databases, caches, mail testing, object storage, or your own project service.', diff3Title: 'Custom domains and HTTPS', diff3Desc: 'Give every local site its own domain and manage local certificates, ports, rewrite rules, and logs from one place.', modelTitle: 'One shared stack vs one environment per project', modelSubtitle: 'Same idea, very different development experience.', sharedPhp: 'Shared PHP stack', projectEnv: 'Project-based environments', xamppBullets: ['Projects typically share the same runtime versions.', 'Different requirements need additional configuration.', 'Runtime and server configuration is generally shared.'], flyenvBullets: ['Each project can match its required runtimes and services.', 'Local sites, ports, logs, and HTTPS stay together.', 'Start related services together when a project needs them.'], dailyTitle: 'What this looks like in daily development', dailySubtitle: "See the same setup in FlyEnv's runtime, Host, and service workflows.", card1Title: 'Multiple runtime versions', card1Desc: 'Install and run multiple PHP versions, plus other runtimes, without conflicts.', card1Link: 'Explore PHP in FlyEnv', card2Title: 'Local domains and HTTPS', card2Desc: 'Create local sites with custom domains and manage local certificates without editing htdocs conventions.', card2Link: 'Explore local sites', card3Title: 'Full-stack local services', card3Desc: 'Run databases, caching, mail testing, object storage, and more beside the project.', card3Link: 'See project environments', featureTitle: 'Feature comparison', featureSubtitle: 'A practical comparison of commonly used local-development capabilities.', capability: 'Capability', workflowTitle: 'A typical Laravel workflow', workflowSubtitle: 'One common way these environments differ in practice.', withXampp: 'With XAMPP', withFlyenv: 'With FlyEnv', choiceTitle: 'Which one should you choose?', choiceSubtitle: 'Both tools can be useful; the right choice depends on how your projects are organised.', chooseXampp: 'Choose XAMPP if', xamppChoices: ['You want a familiar Apache + PHP + MariaDB bundle.', 'Your projects can use roughly the same PHP environment.', 'You mainly work with traditional PHP applications.', 'You prefer a simple, established local stack.'], chooseFlyenv: 'Choose FlyEnv if', flyenvChoices: ['Your projects need different PHP, Node.js, or other runtime versions.', 'You use Nginx, Caddy, PostgreSQL, Redis, or other local services.', 'You want custom domains and HTTPS managed from one place.', 'You use AI coding clients or local AI services such as Ollama and want them managed alongside your project stack.'], choiceNote: 'Both are valid choices—the better fit depends on whether you need a simple shared PHP stack or project-specific environments.', migrationTitle: 'Moving from XAMPP to FlyEnv', migrationSubtitle: 'It is easy to move your existing projects. No application rewrite is required in most cases.', migrationSteps: [{ title: 'Move your project', desc: 'Move or keep your project anywhere you prefer. Your project no longer needs to live inside `htdocs`.' }, { title: 'Create a local site', desc: 'Import or create a site in FlyEnv and select the required runtime and service settings.' }, { title: 'Import your database', desc: 'Import a dump with the documented credentials, then run your application tests and adjust extensions or environment variables.' }], guideLead: 'Need more context? Read the', guideLink: 'broader FlyEnv vs Docker & XAMPP guide', faqTitle: 'Frequently asked questions', ctaTitle: 'Try your next project in FlyEnv', ctaDesc: 'Create a local site, select the runtimes and services it needs, and start working.'
@@ -987,14 +991,80 @@
       'FlyEnv is free and open source; see the licensing guide for the current details.': 'FlyEnv gratis dan sumber terbuka; lihat panduan lisensi untuk detail terbaru.',
       'Is XAMPP’s database MySQL or MariaDB?': 'Database XAMPP MySQL atau MariaDB?',
       'Current Apache Friends documentation identifies MariaDB in current XAMPP generations and notes compatibility with common MySQL workflows.': 'Dokumentasi Apache Friends saat ini menyebut MariaDB pada generasi XAMPP terbaru dan kompatibilitas dengan alur MySQL umum.'
+    },
+    es: {
+      Available: 'Disponible',
+      'Not included': 'No incluido',
+      Manual: 'Manual',
+      'Not available': 'No disponible',
+      'Built-in': 'Integrado',
+      'Built-in option': 'Opción integrada',
+      'Bundled version': 'Versión incluida',
+      'Multiple managed versions': 'Múltiples versiones gestionadas',
+      'MariaDB included': 'MariaDB incluida',
+      'Multiple database modules': 'Múltiples módulos de bases de datos',
+      Bundled: 'Incluido',
+      'Available through local tools': 'Disponible mediante herramientas locales',
+      'Built-in module': 'Módulo integrado',
+      'Additional install': 'Instalación adicional',
+      'Built-in runtime modules': 'Módulos de runtime integrados',
+      'Built-in Host workflow': 'Flujo de sitios integrado',
+      'Manual or additional setup': 'Configuración manual o adicional',
+      'Manual configuration': 'Configuración manual',
+      'Managed local-site workflow': 'Flujo gestionado de sitios locales',
+      'Built-in project services': 'Servicios de proyecto integrados',
+      'Mailpit module': 'Módulo Mailpit',
+      'phpMyAdmin, pgAdmin, DbGate, Redis Commander': 'phpMyAdmin, pgAdmin, DbGate, Redis Commander',
+      'FlyEnv MCP Server and AI CLI modules': 'FlyEnv MCP Server y módulos AI CLI',
+      Apache: 'Apache',
+      PHP: 'PHP',
+      'MariaDB / MySQL': 'MariaDB / MySQL',
+      phpMyAdmin: 'phpMyAdmin',
+      Nginx: 'Nginx',
+      Caddy: 'Caddy',
+      PostgreSQL: 'PostgreSQL',
+      Redis: 'Redis',
+      'Node.js / Python / Go': 'Node.js / Python / Go',
+      'Local custom domains': 'Dominios locales personalizados',
+      'Local HTTPS': 'HTTPS local',
+      'Startup groups': 'Grupos de inicio',
+      'Mail testing': 'Pruebas de correo',
+      'Database GUI tools': 'Herramientas GUI de bases de datos',
+      'AI / MCP integration': 'Integración de IA / MCP',
+      'Start Apache and MariaDB.': 'Inicia Apache y MariaDB.',
+      'Create or import a local site.': 'Crea o importa un sitio local.',
+      'Place or link the project into the local web root.': 'Coloca o enlaza el proyecto en la raíz web local.',
+      'Select the PHP version and choose Apache, Nginx, or Caddy.': 'Selecciona la versión de PHP y elige Apache, Nginx o Caddy.',
+      'Use the bundled PHP version and configure the application.': 'Usa la versión de PHP incluida y configura la aplicación.',
+      'Add a custom domain and enable local HTTPS when needed.': 'Añade un dominio personalizado y activa HTTPS local cuando sea necesario.',
+      'Configure a virtual host if a custom domain is needed.': 'Configura un virtual host si necesitas un dominio personalizado.',
+      'Start Redis, Mailpit, or other project services.': 'Inicia Redis, Mailpit u otros servicios del proyecto.',
+      'Configure HTTPS, Redis, or mail testing separately when required.': 'Configura HTTPS, Redis o las pruebas de correo por separado cuando sea necesario.',
+      'Save related services as a startup group if desired.': 'Guarda los servicios relacionados como un grupo de inicio si lo deseas.',
+      'Do I need to change my project code?': '¿Necesito cambiar el código de mi proyecto?',
+      'Usually no. Recreate the local runtime, site, database, and environment variables, then run the application tests before switching daily work.': 'Normalmente no. Recrea el runtime local, el sitio, la base de datos y las variables de entorno, y luego ejecuta las pruebas de la aplicación antes de retomar el trabajo diario.',
+      'Do I have to move my projects out of htdocs?': '¿Tengo que sacar mis proyectos de htdocs?',
+      'No. FlyEnv can use an existing project directory; it does not require the project to live inside the XAMPP web root.': 'No. FlyEnv puede usar un directorio de proyecto existente; no requiere que el proyecto esté dentro de la raíz web de XAMPP.',
+      'Can I still use Apache with FlyEnv?': '¿Puedo seguir usando Apache con FlyEnv?',
+      'Yes. Apache is available alongside Nginx and Caddy for local sites and project services.': 'Sí. Apache está disponible junto con Nginx y Caddy para sitios locales y servicios de proyecto.',
+      'Does FlyEnv replace XAMPP completely?': '¿FlyEnv reemplaza a XAMPP por completo?',
+      'It can replace the local workflow for many projects, but container-based production parity or a team standard may still call for another tool.': 'Puede reemplazar el flujo de trabajo local de muchos proyectos, pero la paridad de producción basada en contenedores o un estándar de equipo pueden requerir otra herramienta.',
+      'Can I run different PHP versions for different projects?': '¿Puedo ejecutar diferentes versiones de PHP en proyectos distintos?',
+      'Yes. FlyEnv can manage multiple PHP versions and bind a project or local site to the version it needs.': 'Sí. FlyEnv puede gestionar varias versiones de PHP y vincular un proyecto o sitio local a la versión que necesita.',
+      'Is XAMPP suitable for team usage?': '¿XAMPP es adecuado para usar en equipo?',
+      'It can be a practical shared baseline for traditional PHP applications when everyone follows the same bundle and web-root conventions.': 'Puede ser una base compartida práctica para aplicaciones PHP tradicionales cuando todos siguen el mismo paquete y las mismas convenciones de raíz web.',
+      'Is FlyEnv free for local development?': '¿FlyEnv es gratis para el desarrollo local?',
+      'FlyEnv is free and open source; see the licensing guide for the current details.': 'FlyEnv es gratis y de código abierto; consulta la guía de licencias para conocer los detalles actuales.',
+      'Is XAMPP’s database MySQL or MariaDB?': '¿La base de datos de XAMPP es MySQL o MariaDB?',
+      'Current Apache Friends documentation identifies MariaDB in current XAMPP generations and notes compatibility with common MySQL workflows.': 'La documentación actual de Apache Friends identifica MariaDB en las versiones actuales de XAMPP y señala su compatibilidad con los flujos de trabajo comunes de MySQL.'
     }
   }
   const tr = (value: string) => labels[props.locale ?? 'en']?.[value] ?? value
 
   const xamppProjects = ['/project-a', '/project-b', '/project-c']
-  const projectLabel = (letter: string) => props.locale === 'zh' ? `项目 ${letter}` : props.locale === 'id' ? `Proyek ${letter}` : `Project ${letter}`
-  const projectType = (type: 'node') => props.locale === 'zh' ? 'Node.js 应用' : props.locale === 'id' ? 'Aplikasi Node.js' : 'Node.js app'
-  const projectDisplayName = (name: string) => props.locale === 'zh' ? name.replace(/^Project /, '项目 ') : props.locale === 'id' ? name.replace(/^Project /, 'Proyek ') : name
+  const projectLabel = (letter: string) => props.locale === 'zh' ? `项目 ${letter}` : props.locale === 'id' ? `Proyek ${letter}` : props.locale === 'es' ? `Proyecto ${letter}` : `Project ${letter}`
+  const projectType = (type: 'node') => props.locale === 'zh' ? 'Node.js 应用' : props.locale === 'id' ? 'Aplikasi Node.js' : props.locale === 'es' ? 'Aplicación Node.js' : 'Node.js app'
+  const projectDisplayName = (name: string) => props.locale === 'zh' ? name.replace(/^Project /, '项目 ') : props.locale === 'id' ? name.replace(/^Project /, 'Proyek ') : props.locale === 'es' ? name.replace(/^Project /, 'Proyecto ') : name
 
   const flyenvComparisonProjects = [
     {

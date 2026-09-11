@@ -5,8 +5,9 @@ import { computed } from 'vue'
 const { lang } = useData()
 
 const isZh = computed(() => lang.value.startsWith('zh'))
+const isEs = computed(() => lang.value.startsWith('es'))
 
-const label = computed(() => (isZh.value ? '友情链接：' : 'Links: '))
+const label = computed(() => (isZh.value ? '友情链接：' : isEs.value ? 'Enlaces: ' : 'Links: '))
 </script>
 
 <template>

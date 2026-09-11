@@ -282,6 +282,106 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       relatedGuides: ['/id/guide/project-level-runtime-environment', '/id/guide/manage-multiple-node-php-versions'],
       featuredPlacements: ['home']
     }
+  ],
+  es: [
+    {
+      postId: 'abidar-flyenv-modern-local-development-php-laravel-wordpress',
+      locale: 'es',
+      scenario: 'Proyectos Laravel y WordPress en Windows',
+      homepageTitle: 'Desarrollo de Laravel y WordPress en Windows',
+      useCases: ['windows-local-development', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Un desarrollador de Windows usa FlyEnv para proyectos de Laravel, WordPress y PHP puro que necesitan diferentes versiones de PHP sin cambiar la configuración global.',
+      relatedGuides: [
+        '/es/guide/project-level-runtime-environment',
+        '/es/guide/run-laravel-use-flyenv'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'nh-ihsan-flyenv-mac-local-environment-2026',
+      locale: 'es',
+      scenario: 'Servicios en Mac y HTTPS local',
+      homepageTitle: 'Servicios PHP nativos y HTTPS en macOS',
+      useCases: ['macos-local-development', 'local-services', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Un desarrollador de Mac cuenta cómo reemplazó los flujos de trabajo más pesados de Docker y Valet por control nativo de servicios, versiones de PHP por proyecto, dominios HTTPS locales y bases de datos.',
+      relatedGuides: [
+        '/es/guide/flyenv-vs-docker-xampp',
+        '/es/guide/project-level-runtime-environment'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'mencoba-flyenv-setelah-lama-menggunakan-xampp',
+      locale: 'es',
+      scenario: 'Migración desde XAMPP',
+      homepageTitle: 'Migrar proyectos PHP de XAMPP a FlyEnv',
+      useCases: ['xampp-migration', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Un desarrollador PHP describe su paso desde un flujo de trabajo con XAMPP de muchos años y cómo gestiona proyectos que necesitan diferentes versiones de PHP.',
+      relatedGuides: [
+        '/es/guide/flyenv-vs-docker-xampp',
+        '/es/guide/project-level-runtime-environment'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'why-i-finally-switched-from-laragon-to-flyenv',
+      locale: 'es',
+      scenario: 'Migración desde Laragon',
+      useCases: ['laragon-migration', 'laravel-local-development'],
+      editorialSummary:
+        'Un desarrollador de Laravel describe su paso de Laragon a un flujo de trabajo con FlyEnv para PHP, PostgreSQL y el trabajo diario en sus proyectos.',
+      relatedGuides: ['/es/guide/flyenv-vs-docker-xampp', '/es/guide/run-laravel-use-flyenv'],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'flyenv-on-linux-actually-fixed-my-php-version-headache',
+      locale: 'es',
+      scenario: 'Linux y múltiples versiones de PHP',
+      useCases: ['linux-local-development', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Un desarrollador de Linux Mint explica cómo gestiona proyectos PHP antiguos y actuales junto con servicios locales, sin cambios de versión repetidos a nivel de todo el sistema.',
+      relatedGuides: [
+        '/es/guide/project-level-runtime-environment',
+        '/es/guide/manage-multiple-node-php-versions'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'goharabbas321-flyenv-modern-local-development-full-stack',
+      locale: 'es',
+      scenario: 'Desarrollo local full-stack',
+      homepageTitle: 'Un solo espacio de trabajo para el desarrollo full-stack',
+      useCases: ['multiple-runtime-versions', 'local-services', 'ai-assisted-development'],
+      editorialSummary:
+        'Un desarrollador full-stack presenta FlyEnv como un único espacio de trabajo de escritorio para runtimes, bases de datos y herramientas de desarrollo local.',
+      relatedGuides: ['/es/guide/what-is-flyenv', '/es/guide/flyenv-work-with-ai'],
+      featuredPlacements: ['home', 'community-hero']
+    },
+    {
+      postId: 'mufaizabd-xampp-docker-to-flyenv',
+      locale: 'es',
+      scenario: 'Sustituir XAMPP y Docker',
+      homepageTitle: 'Dejar atrás XAMPP y Docker',
+      useCases: ['xampp-migration', 'docker-alternative', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Un desarrollador con un ordenador de poca RAM reemplaza XAMPP y Docker con FlyEnv para cambiar de versión de PHP más rápido y tener un flujo de trabajo diario más ligero.',
+      relatedGuides: ['/es/guide/flyenv-vs-docker-xampp', '/es/guide/project-level-runtime-environment'],
+      featuredPlacements: ['home', 'community-hero']
+    },
+    {
+      postId: 'kiki-six-months-flyenv-multi-project-dashboard',
+      locale: 'es',
+      scenario: 'Gestión de muchos proyectos locales',
+      homepageTitle: 'Seis meses de flujo de trabajo multiproyecto',
+      useCases: ['multiple-runtime-versions', 'local-services'],
+      editorialSummary:
+        'Tras seis meses con FlyEnv, un desarrollador PHP comparte un flujo de trabajo práctico para varios proyectos, servicios compartidos y limpieza de runtimes.',
+      relatedGuides: ['/es/guide/project-level-runtime-environment', '/es/guide/manage-multiple-node-php-versions'],
+      featuredPlacements: ['home', 'community-hero']
+    }
   ]
 }
 

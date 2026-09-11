@@ -1,4 +1,4 @@
-export type CommunityLocale = 'en' | 'zh' | 'id'
+export type CommunityLocale = 'en' | 'zh' | 'id' | 'es'
 export type CommunityPlacement = 'home' | 'community-hero' | 'guide'
 
 export interface CommunityPost {

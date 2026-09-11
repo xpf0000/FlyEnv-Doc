@@ -240,7 +240,13 @@
   const version = 'v4.18.2'
 
   const locale = computed(() =>
-    lang.value === 'zh-CN' ? 'zh' : lang.value === 'id-ID' ? 'id' : 'en'
+    lang.value === 'zh-CN'
+      ? 'zh'
+      : lang.value === 'id-ID'
+        ? 'id'
+        : lang.value === 'es-ES'
+          ? 'es'
+          : 'en'
   )
   const copyByLocale = {
     en: {
@@ -420,6 +426,68 @@
       faq3AnswerPrefix: 'Installer Windows ditandatangani secara digital melalui ',
       faq3AnswerSuffix:
         ', dan installer macOS juga ditandatangani secara digital. Kode sumber dan catatan build tersedia di GitHub.'
+    },
+    es: {
+      title: 'Descargar FlyEnv',
+      subtitle:
+        'Elige la versión para tu sistema. FlyEnv está disponible para Windows, macOS y Linux.',
+      latestVersion: 'Última versión',
+      releaseNotes: 'Notas de la versión',
+      buildHistory: 'Historial de compilaciones',
+      signedBuilds: 'Compilaciones firmadas',
+      otherDownloads: 'Elige tu descarga',
+      download: 'Descargar',
+      notSureTitle: '¿No sabes qué descarga elegir?',
+      selectionHints: [
+        { label: 'La mayoría de los usuarios de Windows', value: 'Instalador de Windows' },
+        { label: 'Mac con Apple Silicon', value: 'Apple Silicon' },
+        { label: 'Mac con Intel', value: 'Intel' },
+        { label: 'Ubuntu/Debian', value: '.deb' },
+        { label: 'Fedora/Red Hat/SUSE/CentOS', value: '.rpm' }
+      ],
+      trustTitle: '¿Por qué confiar en esta descarga?',
+      faqTitle: 'Preguntas frecuentes',
+      licenseGuide: 'Guía de licencias',
+      purchaseLicense: 'Comprar una licencia',
+      windowsDescription: 'Versiones de Windows para una instalación rápida o un uso sin instalación.',
+      macDescription: 'Imágenes de disco nativas para Mac con Apple Silicon e Intel.',
+      linuxDescription: 'Paquetes para distribuciones basadas en Debian y en Red Hat.',
+      windowsInstaller: 'Instalador de Windows',
+      windowsInstallerDescription: 'Recomendado para la mayoría de los usuarios de Windows.',
+      windowsPortable: 'Windows Portable',
+      windowsPortableDescription: 'No requiere instalación. Descomprime y ejecuta.',
+      macArm: 'macOS Apple Silicon',
+      macArmDescription: 'Para Mac con Apple Silicon M1, M2, M3, M4 y modelos posteriores.',
+      macX86: 'macOS Intel',
+      macX86Description: 'Para Mac con procesador Intel.',
+      debX64: 'Debian / Ubuntu',
+      debX64Description: 'Instala el paquete .deb x64 en Debian o Ubuntu.',
+      debArm64: 'Debian / Ubuntu ARM64',
+      debArm64Description: 'Instala el paquete .deb ARM64 en sistemas compatibles.',
+      rpmX64: 'Red Hat / Fedora / SUSE / CentOS',
+      rpmX64Description: 'Instala el paquete .rpm x64 en distribuciones basadas en RPM.',
+      rpmArm64: 'Red Hat / Fedora / SUSE / CentOS ARM64',
+      rpmArm64Description: 'Instala el paquete .rpm ARM64 en sistemas compatibles.',
+      openSource: 'Código abierto',
+      openSourceDescription: 'El código fuente está disponible para revisión en GitHub.',
+      transparentBuilds: 'Compilaciones transparentes',
+      transparentBuildsDescription:
+        'Los artefactos de cada versión y el historial de compilaciones son visibles públicamente.',
+      codeSigning: 'Firma de código',
+      signPathFoundation: 'SignPath Foundation',
+      codeSigningDescriptionPrefix:
+        'Las compilaciones de Windows están firmadas digitalmente a través de ',
+      codeSigningDescriptionSuffix: '.',
+      faq1: '¿Qué versión debo descargar?',
+      faq1Answer:
+        'Elige la versión que corresponda a tu sistema operativo. En Linux, elige .deb para Debian o Ubuntu y .rpm para Fedora, Red Hat, SUSE o CentOS.',
+      faq2: '¿FlyEnv es gratuito?',
+      faq2Answer:
+        'FlyEnv se puede descargar y usar para el desarrollo local básico sin licencia. Algunas herramientas premium tienen límites de evaluación; una licencia única de $10 desbloquea el acceso premium en un dispositivo activo.',
+      faq3: '¿Los instaladores están firmados?',
+      faq3AnswerPrefix: 'Los instaladores de Windows están firmados digitalmente a través de ',
+      faq3AnswerSuffix:
+        ', y los instaladores de macOS también están firmados digitalmente. Puedes revisar el código fuente y los registros de compilación en GitHub.'
     }
   } as const
   const copy = computed(() => copyByLocale[locale.value])
@@ -610,7 +678,9 @@
               ? '/zh/guide/about-license'
               : locale.value === 'id'
                 ? '/id/guide/about-license'
-                : '/guide/about-license'
+                : locale.value === 'es'
+                  ? '/es/guide/about-license'
+                  : '/guide/about-license'
         },
         {
           label: copy.value.purchaseLicense,
@@ -619,7 +689,9 @@
               ? '/zh/license'
               : locale.value === 'id'
                 ? '/id/license'
-                : '/license'
+                : locale.value === 'es'
+                  ? '/es/license'
+                  : '/license'
         }
       ]
     },

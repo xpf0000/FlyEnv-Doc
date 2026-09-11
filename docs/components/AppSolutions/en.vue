@@ -354,7 +354,7 @@
 
   const props = withDefaults(
     defineProps<{
-      locale?: 'en' | 'zh' | 'id'
+      locale?: 'en' | 'zh' | 'id' | 'es'
     }>(),
     { locale: 'en' }
   )
@@ -374,6 +374,11 @@
       badge: 'Solusi', heroTitle: 'Jalankan Proyek Anda', heroTitleSecondLine: 'Secara Lokal dengan FlyEnv',
       heroDescription: 'Telusuri framework, CMS, aplikasi e-commerce, ERP, CRM, dan alat developer. FlyEnv mengelola runtime, database, dan layanan lokal yang mereka perlukan di Windows, macOS, serta Linux.',
       browseSolutions: 'Jelajahi Solusi', downloadFlyEnv: 'Unduh FlyEnv', filterAriaLabel: 'Filter solusi menurut kategori', searchDirectory: 'Cari direktori proyek', searchPlaceholder: 'Cari proyek...', exploreSolutions: 'Jelajahi Solusi', catalogDescription: 'Proyek serta runtime, database, dan layanan lokal yang biasanya dibutuhkan.', projects: 'proyek', viewSolution: 'Lihat solusi', noResultsTitle: 'Tidak ada solusi yang cocok.', noResultsDescription: 'Coba nama proyek atau kategori lain.', showAll: 'Tampilkan semua solusi', howFlyEnvHelps: 'Cara FlyEnv Membantu', readyTitle: 'Siap menjalankan proyek berikutnya?', readyDescription: 'Siapkan runtime, database, dan layanan yang dibutuhkan proyek Anda dengan FlyEnv.', viewDocumentation: 'Lihat Dokumentasi', all: 'Semua', result: 'solusi ditampilkan', resultOne: 'solusi ditampilkan'
+    },
+    es: {
+      badge: 'Soluciones', heroTitle: 'Ejecuta tus proyectos', heroTitleSecondLine: 'en local con FlyEnv',
+      heroDescription: 'Explora frameworks, plataformas CMS, aplicaciones de comercio electrónico, sistemas ERP, herramientas CRM y herramientas para desarrolladores. FlyEnv gestiona los runtimes, bases de datos y servicios locales que necesitan en Windows, macOS y Linux.',
+      browseSolutions: 'Explorar soluciones', downloadFlyEnv: 'Descargar FlyEnv', filterAriaLabel: 'Filtrar soluciones por categoría', searchDirectory: 'Buscar en el directorio de proyectos', searchPlaceholder: 'Buscar proyectos...', exploreSolutions: 'Explorar soluciones', catalogDescription: 'Proyectos y los runtimes, bases de datos y servicios locales que suelen necesitar.', projects: 'proyectos', viewSolution: 'Ver solución', noResultsTitle: 'No se encontraron soluciones coincidentes.', noResultsDescription: 'Prueba con otro nombre de proyecto o categoría.', showAll: 'Mostrar todas las soluciones', howFlyEnvHelps: 'Cómo ayuda FlyEnv', readyTitle: '¿Listo para ejecutar tu próximo proyecto?', readyDescription: 'Configura los runtimes, bases de datos y servicios que tu proyecto necesita con FlyEnv.', viewDocumentation: 'Ver documentación', all: 'Todas', result: 'soluciones mostradas', resultOne: 'solución mostrada'
     }
   } as const
 
@@ -434,6 +439,12 @@
       { title: 'Siapkan lingkungan lokal', description: 'Kelola runtime, database, dan server web dengan FlyEnv.', icon: Setting },
       { title: 'Jalankan stack', description: 'Jalankan layanan yang diperlukan bersama-sama.', icon: VideoPlay },
       { title: 'Mulai mengembangkan secara lokal', description: 'Buka proyek dengan domain lokal dan HTTPS.', icon: Promotion }
+    ],
+    es: [
+      { title: 'Elige un proyecto', description: 'Consulta los runtimes y servicios que necesita.', icon: View },
+      { title: 'Configura el entorno', description: 'Gestiona runtimes, bases de datos y servidores web con FlyEnv.', icon: Setting },
+      { title: 'Inicia el stack', description: 'Ejecuta los servicios necesarios a la vez.', icon: VideoPlay },
+      { title: 'Desarrolla en local', description: 'Abre el proyecto con un dominio local y HTTPS.', icon: Promotion }
     ]
   } as const
 

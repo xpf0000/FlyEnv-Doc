@@ -22,6 +22,7 @@ export const solutionAboutGroupB: {
   en: Partial<Record<SolutionSlug, SolutionAboutContent>>
   zh: Partial<Record<SolutionSlug, SolutionAboutContent>>
   id: Partial<Record<SolutionSlug, SolutionAboutContent>>
+  es: Partial<Record<SolutionSlug, SolutionAboutContent>>
 } = {
   en: {
     nestjs: {
@@ -1537,6 +1538,532 @@ export const solutionAboutGroupB: {
             title: 'Aset dan pengiriman email',
             description:
               'Jalankan tool JS atau CSS pilihan serta mail catcher lokal hanya saat aplikasi menguji jalur tersebut.'
+          }
+        ]
+      }
+    }
+  },
+  es: {
+    nestjs: {
+      replaceOverview: true,
+      paragraphs: [
+        'NestJS es un framework de servidor TypeScript que organiza el código backend en torno a módulos, decoradores e inyección de dependencias. Sus adaptadores permiten que una misma aplicación exponga APIs HTTP, GraphQL, WebSockets y servicios basados en mensajes con patrones consistentes.',
+        'Un servicio pequeño empieza con Node.js y su gestor de paquetes. Los proyectos que usan TypeORM o Prisma añaden una base de datos; Redis, BullMQ o RabbitMQ solo tienen sentido en local cuando se configuran caché, tareas o transportes de microservicios.'
+      ],
+      capabilities: [
+        'Módulos',
+        'Inyección de dependencias',
+        'Guards e Interceptors',
+        'REST y GraphQL',
+        'WebSockets',
+        'Microservicios'
+      ],
+      useCases: [
+        'Backends REST y GraphQL',
+        'Servicios Backend for Frontend',
+        'Consumidores de colas y tareas programadas',
+        'Gateways WebSocket',
+        'APIs de microservicios'
+      ],
+      localEnvironment: {
+        title: 'Un workspace de NestJS refleja sus opciones de transporte',
+        description:
+          'El servidor de desarrollo es solo una parte de un servicio que persiste datos o se comunica de forma asíncrona.',
+        items: [
+          {
+            title: 'Node.js y gestor de paquetes',
+            description:
+              'Ejecuta los comandos de nest CLI, la compilación de TypeScript y el servicio en modo watch.'
+          },
+          {
+            title: 'Base de datos y ORM',
+            description:
+              'PostgreSQL o MySQL son habituales cuando el servicio incluye entidades y migraciones de Prisma o TypeORM.'
+          },
+          {
+            title: 'Transporte de tareas o mensajes',
+            description:
+              'Ejecuta Redis para BullMQ o RabbitMQ para los patrones de mensajes configurados; ninguno de los dos es un requisito de NestJS.'
+          },
+          {
+            title: 'Origen de la API',
+            description:
+              'Un proxy HTTPS local solo es útil cuando los clientes de navegador, las cookies, las redirecciones de OAuth o los callbacks necesitan un origen estable.'
+          }
+        ]
+      }
+    },
+    nuxt: {
+      replaceOverview: true,
+      paragraphs: [
+        'Nuxt es un framework de Vue para aplicaciones que pueden renderizarse en el servidor, generar páginas estáticas o funcionar como aplicación de cliente. El enrutado basado en archivos, los composables, las rutas de servidor y Nitro ponen los endpoints del frontend y del servidor en un mismo proyecto.',
+        'La mayoría de los proyectos Nuxt empiezan con Node.js y el servidor de desarrollo de Nuxt. La base de datos, la fuente de contenido o el servicio de API se añaden según los módulos y las rutas de servidor elegidos, mientras que un dominio HTTPS solo importa para las integraciones que requieren un origen de navegador.'
+      ],
+      capabilities: [
+        'Enrutado basado en archivos',
+        'SSR y SSG',
+        'Nitro Server Engine',
+        'Server Routes',
+        'Auto Imports',
+        'Nuxt Modules'
+      ],
+      useCases: [
+        'Sitios Vue orientados a SEO',
+        'Sitios de contenido y documentación',
+        'Frontends de producto renderizados en servidor',
+        'Aplicaciones Vue con APIs de servidor',
+        'Sitios estáticos con renderizado híbrido'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Nuxt gira en torno al renderizado y las fuentes de contenido',
+        description:
+          'Que el proyecto sea SSR, estático o híbrido determina qué servicios deben ejecutarse realmente en local.',
+        items: [
+          {
+            title: 'Node.js y servidor de desarrollo de Nuxt',
+            description:
+              'Ejecuta Nuxt, las transformaciones de módulos con Vite y Nitro durante el desarrollo local.'
+          },
+          {
+            title: 'API de contenido o de aplicación',
+            description:
+              'Ejecuta el CMS headless, la API de backend o el flujo de contenido local configurado, en lugar de asumir que toda aplicación Nuxt lleva una base de datos integrada.'
+          },
+          {
+            title: 'Base de datos para rutas de servidor',
+            description:
+              'Solo es necesaria cuando los handlers de Nitro o un servicio asociado persisten datos de la aplicación.'
+          },
+          {
+            title: 'Dominio local y HTTPS',
+            description:
+              'Útil para el comportamiento de las cookies en SSR, los callbacks de OAuth o para probar reglas de host parecidas a producción.'
+          }
+        ]
+      }
+    },
+    express: {
+      replaceOverview: true,
+      paragraphs: [
+        'Express es un framework web mínimo para Node.js construido en torno al enrutado y los middleware. Deja deliberadamente al proyecto las decisiones sobre estructura de la aplicación, validación, persistencia y autenticación, lo que lo convierte en una base habitual para servicios HTTP centrados.',
+        'Un repositorio de Express suele necesitar Node.js, npm, pnpm o Yarn y su propio script de arranque. Las bases de datos, Redis, las colas y los proxies inversos son decisiones del proyecto, así que el stack local debería seguir los middleware y las integraciones realmente presentes.'
+      ],
+      capabilities: [
+        'Enrutado',
+        'Pipeline de middleware',
+        'APIs de Request y Response',
+        'Compatibilidad con motores de plantillas',
+        'Middleware de errores',
+        'Amplio ecosistema npm'
+      ],
+      useCases: [
+        'APIs REST JSON',
+        'Receptores de webhooks',
+        'Servicios BFF personalizados',
+        'Sitios pequeños renderizados en servidor',
+        'Endpoints de integración interna'
+      ],
+      localEnvironment: {
+        title: 'Express aporta la capa HTTP, no un stack predefinido',
+        description:
+          'Su flexibilidad hace que revisar la configuración del repositorio sea más útil que arrancar servicios genéricos.',
+        items: [
+          {
+            title: 'Node.js y scripts del proyecto',
+            description:
+              'Ejecuta la aplicación, nodemon u otro watcher, los tests y los pasos de build elegidos por el repositorio.'
+          },
+          {
+            title: 'Persistencia configurada',
+            description:
+              'Arranca PostgreSQL, MySQL, MongoDB u otro almacén solo cuando el adaptador de la aplicación lo utiliza.'
+          },
+          {
+            title: 'Endpoint de callback externo',
+            description:
+              'Una URL HTTPS local estable es relevante para webhooks, proveedores de OAuth y clientes de navegador que llaman al servicio.'
+          }
+        ]
+      }
+    },
+    'react-vite': {
+      replaceOverview: true,
+      paragraphs: [
+        'React con Vite es un flujo de trabajo de frontend que combina los componentes de React con el rápido servidor de desarrollo y el grafo de módulos de Vite. Se orienta a aplicaciones renderizadas en cliente y deja el enrutado, el estado, los tests y la arquitectura de backend a las librerías elegidas.',
+        'El proceso local central es Node.js ejecutando Vite con hot module replacement. Los servidores de API, los servicios mock, HTTPS o un proxy inverso cobran relevancia cuando el frontend necesita ejercitar autenticación, cookies del navegador o comportamiento entre orígenes.'
+      ],
+      capabilities: [
+        'Componentes de React',
+        'HMR rápido',
+        'JSX y TypeScript',
+        'Servidor de desarrollo de ES Modules',
+        'Build de assets de producción',
+        'Ecosistema de plugins'
+      ],
+      useCases: [
+        'Aplicaciones de una sola página',
+        'Paneles de operaciones',
+        'Sistemas de diseño y librerías de componentes',
+        'Interfaces de producto integradas',
+        'Prototipos de frontend respaldados por APIs'
+      ],
+      localEnvironment: {
+        title: 'Un proyecto de React y Vite suele centrarse en el frontend',
+        description:
+          'Mantén el entorno local pequeño hasta que la aplicación necesite interactuar con dependencias reales orientadas al navegador.',
+        items: [
+          {
+            title: 'Node.js y Vite',
+            description:
+              'Ejecuta los scripts de npm, el servidor HMR, las transformaciones de TypeScript y los builds de producción.'
+          },
+          {
+            title: 'Backend o mock de API',
+            description:
+              'Usa la API del proyecto, un servidor mock o un BFF local cuando los componentes necesiten datos y estados de error realistas.'
+          },
+          {
+            title: 'Reglas de HTTPS y proxy',
+            description:
+              'Necesarias cuando las cookies seguras, OAuth, los service workers o el comportamiento CORS de la API deben coincidir con un origen desplegado.'
+          }
+        ]
+      }
+    },
+    'vue-vite': {
+      replaceOverview: true,
+      paragraphs: [
+        'Vue 3 con Vite es una configuración moderna de frontend centrada en los Single-File Components, la Composition API y las actualizaciones incrementales rápidas. Vite se encarga de servir los módulos y de los builds, mientras que las librerías de Vue determinan el enrutado, la gestión del estado y las convenciones de la aplicación.',
+        'Node.js y el servidor de desarrollo de Vite son las piezas locales esenciales. Una API aparte, un servidor mock o un proxy HTTPS local solo se introducen para las interfaces y el comportamiento del navegador que la aplicación Vue necesita verificar.'
+      ],
+      capabilities: [
+        'Single-File Components',
+        'Composition API',
+        'Estado reactivo',
+        'HMR rápido',
+        'Compatibilidad con TypeScript',
+        'Pipeline de plugins de Vite'
+      ],
+      useCases: [
+        'Interfaces de administración',
+        'Frontends de producto interactivos',
+        'Librerías de componentes Vue reutilizables',
+        'Aplicaciones de entrada de datos',
+        'Aplicaciones de una sola página basadas en APIs'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Vue y Vite empieza con el ciclo del navegador',
+        description:
+          'Los servicios de backend forman parte del workspace local cuando la arquitectura de aplicación elegida los requiere.',
+        items: [
+          {
+            title: 'Node.js y Vite',
+            description:
+              'Ejecuta el servidor de desarrollo, la optimización de dependencias, las transformaciones de componentes y el build de distribución.'
+          },
+          {
+            title: 'API o servicio de fixtures',
+            description:
+              'Una API local o una capa mock soporta flujos de datos realistas con la Composition API sin implicar que la base de datos sea obligatoria.'
+          },
+          {
+            title: 'Origen compatible con el navegador',
+            description:
+              'Configura un proxy y HTTPS al probar redirecciones de autenticación, cookies seguras, service workers o reglas CORS.'
+          }
+        ]
+      }
+    },
+    sveltekit: {
+      replaceOverview: true,
+      paragraphs: [
+        'SvelteKit es el framework de aplicaciones de Svelte: usa rutas de filesystem, load functions, form actions y adaptadores para construir aplicaciones renderizadas en cliente, en servidor o estáticas. Gran parte de su capacidad de servidor vive junto a la UI en lugar de en un framework separado.',
+        'El desarrollo empieza con Node.js y el servidor de desarrollo de SvelteKit. Las load functions y los form actions del lado del servidor pueden conectarse a una base de datos, mientras que la elección del adaptador y las integraciones del navegador determinan si un proxy local o un origen HTTPS resultan útiles.'
+      ],
+      capabilities: [
+        'Enrutado basado en el filesystem',
+        'Load Functions',
+        'Form Actions',
+        'SSR y prerenderizado',
+        'Server Hooks',
+        'Adapters'
+      ],
+      useCases: [
+        'Aplicaciones web ricas en contenido',
+        'Flujos de producto con muchos formularios',
+        'Sitios Svelte renderizados en servidor',
+        'Sitios de documentación estáticos',
+        'Aplicaciones full-stack pequeñas'
+      ],
+      localEnvironment: {
+        title: 'El trabajo local con SvelteKit abarca rutas y código del lado del servidor',
+        description:
+          'Sus decisiones de adaptador y acceso a datos determinan los servicios que rodean al servidor de desarrollo.',
+        items: [
+          {
+            title: 'Node.js y SvelteKit',
+            description:
+              'Ejecuta el servidor de desarrollo de Vite, la compilación de rutas, los tests y los builds del adaptador.'
+          },
+          {
+            title: 'Almacén de datos de la aplicación',
+            description:
+              'Arranca la base de datos configurada cuando las load functions, las actions o los endpoints del servidor persisten datos.'
+          },
+          {
+            title: 'Destino del adaptador',
+            description:
+              'Usa localmente el flujo de trabajo del adaptador Node, static o edge elegido, en lugar de asumir un único modelo de despliegue.'
+          },
+          {
+            title: 'Origen local seguro',
+            description:
+              'Útil para OAuth, políticas de cookies y callbacks que deben ver el mismo esquema y host del sitio.'
+          }
+        ]
+      }
+    },
+    adonisjs: {
+      replaceOverview: true,
+      paragraphs: [
+        'AdonisJS es un framework de Node.js con TypeScript desde la base, que integra una estructura de aplicación con enrutado, validación, autenticación, Lucid ORM, plantillas Edge y flujos de línea de comandos. Está diseñado para aplicaciones full-stack y no solo para una fina capa HTTP.',
+        'Los proyectos Adonis suelen ejecutarse con Node.js, usar comandos `node ace` para migraciones y tareas, y conectarse a una base de datos SQL configurada a través de Lucid. Redis y los workers de colas son útiles cuando el proyecto habilita colas o funciones con caché, no por defecto.'
+      ],
+      capabilities: [
+        'Lucid ORM',
+        'CLI Node Ace',
+        'Autenticación',
+        'Validación',
+        'Plantillas Edge',
+        'Middleware de rutas'
+      ],
+      useCases: [
+        'Aplicaciones web con base de datos',
+        'APIs JSON en TypeScript',
+        'Portales con mucha autenticación',
+        'Paneles renderizados en servidor',
+        'Flujos de trabajos en segundo plano'
+      ],
+      localEnvironment: {
+        title: 'AdonisJS sigue su propia CLI y sus convenciones de aplicación',
+        description:
+          'Su configuración `.env` y los comandos Ace identifican los servicios de runtime que un proyecto usa realmente.',
+        items: [
+          {
+            title: 'Node.js y gestor de paquetes',
+            description:
+              'Ejecuta `node ace serve --hmr`, la compilación de TypeScript y los scripts del repositorio.'
+          },
+          {
+            title: 'Base de datos SQL y migraciones de Lucid',
+            description:
+              'MySQL o PostgreSQL son necesarios cuando la conexión de Lucid configurada guarda datos de la aplicación.'
+          },
+          {
+            title: 'Redis y worker de colas',
+            description:
+              'Ejecútalos solo en proyectos configurados con drivers de caché, colas o sesiones que dependen de Redis.'
+          },
+          {
+            title: 'Flujo de assets',
+            description:
+              'Los assets del frontend pueden añadir Vite u otra tarea de build cuando la aplicación incluye una UI interactiva.'
+          }
+        ]
+      }
+    },
+    hono: {
+      replaceOverview: true,
+      paragraphs: [
+        'Hono es un pequeño framework web construido sobre las APIs de los estándares web y diseñado para ejecutarse en entornos JavaScript y TypeScript como Node.js, Bun, Deno, Cloudflare Workers y otras plataformas edge. Su portabilidad es una restricción definitoria, no solo un detalle de despliegue.',
+        'El runtime local debería coincidir con el adaptador de destino: Node.js, Bun, Deno o un emulador de Workers. El almacenamiento durable, los bindings y los túneles HTTPS solo se añaden cuando la integración de la plataforma elegida o una función de la aplicación los requiere.'
+      ],
+      capabilities: [
+        'Adaptadores multi-runtime',
+        'APIs de estándares web',
+        'Router',
+        'Middleware',
+        'RPC tipado',
+        'Compatibilidad con despliegue en edge'
+      ],
+      useCases: [
+        'Endpoints de API en el edge',
+        'Servicios JSON ligeros',
+        'Aplicaciones con Cloudflare Workers',
+        'Handlers de webhooks',
+        'BFF en TypeScript'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Hono empieza igualando el runtime de despliegue',
+        description:
+          'Un proceso de Node no representa automáticamente un despliegue en Worker, Bun o Deno.',
+        items: [
+          {
+            title: 'Runtime de destino o emulador',
+            description:
+              'Ejecuta Node.js, Bun, Deno o la herramienta de desarrollo de Workers adecuada para el adaptador en uso.'
+          },
+          {
+            title: 'Bindings de la plataforma',
+            description:
+              'Usa emulación local para KV, D1, R2 u otros bindings solo cuando la aplicación Hono desplegada los utiliza.'
+          },
+          {
+            title: 'Túnel de callbacks o URL HTTPS',
+            description:
+              'Útil para webhooks entregados desde fuera; para tests de peticiones aisladas basta un puerto local.'
+          }
+        ]
+      }
+    },
+    medusa: {
+      replaceOverview: true,
+      paragraphs: [
+        'Medusa es una plataforma de comercio componible para construir tiendas y servicios de comercio personalizados con Node.js y TypeScript. Sus módulos y workflows modelan productos, carritos, pedidos, promociones, pagos, fulfillment y procesos de negocio personalizados sin imponer un storefront.',
+        'Un backend de Medusa suele usar Node.js y PostgreSQL, e incluye su Admin en `/app` sobre el origen del backend. Redis es relevante cuando el backend configura infraestructura basada en Redis; el desarrollo sencillo con v2 puede usar providers locales. Un storefront personalizado es una aplicación aparte cuando el proyecto lo tiene, mientras que los providers de pago, fulfillment, búsqueda y archivos deberían ejecutarse o simularse según las integraciones en desarrollo.'
+      ],
+      capabilities: [
+        'Módulos de comercio',
+        'Workflows',
+        'Store APIs',
+        'Admin APIs',
+        'Motor de promociones',
+        'Interfaces de providers'
+      ],
+      useCases: [
+        'Backends de comercio personalizados',
+        'Frontends de tienda headless',
+        'Extensiones de marketplace y multivendedor',
+        'Comercio por suscripción o B2B',
+        'Integraciones de fulfillment y pago'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo local con Medusa coordina un servicio de comercio y sus providers',
+        description:
+          'Los flujos de producto solo son creíbles en local cuando se representan los límites de datos, caché y providers seleccionados.',
+        items: [
+          {
+            title: 'Backend de Medusa con Node.js',
+            description:
+              'Ejecuta los comandos de Medusa CLI, la API de comercio y los workflows específicos del proyecto.'
+          },
+          {
+            title: 'PostgreSQL',
+            description:
+              'Almacena las entidades de comercio y es una dependencia estándar del backend de Medusa.'
+          },
+          {
+            title: 'Redis',
+            description:
+              'Ejecútalo solo cuando el backend configura infraestructura basada en Redis; el desarrollo sencillo con v2 puede usar providers locales.'
+          },
+          {
+            title: 'Admin integrado y storefront personalizado',
+            description:
+              'Usa el Admin del backend en `/app` (por ejemplo, `localhost:9000/app`); ejecuta un servidor Node.js separado solo para un storefront personalizado.'
+          },
+          {
+            title: 'Providers de comercio',
+            description:
+              'Usa sandboxes o sustitutos locales para los providers de pago, fulfillment, búsqueda y archivos configurados.'
+          }
+        ]
+      }
+    },
+    'node-red': {
+      replaceOverview: true,
+      paragraphs: [
+        'Node-RED es una herramienta de programación basada en flujos para conectar dispositivos, APIs y servicios en línea. Un editor visual define flujos compuestos por nodos, mientras el runtime ejecuta la lógica orientada a eventos, las credenciales, los endpoints HTTP e integraciones de protocolos como MQTT.',
+        'El runtime de Node-RED funciona sobre Node.js y guarda los flujos y las credenciales en su directorio de usuario. Los brokers MQTT, las bases de datos, los dispositivos serie o las APIs externas solo deberían aparecer en la configuración local cuando un flujo se conecta realmente a ellos; las credenciales necesitan una configuración local segura.'
+      ],
+      capabilities: [
+        'Editor visual de flujos',
+        'Paleta de nodos',
+        'Nodos HTTP y WebSocket',
+        'Integración MQTT',
+        'Almacenamiento de contexto',
+        'Gestión de credenciales'
+      ],
+      useCases: [
+        'Orquestación de dispositivos IoT',
+        'Automatización de webhooks y APIs',
+        'Procesamiento de mensajes MQTT',
+        'Puentes de protocolos industriales',
+        'Flujos de notificaciones internas'
+      ],
+      localEnvironment: {
+        title: 'Node-RED toma forma según los endpoints de sus flujos',
+        description:
+          'Sus servicios de apoyo no son dependencias abstractas de la aplicación; son los brokers, dispositivos y APIs representados en el canvas.',
+        items: [
+          {
+            title: 'Node.js y runtime de Node-RED',
+            description:
+              'Ejecuta el editor, los flujos desplegados, los nodos de la paleta y los endpoints HTTP locales.'
+          },
+          {
+            title: 'Almacenamiento de flujos y credenciales',
+            description:
+              'Mantén disponibles el directorio de usuario y el secreto de credenciales para que los flujos locales sobrevivan a los reinicios sin exponer secretos.'
+          },
+          {
+            title: 'Broker MQTT o simulador de dispositivos',
+            description:
+              'Ejecuta Mosquitto u otro broker solo para flujos que publican o se suscriben a topics MQTT.'
+          },
+          {
+            title: 'Endpoints de integración',
+            description:
+              'Las APIs locales, los dispositivos serie, las bases de datos o las URLs de callback HTTPS las introducen nodos y flujos concretos.'
+          }
+        ]
+      }
+    },
+    'ruby-on-rails': {
+      replaceOverview: true,
+      paragraphs: [
+        'Ruby on Rails es un framework full-stack con opiniones firmes, centrado en la convención sobre la configuración. Active Record, las migraciones, el enrutado, Action Mailer, Active Job, Action Cable y los generadores ofrecen un modelo coherente para aplicaciones web con base de datos.',
+        'Una aplicación Rails suele usar Ruby, Bundler y los comandos `bin/rails` junto a su base de datos configurada. Redis es habitual para la caché, Action Cable o los backends de trabajos, y las herramientas de bundling de JavaScript o CSS solo son necesarias cuando el repositorio las elige.'
+      ],
+      capabilities: [
+        'Active Record',
+        'Migrations',
+        'Action Mailer',
+        'Active Job',
+        'Action Cable',
+        'Rails Generators'
+      ],
+      useCases: [
+        'Aplicaciones de producto con base de datos',
+        'Productos SaaS',
+        'Sistemas de negocio internos',
+        'Sitios de contenido y membresía',
+        'Funciones de colaboración en tiempo real'
+      ],
+      localEnvironment: {
+        title: 'El desarrollo con Rails sigue sus comandos bin y los adaptadores configurados',
+        description:
+          'La base de datos de la aplicación es fundamental; el trabajo en segundo plano y las herramientas de frontend siguen las funciones habilitadas en el repositorio.',
+        items: [
+          {
+            title: 'Ruby, Bundler y bin/rails',
+            description:
+              'Ejecuta el servidor, los generadores, los tests, las migraciones y los comandos ejecutables del proyecto.'
+          },
+          {
+            title: 'Base de datos y migraciones de esquema',
+            description:
+              'PostgreSQL, MySQL o SQLite según `config/database.yml` y las migraciones de Active Record.'
+          },
+          {
+            title: 'Redis y trabajos en segundo plano',
+            description:
+              'Necesarios cuando el cache store, el adaptador de Action Cable o el backend de colas de Active Job elegido usa Redis.'
+          },
+          {
+            title: 'Assets y entrega de correo',
+            description:
+              'Ejecuta las herramientas de JS o CSS elegidas y un capturador de correo local solo cuando la aplicación ejercita esas rutas.'
           }
         ]
       }

@@ -20,12 +20,13 @@
 import { computed } from 'vue'
 
 const props = defineProps<{
-  locale?: 'en' | 'zh' | 'id'
+  locale?: 'en' | 'zh' | 'id' | 'es'
   posts: Array<{ author?: string; language: string; platform: string }>
 }>()
 
 const isZh = computed(() => props.locale === 'zh')
 const isId = computed(() => props.locale === 'id')
+const isEs = computed(() => props.locale === 'es')
 const contributeId = 'community-contribute'
 
 const stats = computed(() => ({
@@ -37,6 +38,7 @@ const stats = computed(() => ({
 const licensePath = computed(() => {
   if (isZh.value) return '/zh/guide/about-license'
   if (isId.value) return '/id/guide/about-license'
+  if (isEs.value) return '/es/guide/about-license'
   return '/guide/about-license'
 })
 
@@ -57,6 +59,15 @@ const t = computed(() =>
           coverage: (value: typeof stats.value) =>
             `Perpustakaan ini saat ini mengumpulkan tulisan publik dari ${value.authors} penulis dalam ${value.languages} bahasa di ${value.platforms} platform.`
         }
+      : isEs.value
+        ? {
+            title: 'Comparte cómo usas FlyEnv',
+            description:
+              'Un artículo, tutorial o video público puede ayudar al siguiente desarrollador a entender dónde encaja FlyEnv en el trabajo real.',
+            action: 'Cómo se destacan las historias',
+            coverage: (value: typeof stats.value) =>
+              `Esta biblioteca reúne actualmente escritos públicos de ${value.authors} autores en ${value.languages} idiomas y ${value.platforms} plataformas.`
+          }
       : {
         title: 'Share how you use FlyEnv',
         description:

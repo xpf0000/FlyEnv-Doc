@@ -338,7 +338,7 @@
 
   const props = withDefaults(
     defineProps<{
-      i18n?: 'en' | 'zh' | 'id'
+      i18n?: 'en' | 'zh' | 'id' | 'es'
     }>(),
     {
       i18n: 'en'
@@ -515,6 +515,64 @@
       starOnGithub: '在 GitHub 点星',
       prev: '上一页',
       next: '下一页'
+    },
+    es: {
+      heroTitle: 'Licencia de FlyEnv',
+      heroDesc:
+        'Compra una licencia de FlyEnv para acceder con licencia a las funciones premium, activar un dispositivo y recibir actualizaciones continuas. FlyEnv sigue siendo de código abierto y puedes evaluarlo gratis.',
+      licenseTitle: 'Comprar licencia de FlyEnv',
+      licenseDesc:
+        'El proceso de pago de Paddle vende una licencia de software real de FlyEnv. Después del pago, usa el ID de tu pedido de Paddle en el flujo de solicitud de licencia de la aplicación para la emisión manual de la licencia.',
+      licenseGuide: 'Lee los términos de la licencia y la guía de activación',
+      licenseGuideShort: 'Términos de la licencia',
+      paddleTitle: 'Licencia de FlyEnv',
+      paddleDesc: 'Pago de la licencia de software procesado por Paddle',
+      licensePriceLabel: 'Licencia permanente',
+      paddleFeatures: [
+        'Activación en un dispositivo',
+        'Elimina los límites de evaluación',
+        'Emisión manual de la licencia en 24 horas',
+        'Compatible con la transferencia de licencia'
+      ],
+      openingCheckout: 'Abriendo el pago...',
+      buyWithPaddle: 'Comprar licencia con Paddle',
+      termsLink: 'Términos',
+      privacyLink: 'Privacidad',
+      refundLink: 'Reembolsos',
+      communityTitle: 'Otras formas de contribuir a la comunidad',
+      communityDesc:
+        'WeChat Pay, Alipay, los pull request y los artículos originales se gestionan fuera de Paddle y pueden enviarse manualmente como prueba de solicitud de licencia.',
+      wechatTitle: 'WeChat Pay',
+      alipayTitle: 'Alipay',
+      scanToContribute: 'Escanea el código QR para contribuir',
+      scanQr: 'Escanear código QR',
+      specialThanks: 'Agradecimientos especiales',
+      specialThanksDesc: 'Gracias a cada amigo que ayuda a FlyEnv a seguir mejorando.',
+      signPathPrefix: 'La firma de código gratuita de FlyEnv en Windows la proporciona',
+      signPathMiddle: ', con el certificado proporcionado por',
+      signPathEnd: '',
+      f4Prefix: 'Fundador de',
+      f4Suffix: ', por financiar los gastos del dominio',
+      domainLabel: '',
+      sentenceEnd: '.',
+      articlesTitle: 'Artículos de usuarios',
+      articlesDesc:
+        'Tutoriales, reseñas, vídeos e historias de migración originales compartidos por usuarios de FlyEnv.',
+      articlesHead: 'Artículos',
+      postsLabel: 'artículos',
+      articleFallback: 'Artículo',
+      unknownAuthor: 'Autor desconocido',
+      pullRequestsTitle: 'Pull requests de usuarios',
+      pullRequestsDesc:
+        'Contribuciones de código, documentación, traducción y corrección de errores de la comunidad de GitHub.',
+      pullRequestsHead: 'Pull requests',
+      pullRequestsLabel: 'PR',
+      ctaTitle: 'Obtén una licencia o contribuye',
+      ctaDesc:
+        'Compra una licencia de software a través de Paddle, contribuye con código o comparte contenido original sobre FlyEnv. Cada vía ayuda a respaldar una solicitud de licencia según la guía de activación.',
+      starOnGithub: 'Dar una estrella en GitHub',
+      prev: 'Anterior',
+      next: 'Siguiente'
     }
   }
 
@@ -522,6 +580,7 @@
   const localePrefix = computed(() => {
     if (props.i18n === 'zh') return '/zh'
     if (props.i18n === 'id') return '/id'
+    if (props.i18n === 'es') return '/es'
     return ''
   })
   const licenseHref = computed(() => `${localePrefix.value}/guide/about-license`)
@@ -541,7 +600,9 @@
         ? 'Paddle 付款暂时不可用，请尝试其他方式。'
         : props.i18n === 'id'
           ? 'Checkout Paddle sedang tidak tersedia. Silakan coba lagi nanti.'
-          : 'Paddle checkout is temporarily unavailable. Please try another method.'
+          : props.i18n === 'es'
+            ? 'El pago con Paddle no está disponible temporalmente. Prueba con otro método.'
+            : 'Paddle checkout is temporarily unavailable. Please try another method.'
   })
 
   const articleList = computed<ArticleItem[]>(() => {
