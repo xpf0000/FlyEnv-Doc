@@ -1,18 +1,20 @@
 ---
 layout: page
+aside: false
+outline: false
 titleTemplate: false
-title: 'Ejecuta WordPress en local con FlyEnv'
-description: 'Configura un sitio WordPress local con PHP, MySQL o MariaDB, Redis, Nginx y HTTPS usando FlyEnv en Windows, macOS y Linux.'
+title: 'Entorno de desarrollo local de WordPress con FlyEnv'
+description: 'Crea y gestiona sitios WordPress locales con PHP, MySQL o MariaDB, Redis, Nginx, dominios locales y HTTPS usando FlyEnv en Windows, macOS y Linux.'
 head:
   - - meta
     - name: keywords
       content: desarrollo local de WordPress, entorno local de WordPress, PHP, MySQL, MariaDB, Redis, Nginx, Apache, FlyEnv
   - - meta
     - property: og:title
-      content: 'Ejecuta WordPress en local con FlyEnv'
+      content: 'Entorno de desarrollo local de WordPress con FlyEnv'
   - - meta
     - property: og:description
-      content: 'Gestiona un entorno local de WordPress con FlyEnv en Windows, macOS y Linux.'
+      content: 'Crea y gestiona sitios WordPress locales con FlyEnv en Windows, macOS y Linux.'
   - - meta
     - property: og:url
       content: https://flyenv.com/es/solutions/wordpress
@@ -42,7 +44,7 @@ head:
 ---
 
 <script setup>
-import AppSolutionDetail from '../../components/AppSolutionDetail/en.vue'
+import WordPressSolutionPage from '../../components/WordPressSolutionPage.vue'
 </script>
 
-<AppSolutionDetail slug="wordpress" locale="es" />
+<WordPressSolutionPage locale="es" />

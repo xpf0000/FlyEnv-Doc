@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 aside: false
 outline: false
 titleTemplate: false

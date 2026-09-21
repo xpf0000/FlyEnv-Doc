@@ -1,118 +1,509 @@
 import { defineConfig, defineConfigWithTheme } from 'vitepress'
+import * as vueCompiler from 'vue/compiler-sfc'
 import { AppHost, GoogleID, PROD, FootMessage } from './env'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import ElementPlus from 'unplugin-element-plus/vite'
 import AppDownBtn from '../components/AppDownButton/index.vue'
-import { solutions } from '../data/solutions'
 import { solutionContentByLocale } from '../data/solution-locales'
+import {
+  buildSeoHead,
+  descriptionFromFrontmatter,
+  resolvePageDescription,
+  type SeoLocale
+} from './seo'
 
 const featureSlugs = [
-    'antigravity-cli', 'apache', 'bun', 'caddy', 'claude-code', 'cli-terminal', 'clickhouse',
-    'cliproxyapi', 'cloudflare-tunnel', 'cloudflared', 'codex', 'consul', 'cron-jobs', 'deno',
-    'dns-server', 'dotnet', 'elasticsearch', 'erlang', 'etcd', 'flutter', 'frankenphp',
-    'ftp-server', 'github-copilot-cli', 'go', 'gradle', 'hermes-agent', 'java', 'kimi',
-    'local-sites-https', 'mailpit', 'mariadb', 'mcp-server', 'meilisearch', 'memcached', 'minio',
-    'mkcert', 'mongodb', 'mysql', 'n8n', 'neo4j', 'nginx', 'nodejs', 'numa', 'ollama', 'openclaw',
-    'opencode', 'per-project-runtimes', 'php', 'podman', 'postgresql', 'python', 'qdrant',
-    'r-nacos', 'rabbitmq', 'redis', 'ruby', 'rust', 'rustfs', 'startup-groups', 'temporal',
-    'tomcat', 'typesense', 'user-modules', 'zig', 'zincsearch'
+  'antigravity-cli',
+  'apache',
+  'bun',
+  'caddy',
+  'claude-code',
+  'cli-terminal',
+  'clickhouse',
+  'cliproxyapi',
+  'cloudflare-tunnel',
+  'cloudflared',
+  'codex',
+  'consul',
+  'cron-jobs',
+  'deno',
+  'dns-server',
+  'dotnet',
+  'elasticsearch',
+  'erlang',
+  'etcd',
+  'flutter',
+  'frankenphp',
+  'ftp-server',
+  'github-copilot-cli',
+  'go',
+  'gradle',
+  'hermes-agent',
+  'java',
+  'kimi',
+  'local-sites-https',
+  'mailpit',
+  'mariadb',
+  'mcp-server',
+  'meilisearch',
+  'memcached',
+  'minio',
+  'mkcert',
+  'mongodb',
+  'mysql',
+  'n8n',
+  'neo4j',
+  'nginx',
+  'nodejs',
+  'numa',
+  'ollama',
+  'openclaw',
+  'opencode',
+  'per-project-runtimes',
+  'php',
+  'podman',
+  'postgresql',
+  'python',
+  'qdrant',
+  'r-nacos',
+  'rabbitmq',
+  'redis',
+  'ruby',
+  'rust',
+  'rustfs',
+  'startup-groups',
+  'temporal',
+  'tomcat',
+  'typesense',
+  'user-modules',
+  'zig',
+  'zincsearch'
 ]
 
+const featureLabelsEn: Record<string, string> = {
+  'antigravity-cli': 'Antigravity CLI',
+  apache: 'Apache',
+  bun: 'Bun',
+  caddy: 'Caddy',
+  'claude-code': 'Claude Code',
+  'cli-terminal': 'CLI & Terminal',
+  clickhouse: 'ClickHouse',
+  cliproxyapi: 'CLIProxyAPI',
+  'cloudflare-tunnel': 'Cloudflare Tunnel',
+  cloudflared: 'Cloudflared',
+  codex: 'Codex',
+  consul: 'Consul',
+  'cron-jobs': 'Cron Jobs',
+  deno: 'Deno',
+  'dns-server': 'DNS Server',
+  dotnet: '.NET',
+  elasticsearch: 'Elasticsearch',
+  erlang: 'Erlang',
+  etcd: 'Etcd',
+  flutter: 'Flutter',
+  frankenphp: 'FrankenPHP',
+  'ftp-server': 'FTP Server',
+  'github-copilot-cli': 'GitHub Copilot CLI',
+  go: 'Go',
+  gradle: 'Gradle',
+  'hermes-agent': 'Hermes Agent',
+  java: 'Java',
+  kimi: 'Kimi',
+  'local-sites-https': 'Local Sites & HTTPS',
+  mailpit: 'Mailpit',
+  mariadb: 'MariaDB',
+  'mcp-server': 'MCP Server',
+  meilisearch: 'Meilisearch',
+  memcached: 'Memcached',
+  minio: 'MinIO',
+  mkcert: 'mkcert',
+  mongodb: 'MongoDB',
+  mysql: 'MySQL',
+  n8n: 'n8n',
+  neo4j: 'Neo4j',
+  nginx: 'Nginx',
+  nodejs: 'Node.js',
+  numa: 'Numa',
+  ollama: 'Ollama',
+  openclaw: 'OpenClaw',
+  opencode: 'OpenCode',
+  'per-project-runtimes': 'Per-project Runtimes',
+  php: 'PHP',
+  podman: 'Podman',
+  postgresql: 'PostgreSQL',
+  python: 'Python',
+  qdrant: 'Qdrant',
+  'r-nacos': 'R-NACOS',
+  rabbitmq: 'RabbitMQ',
+  redis: 'Redis',
+  ruby: 'Ruby',
+  rust: 'Rust',
+  rustfs: 'RustFS',
+  'startup-groups': 'Startup Groups',
+  temporal: 'Temporal',
+  tomcat: 'Tomcat',
+  typesense: 'Typesense',
+  'user-modules': 'User Modules',
+  zig: 'Zig',
+  zincsearch: 'ZincSearch'
+}
+
 const featureLabelsZh: Record<string, string> = {
-  'antigravity-cli': 'Antigravity CLI', apache: 'Apache', bun: 'Bun', caddy: 'Caddy',
-  'claude-code': 'Claude Code', 'cli-terminal': 'CLI 与终端', clickhouse: 'ClickHouse',
-  cliproxyapi: 'CLIProxyAPI', 'cloudflare-tunnel': 'Cloudflare Tunnel', cloudflared: 'Cloudflared',
-  codex: 'Codex', consul: 'Consul', 'cron-jobs': 'Cron 任务', deno: 'Deno',
-  'dns-server': 'DNS 服务器', dotnet: '.NET', elasticsearch: 'Elasticsearch', erlang: 'Erlang',
-  etcd: 'Etcd', flutter: 'Flutter', frankenphp: 'FrankenPHP', 'ftp-server': 'FTP 服务器',
-  'github-copilot-cli': 'GitHub Copilot CLI', go: 'Go', gradle: 'Gradle', 'hermes-agent': 'Hermes Agent',
-  java: 'Java', kimi: 'Kimi', 'local-sites-https': '本地站点与 HTTPS', mailpit: 'Mailpit',
-  mariadb: 'MariaDB', 'mcp-server': 'MCP 服务器', meilisearch: 'Meilisearch', memcached: 'Memcached',
-  minio: 'MinIO', mkcert: 'MkCert', mongodb: 'MongoDB', mysql: 'MySQL', n8n: 'n8n', neo4j: 'Neo4j',
-  nginx: 'Nginx', nodejs: 'Node.js', numa: 'Numa', ollama: 'Ollama', openclaw: 'OpenClaw',
-  opencode: 'OpenCode', 'per-project-runtimes': '按项目运行时', php: 'PHP', podman: 'Podman',
-  postgresql: 'PostgreSQL', python: 'Python', qdrant: 'Qdrant', 'r-nacos': 'R-NACOS', rabbitmq: 'RabbitMQ',
-  redis: 'Redis', ruby: 'Ruby', rust: 'Rust', rustfs: 'RustFS', 'startup-groups': '启动组', temporal: 'Temporal',
-  tomcat: 'Tomcat', typesense: 'Typesense', 'user-modules': '用户模块', zig: 'Zig', zincsearch: 'ZincSearch'
+  'antigravity-cli': 'Antigravity CLI',
+  apache: 'Apache',
+  bun: 'Bun',
+  caddy: 'Caddy',
+  'claude-code': 'Claude Code',
+  'cli-terminal': 'CLI 与终端',
+  clickhouse: 'ClickHouse',
+  cliproxyapi: 'CLIProxyAPI',
+  'cloudflare-tunnel': 'Cloudflare Tunnel',
+  cloudflared: 'Cloudflared',
+  codex: 'Codex',
+  consul: 'Consul',
+  'cron-jobs': 'Cron 任务',
+  deno: 'Deno',
+  'dns-server': 'DNS 服务器',
+  dotnet: '.NET',
+  elasticsearch: 'Elasticsearch',
+  erlang: 'Erlang',
+  etcd: 'Etcd',
+  flutter: 'Flutter',
+  frankenphp: 'FrankenPHP',
+  'ftp-server': 'FTP 服务器',
+  'github-copilot-cli': 'GitHub Copilot CLI',
+  go: 'Go',
+  gradle: 'Gradle',
+  'hermes-agent': 'Hermes Agent',
+  java: 'Java',
+  kimi: 'Kimi',
+  'local-sites-https': '本地站点与 HTTPS',
+  mailpit: 'Mailpit',
+  mariadb: 'MariaDB',
+  'mcp-server': 'MCP 服务器',
+  meilisearch: 'Meilisearch',
+  memcached: 'Memcached',
+  minio: 'MinIO',
+  mkcert: 'MkCert',
+  mongodb: 'MongoDB',
+  mysql: 'MySQL',
+  n8n: 'n8n',
+  neo4j: 'Neo4j',
+  nginx: 'Nginx',
+  nodejs: 'Node.js',
+  numa: 'Numa',
+  ollama: 'Ollama',
+  openclaw: 'OpenClaw',
+  opencode: 'OpenCode',
+  'per-project-runtimes': '按项目运行时',
+  php: 'PHP',
+  podman: 'Podman',
+  postgresql: 'PostgreSQL',
+  python: 'Python',
+  qdrant: 'Qdrant',
+  'r-nacos': 'R-NACOS',
+  rabbitmq: 'RabbitMQ',
+  redis: 'Redis',
+  ruby: 'Ruby',
+  rust: 'Rust',
+  rustfs: 'RustFS',
+  'startup-groups': '启动组',
+  temporal: 'Temporal',
+  tomcat: 'Tomcat',
+  typesense: 'Typesense',
+  'user-modules': '用户模块',
+  zig: 'Zig',
+  zincsearch: 'ZincSearch'
 }
 
 const featureLabelsId: Record<string, string> = {
-  'antigravity-cli': 'Antigravity CLI', apache: 'Apache', bun: 'Bun', caddy: 'Caddy',
-  'claude-code': 'Claude Code', 'cli-terminal': 'CLI & Terminal', clickhouse: 'ClickHouse',
-  cliproxyapi: 'CLIProxyAPI', 'cloudflare-tunnel': 'Cloudflare Tunnel', cloudflared: 'Cloudflared',
-  codex: 'Codex', consul: 'Consul', 'cron-jobs': 'Tugas Cron', deno: 'Deno', 'dns-server': 'Server DNS',
-  dotnet: '.NET', elasticsearch: 'Elasticsearch', erlang: 'Erlang', etcd: 'Etcd', flutter: 'Flutter',
-  frankenphp: 'FrankenPHP', 'ftp-server': 'Server FTP', 'github-copilot-cli': 'GitHub Copilot CLI', go: 'Go',
-  gradle: 'Gradle', 'hermes-agent': 'Hermes Agent', java: 'Java', kimi: 'Kimi',
-  'local-sites-https': 'Situs Lokal & HTTPS', mailpit: 'Mailpit', mariadb: 'MariaDB', 'mcp-server': 'Server MCP',
-  meilisearch: 'Meilisearch', memcached: 'Memcached', minio: 'MinIO', mkcert: 'MkCert', mongodb: 'MongoDB',
-  mysql: 'MySQL', n8n: 'n8n', neo4j: 'Neo4j', nginx: 'Nginx', nodejs: 'Node.js', numa: 'Numa', ollama: 'Ollama',
-  openclaw: 'OpenClaw', opencode: 'OpenCode', 'per-project-runtimes': 'Runtime per Proyek', php: 'PHP',
-  podman: 'Podman', postgresql: 'PostgreSQL', python: 'Python', qdrant: 'Qdrant', 'r-nacos': 'R-NACOS',
-  rabbitmq: 'RabbitMQ', redis: 'Redis', ruby: 'Ruby', rust: 'Rust', rustfs: 'RustFS', 'startup-groups': 'Grup Startup',
-  temporal: 'Temporal', tomcat: 'Tomcat', typesense: 'Typesense', 'user-modules': 'Modul Pengguna', zig: 'Zig',
+  'antigravity-cli': 'Antigravity CLI',
+  apache: 'Apache',
+  bun: 'Bun',
+  caddy: 'Caddy',
+  'claude-code': 'Claude Code',
+  'cli-terminal': 'CLI & Terminal',
+  clickhouse: 'ClickHouse',
+  cliproxyapi: 'CLIProxyAPI',
+  'cloudflare-tunnel': 'Cloudflare Tunnel',
+  cloudflared: 'Cloudflared',
+  codex: 'Codex',
+  consul: 'Consul',
+  'cron-jobs': 'Tugas Cron',
+  deno: 'Deno',
+  'dns-server': 'Server DNS',
+  dotnet: '.NET',
+  elasticsearch: 'Elasticsearch',
+  erlang: 'Erlang',
+  etcd: 'Etcd',
+  flutter: 'Flutter',
+  frankenphp: 'FrankenPHP',
+  'ftp-server': 'Server FTP',
+  'github-copilot-cli': 'GitHub Copilot CLI',
+  go: 'Go',
+  gradle: 'Gradle',
+  'hermes-agent': 'Hermes Agent',
+  java: 'Java',
+  kimi: 'Kimi',
+  'local-sites-https': 'Situs Lokal & HTTPS',
+  mailpit: 'Mailpit',
+  mariadb: 'MariaDB',
+  'mcp-server': 'Server MCP',
+  meilisearch: 'Meilisearch',
+  memcached: 'Memcached',
+  minio: 'MinIO',
+  mkcert: 'MkCert',
+  mongodb: 'MongoDB',
+  mysql: 'MySQL',
+  n8n: 'n8n',
+  neo4j: 'Neo4j',
+  nginx: 'Nginx',
+  nodejs: 'Node.js',
+  numa: 'Numa',
+  ollama: 'Ollama',
+  openclaw: 'OpenClaw',
+  opencode: 'OpenCode',
+  'per-project-runtimes': 'Runtime per Proyek',
+  php: 'PHP',
+  podman: 'Podman',
+  postgresql: 'PostgreSQL',
+  python: 'Python',
+  qdrant: 'Qdrant',
+  'r-nacos': 'R-NACOS',
+  rabbitmq: 'RabbitMQ',
+  redis: 'Redis',
+  ruby: 'Ruby',
+  rust: 'Rust',
+  rustfs: 'RustFS',
+  'startup-groups': 'Grup Startup',
+  temporal: 'Temporal',
+  tomcat: 'Tomcat',
+  typesense: 'Typesense',
+  'user-modules': 'Modul Pengguna',
+  zig: 'Zig',
   zincsearch: 'ZincSearch'
 }
 
 const featureLabelsEs: Record<string, string> = {
-  'antigravity-cli': 'Antigravity CLI', apache: 'Apache', bun: 'Bun', caddy: 'Caddy',
-  'claude-code': 'Claude Code', 'cli-terminal': 'CLI y terminal', clickhouse: 'ClickHouse',
-  cliproxyapi: 'CLIProxyAPI', 'cloudflare-tunnel': 'Cloudflare Tunnel', cloudflared: 'Cloudflared',
-  codex: 'Codex', consul: 'Consul', 'cron-jobs': 'Tareas cron', deno: 'Deno', 'dns-server': 'Servidor DNS',
-  dotnet: '.NET', elasticsearch: 'Elasticsearch', erlang: 'Erlang', etcd: 'Etcd', flutter: 'Flutter',
-  frankenphp: 'FrankenPHP', 'ftp-server': 'Servidor FTP', 'github-copilot-cli': 'GitHub Copilot CLI', go: 'Go',
-  gradle: 'Gradle', 'hermes-agent': 'Hermes Agent', java: 'Java', kimi: 'Kimi',
-  'local-sites-https': 'Sitios locales y HTTPS', mailpit: 'Mailpit', mariadb: 'MariaDB', 'mcp-server': 'Servidor MCP',
-  meilisearch: 'Meilisearch', memcached: 'Memcached', minio: 'MinIO', mkcert: 'MkCert', mongodb: 'MongoDB',
-  mysql: 'MySQL', n8n: 'n8n', neo4j: 'Neo4j', nginx: 'Nginx', nodejs: 'Node.js', numa: 'Numa', ollama: 'Ollama',
-  openclaw: 'OpenClaw', opencode: 'OpenCode', 'per-project-runtimes': 'Runtimes por proyecto', php: 'PHP',
-  podman: 'Podman', postgresql: 'PostgreSQL', python: 'Python', qdrant: 'Qdrant', 'r-nacos': 'R-NACOS',
-  rabbitmq: 'RabbitMQ', redis: 'Redis', ruby: 'Ruby', rust: 'Rust', rustfs: 'RustFS', 'startup-groups': 'Grupos de inicio',
-  temporal: 'Temporal', tomcat: 'Tomcat', typesense: 'Typesense', 'user-modules': 'Módulos de usuario', zig: 'Zig',
+  'antigravity-cli': 'Antigravity CLI',
+  apache: 'Apache',
+  bun: 'Bun',
+  caddy: 'Caddy',
+  'claude-code': 'Claude Code',
+  'cli-terminal': 'CLI y terminal',
+  clickhouse: 'ClickHouse',
+  cliproxyapi: 'CLIProxyAPI',
+  'cloudflare-tunnel': 'Cloudflare Tunnel',
+  cloudflared: 'Cloudflared',
+  codex: 'Codex',
+  consul: 'Consul',
+  'cron-jobs': 'Tareas cron',
+  deno: 'Deno',
+  'dns-server': 'Servidor DNS',
+  dotnet: '.NET',
+  elasticsearch: 'Elasticsearch',
+  erlang: 'Erlang',
+  etcd: 'Etcd',
+  flutter: 'Flutter',
+  frankenphp: 'FrankenPHP',
+  'ftp-server': 'Servidor FTP',
+  'github-copilot-cli': 'GitHub Copilot CLI',
+  go: 'Go',
+  gradle: 'Gradle',
+  'hermes-agent': 'Hermes Agent',
+  java: 'Java',
+  kimi: 'Kimi',
+  'local-sites-https': 'Sitios locales y HTTPS',
+  mailpit: 'Mailpit',
+  mariadb: 'MariaDB',
+  'mcp-server': 'Servidor MCP',
+  meilisearch: 'Meilisearch',
+  memcached: 'Memcached',
+  minio: 'MinIO',
+  mkcert: 'MkCert',
+  mongodb: 'MongoDB',
+  mysql: 'MySQL',
+  n8n: 'n8n',
+  neo4j: 'Neo4j',
+  nginx: 'Nginx',
+  nodejs: 'Node.js',
+  numa: 'Numa',
+  ollama: 'Ollama',
+  openclaw: 'OpenClaw',
+  opencode: 'OpenCode',
+  'per-project-runtimes': 'Runtimes por proyecto',
+  php: 'PHP',
+  podman: 'Podman',
+  postgresql: 'PostgreSQL',
+  python: 'Python',
+  qdrant: 'Qdrant',
+  'r-nacos': 'R-NACOS',
+  rabbitmq: 'RabbitMQ',
+  redis: 'Redis',
+  ruby: 'Ruby',
+  rust: 'Rust',
+  rustfs: 'RustFS',
+  'startup-groups': 'Grupos de inicio',
+  temporal: 'Temporal',
+  tomcat: 'Tomcat',
+  typesense: 'Typesense',
+  'user-modules': 'Módulos de usuario',
+  zig: 'Zig',
   zincsearch: 'ZincSearch'
+}
+
+const featureLabels: Record<SeoLocale, Record<string, string>> = {
+  en: featureLabelsEn,
+  zh: featureLabelsZh,
+  id: featureLabelsId,
+  es: featureLabelsEs
 }
 
 const featureGroups = [
   { key: 'overview', en: 'Features', zh: '特性', id: 'Fitur', es: 'Funcionalidades', slugs: [] },
   {
-    key: 'runtimes', en: 'Languages & Runtimes', zh: '语言与运行时', id: 'Bahasa & Runtime', es: 'Lenguajes y runtimes',
-    slugs: ['php', 'nodejs', 'python', 'java', 'go', 'erlang', 'ruby', 'rust', 'dotnet', 'zig', 'bun', 'deno', 'flutter', 'gradle']
+    key: 'runtimes',
+    en: 'Languages & Runtimes',
+    zh: '语言与运行时',
+    id: 'Bahasa & Runtime',
+    es: 'Lenguajes y runtimes',
+    slugs: [
+      'php',
+      'nodejs',
+      'python',
+      'java',
+      'go',
+      'erlang',
+      'ruby',
+      'rust',
+      'dotnet',
+      'zig',
+      'bun',
+      'deno',
+      'flutter',
+      'gradle'
+    ]
   },
   {
-    key: 'web', en: 'Web Servers & Local Sites', zh: 'Web 服务器与本地站点', id: 'Server Web & Situs Lokal', es: 'Servidores web y sitios locales',
+    key: 'web',
+    en: 'Web Servers & Local Sites',
+    zh: 'Web 服务器与本地站点',
+    id: 'Server Web & Situs Lokal',
+    es: 'Servidores web y sitios locales',
     slugs: ['local-sites-https', 'mkcert', 'frankenphp', 'nginx', 'apache', 'caddy', 'tomcat']
   },
   {
-    key: 'databases', en: 'Databases', zh: '数据库', id: 'Database', es: 'Bases de datos',
+    key: 'databases',
+    en: 'Databases',
+    zh: '数据库',
+    id: 'Database',
+    es: 'Bases de datos',
     slugs: ['mysql', 'postgresql', 'mariadb', 'mongodb', 'qdrant', 'clickhouse', 'neo4j']
   },
   {
-    key: 'search', en: 'Cache, Messaging & Search', zh: '缓存、消息与搜索', id: 'Cache, Pesan & Pencarian', es: 'Caché, mensajería y búsqueda',
-    slugs: ['redis', 'memcached', 'rabbitmq', 'elasticsearch', 'meilisearch', 'typesense', 'zincsearch', 'mailpit']
+    key: 'search',
+    en: 'Cache, Messaging & Search',
+    zh: '缓存、消息与搜索',
+    id: 'Cache, Pesan & Pencarian',
+    es: 'Caché, mensajería y búsqueda',
+    slugs: [
+      'redis',
+      'memcached',
+      'rabbitmq',
+      'elasticsearch',
+      'meilisearch',
+      'typesense',
+      'zincsearch',
+      'mailpit'
+    ]
   },
   {
-    key: 'infra', en: 'Infrastructure, Storage & Network', zh: '基础设施、存储与网络', id: 'Infrastruktur, Penyimpanan & Jaringan', es: 'Infraestructura, almacenamiento y red',
-    slugs: ['numa', 'dns-server', 'ftp-server', 'minio', 'rustfs', 'podman', 'cloudflared', 'cloudflare-tunnel', 'r-nacos', 'consul', 'etcd']
+    key: 'infra',
+    en: 'Infrastructure, Storage & Network',
+    zh: '基础设施、存储与网络',
+    id: 'Infrastruktur, Penyimpanan & Jaringan',
+    es: 'Infraestructura, almacenamiento y red',
+    slugs: [
+      'numa',
+      'dns-server',
+      'ftp-server',
+      'minio',
+      'rustfs',
+      'podman',
+      'cloudflared',
+      'cloudflare-tunnel',
+      'r-nacos',
+      'consul',
+      'etcd'
+    ]
   },
   {
-    key: 'workflow', en: 'Developer Workflow', zh: '开发者工作流', id: 'Alur Kerja Pengembang', es: 'Flujo de trabajo del desarrollador',
-    slugs: ['startup-groups', 'per-project-runtimes', 'cron-jobs', 'user-modules', 'cli-terminal', 'temporal']
+    key: 'workflow',
+    en: 'Developer Workflow',
+    zh: '开发者工作流',
+    id: 'Alur Kerja Pengembang',
+    es: 'Flujo de trabajo del desarrollador',
+    slugs: [
+      'startup-groups',
+      'per-project-runtimes',
+      'cron-jobs',
+      'user-modules',
+      'cli-terminal',
+      'temporal'
+    ]
   },
   {
-    key: 'ai', en: 'AI, MCP & Automation', zh: 'AI、MCP 与自动化', id: 'AI, MCP & Otomasi', es: 'IA, MCP y automatización',
-    slugs: ['mcp-server', 'claude-code', 'codex', 'opencode', 'kimi', 'antigravity-cli', 'github-copilot-cli', 'hermes-agent', 'openclaw', 'n8n', 'ollama', 'cliproxyapi']
+    key: 'ai',
+    en: 'AI, MCP & Automation',
+    zh: 'AI、MCP 与自动化',
+    id: 'AI, MCP & Otomasi',
+    es: 'IA, MCP y automatización',
+    slugs: [
+      'mcp-server',
+      'claude-code',
+      'codex',
+      'opencode',
+      'kimi',
+      'antigravity-cli',
+      'github-copilot-cli',
+      'hermes-agent',
+      'openclaw',
+      'n8n',
+      'ollama',
+      'cliproxyapi'
+    ]
   }
 ]
 
-const featureSidebarFor = (locale: 'zh' | 'id' | 'es') => featureGroups.map((group) => ({
-  text: group[locale],
-  items: group.key === 'overview'
-    ? [{ text: locale === 'zh' ? '特性总览' : locale === 'id' ? 'Ikhtisar Fitur' : 'Resumen de funcionalidades', link: `/${locale}/features` }]
-    : group.slugs.map((slug) => ({ text: (locale === 'zh' ? featureLabelsZh : locale === 'id' ? featureLabelsId : featureLabelsEs)[slug] ?? slug, link: `/${locale}/features/${slug}` })),
-  collapsed: false
-}))
+const featureSidebarFor = (locale: 'zh' | 'id' | 'es') =>
+  featureGroups.map((group) => ({
+    text: group[locale],
+    items:
+      group.key === 'overview'
+        ? [
+            {
+              text:
+                locale === 'zh'
+                  ? '特性总览'
+                  : locale === 'id'
+                    ? 'Ikhtisar Fitur'
+                    : 'Resumen de funcionalidades',
+              link: `/${locale}/features`
+            }
+          ]
+        : group.slugs.map((slug) => ({
+            text:
+              (locale === 'zh'
+                ? featureLabelsZh
+                : locale === 'id'
+                  ? featureLabelsId
+                  : featureLabelsEs)[slug] ?? slug,
+            link: `/${locale}/features/${slug}`
+          })),
+    collapsed: false
+  }))
 
 const featureSidebarZh = featureSidebarFor('zh')
 const featureSidebarId = featureSidebarFor('id')
@@ -149,13 +540,20 @@ const compareSidebarEs = [
 const head: any = [['link', { rel: 'icon', href: '/favicon.ico' }]]
 const socialImage = 'https://oss.macphpstudy.com/image/app-icon.png'
 const chineseCompareDescriptions: Record<string, string> = {
-  'compare/docker': '深入比较 FlyEnv 原生本地运行时与 Docker 容器工作流，了解性能、隔离、HTTPS、团队协作和项目迁移差异。',
-  'compare/herd': '比较 FlyEnv 与 Laravel Herd 的 PHP 运行时、Laravel 集成、项目服务、平台支持和本地开发工作流。',
-  'compare/index': '对比 FlyEnv 与 XAMPP、Laragon、MAMP、Laravel Herd、ServBay 和 Docker，按项目需求选择本地开发工具。',
-  'compare/laragon': '比较 FlyEnv 与 Laragon 的跨平台运行时、项目隔离、服务管理、自定义域名和本地 HTTPS 能力。',
-  'compare/mamp': '比较 FlyEnv 与 MAMP / MAMP Pro 的 PHP、WordPress、运行时版本、数据库、服务和项目工作流。',
-  'compare/servbay': '比较 FlyEnv 与 ServBay 的运行时、数据库、AI 工具、证书、隧道、项目服务和跨平台支持。',
-  'compare/xampp': '比较 FlyEnv 与 XAMPP 的运行时、Web 服务器、数据库、本地域名、HTTPS、服务管理和项目隔离。'
+  'compare/docker':
+    '深入比较 FlyEnv 原生本地运行时与 Docker 容器工作流，了解性能、隔离、HTTPS、团队协作和项目迁移差异。',
+  'compare/herd':
+    '比较 FlyEnv 与 Laravel Herd 的 PHP 运行时、Laravel 集成、项目服务、平台支持和本地开发工作流。',
+  'compare/index':
+    '对比 FlyEnv 与 XAMPP、Laragon、MAMP、Laravel Herd、ServBay 和 Docker，按项目需求选择本地开发工具。',
+  'compare/laragon':
+    '比较 FlyEnv 与 Laragon 的跨平台运行时、项目隔离、服务管理、自定义域名和本地 HTTPS 能力。',
+  'compare/mamp':
+    '比较 FlyEnv 与 MAMP / MAMP Pro 的 PHP、WordPress、运行时版本、数据库、服务和项目工作流。',
+  'compare/servbay':
+    '比较 FlyEnv 与 ServBay 的运行时、数据库、AI 工具、证书、隧道、项目服务和跨平台支持。',
+  'compare/xampp':
+    '比较 FlyEnv 与 XAMPP 的运行时、Web 服务器、数据库、本地域名、HTTPS、服务管理和项目隔离。'
 }
 if (PROD) {
   head.push(
@@ -176,6 +574,9 @@ if (PROD) {
 export default defineConfigWithTheme({
   cleanUrls: true,
   srcExclude: ['superpowers/**', 'task/**', 'compare-research.md', 'zh/test.md'],
+  vue: {
+    compiler: vueCompiler
+  },
   vite: {
     plugins: [
       AutoImport({
@@ -188,136 +589,51 @@ export default defineConfigWithTheme({
     ],
     server: {
       host: '0.0.0.0',
-      port: 4000
+      port: 4050
     },
     ssr: {
       noExternal: ['element-plus', '*/AppFeedback/*']
     }
   },
+  lastUpdated: true,
   sitemap: {
     hostname: AppHost,
     transformItems(items) {
-      return items.filter(({ url }) => !/^(?:404|(?:zh\/|id\/|es\/)?sponsor)$/.test(url))
+      return items.filter(({ url }) => !/^(?:(?:zh|id|es)\/)?(?:404|sponsor)$/.test(url))
     }
   },
   transformPageData(pageData) {
     const relativePath = pageData.relativePath.replace(/\.md$/, '')
-    const locale = relativePath.startsWith('zh/') ? 'zh' : relativePath.startsWith('id/') ? 'id' : relativePath.startsWith('es/') ? 'es' : 'en'
     const localizedSolutionMatch = relativePath.match(/^(zh|id|es)\/solutions\/([^/]+)$/)
+    let preferredDescription: string | undefined
     if (localizedSolutionMatch) {
       const solutionLocale = localizedSolutionMatch[1] as 'zh' | 'id' | 'es'
       const solutionSlug = localizedSolutionMatch[2]
-      const solutionSummary = solutionContentByLocale[solutionLocale][solutionSlug]?.summary
-      if (solutionSummary) pageData.description = solutionSummary
+      preferredDescription = solutionContentByLocale[solutionLocale][solutionSlug]?.summary
     }
     const compareDescription = relativePath.startsWith('zh/')
       ? chineseCompareDescriptions[relativePath.slice(3)]
       : undefined
-    if (compareDescription) pageData.description = compareDescription
-    const genericDescriptions = {
-      en: 'All-in-One Full-Stack Environment Management Tool. Support macOS / Windows / Linux',
-      zh: '一体化全栈环境管理工具. 支持macOS / Windows / Linux',
-      id: 'Pengelola lingkungan pengembangan full-stack terpadu untuk macOS, Windows, dan Linux.',
-      es: 'Herramienta todo en uno para gestionar entornos de desarrollo full-stack. Compatible con macOS, Windows y Linux.'
-    }
-    if ((!pageData.description || pageData.description === genericDescriptions[locale]) && relativePath !== '404') {
-      const pageTitle = String(pageData.title || 'FlyEnv')
-      pageData.description = locale === 'zh'
-        ? `${pageTitle}：了解配置方法、使用步骤和常见问题，适用于 macOS、Windows 和 Linux 本地开发。`
-        : locale === 'id'
-          ? `${pageTitle}: panduan penyiapan, konfigurasi, dan alur kerja untuk pengembangan lokal di macOS, Windows, dan Linux.`
-          : locale === 'es'
-            ? `${pageTitle}: guía de instalación, configuración y flujo de trabajo para desarrollo local en macOS, Windows y Linux.`
-            : `${pageTitle}: setup, configuration, and workflow guidance for local development on macOS, Windows, and Linux.`
-    }
+    pageData.description = resolvePageDescription({
+      relativePath,
+      title: String(pageData.title || 'FlyEnv'),
+      currentDescription: pageData.description,
+      explicitDescription: descriptionFromFrontmatter(pageData.frontmatter),
+      preferredDescription: compareDescription || preferredDescription
+    })
     return pageData
   },
   transformHead({ page, title, description, head }) {
-    const match = page.match(/^(?:(zh|id|es)\/)?(.+?)\.md$/)
-    if (!match) return
-
-    const pagePath = match[2]
-    if (pagePath === '404' || pagePath === 'sponsor') return
-
-    const locale = (match[1] ?? 'en') as 'en' | 'zh' | 'id' | 'es'
-    const isIndexPage = /(?:^|\/)index$/.test(pagePath)
-    const normalizedPath = pagePath.replace(/\/index$/, '').replace(/^index$/, '')
-    const relative = isIndexPage
-      ? `${normalizedPath ? `/${normalizedPath}` : ''}/`
-      : `/${normalizedPath}`
-    const localePath = locale === 'en' ? '' : `/${locale}`
-    const language = locale === 'zh' ? 'zh-CN' : locale === 'id' ? 'id-ID' : locale === 'es' ? 'es-ES' : 'en'
-    const url = `${AppHost}${localePath}${relative}`
-    const localizedUrl = (targetLocale: 'en' | 'zh' | 'id' | 'es') =>
-      `${AppHost}${targetLocale === 'en' ? '' : `/${targetLocale}`}${relative}`
-    const ogLocale = locale === 'zh' ? 'zh_CN' : locale === 'id' ? 'id_ID' : locale === 'es' ? 'es_ES' : 'en_US'
-    const socialImageAlt = locale === 'zh'
-      ? 'FlyEnv 应用图标'
-      : locale === 'id'
-        ? 'Ikon aplikasi FlyEnv'
-        : locale === 'es'
-          ? 'Icono de la aplicación FlyEnv'
-          : 'FlyEnv application icon'
-    const additions: any[] = []
-
-    for (let index = head.length - 1; index >= 0; index -= 1) {
-      const [tag, attributes] = head[index]
-      if (
-        tag === 'link' &&
-        attributes &&
-        ((attributes as any).rel === 'alternate' || (attributes as any).rel === 'describedby')
-      ) {
-        head.splice(index, 1)
-      }
-    }
-
-    const upsert = (tag: string, key: string, value: string, attrs: Record<string, string>) => {
-      const existing = head.find(([name, current]) => name === tag && current && (current as any)[key] === value)
-      if (existing) Object.assign(existing[1] as any, attrs)
-      else additions.push([tag, attrs])
-    }
-    upsert('link', 'rel', 'canonical', { rel: 'canonical', href: url })
-    additions.push(
-      ['link', { rel: 'alternate', hreflang: 'en', href: localizedUrl('en') }],
-      ['link', { rel: 'alternate', hreflang: 'zh-CN', href: localizedUrl('zh') }],
-      ['link', { rel: 'alternate', hreflang: 'id-ID', href: localizedUrl('id') }],
-      ['link', { rel: 'alternate', hreflang: 'es-ES', href: localizedUrl('es') }],
-      ['link', { rel: 'alternate', hreflang: 'x-default', href: localizedUrl('en') }],
-      ['link', { rel: 'describedby', href: `${AppHost}/llms.txt` }]
-    )
-    upsert('meta', 'property', 'og:title', { property: 'og:title', content: title })
-    upsert('meta', 'property', 'og:description', { property: 'og:description', content: description })
-    upsert('meta', 'property', 'og:type', { property: 'og:type', content: 'website' })
-    upsert('meta', 'property', 'og:url', { property: 'og:url', content: url })
-    upsert('meta', 'property', 'og:image', { property: 'og:image', content: socialImage })
-    upsert('meta', 'property', 'og:image:alt', { property: 'og:image:alt', content: socialImageAlt })
-    upsert('meta', 'property', 'og:site_name', { property: 'og:site_name', content: 'FlyEnv' })
-    upsert('meta', 'property', 'og:locale', { property: 'og:locale', content: ogLocale })
-    upsert('meta', 'name', 'twitter:card', { name: 'twitter:card', content: 'summary' })
-    upsert('meta', 'name', 'twitter:title', { name: 'twitter:title', content: title })
-    upsert('meta', 'name', 'twitter:description', { name: 'twitter:description', content: description })
-    upsert('meta', 'name', 'twitter:image', { name: 'twitter:image', content: socialImage })
-    upsert('meta', 'name', 'twitter:image:alt', { name: 'twitter:image:alt', content: socialImageAlt })
-
-    const solutionMatch = page.match(/^(?:(zh|id|es)\/)?solutions\/([a-z0-9-]+)\.md$/)
-    const solution = solutionMatch && solutions.find((item) => item.slug === solutionMatch[2])
-    if (solution) {
-      const solutionDescription = solutionContentByLocale[locale][solution.slug]?.summary ?? description
-      const solutionsLabel = locale === 'zh' ? '解决方案' : locale === 'id' ? 'Solusi' : locale === 'es' ? 'Soluciones' : 'Solutions'
-      const schema = {
-        '@context': 'https://schema.org',
-        '@graph': [
-          { '@type': 'WebPage', '@id': `${url}#webpage`, name: title, url, description: solutionDescription, inLanguage: language, isPartOf: { '@type': 'WebSite', name: 'FlyEnv', url: `${AppHost}${localePath || '/'}` } },
-          { '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`, itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'FlyEnv', item: `${AppHost}/` },
-            { '@type': 'ListItem', position: 2, name: solutionsLabel, item: `${AppHost}${localePath}/solutions` },
-            { '@type': 'ListItem', position: 3, name: solution.name, item: url }
-          ] }
-        ]
-      }
-      additions.push(['script', { type: 'application/ld+json' }, JSON.stringify(schema)])
-    }
-    return additions
+    return buildSeoHead({
+      page,
+      title,
+      description,
+      head,
+      host: AppHost,
+      socialImage,
+      featureSlugs,
+      featureLabels
+    })
   },
   transformHtml(code) {
     return code
@@ -623,12 +939,8 @@ export default defineConfigWithTheme({
           { text: '许可证', link: '/zh/license' }
         ],
         sidebar: {
-          '/zh/compare/': [
-            { text: '比较', items: compareSidebarZh, collapsed: false }
-          ],
-          '/zh/features/': [
-            ...featureSidebarZh
-          ],
+          '/zh/compare/': [{ text: '比较', items: compareSidebarZh, collapsed: false }],
+          '/zh/features/': [...featureSidebarZh],
           '/zh/guide/': [
             {
               text: '开始使用',
@@ -753,12 +1065,8 @@ export default defineConfigWithTheme({
           { text: 'Lisensi', link: '/id/license' }
         ],
         sidebar: {
-          '/id/compare/': [
-            { text: 'Perbandingan', items: compareSidebarId, collapsed: false }
-          ],
-          '/id/features/': [
-            ...featureSidebarId
-          ],
+          '/id/compare/': [{ text: 'Perbandingan', items: compareSidebarId, collapsed: false }],
+          '/id/features/': [...featureSidebarId],
           '/id/guide/': [
             {
               text: 'Memulai',
@@ -907,12 +1215,8 @@ export default defineConfigWithTheme({
           { text: 'Licencia', link: '/es/license' }
         ],
         sidebar: {
-          '/es/compare/': [
-            { text: 'Comparativas', items: compareSidebarEs, collapsed: false }
-          ],
-          '/es/features/': [
-            ...featureSidebarEs
-          ],
+          '/es/compare/': [{ text: 'Comparativas', items: compareSidebarEs, collapsed: false }],
+          '/es/features/': [...featureSidebarEs],
           '/es/guide/': [
             {
               text: 'Primeros pasos',
@@ -929,10 +1233,22 @@ export default defineConfigWithTheme({
             {
               text: 'Configuración del entorno principal',
               items: [
-                { text: 'Aislamiento de versiones por proyecto', link: '/es/guide/project-level-runtime-environment' },
-                { text: 'Gestionar versiones de Node.js y PHP', link: '/es/guide/manage-multiple-node-php-versions' },
-                { text: 'Gestión del PATH del sistema', link: '/es/guide/setup-system-path-environment' },
-                { text: 'Configurar el entorno de desarrollo Java', link: '/es/guide/set-up-java-development-environment' },
+                {
+                  text: 'Aislamiento de versiones por proyecto',
+                  link: '/es/guide/project-level-runtime-environment'
+                },
+                {
+                  text: 'Gestionar versiones de Node.js y PHP',
+                  link: '/es/guide/manage-multiple-node-php-versions'
+                },
+                {
+                  text: 'Gestión del PATH del sistema',
+                  link: '/es/guide/setup-system-path-environment'
+                },
+                {
+                  text: 'Configurar el entorno de desarrollo Java',
+                  link: '/es/guide/set-up-java-development-environment'
+                },
                 { text: 'Instalar extensiones de PHP', link: '/es/guide/php-extensions-install' },
                 { text: 'Base de datos y seguridad', link: '/es/guide/database-user-password' }
               ],
@@ -941,15 +1257,39 @@ export default defineConfigWithTheme({
             {
               text: 'IA y herramientas de productividad',
               items: [
-                { text: 'Guía de FlyEnv AI Workspace y MCP', link: '/es/guide/ai-coding-workspace-mcp' },
-                { text: 'Flujo de trabajo con asistentes de programación IA', link: '/es/guide/flyenv-work-with-ai' },
-                { text: 'Crear un agente de IA local sin conexión', link: '/es/guide/build-local-offline-ai-agent' },
-                { text: 'Flujos de trabajo de IA autoalojados con n8n', link: '/es/guide/build-local-ai-workflow-by-n8n' },
+                {
+                  text: 'Guía de FlyEnv AI Workspace y MCP',
+                  link: '/es/guide/ai-coding-workspace-mcp'
+                },
+                {
+                  text: 'Flujo de trabajo con asistentes de programación IA',
+                  link: '/es/guide/flyenv-work-with-ai'
+                },
+                {
+                  text: 'Crear un agente de IA local sin conexión',
+                  link: '/es/guide/build-local-offline-ai-agent'
+                },
+                {
+                  text: 'Flujos de trabajo de IA autoalojados con n8n',
+                  link: '/es/guide/build-local-ai-workflow-by-n8n'
+                },
                 { text: 'Guía de OpenClaw + Ollama', link: '/es/guide/openclaw' },
-                { text: 'Herramienta de ofuscación de código PHP', link: '/es/guide/php-code-obfuscation' },
-                { text: 'Exponer localhost con Cloudflare Tunnel', link: '/es/guide/cloudflare-tunnel-local-development' },
-                { text: 'Pruebas de correo local (Mailpit)', link: '/es/guide/local-email-testing-mailpit' },
-                { text: 'Code Playground y biblioteca de código', link: '/es/guide/code-playground-and-code-library' }
+                {
+                  text: 'Herramienta de ofuscación de código PHP',
+                  link: '/es/guide/php-code-obfuscation'
+                },
+                {
+                  text: 'Exponer localhost con Cloudflare Tunnel',
+                  link: '/es/guide/cloudflare-tunnel-local-development'
+                },
+                {
+                  text: 'Pruebas de correo local (Mailpit)',
+                  link: '/es/guide/local-email-testing-mailpit'
+                },
+                {
+                  text: 'Code Playground y biblioteca de código',
+                  link: '/es/guide/code-playground-and-code-library'
+                }
               ],
               collapsed: false
             },
@@ -957,12 +1297,27 @@ export default defineConfigWithTheme({
               text: 'Servidores web y proxy inverso',
               items: [
                 { text: 'Dominios personalizados y SSL automático', link: '/es/guide/host' },
-                { text: 'Desplegar proyectos PHP sin Docker', link: '/es/guide/deploy-php-projects-without-docker' },
-                { text: 'Interpretar HTML como PHP (Nginx/Apache/Caddy)', link: '/es/guide/parse-html-as-php-multi-servers' },
-                { text: 'Configuración de proxy inverso (NestJS/Node.js)', link: '/es/guide/reverse-proxy-nestjs-multi-servers' },
-                { text: 'Desplegar Node/Python/Go sin Docker', link: '/es/guide/deploy-nodejs-python-go-without-docker' },
+                {
+                  text: 'Desplegar proyectos PHP sin Docker',
+                  link: '/es/guide/deploy-php-projects-without-docker'
+                },
+                {
+                  text: 'Interpretar HTML como PHP (Nginx/Apache/Caddy)',
+                  link: '/es/guide/parse-html-as-php-multi-servers'
+                },
+                {
+                  text: 'Configuración de proxy inverso (NestJS/Node.js)',
+                  link: '/es/guide/reverse-proxy-nestjs-multi-servers'
+                },
+                {
+                  text: 'Desplegar Node/Python/Go sin Docker',
+                  link: '/es/guide/deploy-nodejs-python-go-without-docker'
+                },
                 { text: 'Configuración de red y proxy', link: '/es/guide/use-proxy' },
-                { text: 'Módulos personalizables por el usuario', link: '/es/guide/user-customizable-modules' },
+                {
+                  text: 'Módulos personalizables por el usuario',
+                  link: '/es/guide/user-customizable-modules'
+                },
                 { text: 'Guía del módulo Podman', link: '/es/guide/podman-module' }
               ],
               collapsed: false
@@ -970,11 +1325,20 @@ export default defineConfigWithTheme({
             {
               text: 'Solución de problemas y optimización',
               items: [
-                { text: 'Optimización del rendimiento de sitios en Windows', link: '/es/guide/windows-site-performance-optimization' },
+                {
+                  text: 'Optimización del rendimiento de sitios en Windows',
+                  link: '/es/guide/windows-site-performance-optimization'
+                },
                 { text: 'Ejecutar Laravel en FlyEnv', link: '/es/guide/run-laravel-use-flyenv' },
                 { text: 'Depuración de PHP con Xdebug', link: '/es/guide/php-debug-with-xdebug' },
-                { text: 'Solucionar problemas comunes de PHP (icu4c)', link: '/es/guide/php-icu4c-issues' },
-                { text: 'Cargar paquetes de idiomas I18n dinámicamente', link: '/es/guide/dynamically-load-I18n-language-packs' }
+                {
+                  text: 'Solucionar problemas comunes de PHP (icu4c)',
+                  link: '/es/guide/php-icu4c-issues'
+                },
+                {
+                  text: 'Cargar paquetes de idiomas I18n dinámicamente',
+                  link: '/es/guide/dynamically-load-I18n-language-packs'
+                }
               ],
               collapsed: false
             }

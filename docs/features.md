@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 titleTemplate: false
 title: 'FlyEnv Features: Runtimes, Services, Local Sites and More'
 description: 'Explore the runtimes, services, project workflows and local site tools FlyEnv manages in one native development workspace.'
@@ -181,7 +181,7 @@ const categories = [
 const jumps = categories.map(({ id, title }) => ({ id, title }))
 </script>
 
-<div class="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-white text-slate-950 [&_a]:no-underline [&_h4+p]:!leading-5">
+<div class="w-full overflow-hidden bg-white text-slate-950 [&_a]:no-underline [&_h4+p]:!leading-5">
   <section class="relative isolate border-b border-slate-200/80 bg-slate-50">
     <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_75%_20%,rgba(59,130,246,0.16),transparent_34%),radial-gradient(circle_at_10%_90%,rgba(14,165,233,0.1),transparent_30%)]"></div>
     <div class="mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 sm:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-12 lg:py-28">

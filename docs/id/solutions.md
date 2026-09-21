@@ -21,10 +21,6 @@ head:
     - rel: alternate
       hreflang: id-ID
       href: https://flyenv.com/id/solutions
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"Solusi FlyEnv","inLanguage":"id-ID","url":"https://flyenv.com/id/solutions"}
 ---
 
 <script setup>

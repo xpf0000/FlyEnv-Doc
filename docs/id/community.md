@@ -52,10 +52,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/community
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"Cerita Komunitas FlyEnv","inLanguage":"id-ID","description":"Tutorial, ulasan, dan cerita komunitas FlyEnv dari pengembang di seluruh dunia.","url":"https://flyenv.com/id/community"}
 ---
 
 <script setup>

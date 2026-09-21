@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 titleTemplate: false
 title: 'Funciones de FlyEnv: Runtimes, Servicios, Sitios Locales y Más'
 description: 'Explora los runtimes, servicios, flujos de trabajo de proyectos y herramientas de sitios locales que FlyEnv gestiona en un único espacio de trabajo de desarrollo nativo.'

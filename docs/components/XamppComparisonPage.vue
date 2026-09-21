@@ -1,6 +1,6 @@
 <template>
   <main
-    class="ml-[calc(50%_-_50vw)] w-screen overflow-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white"
+    class="w-full overflow-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white"
   >
     <section
       class="relative isolate overflow-hidden bg-gradient-to-br from-sky-50 via-white to-indigo-50 px-6 py-14 sm:px-10 sm:py-20 lg:px-16 lg:py-16 dark:from-slate-950 dark:via-slate-950 dark:to-indigo-950/40"
@@ -822,10 +822,6 @@
             :href="localizedHref('/download')"
             class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3.5 text-sm font-bold !text-blue-900 no-underline transition hover:-translate-y-0.5 hover:bg-blue-50"
             >{{ copy.download }}</a
-          ><a
-            :href="localizedHref('/guide/getting-started')"
-            class="inline-flex items-center justify-center rounded-xl border border-blue-200/70 px-6 py-3.5 text-sm font-bold !text-white no-underline transition hover:-translate-y-0.5 hover:bg-white/10"
-            >{{ copy.quickStart }}</a
           ></div
         ></div
       ></section

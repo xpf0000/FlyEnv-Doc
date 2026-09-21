@@ -56,10 +56,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/solutions
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"Soluciones FlyEnv","inLanguage":"es-ES","description":"Un directorio orientado a proyectos con los stacks de desarrollo local más populares compatibles con FlyEnv.","url":"https://flyenv.com/es/solutions","isPartOf":{"@type":"WebSite","name":"FlyEnv","url":"https://flyenv.com/"}}
 ---
 
 <script setup>

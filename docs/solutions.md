@@ -36,10 +36,6 @@ head:
   - - link
     - rel: canonical
       href: https://flyenv.com/solutions
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv Solutions","inLanguage":"en","description":"A project-first directory of popular local development stacks supported by FlyEnv.","url":"https://flyenv.com/solutions","isPartOf":{"@type":"WebSite","name":"FlyEnv","url":"https://flyenv.com/"}}
 ---
 
 <script setup>

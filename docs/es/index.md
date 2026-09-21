@@ -59,10 +59,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"es-ES","description":"FlyEnv es un entorno de desarrollo local open source para agentes de IA en macOS, Windows y Linux. Gestiona PHP, Node.js, Python, bases de datos, servidores web, sitios locales y HTTPS con FlyEnv MCP.","url":"https://flyenv.com/es/","downloadUrl":"https://flyenv.com/es/download","softwareHelp":"https://flyenv.com/es/guide/what-is-flyenv","sameAs":["https://github.com/xpf0000/FlyEnv"],"author":{"@type":"Person","name":"Alex Xu","url":"https://github.com/xpf0000"},"publisher":{"@type":"Organization","name":"FlyEnv","url":"https://flyenv.com/"}}
 ---
 
 <script setup>

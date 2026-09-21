@@ -51,10 +51,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/demos
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv 演示","inLanguage":"zh-CN","description":"按任务浏览 FlyEnv 本地开发演示。","url":"https://flyenv.com/zh/demos"}
 ---
 
 <script setup>

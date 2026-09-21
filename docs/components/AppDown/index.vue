@@ -237,7 +237,7 @@
   import { CircleCheckFilled, Cpu, Download, InfoFilled, Link } from '@element-plus/icons-vue'
 
   const { lang } = useData()
-  const version = 'v4.18.2'
+  const version = 'v4.18.3'
 
   const locale = computed(() =>
     lang.value === 'zh-CN'
@@ -493,19 +493,19 @@
   const copy = computed(() => copyByLocale[locale.value])
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-Setup-4.18.2.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-Setup-4.18.3.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-Portable-4.18.2.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-arm64.dmg',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-Portable-4.18.3.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-4.18.3.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-4.18.3-arm64.dmg',
     linuxDebX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-x64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-4.18.3-x64.deb',
     linuxDebArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-arm64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-4.18.3-arm64.deb',
     linuxRpmX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-x64.rpm',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-4.18.3-x64.rpm',
     linuxRpmArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.2/FlyEnv-4.18.2-arm64.rpm'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.18.3/FlyEnv-4.18.3-arm64.rpm'
   }
   const osIconPaths = {
     windows:

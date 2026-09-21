@@ -1,18 +1,20 @@
 ---
 layout: page
+aside: false
+outline: false
 titleTemplate: false
-title: 'Ejecuta Next.js en local con FlyEnv'
-description: 'Ejecuta Next.js en local con Node.js, PostgreSQL o MySQL, Redis, Nginx o Caddy y HTTPS usando FlyEnv en Windows, macOS y Linux.'
+title: 'Entorno de desarrollo local de Next.js con FlyEnv'
+description: 'Construye y gestiona aplicaciones Next.js locales con Node.js, tu gestor de paquetes preferido, bases de datos locales, Redis, dominios personalizados y HTTPS usando FlyEnv en Windows, macOS y Linux.'
 head:
   - - meta
     - name: keywords
       content: desarrollo local de Next.js, Node.js, React, PostgreSQL, Redis, Nginx, FlyEnv
   - - meta
     - property: og:title
-      content: 'Ejecuta Next.js en local con FlyEnv'
+      content: 'Entorno de desarrollo local de Next.js con FlyEnv'
   - - meta
     - property: og:description
-      content: 'Ejecuta Next.js en local con Node.js, bases de datos, caché y HTTPS usando FlyEnv.'
+      content: 'Construye y gestiona un entorno Next.js local con Node.js, bases de datos locales, Redis, dominios personalizados y HTTPS usando FlyEnv.'
   - - meta
     - property: og:url
       content: https://flyenv.com/es/solutions/nextjs
@@ -42,7 +44,7 @@ head:
 ---
 
 <script setup>
-import AppSolutionDetail from '../../components/AppSolutionDetail/en.vue'
+import NextjsSolutionPage from '../../components/NextjsSolutionPage.vue'
 </script>
 
-<AppSolutionDetail slug="nextjs" locale="es" />
+<NextjsSolutionPage locale="es" />

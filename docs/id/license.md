@@ -52,10 +52,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/license
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"id-ID","description":"FlyEnv adalah lingkungan pengembangan lokal native untuk Windows, macOS, dan Linux.","url":"https://flyenv.com/id/","offers":{"@type":"Offer","name":"Lisensi FlyEnv","price":"10","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://flyenv.com/id/license"}}
 ---
 
 <script setup>

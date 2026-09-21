@@ -1,6 +1,6 @@
 <template>
   <main
-    class="ml-[calc(50%_-_50vw)] w-screen overflow-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white"
+    class="w-full overflow-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white"
   >
     <section
       class="relative isolate overflow-hidden bg-gradient-to-br from-sky-50 via-white to-indigo-50 px-6 py-14 sm:px-10 sm:py-20 lg:px-16 lg:py-16 dark:from-slate-950 dark:via-slate-950 dark:to-indigo-950/40"

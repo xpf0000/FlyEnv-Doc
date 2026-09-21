@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 titleTemplate: false
 title: 'Fitur FlyEnv: Runtime, Layanan, Situs Lokal, dan Lainnya'
 description: 'Jelajahi runtime, layanan, alur kerja proyek, dan alat situs lokal yang dikelola FlyEnv dalam satu ruang kerja desktop.'

@@ -1,18 +1,20 @@
 ---
 layout: page
+aside: false
+outline: false
 titleTemplate: false
-title: 'Ejecuta Laravel en local con FlyEnv'
-description: 'Configura y gestiona un entorno de desarrollo local de Laravel con PHP, MySQL o PostgreSQL, Redis, Nginx y HTTPS usando FlyEnv en Windows, macOS y Linux.'
+title: 'Entorno de desarrollo local de Laravel con FlyEnv'
+description: 'Construye y gestiona un entorno de desarrollo local de Laravel con PHP, Composer, MySQL o PostgreSQL, Redis, Nginx, dominios locales y HTTPS con FlyEnv en Windows, macOS y Linux.'
 head:
   - - meta
     - name: keywords
       content: desarrollo local de Laravel, entorno local de Laravel, PHP, MySQL, PostgreSQL, Redis, Nginx, FlyEnv
   - - meta
     - property: og:title
-      content: 'Ejecuta Laravel en local con FlyEnv'
+      content: 'Entorno de desarrollo local de Laravel con FlyEnv'
   - - meta
     - property: og:description
-      content: 'Gestiona un entorno local de Laravel con FlyEnv en Windows, macOS y Linux.'
+      content: 'Construye y gestiona un entorno de desarrollo local de Laravel con PHP, Composer, MySQL o PostgreSQL, Redis, Nginx, dominios locales y HTTPS con FlyEnv en Windows, macOS y Linux.'
   - - meta
     - property: og:url
       content: https://flyenv.com/es/solutions/laravel
@@ -42,7 +44,7 @@ head:
 ---
 
 <script setup>
-import AppSolutionDetail from '../../components/AppSolutionDetail/en.vue'
+import LaravelSolutionPage from '../../components/LaravelSolutionPage.vue'
 </script>
 
-<AppSolutionDetail slug="laravel" locale="es" />
+<LaravelSolutionPage locale="es" />

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 titleTemplate: false
 title: 'FlyEnv 特性：运行时、服务、本地站点等'
 description: '探索 FlyEnv 在原生开发工作区中管理的运行时、服务、项目工作流和本地站点工具。'

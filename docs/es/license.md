@@ -56,10 +56,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/license
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"es-ES","description":"FlyEnv es un entorno de desarrollo local nativo para Windows, macOS y Linux.","url":"https://flyenv.com/es/","offers":{"@type":"Offer","name":"Licencia de FlyEnv","price":"10","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://flyenv.com/es/license"}}
 ---
 
 <script setup>

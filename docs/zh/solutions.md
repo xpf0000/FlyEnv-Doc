@@ -21,10 +21,6 @@ head:
     - rel: alternate
       hreflang: id-ID
       href: https://flyenv.com/id/solutions
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"CollectionPage","name":"FlyEnv 解决方案","inLanguage":"zh-CN","url":"https://flyenv.com/zh/solutions"}
 ---
 
 <script setup>

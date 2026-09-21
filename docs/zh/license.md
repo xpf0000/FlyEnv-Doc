@@ -52,10 +52,6 @@ head:
     - rel: alternate
       hreflang: x-default
       href: https://flyenv.com/license
-  - - script
-    - type: application/ld+json
-    - |
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"FlyEnv","applicationCategory":"DeveloperApplication","operatingSystem":["Windows","macOS","Linux"],"inLanguage":"zh-CN","description":"FlyEnv 是适用于 Windows、macOS 和 Linux 的原生本地开发环境。","url":"https://flyenv.com/zh/","offers":{"@type":"Offer","name":"FlyEnv 许可证","price":"10","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://flyenv.com/zh/license"}}
 ---
 
 <script setup>
