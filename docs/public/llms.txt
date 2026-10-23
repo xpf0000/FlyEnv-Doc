@@ -9,7 +9,7 @@ FlyEnv installs and manages native development services through one interface. U
 - [What is FlyEnv?](https://flyenv.com/guide/what-is-flyenv): Product scope, supported platforms, and the main local-development workflow.
 - [Getting started](https://flyenv.com/guide/getting-started): Install FlyEnv and create a first local development environment.
 - [Download](https://flyenv.com/download): Official downloads for macOS, Windows, and Linux.
-- [Features](https://flyenv.com/features): Index of runtimes, web servers, databases, infrastructure services, and developer tools.
+- [Features](https://flyenv.com/features): Index of runtimes, web servers, databases, plugins, infrastructure services, and developer tools.
 - [Solutions](https://flyenv.com/solutions): Task-oriented stacks and application workflows.
 
 ## Core capabilities
@@ -21,6 +21,15 @@ FlyEnv installs and manages native development services through one interface. U
 - [Databases](https://flyenv.com/guide/database-user-password): Work with local database services and credentials.
 - [MCP Server](https://flyenv.com/features/mcp-server): Let compatible AI clients inspect and operate selected FlyEnv capabilities.
 - [CLI and terminal](https://flyenv.com/features/cli-terminal): Use FlyEnv-managed commands and terminal environments.
+- [Plugin Market](https://flyenv.com/features/plugin-market): Discover, install, update, and manage optional FlyEnv modules.
+- [MySQL Cluster](https://flyenv.com/features/mysql-cluster): Run independent MySQL instances, GTID source/replica groups and single-primary Group Replication.
+- [MariaDB Cluster](https://flyenv.com/features/mariadb-cluster): Run independent MariaDB instances and GTID source/replica groups with per-instance data management.
+- [Kafka](https://flyenv.com/features/kafka): Manage a local KRaft broker, Java bindings, and topics.
+- [llama.cpp](https://flyenv.com/features/llama-cpp): Manage inference runtimes, GGUF models, and a local OpenAI-compatible API.
+- [OpenSearch](https://flyenv.com/features/opensearch): Run local search with configuration management and matching Dashboards.
+- [SQL Server](https://flyenv.com/features/mssql): Install and manage SQL Server on x64 Windows and supported Ubuntu releases.
+- [Dameng DM8](https://flyenv.com/features/dameng): DM8 installation, database initialization, service controls, configuration and logs for supported x64 systems.
+- [Command Shortcuts](https://flyenv.com/features/command-shortcuts): Save commands by folder, reorder cards and run commands in the system terminal.
 
 ## Common workflows
 
@@ -45,6 +54,16 @@ FlyEnv installs and manages native development services through one interface. U
 - [中文文档](https://flyenv.com/zh/): Chinese documentation.
 - [Dokumentasi Bahasa Indonesia](https://flyenv.com/id/): Indonesian documentation.
 - [Documentación en español](https://flyenv.com/es/): Spanish documentation.
+
+
+## Localized plugin documentation
+
+- [中文特性总览](https://flyenv.com/zh/features): 查看运行时、服务与插件。
+- [中文插件市场](https://flyenv.com/zh/features/plugin-market): 按需安装和管理官方插件，并查看各模块说明。
+- [Ikhtisar fitur Bahasa Indonesia](https://flyenv.com/id/features): Jelajahi runtime, layanan, dan plugin FlyEnv.
+- [Pasar Plugin Bahasa Indonesia](https://flyenv.com/id/features/plugin-market): Temukan modul tambahan dan panduan setiap plugin.
+- [Funcionalidades en español](https://flyenv.com/es/features): Explora los runtimes, servicios y complementos de FlyEnv.
+- [Complementos en español](https://flyenv.com/es/features/plugin-market): Descubre los módulos opcionales y la documentación de cada uno.
 
 ## Project resources
 

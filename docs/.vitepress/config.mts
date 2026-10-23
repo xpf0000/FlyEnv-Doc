@@ -79,10 +79,28 @@ const featureSlugs = [
   'typesense',
   'user-modules',
   'zig',
-  'zincsearch'
+  'zincsearch',
+  'plugin-market',
+  'kafka',
+  'llama-cpp',
+  'opensearch',
+  'mssql',
+  'dameng',
+  'command-shortcuts',
+  'mysql-cluster',
+  'mariadb-cluster'
 ]
 
 const featureLabelsEn: Record<string, string> = {
+  'mysql-cluster': 'MySQL Cluster',
+  'mariadb-cluster': 'MariaDB Cluster',
+  'plugin-market': 'Plugin Market',
+  kafka: 'Kafka',
+  'llama-cpp': 'llama.cpp',
+  opensearch: 'OpenSearch',
+  mssql: 'SQL Server',
+  dameng: 'Dameng DM8',
+  'command-shortcuts': 'Command Shortcuts',
   'antigravity-cli': 'Antigravity CLI',
   apache: 'Apache',
   bun: 'Bun',
@@ -151,6 +169,15 @@ const featureLabelsEn: Record<string, string> = {
 }
 
 const featureLabelsZh: Record<string, string> = {
+  'mysql-cluster': 'MySQL 集群',
+  'mariadb-cluster': 'MariaDB 集群',
+  'plugin-market': '插件市场',
+  'kafka': 'Kafka',
+  'llama-cpp': 'llama.cpp',
+  'opensearch': 'OpenSearch',
+  'mssql': 'SQL Server',
+  'dameng': '达梦 DM8',
+  'command-shortcuts': '快捷命令',
   'antigravity-cli': 'Antigravity CLI',
   apache: 'Apache',
   bun: 'Bun',
@@ -219,6 +246,15 @@ const featureLabelsZh: Record<string, string> = {
 }
 
 const featureLabelsId: Record<string, string> = {
+  'mysql-cluster': 'MySQL Cluster',
+  'mariadb-cluster': 'MariaDB Cluster',
+  'plugin-market': 'Pasar Plugin',
+  'kafka': 'Kafka',
+  'llama-cpp': 'llama.cpp',
+  'opensearch': 'OpenSearch',
+  'mssql': 'SQL Server',
+  'dameng': 'Dameng DM8',
+  'command-shortcuts': 'Pintasan Perintah',
   'antigravity-cli': 'Antigravity CLI',
   apache: 'Apache',
   bun: 'Bun',
@@ -287,6 +323,15 @@ const featureLabelsId: Record<string, string> = {
 }
 
 const featureLabelsEs: Record<string, string> = {
+  'mysql-cluster': 'MySQL Cluster',
+  'mariadb-cluster': 'MariaDB Cluster',
+  'plugin-market': 'Catálogo de complementos',
+  'kafka': 'Kafka',
+  'llama-cpp': 'llama.cpp',
+  'opensearch': 'OpenSearch',
+  'mssql': 'SQL Server',
+  'dameng': 'Dameng DM8',
+  'command-shortcuts': 'Comandos rápidos',
   'antigravity-cli': 'Antigravity CLI',
   apache: 'Apache',
   bun: 'Bun',
@@ -363,6 +408,14 @@ const featureLabels: Record<SeoLocale, Record<string, string>> = {
 
 const featureGroups = [
   { key: 'overview', en: 'Features', zh: '特性', id: 'Fitur', es: 'Funcionalidades', slugs: [] },
+  {
+    key: 'plugins',
+    en: 'Plugin Market & Optional Modules',
+    zh: '插件市场与可选模块',
+    id: 'Pasar Plugin & Modul Tambahan',
+    es: 'Complementos y módulos opcionales',
+    slugs: ['plugin-market', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
+  },
   {
     key: 'runtimes',
     en: 'Languages & Runtimes',
@@ -599,7 +652,7 @@ export default defineConfigWithTheme({
   sitemap: {
     hostname: AppHost,
     transformItems(items) {
-      return items.filter(({ url }) => !/^(?:(?:zh|id|es)\/)?(?:404|sponsor)$/.test(url))
+      return items.filter(({ url }) => !/^(?:(?:zh|id|es)\/)?(?:404|sponsor|payment-success)$/.test(url))
     }
   },
   transformPageData(pageData) {
@@ -802,6 +855,21 @@ export default defineConfigWithTheme({
             {
               text: 'Features',
               items: [{ text: 'Overview', link: '/features' }],
+              collapsed: false
+            },
+            {
+              text: 'Plugin Market & Optional Modules',
+              items: [
+                { text: 'Plugin Market', link: '/features/plugin-market' },
+                { text: 'MySQL Cluster', link: '/features/mysql-cluster' },
+                { text: 'MariaDB Cluster', link: '/features/mariadb-cluster' },
+                { text: 'Kafka', link: '/features/kafka' },
+                { text: 'llama.cpp', link: '/features/llama-cpp' },
+                { text: 'OpenSearch', link: '/features/opensearch' },
+                { text: 'SQL Server', link: '/features/mssql' },
+                { text: 'Dameng DM8', link: '/features/dameng' },
+                { text: 'Command Shortcuts', link: '/features/command-shortcuts' }
+              ],
               collapsed: false
             },
             {

@@ -80,6 +80,10 @@ Para el trabajo diario no hace falta salir de la aplicación: el panel **Manage*
 
 <FeatureRelatedLinks locale="es" slug="mariadb" />
 
+## Múltiples instancias y replicación
+
+Instala el **[complemento MariaDB Cluster](/es/features/mariadb-cluster)** desde el catálogo para ejecutar varias instancias de MariaDB a la vez en puertos distintos o crear un grupo de replicación GTID con origen y réplicas. El complemento reutiliza las versiones de MariaDB instaladas y proporciona directorios de datos, configuración, registros y gestión de bases de datos por instancia.
+
 ## Notas de compatibilidad
 
 El módulo MariaDB ejecuta una versión a la vez; a diferencia del [módulo MySQL](/es/features/mysql), no tiene la función **Group** para múltiples instancias simultáneas. FlyEnv gestiona el runtime local de MariaDB, sus archivos de configuración y sus directorios de datos; no garantiza que todas las versiones de MariaDB estén disponibles en todos los sistemas operativos o fuentes de instalación. Las versiones que ofrece el **Version Manager** dependen de tu plataforma (Homebrew y MacPorts en macOS, Homebrew en Linux, paquetes estáticos en Windows) y de lo que publican esas fuentes, y phpMyAdmin requiere además que haya un servidor web de FlyEnv y una versión de [PHP](/es/features/php) en ejecución. Toma la lista de versiones de la aplicación y la [página de descargas](/es/download) como referencia de lo que se puede instalar en tu equipo.

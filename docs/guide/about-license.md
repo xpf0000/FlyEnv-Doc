@@ -33,10 +33,14 @@ We offer the following three license application paths. FlyEnv cannot currently 
 
 After purchasing, keep your Paddle order ID and submit it with your license request in the app. FlyEnv handles license issuance manually for this purchase path as well. To purchase a license, go to the [License page](/license).
 
+![FlyEnv license purchase records with customer details masked](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
+
 ### Option B: Contribute to the Codebase
 
 * **Submit a PR**: Help improve FlyEnv by submitting a Pull Request on GitHub.
 * **Every Bit Helps**: Whether it’s a major feature or a simple documentation fix, all meaningful contributions qualify for a license.
+
+![GitHub pull requests for FlyEnv](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
 
 ### Option C: Spread the Word (Promotion)
 

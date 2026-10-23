@@ -78,6 +78,10 @@ For day-to-day work there is no need to leave the app: the per-version **Manage*
 - **Root password:** change the root password for the instance — the default root password on fresh installs is `root`. The [database user and password guide](/guide/database-user-password) covers this in more detail.
 - **Backups:** dump any database with `mysqldump` into a backup directory you choose, straight from the drawer.
 
+## MySQL Cluster plugin
+
+For a dedicated instance workspace with **GTID source/replica replication** and **single-primary Group Replication**, install the **[MySQL Cluster plugin](/features/mysql-cluster)** from the Plugin Market. It reuses installed MySQL versions and gives each new local instance its own port, data directory, configuration and logs.
+
 ## Multiple instances with Groups
 
 The **Group** tab runs several MySQL instances concurrently alongside the main service. Each instance combines a chosen MySQL version with its own port and its own data directory, and keeps per-instance configuration and logs — so a project pinned to MySQL 5.7 can run next to one on MySQL 8.x without touching each other's data. The group power switch in the sidebar header — also available in the system tray — starts or stops the main service and all Group instances together.

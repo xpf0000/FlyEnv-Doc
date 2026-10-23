@@ -2,17 +2,17 @@
 layout: page
 titleTemplate: false
 title: 'Funciones de FlyEnv: Runtimes, Servicios, Sitios Locales y Más'
-description: 'Explora los runtimes, servicios, flujos de trabajo de proyectos y herramientas de sitios locales que FlyEnv gestiona en un único espacio de trabajo de desarrollo nativo.'
+description: 'Explora los runtimes, servicios, complementos, flujos de trabajo y herramientas para sitios locales que FlyEnv reúne en un único espacio de trabajo nativo.'
 head:
   - - meta
     - name: description
-      content: 'Explora los runtimes, servicios, flujos de trabajo de proyectos y herramientas de sitios locales que FlyEnv gestiona en un único espacio de trabajo de desarrollo nativo.'
+      content: 'Explora los runtimes, servicios, complementos, flujos de trabajo y herramientas para sitios locales que FlyEnv reúne en un único espacio de trabajo nativo.'
   - - meta
     - property: og:title
       content: 'Funciones de FlyEnv: Runtimes, Servicios, Sitios Locales y Más'
   - - meta
     - property: og:description
-      content: 'Explora los runtimes, servicios, flujos de trabajo de proyectos y herramientas de sitios locales que FlyEnv gestiona en un único espacio de trabajo de desarrollo nativo.'
+      content: 'Explora los runtimes, servicios, complementos, flujos de trabajo y herramientas para sitios locales que FlyEnv reúne en un único espacio de trabajo nativo.'
   - - meta
     - property: og:type
       content: website
@@ -87,6 +87,11 @@ import rNacosLogo from '../components/SVG/R-NACOS.svg'
 import consulLogo from '../components/SVG/Consul.svg'
 import etcdLogo from '../components/SVG/etcd.svg'
 import temporalLogo from '../components/SVG/Temporal.svg'
+import kafkaLogo from '../components/SVG/Kafka.svg'
+import openSearchLogo from '../components/SVG/OpenSearch.svg'
+import sqlServerLogo from '../components/SVG/SqlServer.svg'
+import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
+import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 
 const categories = [
   {
@@ -195,6 +200,21 @@ const categories = [
       { name: 'Ollama', detail: 'Ejecuta modelos sin conexión junto a tu stack.', href: '/es/features/ollama', logo: ollamaLogo },
       { name: 'CLIProxyAPI', detail: 'Enruta proveedores de IA locales a través de un único gateway.', href: '/es/features/cliproxyapi', mark: 'CLIProxyAPI' }
     ]
+  },
+  {
+    id: 'plugins', eyebrow: '08 / Amplía tu espacio de trabajo', title: 'Complementos y módulos opcionales',
+    description: 'Añade las integraciones que necesites y gestiona sus runtimes, servicios y herramientas desde FlyEnv.', tone: 'bg-sky-50 text-sky-700',
+    items: [
+      { name: 'Catálogo de complementos', detail: 'Descubre, instala y actualiza módulos opcionales.', href: '/es/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'MySQL Cluster', detail: 'Ejecuta varias instancias, réplicas GTID y Group Replication.', href: '/es/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
+      { name: 'MariaDB Cluster', detail: 'Ejecuta varias instancias y crea grupos de replicación GTID.', href: '/es/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+      { name: 'Kafka', detail: 'Ejecuta un broker KRaft y gestiona temas locales.', href: '/es/features/kafka', logo: kafkaLogo },
+      { name: 'llama.cpp', detail: 'Gestiona modelos GGUF y runtimes de inferencia local.', href: '/es/features/llama-cpp', logo: llamaCppLogo },
+      { name: 'OpenSearch', detail: 'Ejecuta búsquedas locales con una versión compatible de Dashboards.', href: '/es/features/opensearch', logo: openSearchLogo },
+      { name: 'SQL Server', detail: 'Gestiona SQL Server en Windows x64 y Ubuntu.', href: '/es/features/mssql', logo: sqlServerLogo },
+      { name: 'Dameng DM8', detail: 'Instala e inicializa DM8 en sistemas x64 compatibles.', href: '/es/features/dameng', logo: '/assets/features/dameng.png' },
+      { name: 'Comandos rápidos', detail: 'Guarda comandos por carpeta y ejecútalos en el terminal.', href: '/es/features/command-shortcuts', logo: commandShortcutsLogo }
+    ]
   }
 ]
 
@@ -208,7 +228,7 @@ const jumps = categories.map(({ id, title }) => ({ id, title }))
       <div class="max-w-xl">
         <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-700 shadow-sm"><span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>Entorno de desarrollo local todo en uno</div>
         <h1 class="text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">Todo lo que necesitas<br /><span class="text-blue-600">para el desarrollo local</span></h1>
-        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Gestiona runtimes de lenguajes, bases de datos, servidores web, sitios locales y herramientas de IA desde un único espacio de trabajo de escritorio nativo: en Windows, macOS y Linux.</p>
+        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Gestiona runtimes de lenguajes, bases de datos, servidores web, sitios locales y herramientas de IA desde un único espacio de trabajo de escritorio nativo: en Windows, macOS y Linux. Añade módulos opcionales desde el catálogo de complementos a medida que crezcan tus proyectos.</p>
         <div class="mt-9 flex flex-wrap gap-3"><a href="/es/download" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 active:translate-y-0">Descargar FlyEnv <span class="ml-2">→</span></a><a href="/es/guide/getting-started" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold !text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0">Lee la guía de inicio rápido</a></div>
         <div class="mt-12 grid max-w-lg grid-cols-1 gap-3 text-sm text-slate-600 sm:grid-cols-3 sm:gap-5"><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">✦</span>Aplicación de escritorio nativa</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">⌘</span>Flujos de trabajo locales sin contenedores</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">◌</span>Funciona sin conexión</div></div>
       </div>

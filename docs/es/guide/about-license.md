@@ -33,10 +33,14 @@ Ofrecemos las siguientes tres vías para solicitar una licencia. Actualmente Fly
 
 Después de la compra, guarda tu ID de pedido de Paddle y envíalo junto con tu solicitud de licencia en la app. FlyEnv también emite manualmente las licencias de esta vía de compra. Para comprar una licencia, ve a la [página de licencias](/es/license).
 
+![Historial de compras de licencias de FlyEnv con los datos de los clientes ocultos](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
+
 ### Opción B: Contribuir al código
 
 * **Envía un PR**: ayuda a mejorar FlyEnv enviando un Pull Request en GitHub.
 * **Todo aporte cuenta**: ya sea una función importante o una simple corrección en la documentación, todas las contribuciones significativas pueden optar a una licencia.
+
+![Lista de pull requests de FlyEnv en GitHub](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
 
 ### Opción C: Corre la voz (promoción)
 

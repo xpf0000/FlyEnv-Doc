@@ -2,17 +2,17 @@
 layout: page
 titleTemplate: false
 title: 'FlyEnv Features: Runtimes, Services, Local Sites and More'
-description: 'Explore the runtimes, services, project workflows and local site tools FlyEnv manages in one native development workspace.'
+description: 'Explore the runtimes, services, plugins, project workflows and local site tools FlyEnv manages in one native development workspace.'
 head:
   - - meta
     - name: description
-      content: 'Explore the runtimes, services, project workflows and local site tools FlyEnv manages in one native development workspace.'
+      content: 'Explore the runtimes, services, plugins, project workflows and local site tools FlyEnv manages in one native development workspace.'
   - - meta
     - property: og:title
       content: 'FlyEnv Features: Runtimes, Services, Local Sites and More'
   - - meta
     - property: og:description
-      content: 'Explore the runtimes, services, project workflows and local site tools FlyEnv manages in one native development workspace.'
+      content: 'Explore the runtimes, services, plugins, project workflows and local site tools FlyEnv manages in one native development workspace.'
   - - meta
     - property: og:type
       content: website
@@ -67,6 +67,11 @@ import rNacosLogo from './components/SVG/R-NACOS.svg'
 import consulLogo from './components/SVG/Consul.svg'
 import etcdLogo from './components/SVG/etcd.svg'
 import temporalLogo from './components/SVG/Temporal.svg'
+import kafkaLogo from './components/SVG/Kafka.svg'
+import openSearchLogo from './components/SVG/OpenSearch.svg'
+import sqlServerLogo from './components/SVG/SqlServer.svg'
+import llamaCppLogo from './components/SVG/LlamaCpp.svg'
+import commandShortcutsLogo from './components/SVG/CommandShortcuts.svg'
 
 const categories = [
   {
@@ -175,6 +180,21 @@ const categories = [
       { name: 'Ollama', detail: 'Run offline models beside your stack.', href: '/features/ollama', logo: ollamaLogo },
       { name: 'CLIProxyAPI', detail: 'Route local AI providers through one gateway.', href: '/features/cliproxyapi', mark: 'CLIProxyAPI' }
     ]
+  },
+  {
+    id: 'plugins', eyebrow: '08 / Extend your workspace', title: 'Plugin Market & Optional Modules',
+    description: 'Install optional integrations and manage their runtimes, services and specialized tools inside FlyEnv.', tone: 'bg-sky-50 text-sky-700',
+    items: [
+      { name: 'Plugin Market', detail: 'Discover, install and update optional modules.', href: '/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'MySQL Cluster', detail: 'Run multiple instances, GTID replicas and Group Replication.', href: '/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
+      { name: 'MariaDB Cluster', detail: 'Run multiple instances and create GTID source/replica groups.', href: '/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+      { name: 'Kafka', detail: 'Run a KRaft broker and manage local topics.', href: '/features/kafka', logo: kafkaLogo },
+      { name: 'llama.cpp', detail: 'Manage GGUF models and local inference runtimes.', href: '/features/llama-cpp', logo: llamaCppLogo },
+      { name: 'OpenSearch', detail: 'Run local search with matching Dashboards.', href: '/features/opensearch', logo: openSearchLogo },
+      { name: 'SQL Server', detail: 'Manage SQL Server on x64 Windows and Ubuntu.', href: '/features/mssql', logo: sqlServerLogo },
+      { name: 'Dameng DM8', detail: 'Install and initialize DM8 on supported x64 systems.', href: '/features/dameng', logo: '/assets/features/dameng.png' },
+      { name: 'Command Shortcuts', detail: 'Save commands by folder and run them in a terminal.', href: '/features/command-shortcuts', logo: commandShortcutsLogo }
+    ]
   }
 ]
 
@@ -188,7 +208,7 @@ const jumps = categories.map(({ id, title }) => ({ id, title }))
       <div class="max-w-xl">
         <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-700 shadow-sm"><span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>All-in-one local development environment</div>
         <h1 class="text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">Everything you need<br /><span class="text-blue-600">for local development</span></h1>
-        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Manage language runtimes, databases, web servers, local sites and AI tools from one native desktop workspace — on Windows, macOS and Linux.</p>
+        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Manage language runtimes, databases, web servers, local sites and AI tools from one native desktop workspace — on Windows, macOS and Linux. Add optional modules through the Plugin Market as your projects grow.</p>
         <div class="mt-9 flex flex-wrap gap-3"><a href="/download" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 active:translate-y-0">Download FlyEnv <span class="ml-2">→</span></a><a href="/guide/getting-started" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold !text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0">Read the quick start</a></div>
         <div class="mt-12 grid max-w-lg grid-cols-1 gap-3 text-sm text-slate-600 sm:grid-cols-3 sm:gap-5"><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">✦</span>Native desktop app</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">⌘</span>Container-free local workflows</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">◌</span>Works offline</div></div>
       </div>

@@ -13,6 +13,32 @@ const languageByLocale = {
   es: 'es-ES'
 }
 
+test('plugin features are discoverable in every locale with reciprocal language links', () => {
+  const slugs = ['plugin-market', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
+  const locales = ['', 'zh', 'id', 'es']
+  for (const locale of locales) {
+    const prefix = locale ? `/${locale}` : ''
+    const overview = fs.readFileSync(path.join(distRoot, locale, 'features.html'), 'utf8')
+    for (const slug of slugs) {
+      const html = fs.readFileSync(path.join(distRoot, locale, 'features', `${slug}.html`), 'utf8')
+      const route = `${prefix}/features/${slug}`
+      assert.ok(overview.includes(`href="${route}"`), `Missing overview link: ${route}`)
+      assert.ok(overview.includes(`"url":"${siteUrl}${route}"`), `Missing collection item: ${route}`)
+      const alternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
+      assert.deepEqual(alternates.map((match) => match[1]).sort(), ['en', 'es-ES', 'id-ID', 'x-default', 'zh-CN'])
+      for (const target of locales) {
+        const language = languageByLocale[target || 'en']
+        const url = `${siteUrl}${target ? `/${target}` : ''}/features/${slug}`
+        assert.ok(alternates.some((match) => match[1] === language && match[2] === url), `Missing alternate: ${url}`)
+      }
+      const source = fs.readFileSync(path.join(docsRoot, locale, 'features', `${slug}.md`), 'utf8')
+      const english = fs.readFileSync(path.join(docsRoot, 'features', `${slug}.md`), 'utf8')
+      const screenshots = (text) => [...text.matchAll(/!\[[^\]]*\]\((https:\/\/oss\.macphpstudy\.com\/image\/features\/plugin\/[^)]+)\)/g)].map((match) => match[1])
+      assert.deepEqual(screenshots(source), screenshots(english), `Screenshot coverage: ${route}`)
+    }
+  }
+})
+
 function collectHtmlFiles(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const filePath = path.join(directory, entry.name)
@@ -204,13 +230,18 @@ test('indexable pages have complete, unique and coherent metadata', () => {
     if (page.h1Count !== 1) {
       issues.push(`${page.relativePath}: expected one h1, found ${page.h1Count}`)
     }
-    if (page.alternates.length !== 5) {
+    const relativeSource = page.relativePath.replace(/^(zh|id|es)\//, '').replace(/\.html$/, '.md')
+    const expectedLanguages = Object.entries(languageByLocale)
+      .filter(([locale]) => fs.existsSync(path.join(docsRoot, locale === 'en' ? '' : locale, relativeSource)))
+      .map(([, language]) => language)
+    expectedLanguages.push('x-default')
+    if (page.alternates.length !== expectedLanguages.length) {
       issues.push(
-        `${page.relativePath}: expected five hreflang links, found ${page.alternates.length}`
+        `${page.relativePath}: expected ${expectedLanguages.length} hreflang links, found ${page.alternates.length}`
       )
     } else {
       const alternateLanguages = new Set(page.alternates.map((alternate) => alternate.language))
-      for (const language of ['en', 'zh-CN', 'id-ID', 'es-ES', 'x-default']) {
+      for (const language of expectedLanguages) {
         if (!alternateLanguages.has(language)) {
           issues.push(`${page.relativePath}: missing ${language} hreflang`)
         }

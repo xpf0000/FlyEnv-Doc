@@ -78,6 +78,10 @@ Untuk pekerjaan sehari-hari, Anda tidak perlu meninggalkan aplikasi: panel **Kel
 - **Kata sandi root:** ubah kata sandi root instans—kata sandi root bawaan pada pemasangan baru adalah `root`. [Panduan pengguna dan kata sandi basis data](/id/guide/database-user-password) membahasnya lebih rinci.
 - **Cadangan:** ekspor basis data apa pun menggunakan `mysqldump` ke direktori cadangan pilihan Anda, langsung dari panel.
 
+## Plugin MySQL Cluster
+
+Untuk ruang pengelolaan instans khusus dengan **replikasi GTID source/replica** dan **Group Replication dengan satu primary**, instal **[plugin MySQL Cluster](/id/features/mysql-cluster)** dari Pasar Plugin. Plugin menggunakan versi MySQL yang sudah terpasang dan menyediakan port, direktori data, konfigurasi, serta log tersendiri untuk setiap instans lokal baru.
+
 ## Beberapa instans dengan Grup
 
 Tab **Grup** menjalankan beberapa instans MySQL secara serentak di samping layanan utama. Setiap instans menggabungkan versi MySQL pilihan dengan port dan direktori datanya sendiri, serta menyimpan konfigurasi dan log per instans—sehingga proyek yang terkunci pada MySQL 5.7 dapat berjalan di samping proyek pada MySQL 8.x tanpa menyentuh data satu sama lain. Sakelar daya grup pada kepala bilah sisi—juga tersedia di baki sistem—memulai atau menghentikan layanan utama dan semua instans Grup sekaligus.

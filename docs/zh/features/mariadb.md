@@ -80,6 +80,10 @@ FlyEnv 在前台运行真正的 `mariadbd` 二进制文件（不是 `mariadbd-sa
 
 <FeatureRelatedLinks locale="zh" slug="mariadb" />
 
+## 多实例与主从复制
+
+在插件市场安装 **[MariaDB 集群插件](/zh/features/mariadb-cluster)**，即可在不同端口同时运行多个 MariaDB 实例，或创建 GTID 主从复制组。插件复用已安装的 MariaDB 版本，并提供独立的数据目录、配置、日志和数据库管理。
+
 ## 兼容性说明
 
 MariaDB 模块一次只运行一个版本；与 [MySQL 模块](/zh/features/mysql) 不同，它不支持同时运行多个实例的分组功能。FlyEnv 管理本地 MariaDB 运行时、配置文件和数据目录，但不保证每个 MariaDB 版本都能在所有操作系统或安装源上使用。版本管理器提供的版本取决于你的平台（macOS 使用 Homebrew 和 MacPorts，Linux 使用 Homebrew，Windows 使用静态软件包）以及这些来源发布的内容。phpMyAdmin 还要求 FlyEnv 的 Web 服务器和 [PHP](/zh/features/php) 版本正在运行。请以应用内版本列表和[下载页面](/zh/download)作为你电脑上可安装版本的权威依据。

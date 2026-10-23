@@ -33,10 +33,14 @@ Kami menyediakan tiga jalur aplikasi lisensi. FlyEnv saat ini belum dapat menerb
 
 Setelah membeli, simpan ID pesanan Paddle dan kirimkan bersama permintaan lisensi di aplikasi. Penerbitan lisensi untuk jalur pembelian ini juga dilakukan secara manual. Untuk membeli lisensi, buka [halaman Lisensi](/id/license).
 
+![Riwayat pembelian lisensi FlyEnv dengan informasi pelanggan disamarkan](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
+
 ### Opsi B: Berkontribusi pada Kode
 
 - **Kirim PR**: bantu menyempurnakan FlyEnv dengan mengirim Pull Request di GitHub.
 - **Setiap kontribusi berarti**: baik fitur besar maupun perbaikan dokumentasi sederhana, setiap kontribusi yang bermakna dapat memenuhi syarat lisensi.
+
+![Daftar pull request FlyEnv di GitHub](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
 
 ### Opsi C: Membagikan Pengalaman Anda
 

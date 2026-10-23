@@ -2,17 +2,17 @@
 layout: page
 titleTemplate: false
 title: 'Fitur FlyEnv: Runtime, Layanan, Situs Lokal, dan Lainnya'
-description: 'Jelajahi runtime, layanan, alur kerja proyek, dan alat situs lokal yang dikelola FlyEnv dalam satu ruang kerja desktop.'
+description: 'Jelajahi runtime, layanan, plugin, alur kerja proyek, dan alat situs lokal yang dikelola FlyEnv dalam satu ruang kerja desktop.'
 head:
   - - meta
     - name: description
-      content: 'Jelajahi runtime, layanan, situs lokal, dan alur kerja proyek di FlyEnv.'
+      content: 'Jelajahi runtime, layanan, plugin, alur kerja proyek, dan alat situs lokal yang dikelola FlyEnv dalam satu ruang kerja desktop.'
   - - meta
     - property: og:title
       content: 'Fitur FlyEnv: Runtime, Layanan, Situs Lokal, dan Lainnya'
   - - meta
     - property: og:description
-      content: 'Jelajahi runtime, layanan, situs lokal, dan alur kerja proyek di FlyEnv.'
+      content: 'Jelajahi runtime, layanan, plugin, alur kerja proyek, dan alat situs lokal yang dikelola FlyEnv dalam satu ruang kerja desktop.'
   - - meta
     - property: og:type
       content: website
@@ -67,6 +67,11 @@ import rNacosLogo from '../components/SVG/R-NACOS.svg'
 import consulLogo from '../components/SVG/Consul.svg'
 import etcdLogo from '../components/SVG/etcd.svg'
 import temporalLogo from '../components/SVG/Temporal.svg'
+import kafkaLogo from '../components/SVG/Kafka.svg'
+import openSearchLogo from '../components/SVG/OpenSearch.svg'
+import sqlServerLogo from '../components/SVG/SqlServer.svg'
+import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
+import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 
 const categories = [
   {
@@ -175,6 +180,21 @@ const categories = [
       { name: 'Ollama', detail: 'Jalankan model luring di samping stack Anda.', href: '/id/features/ollama', logo: ollamaLogo },
       { name: 'CLIProxyAPI', detail: 'Arahkan penyedia AI lokal melalui satu gateway.', href: '/id/features/cliproxyapi', mark: 'CLIProxyAPI' }
     ]
+  },
+  {
+    id: 'plugins', eyebrow: '08 / Perluas ruang kerja Anda', title: 'Pasar Plugin & Modul Tambahan',
+    description: 'Tambahkan integrasi sesuai kebutuhan, lalu kelola runtime, layanan, dan alat khusus langsung di FlyEnv.', tone: 'bg-sky-50 text-sky-700',
+    items: [
+      { name: 'Pasar Plugin', detail: 'Temukan, instal, dan perbarui modul tambahan.', href: '/id/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'MySQL Cluster', detail: 'Jalankan banyak instans, replika GTID, dan Group Replication.', href: '/id/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
+      { name: 'MariaDB Cluster', detail: 'Jalankan banyak instans dan buat grup replikasi GTID.', href: '/id/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+      { name: 'Kafka', detail: 'Jalankan broker KRaft dan kelola topik lokal.', href: '/id/features/kafka', logo: kafkaLogo },
+      { name: 'llama.cpp', detail: 'Kelola model GGUF dan runtime inferensi lokal.', href: '/id/features/llama-cpp', logo: llamaCppLogo },
+      { name: 'OpenSearch', detail: 'Jalankan pencarian lokal dengan versi Dashboards yang sesuai.', href: '/id/features/opensearch', logo: openSearchLogo },
+      { name: 'SQL Server', detail: 'Kelola SQL Server pada Windows x64 dan Ubuntu.', href: '/id/features/mssql', logo: sqlServerLogo },
+      { name: 'Dameng DM8', detail: 'Instal dan inisialisasi DM8 pada sistem x64 yang didukung.', href: '/id/features/dameng', logo: '/assets/features/dameng.png' },
+      { name: 'Pintasan Perintah', detail: 'Simpan perintah per folder dan jalankan di terminal.', href: '/id/features/command-shortcuts', logo: commandShortcutsLogo }
+    ]
   }
 ]
 
@@ -188,7 +208,7 @@ const jumps = categories.map(({ id, title }) => ({ id, title }))
       <div class="max-w-xl">
         <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-700 shadow-sm"><span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>Lingkungan pengembangan lokal terpadu</div>
         <h1 class="text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">Semua yang Anda butuhkan<br /><span class="text-blue-600">untuk pengembangan lokal</span></h1>
-        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Kelola runtime bahasa, database, server web, situs lokal, dan alat AI dari satu ruang kerja desktop di Windows, macOS, dan Linux.</p>
+        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Kelola runtime bahasa, database, server web, situs lokal, dan alat AI dari satu ruang kerja desktop di Windows, macOS, dan Linux. Tambahkan modul dari Pasar Plugin seiring berkembangnya kebutuhan proyek Anda.</p>
         <div class="mt-9 flex flex-wrap gap-3"><a href="/id/download" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 active:translate-y-0">Unduh FlyEnv <span class="ml-2">→</span></a><a href="/id/guide/getting-started" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold !text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0">Baca panduan mulai cepat</a></div>
         <div class="mt-12 grid max-w-lg grid-cols-1 gap-3 text-sm text-slate-600 sm:grid-cols-3 sm:gap-5"><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">✦</span>Aplikasi desktop native</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">⌘</span>Alur kerja lokal tanpa kontainer</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">◌</span>Bekerja offline</div></div>
       </div>

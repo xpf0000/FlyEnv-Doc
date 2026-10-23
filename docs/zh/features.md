@@ -2,17 +2,17 @@
 layout: page
 titleTemplate: false
 title: 'FlyEnv 特性：运行时、服务、本地站点等'
-description: '探索 FlyEnv 在原生开发工作区中管理的运行时、服务、项目工作流和本地站点工具。'
+description: '探索 FlyEnv 在原生开发工作区中管理的运行时、服务、插件、项目工作流和本地站点工具。'
 head:
   - - meta
     - name: description
-      content: '探索 FlyEnv 的运行时、服务、本地站点和项目工作流。'
+      content: '探索 FlyEnv 在原生开发工作区中管理的运行时、服务、插件、项目工作流和本地站点工具。'
   - - meta
     - property: og:title
       content: 'FlyEnv 特性：运行时、服务、本地站点等'
   - - meta
     - property: og:description
-      content: '探索 FlyEnv 的运行时、服务、本地站点和项目工作流。'
+      content: '探索 FlyEnv 在原生开发工作区中管理的运行时、服务、插件、项目工作流和本地站点工具。'
   - - meta
     - property: og:type
       content: website
@@ -67,6 +67,11 @@ import rNacosLogo from '../components/SVG/R-NACOS.svg'
 import consulLogo from '../components/SVG/Consul.svg'
 import etcdLogo from '../components/SVG/etcd.svg'
 import temporalLogo from '../components/SVG/Temporal.svg'
+import kafkaLogo from '../components/SVG/Kafka.svg'
+import openSearchLogo from '../components/SVG/OpenSearch.svg'
+import sqlServerLogo from '../components/SVG/SqlServer.svg'
+import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
+import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 
 const categories = [
   {
@@ -175,6 +180,21 @@ const categories = [
       { name: 'Ollama', detail: '在技术栈旁运行离线模型。', href: '/zh/features/ollama', logo: ollamaLogo },
       { name: 'CLIProxyAPI', detail: '通过一个网关路由本地 AI 提供商。', href: '/zh/features/cliproxyapi', mark: 'CLIProxyAPI' }
     ]
+  },
+  {
+    id: 'plugins', eyebrow: '08 / 按需扩展工作区', title: '插件市场与可选模块',
+    description: '按需安装集成模块，在 FlyEnv 中管理运行时、服务和专用工具。', tone: 'bg-sky-50 text-sky-700',
+    items: [
+      { name: '插件市场', detail: '发现、安装和更新可选模块。', href: '/zh/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'MySQL 集群', detail: '同时运行多实例，配置 GTID 主从复制与组复制。', href: '/zh/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
+      { name: 'MariaDB 集群', detail: '同时运行多实例，一键创建 GTID 主从复制组。', href: '/zh/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+      { name: 'Kafka', detail: '运行 KRaft Broker 并管理本地主题。', href: '/zh/features/kafka', logo: kafkaLogo },
+      { name: 'llama.cpp', detail: '管理 GGUF 模型和本地推理运行时。', href: '/zh/features/llama-cpp', logo: llamaCppLogo },
+      { name: 'OpenSearch', detail: '运行本地搜索并启动匹配版本的 Dashboards。', href: '/zh/features/opensearch', logo: openSearchLogo },
+      { name: 'SQL Server', detail: '在 x64 Windows 和 Ubuntu 上管理 SQL Server。', href: '/zh/features/mssql', logo: sqlServerLogo },
+      { name: '达梦 DM8', detail: '在支持的 x64 系统上安装和初始化 DM8。', href: '/zh/features/dameng', logo: '/assets/features/dameng.png' },
+      { name: '快捷命令', detail: '按文件夹保存命令，并在终端中执行。', href: '/zh/features/command-shortcuts', logo: commandShortcutsLogo }
+    ]
   }
 ]
 
@@ -188,7 +208,7 @@ const jumps = categories.map(({ id, title }) => ({ id, title }))
       <div class="max-w-xl">
         <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-700 shadow-sm"><span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>一体化本地开发环境</div>
         <h1 class="text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">本地开发所需的一切<br /><span class="text-blue-600">尽在 FlyEnv</span></h1>
-        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">在一个原生桌面工作区管理语言运行时、数据库、Web 服务器、本地站点和 AI 工具，支持 Windows、macOS 与 Linux。</p>
+        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">在一个原生桌面工作区管理语言运行时、数据库、Web 服务器、本地站点和 AI 工具，支持 Windows、macOS 与 Linux。随着项目需求增加，还可以通过插件市场添加可选模块。</p>
         <div class="mt-9 flex flex-wrap gap-3"><a href="/zh/download" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 active:translate-y-0">下载 FlyEnv <span class="ml-2">→</span></a><a href="/zh/guide/getting-started" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold !text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0">阅读快速入门</a></div>
         <div class="mt-12 grid max-w-lg grid-cols-1 gap-3 text-sm text-slate-600 sm:grid-cols-3 sm:gap-5"><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">✦</span>原生桌面应用</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">⌘</span>无需容器的本地工作流</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">◌</span>支持离线运行</div></div>
       </div>

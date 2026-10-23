@@ -110,6 +110,8 @@ const categorySummaries: Record<DemoLocale, Record<DemoCategory, string>> = {
 }
 
 const bilibiliByYoutubeId: Partial<Record<string, string>> = {
+  'KVQKQ6xfLkw': 'BV1rcn56hEzF',
+  'Iz60XAzo7Us': 'BV1QKJR6xEGQ',
   'TA2NA0JeGdo': 'BV1eCNR6FE2k',
   'RmSl4jgmEyI': 'BV1biGG6nEYz',
   'frprHkD1_rQ': 'BV1AyM761EpZ',
@@ -232,6 +234,42 @@ function createDemo(source: DemoSource): Demo {
 }
 
 const sources: DemoSource[] = [
+  {
+    id: 'llama-cpp-gguf-models', youtubeId: 'KVQKQ6xfLkw', category: 'ai-mcp',
+    publishedAt: '2026-10-18',
+    titles: {
+      en: 'Run llama.cpp locally with GGUF models',
+      zh: '本地运行 llama.cpp，管理 GGUF 模型',
+      id: 'Menjalankan llama.cpp dengan model GGUF secara lokal',
+      es: 'Ejecuta llama.cpp con modelos GGUF en local'
+    },
+    summaries: {
+      en: 'Install the llama.cpp plugin, manage runtimes and GGUF models, adjust model settings and start local inference.',
+      zh: '安装 llama.cpp 插件，管理运行时与 GGUF 模型，调整模型设置并启动本地推理服务。',
+      id: 'Instal plugin llama.cpp, kelola runtime dan model GGUF, sesuaikan pengaturan model, lalu jalankan inferensi lokal.',
+      es: 'Instala el complemento llama.cpp, gestiona runtimes y modelos GGUF, ajusta el modelo e inicia la inferencia local.'
+    },
+    tags: ['llama.cpp', 'GGUF', 'local AI', 'plugin'],
+    relatedGuides: [], relatedModules: ['/features/llama-cpp']
+  },
+  {
+    id: 'command-shortcuts-projects', youtubeId: 'Iz60XAzo7Us', category: 'developer-tools',
+    publishedAt: '2026-10-19',
+    titles: {
+      en: 'Save project commands and run them with one click',
+      zh: '按项目保存命令，一键在终端运行',
+      id: 'Menyimpan perintah per proyek dan menjalankannya dengan satu klik',
+      es: 'Guarda comandos por proyecto y ejecútalos con un clic'
+    },
+    summaries: {
+      en: 'Save commands by project folder, run them in your system terminal and reorder folders and commands.',
+      zh: '按项目文件夹保存常用命令，在系统终端中运行，并拖动调整文件夹和命令的顺序。',
+      id: 'Simpan perintah berdasarkan folder proyek, jalankan di terminal sistem, lalu atur ulang urutan folder dan perintah dengan menyeretnya.',
+      es: 'Guarda comandos por carpeta de proyecto, ejecútalos en el terminal del sistema y arrastra carpetas y comandos para cambiar su orden.'
+    },
+    tags: ['Command Shortcuts', 'terminal', 'project commands', 'plugin'],
+    relatedGuides: [], relatedModules: ['/features/command-shortcuts']
+  },
   {
     id: 'flyenv-feature-overview', youtubeId: 'TA2NA0JeGdo', category: 'getting-started',
     publishedAt: '2026-07-17', featured: true, featuredRank: 1,

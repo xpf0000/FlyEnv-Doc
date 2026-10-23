@@ -80,6 +80,10 @@ For day-to-day work there is no need to leave the app: the per-version **Manage*
 
 <FeatureRelatedLinks slug="mariadb" />
 
+## Multiple instances and replication
+
+Install the **[MariaDB Cluster plugin](/features/mariadb-cluster)** from the Plugin Market to run multiple MariaDB instances concurrently on separate ports or create a GTID source/replica group. The plugin reuses installed MariaDB versions and provides per-instance data directories, configuration, logs and database management.
+
 ## Compatibility Notes
 
 The MariaDB module runs one version at a time; unlike the [MySQL module](/features/mysql), it has no Group feature for multiple concurrent instances. FlyEnv manages the local MariaDB runtime, its configuration files and its data directories; it does not guarantee that every MariaDB version is available on every operating system or install source. The versions offered in Version Manager depend on your platform (Homebrew and MacPorts on macOS, Homebrew on Linux, static packages on Windows) and on what those sources publish, and phpMyAdmin additionally requires a FlyEnv web server and [PHP](/features/php) version to be running. Treat the in-app version list and the [Download page](/download) as the source of truth for what can be installed on your machine.

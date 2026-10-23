@@ -8,7 +8,11 @@ type PaddleCheckoutItem = {
 type PaddleInstance = {
   Initialize: (options: { token: string }) => void
   Checkout: {
-    open: (options: { items: PaddleCheckoutItem[]; customData: Record<string, string> }) => void
+    open: (options: {
+      items: PaddleCheckoutItem[]
+      customData: Record<string, string>
+      settings: { successUrl: string }
+    }) => void
   }
 }
 
@@ -93,7 +97,13 @@ export const usePaddleCheckout = ({ source, errorMessage }: PaddleCheckoutOption
         paddleInitialized = true
       }
 
+      const locale = window.location.pathname.match(/^\/(zh|id|es)(?:\/|$)/)?.[1]
+      const successPath = `${locale ? `/${locale}` : ''}/payment-success`
+
       Paddle.Checkout.open({
+        settings: {
+          successUrl: new URL(successPath, window.location.origin).href
+        },
         items: [
           {
             priceId: paddlePriceId,

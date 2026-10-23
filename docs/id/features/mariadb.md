@@ -80,6 +80,10 @@ Untuk pekerjaan harian Anda tidak perlu meninggalkan aplikasi; panel **Kelola** 
 
 <FeatureRelatedLinks locale="id" slug="mariadb" />
 
+## Beberapa instans dan replikasi
+
+Instal **[plugin MariaDB Cluster](/id/features/mariadb-cluster)** dari Pasar Plugin untuk menjalankan beberapa instans MariaDB secara bersamaan pada port berbeda atau membuat grup replikasi GTID source/replica. Plugin menggunakan versi MariaDB yang sudah terpasang dan menyediakan direktori data, konfigurasi, log, serta pengelolaan database per instans.
+
 ## Catatan kompatibilitas
 
 Modul MariaDB menjalankan satu versi pada satu waktu. Berbeda dari [modul MySQL](/id/features/mysql), modul ini tidak memiliki fitur Grup untuk beberapa instans bersamaan. FlyEnv mengelola runtime MariaDB lokal, berkas konfigurasi, dan direktori data; ketersediaan setiap versi tidak dijamin pada semua sistem operasi atau sumber pemasangan. Versi di Manajer Versi bergantung pada platform (Homebrew/MacPorts di macOS, Homebrew di Linux, paket statis di Windows) dan rilis yang dipublikasikan sumber tersebut. phpMyAdmin juga memerlukan server web FlyEnv dan versi [PHP](/id/features/php) yang sedang berjalan. Jadikan daftar versi dalam aplikasi dan [halaman Unduhan](/id/download) sebagai acuan ketersediaan di komputer Anda.
