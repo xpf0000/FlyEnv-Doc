@@ -1,0 +1,20 @@
+{
+  "dameng.png": {
+    "source": "https://www.dameng.com/static/cn/images/favicon.ico",
+    "conversion": "Lossless ICO to PNG; original colors and transparency preserved."
+  },
+  "SqlServer.svg": {
+    "source": "https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+    "note": "Original full-color SQL Server artwork distributed by Devicon."
+  },
+  "LlamaCpp.svg": {
+    "source": "https://raw.githubusercontent.com/ggml-org/llama.cpp/master/media/llama1-icon-transparent.svg"
+  },
+  "OpenSearch.svg": {
+    "source": "https://opensearch.org/wp-content/uploads/2025/01/opensearch_mark_default.svg"
+  },
+  "CommandShortcuts.svg": {
+    "source": "FlyEnv/src/render/svg/terminal.svg",
+    "note": "Native plugin terminal glyph in FlyEnv blue."
+  }
+}

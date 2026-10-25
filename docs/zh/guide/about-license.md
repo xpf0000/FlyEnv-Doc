@@ -33,10 +33,14 @@ FlyEnv 并未限制核心运行环境功能的使用。付费许可证用于解�
 
 购买后，请保留 Paddle 订单 ID，并在客户端申请许可证时一并提交。购买许可证同样由人工处理发放。您可以前往[许可证页面](/zh/license)购买许可证。
 
+![FlyEnv 许可证购买记录，客户信息已打码](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
+
 ### 方式 B：参与开发 (Contribute)
 
 * **提交 PR：** 通过 GitHub 提交 Pull Request 参与项目开发。
 * **不限大小：** 无论代码量多少，只要是积极的改进（哪怕只是修复一个翻译错误），我们都视为有效贡献。
+
+![FlyEnv 的 GitHub Pull Request 列表](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
 
 ### 方式 C：宣传推广 (Promote)
 

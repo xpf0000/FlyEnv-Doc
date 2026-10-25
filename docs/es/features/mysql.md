@@ -78,6 +78,10 @@ Para el trabajo diario no hace falta salir de la aplicación: el panel **Manage*
 - **Contraseña de root:** cambia la contraseña de root de la instancia; la contraseña de root predeterminada en instalaciones nuevas es `root`. La [guía de usuario y contraseña de bases de datos](/es/guide/database-user-password) lo explica con más detalle.
 - **Copias de seguridad:** exporta cualquier base de datos con `mysqldump` al directorio de copias de seguridad que elijas, directamente desde el panel.
 
+## Complemento MySQL Cluster
+
+Si necesitas una vista específica para instancias con **replicación GTID con origen y réplicas** y **Group Replication con un único primario**, instala el **[complemento MySQL Cluster](/es/features/mysql-cluster)** desde el catálogo. Reutiliza las versiones de MySQL instaladas y asigna a cada instancia local nueva su propio puerto, directorio de datos, configuración y registros.
+
 ## Varias instancias con Groups
 
 La pestaña **Group** ejecuta varias instancias de MySQL simultáneamente junto al servicio principal. Cada instancia combina una versión de MySQL elegida con su propio puerto y su propio directorio de datos, y mantiene configuración y logs por instancia; así, un proyecto fijado a MySQL 5.7 puede ejecutarse junto a otro con MySQL 8.x sin tocar los datos del otro. El interruptor de encendido del grupo en la cabecera de la barra lateral —también disponible en la bandeja del sistema— inicia o detiene el servicio principal y todas las instancias del grupo a la vez.

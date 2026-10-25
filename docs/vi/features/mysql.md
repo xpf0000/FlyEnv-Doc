@@ -78,6 +78,10 @@ Với công việc hằng ngày, không cần rời khỏi ứng dụng: ngăn *
 - **Mật khẩu root:** đổi mật khẩu root cho instance — mật khẩu root mặc định trên các lần cài mới là `root`. [Hướng dẫn người dùng và mật khẩu cơ sở dữ liệu](/vi/guide/database-user-password) đề cập chi tiết hơn về phần này.
 - **Sao lưu:** dump bất kỳ cơ sở dữ liệu nào bằng `mysqldump` vào một thư mục sao lưu bạn chọn, ngay từ ngăn này.
 
+## Plugin MySQL Cluster
+
+Để có một workspace instance chuyên dụng với **replication source/replica GTID** và **Group Replication single-primary**, hãy cài **[plugin MySQL Cluster](/vi/features/mysql-cluster)** từ Plugin Market. Plugin tái sử dụng các phiên bản MySQL đã cài và cấp cho mỗi instance local mới cổng, thư mục dữ liệu, cấu hình và log riêng.
+
 ## Nhiều instance với Groups
 
 Tab **Group** chạy nhiều instance MySQL đồng thời cạnh dịch vụ chính. Mỗi instance kết hợp một phiên bản MySQL được chọn với cổng và thư mục dữ liệu riêng của nó, và giữ cấu hình cùng log theo từng instance — nhờ đó một dự án ghim vào MySQL 5.7 có thể chạy cạnh một dự án trên MySQL 8.x mà không đụng chạm dữ liệu của nhau. Công tắc nguồn của nhóm trên đầu thanh bên — cũng có trong khay hệ thống — khởi động hay dừng dịch vụ chính cùng toàn bộ các instance Group.

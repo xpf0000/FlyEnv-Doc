@@ -25,6 +25,7 @@ interface BuildSeoHeadOptions {
   socialImage: string
   featureSlugs: string[]
   featureLabels: Record<SeoLocale, Record<string, string>>
+  availableLocales?: SeoLocale[]
 }
 
 interface RouteInfo {
@@ -563,12 +564,13 @@ export function buildSeoHead({
   host,
   socialImage,
   featureSlugs,
-  featureLabels
+  featureLabels,
+  availableLocales = ['en', 'zh', 'id', 'es', 'vi']
 }: BuildSeoHeadOptions) {
   const route = routeInfo(page, host)
   if (!route) return
 
-  if (route.pagePath === '404' || route.pagePath === 'sponsor') {
+  if (['404', 'sponsor', 'payment-success'].includes(route.pagePath)) {
     for (let index = head.length - 1; index >= 0; index -= 1) {
       const [tag, attributes] = head[index]
       const isSeoLink =
@@ -611,11 +613,10 @@ export function buildSeoHead({
     href: route.url
   })
   additions.push(
-    ['link', { rel: 'alternate', hreflang: 'en', href: localizedUrl('en') }],
-    ['link', { rel: 'alternate', hreflang: 'zh-CN', href: localizedUrl('zh') }],
-    ['link', { rel: 'alternate', hreflang: 'id-ID', href: localizedUrl('id') }],
-    ['link', { rel: 'alternate', hreflang: 'es-ES', href: localizedUrl('es') }],
-    ['link', { rel: 'alternate', hreflang: 'vi-VN', href: localizedUrl('vi') }],
+    ...availableLocales.map((locale): HeadEntry => [
+      'link',
+      { rel: 'alternate', hreflang: languages[locale], href: localizedUrl(locale) }
+    ]),
     ['link', { rel: 'alternate', hreflang: 'x-default', href: localizedUrl('en') }],
     ['link', { rel: 'describedby', href: `${host}/llms.txt` }]
   )

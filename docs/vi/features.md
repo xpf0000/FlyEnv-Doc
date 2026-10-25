@@ -2,11 +2,11 @@
 layout: page
 titleTemplate: false
 title: 'Tính năng FlyEnv: Runtime, Dịch vụ, Local Site và nhiều hơn nữa'
-description: 'Khám phá các runtime, dịch vụ, quy trình dự án và công cụ local site mà FlyEnv quản lý trong một môi trường phát triển native duy nhất.'
+description: 'Khám phá các runtime, dịch vụ, plugin, quy trình dự án và công cụ local site mà FlyEnv quản lý trong một môi trường phát triển native duy nhất.'
 head:
   - - meta
     - name: description
-      content: 'Khám phá các runtime, dịch vụ, quy trình dự án và công cụ local site mà FlyEnv quản lý trong một môi trường phát triển native duy nhất.'
+      content: 'Khám phá các runtime, dịch vụ, plugin, quy trình dự án và công cụ local site mà FlyEnv quản lý trong một môi trường phát triển native duy nhất.'
   - - meta
     - property: og:title
       content: 'Tính năng FlyEnv: Runtime, Dịch vụ, Local Site và nhiều hơn nữa'
@@ -67,6 +67,11 @@ import rNacosLogo from '../components/SVG/R-NACOS.svg'
 import consulLogo from '../components/SVG/Consul.svg'
 import etcdLogo from '../components/SVG/etcd.svg'
 import temporalLogo from '../components/SVG/Temporal.svg'
+import kafkaLogo from '../components/SVG/Kafka.svg'
+import openSearchLogo from '../components/SVG/OpenSearch.svg'
+import sqlServerLogo from '../components/SVG/SqlServer.svg'
+import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
+import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 
 const categories = [
   {
@@ -175,6 +180,21 @@ const categories = [
       { name: 'Ollama', detail: 'Chạy model offline bên cạnh stack của bạn.', href: '/vi/features/ollama', logo: ollamaLogo },
       { name: 'CLIProxyAPI', detail: 'Định tuyến các nhà cung cấp AI local qua một gateway duy nhất.', href: '/vi/features/cliproxyapi', mark: 'CLIProxyAPI' }
     ]
+  },
+  {
+    id: 'plugins', eyebrow: '08 / Mở rộng workspace', title: 'Plugin Market & Module tùy chọn',
+    description: 'Cài đặt các tích hợp tùy chọn và quản lý runtime, dịch vụ cùng công cụ chuyên biệt của chúng ngay trong FlyEnv.', tone: 'bg-sky-50 text-sky-700',
+    items: [
+      { name: 'Plugin Market', detail: 'Khám phá, cài đặt và cập nhật module tùy chọn.', href: '/vi/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'MySQL Cluster', detail: 'Chạy nhiều instance, bản sao GTID và Group Replication.', href: '/vi/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
+      { name: 'MariaDB Cluster', detail: 'Chạy nhiều instance và tạo nhóm GTID source/replica.', href: '/vi/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
+      { name: 'Kafka', detail: 'Chạy broker KRaft và quản lý topic local.', href: '/vi/features/kafka', logo: kafkaLogo },
+      { name: 'llama.cpp', detail: 'Quản lý model GGUF và runtime suy luận local.', href: '/vi/features/llama-cpp', logo: llamaCppLogo },
+      { name: 'OpenSearch', detail: 'Chạy tìm kiếm local kèm Dashboards tương ứng.', href: '/vi/features/opensearch', logo: openSearchLogo },
+      { name: 'SQL Server', detail: 'Quản lý SQL Server trên Windows và Ubuntu x64.', href: '/vi/features/mssql', logo: sqlServerLogo },
+      { name: 'Dameng DM8', detail: 'Cài đặt và khởi tạo DM8 trên các hệ thống x64 được hỗ trợ.', href: '/vi/features/dameng', logo: '/assets/features/dameng.png' },
+      { name: 'Command Shortcuts', detail: 'Lưu lệnh theo thư mục và chạy trong terminal.', href: '/vi/features/command-shortcuts', logo: commandShortcutsLogo }
+    ]
   }
 ]
 
@@ -188,7 +208,7 @@ const jumps = categories.map(({ id, title }) => ({ id, title }))
       <div class="max-w-xl">
         <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-700 shadow-sm"><span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>Môi trường lập trình local tất-cả-trong-một</div>
         <h1 class="text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">Mọi thứ bạn cần<br /><span class="text-blue-600">cho lập trình local</span></h1>
-        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Quản lý runtime ngôn ngữ, cơ sở dữ liệu, web server, local site và công cụ AI từ một workspace desktop native duy nhất — trên Windows, macOS và Linux.</p>
+        <p class="mt-7 max-w-lg text-lg leading-8 text-slate-600">Quản lý runtime ngôn ngữ, cơ sở dữ liệu, web server, local site và công cụ AI từ một workspace desktop native duy nhất — trên Windows, macOS và Linux. Bổ sung module tùy chọn qua Plugin Market khi dự án lớn dần.</p>
         <div class="mt-9 flex flex-wrap gap-3"><a href="/vi/download" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold !text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 active:translate-y-0">Tải xuống FlyEnv <span class="ml-2">→</span></a><a href="/vi/guide/getting-started" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold !text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-slate-50 active:translate-y-0">Đọc hướng dẫn bắt đầu nhanh</a></div>
         <div class="mt-12 grid max-w-lg grid-cols-1 gap-3 text-sm text-slate-600 sm:grid-cols-3 sm:gap-5"><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">✦</span>Ứng dụng desktop native</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">⌘</span>Quy trình local không cần container</div><div class="flex items-center gap-2"><span class="flex h-7 w-7 shrink-0 aspect-square items-center justify-center rounded-lg bg-white text-blue-600 shadow-sm">◌</span>Hoạt động offline</div></div>
       </div>

@@ -80,6 +80,10 @@ Với công việc hằng ngày, không cần rời khỏi ứng dụng: ngăn *
 
 <FeatureRelatedLinks locale="vi" slug="mariadb" />
 
+## Nhiều instance và replication
+
+Cài **[plugin MariaDB Cluster](/vi/features/mariadb-cluster)** từ Plugin Market để chạy nhiều instance MariaDB đồng thời trên các cổng riêng hay tạo một nhóm source/replica GTID. Plugin tái sử dụng các phiên bản MariaDB đã cài và cung cấp thư mục dữ liệu, cấu hình, log cùng quản lý cơ sở dữ liệu theo từng instance.
+
 ## Lưu ý tương thích
 
 Module MariaDB chạy một phiên bản mỗi lúc; khác với [module MySQL](/vi/features/mysql), nó không có tính năng Group cho nhiều instance chạy đồng thời. FlyEnv quản lý runtime MariaDB local, các tệp cấu hình và thư mục dữ liệu của nó; module không đảm bảo mọi phiên bản MariaDB đều khả dụng trên mọi hệ điều hành hay nguồn cài. Các phiên bản được cung cấp trong Trình quản lý phiên bản phụ thuộc vào nền tảng của bạn (Homebrew và MacPorts trên macOS, Homebrew trên Linux, gói tĩnh trên Windows) và vào những gì các nguồn đó phát hành, còn phpMyAdmin ngoài ra còn đòi hỏi một web server FlyEnv và một phiên bản [PHP](/vi/features/php) đang chạy. Hãy coi danh sách phiên bản trong ứng dụng và [trang tải xuống](/vi/download) là nguồn chuẩn xác về những gì có thể cài trên máy bạn.

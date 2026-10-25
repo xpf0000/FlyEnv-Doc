@@ -31,12 +31,16 @@ Chúng tôi cung cấp ba con đường xin cấp phép sau. FlyEnv hiện chưa
 * **Truy cập cao cấp:** Bỏ các giới hạn dùng thử nêu trên cho thiết bị đã được cấp phép.
 * **Đơn vị xử lý thanh toán:** Paddle có thể xử lý thanh toán, thuế, biên lai, hóa đơn và hỗ trợ liên quan đến thanh toán.
 
-Sau khi mua, hãy giữ lại mã đơn hàng (order ID) Paddle và gửi kèm trong yêu cầu cấp phép ngay trong ứng dụng. FlyEnv cũng phát hành giấy phép thủ công cho con đường mua này. Để mua giấy phép, hãy truy cập [trang License](/vi/license).
+Sau khi mua, hãy giữ lại mã đơn hàng (order ID) Paddle và gửi kèm trong yêu cầu cấp phép ngay trong ứng dụng. FlyEnv cũng phát hành giấy phép thủ công cho con đường mua này. Để mua giấy phép, hãy truy cập [trang License](/vi/license).
+
+![Lịch sử mua giấy phép FlyEnv với thông tin khách hàng đã được ẩn](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
 
 ### Phương án B: Đóng góp vào mã nguồn
 
 * **Gửi PR**: Giúp cải thiện FlyEnv bằng cách gửi một Pull Request trên GitHub.
-* **Mọi đóng góp đều có giá trị**: Dù là một tính năng lớn hay một sửa đổi nhỏ trong tài liệu, mọi đóng góp có ý nghĩa đều đủ điều kiện nhận giấy phép.
+* **Mọi đóng góp đều có giá trị**: Dù là một tính năng lớn hay một sửa đổi nhỏ trong tài liệu, mọi đóng góp có ý nghĩa đều đủ điều kiện nhận giấy phép.
+
+![Danh sách pull request của FlyEnv trên GitHub](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
 
 ### Phương án C: Lan tỏa (Quảng bá)
 
