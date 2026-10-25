@@ -354,21 +354,91 @@ const featureLabelsEs: Record<string, string> = {
   zincsearch: 'ZincSearch'
 }
 
+const featureLabelsVi: Record<string, string> = {
+  'antigravity-cli': 'Antigravity CLI',
+  apache: 'Apache',
+  bun: 'Bun',
+  caddy: 'Caddy',
+  'claude-code': 'Claude Code',
+  'cli-terminal': 'CLI & Terminal',
+  clickhouse: 'ClickHouse',
+  cliproxyapi: 'CLIProxyAPI',
+  'cloudflare-tunnel': 'Cloudflare Tunnel',
+  cloudflared: 'Cloudflared',
+  codex: 'Codex',
+  consul: 'Consul',
+  'cron-jobs': 'Cron Jobs',
+  deno: 'Deno',
+  'dns-server': 'DNS Server',
+  dotnet: '.NET',
+  elasticsearch: 'Elasticsearch',
+  erlang: 'Erlang',
+  etcd: 'Etcd',
+  flutter: 'Flutter',
+  frankenphp: 'FrankenPHP',
+  'ftp-server': 'FTP Server',
+  'github-copilot-cli': 'GitHub Copilot CLI',
+  go: 'Go',
+  gradle: 'Gradle',
+  'hermes-agent': 'Hermes Agent',
+  java: 'Java',
+  kimi: 'Kimi',
+  'local-sites-https': 'Site local & HTTPS',
+  mailpit: 'Mailpit',
+  mariadb: 'MariaDB',
+  'mcp-server': 'MCP Server',
+  meilisearch: 'Meilisearch',
+  memcached: 'Memcached',
+  minio: 'MinIO',
+  mkcert: 'mkcert',
+  mongodb: 'MongoDB',
+  mysql: 'MySQL',
+  n8n: 'n8n',
+  neo4j: 'Neo4j',
+  nginx: 'Nginx',
+  nodejs: 'Node.js',
+  numa: 'Numa',
+  ollama: 'Ollama',
+  openclaw: 'OpenClaw',
+  opencode: 'OpenCode',
+  'per-project-runtimes': 'Runtime theo dự án',
+  php: 'PHP',
+  podman: 'Podman',
+  postgresql: 'PostgreSQL',
+  python: 'Python',
+  qdrant: 'Qdrant',
+  'r-nacos': 'R-NACOS',
+  rabbitmq: 'RabbitMQ',
+  redis: 'Redis',
+  ruby: 'Ruby',
+  rust: 'Rust',
+  rustfs: 'RustFS',
+  'startup-groups': 'Nhóm khởi động',
+  temporal: 'Temporal',
+  tomcat: 'Tomcat',
+  typesense: 'Typesense',
+  'user-modules': 'Module tùy chỉnh',
+  zig: 'Zig',
+  zincsearch: 'ZincSearch'
+}
+
 const featureLabels: Record<SeoLocale, Record<string, string>> = {
   en: featureLabelsEn,
   zh: featureLabelsZh,
   id: featureLabelsId,
-  es: featureLabelsEs
+  es: featureLabelsEs,
+  vi: featureLabelsVi
 }
 
 const featureGroups = [
-  { key: 'overview', en: 'Features', zh: '特性', id: 'Fitur', es: 'Funcionalidades', slugs: [] },
+  { key: 'overview', en: 'Features', zh: '特性', id: 'Fitur', es: 'Funcionalidades', vi: 'Tính năng', slugs: [] },
   {
     key: 'runtimes',
     en: 'Languages & Runtimes',
     zh: '语言与运行时',
     id: 'Bahasa & Runtime',
     es: 'Lenguajes y runtimes',
+    vi: 'Ngôn ngữ & Runtime',
     slugs: [
       'php',
       'nodejs',
@@ -392,6 +462,7 @@ const featureGroups = [
     zh: 'Web 服务器与本地站点',
     id: 'Server Web & Situs Lokal',
     es: 'Servidores web y sitios locales',
+    vi: 'Web Server & Site local',
     slugs: ['local-sites-https', 'mkcert', 'frankenphp', 'nginx', 'apache', 'caddy', 'tomcat']
   },
   {
@@ -400,6 +471,7 @@ const featureGroups = [
     zh: '数据库',
     id: 'Database',
     es: 'Bases de datos',
+    vi: 'Cơ sở dữ liệu',
     slugs: ['mysql', 'postgresql', 'mariadb', 'mongodb', 'qdrant', 'clickhouse', 'neo4j']
   },
   {
@@ -408,6 +480,7 @@ const featureGroups = [
     zh: '缓存、消息与搜索',
     id: 'Cache, Pesan & Pencarian',
     es: 'Caché, mensajería y búsqueda',
+    vi: 'Cache, Message & Tìm kiếm',
     slugs: [
       'redis',
       'memcached',
@@ -425,6 +498,7 @@ const featureGroups = [
     zh: '基础设施、存储与网络',
     id: 'Infrastruktur, Penyimpanan & Jaringan',
     es: 'Infraestructura, almacenamiento y red',
+    vi: 'Hạ tầng, Lưu trữ & Mạng',
     slugs: [
       'numa',
       'dns-server',
@@ -445,6 +519,7 @@ const featureGroups = [
     zh: '开发者工作流',
     id: 'Alur Kerja Pengembang',
     es: 'Flujo de trabajo del desarrollador',
+    vi: 'Quy trình nhà phát triển',
     slugs: [
       'startup-groups',
       'per-project-runtimes',
@@ -460,6 +535,7 @@ const featureGroups = [
     zh: 'AI、MCP 与自动化',
     id: 'AI, MCP & Otomasi',
     es: 'IA, MCP y automatización',
+    vi: 'AI, MCP & Tự động hóa',
     slugs: [
       'mcp-server',
       'claude-code',
@@ -477,7 +553,7 @@ const featureGroups = [
   }
 ]
 
-const featureSidebarFor = (locale: 'zh' | 'id' | 'es') =>
+const featureSidebarFor = (locale: 'zh' | 'id' | 'es' | 'vi') =>
   featureGroups.map((group) => ({
     text: group[locale],
     items:
@@ -489,7 +565,9 @@ const featureSidebarFor = (locale: 'zh' | 'id' | 'es') =>
                   ? '特性总览'
                   : locale === 'id'
                     ? 'Ikhtisar Fitur'
-                    : 'Resumen de funcionalidades',
+                    : locale === 'es'
+                      ? 'Resumen de funcionalidades'
+                      : 'Tổng quan tính năng',
               link: `/${locale}/features`
             }
           ]
@@ -499,7 +577,9 @@ const featureSidebarFor = (locale: 'zh' | 'id' | 'es') =>
                 ? featureLabelsZh
                 : locale === 'id'
                   ? featureLabelsId
-                  : featureLabelsEs)[slug] ?? slug,
+                  : locale === 'es'
+                    ? featureLabelsEs
+                    : featureLabelsVi)[slug] ?? slug,
             link: `/${locale}/features/${slug}`
           })),
     collapsed: false
@@ -508,6 +588,7 @@ const featureSidebarFor = (locale: 'zh' | 'id' | 'es') =>
 const featureSidebarZh = featureSidebarFor('zh')
 const featureSidebarId = featureSidebarFor('id')
 const featureSidebarEs = featureSidebarFor('es')
+const featureSidebarVi = featureSidebarFor('vi')
 
 const compareSidebarZh = [
   { text: '比较总览', link: '/zh/compare/' },
@@ -535,6 +616,15 @@ const compareSidebarEs = [
   { text: 'FlyEnv vs Laravel Herd', link: '/es/compare/herd' },
   { text: 'FlyEnv vs ServBay', link: '/es/compare/servbay' },
   { text: 'FlyEnv vs Docker', link: '/es/compare/docker' }
+]
+const compareSidebarVi = [
+  { text: 'Tổng quan so sánh', link: '/vi/compare/' },
+  { text: 'FlyEnv vs XAMPP', link: '/vi/compare/xampp' },
+  { text: 'FlyEnv vs Laragon', link: '/vi/compare/laragon' },
+  { text: 'FlyEnv vs MAMP / MAMP Pro', link: '/vi/compare/mamp' },
+  { text: 'FlyEnv vs Laravel Herd', link: '/vi/compare/herd' },
+  { text: 'FlyEnv vs ServBay', link: '/vi/compare/servbay' },
+  { text: 'FlyEnv vs Docker', link: '/vi/compare/docker' }
 ]
 
 const head: any = [['link', { rel: 'icon', href: '/favicon.ico' }]]
@@ -599,15 +689,15 @@ export default defineConfigWithTheme({
   sitemap: {
     hostname: AppHost,
     transformItems(items) {
-      return items.filter(({ url }) => !/^(?:(?:zh|id|es)\/)?(?:404|sponsor)$/.test(url))
+      return items.filter(({ url }) => !/^(?:(?:zh|id|es|vi)\/)?(?:404|sponsor)$/.test(url))
     }
   },
   transformPageData(pageData) {
     const relativePath = pageData.relativePath.replace(/\.md$/, '')
-    const localizedSolutionMatch = relativePath.match(/^(zh|id|es)\/solutions\/([^/]+)$/)
+    const localizedSolutionMatch = relativePath.match(/^(zh|id|es|vi)\/solutions\/([^/]+)$/)
     let preferredDescription: string | undefined
     if (localizedSolutionMatch) {
-      const solutionLocale = localizedSolutionMatch[1] as 'zh' | 'id' | 'es'
+      const solutionLocale = localizedSolutionMatch[1] as 'zh' | 'id' | 'es' | 'vi'
       const solutionSlug = localizedSolutionMatch[2]
       preferredDescription = solutionContentByLocale[solutionLocale][solutionSlug]?.summary
     }
@@ -1338,6 +1428,159 @@ export default defineConfigWithTheme({
                 {
                   text: 'Cargar paquetes de idiomas I18n dinámicamente',
                   link: '/es/guide/dynamically-load-I18n-language-packs'
+                }
+              ],
+              collapsed: false
+            }
+          ]
+        }
+      }
+    },
+    vi: {
+      label: 'Tiếng Việt',
+      lang: 'vi-VN',
+      link: '/vi/',
+      title: 'FlyEnv',
+      description:
+        'Công cụ quản lý môi trường full-stack tất cả trong một. Hỗ trợ macOS / Windows / Linux',
+      themeConfig: {
+        footer: {
+          message: FootMessage,
+          copyright:
+            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/vi/terms">Điều khoản dịch vụ</a> · <a href="/vi/privacy">Chính sách bảo mật</a> · <a href="/vi/refund-policy">Chính sách hoàn tiền</a>'
+        },
+        socialLinks: [{ icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }],
+        nav: [
+          { text: 'Tải xuống', link: '/vi/download' },
+          { text: 'So sánh', link: '/vi/compare/' },
+          { text: 'Tính năng', link: '/vi/features' },
+          { text: 'Giải pháp', link: '/vi/solutions' },
+          { text: 'Demo', link: '/vi/demos' },
+          { text: 'Hướng dẫn', link: '/vi/guide/what-is-flyenv' },
+          { text: 'Cộng đồng', link: '/vi/community' },
+          { text: 'Giấy phép', link: '/vi/license' }
+        ],
+        sidebar: {
+          '/vi/compare/': [{ text: 'So sánh', items: compareSidebarVi, collapsed: false }],
+          '/vi/features/': [...featureSidebarVi],
+          '/vi/guide/': [
+            {
+              text: 'Bắt đầu',
+              items: [
+                { text: 'FlyEnv là gì?', link: '/vi/guide/what-is-flyenv' },
+                { text: 'FlyEnv vs Docker & XAMPP', link: '/vi/guide/flyenv-vs-docker-xampp' },
+                { text: 'Hướng dẫn bắt đầu nhanh', link: '/vi/guide/getting-started' },
+                { text: 'Về FlyEnv Helper', link: '/vi/guide/about-flyenv-helper' },
+                { text: 'Giấy phép & Hỗ trợ', link: '/vi/guide/about-license' }
+              ],
+              collapsed: false
+            },
+            { text: 'So sánh', items: compareSidebarVi, collapsed: false },
+            {
+              text: 'Thiết lập môi trường cốt lõi',
+              items: [
+                {
+                  text: 'Cô lập phiên bản runtime theo dự án',
+                  link: '/vi/guide/project-level-runtime-environment'
+                },
+                {
+                  text: 'Quản lý phiên bản Node.js & PHP',
+                  link: '/vi/guide/manage-multiple-node-php-versions'
+                },
+                { text: 'Quản lý System Path', link: '/vi/guide/setup-system-path-environment' },
+                {
+                  text: 'Thiết lập môi trường phát triển Java',
+                  link: '/vi/guide/set-up-java-development-environment'
+                },
+                { text: 'Cài đặt extension PHP', link: '/vi/guide/php-extensions-install' },
+                { text: 'Cơ sở dữ liệu & bảo mật', link: '/vi/guide/database-user-password' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'AI & công cụ năng suất',
+              items: [
+                {
+                  text: 'Hướng dẫn FlyEnv AI Workspace & MCP',
+                  link: '/vi/guide/ai-coding-workspace-mcp'
+                },
+                {
+                  text: 'Quy trình làm việc với trợ lý lập trình AI',
+                  link: '/vi/guide/flyenv-work-with-ai'
+                },
+                {
+                  text: 'Xây dựng AI Agent offline chạy local',
+                  link: '/vi/guide/build-local-offline-ai-agent'
+                },
+                {
+                  text: 'Xây dựng AI workflow local với n8n',
+                  link: '/vi/guide/build-local-ai-workflow-by-n8n'
+                },
+                { text: 'Hướng dẫn OpenClaw + Ollama', link: '/vi/guide/openclaw' },
+                {
+                  text: 'Công cụ làm rối mã PHP (Obfuscation)',
+                  link: '/vi/guide/php-code-obfuscation'
+                },
+                {
+                  text: 'Expose localhost với Cloudflare Tunnel',
+                  link: '/vi/guide/cloudflare-tunnel-local-development'
+                },
+                {
+                  text: 'Kiểm thử email local (Mailpit)',
+                  link: '/vi/guide/local-email-testing-mailpit'
+                },
+                {
+                  text: 'Code Playground & thư viện mã',
+                  link: '/vi/guide/code-playground-and-code-library'
+                }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Web Server & Reverse Proxy',
+              items: [
+                { text: 'Tên miền tùy chỉnh & SSL tự động', link: '/vi/guide/host' },
+                {
+                  text: 'Triển khai dự án PHP không cần Docker',
+                  link: '/vi/guide/deploy-php-projects-without-docker'
+                },
+                {
+                  text: 'Parse HTML như PHP (Nginx/Apache/Caddy)',
+                  link: '/vi/guide/parse-html-as-php-multi-servers'
+                },
+                {
+                  text: 'Cấu hình reverse proxy (NestJS/Node.js)',
+                  link: '/vi/guide/reverse-proxy-nestjs-multi-servers'
+                },
+                {
+                  text: 'Triển khai Node/Python/Go không cần Docker',
+                  link: '/vi/guide/deploy-nodejs-python-go-without-docker'
+                },
+                { text: 'Cài đặt mạng & proxy', link: '/vi/guide/use-proxy' },
+                {
+                  text: 'Module tùy chỉnh theo người dùng',
+                  link: '/vi/guide/user-customizable-modules'
+                },
+                { text: 'Hướng dẫn module Podman', link: '/vi/guide/podman-module' }
+              ],
+              collapsed: false
+            },
+            {
+              text: 'Khắc phục sự cố & Tối ưu',
+              items: [
+                {
+                  text: 'Tối ưu hiệu năng site trên Windows',
+                  link: '/vi/guide/windows-site-performance-optimization'
+                },
+                { text: 'Chạy Laravel trên FlyEnv', link: '/vi/guide/run-laravel-use-flyenv' },
+                { text: 'Debug PHP với Xdebug', link: '/vi/guide/php-debug-with-xdebug' },
+                {
+                  text: 'Khắc phục lỗi PHP thường gặp (icu4c)',
+                  link: '/vi/guide/php-icu4c-issues'
+                },
+                {
+                  text: 'Nạp gói ngôn ngữ I18n động',
+                  link: '/vi/guide/dynamically-load-I18n-language-packs'
                 }
               ],
               collapsed: false

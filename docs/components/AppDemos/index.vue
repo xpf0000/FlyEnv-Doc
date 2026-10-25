@@ -410,6 +410,30 @@ const copy = {
       `${count} ${count === 1 ? 'demo' : 'demos'} en ${categoryCount} ${categoryCount === 1 ? 'categoría' : 'categorías'}`,
     watchOn: (platform: DemoPlatform) => `Ver en ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
     openOn: (platform: DemoPlatform) => `Abrir en ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
+  },
+  vi: {
+    kicker: 'Bản demo FlyEnv',
+    title: 'Xem những gì chạy local với FlyEnv',
+    intro: 'Duyệt các bản demo về dự án thực tế, runtime, cơ sở dữ liệu, công cụ nhà phát triển và quy trình làm việc AI chạy local với FlyEnv.',
+    controlsLabel: 'Duyệt bản demo FlyEnv',
+    categoryLabel: 'Lọc theo danh mục',
+    searchLabel: 'Tìm kiếm bản demo',
+    searchPlaceholder: 'Tìm kiếm dự án, stack và công cụ',
+    all: 'Tất cả bản demo',
+    featuredTitle: 'Bản demo nổi bật',
+    catalogTitle: 'Tất cả bản demo',
+    viewAll: () => 'Xem tất cả →',
+    tagsLabel: 'Thẻ bản demo',
+    emptyTitle: 'Không có bản demo nào khớp với tìm kiếm này',
+    emptyIntro: 'Xóa bộ lọc hiện tại để quay lại danh mục đầy đủ.',
+    reset: 'Xóa bộ lọc',
+    play: 'Phát bản demo',
+    relatedLink: 'Hướng dẫn liên quan →',
+    close: 'Đóng trình phát video',
+    resultSummary: (count: number, categoryCount: number) =>
+      `${count} bản demo trong ${categoryCount} danh mục`,
+    watchOn: (platform: DemoPlatform) => `Xem trên ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`,
+    openOn: (platform: DemoPlatform) => `Mở trên ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   }
 }
 

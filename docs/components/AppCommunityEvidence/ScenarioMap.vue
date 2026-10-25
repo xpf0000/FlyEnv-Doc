@@ -44,7 +44,13 @@ const copy = computed(() =>
           subtitle:
             'Explora historias públicas según el problema de desarrollo local que resolvía cada desarrollador.'
         }
-      : {
+      : props.locale === 'vi'
+        ? {
+            title: 'Nhà phát triển sử dụng FlyEnv như thế nào',
+            subtitle:
+              'Khám phá các câu chuyện công khai theo vấn đề phát triển cục bộ mà mỗi nhà phát triển đang giải quyết.'
+          }
+        : {
           title: 'How developers use FlyEnv',
           subtitle:
             'Explore public stories by the local-development problem each developer was solving.'

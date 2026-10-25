@@ -1,4 +1,4 @@
-export type SolutionLocale = 'en' | 'zh' | 'id' | 'es'
+export type SolutionLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 export interface SolutionStackLink {
   label: string

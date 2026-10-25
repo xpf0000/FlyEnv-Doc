@@ -412,7 +412,7 @@
   import { computed, ref } from 'vue'
   import { usePaddleCheckout } from '../AppSponsorPage/usePaddleCheckout'
 
-  type Locale = 'zh' | 'id' | 'es'
+  type Locale = 'zh' | 'id' | 'es' | 'vi'
 
   type Faq = {
     question: string
@@ -886,6 +886,156 @@
       communityPath: '/es/community',
       paddleError:
         'El pago con Paddle no está disponible temporalmente. Inténtalo de nuevo más tarde.'
+    },
+    vi: {
+      eyebrow: 'Giấy phép FlyEnv',
+      title: 'Nhận giấy phép FlyEnv',
+      description:
+        'Mua một lần để mở khóa các tính năng cao cấp trên một thiết bị. Không cần đăng ký.',
+      benefitsLabel: 'Quyền lợi của giấy phép',
+      benefits: [
+        '$10 thanh toán một lần',
+        '1 thiết bị',
+        'Cập nhật trong tương lai',
+        'Kích hoạt theo thiết bị'
+      ],
+      licenseName: 'Giấy phép FlyEnv',
+      oneTimePayment: 'Thanh toán một lần',
+      features: [
+        'Một thiết bị cho mỗi giấy phép',
+        'Không có phí định kỳ',
+        'Bao gồm cập nhật trong tương lai',
+        'Kích hoạt theo thiết bị'
+      ],
+      buyWithPaddle: 'Mua an toàn qua Paddle',
+      openingCheckout: 'Đang mở trang thanh toán...',
+      termsLink: 'Điều khoản giấy phép ->',
+      activationGuideLink: 'Hướng dẫn kích hoạt ->',
+      howItWorks: 'Cách hoạt động',
+      steps: [
+        { title: 'Mua', description: 'Hoàn tất việc mua hàng một cách an toàn qua Paddle.' },
+        {
+          title: 'Yêu cầu giấy phép trong FlyEnv',
+          description:
+            'Mở Cài đặt FlyEnv -> Giấy phép, sau đó gửi mã đơn hàng Paddle hoặc email biên lai cùng với email liên hệ.'
+        },
+        {
+          title: 'Nhận giấy phép',
+          description:
+            'Yêu cầu của bạn được xem xét thủ công và giấy phép sẽ được cấp sau khi xác minh.'
+        }
+      ],
+      deviceTransfer:
+        'Giấy phép được gắn với một thiết bị. Để chuyển sang thiết bị mới, hãy đăng nhập bằng GitHub, hủy liên kết thiết bị cũ trong My Licenses, rồi liên kết thiết bị mới.',
+      otherWaysTitle: 'Các cách khác để hỗ trợ FlyEnv hoặc nhận giấy phép',
+      otherWaysDescription:
+        'Bạn muốn dùng cách khác? Bạn cũng có thể đóng góp hoặc thanh toán qua mã QR.',
+      methods: [
+        {
+          kind: 'wechat',
+          title: 'WeChat Pay',
+          description: 'Quét mã QR để thanh toán qua WeChat Pay.',
+          icon: 'WX',
+          headerClass:
+            'flex h-24 items-center justify-center bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-500/10 dark:to-emerald-500/10',
+          iconClass:
+            'inline-flex h-10 w-10 items-center justify-center rounded-md border border-green-200 bg-white text-xs font-extrabold text-green-600 shadow-sm dark:border-green-400/30 dark:bg-slate-900 dark:text-green-300',
+          action: 'Quét mã QR',
+          actionClass:
+            'mt-9 md:mt-auto flex min-h-14 items-center justify-center rounded-md bg-green-600 px-5 text-base font-semibold text-white',
+          qrImage: 'https://oss.macphpstudy.com/image/qrcode1@2x.png',
+          qrAlt: 'Mã QR WeChat Pay'
+        },
+        {
+          kind: 'alipay',
+          title: 'Alipay',
+          description: 'Quét mã QR để thanh toán qua Alipay.',
+          icon: 'ALI',
+          headerClass:
+            'flex h-24 items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-500/10 dark:to-cyan-500/10',
+          iconClass:
+            'inline-flex h-10 w-10 items-center justify-center rounded-md border border-blue-200 bg-white text-xs font-extrabold text-blue-600 shadow-sm dark:border-blue-400/30 dark:bg-slate-900 dark:text-blue-300',
+          action: 'Quét mã QR',
+          actionClass:
+            'mt-9 md:mt-auto flex min-h-14 items-center justify-center rounded-md bg-blue-600 px-5 text-base font-semibold text-white',
+          qrImage: 'https://oss.macphpstudy.com/image/qrcode2@2x.png',
+          qrAlt: 'Mã QR Alipay'
+        },
+        {
+          kind: 'contribute',
+          title: 'Đóng góp',
+          description:
+            'Viết bài viết gốc hoặc đóng góp mã nguồn để đủ điều kiện nhận giấy phép.',
+          icon: '+',
+          headerClass:
+            'flex h-24 items-center justify-center bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-violet-500/10 dark:to-fuchsia-500/10',
+          iconClass:
+            'inline-flex h-10 w-10 items-center justify-center rounded-md border border-violet-200 bg-white text-sm font-extrabold text-violet-600 shadow-sm dark:border-violet-400/30 dark:bg-slate-900 dark:text-violet-300',
+          action: 'Các hình thức đóng góp',
+          actionClass:
+            'mt-9 md:mt-auto flex min-h-14 items-center justify-center rounded-md bg-violet-600 px-5 text-base font-semibold !text-white no-underline transition hover:bg-violet-700 hover:!text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600',
+          items: [
+            {
+              icon: 'A',
+              label: 'Viết bài viết',
+              iconClass:
+                'flex h-14 w-14 items-center justify-center rounded-full bg-violet-50 text-xl font-bold text-violet-600 dark:bg-violet-400/10 dark:text-violet-300'
+            },
+            {
+              icon: '</>',
+              label: 'Gửi PR',
+              iconClass:
+                'flex h-14 w-14 items-center justify-center rounded-full bg-violet-50 font-mono text-xl font-bold text-violet-600 dark:bg-violet-400/10 dark:text-violet-300'
+            }
+          ]
+        }
+      ],
+      communityLink: 'Khám phá các đóng góp từ cộng đồng ->',
+      faqTitle: 'Câu hỏi thường gặp',
+      faqs: [
+        {
+          question: 'Đây có phải là gói đăng ký không?',
+          answer: 'Không. Giấy phép FlyEnv hiện tại là mua một lần, không có phí định kỳ.'
+        },
+        {
+          question: 'Tôi có thể kích hoạt bao nhiêu thiết bị?',
+          answer: 'Mỗi giấy phép chỉ có thể có một thiết bị đang hoạt động tại một thời điểm.'
+        },
+        {
+          question: 'Tôi có thể chuyển giấy phép sang máy tính khác không?',
+          answer:
+            'Có. Đăng nhập bằng GitHub, hủy liên kết thiết bị cũ trong My Licenses, rồi liên kết thiết bị mới.'
+        },
+        {
+          question: 'Có bao gồm các bản cập nhật trong tương lai không?',
+          answer: 'Có. Các bản cập nhật FlyEnv trong tương lai được bao gồm trong giấy phép hiện tại.'
+        },
+        {
+          question: 'Bạn có cung cấp giấy phép nhóm hoặc giáo dục không?',
+          answer:
+            'Có. Giấy phép nhóm và giáo dục có thể được trao đổi theo từng trường hợp. Vui lòng liên hệ với tôi qua',
+          email: 'alexpengfeixu@gmail.com',
+          emailSuffix: 'kèm theo trường hợp sử dụng, số lượng thiết bị và thông tin tổ chức của bạn.'
+        }
+      ],
+      copyEmail: 'Sao chép địa chỉ email',
+      emailCopied: 'Đã sao chép địa chỉ email',
+      thanksTitle: 'Lời cảm ơn đặc biệt',
+      thanksDescription: 'Cảm ơn mỗi người bạn đã giúp FlyEnv ngày càng hoàn thiện.',
+      fastAdminPrefix: 'Nhà sáng lập ',
+      fastAdminSuffix: ', vì đã tài trợ cho tên miền flyenv.com.',
+      signPathPrefix:
+        'Dịch vụ ký mã miễn phí cho FlyEnv trên Windows được cung cấp bởi ',
+      signPathMiddle: ', với chứng chỉ được cung cấp bởi ',
+      signPathSuffix: '.',
+      finalTitle: 'Sẵn sàng nhận giấy phép chưa?',
+      finalDescription: 'Sử dụng FlyEnv không giới hạn và hỗ trợ sự phát triển liên tục.',
+      buyLicense: 'Mua giấy phép',
+      licenseTerms: 'Điều khoản giấy phép',
+      guidePath: '/vi/guide/about-license',
+      communityPath: '/vi/community',
+      paddleError:
+        'Thanh toán qua Paddle tạm thời không khả dụng. Vui lòng thử lại sau.'
     }
   }
 

@@ -107,7 +107,7 @@
               ><div
                 ><h2 class="!m-0 !border-0 !p-0 !text-base !leading-5 font-black">FlyEnv</h2
                 ><p class="!m-0 text-[11px] font-medium !leading-4 text-slate-500 dark:text-slate-400"
-                  >{{ competitor.heroFlyenvCaption || (locale === 'zh' ? '每个项目独立的环境' : locale === 'id' ? 'Lingkungan khusus tiap proyek' : locale === 'es' ? 'Un entorno dedicado por proyecto' : 'A dedicated environment per project') }}</p
+                  >{{ competitor.heroFlyenvCaption || (locale === 'zh' ? '每个项目独立的环境' : locale === 'id' ? 'Lingkungan khusus tiap proyek' : locale === 'es' ? 'Un entorno dedicado por proyecto' : locale === 'vi' ? 'Một môi trường dành riêng cho từng dự án' : 'A dedicated environment per project') }}</p
                 ></div
               ></div
             ><div class="mt-5 space-y-2.5"
@@ -118,7 +118,7 @@
                 ><p class="!m-0 text-[12px] font-bold text-blue-700 dark:text-blue-300"
                   >{{ projectDisplayName(project.name) }}
                   <span class="font-medium text-slate-500 dark:text-slate-400"
-                    >· {{ locale === 'zh' ? '项目' : locale === 'id' ? 'Proyek' : locale === 'es' ? 'Proyecto' : project.kind }}</span
+                    >· {{ locale === 'zh' ? '项目' : locale === 'id' ? 'Proyek' : locale === 'es' ? 'Proyecto' : locale === 'vi' ? 'Dự án' : project.kind }}</span
                   ></p
                 ><div class="mt-2 grid grid-cols-4 gap-1"
                   ><span
@@ -133,7 +133,7 @@
               ></div
             ><p
               class="!m-0 mt-3 text-center text-[10px] font-medium leading-4 text-slate-600 dark:text-slate-300"
-              >{{ competitor.flyenvProjectsNote || (locale === 'zh' ? '每个项目都有自己的运行时、服务、端口和配置。' : locale === 'id' ? 'Setiap proyek memiliki runtime, layanan, port, dan konfigurasi sendiri.' : locale === 'es' ? 'Cada proyecto tiene sus propios runtimes, servicios, puertos y configuración.' : 'Each project has its own runtimes, services, ports, and configuration.') }}</p
+              >{{ competitor.flyenvProjectsNote || (locale === 'zh' ? '每个项目都有自己的运行时、服务、端口和配置。' : locale === 'id' ? 'Setiap proyek memiliki runtime, layanan, port, dan konfigurasi sendiri.' : locale === 'es' ? 'Cada proyecto tiene sus propios runtimes, servicios, puertos y configuración.' : locale === 'vi' ? 'Mỗi dự án có runtime, dịch vụ, cổng và cấu hình riêng.' : 'Each project has its own runtimes, services, ports, and configuration.') }}</p
             ></article
           >
         </div>
@@ -300,7 +300,7 @@
               ><div
                 ><h3 class="!m-0 !border-0 !p-0 !text-2xl !leading-8 font-black">FlyEnv</h3
                 ><p class="!m-0 text-sm text-slate-500 dark:text-slate-400"
-                  >{{ competitor.flyenvCaption || (locale === 'zh' ? '按项目划分的环境' : locale === 'id' ? 'Lingkungan berbasis proyek' : locale === 'es' ? 'Entornos basados en proyectos' : 'Project-based environments') }}</p
+                  >{{ competitor.flyenvCaption || (locale === 'zh' ? '按项目划分的环境' : locale === 'id' ? 'Lingkungan berbasis proyek' : locale === 'es' ? 'Entornos basados en proyectos' : locale === 'vi' ? 'Môi trường theo dự án' : 'Project-based environments') }}</p
                 ></div
               ></div
             ><div class="mt-6 grid min-h-[210px] items-stretch gap-2 sm:grid-cols-3"
@@ -521,7 +521,7 @@
           ></div
         ><p
           class="!mx-auto mt-8 max-w-3xl text-center text-base font-medium leading-7 text-slate-700 dark:text-slate-200"
-          >{{ competitor.choiceNote || (locale === 'zh' ? '如果生产一致性依赖容器，Docker Desktop 和项目的 Compose 文件仍是更直接的参考。' : locale === 'id' ? 'Jika kesamaan produksi bergantung pada container, Docker Desktop dan file Compose proyek tetap menjadi rujukan yang lebih langsung.' : locale === 'es' ? 'Si la paridad con producción depende de contenedores, Docker Desktop y los archivos Compose del proyecto siguen siendo la referencia más directa.' : 'If production parity depends on containers, Docker Desktop and the project\'s Compose files remain the more direct reference.') }}</p
+          >{{ competitor.choiceNote || (locale === 'zh' ? '如果生产一致性依赖容器，Docker Desktop 和项目的 Compose 文件仍是更直接的参考。' : locale === 'id' ? 'Jika kesamaan produksi bergantung pada container, Docker Desktop dan file Compose proyek tetap menjadi rujukan yang lebih langsung.' : locale === 'es' ? 'Si la paridad con producción depende de contenedores, Docker Desktop y los archivos Compose del proyecto siguen siendo la referencia más directa.' : locale === 'vi' ? 'Nếu sự nhất quán với production phụ thuộc vào container, Docker Desktop và các tệp Compose của dự án vẫn là tài liệu tham khảo trực tiếp hơn.' : 'If production parity depends on containers, Docker Desktop and the project\'s Compose files remain the more direct reference.') }}</p
         ></div
       ></section
     >
@@ -535,7 +535,7 @@
           ><h2
             id="faq-title"
             class="!m-0 !border-0 !p-0 !text-3xl !leading-tight font-black tracking-tight sm:!text-4xl"
-            >{{ locale === 'zh' ? '常见问题' : locale === 'id' ? 'Pertanyaan umum' : locale === 'es' ? 'Preguntas frecuentes' : 'Frequently asked questions' }}</h2
+            >{{ locale === 'zh' ? '常见问题' : locale === 'id' ? 'Pertanyaan umum' : locale === 'es' ? 'Preguntas frecuentes' : locale === 'vi' ? 'Câu hỏi thường gặp' : 'Frequently asked questions' }}</h2
           ></header
         ><div class="mt-10 grid items-stretch gap-3 md:grid-cols-2"
           ><article
@@ -558,9 +558,9 @@
         class="mx-auto flex max-w-7xl flex-col gap-7 rounded-3xl bg-gradient-to-r from-blue-950 via-blue-800 to-sky-700 px-7 py-12 text-white shadow-2xl shadow-blue-950/20 sm:flex-row sm:items-center sm:justify-between sm:px-10"
         ><div
           ><h2 class="!m-0 !border-0 !p-0 !text-2xl !leading-8 font-black sm:!text-3xl"
-            >{{ competitor.ctaTitle || (locale === 'zh' ? '在 FlyEnv 中尝试按项目开发' : locale === 'id' ? 'Coba pengembangan berbasis proyek di FlyEnv' : locale === 'es' ? 'Prueba el desarrollo basado en proyectos en FlyEnv' : 'Try project-based development in FlyEnv') }}</h2
+            >{{ competitor.ctaTitle || (locale === 'zh' ? '在 FlyEnv 中尝试按项目开发' : locale === 'id' ? 'Coba pengembangan berbasis proyek di FlyEnv' : locale === 'es' ? 'Prueba el desarrollo basado en proyectos en FlyEnv' : locale === 'vi' ? 'Thử phát triển theo dự án trong FlyEnv' : 'Try project-based development in FlyEnv') }}</h2
           ><p class="mt-2 max-w-2xl text-sm leading-6 text-blue-100"
-            >{{ competitor.ctaDescription || (locale === 'zh' ? '创建本地站点，选择所需运行时和服务，然后开始工作。' : locale === 'id' ? 'Buat situs lokal, pilih runtime dan layanan yang diperlukan, lalu mulai bekerja.' : locale === 'es' ? 'Crea un sitio local, elige los runtimes y servicios que necesita y empieza a trabajar.' : 'Create a local site, select the runtimes and services it needs, and start working.') }}</p
+            >{{ competitor.ctaDescription || (locale === 'zh' ? '创建本地站点，选择所需运行时和服务，然后开始工作。' : locale === 'id' ? 'Buat situs lokal, pilih runtime dan layanan yang diperlukan, lalu mulai bekerja.' : locale === 'es' ? 'Crea un sitio local, elige los runtimes y servicios que necesita y empieza a trabajar.' : locale === 'vi' ? 'Tạo một site local, chọn các runtime và dịch vụ cần thiết, rồi bắt đầu làm việc.' : 'Create a local site, select the runtimes and services it needs, and start working.') }}</p
           ></div
         ><a
           :href="localizedHref('/download')"
@@ -660,7 +660,7 @@
     flyenvProjects: Project[]
     flyenvBullets: string[]
     flyenvWorkflow: Workflow
-    locale?: 'en' | 'zh' | 'id' | 'es'
+    locale?: 'en' | 'zh' | 'id' | 'es' | 'vi'
   }>()
   const { competitor, flyenvProjects, flyenvBullets, flyenvWorkflow } = props
   const locale = props.locale || 'en'
@@ -678,11 +678,11 @@
             'FlyEnv local site HTTPS configuration interface': 'Antarmuka konfigurasi HTTPS situs lokal FlyEnv',
             'FlyEnv service management interface': 'Antarmuka pengelolaan layanan FlyEnv'
           }
-        : locale === 'es'
+        : locale === 'vi'
           ? {
-              'FlyEnv runtime version installation interface': 'Interfaz de instalación de versiones de runtime de FlyEnv',
-              'FlyEnv local site HTTPS configuration interface': 'Interfaz de configuración HTTPS de sitios locales de FlyEnv',
-              'FlyEnv service management interface': 'Interfaz de gestión de servicios de FlyEnv'
+              'FlyEnv runtime version installation interface': 'Giao diện cài đặt phiên bản runtime của FlyEnv',
+              'FlyEnv local site HTTPS configuration interface': 'Giao diện cấu hình HTTPS site local của FlyEnv',
+              'FlyEnv service management interface': 'Giao diện quản lý dịch vụ của FlyEnv'
             }
           : {}
     return translations[value] || value
@@ -691,6 +691,7 @@
     if (locale === 'zh') return name.replace('Laravel Project', 'Laravel 项目').replace('Node.js App', 'Node.js 应用').replace('Java App', 'Java 应用').replace(/^Project /, '项目 ')
     if (locale === 'id') return name.replace('Laravel Project', 'Proyek Laravel').replace('Node.js App', 'Aplikasi Node.js').replace('Java App', 'Aplikasi Java').replace(/^Project /, 'Proyek ')
     if (locale === 'es') return name.replace('Laravel Project', 'Proyecto Laravel').replace('Node.js App', 'Aplicación Node.js').replace('Java App', 'Aplicación Java').replace(/^Project /, 'Proyecto ')
+    if (locale === 'vi') return name.replace('Laravel Project', 'Dự án Laravel').replace('Node.js App', 'Ứng dụng Node.js').replace('Java App', 'Ứng dụng Java').replace(/^Project /, 'Dự án ')
     return name
   }
   const copy = computed(() => locale === 'zh'
@@ -699,6 +700,8 @@
       ? { comparison: 'Perbandingan', download: 'Unduh FlyEnv', summary: 'Lihat ringkasan', scopeIntro: 'Tujuan sama, cakupan pengembangan berbeda.', dailyTitle: 'Dalam pengembangan sehari-hari', dailyIntro: 'Lihat alur runtime, situs, dan layanan FlyEnv.', featureTitle: 'Perbandingan fitur', featureIntro: 'Perbandingan praktis kemampuan umum.', capability: 'Kemampuan', workflowIntro: 'Perbandingan berdampingan untuk pekerjaan yang sama.', with: 'Dengan', chooseTitle: 'Mana yang harus dipilih?', chooseIntro: 'Keduanya berguna; pilihan tepat bergantung pada alur kerja Anda.' }
       : locale === 'es'
         ? { comparison: 'Comparación', download: 'Descargar FlyEnv', summary: 'Ver resumen rápido', scopeIntro: 'Mismo objetivo, diferente alcance de desarrollo.', dailyTitle: 'Cómo se ve esto en el desarrollo diario', dailyIntro: 'Mira la misma configuración en los flujos de trabajo de runtime, sitios y servicios de FlyEnv.', featureTitle: 'Comparación de funciones', featureIntro: 'Una comparación práctica de las capacidades más utilizadas.', capability: 'Capacidad', workflowIntro: 'Una comparación lado a lado del mismo tipo de trabajo.', with: 'Con', chooseTitle: '¿Cuál deberías elegir?', chooseIntro: 'Ambas herramientas pueden ser útiles; la elección correcta depende de tu flujo de trabajo.' }
+        : locale === 'vi'
+          ? { comparison: 'So sánh', download: 'Tải xuống FlyEnv', summary: 'Đọc tóm tắt nhanh', scopeIntro: 'Cùng mục đích, phạm vi phát triển khác.', dailyTitle: 'Điều này trông như thế nào trong phát triển hàng ngày', dailyIntro: 'Xem cùng một thiết lập trong các quy trình runtime, site và dịch vụ của FlyEnv.', featureTitle: 'So sánh tính năng', featureIntro: 'Một phép so sánh thực tế về các khả năng thường dùng.', capability: 'Khả năng', workflowIntro: 'Nhìn cạnh nhau về cùng một loại công việc.', with: 'Với', chooseTitle: 'Bạn nên chọn cái nào?', chooseIntro: 'Cả hai công cụ đều hữu ích; lựa chọn đúng phụ thuộc vào quy trình làm việc của bạn.' }
         : { comparison: 'Comparison', download: 'Download FlyEnv', summary: 'Read quick summary', scopeIntro: 'Same purpose, different development scope.', dailyTitle: 'What this looks like in daily development', dailyIntro: "See the same setup in FlyEnv's runtime, Host, and service workflows.", featureTitle: 'Feature comparison', featureIntro: 'A practical comparison of commonly used capabilities.', capability: 'Capability', workflowIntro: 'A side-by-side look at the same kind of work.', with: 'With', chooseTitle: 'Which one should you choose?', chooseIntro: 'Both tools can be useful; the right choice depends on your workflow.' })
   const modelBulletItems = computed(() =>
     competitor.modelBullets.map((item) =>
@@ -715,16 +718,16 @@
   const workflowRows = computed(() => {
     const length = Math.max(competitor.workflow.steps.length, flyenvWorkflow.steps.length)
     return Array.from({ length }, (_, index) => ({
-      competitor: competitor.workflow.steps[index] ?? (locale === 'zh' ? '继续项目设置' : locale === 'id' ? 'Lanjutkan penyiapan proyek' : locale === 'es' ? 'Continúa con la configuración del proyecto' : 'Continue with the project setup'),
-      flyenv: flyenvWorkflow.steps[index] ?? (locale === 'zh' ? '继续项目设置' : locale === 'id' ? 'Lanjutkan penyiapan proyek' : locale === 'es' ? 'Continúa con la configuración del proyecto' : 'Continue with the project setup')
+      competitor: competitor.workflow.steps[index] ?? (locale === 'zh' ? '继续项目设置' : locale === 'id' ? 'Lanjutkan penyiapan proyek' : locale === 'es' ? 'Continúa con la configuración del proyecto' : locale === 'vi' ? 'Tiếp tục thiết lập dự án' : 'Continue with the project setup'),
+      flyenv: flyenvWorkflow.steps[index] ?? (locale === 'zh' ? '继续项目设置' : locale === 'id' ? 'Lanjutkan penyiapan proyek' : locale === 'es' ? 'Continúa con la configuración del proyecto' : locale === 'vi' ? 'Tiếp tục thiết lập dự án' : 'Continue with the project setup')
     }))
   })
   const isNotIncluded = (value: string) =>
-    ['Not included', '未包含', 'Tidak termasuk', 'No incluido'].some((label) => value.includes(label))
+    ['Not included', '未包含', 'Tidak termasuk', 'No incluido', 'Không bao gồm'].some((label) => value.includes(label))
   const statusLabel = (value: string, ok: boolean) => {
-    if (ok) return locale === 'zh' ? '可用' : locale === 'id' ? 'Tersedia' : locale === 'es' ? 'Disponible' : 'Available'
-    if (isNotIncluded(value)) return locale === 'zh' ? '未包含' : locale === 'id' ? 'Tidak termasuk' : locale === 'es' ? 'No incluido' : 'Not included'
-    return locale === 'zh' ? '有限' : locale === 'id' ? 'Terbatas' : locale === 'es' ? 'Limitado' : 'Limited'
+    if (ok) return locale === 'zh' ? '可用' : locale === 'id' ? 'Tersedia' : locale === 'es' ? 'Disponible' : locale === 'vi' ? 'Có sẵn' : 'Available'
+    if (isNotIncluded(value)) return locale === 'zh' ? '未包含' : locale === 'id' ? 'Tidak termasuk' : locale === 'es' ? 'No incluido' : locale === 'vi' ? 'Không bao gồm' : 'Not included'
+    return locale === 'zh' ? '有限' : locale === 'id' ? 'Terbatas' : locale === 'es' ? 'Limitado' : locale === 'vi' ? 'Hạn chế' : 'Limited'
   }
   const cellText = (value: string, ok: boolean) =>
     value.trim() === statusLabel(value, ok) ? '' : value

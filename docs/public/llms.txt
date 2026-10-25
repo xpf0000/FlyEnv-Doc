@@ -45,6 +45,7 @@ FlyEnv installs and manages native development services through one interface. U
 - [中文文档](https://flyenv.com/zh/): Chinese documentation.
 - [Dokumentasi Bahasa Indonesia](https://flyenv.com/id/): Indonesian documentation.
 - [Documentación en español](https://flyenv.com/es/): Spanish documentation.
+- [Tài liệu tiếng Việt](https://flyenv.com/vi/): Vietnamese documentation.
 
 ## Project resources
 

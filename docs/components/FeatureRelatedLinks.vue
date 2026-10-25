@@ -23,7 +23,7 @@
   import { computed } from 'vue'
   import { featureRelatedContent } from '../data/feature-related-content'
 
-  const props = withDefaults(defineProps<{ slug: string; locale?: 'en' | 'zh' | 'id' | 'es' }>(), {
+  const props = withDefaults(defineProps<{ slug: string; locale?: 'en' | 'zh' | 'id' | 'es' | 'vi' }>(), {
     locale: 'en'
   })
   const links = computed(() => featureRelatedContent[props.slug] || [])
@@ -34,7 +34,9 @@
         ? { title: 'Panduan, solusi, dan demo terkait', description: 'Lanjutkan dengan panduan, solusi, demo, atau perspektif komunitas.' }
         : props.locale === 'es'
           ? { title: 'Guías, soluciones y demos relacionados', description: 'Continúa con una guía práctica, una solución, una demo o una perspectiva de la comunidad.' }
-          : { title: 'Related guides, solutions and demos', description: 'Continue with a practical guide, solution, demo, or community perspective.' }
+          : props.locale === 'vi'
+            ? { title: 'Hướng dẫn, giải pháp và bản demo liên quan', description: 'Tiếp tục với một hướng dẫn thực tế, một giải pháp, một bản demo hoặc góc nhìn từ cộng đồng.' }
+            : { title: 'Related guides, solutions and demos', description: 'Continue with a practical guide, solution, demo, or community perspective.' }
   )
   const localizedHref = (href: string) => {
     if (props.locale === 'en' || href.startsWith('http')) return href
@@ -47,6 +49,8 @@
         ? { guide: 'Panduan', solution: 'Solusi', demo: 'Demo', community: 'Komunitas' }
         : props.locale === 'es'
           ? { guide: 'Guías', solution: 'Soluciones', demo: 'Demos', community: 'Comunidad' }
+          : props.locale === 'vi'
+            ? { guide: 'Hướng dẫn', solution: 'Giải pháp', demo: 'Bản demo', community: 'Cộng đồng' }
           : {
             guide: 'Guides',
             solution: 'Solutions',

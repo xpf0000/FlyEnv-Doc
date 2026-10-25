@@ -17,12 +17,12 @@
   import { detectOperatingSystem, trackEvent } from '../../utils/analytics'
 
   const props = defineProps<{
-    i18n: 'en' | 'zh' | 'es'
+    i18n: 'en' | 'zh' | 'es' | 'vi'
     isLink?: boolean
   }>()
 
   const title = computed(() => {
-    return props?.i18n === 'zh' ? '下载' : props?.i18n === 'es' ? 'Descargar' : 'Download'
+    return props?.i18n === 'zh' ? '下载' : props?.i18n === 'es' ? 'Descargar' : props?.i18n === 'vi' ? 'Tải xuống' : 'Download'
   })
 
   const down = () => {

@@ -580,7 +580,7 @@
   const props = withDefaults(
     defineProps<{
       slug: string
-      locale?: 'en' | 'zh' | 'id' | 'es'
+      locale?: 'en' | 'zh' | 'id' | 'es' | 'vi'
     }>(),
     { locale: 'en' }
   )
@@ -610,12 +610,15 @@
     const name = solution.value?.name ?? 'project'
     const isChinese = props.locale === 'zh'
     const isSpanish = props.locale === 'es'
+    const isVietnamese = props.locale === 'vi'
     const role = (component: string) =>
       isChinese
         ? `用于本地 ${name} 环境的 ${component} 服务。`
         : isSpanish
           ? `Ejecuta ${component} para el entorno local de ${name}.`
-          : `Menjalankan ${component} untuk lingkungan ${name} lokal.`
+          : isVietnamese
+            ? `Chạy ${component} cho môi trường local của ${name}.`
+            : `Menjalankan ${component} untuk lingkungan ${name} lokal.`
     const help = isChinese
       ? [
           { title: '匹配项目运行时', description: `为 ${name} 选择项目所需的运行时版本。` },
@@ -644,7 +647,14 @@
               description: 'Accede a los proyectos mediante dominios locales y HTTPS cuando sea necesario.'
             }
           ]
-        : [
+        : isVietnamese
+          ? [
+              { title: 'Khớp runtime dự án', description: `Chọn phiên bản runtime mà ${name} yêu cầu.` },
+              { title: 'Quản lý dịch vụ local', description: 'Chỉ khởi động cơ sở dữ liệu, cache và các dịch vụ khác khi dự án cần.' },
+              { title: 'Giữ dự án tách biệt', description: 'Để mỗi dự án dùng các phiên bản và cấu hình dịch vụ riêng.' },
+              { title: 'Cấu hình tên miền local', description: 'Truy cập dự án qua tên miền local và HTTPS khi cần.' }
+            ]
+          : [
             {
               title: 'Cocokkan runtime proyek',
               description: `Pilih versi runtime yang dibutuhkan ${name}.`
@@ -681,7 +691,16 @@
             'Configura el servidor web local, los dominios y HTTPS según sea necesario.',
             'Agrupa los servicios relacionados para iniciarlos juntos de nuevo con facilidad.'
           ]
-        : [
+        : isVietnamese
+          ? [
+              `Cài đặt dự án và phụ thuộc theo tài liệu chính thức của ${name}.`,
+              'Chọn phiên bản runtime mà dự án cần trong FlyEnv.',
+              'Khởi động dịch vụ cơ sở dữ liệu được chỉ định trong cấu hình dự án.',
+              'Chỉ khởi động cache, tìm kiếm hoặc các dịch vụ hỗ trợ khác khi cần.',
+              'Cấu hình web server, tên miền local và HTTPS theo nhu cầu.',
+              'Nhóm các dịch vụ liên quan để dễ khởi động lại cùng nhau.'
+            ]
+          : [
             `Pasang proyek dan dependensinya mengikuti dokumentasi resmi ${name}.`,
             'Pilih versi runtime yang dibutuhkan proyek di FlyEnv.',
             'Jalankan layanan database yang ditentukan dalam konfigurasi proyek.',
@@ -704,7 +723,9 @@
               ? `阅读 ${name} 指南`
               : isSpanish
                 ? `Lee la guía de ${name}`
-                : `Baca panduan ${name}`,
+                : isVietnamese
+                  ? `Đọc hướng dẫn ${name}`
+                  : `Baca panduan ${name}`,
             href: `${routePrefix.value}${source.guide.href}`
           }
         : undefined
@@ -873,6 +894,45 @@
       emailCopied: 'Dirección de correo electrónico copiada',
       notFound: 'Solución no encontrada',
       browseAllSolutions: 'Explorar todas las soluciones'
+    },
+    vi: {
+      solutions: 'Giải pháp',
+      allSolutions: 'Tất cả giải pháp',
+      solution: 'giải pháp',
+      downloadFlyEnv: 'Tải xuống FlyEnv',
+      officialDocumentation: 'Tài liệu chính thức',
+      localProjectStack: 'Stack dự án local',
+      managedServices: 'Các dịch vụ FlyEnv có thể quản lý cho',
+      about: 'Giới thiệu',
+      commonUseCases: 'Các trường hợp sử dụng phổ biến',
+      coreCapabilities: 'Các khả năng cốt lõi',
+      projectResources: 'Tài nguyên dự án',
+      resourcesDescriptionStart:
+        'Để xem các lệnh cài đặt, phiên bản hỗ trợ và cấu hình riêng của dự án, hãy tham khảo tài liệu chính thức của',
+      resourcesDescriptionEnd: '.',
+      typicalLocalStack: 'Stack local điển hình',
+      typicalStackDescription:
+        'Các dịch vụ cụ thể phụ thuộc vào dự án, phiên bản phát hành và cấu hình local của nó. Đây là một thiết lập local phổ biến, không phải yêu cầu cố định.',
+      component: 'Thành phần',
+      typicalRole: 'Vai trò điển hình',
+      howFlyEnvHelps: 'FlyEnv giúp gì',
+      setupLocalEnvironment: 'Thiết lập môi trường local',
+      setupDescription:
+        'Việc cài đặt dự án vẫn thuộc tài liệu chính thức của dự án. FlyEnv quản lý các runtime, cơ sở dữ liệu, web server và các dịch vụ hỗ trợ xung quanh nó.',
+      watchDemo: 'Xem bản demo',
+      thumbnailFor: 'Hình thu nhỏ cho',
+      relatedSolutions: 'Giải pháp liên quan',
+      readyToRun: 'Sẵn sàng chạy',
+      locallyQuestion: 'trên local?',
+      finalCtaDescriptionStart:
+        'Dùng FlyEnv để quản lý các runtime, cơ sở dữ liệu, web server và dịch vụ xung quanh môi trường local',
+      finalCtaDescriptionEnd: 'của bạn.',
+      supportTitle: 'Có câu hỏi khi dùng FlyEnv?',
+      githubIssues: 'GitHub Issues',
+      copyEmail: 'Sao chép địa chỉ email',
+      emailCopied: 'Đã sao chép địa chỉ email',
+      notFound: 'Không tìm thấy giải pháp',
+      browseAllSolutions: 'Duyệt tất cả giải pháp'
     }
   } as const
   const copy = computed(() => copyByLocale[props.locale])
@@ -881,6 +941,7 @@
     if (props.locale === 'zh') return `在 FlyEnv 中本地运行 ${solution.value.name}`
     if (props.locale === 'es') return `Ejecuta ${solution.value.name} en local con FlyEnv`
     if (props.locale === 'id') return `Jalankan ${solution.value.name} Lokal dengan FlyEnv`
+    if (props.locale === 'vi') return `Chạy ${solution.value.name} trên local với FlyEnv`
     return `Run ${solution.value.name} Locally with FlyEnv`
   })
   const documentationHref = computed(

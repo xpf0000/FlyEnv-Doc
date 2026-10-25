@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import ComparisonLoopPage from './ComparisonLoopPage.vue'
-  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' }>()
+  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' | 'vi' }>()
   const locale = props.locale || 'en'
   const localeText = (value: any, translations: any): any => {
     if (typeof value === 'string') return translations[locale]?.[value] || value
@@ -344,6 +344,120 @@
        'With Laragon': 'Con Laragon', 'With FlyEnv': 'Con FlyEnv', 'Add the required PHP versions': 'Añade las versiones de PHP necesarias', 'Switch the active PHP version': 'Cambia la versión activa de PHP', 'Restart or reload the environment': 'Reinicia o recarga el entorno', 'Work on your project': 'Trabaja en tu proyecto', 'Switch again for another project': 'Vuelve a cambiar para otro proyecto', 'Install PHP 7.4 and PHP 8.3': 'Instala PHP 7.4 y PHP 8.3', 'Assign PHP 7.4 to Project A': 'Asigna PHP 7.4 al Proyecto A', 'Assign PHP 8.3 to Project B': 'Asigna PHP 8.3 al Proyecto B', 'Open either project without changing the other': 'Abre cualquier proyecto sin cambiar el otro', 'Switch between projects without changing global PHP': 'Cambia entre proyectos sin modificar el PHP global',
       'You are on Windows and mainly develop PHP applications.': 'Estás en Windows y desarrollas principalmente aplicaciones PHP.', 'You want a lightweight, fast and portable local environment.': 'Quieres un entorno local ligero, rápido y portátil.', 'Your projects can share one active runtime configuration.': 'Tus proyectos pueden compartir una misma configuración de runtime activa.', 'You prefer automatic local hosts with minimal setup.': 'Prefieres hosts locales automáticos con una configuración mínima.', 'You need the same tool on macOS, Windows and Linux.': 'Necesitas la misma herramienta en macOS, Windows y Linux.', 'Different projects need different runtimes, services or domains.': 'Diferentes proyectos necesitan distintos runtimes, servicios o dominios.', 'You want databases, caches and tools managed in one workspace.': 'Quieres gestionar bases de datos, cachés y herramientas en un solo espacio de trabajo.', 'You use AI coding clients or local AI services such as Ollama and want them managed alongside your project stack.': 'Usas clientes de programación con IA o servicios locales de IA como Ollama y quieres gestionarlos junto al stack de tu proyecto.',
       'Should I switch from Laragon to FlyEnv?': '¿Debería cambiar de Laragon a FlyEnv?', 'Not necessarily. If Laragon already fits your Windows-only workflow, there may be little reason to switch. FlyEnv becomes more useful when you need cross-platform consistency, project-specific runtime and service configuration, or more integrated modules.': 'No necesariamente. Si Laragon ya se ajusta a tu flujo de trabajo exclusivo de Windows, puede que no haya muchas razones para cambiar. FlyEnv resulta más útil cuando necesitas consistencia multiplataforma, configuración de runtimes y servicios por proyecto, o módulos más integrados.', 'Is Laragon only for Windows?': '¿Laragon es solo para Windows?', 'Laragon is built for Windows. FlyEnv supports macOS, Windows, and Linux when your team or projects need the same local workflow across platforms.': 'Laragon está construido para Windows. FlyEnv es compatible con macOS, Windows y Linux cuando tu equipo o tus proyectos necesitan el mismo flujo de trabajo local en todas las plataformas.', 'Can I keep my existing Laragon projects?': '¿Puedo conservar mis proyectos actuales de Laragon?', 'Yes. FlyEnv can use existing project directories. You normally recreate the local site, runtime, services, and domain settings without rewriting application code.': 'Sí. FlyEnv puede usar los directorios de proyecto existentes. Normalmente basta con recrear el sitio local, el runtime, los servicios y la configuración de dominios sin reescribir el código de la aplicación.', 'Can I still use Apache with FlyEnv?': '¿Puedo seguir usando Apache con FlyEnv?', 'Yes. Apache is available alongside Nginx and Caddy, so existing Apache-based projects can keep their familiar web-server setup.': 'Sí. Apache está disponible junto a Nginx y Caddy, por lo que los proyectos basados en Apache pueden conservar su configuración habitual de servidor web.', 'Can different projects use different PHP versions?': '¿Pueden diferentes proyectos usar diferentes versiones de PHP?', 'Yes. FlyEnv can manage multiple PHP versions and assign the version each project or local site needs, without changing a global runtime for every project.': 'Sí. FlyEnv puede gestionar varias versiones de PHP y asignar a cada proyecto o sitio local la versión que necesita, sin cambiar un runtime global para todos los proyectos.', 'Does FlyEnv support custom local domains and HTTPS?': '¿FlyEnv admite dominios locales personalizados y HTTPS?', 'Yes. You can manage custom domains and local HTTPS per project or site, keeping host settings separate instead of switching one global environment.': 'Sí. Puedes gestionar dominios personalizados y HTTPS local por proyecto o sitio, manteniendo la configuración de hosts separada en lugar de cambiar un único entorno global.', 'Can FlyEnv manage databases and other local services?': '¿FlyEnv puede gestionar bases de datos y otros servicios locales?', 'Yes. FlyEnv brings databases, caches, mail testing, object storage, and other modules into one workspace so each project can start the services it needs.': 'Sí. FlyEnv reúne bases de datos, cachés, pruebas de correo, almacenamiento de objetos y otros módulos en un solo espacio de trabajo, para que cada proyecto inicie los servicios que necesita.', 'Is FlyEnv suitable for team development?': '¿FlyEnv es adecuado para el desarrollo en equipo?', 'FlyEnv helps teams align local runtimes, domains, and project services across macOS, Windows, and Linux. Production parity may still require containers or your team’s deployment standard.': 'FlyEnv ayuda a los equipos a alinear runtimes, dominios y servicios de proyecto locales en macOS, Windows y Linux. La paridad con producción puede seguir requiriendo contenedores o el estándar de despliegue de tu equipo.'
+    },
+    vi: {
+      'Why developers compare FlyEnv and Laragon': 'Vì sao nhà phát triển so sánh FlyEnv và Laragon',
+      'Both are excellent tools, but they are built with different goals and design philosophies.': 'Cả hai đều là công cụ xuất sắc, nhưng được xây dựng với mục tiêu và triết lý thiết kế khác nhau.',
+      'Different development models': 'Mô hình phát triển khác nhau',
+      'Typical workflow: using different PHP versions': 'Quy trình điển hình: dùng các phiên bản PHP khác nhau',
+      'Choose Laragon if': 'Chọn Laragon nếu',
+      'Choose FlyEnv if': 'Chọn FlyEnv nếu',
+      'Frequently asked questions': 'Câu hỏi thường gặp',
+      'Windows-first environment or cross-platform project workspace?': 'Môi trường ưu tiên Windows hay không gian làm việc dự án đa nền tảng?',
+      'Lightweight and easy to use': 'Nhẹ và dễ dùng',
+      'Global environment switching': 'Chuyển đổi môi trường toàn cục',
+      'Project-based environments': 'Môi trường theo dự án',
+      'Windows only': 'Chỉ Windows',
+      'Active environment': 'Môi trường hoạt động',
+      'Global services': 'Dịch vụ toàn cục',
+      'Switch together': 'Chuyển cùng nhau',
+      Project: 'Dự án',
+      'Built-in': 'Tích hợp sẵn',
+      'Not available': 'Không khả dụng',
+      'Not included': 'Không bao gồm',
+      'Free and open source': 'Miễn phí và mã nguồn mở',
+      'Add separately': 'Thêm riêng',
+      'Addable / package-based': 'Có thể thêm / dựa trên package',
+      'Automatic Pretty URLs': 'Pretty URL tự động',
+      'Per-project runtimes, services and domains': 'Runtime, dịch vụ và tên miền mỗi dự án',
+      'Keep each project’s runtimes, domains and services configured independently.': 'Giữ runtime, tên miền và dịch vụ mỗi dự án được cấu hình độc lập.',
+      'Laragon is a lightweight and easy-to-use local server environment for Windows, focused on web/PHP development. FlyEnv is a native cross-platform workspace that lets you match each project to its own runtimes and services.': 'Laragon là môi trường server local nhẹ và dễ dùng cho Windows, tập trung vào phát triển web/PHP. FlyEnv là không gian làm việc native đa nền tảng giúp bạn gán cho mỗi dự án runtime và dịch vụ riêng.',
+      'Global environment switching (Windows only)': 'Chuyển đổi môi trường toàn cục (chỉ Windows)',
+      'A dedicated environment per project (macOS, Windows, Linux)': 'Môi trường riêng mỗi dự án (macOS, Windows, Linux)',
+      'One local environment for all projects. Switch PHP, web server and services globally.': 'Một môi trường local cho mọi dự án. Chuyển PHP, web server và dịch vụ toàn cục.',
+      'Each project has its own runtimes, services, ports, and configuration.': 'Mỗi dự án có runtime, dịch vụ, port và cấu hình riêng.',
+      'Lightweight and flexible (Windows)': 'Nhẹ và linh hoạt (Windows)',
+      'C:\\laragon\\www (web root)': 'C:\\laragon\\www (web root)',
+      'Fast and easy to set up': 'Nhanh và dễ thiết lập',
+      'Switch PHP and services globally': 'Chuyển PHP và dịch vụ toàn cục',
+      'Automatic virtual hosts (Pretty URLs)': 'Virtual host tự động (Pretty URL)',
+      'Lightweight and extensible with portable tools': 'Nhẹ và mở rộng được bằng công cụ portable',
+      'Project-based environments (macOS / Windows / Linux)': 'Môi trường theo dự án (macOS / Windows / Linux)',
+      'Cross-platform (macOS, Windows, Linux)': 'Đa nền tảng (macOS, Windows, Linux)',
+      'Multiple runtimes and service versions': 'Nhiều runtime và phiên bản dịch vụ',
+      'Custom domains and HTTPS per project': 'Tên miền tùy chỉnh và HTTPS mỗi dự án',
+      'Project settings stay separate from other projects': 'Cài đặt dự án được giữ riêng với các dự án khác',
+      'Each project keeps its own runtime and service configuration': 'Mỗi dự án giữ cấu hình runtime và dịch vụ riêng',
+      'View the same setup in FlyEnv’s runtime, site, and service workflows.': 'Xem cấu hình tương tự trong quy trình runtime, site và dịch vụ của FlyEnv.',
+      'Multiple runtime versions': 'Nhiều phiên bản runtime',
+      'PHP and runtime versions': 'Phiên bản PHP và runtime',
+      'Install and run multiple PHP versions side by side without conflicts.': 'Cài đặt và chạy song song nhiều phiên bản PHP mà không xung đột.',
+      'Local domains and HTTPS': 'Tên miền local và HTTPS',
+      'Local sites and HTTPS': 'Site local và HTTPS',
+      'Create local sites with custom domains and automatic HTTPS.': 'Tạo site local với tên miền tùy chỉnh và HTTPS tự động.',
+      'Project-specific service stacks': 'Stack dịch vụ riêng theo dự án',
+      'Startup Groups and services': 'Startup Groups và dịch vụ',
+      'Keep each project’s web server, runtime and supporting services together.': 'Gộp web server, runtime và dịch vụ hỗ trợ của mỗi dự án lại với nhau.',
+      Platforms: 'Nền tảng',
+      'macOS, Windows, Linux': 'macOS, Windows, Linux',
+      'PHP versions': 'Phiên bản PHP',
+      'Multiple versions (environment-level switching)': 'Nhiều phiên bản (chuyển đổi cấp môi trường)',
+      'Multiple managed versions (per project)': 'Nhiều phiên bản được quản lý (theo dự án)',
+      'Web servers': 'Web server',
+      'Apache, Nginx': 'Apache, Nginx',
+      'Nginx, Apache, Caddy': 'Nginx, Apache, Caddy',
+      'MySQL / MariaDB': 'MySQL / MariaDB',
+      'Multiple database modules': 'Nhiều mô-đun cơ sở dữ liệu',
+      'PostgreSQL / Redis': 'PostgreSQL / Redis',
+      'Built-in modules': 'Mô-đun tích hợp sẵn',
+      'Local custom domains': 'Tên miền tùy chỉnh local',
+      'Built-in and managed': 'Tích hợp sẵn và được quản lý',
+      'Project configuration': 'Cấu hình dự án',
+      'Environment-oriented': 'Hướng theo môi trường',
+      'Startup groups': 'Nhóm khởi động',
+      'Built-in project services': 'Dịch vụ dự án tích hợp sẵn',
+      'Bundled or addable tools': 'Công cụ đi kèm hoặc có thể thêm',
+      'phpMyAdmin, pgAdmin, DbGate and more': 'phpMyAdmin, pgAdmin, DbGate và nhiều hơn',
+      'AI / MCP integration': 'Tích hợp AI / MCP',
+      'FlyEnv MCP Server and AI CLI modules': 'Mô-đun FlyEnv MCP Server và AI CLI',
+      'Object storage': 'Lưu trữ đối tượng',
+      'Managed MinIO / RustFS modules': 'Mô-đun MinIO / RustFS được quản lý',
+      'With Laragon': 'Với Laragon',
+      'With FlyEnv': 'Với FlyEnv',
+      'Add the required PHP versions': 'Thêm các phiên bản PHP cần thiết',
+      'Switch the active PHP version': 'Chuyển phiên bản PHP đang hoạt động',
+      'Restart or reload the environment': 'Khởi động lại hoặc tải lại môi trường',
+      'Work on your project': 'Làm việc trên dự án',
+      'Switch again for another project': 'Chuyển lại cho dự án khác',
+      'Install PHP 7.4 and PHP 8.3': 'Cài đặt PHP 7.4 và PHP 8.3',
+      'Assign PHP 7.4 to Project A': 'Gán PHP 7.4 cho Dự án A',
+      'Assign PHP 8.3 to Project B': 'Gán PHP 8.3 cho Dự án B',
+      'Open either project without changing the other': 'Mở một trong hai dự án mà không thay đổi dự án còn lại',
+      'Switch between projects without changing global PHP': 'Chuyển đổi giữa các dự án mà không thay đổi PHP toàn cục',
+      'You are on Windows and mainly develop PHP applications.': 'Bạn đang dùng Windows và chủ yếu phát triển ứng dụng PHP.',
+      'You want a lightweight, fast and portable local environment.': 'Bạn muốn môi trường local nhẹ, nhanh và portable.',
+      'Your projects can share one active runtime configuration.': 'Dự án của bạn có thể dùng chung một cấu hình runtime hoạt động.',
+      'You prefer automatic local hosts with minimal setup.': 'Bạn thích host local tự động với thiết lập tối thiểu.',
+      'You need the same tool on macOS, Windows and Linux.': 'Bạn cần cùng một công cụ trên macOS, Windows và Linux.',
+      'Different projects need different runtimes, services or domains.': 'Các dự án khác nhau cần runtime, dịch vụ hoặc tên miền khác nhau.',
+      'You want databases, caches and tools managed in one workspace.': 'Bạn muốn cơ sở dữ liệu, cache và công cụ được quản lý trong một không gian làm việc.',
+      'You use AI coding clients or local AI services such as Ollama and want them managed alongside your project stack.': 'Bạn dùng client lập trình AI hoặc dịch vụ AI local như Ollama và muốn chúng được quản lý cùng stack dự án.',
+      'Should I switch from Laragon to FlyEnv?': 'Tôi có nên chuyển từ Laragon sang FlyEnv không?',
+      'Not necessarily. If Laragon already fits your Windows-only workflow, there may be little reason to switch. FlyEnv becomes more useful when you need cross-platform consistency, project-specific runtime and service configuration, or more integrated modules.': 'Không hẳn. Nếu Laragon đã phù hợp với quy trình chỉ dùng Windows của bạn, ít có lý do để chuyển. FlyEnv hữu ích hơn khi bạn cần tính nhất quán đa nền tảng, cấu hình runtime và dịch vụ theo dự án, hoặc các mô-đun tích hợp hơn.',
+      'Is Laragon only for Windows?': 'Laragon chỉ dành cho Windows?',
+      'Laragon is built for Windows. FlyEnv supports macOS, Windows, and Linux when your team or projects need the same local workflow across platforms.': 'Laragon được xây dựng cho Windows. FlyEnv hỗ trợ macOS, Windows và Linux khi nhóm hoặc dự án của bạn cần quy trình local giống nhau trên mọi nền tảng.',
+      'Can I keep my existing Laragon projects?': 'Tôi có giữ được các dự án Laragon hiện có không?',
+      'Yes. FlyEnv can use existing project directories. You normally recreate the local site, runtime, services, and domain settings without rewriting application code.': 'Có. FlyEnv có thể dùng thư mục dự án hiện có. Thông thường bạn chỉ cần tạo lại site local, runtime, dịch vụ và cài đặt tên miền mà không phải viết lại mã ứng dụng.',
+      'Can I still use Apache with FlyEnv?': 'Tôi vẫn có thể dùng Apache với FlyEnv không?',
+      'Yes. Apache is available alongside Nginx and Caddy, so existing Apache-based projects can keep their familiar web-server setup.': 'Có. Apache khả dụng cùng Nginx và Caddy, nên các dự án dựa trên Apache hiện có có thể giữ thiết lập web server quen thuộc.',
+      'Can different projects use different PHP versions?': 'Các dự án khác nhau có thể dùng các phiên bản PHP khác nhau?',
+      'Yes. FlyEnv can manage multiple PHP versions and assign the version each project or local site needs, without changing a global runtime for every project.': 'Có. FlyEnv có thể quản lý nhiều phiên bản PHP và gán phiên bản mà mỗi dự án hoặc site local cần, mà không thay đổi runtime toàn cục cho mọi dự án.',
+      'Does FlyEnv support custom local domains and HTTPS?': 'FlyEnv có hỗ trợ tên miền local tùy chỉnh và HTTPS không?',
+      'Yes. You can manage custom domains and local HTTPS per project or site, keeping host settings separate instead of switching one global environment.': 'Có. Bạn có thể quản lý tên miền tùy chỉnh và HTTPS local theo dự án hoặc site, giữ cài đặt host riêng biệt thay vì chuyển đổi một môi trường toàn cục.',
+      'Can FlyEnv manage databases and other local services?': 'FlyEnv có quản lý được cơ sở dữ liệu và các dịch vụ local khác không?',
+      'Yes. FlyEnv brings databases, caches, mail testing, object storage, and other modules into one workspace so each project can start the services it needs.': 'Có. FlyEnv đưa cơ sở dữ liệu, cache, kiểm thử email, object storage và các mô-đun khác vào một không gian làm việc để mỗi dự án khởi động các dịch vụ cần thiết.',
+      'Is FlyEnv suitable for team development?': 'FlyEnv có phù hợp với phát triển nhóm không?',
+      'FlyEnv helps teams align local runtimes, domains, and project services across macOS, Windows, and Linux. Production parity may still require containers or your team’s deployment standard.': 'FlyEnv giúp nhóm thống nhất runtime local, tên miền và dịch vụ dự án trên macOS, Windows và Linux. Tính tương đương sản phẩm vẫn có thể cần container hoặc tiêu chuẩn deployment của nhóm.'
     }
   })
   if (locale === 'zh') {
@@ -357,6 +471,10 @@
   } else if (locale === 'es') {
     localizedCompetitor.featureRows.forEach((row: any) => {
       if (row.name === 'Database GUI tools') row.name = 'Herramientas GUI de base de datos'
+    })
+  } else if (locale === 'vi') {
+    localizedCompetitor.featureRows.forEach((row: any) => {
+      if (row.name === 'Database GUI tools') row.name = 'Công cụ GUI cơ sở dữ liệu'
     })
   }
   if (locale === 'zh') {
@@ -376,6 +494,12 @@
       { title: 'Centrado en Windows frente a multiplataforma', body: 'Laragon funciona en Windows. FlyEnv funciona de forma nativa en macOS, Windows y Linux.' },
       { title: 'Cambio de entorno frente a configuración por proyecto', body: 'Laragon se centra en el cambio global de entorno; FlyEnv permite que cada proyecto conserve su propia configuración.' },
       { title: 'Ligereza frente a módulos integrados', body: 'Laragon se mantiene compacto y extensible. FlyEnv reúne runtimes, servicios y herramientas de proyecto en un solo espacio de trabajo.' }
+    ]
+  } else if (locale === 'vi') {
+    localizedCompetitor.differences = [
+      { title: 'Ưu tiên Windows so với đa nền tảng', body: 'Laragon chạy trên Windows. FlyEnv hoạt động native trên macOS, Windows và Linux.' },
+      { title: 'Chuyển đổi môi trường so với cấu hình dự án', body: 'Laragon tập trung vào chuyển đổi môi trường toàn cục; FlyEnv giúp mỗi dự án giữ cài đặt riêng.' },
+      { title: 'Nhẹ so với mô-đun tích hợp', body: 'Laragon luôn gọn nhẹ và mở rộng được. FlyEnv đưa runtime, dịch vụ và công cụ dự án vào một không gian làm việc.' }
     ]
   }
   const flyenvWorkflow = {
@@ -402,8 +526,10 @@
         ? ['Lintas platform (macOS, Windows, Linux)', 'Berbagai runtime dan versi layanan', 'Domain khusus dan HTTPS per proyek', 'Pengaturan proyek tetap terpisah', 'Setiap proyek menyimpan konfigurasi runtime dan layanan sendiri']
         : locale === 'es'
           ? ['Multiplataforma (macOS, Windows, Linux)', 'Múltiples versiones de runtimes y servicios', 'Dominios personalizados y HTTPS por proyecto', 'La configuración de cada proyecto se mantiene separada de la de los demás', 'Cada proyecto conserva su propia configuración de runtime y servicios']
+          : locale === 'vi'
+            ? ['Đa nền tảng (macOS, Windows, Linux)', 'Nhiều phiên bản runtime và dịch vụ', 'Tên miền tùy chỉnh và HTTPS theo dự án', 'Cài đặt dự án được giữ riêng với các dự án khác', 'Mỗi dự án giữ cấu hình runtime và dịch vụ riêng']
           : ['Cross-platform (macOS, Windows, Linux)', 'Multiple runtimes and service versions', 'Custom domains and HTTPS per project', 'Project settings stay separate from other projects', 'Each project keeps its own runtime and service configuration']"
-    :flyenv-workflow="locale === 'zh' ? { ...flyenvWorkflow,  steps: ['安装 PHP 7.4 和 PHP 8.3', '为项目 A 分配 PHP 7.4', '为项目 B 分配 PHP 8.3', '打开任一项目而不影响另一个项目', '在项目之间切换而无需更改全局 PHP'] } : locale === 'id' ? { ...flyenvWorkflow,  steps: ['Instal PHP 7.4 dan PHP 8.3', 'Tetapkan PHP 7.4 ke Proyek A', 'Tetapkan PHP 8.3 ke Proyek B', 'Buka salah satu proyek tanpa mengubah proyek lain', 'Beralih proyek tanpa mengubah PHP global'] } : locale === 'es' ? { ...flyenvWorkflow,  steps: ['Instala PHP 7.4 y PHP 8.3', 'Asigna PHP 7.4 al Proyecto A', 'Asigna PHP 8.3 al Proyecto B', 'Abre cualquier proyecto sin cambiar el otro', 'Cambia entre proyectos sin modificar el PHP global'] } : flyenvWorkflow"
+    :flyenv-workflow="locale === 'zh' ? { ...flyenvWorkflow,  steps: ['安装 PHP 7.4 和 PHP 8.3', '为项目 A 分配 PHP 7.4', '为项目 B 分配 PHP 8.3', '打开任一项目而不影响另一个项目', '在项目之间切换而无需更改全局 PHP'] } : locale === 'id' ? { ...flyenvWorkflow,  steps: ['Instal PHP 7.4 dan PHP 8.3', 'Tetapkan PHP 7.4 ke Proyek A', 'Tetapkan PHP 8.3 ke Proyek B', 'Buka salah satu proyek tanpa mengubah proyek lain', 'Beralih proyek tanpa mengubah PHP global'] } : locale === 'es' ? { ...flyenvWorkflow,  steps: ['Instala PHP 7.4 y PHP 8.3', 'Asigna PHP 7.4 al Proyecto A', 'Asigna PHP 8.3 al Proyecto B', 'Abre cualquier proyecto sin cambiar el otro', 'Cambia entre proyectos sin modificar el PHP global'] } : locale === 'vi' ? { ...flyenvWorkflow,  steps: ['Cài đặt PHP 7.4 và PHP 8.3', 'Gán PHP 7.4 cho Dự án A', 'Gán PHP 8.3 cho Dự án B', 'Mở một trong hai dự án mà không thay đổi dự án còn lại', 'Chuyển đổi giữa các dự án mà không thay đổi PHP toàn cục'] } : flyenvWorkflow"
     :locale="props.locale"
   />
 </template>

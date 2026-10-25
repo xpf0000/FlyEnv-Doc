@@ -1,4 +1,4 @@
-export type WordPressSolutionLocale = 'en' | 'zh' | 'id' | 'es'
+export type WordPressSolutionLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 type FeatureKey =
   | 'php'
@@ -489,6 +489,104 @@ const localizedSections: Record<Exclude<WordPressSolutionLocale, 'en'>, Partial<
     ctaTitle: '¿Listo para desarrollar WordPress en local?',
     ctaDescription: 'Ejecuta el runtime del sitio, la base de datos, el dominio local y HTTPS en un solo workspace.',
     haveQuestions: '¿Tienes preguntas sobre FlyEnv?'
+  },
+  vi: {
+    breadcrumbSolutions: 'Giải pháp',
+    eyebrow: 'Giải pháp CMS',
+    heroTitle: 'Môi trường phát triển WordPress local với FlyEnv',
+    heroDescription: 'Xây dựng, nhập và quản lý các site WordPress với phiên bản PHP, tiện ích mở rộng, cơ sở dữ liệu, web server, tên miền local và HTTPS mà mỗi site cần.',
+    download: 'Tải xuống FlyEnv',
+    guide: 'Đọc hướng dẫn Host',
+    heroStackTitle: 'Các dịch vụ cốt lõi tại một cái nhìn',
+    heroStackDescription: 'Những thành phần thiết yếu để chạy và kiểm thử một site WordPress local.',
+    heroStack: [
+      { label: 'PHP + tiện ích mở rộng', feature: 'php' },
+      { label: 'MySQL / MariaDB', feature: 'mysql' },
+      { label: 'Nginx / Apache', feature: 'nginx' },
+      { label: 'Tên miền local + HTTPS', feature: 'https' }
+    ],
+    requirementsTitle: 'FlyEnv quản lý gì cho mỗi site WordPress',
+    requirementsDescription: 'WordPress xoay quanh site: tệp, thư mục gốc tài liệu, runtime PHP, cơ sở dữ liệu và URL local cần luôn đồng bộ. FlyEnv giữ các phiên bản và tiện ích mở rộng PHP gắn với từng dự án.',
+    requirementHeaders: ['Yêu cầu', 'Dịch vụ hoặc thiết lập local', 'Hỗ trợ FlyEnv'],
+    requirements: [
+      { icon: 'folder', title: 'Tệp của site', parts: [{ label: 'Thư mục gốc dự án + wp-config.php', feature: 'https' }], support: 'Thêm hoặc nhập site đã có' },
+      { icon: 'runtime', title: 'Runtime PHP', parts: [{ label: 'PHP-FPM', feature: 'php' }], support: 'Chọn phiên bản theo dự án' },
+      { icon: 'extension', title: 'Tiện ích mở rộng PHP', parts: [{ label: 'Các tiện ích mở rộng PHP đã tải', feature: 'php' }], support: 'Xem và cài đặt tiện ích mở rộng trực quan' },
+      { icon: 'database', title: 'Cơ sở dữ liệu của site', parts: [{ label: 'MySQL', feature: 'mysql' }, { label: ' hoặc ' }, { label: 'MariaDB', feature: 'mariadb' }], support: 'Quản lý nội dung và thiết lập trên local' },
+      { icon: 'web', title: 'Web server', parts: [{ label: 'Nginx', feature: 'nginx' }, { label: ' / ' }, { label: 'Apache', feature: 'apache' }], support: 'Phục vụ permalink và rewrite local' },
+      { icon: 'globe', title: 'URL của site', parts: [{ label: 'Tên miền local tùy chỉnh + HTTPS', feature: 'https' }], support: 'Kiểm thử cookie, chuyển hướng và webhook' },
+      { icon: 'cache', title: 'Dịch vụ tùy chọn', parts: [{ label: 'Redis', feature: 'redis' }, { label: ' / ' }, { label: 'Node.js', feature: 'nodejs' }], support: 'Bật object cache hoặc toolchain của theme chỉ khi cần' }
+    ],
+    sitesTitle: 'Nhiều site WordPress, một workspace',
+    sitesDescription: 'Giữ các site của khách hàng, công việc plugin và phát triển theme tách biệt mà không phải xây dựng lại stack local mỗi lần.',
+    sitesCaption: 'Mỗi site WordPress giữ phiên bản PHP, thư mục gốc tài liệu, cơ sở dữ liệu và tên miền local riêng trong khi vẫn hiển thị trong một workspace FlyEnv.',
+    siteProof: [
+      { icon: 'runtime', title: 'Phiên bản PHP theo từng site', description: 'Giữ khả năng tương thích của plugin và theme gắn với runtime của dự án.' },
+      { icon: 'database', title: 'Cơ sở dữ liệu site riêng biệt', description: 'Quản lý MySQL hoặc MariaDB mà không trộn dữ liệu khách hàng giữa các dự án.' },
+      { icon: 'folder', title: 'Thư mục gốc tài liệu rõ ràng', description: 'Giảm nguy cơ lộ ngoài ý muốn bằng cách chỉ định rõ thư mục WordPress được phục vụ.' },
+      { icon: 'globe', title: 'Tên miền local và HTTPS', description: 'Kiểm thử chuyển hướng, cookie, callback OAuth và các tính năng bảo mật của trình duyệt trên local.' }
+    ],
+    lifecycleTitle: 'Quy trình làm việc của một site WordPress trong FlyEnv',
+    lifecycleDescription: 'Từ tệp dự án đến một site local hoạt động: chọn runtime, kết nối cơ sở dữ liệu, thiết lập thư mục được phục vụ và phát triển theme hoặc plugin trên một URL local thực.',
+    lifecycleSteps: [
+      { icon: 'folder', title: 'Tạo hoặc nhập', description: 'Bắt đầu từ dự án mới hoặc thư mục site đã có.', path: '/guide/host' },
+      { icon: 'runtime', title: 'PHP + tiện ích mở rộng', description: 'Đồng bộ runtime với các plugin và theme.', feature: 'php' },
+      { icon: 'database', title: 'MySQL / MariaDB', description: 'Kết nối cơ sở dữ liệu chứa nội dung của site.', feature: 'mysql' },
+      { icon: 'folder', title: 'Thiết lập gốc site', description: 'Giữ wp-config.php và wp-content/ trong thư mục được phục vụ.', feature: 'https' },
+      { icon: 'globe', title: 'Tên miền local + HTTPS', description: 'Dùng client-site.test với chứng chỉ đáng tin cậy.', feature: 'https' },
+      { icon: 'code', title: 'Phát triển theme / plugin', description: 'Phát triển theme và plugin trong wp-content/themes và wp-content/plugins.' }
+    ],
+    lifecycleOptionalTitle: 'Dịch vụ hỗ trợ tùy chọn',
+    lifecycleOptional: [
+      { icon: 'cache', title: 'Object cache Redis', description: 'Object cache tùy chọn cho các site có thiết lập cache dùng Redis.', logo: '', feature: 'redis' },
+      { icon: 'frontend', title: 'Toolchain Node.js', description: 'Thêm khi theme, block hoặc công cụ frontend cần bước build.', logo: '/assets/demo-logos/nodedotjs.svg', feature: 'nodejs' }
+    ],
+    benefitsTitle: 'Tại sao dùng FlyEnv để phát triển WordPress',
+    benefitsDescription: 'Quy trình local dễ đoán hơn cho các site phụ thuộc vào PHP, tệp nội dung, cơ sở dữ liệu và URL cho trình duyệt.',
+    benefits: [
+      { icon: 'runtime', title: 'Đồng bộ PHP với site', description: 'Dùng phiên bản PHP tương thích cho plugin cũ, theme block hiện đại hoặc site của khách hàng.', emphasis: true, evidence: 'Site cũ → PHP 7.4 · Site hiện đại → PHP 8.2+' },
+      { icon: 'extension', title: 'Xem yêu cầu tiện ích mở rộng', description: 'Kiểm tra các tiện ích mở rộng PHP mà site cần trước khi plugin hoặc việc nhập thất bại.', emphasis: true, evidence: 'PHP → Tiện ích mở rộng → kiểm tra trước khi gỡ lỗi' },
+      { icon: 'database', title: 'Chọn MySQL hoặc MariaDB', description: 'Giữ engine cơ sở dữ liệu gần với dự án thay vì chia sẻ một stack mờ ám.', emphasis: true, evidence: 'Dùng engine mà site mong đợi' },
+      { icon: 'folder', title: 'Giữ các gốc site tách biệt', description: 'Cấp cho mỗi site WordPress một thư mục và URL local rõ ràng.' },
+      { icon: 'lock', title: 'Dùng HTTPS local thực', description: 'Kiểm thử cookie đăng nhập, chuyển hướng, callback thanh toán và nội dung nhúng trên tên miền đáng tin cậy.', evidence: 'https://client-site.test' },
+      { icon: 'play', title: 'Khởi động các dịch vụ hỗ trợ cùng nhau', description: 'Dùng Startup Group khi site cần PHP, cơ sở dữ liệu, Redis hoặc toolchain frontend cùng lúc.' }
+    ],
+    workflowTitle: 'Tạo site WordPress mới hoặc đưa site đã có về local',
+    workflowDescription: 'Dùng FlyEnv cho site mới, dự án khách hàng đã có hoặc workspace theme và plugin bạn đã có.',
+    workflows: [
+      { icon: 'plus', title: 'Tạo site WordPress mới', steps: ['Mở PHP → New Project và chọn WordPress.', 'Chọn phiên bản PHP và phiên bản Composer mà dự án dùng.', 'Tạo tệp dự án và thêm site local tương ứng.', 'Chọn thư mục gốc tài liệu và cấu hình tên miền local.', 'Khởi động site cùng cơ sở dữ liệu và mở qua HTTPS.'] },
+      { icon: 'folder', title: 'Nhập site đã có', steps: ['Mở thư mục WordPress đã có.', 'Thiết lập phiên bản PHP và kiểm tra các tiện ích mở rộng cần thiết.', 'Tạo hoặc kết nối cơ sở dữ liệu MySQL hoặc MariaDB.', 'Thêm gốc site, tên miền local, hành vi rewrite và HTTPS.', 'Nhóm các dịch vụ site để khởi động lặp lại được.' ] }
+    ],
+    setupGuide: 'Đọc hướng dẫn thiết lập Host',
+    comparisonTitle: 'So sánh các cách phát triển WordPress local',
+    comparisonDescription: 'Các thiết lập khác nhau giải quyết các vấn đề khác nhau. Dưới đây là điều thay đổi khi WordPress chạy trên stack thủ công, container hoặc FlyEnv.',
+    comparisonHeaders: ['Tính năng', 'Stack local thủ công', 'Quy trình container', 'FlyEnv'],
+    comparisonRows: [
+      { feature: 'Cô lập phiên bản PHP', manual: 'Chuyển đổi thủ công', container: 'Được định nghĩa trong cấu hình container', flyenv: 'Chọn runtime theo dự án' },
+      { feature: 'Tiện ích mở rộng PHP', manual: 'Chỉnh sửa php.ini bằng tay', container: 'Build lại image hoặc cấu hình', flyenv: 'Quản lý tiện ích mở rộng trực quan' },
+      { feature: 'Nhiều site', manual: 'Virtual host thủ công', container: 'Một stack mỗi dự án', flyenv: 'Site local được quản lý trong một workspace' },
+      { feature: 'Vòng đời cơ sở dữ liệu', manual: 'Thiết lập server riêng', container: 'Dịch vụ container', flyenv: 'Mô-đun MySQL hoặc MariaDB' },
+      { feature: 'HTTPS local', manual: 'Chứng chỉ thủ công', container: 'Thiết lập riêng cho proxy', flyenv: 'Tên miền local đáng tin cậy và HTTPS' }
+    ],
+    faqTitle: 'Câu hỏi thường gặp về WordPress',
+    faqDescription: 'Các câu hỏi thường gặp về việc dùng FlyEnv cho các site WordPress local.',
+    faqs: [
+      { question: 'Các site WordPress khác nhau có thể dùng các phiên bản PHP khác nhau?', answer: 'Được. FlyEnv cho phép mỗi dự án hoặc site local dùng phiên bản PHP nó cần, hữu ích khi plugin hoặc theme cũ chưa sẵn sàng cho runtime mới.' },
+      { question: 'Tôi có thể dùng MariaDB thay cho MySQL?', answer: 'Được. FlyEnv cung cấp cả hai mô-đun cơ sở dữ liệu. Chọn engine phù hợp với site hoặc môi trường bạn muốn tái tạo trên local.' },
+      { question: 'Site local nên trỏ tới đâu?', answer: 'Trỏ site tới thư mục chứa các tệp WordPress và wp-config.php. Giữ rõ thư mục được phục vụ để không vô tình lộ các tệp riêng tư của dự án.' },
+      { question: 'Mỗi site WordPress có cần Redis?', answer: 'Không. Redis là tùy chọn và hữu ích khi site hoặc thiết lập cache của nó dùng object caching. Chỉ khởi động cho các dự án cần nó.' },
+      { question: 'Tôi có thể phát triển theme hoặc block dùng Node.js?', answer: 'Được. Thêm Node.js khi theme, block hoặc công cụ frontend được chọn cần bước build. Bản thân WordPress không cần Node.js để phục vụ request.' },
+      { question: 'Tôi có thể quản lý nhiều site WordPress của khách hàng trong FlyEnv?', answer: 'Được. Giữ riêng thư mục, phiên bản PHP, cơ sở dữ liệu, tên miền local và dịch vụ tùy chọn của từng site trong khi quản lý chúng từ một workspace.' }
+    ],
+    relatedTitle: 'Giải pháp liên quan',
+    relatedSolutions: [
+      { name: 'Laravel', description: 'Framework PHP', slug: 'laravel', logo: relatedLogos.laravel },
+      { name: 'Magento', description: 'Nền tảng thương mại điện tử', slug: 'magento', logo: relatedLogos.magento },
+      { name: 'Drupal', description: 'Hệ thống quản lý nội dung', slug: 'drupal', logo: relatedLogos.drupal }
+    ],
+    ctaTitle: 'Sẵn sàng xây dựng WordPress trên local?',
+    ctaDescription: 'Chạy runtime của site, cơ sở dữ liệu, tên miền local và HTTPS trong một workspace.',
+    haveQuestions: 'Có câu hỏi khi dùng FlyEnv?'
   }
 }
 

@@ -23,6 +23,7 @@ export const solutionAboutGroupB: {
   zh: Partial<Record<SolutionSlug, SolutionAboutContent>>
   id: Partial<Record<SolutionSlug, SolutionAboutContent>>
   es: Partial<Record<SolutionSlug, SolutionAboutContent>>
+  vi: Partial<Record<SolutionSlug, SolutionAboutContent>>
 } = {
   en: {
     nestjs: {
@@ -2064,6 +2065,531 @@ export const solutionAboutGroupB: {
             title: 'Assets y entrega de correo',
             description:
               'Ejecuta las herramientas de JS o CSS elegidas y un capturador de correo local solo cuando la aplicación ejercita esas rutas.'
+          }
+        ]
+      }
+    }
+  },
+  vi: {
+    nestjs: {
+      replaceOverview: true,
+      paragraphs: [
+        'NestJS là một framework server TypeScript tổ chức mã backend xung quanh các module, decorator và dependency injection. Các adapter của nó cho phép một ứng dụng phơi bày HTTP API, GraphQL, WebSocket và các dịch vụ dựa trên message với các mẫu nhất quán.',
+        'Một dịch vụ nhỏ bắt đầu với Node.js và trình quản lý gói của nó. Các dự án dùng TypeORM hoặc Prisma thêm một cơ sở dữ liệu; Redis, BullMQ hoặc RabbitMQ chỉ thuộc về môi trường local khi cache, job hoặc transport microservice được cấu hình.'
+      ],
+      capabilities: [
+        'Module',
+        'Dependency Injection',
+        'Guard và Interceptor',
+        'REST và GraphQL',
+        'WebSocket',
+        'Microservice'
+      ],
+      useCases: [
+        'Backend REST và GraphQL',
+        'Dịch vụ Backend for Frontend',
+        'Consumer hàng đợi và job định kỳ',
+        'Cổng WebSocket',
+        'API microservice'
+      ],
+      localEnvironment: {
+        title: 'Workspace NestJS phản ánh các lựa chọn transport của nó',
+        description:
+          'Server phát triển chỉ là một phần của dịch vụ lưu trữ dữ liệu hoặc giao tiếp không đồng bộ.',
+        items: [
+          {
+            title: 'Node.js và trình quản lý gói',
+            description:
+              'Chạy các lệnh nest CLI, biên dịch TypeScript và dịch vụ ở chế độ watch.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và ORM',
+            description:
+              'PostgreSQL hoặc MySQL là phổ biến khi entity và migration của Prisma hoặc TypeORM là một phần của dịch vụ.'
+          },
+          {
+            title: 'Transport job hoặc message',
+            description:
+              'Chạy Redis cho BullMQ, hoặc RabbitMQ cho các mẫu message được cấu hình; không cái nào được NestJS yêu cầu.'
+          },
+          {
+            title: 'Origin API',
+            description:
+              'Proxy HTTPS local chỉ hữu ích khi client trình duyệt, cookie, chuyển hướng OAuth hoặc callback cần một origin ổn định.'
+          }
+        ]
+      }
+    },
+    nuxt: {
+      replaceOverview: true,
+      paragraphs: [
+        'Nuxt là một framework Vue cho các ứng dụng có thể render trên server, tạo trang tĩnh hoặc chạy như một ứng dụng client. File-based routing, composable, server route và Nitro giúp endpoint frontend và server có sẵn trong một dự án.',
+        'Hầu hết dự án Nuxt bắt đầu với Node.js và Nuxt dev server. Cơ sở dữ liệu, nguồn nội dung hoặc dịch vụ API được thêm theo các module và server route đã chọn, trong khi tên miền HTTPS quan trọng với các tích hợp yêu cầu origin trình duyệt.'
+      ],
+      capabilities: [
+        'Định tuyến theo tệp',
+        'SSR và SSG',
+        'Nitro Server Engine',
+        'Server Route',
+        'Tự động import',
+        'Module Nuxt'
+      ],
+      useCases: [
+        'Site Vue hướng đến SEO',
+        'Site nội dung và tài liệu',
+        'Frontend sản phẩm render trên server',
+        'Ứng dụng Vue với server API',
+        'Site tĩnh với hybrid rendering'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Nuxt tập trung vào rendering và nguồn nội dung',
+        description:
+          'Việc dự án là SSR, tĩnh hay hybrid quyết định dịch vụ nào thực sự cần chạy local.',
+        items: [
+          {
+            title: 'Node.js và Nuxt dev server',
+            description:
+              'Chạy Nuxt, chuyển đổi module dựa trên Vite và Nitro trong quá trình phát triển local.'
+          },
+          {
+            title: 'API nội dung hoặc ứng dụng',
+            description:
+              'Chạy headless CMS, backend API hoặc quy trình nội dung local đã cấu hình thay vì giả định cơ sở dữ liệu được nhúng trong mọi ứng dụng Nuxt.'
+          },
+          {
+            title: 'Cơ sở dữ liệu cho server route',
+            description:
+              'Chỉ cần khi handler Nitro hoặc dịch vụ đính kèm lưu trữ dữ liệu ứng dụng.'
+          },
+          {
+            title: 'Tên miền local và HTTPS',
+            description:
+              'Hữu ích cho hành vi cookie SSR, callback OAuth hoặc kiểm thử các quy tắc host giống production.'
+          }
+        ]
+      }
+    },
+    express: {
+      replaceOverview: true,
+      paragraphs: [
+        'Express là một web framework Node.js tối giản được xây dựng xung quanh định tuyến và middleware. Nó cố ý để cấu trúc ứng dụng, validation, lưu trữ và lựa chọn xác thực cho dự án, khiến nó trở thành nền tảng phổ biến cho các dịch vụ HTTP tập trung.',
+        'Kho mã Express thường cần Node.js, npm, pnpm hoặc Yarn cùng script start riêng. Cơ sở dữ liệu, Redis, hàng đợi và reverse proxy là quyết định của dự án, vì vậy stack local nên theo middleware và tích hợp thực tế có trong dự án.'
+      ],
+      capabilities: [
+        'Định tuyến',
+        'Pipeline Middleware',
+        'API Request và Response',
+        'Hỗ trợ Template Engine',
+        'Middleware lỗi',
+        'Hệ sinh thái npm lớn'
+      ],
+      useCases: [
+        'API JSON REST',
+        'Bộ nhận webhook',
+        'Dịch vụ BFF tùy chỉnh',
+        'Site nhỏ render trên server',
+        'Endpoint tích hợp nội bộ'
+      ],
+      localEnvironment: {
+        title: 'Express cung cấp tầng HTTP, không phải một stack được chỉ định trước',
+        description:
+          'Sự linh hoạt của nó khiến việc kiểm tra cấu hình kho mã hữu ích hơn là khởi động các dịch vụ chung chung.',
+        items: [
+          {
+            title: 'Node.js và script dự án',
+            description:
+              'Chạy ứng dụng, nodemon hoặc trình watcher khác, test và các bước build do kho mã chọn.'
+          },
+          {
+            title: 'Lưu trữ đã cấu hình',
+            description:
+              'Khởi động PostgreSQL, MySQL, MongoDB hoặc nơi lưu trữ khác chỉ khi adapter ứng dụng sử dụng nó.'
+          },
+          {
+            title: 'Endpoint callback bên ngoài',
+            description:
+              'URL HTTPS local ổn định phù hợp cho webhook, nhà cung cấp OAuth và client trình duyệt gọi dịch vụ.'
+          }
+        ]
+      }
+    },
+    'react-vite': {
+      replaceOverview: true,
+      paragraphs: [
+        'React với Vite là một quy trình frontend kết hợp component React với dev server nhanh và module graph của Vite. Nó ưu tiên ứng dụng render phía client trong khi để định tuyến, state, test và kiến trúc backend cho các thư viện được chọn.',
+        'Quy trình local cốt lõi là Node.js chạy Vite với hot module replacement. Server API, dịch vụ mock, HTTPS hoặc reverse proxy trở nên liên quan khi frontend cần thực hành xác thực, cookie trình duyệt hoặc hành vi cross-origin.'
+      ],
+      capabilities: [
+        'Component React',
+        'HMR nhanh',
+        'JSX và TypeScript',
+        'ES Module Dev Server',
+        'Build asset production',
+        'Hệ sinh thái plugin'
+      ],
+      useCases: [
+        'Ứng dụng single-page',
+        'Bảng điều khiển vận hành',
+        'Design system và thư viện component',
+        'Giao diện sản phẩm nhúng',
+        'Prototype frontend được hỗ trợ bởi API'
+      ],
+      localEnvironment: {
+        title: 'Dự án React và Vite thường đặt frontend lên trước',
+        description:
+          'Giữ môi trường local nhỏ gọn cho đến khi ứng dụng cần tương tác với các phụ thuộc thực tế phía trình duyệt.',
+        items: [
+          {
+            title: 'Node.js và Vite',
+            description:
+              'Chạy npm script, server HMR, chuyển đổi TypeScript và build production.'
+          },
+          {
+            title: 'Backend hoặc API mock',
+            description:
+              'Dùng API của dự án, server mock hoặc BFF local khi component cần dữ liệu và trạng thái lỗi thực tế.'
+          },
+          {
+            title: 'Quy tắc HTTPS và proxy',
+            description:
+              'Cần khi secure cookie, OAuth, service worker hoặc hành vi CORS của API phải khớp với origin đã triển khai.'
+          }
+        ]
+      }
+    },
+    'vue-vite': {
+      replaceOverview: true,
+      paragraphs: [
+        'Vue 3 với Vite là một thiết lập frontend hiện đại tập trung vào Single-File Component, Composition API và cập nhật tăng dần nhanh. Vite xử lý việc phục vụ module và build trong khi các thư viện Vue quyết định định tuyến, quản lý state và quy ước ứng dụng.',
+        'Node.js và Vite dev server là những thành phần local thiết yếu. API riêng, server mock hoặc proxy HTTPS local chỉ được thêm vào cho các giao diện và hành vi trình duyệt mà ứng dụng Vue cần kiểm chứng.'
+      ],
+      capabilities: [
+        'Single-File Component',
+        'Composition API',
+        'State phản hồi',
+        'HMR nhanh',
+        'Hỗ trợ TypeScript',
+        'Pipeline plugin Vite'
+      ],
+      useCases: [
+        'Giao diện quản trị',
+        'Frontend sản phẩm tương tác',
+        'Thư viện component Vue tái sử dụng',
+        'Ứng dụng nhập dữ liệu',
+        'Ứng dụng single-page chạy bằng API'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Vue và Vite bắt đầu từ vòng lặp trình duyệt',
+        description:
+          'Dịch vụ backend thuộc workspace local khi kiến trúc ứng dụng đã chọn gọi đến chúng.',
+        items: [
+          {
+            title: 'Node.js và Vite',
+            description:
+              'Chạy server phát triển, tối ưu phụ thuộc, chuyển đổi component và build phân phối.'
+          },
+          {
+            title: 'API hoặc dịch vụ fixture',
+            description:
+              'API local hoặc tầng mock hỗ trợ luồng dữ liệu Composition API thực tế mà không ngụ ý cơ sở dữ liệu là bắt buộc.'
+          },
+          {
+            title: 'Origin tương thích trình duyệt',
+            description:
+              'Cấu hình proxy và HTTPS khi kiểm thử chuyển hướng auth, secure cookie, service worker hoặc quy tắc CORS.'
+          }
+        ]
+      }
+    },
+    sveltekit: {
+      replaceOverview: true,
+      paragraphs: [
+        'SvelteKit là framework ứng dụng của Svelte, dùng route theo hệ thống tệp, load function, form action và adapter để xây dựng ứng dụng render phía client, render trên server hoặc tĩnh. Phần lớn khả năng server của nó nằm bên cạnh UI thay vì trong một framework riêng biệt.',
+        'Phát triển bắt đầu với Node.js và SvelteKit dev server. Load function phía server và form action có thể kết nối đến cơ sở dữ liệu, trong khi lựa chọn adapter và tích hợp trình duyệt quyết định liệu proxy local hoặc origin HTTPS có hữu ích hay không.'
+      ],
+      capabilities: [
+        'Định tuyến theo hệ thống tệp',
+        'Load Function',
+        'Form Action',
+        'SSR và Prerendering',
+        'Hook Server',
+        'Adapter'
+      ],
+      useCases: [
+        'Ứng dụng web giàu nội dung',
+        'Quy trình sản phẩm nhiều form',
+        'Site Svelte render trên server',
+        'Site tài liệu tĩnh',
+        'Ứng dụng full-stack nhỏ'
+      ],
+      localEnvironment: {
+        title: 'Công việc local của SvelteKit trải dài trên route và mã phía server',
+        description:
+          'Lựa chọn adapter và truy cập dữ liệu của nó quyết định các dịch vụ bao quanh dev server.',
+        items: [
+          {
+            title: 'Node.js và SvelteKit',
+            description:
+              'Chạy server phát triển Vite, biên dịch route, test và build adapter.'
+          },
+          {
+            title: 'Nơi lưu trữ dữ liệu ứng dụng',
+            description:
+              'Khởi động cơ sở dữ liệu đã cấu hình khi load function, action hoặc endpoint phía server lưu trữ dữ liệu.'
+          },
+          {
+            title: 'Mục tiêu adapter',
+            description:
+              'Dùng quy trình Node, tĩnh hoặc edge adapter đã chọn ở local thay vì giả định một mô hình triển khai duy nhất.'
+          },
+          {
+            title: 'Origin local bảo mật',
+            description:
+              'Hữu ích cho OAuth, chính sách cookie và callback cần thấy cùng scheme và host của site.'
+          }
+        ]
+      }
+    },
+    adonisjs: {
+      replaceOverview: true,
+      paragraphs: [
+        'AdonisJS là một framework Node.js ưu tiên TypeScript với cấu trúc ứng dụng tích hợp cho định tuyến, validation, xác thực, Lucid ORM, template Edge và quy trình dòng lệnh. Nó được thiết kế cho ứng dụng full-stack chứ không chỉ một tầng HTTP mỏng.',
+        'Dự án Adonis thường chạy Node.js, dùng lệnh `node ace` cho migration và tác vụ, và kết nối qua Lucid đến cơ sở dữ liệu SQL đã cấu hình. Redis và worker hàng đợi hữu ích khi dự án bật hàng đợi hoặc tính năng dựa trên cache, chứ không phải theo mặc định.'
+      ],
+      capabilities: [
+        'Lucid ORM',
+        'Node Ace CLI',
+        'Xác thực',
+        'Validation',
+        'Template Edge',
+        'Middleware Route'
+      ],
+      useCases: [
+        'Ứng dụng web dựa trên cơ sở dữ liệu',
+        'API JSON TypeScript',
+        'Cổng thông tin nặng về xác thực',
+        'Dashboard render trên server',
+        'Quy trình job nền'
+      ],
+      localEnvironment: {
+        title: 'AdonisJS tuân theo quy ước CLI và ứng dụng riêng của nó',
+        description:
+          'Cấu hình `.env` và lệnh Ace của nó xác định các dịch vụ runtime mà dự án thực sự sử dụng.',
+        items: [
+          {
+            title: 'Node.js và trình quản lý gói',
+            description:
+              'Chạy `node ace serve --hmr`, biên dịch TypeScript và script kho mã.'
+          },
+          {
+            title: 'Cơ sở dữ liệu SQL và migration Lucid',
+            description:
+              'MySQL hoặc PostgreSQL cần thiết khi kết nối Lucid đã cấu hình lưu trữ dữ liệu ứng dụng.'
+          },
+          {
+            title: 'Redis và worker hàng đợi',
+            description:
+              'Chỉ chạy những thành phần này cho các dự án được cấu hình với driver cache, hàng đợi hoặc session phụ thuộc Redis.'
+          },
+          {
+            title: 'Quy trình asset',
+            description:
+              'Asset frontend có thể thêm Vite hoặc tác vụ build khác khi ứng dụng bao gồm UI tương tác.'
+          }
+        ]
+      }
+    },
+    hono: {
+      replaceOverview: true,
+      paragraphs: [
+        'Hono là một web framework nhỏ được xây dựng trên Web Standards API và thiết kế để chạy trên nhiều môi trường JavaScript và TypeScript như Node.js, Bun, Deno, Cloudflare Workers và các nền tảng edge khác. Khả năng di chuyển của nó là một ràng buộc định hình, không chỉ là chi tiết triển khai.',
+        'Runtime local nên khớp với adapter đích: Node.js, Bun, Deno hoặc trình giả lập worker. Lưu trữ bền vững, binding và tunnel HTTPS chỉ được thêm khi tích hợp nền tảng hoặc tính năng ứng dụng đã chọn yêu cầu chúng.'
+      ],
+      capabilities: [
+        'Adapter đa runtime',
+        'Web Standards API',
+        'Router',
+        'Middleware',
+        'RPC có kiểu',
+        'Hỗ trợ triển khai edge'
+      ],
+      useCases: [
+        'Endpoint API edge',
+        'Dịch vụ JSON nhẹ',
+        'Ứng dụng Cloudflare Worker',
+        'Bộ xử lý webhook',
+        'BFF TypeScript'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Hono bắt đầu bằng việc khớp runtime triển khai',
+        description:
+          'Một tiến trình Node không tự động đại diện cho triển khai Worker, Bun hoặc Deno.',
+        items: [
+          {
+            title: 'Runtime hoặc trình giả lập đích',
+            description:
+              'Chạy Node.js, Bun, Deno hoặc công cụ phát triển Workers phù hợp cho adapter đang dùng.'
+          },
+          {
+            title: 'Binding nền tảng',
+            description:
+              'Dùng giả lập local cho KV, D1, R2 hoặc binding khác chỉ khi ứng dụng Hono đã triển khai sử dụng chúng.'
+          },
+          {
+            title: 'Tunnel callback hoặc URL HTTPS',
+            description:
+              'Hữu ích cho webhook gửi từ bên ngoài; một cổng local đơn giản là đủ cho các bài kiểm thử request cô lập.'
+          }
+        ]
+      }
+    },
+    medusa: {
+      replaceOverview: true,
+      paragraphs: [
+        'Medusa là một nền tảng commerce có thể kết hợp để xây dựng cửa hàng tùy chỉnh và dịch vụ thương mại với Node.js và TypeScript. Module và workflow của nó mô hình hóa sản phẩm, giỏ hàng, đơn hàng, khuyến mãi, thanh toán, fulfillment và quy trình nghiệp vụ tùy chỉnh mà không áp đặt một storefront cụ thể.',
+        'Backend Medusa thường dùng Node.js và PostgreSQL, và bao gồm Admin của nó tại `/app` trên origin backend. Redis liên quan khi backend cấu hình hạ tầng dựa trên Redis; phát triển v2 đơn giản có thể dùng provider local. Storefront tùy chỉnh là một ứng dụng riêng khi dự án có một, trong khi provider thanh toán, fulfillment, tìm kiếm và tệp nên được chạy hoặc mô phỏng theo các tích hợp đang phát triển.'
+      ],
+      capabilities: [
+        'Module Commerce',
+        'Workflow',
+        'Store API',
+        'Admin API',
+        'Engine khuyến mãi',
+        'Giao diện Provider'
+      ],
+      useCases: [
+        'Backend commerce tùy chỉnh',
+        'Frontend cửa hàng headless',
+        'Mở rộng marketplace và đa nhà bán',
+        'Thương mại đăng ký hoặc B2B',
+        'Tích hợp fulfillment và thanh toán'
+      ],
+      localEnvironment: {
+        title: 'Phát triển local của Medusa phối hợp dịch vụ commerce và các provider',
+        description:
+          'Luồng sản phẩm chỉ đáng tin cậy ở local khi các ranh giới dữ liệu, cache và provider đã chọn được biểu diễn.',
+        items: [
+          {
+            title: 'Backend Medusa Node.js',
+            description:
+              'Chạy các lệnh Medusa CLI, commerce API và workflow riêng của dự án.'
+          },
+          {
+            title: 'PostgreSQL',
+            description: 'Lưu trữ entity commerce và là phụ thuộc backend Medusa tiêu chuẩn.'
+          },
+          {
+            title: 'Redis',
+            description:
+              'Chỉ chạy khi backend cấu hình hạ tầng dựa trên Redis; phát triển v2 đơn giản có thể dùng provider local.'
+          },
+          {
+            title: 'Admin tích hợp và storefront tùy chỉnh',
+            description:
+              'Dùng Admin backend tại `/app` (ví dụ, `localhost:9000/app`); chỉ chạy server Node.js riêng cho storefront tùy chỉnh.'
+          },
+          {
+            title: 'Provider commerce',
+            description:
+              'Dùng sandbox hoặc thay thế local cho các provider thanh toán, fulfillment, tìm kiếm và tệp đã cấu hình.'
+          }
+        ]
+      }
+    },
+    'node-red': {
+      replaceOverview: true,
+      paragraphs: [
+        'Node-RED là một công cụ lập trình dựa trên luồng để kết nối thiết bị, API và dịch vụ trực tuyến. Trình soạn thảo trực quan định nghĩa flow gồm các node, trong khi runtime thực thi logic điều khiển theo sự kiện, credential, endpoint HTTP và tích hợp giao thức như MQTT.',
+        'Runtime Node-RED chạy trên Node.js và lưu flow cùng credential trong thư mục người dùng của nó. Broker MQTT, cơ sở dữ liệu, thiết bị serial hoặc API bên ngoài chỉ nên xuất hiện trong thiết lập local khi một flow thực sự kết nối đến chúng; credential cần cấu hình local an toàn.'
+      ],
+      capabilities: [
+        'Trình soạn thảo Flow trực quan',
+        'Bảng chọn Node',
+        'Node HTTP và WebSocket',
+        'Tích hợp MQTT',
+        'Lưu trữ Context',
+        'Quản lý Credential'
+      ],
+      useCases: [
+        'Điều phối thiết bị IoT',
+        'Tự động hóa webhook và API',
+        'Xử lý message MQTT',
+        'Cầu giao thức công nghiệp',
+        'Flow thông báo nội bộ'
+      ],
+      localEnvironment: {
+        title: 'Node-RED được định hình bởi các endpoint trong flow của nó',
+        description:
+          'Các dịch vụ hỗ trợ của nó không phải phụ thuộc ứng dụng trừu tượng; chúng là broker, thiết bị và API được biểu diễn trên canvas.',
+        items: [
+          {
+            title: 'Node.js và runtime Node-RED',
+            description:
+              'Chạy trình soạn thảo, flow đã triển khai, node trong bảng chọn và endpoint HTTP local.'
+          },
+          {
+            title: 'Lưu trữ flow và credential',
+            description:
+              'Giữ thư mục người dùng và bí mật credential sẵn có để flow local sống sót qua khởi động lại mà không phơi bày bí mật.'
+          },
+          {
+            title: 'Broker MQTT hoặc trình giả lập thiết bị',
+            description:
+              'Chạy Mosquitto hoặc broker khác chỉ cho các flow xuất bản hoặc đăng ký topic MQTT.'
+          },
+          {
+            title: 'Endpoint tích hợp',
+            description:
+              'API local, thiết bị serial, cơ sở dữ liệu hoặc URL callback HTTPS được giới thiệu bởi từng node và flow riêng lẻ.'
+          }
+        ]
+      }
+    },
+    'ruby-on-rails': {
+      replaceOverview: true,
+      paragraphs: [
+        'Ruby on Rails là một framework full-stack có quan điểm rõ ràng, tập trung vào quy ước hơn cấu hình. Active Record, migration, định tuyến, Action Mailer, Active Job, Action Cable và generator cung cấp một mô hình nhất quán cho ứng dụng web dựa trên cơ sở dữ liệu.',
+        'Ứng dụng Rails thường dùng Ruby, Bundler và lệnh `bin/rails` cùng với cơ sở dữ liệu đã cấu hình. Redis phổ biến cho cache, Action Cable hoặc backend job, và công cụ đóng gói JavaScript hoặc CSS chỉ cần khi kho mã chọn chúng.'
+      ],
+      capabilities: [
+        'Active Record',
+        'Migration',
+        'Action Mailer',
+        'Active Job',
+        'Action Cable',
+        'Generator Rails'
+      ],
+      useCases: [
+        'Ứng dụng sản phẩm dựa trên cơ sở dữ liệu',
+        'Sản phẩm SaaS',
+        'Hệ thống nghiệp vụ nội bộ',
+        'Site nội dung và thành viên',
+        'Tính năng cộng tác thời gian thực'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Rails theo lệnh bin và adapter đã cấu hình',
+        description:
+          'Cơ sở dữ liệu ứng dụng là nền tảng; công việc nền và công cụ frontend theo các tính năng được bật trong kho mã.',
+        items: [
+          {
+            title: 'Ruby, Bundler và bin/rails',
+            description:
+              'Chạy server, generator, test, migration và các lệnh thực thi trong phạm vi dự án.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và migration schema',
+            description:
+              'PostgreSQL, MySQL hoặc SQLite theo `config/database.yml` và migration Active Record.'
+          },
+          {
+            title: 'Redis và job nền',
+            description:
+              'Cần khi cache store, adapter Action Cable hoặc backend hàng đợi Active Job đã chọn sử dụng Redis.'
+          },
+          {
+            title: 'Asset và gửi thư',
+            description:
+              'Chạy công cụ JS hoặc CSS đã chọn và trình bắt thư local chỉ khi ứng dụng thực thi các đường dẫn đó.'
           }
         ]
       }

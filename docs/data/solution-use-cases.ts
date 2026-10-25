@@ -3,7 +3,7 @@ import { solutionAboutGroupA, type SolutionAboutContent } from './solution-about
 import { solutionAboutGroupB } from './solution-about-group-b'
 import { solutionAboutGroupC } from './solution-about-group-c'
 
-export type SolutionAboutLocale = 'en' | 'zh' | 'id' | 'es'
+export type SolutionAboutLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 const nextjsAboutContentByLocale: Record<
   SolutionAboutLocale,
@@ -206,6 +206,59 @@ const nextjsAboutContentByLocale: Record<
         ]
       }
     }
+  },
+  vi: {
+    nextjs: {
+      replaceOverview: true,
+      paragraphs: [
+        'Next.js là một framework React để xây dựng các ứng dụng web kết hợp giao diện chỉn chu với khả năng phía server. Nó hỗ trợ App Router, Server Components, server rendering, static generation và các API endpoint trong cùng một codebase, nhờ đó đội nhóm có thể chọn mô hình rendering phù hợp cho từng route.',
+        'FlyEnv có thể dùng làm môi trường phát triển local cho các dự án Next.js phụ thuộc vào Node.js, PostgreSQL, MySQL, Redis, Nginx, Caddy và các dịch vụ local khác. Điều này giúp dự án sát với điều kiện vận hành thực tế thay vì biến việc phát triển local thành một tập hợp các installer rời rạc và cấu hình thủ công.'
+      ],
+      capabilities: [
+        'App Router',
+        'Server Components',
+        'SSR / SSG / ISR',
+        'Route Handlers',
+        'Middleware',
+        'Tối ưu hình ảnh & font chữ'
+      ],
+      useCases: [
+        'Ứng dụng SaaS và dashboard cho khách hàng',
+        'Cửa hàng thương mại điện tử và luồng thanh toán',
+        'Website nội dung và marketing chú trọng SEO',
+        'Ứng dụng web full-stack và API BFF',
+        'Công cụ nội bộ và cổng vận hành'
+      ],
+      localEnvironment: {
+        title: 'Một môi trường Next.js thực tế không chỉ có next dev',
+        description:
+          'Một dự án đơn giản có thể chỉ cần Node.js. Khi dự án lớn dần và có thêm người dùng, dữ liệu nghiệp vụ, cache, tải lên, email và callback từ bên thứ ba, môi trường local thường cũng mở rộng theo.',
+        items: [
+          {
+            title: 'Runtime Node.js',
+            description: 'Chạy Next.js, công cụ phát triển local và các tác vụ build.'
+          },
+          {
+            title: 'Cơ sở dữ liệu',
+            description: 'Lưu trữ người dùng, đơn hàng, nội dung ứng dụng và các dữ liệu nghiệp vụ khác.'
+          },
+          {
+            title: 'Redis',
+            description: 'Hỗ trợ cache, session, queue và các mô hình giới hạn tốc độ.'
+          },
+          {
+            title: 'HTTPS & tên miền tùy chỉnh',
+            description:
+              'Cung cấp origin local giống môi trường production cho cookie, OAuth và callback.'
+          },
+          {
+            title: 'Mail & lưu trữ',
+            description:
+              'Đáp ứng email giao dịch, tải tệp lên và các phụ thuộc thực tế khác của sản phẩm.'
+          }
+        ]
+      }
+    }
   }
 }
 
@@ -236,5 +289,11 @@ export const solutionAboutContentByLocale: Record<
     ...solutionAboutGroupB.es,
     ...solutionAboutGroupC.es,
     nextjs: nextjsAboutContentByLocale.es.nextjs
+  } as Record<SolutionSlug, SolutionAboutContent>,
+  vi: {
+    ...(solutionAboutGroupA as Record<string, Partial<Record<SolutionSlug, SolutionAboutContent>>>).vi,
+    ...(solutionAboutGroupB as Record<string, Partial<Record<SolutionSlug, SolutionAboutContent>>>).vi,
+    ...(solutionAboutGroupC as Record<string, Partial<Record<SolutionSlug, SolutionAboutContent>>>).vi,
+    nextjs: nextjsAboutContentByLocale.vi.nextjs
   } as Record<SolutionSlug, SolutionAboutContent>
 }

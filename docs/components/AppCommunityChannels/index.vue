@@ -34,12 +34,13 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   title: string
-  locale?: 'en' | 'zh' | 'id' | 'es'
+  locale?: 'en' | 'zh' | 'id' | 'es' | 'vi'
 }>()
 
 const isZh = computed(() => props.locale === 'zh')
 const isId = computed(() => props.locale === 'id')
 const isEs = computed(() => props.locale === 'es')
+const isVi = computed(() => props.locale === 'vi')
 const channelsId = 'community-channels'
 
 const t = computed(() =>
@@ -58,7 +59,12 @@ const t = computed(() =>
             intro: 'Haz preguntas, comparte lo que aprendes y conoce a otros desarrolladores donde te resulte más cómodo.',
             open: 'Abrir comunidad'
           }
-        : {
+        : isVi.value
+          ? {
+              intro: 'Đặt câu hỏi, chia sẻ những gì bạn học được và gặp gỡ các nhà phát triển khác ở nơi phù hợp với bạn.',
+              open: 'Mở cộng đồng'
+            }
+          : {
             intro: 'Ask questions, share what you learn, and meet other developers where it suits you.',
             open: 'Open community'
           }
@@ -69,26 +75,26 @@ const channels = computed(() => [
     mark: 'GH',
     name: 'GitHub Discussions',
     url: 'https://github.com/xpf0000/FlyEnv/discussions',
-    description: isZh.value ? '提问、报告想法并参与产品讨论。' : isId.value ? 'Ajukan pertanyaan, bagikan ide, dan ikut diskusi produk.' : isEs.value ? 'Haz preguntas, comparte ideas y participa en las discusiones sobre el producto.' : 'Ask questions, share ideas, and join product discussions.'
+    description: isZh.value ? '提问、报告想法并参与产品讨论。' : isId.value ? 'Ajukan pertanyaan, bagikan ide, dan ikut diskusi produk.' : isEs.value ? 'Haz preguntas, comparte ideas y participa en las discusiones sobre el producto.' : isVi.value ? 'Đặt câu hỏi, chia sẻ ý tưởng và tham gia thảo luận sản phẩm.' : 'Ask questions, share ideas, and join product discussions.'
   },
   {
     mark: 'f',
     name: 'Facebook Group',
     url: 'https://www.facebook.com/groups/908637655411162',
-    description: isZh.value ? '加入 Facebook 社区，交流日常使用经验。' : isId.value ? 'Bergabunglah dengan grup Facebook untuk tips dan percakapan sehari-hari.' : isEs.value ? 'Únete al grupo de Facebook para consejos y conversaciones del día a día.' : 'Join the Facebook group for everyday tips and conversation.'
+    description: isZh.value ? '加入 Facebook 社区，交流日常使用经验。' : isId.value ? 'Bergabunglah dengan grup Facebook untuk tips dan percakapan sehari-hari.' : isEs.value ? 'Únete al grupo de Facebook para consejos y conversaciones del día a día.' : isVi.value ? 'Tham gia nhóm Facebook để nhận mẹo và trò chuyện hàng ngày.' : 'Join the Facebook group for everyday tips and conversation.'
   },
   {
     mark: 'D',
     name: 'Discord',
     url: 'https://discord.gg/u5SuMGxjPE',
-    description: isZh.value ? '与开发者实时交流 FlyEnv 的使用问题。' : isId.value ? 'Mengobrol dengan pengembang lain tentang penggunaan FlyEnv secara real time.' : isEs.value ? 'Chatea con desarrolladores sobre el uso de FlyEnv en tiempo real.' : 'Chat with developers about using FlyEnv in real time.'
+    description: isZh.value ? '与开发者实时交流 FlyEnv 的使用问题。' : isId.value ? 'Mengobrol dengan pengembang lain tentang penggunaan FlyEnv secara real time.' : isEs.value ? 'Chatea con desarrolladores sobre el uso de FlyEnv en tiempo real.' : isVi.value ? 'Trò chuyện với các nhà phát triển về cách sử dụng FlyEnv trong thời gian thực.' : 'Chat with developers about using FlyEnv in real time.'
   },
   {
     mark: 'QQ',
-    name: isZh.value ? 'QQ 群' : isId.value ? 'Grup QQ' : isEs.value ? 'Grupo de QQ' : 'QQ Group',
+    name: isZh.value ? 'QQ 群' : isId.value ? 'Grup QQ' : isEs.value ? 'Grupo de QQ' : isVi.value ? 'Nhóm QQ' : 'QQ Group',
     url: '',
-    description: isZh.value ? '面向中文用户的 FlyEnv 交流群。' : isId.value ? 'Grup diskusi FlyEnv untuk pengguna berbahasa Mandarin.' : isEs.value ? 'Un grupo de discusión de FlyEnv para usuarios que hablan chino.' : 'A FlyEnv discussion group for Chinese-speaking users.',
-    groupNumber: isZh.value ? '群号：540738893' : isId.value ? 'Nomor grup: 540738893' : isEs.value ? 'Número de grupo: 540738893' : 'Group number: 540738893'
+    description: isZh.value ? '面向中文用户的 FlyEnv 交流群。' : isId.value ? 'Grup diskusi FlyEnv untuk pengguna berbahasa Mandarin.' : isEs.value ? 'Un grupo de discusión de FlyEnv para usuarios que hablan chino.' : isVi.value ? 'Nhóm thảo luận FlyEnv dành cho người dùng nói tiếng Trung.' : 'A FlyEnv discussion group for Chinese-speaking users.',
+    groupNumber: isZh.value ? '群号：540738893' : isId.value ? 'Nomor grup: 540738893' : isEs.value ? 'Número de grupo: 540738893' : isVi.value ? 'Số nhóm: 540738893' : 'Group number: 540738893'
   }
 ])
 </script>

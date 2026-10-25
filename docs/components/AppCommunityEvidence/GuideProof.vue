@@ -37,6 +37,8 @@ const heading = computed(() =>
     ? '来自社区的真实使用场景'
     : props.locale === 'es'
       ? 'Escenarios reales de la comunidad'
-      : 'From the community'
+      : props.locale === 'vi'
+        ? 'Từ cộng đồng'
+        : 'From the community'
 )
 </script>

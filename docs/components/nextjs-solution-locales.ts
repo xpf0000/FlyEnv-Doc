@@ -1,4 +1,4 @@
-export type NextjsSolutionLocale = 'en' | 'zh' | 'id' | 'es'
+export type NextjsSolutionLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 type FeatureKey =
   | 'nodejs'
@@ -502,6 +502,103 @@ const localized: Record<Exclude<NextjsSolutionLocale, 'en'>, CopyData> = {
     ctaTitle: '¿Listo para crear con Next.js en local?',
     ctaDescription: 'Ejecuta el runtime de Node.js, el flujo de build, los servicios de datos, el dominio local y HTTPS en un único workspace.',
     haveQuestions: '¿Tienes preguntas sobre FlyEnv?'
+  },
+  vi: {
+    ...english,
+    breadcrumbSolutions: 'Giải pháp',
+    eyebrow: 'Giải pháp JavaScript full-stack',
+    heroTitle: 'Môi trường phát triển Next.js local với FlyEnv',
+    heroDescription:
+      'Xây dựng, chạy và kiểm thử các ứng dụng Next.js với runtime Node.js, trình quản lý gói bạn chọn, cơ sở dữ liệu local, Redis, tên miền tùy chỉnh và HTTPS — tất cả được quản lý trong một workspace.',
+    download: 'Tải xuống FlyEnv',
+    guide: 'Đọc hướng dẫn thiết lập Next.js',
+    heroStackTitle: 'Stack Next.js local điển hình',
+    heroStackDescription: 'Các thành phần local đằng sau một dự án Next.js full-stack.',
+    heroStack: [
+      { key: 'runtime', label: 'Runtime Node.js', feature: 'nodejs' },
+      { key: 'package', label: 'npm / pnpm / Yarn' },
+      { key: 'database', label: 'PostgreSQL / MySQL', feature: 'postgresql' },
+      { key: 'redis', label: 'Redis', feature: 'redis' },
+      { key: 'origin', label: 'Tên miền local + HTTPS', feature: 'https' }
+    ],
+    requirementsTitle: 'Stack local thực tế cho Next.js',
+    requirementsDescription:
+      'Next.js có thể bắt đầu với một tiến trình Node.js, nhưng một dự án full-stack thực tế thường cần runtime, công cụ build, dịch vụ dữ liệu và một origin cho trình duyệt luôn được đồng bộ.',
+    requirements: [
+      { icon: 'runtime', title: 'Runtime Node.js', description: 'Chạy server Next.js, công cụ phát triển và các script build với phiên bản dự án hỗ trợ.', linkLabel: 'Tính năng Node.js', feature: 'nodejs' },
+      { icon: 'package', title: 'Trình quản lý gói', description: 'Dùng trình quản lý gói và lockfile mà repository đã mong đợi: npm, pnpm, Yarn hoặc Bun.', linkLabel: 'Toolchain dự án' },
+      { icon: 'database', title: 'Cơ sở dữ liệu ứng dụng', description: 'Kết nối PostgreSQL hoặc MySQL khi server actions, route handlers hoặc tầng ứng dụng cần dữ liệu bền vững.', linkLabel: 'Tính năng cơ sở dữ liệu', feature: 'postgresql' },
+      { icon: 'cache', title: 'Redis tùy chọn', description: 'Thêm Redis cho cache, session, hàng đợi, giới hạn tần suất hoặc công việc nền khi ứng dụng dùng nó.', linkLabel: 'Tính năng Redis', feature: 'redis' },
+      { icon: 'web', title: 'Origin local', description: 'Dùng Nginx hoặc Caddy khi ứng dụng cần hostname local ổn định, hành vi proxy hoặc nhiều dịch vụ.', linkLabel: 'Tính năng Nginx', feature: 'nginx' },
+      { icon: 'lock', title: 'HTTPS cho các luồng trình duyệt', description: 'Kiểm thử OAuth, cookie bảo mật, webhook, service worker và các tính năng trình duyệt khác trên một origin local đáng tin cậy.', linkLabel: 'Tính năng HTTPS local', feature: 'https' }
+    ],
+    lifecycleTitle: 'Vòng đời Next.js trong FlyEnv',
+    lifecycleDescription:
+      'Giữ runtime của dự án và quy trình gói cùng nhau từ khi cài đặt phụ thuộc đến khi chạy bản build gần giống production.',
+    lifecycleSteps: [
+      { icon: 'package', title: 'Cài đặt phụ thuộc', command: 'npm install', description: 'Phân giải lockfile với toolchain dự án đã chọn.' },
+      { icon: 'play', title: 'Chạy server dev', command: 'npm run dev', description: 'Chạy App Router, Server Components và route handlers trên local.' },
+      { icon: 'build', title: 'Build', command: 'npm run build', description: 'Phát hiện các vấn đề rendering production và phụ thuộc trước khi triển khai.' },
+      { icon: 'globe', title: 'Khởi động production', command: 'npm start', description: 'Phục vụ ứng dụng đã build qua tên miền local và HTTPS.' }
+    ],
+    workflowLabel: 'Quy trình làm việc của dự án',
+    packageTools: [{ label: 'npm' }, { label: 'pnpm' }, { label: 'Yarn' }, { label: 'Bun' }, { label: 'Các phiên bản Node.js', feature: 'nodejs' }, { label: 'Startup Groups', feature: 'startupGroups' }],
+    architectureTitle: 'Frontend và backend trong một workspace local',
+    architectureDescription:
+      'Một dự án Next.js có thể phục vụ UI, route handlers, server actions và các lời gọi API từ một ứng dụng trong khi vẫn dựa vào các dịch vụ dữ liệu local.',
+    architectureApplicationTitle: 'Ứng dụng Next.js',
+    architectureApplicationDescription: 'App Router · Server Components · Route Handlers · Server Actions',
+    architectureApplicationLabels: ['Frontend', 'Backend'],
+    architectureFlowLabels: ['Trình duyệt / HTTPS', 'Ứng dụng Next.js', 'PostgreSQL / Redis'],
+    architectureLeft: [
+      { icon: 'browser', title: 'Trình duyệt và origin local', description: 'Mở https://next-app.test để kiểm thử cookie, OAuth, webhook và các tích hợp phía client.' },
+      { icon: 'code', title: 'UI và route handlers', description: 'Render trang, server actions, endpoint API và logic backend-for-frontend từ dự án Next.js.' }
+    ],
+    architectureRight: [
+      { icon: 'database', logo: '/assets/demo-logos/postgresql.svg', title: 'PostgreSQL hoặc MySQL', description: 'Lưu người dùng, nội dung, đơn hàng và các dữ liệu ứng dụng khác mà tầng server dùng.' },
+      { icon: 'cache', logo: '/assets/demo-logos/redis.svg', title: 'Redis khi cần', description: 'Hỗ trợ cache, session, hàng đợi, giới hạn tần suất hoặc trạng thái chia sẻ nhanh khác.' }
+    ],
+    runtimeTitle: 'Runtime dự án và trình quản lý gói',
+    runtimeDescription: 'Node.js là runtime của ứng dụng; trình quản lý gói là một phần của toolchain dự án. Hãy giữ cả hai lựa chọn rõ ràng thay vì phụ thuộc vào một cài đặt toàn cục.',
+    runtimeNote: 'FlyEnv quản lý runtime và các dịch vụ local xung quanh dự án mà không thay thế npm, pnpm, Yarn, Bun hay các script gói hiện có của bạn.',
+    runtimeVersionTitle: 'Phiên bản Node.js',
+    runtimeVersionDescription: 'Khớp với phiên bản yêu cầu bởi phiên bản Next.js, phụ thuộc và đích triển khai.',
+    runtimeVersionLink: 'Mở tính năng Node.js',
+    packageManagerTitle: 'Trình quản lý gói',
+    packageManagerDescription: 'Giữ npm, pnpm, Yarn hoặc Bun đồng bộ với lockfile và các script mà dự án dùng.',
+    packageManagerNote: 'Lockfile là một phần của dự án',
+    screenshotAlt: 'FlyEnv Startup Groups để khởi động các dịch vụ dự án cùng nhau',
+    screenshotCaption: 'Dùng Startup Group để khởi động ứng dụng Next.js, cơ sở dữ liệu, Redis và các dịch vụ local khác cùng nhau bằng một cú nhấp.',
+    workflowTitle: 'Bắt đầu dự án Next.js mới hoặc chạy dự án đã có',
+    workflowDescription: 'Chọn quy trình làm việc phù hợp với trạng thái hiện tại của dự án, rồi giữ runtime và các dịch vụ hỗ trợ trong một workspace.',
+    workflows: [
+      { icon: 'plus', title: 'Tạo dự án Next.js mới', steps: ['Mở Node.js → New Project và chọn template Next.js.', 'Chọn phiên bản Node.js và trình quản lý gói mà dự án sẽ dùng.', 'Cài đặt phụ thuộc và giữ lockfile của dự án cùng mã nguồn.', 'Thêm tên miền local, HTTPS và dịch vụ cơ sở dữ liệu khi cần.', 'Tạo Startup Group cho ứng dụng và các dịch vụ hỗ trợ.'] },
+      { icon: 'folder', title: 'Chạy dự án Next.js đã có', steps: ['Mở repository và xác định yêu cầu Node.js cùng trình quản lý gói.', 'Chọn phiên bản Node.js phù hợp và cài đặt từ lockfile.', 'Khởi động PostgreSQL, MySQL, Redis hoặc dịch vụ đã cấu hình khác.', 'Cấu hình proxy local, hostname và HTTPS cho các luồng trình duyệt.', 'Chạy next dev để phát triển hoặc next build và next start để kiểm tra gần giống production.'] }
+    ],
+    setupGuide: 'Đọc hướng dẫn thiết lập Next.js đầy đủ',
+    benefitsTitle: 'Tại sao dùng FlyEnv để phát triển Next.js',
+    benefitsDescription: 'Quy trình local dễ đoán hơn cho các dự án chuyển đổi giữa UI trình duyệt, mã server, bản build và dịch vụ dữ liệu.',
+    benefits: [
+      { icon: 'runtime', title: 'Đồng bộ Node.js với dự án', description: 'Giữ các dự án Next.js ở các phiên bản runtime mà phụ thuộc và đích triển khai của chúng hỗ trợ.', emphasis: true, evidence: 'Dự án A → Node.js 20 · Dự án B → Node.js 22' },
+      { icon: 'play', title: 'Chạy ứng dụng và dịch vụ cùng nhau', description: 'Khởi động ứng dụng Next.js, cơ sở dữ liệu, Redis và proxy local như một nhóm dự án khi cần full stack.', emphasis: true, evidence: 'Next.js + PostgreSQL + Redis → Startup Group' },
+      { icon: 'globe', title: 'Kiểm thử origin local thực', description: 'Dùng hostname local dễ đọc và HTTPS cho hành vi trình duyệt mà chỉ dùng localhost không thể tái tạo.' },
+      { icon: 'layers', title: 'Giữ các dự án full-stack tách biệt', description: 'Giữ runtime, URL local, cơ sở dữ liệu, Redis và các dịch vụ hỗ trợ của từng dự án trong workspace riêng.' }
+    ],
+    faqTitle: 'Câu hỏi thường gặp về Next.js',
+    faqDescription: 'Các câu hỏi thường gặp về việc dùng FlyEnv cho các dự án Next.js local.',
+    faqs: [
+      { question: 'Các dự án Next.js khác nhau có thể dùng các phiên bản Node.js khác nhau?', answer: 'Được. FlyEnv cho phép mỗi dự án dùng phiên bản Node.js nó yêu cầu, hữu ích khi các ứng dụng hoặc phụ thuộc đang ở các chu kỳ phát hành khác nhau.' },
+      { question: 'FlyEnv có thay thế trình quản lý gói của Next.js?', answer: 'Không. Tiếp tục dùng trình quản lý gói và lockfile mà repository đã chọn. FlyEnv cung cấp runtime dự án và các dịch vụ local xung quanh toolchain đó.' },
+      { question: 'Mỗi dự án Next.js đều cần cơ sở dữ liệu?', answer: 'Không. Dự án chỉ frontend có thể chỉ cần Node.js. Thêm PostgreSQL hoặc MySQL khi ứng dụng dùng dữ liệu server, route handlers hoặc nội dung bền vững.' },
+      { question: 'Khi nào nên thêm Redis?', answer: 'Thêm Redis khi ứng dụng dùng cache, session, hàng đợi, giới hạn tần suất hoặc một mẫu trạng thái chia sẻ nhanh khác. Redis là tùy chọn, không phải yêu cầu của bản thân Next.js.' },
+      { question: 'Tôi có thể kiểm thử OAuth và webhook trên tên miền Next.js local?', answer: 'Được. Cấu hình tên miền local với HTTPS đáng tin cậy để cookie trình duyệt, callback OAuth, webhook và các tính năng origin bảo mật khác hoạt động gần với production hơn.' },
+      { question: 'FlyEnv có thể chạy next build và next start?', answer: 'Được. FlyEnv cung cấp runtime Node.js và các dịch vụ local; các script gói của dự án vẫn chạy next build và next start để kiểm tra local gần giống production.' }
+    ],
+    relatedTitle: 'Giải pháp liên quan',
+    relatedSolutions: relatedSolutions.map((item) => ({ ...item, description: item.name === 'Nuxt' ? 'Framework full-stack Vue' : item.name === 'NestJS' ? 'Framework backend TypeScript' : 'Quy trình frontend React', href: `/vi/solutions/${item.slug}` })),
+    ctaTitle: 'Sẵn sàng xây dựng Next.js trên local?',
+    ctaDescription: 'Chạy runtime Node.js, quy trình build, dịch vụ dữ liệu, tên miền local và HTTPS trong một workspace.',
+    haveQuestions: 'Có câu hỏi khi dùng FlyEnv?'
   }
 }
 

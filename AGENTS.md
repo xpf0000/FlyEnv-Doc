@@ -21,11 +21,12 @@ This is the official documentation website for **FlyEnv** - an all-in-one full-s
 
 ### Multi-Language Support
 
-The documentation supports four languages:
+The documentation supports five languages:
 - **English** (`/docs/`) - Default locale at root path `/`
 - **Chinese** (`/docs/zh/`) - Locale at `/zh/`
 - **Indonesian** (`/docs/id/`) - Locale at `/id/`
 - **Spanish** (`/docs/es/`) - Locale at `/es/`
+- **Vietnamese** (`/docs/vi/`) - Locale at `/vi/`
 
 > Note: The `docsZH` directory referenced in some legacy scripts does not currently exist. All Chinese content is located in `docs/zh/`.
 

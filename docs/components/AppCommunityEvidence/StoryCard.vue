@@ -56,7 +56,9 @@ const labels = computed(() =>
       ? { original: props.placement === 'home' ? 'Baca cerita' : 'Baca cerita asli', guide: 'Lihat panduan terkait' }
       : props.locale === 'es'
         ? { original: props.placement === 'home' ? 'Leer historia' : 'Leer la historia original', guide: 'Ver la guía relacionada' }
-        : { original: props.placement === 'home' ? 'Read story' : 'Read the original story', guide: 'See the related guide' }
+        : props.locale === 'vi'
+          ? { original: props.placement === 'home' ? 'Đọc câu chuyện' : 'Đọc câu chuyện gốc', guide: 'Xem hướng dẫn liên quan' }
+          : { original: props.placement === 'home' ? 'Read story' : 'Read the original story', guide: 'See the related guide' }
 )
 
 const displayTitle = computed(() =>
@@ -64,7 +66,7 @@ const displayTitle = computed(() =>
 )
 
 const formattedDate = computed(() =>
-  new Intl.DateTimeFormat(props.locale === 'zh' ? 'zh-CN' : props.locale === 'id' ? 'id-ID' : props.locale === 'es' ? 'es-ES' : 'en-US', {
+  new Intl.DateTimeFormat(props.locale === 'zh' ? 'zh-CN' : props.locale === 'id' ? 'id-ID' : props.locale === 'es' ? 'es-ES' : props.locale === 'vi' ? 'vi-VN' : 'en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'

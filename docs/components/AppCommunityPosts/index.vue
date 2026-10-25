@@ -154,7 +154,7 @@ interface FilterDefinition {
 
 const props = defineProps<{
   posts: Post[]
-  locale?: 'en' | 'zh' | 'id' | 'es'
+  locale?: 'en' | 'zh' | 'id' | 'es' | 'vi'
 }>()
 
 const locale = computed(() => props.locale || 'en')
@@ -391,6 +391,63 @@ const copy = {
       ai: 'AI',
       'case-study': '案例分享'
     }
+  },
+  vi: {
+    kicker: 'Câu chuyện cộng đồng',
+    title: 'Những câu chuyện từ nhà phát triển, tập trung tại một nơi',
+    intro:
+      'Các bài viết, hướng dẫn và đánh giá công khai giúp bạn dễ dàng thấy cách các nhà phát triển khác sử dụng FlyEnv trước khi bạn tự mình thử.',
+    coverageLabel: 'Phạm vi câu chuyện cộng đồng',
+    stories: 'Câu chuyện',
+    authors: 'Tác giả',
+    languages: 'Ngôn ngữ',
+    platforms: 'Nền tảng',
+    leadLabel: 'Câu chuyện mới nhất',
+    browseTitle: 'Duyệt theo vấn đề bạn đang giải quyết',
+    browseIntro: 'Bắt đầu từ trải nghiệm gần nhất với quy trình làm việc của bạn.',
+    filterLabel: 'Lọc câu chuyện cộng đồng',
+    libraryTitle: 'Thư viện cộng đồng',
+    resultSummary: (count: number) => `${count} ${count === 1 ? 'câu chuyện' : 'câu chuyện'} để khám phá`,
+    readStory: 'Đọc câu chuyện',
+    showMore: (count: number) => `Hiển thị thêm ${count} ${count === 1 ? 'câu chuyện' : 'câu chuyện'}`,
+    emptyTitle: 'Chưa có câu chuyện nào trong chủ đề này',
+    emptyIntro: 'Thử một chủ đề khác để duyệt toàn bộ thư viện cộng đồng.',
+    resetFilter: 'Xem tất cả câu chuyện',
+    filters: {
+      all: 'Tất cả câu chuyện',
+      switch: 'Chuyển đổi stack',
+      php: 'PHP và Laravel',
+      runtimes: 'Nhiều runtime',
+      platforms: 'Công việc đa nền tảng',
+      video: 'Hướng dẫn video'
+    },
+    content: {
+      video: 'Video',
+      tutorial: 'Hướng dẫn',
+      comparison: 'So sánh',
+      review: 'Đánh giá',
+      story: 'Câu chuyện'
+    },
+    tags: {
+      tutorial: 'Hướng dẫn',
+      comparison: 'So sánh',
+      review: 'Đánh giá',
+      video: 'Video',
+      php: 'PHP',
+      laravel: 'Laravel',
+      nodejs: 'Node.js',
+      java: 'Java',
+      docker: 'Docker',
+      xampp: 'XAMPP',
+      laragon: 'Laragon',
+      macos: 'macOS',
+      windows: 'Windows',
+      linux: 'Linux',
+      wordpress: 'WordPress',
+      postgresql: 'PostgreSQL',
+      ai: 'AI',
+      'case-study': 'Nghiên cứu thực tế'
+    }
   }
 }
 
@@ -487,7 +544,9 @@ function formatDate(date: string) {
         ? 'id-ID'
         : locale.value === 'es'
           ? 'es-ES'
-          : 'en-US',
+          : locale.value === 'vi'
+            ? 'vi-VN'
+            : 'en-US',
     {
       year: 'numeric',
       month: 'short',
