@@ -1,4 +1,4 @@
-export type ComparisonFaqLocale = 'en' | 'zh' | 'id' | 'es'
+export type ComparisonFaqLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 export type ComparisonFaqSlug = 'docker' | 'herd' | 'servbay'
 
 export interface ComparisonFaq {
@@ -148,6 +148,40 @@ const comparisonFaqs: Record<
         `¿FlyEnv funciona con proyectos que ya tienen un compose.yaml?`,
         `Sí: el archivo compose permanece intacto; puedes seguir ejecutando el runtime y los servicios de la aplicación de forma nativa en FlyEnv, o simplemente seguir usando Docker para ese proyecto.`
       ]
+    ],
+    vi: [
+      [
+        `FlyEnv có thay thế được Docker không?`,
+        `Không. FlyEnv quản lý các dịch vụ local native; Docker đóng gói ứng dụng vào container. Hai công cụ giải quyết các vấn đề khác nhau và có thể dùng cùng nhau.`
+      ],
+      [
+        `Khi nào nên dùng Docker thay vì FlyEnv?`,
+        `Khi tính nhất quán với production, khả năng cô lập hoặc môi trường CI/staging có thể tái lập là yếu tố quan trọng, hoặc khi dự án đã sẵn có compose.yaml.`
+      ],
+      [
+        `Khi nào FlyEnv là lựa chọn phù hợp hơn?`,
+        `Khi bạn muốn một môi trường local native nhanh với runtime được quản lý sẵn, tên miền local và HTTPS, mà không phải viết Dockerfile hay file Compose.`
+      ],
+      [
+        `Có thể dùng FlyEnv và Docker cùng lúc không?`,
+        `Có — cách dùng phổ biến là FlyEnv cho phát triển native hằng ngày và Docker cho CI, kiểm thử tích hợp hoặc các dự án yêu cầu đồng nhất container. Hãy tránh xung đột cổng giữa hai công cụ.`
+      ],
+      [
+        `FlyEnv có dùng container bên trong không?`,
+        `Không. FlyEnv chạy các runtime và dịch vụ dưới dạng tiến trình native ngay trên hệ điều hành macOS, Windows và Linux.`
+      ],
+      [
+        `Docker có tự động cung cấp tên miền local và HTTPS không?`,
+        `Không có sẵn. Bạn thường phải tự thêm reverse proxy (Traefik, nginx-proxy) và chứng chỉ (mkcert hoặc CA); FlyEnv tích hợp sẵn quy trình local site cho tên miền và HTTPS.`
+      ],
+      [
+        `Công cụ nào dễ chuẩn hóa hơn cho một đội nhóm?`,
+        `Nếu đội nhóm triển khai container, compose.yaml của Docker là chuẩn dùng chung chặt chẽ nhất. Với các đội nhóm phát triển native trên macOS, Windows và Linux, FlyEnv mang lại cho mọi người cùng một quy trình làm việc trên desktop.`
+      ],
+      [
+        `FlyEnv có hoạt động với các dự án đã có compose.yaml không?`,
+        `Có — file compose được giữ nguyên; bạn vẫn có thể chạy runtime và dịch vụ của ứng dụng một cách native trong FlyEnv, hoặc tiếp tục dùng Docker cho dự án đó.`
+      ]
     ]
   },
   herd: {
@@ -286,6 +320,40 @@ const comparisonFaqs: Record<
         `¿Puedo usar Herd y FlyEnv a la vez?`,
         `Sí. Algunos desarrolladores conservan Herd para el trabajo centrado en Laravel y usan FlyEnv para proyectos de Node.js, Java, Python o con mucha infraestructura. Solo evita ejecutar dos servidores web o bases de datos en los mismos puertos al mismo tiempo.`
       ]
+    ],
+    vi: [
+      [
+        `Tôi có nên chuyển từ Laravel Herd sang FlyEnv không?`,
+        `Không nhất thiết. Nếu bạn chủ yếu xây dựng ứng dụng Laravel trên macOS hoặc Windows, Herd là một công cụ xuất sắc và tích hợp sâu. FlyEnv trở nên hữu ích hơn khi bạn làm việc với nhiều ngôn ngữ và framework, cần hỗ trợ Linux, hoặc muốn nhiều module hạ tầng tích hợp sẵn hơn.`
+      ],
+      [
+        `FlyEnv có hỗ trợ phát triển Laravel không?`,
+        `Có. FlyEnv chạy được toàn bộ stack Laravel: nhiều phiên bản PHP, Nginx, Apache hoặc Caddy, MySQL, MariaDB, PostgreSQL, Redis, queue và tên miền local với HTTPS. Điều nó không bao gồm là các công cụ riêng của Laravel như herd.yml hay tích hợp Forge.`
+      ],
+      [
+        `FlyEnv có thể thay thế các dịch vụ của Herd Pro không?`,
+        `Cho phát triển local, phần lớn là có. MySQL, MariaDB, PostgreSQL, MongoDB, Redis, MinIO, RustFS, Typesense và Meilisearch đều là module tích hợp sẵn của FlyEnv thay vì gói trả phí bổ sung, và module Mailpit của FlyEnv đáp ứng việc kiểm thử mail local giống như mail server của Herd Pro. Herd Pro còn có các tính năng riêng của Laravel như Reverb và cửa sổ debug dump mà FlyEnv không có.`
+      ],
+      [
+        `FlyEnv có hỗ trợ herd.yml hoặc Laravel Forge không?`,
+        `Không. herd.yml và tích hợp Forge là các tính năng thuộc hệ sinh thái Laravel của Herd. FlyEnv thay vào đó dùng cấu hình site theo từng dự án và Startup Groups để gom các dịch vụ của mỗi dự án lại với nhau.`
+      ],
+      [
+        `Tôi có thể chạy dự án Node.js, Python hoặc Java với FlyEnv không?`,
+        `Có. FlyEnv quản lý Node.js, Python, Go, Java và nhiều runtime khác song song với PHP, nên các dự án không phải Laravel nằm cùng không gian làm việc với ứng dụng Laravel của bạn.`
+      ],
+      [
+        `FlyEnv có chạy trên Linux không?`,
+        `Có. FlyEnv hỗ trợ macOS, Windows và Linux. Laravel Herd hiện hỗ trợ macOS và Windows.`
+      ],
+      [
+        `Tôi có thể giữ lại các dự án Laravel hiện có không?`,
+        `Có. Trỏ một local site của FlyEnv vào thư mục dự án hiện có, chọn phiên bản PHP và các dịch vụ cần thiết, rồi tiếp tục công việc — trong hầu hết trường hợp không cần viết lại ứng dụng.`
+      ],
+      [
+        `Có thể dùng Herd và FlyEnv cùng lúc không?`,
+        `Có. Một số developer giữ Herd cho công việc tập trung vào Laravel và dùng FlyEnv cho các dự án Node.js, Java, Python hoặc cần nhiều hạ tầng. Chỉ cần tránh chạy hai web server hoặc cơ sở dữ liệu trên cùng cổng vào cùng một thời điểm.`
+      ]
     ]
   },
   servbay: {
@@ -423,6 +491,40 @@ const comparisonFaqs: Record<
       [
         `¿Cuál debería estandarizar un equipo?`,
         `Si el equipo solo usa macOS/Windows y quiere las funciones de IA/PKI ServBay, ServBay encaja. Si el equipo incluye desarrolladores de Linux o quiere una herramienta de código abierto con stacks de servicios por proyecto, FlyEnv encaja mejor.`
+      ]
+    ],
+    vi: [
+      [
+        `FlyEnv có phải là lựa chọn thay thế ServBay tốt không?`,
+        `Có, FlyEnv là một trong những lựa chọn thay thế gần nhất: cả hai đều là không gian làm việc phát triển local all-in-one. FlyEnv là phương án thay thế trực tiếp hơn nếu bạn cần Linux, Startup Groups hoặc các module đặc thù của nó; ServBay mạnh hơn nếu bạn muốn AI Gateway chính hãng, chứng chỉ PKI/ACME hoặc nhiều nhà cung cấp tunnel.`
+      ],
+      [
+        `Điểm khác biệt lớn nhất giữa FlyEnv và ServBay là gì?`,
+        `Khác biệt nằm ở phạm vi nền tảng và trọng tâm sản phẩm: FlyEnv bổ sung Linux và tập trung vào module phát triển cùng quy trình làm việc của dự án; ServBay tập trung vào AI Gateway, chứng chỉ công khai PKI/ACME, tunnel đa nhà cung cấp và phạm vi phiên bản cũ rộng hơn.`
+      ],
+      [
+        `ServBay có hỗ trợ Linux không?`,
+        `Ứng dụng desktop hiện tại của ServBay chính thức được cung cấp cho macOS và Windows. FlyEnv hỗ trợ macOS, Windows và Linux.`
+      ],
+      [
+        `FlyEnv có thực sự miễn phí không?`,
+        `Phần cốt lõi thì có: FlyEnv là mã nguồn mở, và toàn bộ runtime, cơ sở dữ liệu cùng các tính năng quản lý môi trường luôn dùng được mà không phải trả phí. Bản dùng thử miễn phí giới hạn 3 local site, một vài công cụ cao cấp (trợ lý AI, chụp màn hình, tối ưu ảnh) chỉ dùng thử 3 ngày; giấy phép Personal 10 USD sẽ bỏ các giới hạn đó. ServBay cũng có gói miễn phí tương tự (5 website), còn các tính năng Pro như mail server, tunnel và PKI/ACME đòi hỏi giấy phép trả phí.`
+      ],
+      [
+        `Cả hai công cụ có hỗ trợ MCP và quy trình làm việc AI không?`,
+        `Có. ServBay bao gồm MCP Server và AI Gateway chính hãng với định tuyến cùng theo dõi chi phí trong gói miễn phí. FlyEnv cung cấp MCP Server, module Ollama được quản lý cho model local, AI gateway local CLIProxyAPI và các module AI coding client — cả hai đều cho phép các công cụ AI quản lý môi trường local của bạn.`
+      ],
+      [
+        `Cả hai có thể chạy nhiều phiên bản PHP cho mỗi dự án không?`,
+        `Có. Cả hai đều hỗ trợ nhiều phiên bản PHP cùng tồn tại với cách gán theo từng dự án/từng site. ServBay hỗ trợ các phiên bản cũ hơn (từ PHP 5.3); FlyEnv tập trung vào các phiên bản đang được sử dụng.`
+      ],
+      [
+        `Tôi có thể chuyển từ ServBay sang FlyEnv không?`,
+        `Có. Dự án chỉ là các thư mục thông thường; hãy tạo lại site trong FlyEnv, gán cùng các phiên bản runtime và trỏ tên miền về dự án. Cơ sở dữ liệu có thể xuất/nhập bằng các công cụ tiêu chuẩn.`
+      ],
+      [
+        `Đội nhóm nên chuẩn hóa theo công cụ nào?`,
+        `Nếu đội nhóm chỉ dùng macOS/Windows và muốn các tính năng AI/PKI của ServBay thì ServBay phù hợp. Nếu đội nhóm có developer Linux hoặc muốn một công cụ mã nguồn mở với stack dịch vụ theo từng dự án thì FlyEnv phù hợp hơn.`
       ]
     ]
   }

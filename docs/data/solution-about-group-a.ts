@@ -23,6 +23,7 @@ export const solutionAboutGroupA: {
   zh: Partial<Record<SolutionSlug, SolutionAboutContent>>
   id: Partial<Record<SolutionSlug, SolutionAboutContent>>
   es: Partial<Record<SolutionSlug, SolutionAboutContent>>
+  vi: Partial<Record<SolutionSlug, SolutionAboutContent>>
 } = {
   en: {
     laravel: {
@@ -2446,6 +2447,641 @@ export const solutionAboutGroupA: {
             title: 'Almacenamiento, Redis y correo cuando están configurados',
             description:
               'Los adaptadores de archivos, los servicios de caché y SMTP pertenecen solo a la configuración de Directus que se está probando.'
+          }
+        ]
+      }
+    }
+  },
+  vi: {
+    laravel: {
+      replaceOverview: true,
+      paragraphs: [
+        'Laravel là một framework PHP cho các ứng dụng web full-stack và API. Các quy ước của nó hợp nhất routing, dependency injection, các model Eloquent, validation, xác thực, event và template vào một cấu trúc ứng dụng nhất quán.',
+        'Một dự án Laravel thường bắt đầu với PHP, Composer và một cơ sở dữ liệu. Các tính năng như thông báo qua hàng đợi, lệnh định kỳ, dữ liệu cache và asset do Vite build sẽ thêm vào những tiến trình riêng của framework cần chạy cùng ứng dụng.'
+      ],
+      capabilities: [
+        'Eloquent ORM',
+        'Artisan CLI',
+        'Blade Templates',
+        'Hàng đợi & sự kiện',
+        'Bộ lập lịch tác vụ',
+        'Migration'
+      ],
+      useCases: [
+        'Sản phẩm theo thuê bao và cổng thông tin khách hàng',
+        'Hệ thống nghiệp vụ với luồng công việc theo vai trò',
+        'Backend thương mại điện tử',
+        'Ứng dụng web dựa trên nội dung',
+        'REST API cho client web hoặc mobile'
+      ],
+      localEnvironment: {
+        title: 'Môi trường Laravel bao gồm luồng công việc của ứng dụng',
+        description:
+          'Stack cụ thể thay đổi tùy dự án, nhưng các nhóm Laravel thường phát triển code ứng dụng, thay đổi schema, worker và asset frontend cùng nhau.',
+        items: [
+          {
+            title: 'PHP và Composer',
+            description: 'Chạy ứng dụng và cài đặt các package được ghi trong composer.lock.'
+          },
+          {
+            title: 'MySQL hoặc PostgreSQL',
+            description:
+              'Các model Eloquent và migration của Laravel thường quản lý schema của dự án tại đây.'
+          },
+          {
+            title: 'Artisan worker và bộ lập lịch',
+            description:
+              'Chỉ chạy queue:work và schedule:work khi dự án cấu hình job trong hàng đợi hoặc lệnh định kỳ.'
+          },
+          {
+            title: 'Redis và Vite khi được sử dụng',
+            description:
+              'Redis thường dùng làm backend cho cache, session hoặc hàng đợi; Node.js và Vite cần thiết cho các dự án build asset frontend.'
+          }
+        ]
+      }
+    },
+    django: {
+      replaceOverview: true,
+      paragraphs: [
+        'Django là một framework web Python cấp cao được xây dựng quanh các app có thể tái sử dụng, một ORM trưởng thành, migration, form, xác thực và giao diện quản trị tự động. Nó đặc biệt phù hợp với các trang web dựa trên cơ sở dữ liệu mà quy tắc nghiệp vụ và mô hình nội dung cùng phát triển.',
+        'Quá trình phát triển thường bắt đầu trong một môi trường ảo Python với manage.py điều phối dự án. Ứng dụng khi triển khai còn có thể cần một cơ sở dữ liệu quan hệ, phần xử lý static và media, cùng các tiến trình Celery khi công việc bất đồng bộ nằm trong thiết kế.'
+      ],
+      capabilities: [
+        'Django ORM',
+        'Giao diện quản trị',
+        'Migration',
+        'Form',
+        'Xác thực',
+        'Hỗ trợ ASGI'
+      ],
+      useCases: [
+        'Trang web biên tập và hội viên',
+        'Ứng dụng nghiệp vụ nhiều dữ liệu',
+        'Công cụ back-office xây dựng quanh giao diện quản trị',
+        'Nền tảng marketplace hoặc danh mục',
+        'API kết hợp với Django REST Framework'
+      ],
+      localEnvironment: {
+        title: 'Một dự án Django còn hơn cả runserver',
+        description:
+          'manage.py điều phối các tác vụ của framework, trong khi lựa chọn của dự án quyết định những tiến trình hỗ trợ nào cần có ở local.',
+        items: [
+          {
+            title: 'Môi trường Python',
+            description:
+              'Môi trường venv, uv hoặc Poetry giúp cô lập Django và các dependency của dự án.'
+          },
+          {
+            title: 'PostgreSQL hoặc MySQL',
+            description:
+              'Các dự án Django giống môi trường production thường dùng cơ sở dữ liệu quan hệ và áp dụng thay đổi schema bằng manage.py migrate.'
+          },
+          {
+            title: 'Tệp static và media',
+            description:
+              'Template, asset static đã thu thập và tệp người dùng tải lên cần đường dẫn và cấu hình local riêng biệt.'
+          },
+          {
+            title: 'Broker và worker Celery khi được cấu hình',
+            description:
+              'Redis hoặc RabbitMQ cùng một worker Celery chỉ liên quan đến các dự án chạy tác vụ nền.'
+          }
+        ]
+      }
+    },
+    fastapi: {
+      replaceOverview: true,
+      paragraphs: [
+        'FastAPI là một framework Python để xây dựng các HTTP API có kiểu. Type hint điều khiển validation, serialization, dependency injection và tài liệu OpenAPI, trong khi nền tảng ASGI của nó hỗ trợ endpoint bất đồng bộ và WebSocket.',
+        'Một dịch vụ FastAPI local thường chạy qua một ASGI server như Uvicorn. Phần còn lại của môi trường nên đi theo chính dịch vụ đó: một cơ sở dữ liệu có ORM cho dữ liệu lưu trữ lâu dài, migration, cùng các tiến trình worker hoặc broker tùy chọn cho khối lượng công việc bất đồng bộ.'
+      ],
+      capabilities: [
+        'Validation dựa trên type',
+        'Tài liệu OpenAPI',
+        'Dependency Injection',
+        'Endpoint ASGI bất đồng bộ',
+        'WebSocket',
+        'Model Pydantic'
+      ],
+      useCases: [
+        'REST API có kiểu',
+        'Dịch vụ backend cho ứng dụng mobile',
+        'Endpoint dịch vụ dữ liệu và ML',
+        'API tích hợp bất đồng bộ',
+        'Nền tảng API nội bộ'
+      ],
+      localEnvironment: {
+        title: 'Môi trường FastAPI đi theo hợp đồng của dịch vụ',
+        description:
+          'Bản thân framework được thiết kế nhỏ gọn, vì vậy dependency local nên phản ánh cách triển khai API thay vì một stack định sẵn.',
+        items: [
+          {
+            title: 'Python và ASGI server',
+            description:
+              'Chạy ứng dụng với các Python dependency đã khóa phiên bản và một ASGI server như Uvicorn.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và migration',
+            description:
+              'PostgreSQL hoặc cơ sở dữ liệu khác được chọn đi kèm với ORM và công cụ migration của dự án.'
+          },
+          {
+            title: 'API client và origin bảo mật',
+            description:
+              'Một domain local và HTTPS có thể quan trọng với client trên trình duyệt, redirect OAuth hoặc kiểm thử callback webhook.'
+          },
+          {
+            title: 'Broker và worker khi được thiết kế sẵn',
+            description:
+              'Redis, RabbitMQ hoặc một tiến trình worker chỉ nên có ở nơi API thực sự đẩy công việc nền ra ngoài.'
+          }
+        ]
+      }
+    },
+    flask: {
+      replaceOverview: true,
+      paragraphs: [
+        'Flask là một framework web Python nhẹ, tập trung vào routing, xử lý request, template Jinja và việc chọn extension một cách tường minh. Lõi nhỏ của nó cho phép đội ngũ tự quyết định cách tổ chức blueprint, tầng lưu trữ dữ liệu, xác thực, tác vụ dòng lệnh và triển khai.',
+        'Sự linh hoạt đó làm cho môi trường local của Flask phụ thuộc vào từng dự án. Một ứng dụng nhỏ có thể chỉ dùng môi trường ảo và development server của Flask; ứng dụng có SQLAlchemy, migration Alembic, build asset hoặc tác vụ nền sẽ chủ động thêm các dịch vụ đó.'
+      ],
+      capabilities: [
+        'Blueprint',
+        'Template Jinja',
+        'Werkzeug Routing',
+        'Lệnh CLI',
+        'Hệ sinh thái extension',
+        'Ứng dụng WSGI'
+      ],
+      useCases: [
+        'Ứng dụng web nhỏ',
+        'Công cụ nội bộ tùy chỉnh',
+        'JSON API',
+        'Nguyên mẫu dịch vụ',
+        'Trang web render phía server với kiến trúc tùy biến'
+      ],
+      localEnvironment: {
+        title: 'Flask giữ stack local tường minh một cách có chủ đích',
+        description:
+          'Khác với framework có sẵn mọi tính năng, Flask không hàm ý trước mọi dịch vụ hỗ trợ; cấu hình của dự án mới là nguồn sự thật.',
+        items: [
+          {
+            title: 'Môi trường ảo Python',
+            description: 'Cô lập Flask và các extension mà ứng dụng chọn.'
+          },
+          {
+            title: 'Flask CLI và development server',
+            description:
+              'Chạy các lệnh flask cho app factory đã cấu hình, tác vụ shell hoặc server local.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và Alembic khi được sử dụng',
+            description:
+              'Các ứng dụng dựa trên SQLAlchemy thường thêm một cơ sở dữ liệu và quy trình migration với Alembic.'
+          },
+          {
+            title: 'Worker cho tác vụ chỉ khi được cấu hình',
+            description:
+              'Celery, RQ hoặc dịch vụ worker khác là tùy chọn và phải khớp với code ứng dụng.'
+          }
+        ]
+      }
+    },
+    wordpress: {
+      replaceOverview: true,
+      paragraphs: [
+        'WordPress là một hệ quản trị nội dung bằng PHP với lõi, theme, plugin, block editor, thư viện media và phân cấp template giúp các trang xuất bản có thể mở rộng mà không biến mỗi thay đổi nội dung thành một lần triển khai.',
+        'Công việc WordPress local thường xoay quanh một PHP web server, MySQL hoặc MariaDB và một địa chỉ site local ổn định. Phát triển theme và plugin còn liên quan đến tệp tải lên, rewrite rule và WP-CLI; Node.js chỉ liên quan khi theme hoặc công cụ block được chọn sử dụng nó.'
+      ],
+      capabilities: [
+        'Block Editor',
+        'Phân cấp theme',
+        'Plugin API',
+        'Thư viện media',
+        'Custom Post Type',
+        'WP-CLI'
+      ],
+      useCases: [
+        'Trang web marketing và công ty',
+        'Ấn phẩm biên tập',
+        'Trang hội viên hoặc cộng đồng',
+        'Phát triển theme và plugin tùy chỉnh',
+        'Trang thương mại nhỏ dùng WooCommerce'
+      ],
+      localEnvironment: {
+        title: 'Một site WordPress bao gồm luồng công việc nội dung và phần mở rộng',
+        description:
+          'Thiết lập local cần vận hành như một site thật, không chỉ thực thi PHP, để tác giả và lập trình viên có thể kiểm thử URL, asset và phần mở rộng cùng nhau.',
+        items: [
+          {
+            title: 'PHP web server và domain local',
+            description:
+              'Phục vụ site qua URL local nhận diện permalink và phiên bản PHP mà bản cài đặt hỗ trợ.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description: 'Lưu trữ bài viết, người dùng, tùy chọn, taxonomy và cài đặt plugin hoặc theme.'
+          },
+          {
+            title: 'Tệp tải lên và phần mở rộng trong wp-content',
+            description:
+              'Giữ các tệp media tải lên, theme và plugin luôn sẵn có như một phần dữ liệu kiểm thử của dự án.'
+          },
+          {
+            title: 'WP-CLI và Node.js khi cần',
+            description:
+              'WP-CLI hỗ trợ các tác vụ site lặp lại được; Node.js là tùy chọn cho theme hoặc pipeline build block tùy chỉnh.'
+          }
+        ]
+      }
+    },
+    drupal: {
+      replaceOverview: true,
+      paragraphs: [
+        'Drupal là một CMS bằng PHP cho các trải nghiệm số có cấu trúc và khả năng cấu hình cao. Content entity, field, taxonomy, Views, quản lý cấu hình, phân quyền và các công cụ đa ngôn ngữ giúp đội ngũ mô hình hóa thông tin cùng luồng biên tập phức tạp.',
+        'Phát triển Drupal thường kết hợp code PHP do Composer quản lý với một cơ sở dữ liệu quan hệ và một web server. Đồng bộ cấu hình, lệnh Drush, lưu trữ tệp và build frontend tùy chọn quan trọng với một dự án local đáng tin cậy ngang với việc mở trang chủ.'
+      ],
+      capabilities: [
+        'Content Entity',
+        'Field & Taxonomy',
+        'Views',
+        'Quản lý cấu hình',
+        'Phân quyền',
+        'Nội dung đa ngôn ngữ'
+      ],
+      useCases: [
+        'Trang web chính phủ và dịch vụ công',
+        'Trang tổ chức đa ngôn ngữ',
+        'Nền tảng nội dung với taxonomy phức tạp',
+        'Trang biên tập với quy trình được kiểm soát',
+        'Phát triển module tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Môi trường Drupal bảo toàn cấu trúc và cấu hình',
+        description:
+          'Mô hình nội dung và cấu hình xuất ra là trọng tâm của công việc Drupal, vì vậy thiết lập local phải hỗ trợ import lặp lại được và thay đổi phần mở rộng.',
+        items: [
+          {
+            title: 'PHP và Composer',
+            description: 'Composer quản lý lõi Drupal, các module đóng góp và thư viện của dự án.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và đồng bộ cấu hình',
+            description:
+              'Cơ sở dữ liệu chứa nội dung trong khi cấu hình xuất ra thường được import và export bằng các công cụ của Drupal.'
+          },
+          {
+            title: 'Drush',
+            description:
+              'Drush được dùng để xây dựng lại cache, cập nhật, chạy lệnh cấu hình và các tác vụ phát triển lặp lại khác.'
+          },
+          {
+            title: 'Tệp công khai và riêng tư',
+            description:
+              'Tệp tải lên và tệp riêng tư cần đường dẫn local khớp với cấu hình site; Node.js là tùy chọn cho việc build theme.'
+          }
+        ]
+      }
+    },
+    ghost: {
+      replaceOverview: true,
+      paragraphs: [
+        'Ghost là một nền tảng xuất bản trên Node.js tập trung vào viết lách chuyên nghiệp, hội viên, newsletter và gói đăng ký. Nó cung cấp trình soạn thảo, lớp theme, quản lý thành viên, tính năng gửi email cùng Content API và Admin API xoay quanh một ấn phẩm, thay vì một hệ sinh thái plugin CMS chung chung.',
+        'Một bản cài Ghost local chạy trên Node.js và dùng cơ sở dữ liệu được chọn cho môi trường đó. Công việc theme hưởng lợi từ URL và cài đặt email thực tế, trong khi tích hợp gửi thư bên ngoài và lưu trữ chỉ nên được thêm khi cấu hình ấn phẩm sử dụng chúng.'
+      ],
+      capabilities: [
+        'Trình soạn thảo xuất bản',
+        'Hội viên',
+        'Newsletter',
+        'Theme API',
+        'Content API',
+        'Cấp gói đăng ký'
+      ],
+      useCases: [
+        'Ấn phẩm độc lập',
+        'Newsletter trả phí',
+        'Trang hội viên dành cho nhà sáng tạo',
+        'Trang thương hiệu mang tính biên tập',
+        'Phát triển theme Ghost tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Ghost đi theo luồng công việc của một ấn phẩm',
+        description:
+          'Những điểm quan trọng ở local là cơ sở dữ liệu ấn phẩm, hành vi theme, URL hướng đến thành viên và các tích hợp gửi thư đã cấu hình.',
+        items: [
+          {
+            title: 'Node.js và Ghost CLI',
+            description:
+              'Chạy instance Ghost và sử dụng công cụ cài đặt cùng phát triển được hỗ trợ của nó.'
+          },
+          {
+            title: 'Cơ sở dữ liệu',
+            description:
+              'Mặc định SQLite phù hợp cho phát triển local; MySQL được dùng khi thiết lập đã chọn yêu cầu.'
+          },
+          {
+            title: 'Tệp theme và URL local',
+            description:
+              'Phát triển theme cần một URL ấn phẩm local để kiểm thử routing, thành viên và asset trên trình duyệt.'
+          },
+          {
+            title: 'Gửi thư khi được cấu hình',
+            description:
+              'Chỉ dùng SMTP cho kiểm thử thư giao dịch; newsletter của Ghost yêu cầu tích hợp Mailgun API đã cấu hình.'
+          }
+        ]
+      }
+    },
+    magento: {
+      replaceOverview: true,
+      paragraphs: [
+        'Magento Open Source là một nền tảng thương mại bằng PHP cho các cửa hàng có danh mục phức tạp, định giá, khuyến mãi, nhóm khách hàng, hành vi thanh toán và nhiều storefront. Kiến trúc mô-đun của nó biến công việc extension và tích hợp thành phần cốt lõi của quá trình triển khai.',
+        'Phát triển Magento local phức tạp hơn hẳn một site PHP cơ bản. Dependency Composer, MySQL, đánh chỉ mục tìm kiếm, cache hoặc session dựa trên Redis, cron, consumer hàng đợi, code sinh ra tự động và nội dung tĩnh đều có thể hoạt động tùy theo cấu hình dự án.'
+      ],
+      capabilities: [
+        'Danh mục & kho hàng',
+        'Multi-store',
+        'Khuyến mãi',
+        'Thanh toán',
+        'Đánh chỉ mục tìm kiếm',
+        'Module mở rộng'
+      ],
+      useCases: [
+        'Vận hành bán lẻ multi-store',
+        'Danh mục B2B và giá theo khách hàng',
+        'Danh mục sản phẩm lớn',
+        'Tích hợp thương mại với hệ thống ERP hoặc PIM',
+        'Phát triển thanh toán và extension tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Magento điều phối một stack thương mại',
+        description:
+          'Một danh mục đơn giản có thể không bật mọi dịch vụ, nhưng công việc Magento thực tế thường cần vài tiến trình để bộc lộ hành vi đánh chỉ mục, cache và bất đồng bộ.',
+        items: [
+          {
+            title: 'PHP, Composer và code sinh ra tự động',
+            description:
+              'Magento dùng các package Composer và class sinh ra tự động; lệnh CLI quản lý việc biên dịch và thay đổi thiết lập.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description: 'Lưu trữ dữ liệu danh mục, khách hàng, bán hàng, cấu hình và chỉ mục.'
+          },
+          {
+            title: 'OpenSearch hoặc Elasticsearch',
+            description:
+              'Các phiên bản Magento được hỗ trợ yêu cầu nó cho tìm kiếm và đánh chỉ mục danh mục; dùng engine mà bản phát hành của dự án yêu cầu.'
+          },
+          {
+            title: 'Redis, cron và consumer khi được bật',
+            description:
+              'Redis thường hỗ trợ cache hoặc session, còn cron và consumer hàng đợi tin nhắn chỉ cần cho các tính năng được cấu hình để dùng chúng.'
+          },
+          {
+            title: 'Công cụ cho nội dung tĩnh',
+            description:
+              'Công cụ Node.js là tùy chọn, nhưng triển khai nội dung tĩnh Magento và asset theme phải được build lại khi quy trình dự án yêu cầu.'
+          }
+        ]
+      }
+    },
+    prestashop: {
+      replaceOverview: true,
+      paragraphs: [
+        'PrestaShop là một nền tảng thương mại điện tử bằng PHP dành cho merchant vận hành danh mục sản phẩm, đơn hàng, thanh toán, vận chuyển và khuyến mãi. Các module và theme của nó giúp cửa hàng điều chỉnh storefront và back office mà không phải thay thế lõi thương mại.',
+        'Một cửa hàng PrestaShop local thường cần PHP, MySQL hoặc MariaDB, một web server và một URL riêng cho cửa hàng. Công việc module và theme nên giữ nguyên cơ sở dữ liệu và asset hình ảnh; Node.js chỉ thuộc về các dự án dùng nó cho công cụ asset theme.'
+      ],
+      capabilities: [
+        'Danh mục sản phẩm',
+        'Quản lý đơn hàng',
+        'Module',
+        'Theme',
+        'Quy tắc vận chuyển',
+        'Storefront đa ngôn ngữ'
+      ],
+      useCases: [
+        'Cửa hàng trực tuyến nhỏ và vừa',
+        'Tùy chỉnh storefront cho merchant',
+        'Tích hợp module thanh toán và vận chuyển',
+        'Trang danh mục bản địa hóa',
+        'Phát triển theme và module'
+      ],
+      localEnvironment: {
+        title: 'Môi trường PrestaShop là một cửa hàng đang vận hành',
+        description:
+          'Trạng thái danh mục, module, asset theme và hành vi trên trình duyệt cần có sẵn cùng lúc để kiểm thử một thay đổi cách thực tế.',
+        items: [
+          {
+            title: 'PHP web server',
+            description:
+              'Chạy cửa hàng với phiên bản PHP và các extension mà bản PrestaShop tương ứng hỗ trợ.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description: 'Chứa sản phẩm, khách hàng, đơn hàng, cấu hình và dữ liệu module.'
+          },
+          {
+            title: 'URL cửa hàng và tệp hình ảnh',
+            description:
+              'Dùng một domain local cho hành vi storefront và giữ nguyên đường dẫn hình ảnh sản phẩm khi kiểm thử import hoặc theme.'
+          },
+          {
+            title: 'Công cụ asset theme khi được sử dụng',
+            description:
+              'Node.js là tùy chọn và chỉ nên khởi động cho theme hoặc luồng frontend khai báo dùng nó.'
+          }
+        ]
+      }
+    },
+    opencart: {
+      replaceOverview: true,
+      paragraphs: [
+        'OpenCart là một nền tảng thương mại điện tử bằng PHP để xây dựng và vận hành cửa hàng trực tuyến. Danh mục, hệ thống đơn hàng, extension, theme và hỗ trợ multi-store của nó tạo cho merchant một con đường khá trực tiếp từ dữ liệu sản phẩm đến storefront hướng tới khách hàng.',
+        'Công việc OpenCart local thường xoay quanh PHP, một cơ sở dữ liệu tương thích MySQL, một web server và một URL cửa hàng. Thay đổi extension, hình ảnh sản phẩm, hành vi rewrite cùng callback thanh toán hoặc vận chuyển liên quan đến luồng này nhiều hơn một stack dịch vụ ứng dụng chung chung.'
+      ],
+      capabilities: [
+        'Danh mục sản phẩm',
+        'Xử lý đơn hàng',
+        'Extension',
+        'Hệ thống theme',
+        'Multi-store',
+        'Gói ngôn ngữ'
+      ],
+      useCases: [
+        'Cửa hàng trực tuyến nhỏ',
+        'Storefront danh mục tùy chỉnh',
+        'Phát triển extension thanh toán và vận chuyển',
+        'Thiết lập multi-store cho merchant',
+        'Tùy chỉnh theme OpenCart'
+      ],
+      localEnvironment: {
+        title: 'Thiết lập OpenCart nên vận hành như một storefront',
+        description:
+          'Kiểm thử một cửa hàng nghĩa là giữ lại dữ liệu danh mục, đường dẫn hình ảnh, rewrite URL và các cài đặt tích hợp phía trình duyệt.',
+        items: [
+          {
+            title: 'PHP và web server',
+            description:
+              'Phục vụ OpenCart với phiên bản PHP và các extension cần thiết cho bản cài đặt hiện có.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description:
+              'Lưu trữ dữ liệu danh mục, tài khoản khách hàng, đơn hàng, cài đặt và cấu hình extension.'
+          },
+          {
+            title: 'Hình ảnh và URL cửa hàng local',
+            description:
+              'Giữ các thư mục hình ảnh sẵn có và dùng một domain local để kiểm thử liên kết storefront cùng rewrite rule.'
+          },
+          {
+            title: 'HTTPS cho callback khi cần',
+            description:
+              'Một origin local bảo mật hữu ích khi nhà cung cấp thanh toán, luồng OAuth hoặc callback bên ngoài yêu cầu.'
+          }
+        ]
+      }
+    },
+    payload: {
+      replaceOverview: true,
+      paragraphs: [
+        'Payload CMS là một headless CMS và framework ứng dụng đặt TypeScript lên hàng đầu. Collection, field, hook, kiểm soát truy cập, admin panel được sinh ra tự động, tải tệp lên và các REST hay GraphQL API đều được định nghĩa trong code ứng dụng thay vì lắp ghép qua một lớp cấu hình CMS riêng biệt.',
+        'Một dự án Payload thường dùng Node.js với một database adapter được chọn trong cấu hình. Công việc local thường bao gồm thay đổi schema, truy cập admin, nơi lưu tệp tải lên và code server tùy chỉnh; Redis, object storage hoặc dịch vụ email là tích hợp tùy chọn chứ không phải yêu cầu bắt buộc của framework.'
+      ],
+      capabilities: [
+        'Collection định nghĩa bằng code',
+        'Admin Panel',
+        'Kiểm soát truy cập',
+        'Hook',
+        'REST & GraphQL',
+        'Collection tải tệp lên'
+      ],
+      useCases: [
+        'API nội dung headless',
+        'Ứng dụng biên tập tùy chỉnh',
+        'Trang sản phẩm dựa trên nội dung',
+        'Backend ứng dụng TypeScript',
+        'Phần mở rộng CMS với quy tắc truy cập tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Payload bắt đầu từ cấu hình TypeScript của nó',
+        description:
+          'Database adapter và chiến lược tải tệp lên được chọn quyết định phần lớn môi trường local hỗ trợ.',
+        items: [
+          {
+            title: 'Node.js và package manager',
+            description: 'Chạy server Payload, công cụ TypeScript và script của dự án.'
+          },
+          {
+            title: 'Database adapter đã cấu hình',
+            description:
+              'MongoDB, PostgreSQL, SQLite hoặc adapter được hỗ trợ khác nên khớp với cấu hình và migration của dự án.'
+          },
+          {
+            title: 'URL admin và nơi lưu media',
+            description:
+              'Một URL local ổn định hỗ trợ kiểm thử admin và xác thực; tệp tải lên cần adapter lưu trữ local hoặc bên ngoài đã cấu hình.'
+          },
+          {
+            title: 'Dịch vụ bên ngoài khi được tích hợp',
+            description:
+              'Redis, SMTP và object storage là tùy chọn và chỉ nên đưa vào cho plugin hoặc tính năng ứng dụng đã cấu hình.'
+          }
+        ]
+      }
+    },
+    strapi: {
+      replaceOverview: true,
+      paragraphs: [
+        'Strapi là một headless CMS trên Node.js mô hình hóa nội dung có cấu trúc và cung cấp nó qua một panel quản trị cùng các REST hoặc GraphQL API. Content type, hành vi vòng đời, vai trò, plugin và xử lý media biến nó thành backend cho nhiều loại client frontend khác nhau.',
+        'Môi trường Strapi local được dẫn dắt bởi Node.js và cơ sở dữ liệu đã chọn. Thay đổi content type ảnh hưởng đến schema và hành vi API, trong khi nhà cung cấp tải tệp lên, email, Redis và cài đặt proxy là các tích hợp của dự án chỉ nên thể hiện khi được cấu hình.'
+      ],
+      capabilities: [
+        'Content-Type Builder',
+        'REST & GraphQL APIs',
+        'Vai trò và phân quyền',
+        'Admin Panel',
+        'Thư viện media',
+        'Lifecycle Hook'
+      ],
+      useCases: [
+        'Headless CMS cho frontend web',
+        'API nội dung cho mobile',
+        'Hệ thống biên tập đa kênh',
+        'API nội dung sản phẩm và danh mục',
+        'Phát triển plugin Strapi tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Strapi tập trung vào content type và API',
+        description:
+          'Stack local nên làm cho thay đổi schema, quản trị, media và các tích hợp đã chọn vận hành nhất quán.',
+        items: [
+          {
+            title: 'Runtime Node.js',
+            description: 'Chạy Strapi, bản build phần quản trị và script của dự án.'
+          },
+          {
+            title: 'Cơ sở dữ liệu SQL đã cấu hình',
+            description:
+              'SQLite phù hợp với công việc local đơn giản; PostgreSQL hoặc MySQL phổ biến khi muốn khớp với dự án đã triển khai.'
+          },
+          {
+            title: 'Nhà cung cấp media',
+            description:
+              'Dùng tải tệp lên local khi phát triển trừ khi dự án cấu hình nhà cung cấp tương thích S3 hoặc bên ngoài khác.'
+          },
+          {
+            title: 'Redis hoặc SMTP khi được cấu hình',
+            description:
+              'Cache, hàng đợi và dịch vụ thư là tích hợp tùy chọn, không phải yêu cầu mặc định của Strapi.'
+          }
+        ]
+      }
+    },
+    directus: {
+      replaceOverview: true,
+      paragraphs: [
+        'Directus là một nền tảng dữ liệu thêm một studio, xác thực, phân quyền, tự động hóa, tệp và các REST hay GraphQL API lên trên một cơ sở dữ liệu SQL có sẵn. Nó được thiết kế quanh schema cơ sở dữ liệu như nguồn sự thật thay vì quanh một mô hình nội dung ưu tiên code.',
+        'Công việc Directus local bắt đầu với Node.js và cơ sở dữ liệu đang được khai thác. Snapshot schema, quy tắc vai trò, lưu trữ tệp và Flows thường được kiểm thử cùng nhau; Redis, object storage và email là các dịch vụ tùy chọn do cấu hình dự án lựa chọn.'
+      ],
+      capabilities: [
+        'Khám phá cơ sở dữ liệu',
+        'Data Studio',
+        'REST & GraphQL APIs',
+        'Vai trò và phân quyền',
+        'Tự động hóa Flows',
+        'Quản lý tệp'
+      ],
+      useCases: [
+        'API trên dữ liệu SQL có sẵn',
+        'Quản trị dữ liệu nội bộ',
+        'Vận hành nội dung headless',
+        'Tự động hóa quy trình xoay quanh bản ghi',
+        'Cổng dữ liệu cho đối tác hoặc khách hàng'
+      ],
+      localEnvironment: {
+        title: 'Môi trường Directus neo vào schema cơ sở dữ liệu',
+        description:
+          'Cơ sở dữ liệu đã chọn và các thay đổi schema của nó là trọng tâm; các dịch vụ phụ trợ chỉ nên thêm vào nơi Directus được cấu hình để sử dụng.',
+        items: [
+          {
+            title: 'Node.js và dịch vụ Directus',
+            description: 'Chạy API, Data Studio và các phần mở rộng của dự án.'
+          },
+          {
+            title: 'Cơ sở dữ liệu SQL',
+            description:
+              'PostgreSQL, MySQL, SQLite hoặc cơ sở dữ liệu được hỗ trợ khác cung cấp cả mô hình dữ liệu lẫn metadata của Directus.'
+          },
+          {
+            title: 'Snapshot schema và phần mở rộng',
+            description:
+              'Giữ snapshot schema, endpoint tùy chỉnh, hook và phần mở rộng giao diện cùng với dịch vụ local.'
+          },
+          {
+            title: 'Lưu trữ, Redis và thư khi được cấu hình',
+            description:
+              'Adapter tệp, dịch vụ cache và SMTP chỉ thuộc về cấu hình Directus đang được kiểm thử.'
           }
         ]
       }

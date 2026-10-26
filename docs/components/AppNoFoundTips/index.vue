@@ -13,6 +13,18 @@
         >
       </div>
     </template>
+    <template v-else-if="lang === 'vi-VN'">
+      <div class="text-center">
+        <h2 class="no-border !text-3xl md:!text-6xl font-bold">Vẫn không tìm thấy thứ bạn cần?</h2>
+      </div>
+      <div class="text-center mt-9">
+        <span
+          class="text-1xl md:text-2xl text-white px-8 cursor-pointer mt-6 py-2 bg-indigo-500 rounded-lg inline-flex justify-center hover:bg-indigo-400"
+          @click.stop="showFeedback"
+          >Hãy cho tôi biết</span
+        >
+      </div>
+    </template>
     <template v-else>
       <div class="text-center">
         <h2 class="no-border !text-3xl md:!text-6xl font-bold">Still Can't Find What You Need?</h2>

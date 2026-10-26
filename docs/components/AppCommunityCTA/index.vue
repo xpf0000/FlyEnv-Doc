@@ -20,13 +20,14 @@
 import { computed } from 'vue'
 
 const props = defineProps<{
-  locale?: 'en' | 'zh' | 'id' | 'es'
+  locale?: 'en' | 'zh' | 'id' | 'es' | 'vi'
   posts: Array<{ author?: string; language: string; platform: string }>
 }>()
 
 const isZh = computed(() => props.locale === 'zh')
 const isId = computed(() => props.locale === 'id')
 const isEs = computed(() => props.locale === 'es')
+const isVi = computed(() => props.locale === 'vi')
 const contributeId = 'community-contribute'
 
 const stats = computed(() => ({
@@ -39,6 +40,7 @@ const licensePath = computed(() => {
   if (isZh.value) return '/zh/guide/about-license'
   if (isId.value) return '/id/guide/about-license'
   if (isEs.value) return '/es/guide/about-license'
+  if (isVi.value) return '/vi/guide/about-license'
   return '/guide/about-license'
 })
 
@@ -68,6 +70,15 @@ const t = computed(() =>
             coverage: (value: typeof stats.value) =>
               `Esta biblioteca reúne actualmente escritos públicos de ${value.authors} autores en ${value.languages} idiomas y ${value.platforms} plataformas.`
           }
+        : isVi.value
+          ? {
+              title: 'Chia sẻ cách bạn sử dụng FlyEnv',
+              description:
+                'Một bài viết, hướng dẫn hoặc video công khai có thể giúp nhà phát triển tiếp theo hiểu FlyEnv phù hợp với công việc thực tế như thế nào.',
+              action: 'Cách câu chuyện được giới thiệu',
+              coverage: (value: typeof stats.value) =>
+                `Thư viện này hiện tập hợp các bài viết công khai từ ${value.authors} tác giả trên ${value.languages} ngôn ngữ và ${value.platforms} nền tảng.`
+            }
       : {
         title: 'Share how you use FlyEnv',
         description:

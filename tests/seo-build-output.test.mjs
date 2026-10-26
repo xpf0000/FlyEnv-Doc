@@ -10,12 +10,13 @@ const languageByLocale = {
   en: 'en',
   zh: 'zh-CN',
   id: 'id-ID',
-  es: 'es-ES'
+  es: 'es-ES',
+  vi: 'vi-VN'
 }
 
 test('plugin features are discoverable in every locale with reciprocal language links', () => {
   const slugs = ['plugin-market', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
-  const locales = ['', 'zh', 'id', 'es']
+  const locales = ['', 'zh', 'id', 'es', 'vi']
   for (const locale of locales) {
     const prefix = locale ? `/${locale}` : ''
     const overview = fs.readFileSync(path.join(distRoot, locale, 'features.html'), 'utf8')
@@ -25,7 +26,7 @@ test('plugin features are discoverable in every locale with reciprocal language 
       assert.ok(overview.includes(`href="${route}"`), `Missing overview link: ${route}`)
       assert.ok(overview.includes(`"url":"${siteUrl}${route}"`), `Missing collection item: ${route}`)
       const alternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
-      assert.deepEqual(alternates.map((match) => match[1]).sort(), ['en', 'es-ES', 'id-ID', 'x-default', 'zh-CN'])
+      assert.deepEqual(alternates.map((match) => match[1]).sort(), ['en', 'es-ES', 'id-ID', 'vi-VN', 'x-default', 'zh-CN'])
       for (const target of locales) {
         const language = languageByLocale[target || 'en']
         const url = `${siteUrl}${target ? `/${target}` : ''}/features/${slug}`
@@ -135,7 +136,7 @@ function formatIssues(issues) {
 assert.ok(fs.existsSync(distRoot), 'Build output is missing; run yarn docs:build first')
 
 const pages = collectHtmlFiles(distRoot).map((filePath) => {
-  const relativePath = path.relative(distRoot, filePath)
+  const relativePath = path.relative(distRoot, filePath).replace(/\\/g, '/')
   const html = fs.readFileSync(filePath, 'utf8')
   const jsonLdSources = extractAll(
     html,
@@ -189,7 +190,8 @@ test('LLM index links every published documentation locale', () => {
     'https://flyenv.com/',
     'https://flyenv.com/zh/',
     'https://flyenv.com/id/',
-    'https://flyenv.com/es/'
+    'https://flyenv.com/es/',
+    'https://flyenv.com/vi/'
   ])
 })
 
@@ -230,7 +232,7 @@ test('indexable pages have complete, unique and coherent metadata', () => {
     if (page.h1Count !== 1) {
       issues.push(`${page.relativePath}: expected one h1, found ${page.h1Count}`)
     }
-    const relativeSource = page.relativePath.replace(/^(zh|id|es)\//, '').replace(/\.html$/, '.md')
+    const relativeSource = page.relativePath.replace(/^(zh|id|es|vi)\//, '').replace(/\.html$/, '.md')
     const expectedLanguages = Object.entries(languageByLocale)
       .filter(([locale]) => fs.existsSync(path.join(docsRoot, locale === 'en' ? '' : locale, relativeSource)))
       .map(([, language]) => language)
@@ -382,10 +384,16 @@ test('hierarchical and collection routes use content-specific schema', () => {
       'compare/index.html'
     ].flatMap((relativePath) => [
       relativePath,
-      ...['zh', 'id', 'es'].map((locale) => `${locale}/${relativePath}`)
+      ...['zh', 'id', 'es', 'vi'].map((locale) => `${locale}/${relativePath}`)
     ])
   )
-  const homePaths = new Set(['index.html', 'zh/index.html', 'id/index.html', 'es/index.html'])
+  const homePaths = new Set([
+    'index.html',
+    'zh/index.html',
+    'id/index.html',
+    'es/index.html',
+    'vi/index.html'
+  ])
 
   for (const page of indexablePages) {
     const nodes = topLevelNodes(page.jsonLd)
@@ -416,21 +424,21 @@ test('hierarchical and collection routes use content-specific schema', () => {
         issues.push(`${page.relativePath}: missing the stable SoftwareApplication entity`)
       }
     }
-    if (/^(?:(?:zh|id|es)\/)?demos\.html$/.test(page.relativePath)) {
+    if (/^(?:(?:zh|id|es|vi)\/)?demos\.html$/.test(page.relativePath)) {
       if (!allNodes.some((node) => typeIncludes(node, 'VideoObject'))) {
         issues.push(`${page.relativePath}: missing VideoObject entries`)
       }
     }
-    if (/^(?:(?:zh|id|es)\/)?community\.html$/.test(page.relativePath)) {
+    if (/^(?:(?:zh|id|es|vi)\/)?community\.html$/.test(page.relativePath)) {
       if (!allNodes.some((node) => typeIncludes(node, 'TechArticle'))) {
         issues.push(`${page.relativePath}: missing TechArticle entries`)
       }
     }
     if (
-      /^(?:(?:zh|id|es)\/)?(?:features|guide|solutions|compare)\/.+\.html$/.test(
+      /^(?:(?:zh|id|es|vi)\/)?(?:features|guide|solutions|compare)\/.+\.html$/.test(
         page.relativePath
       ) &&
-      !/^(?:(?:zh|id|es)\/)?compare\/index\.html$/.test(page.relativePath)
+      !/^(?:(?:zh|id|es|vi)\/)?compare\/index\.html$/.test(page.relativePath)
     ) {
       if (!nodes.some((node) => typeIncludes(node, 'BreadcrumbList'))) {
         issues.push(`${page.relativePath}: missing BreadcrumbList`)
@@ -519,10 +527,12 @@ test('collection names and feature item names match their localized pages', () =
     'zh/demos.html': '演示视频',
     'id/demos.html': 'Video demo',
     'es/demos.html': 'Vídeos de demostración',
+    'vi/demos.html': 'Video demo',
     'community.html': 'Community articles',
     'zh/community.html': '社区文章',
     'id/community.html': 'Artikel komunitas',
-    'es/community.html': 'Artículos de la comunidad'
+    'es/community.html': 'Artículos de la comunidad',
+    'vi/community.html': 'Bài viết cộng đồng'
   }
 
   for (const page of indexablePages) {

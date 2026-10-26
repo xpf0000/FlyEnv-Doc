@@ -6,8 +6,9 @@ const { lang } = useData()
 
 const isZh = computed(() => lang.value.startsWith('zh'))
 const isEs = computed(() => lang.value.startsWith('es'))
+const isVi = computed(() => lang.value.startsWith('vi'))
 
-const label = computed(() => (isZh.value ? '友情链接：' : isEs.value ? 'Enlaces: ' : 'Links: '))
+const label = computed(() => (isZh.value ? '友情链接：' : isEs.value ? 'Enlaces: ' : isVi.value ? 'Liên kết bạn bè: ' : 'Links: '))
 </script>
 
 <template>

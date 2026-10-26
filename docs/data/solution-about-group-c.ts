@@ -23,6 +23,7 @@ export const solutionAboutGroupC: {
   zh: Partial<Record<SolutionSlug, SolutionAboutContent>>
   id: Partial<Record<SolutionSlug, SolutionAboutContent>>
   es: Partial<Record<SolutionSlug, SolutionAboutContent>>
+  vi: Partial<Record<SolutionSlug, SolutionAboutContent>>
 } = {
   en: {
     'spring-boot': {
@@ -2630,6 +2631,692 @@ export const solutionAboutGroupC: {
             title: 'Fuentes de datos analíticas',
             description:
               'Conecta solo las bases de datos o data warehouses necesarios para probar datasets y dashboards.'
+          }
+        ]
+      }
+    }
+  },
+  vi: {
+    'spring-boot': {
+      replaceOverview: true,
+      paragraphs: [
+        'Spring Boot là lớp convention-driven trong hệ sinh thái Spring để xây dựng các dịch vụ Java độc lập. Auto-configuration và các starter dependency cho phép một dịch vụ cung cấp các endpoint HTTP, persistence, bảo mật và các tính năng vận hành mà không cần lắp ráp từng tích hợp bằng tay.',
+        'Một dịch vụ Spring Boot local thường được chạy qua Maven hoặc Gradle với JDK đã chọn và tệp cấu hình riêng theo profile. Cơ sở dữ liệu, công cụ migration, client nhắn tin và các endpoint Actuator xung quanh cần phản ánh đúng các dependency mà dịch vụ đó thực sự bật.'
+      ],
+      capabilities: [
+        'Auto-configuration',
+        'Spring MVC / WebFlux',
+        'Spring Data',
+        'Spring Security',
+        'Actuator',
+        'Starter dependencies'
+      ],
+      useCases: [
+        'Dịch vụ REST nghiệp vụ',
+        'API tích hợp doanh nghiệp',
+        'Hệ thống back-office giao dịch',
+        'Nền tảng dựa trên microservices'
+      ],
+      localEnvironment: {
+        title: 'Một môi trường Spring Boot bắt đầu với nhiều hơn một JAR',
+        description:
+          'JDK và công cụ build là trung tâm; các kho dữ liệu và broker chỉ đi kèm dịch vụ khi profile hoạt động của nó cấu hình chúng.',
+        items: [
+          {
+            title: 'JDK, Maven, hoặc Gradle',
+            description: 'Biên dịch, kiểm thử và chạy dịch vụ với đồ thị dependency đã khai báo.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và migration của profile',
+            description:
+              'PostgreSQL, MySQL cùng Flyway hoặc Liquibase là phổ biến khi dịch vụ lưu trữ dữ liệu nghiệp vụ.'
+          },
+          {
+            title: 'Actuator và các endpoint tích hợp',
+            description:
+              'Cung cấp health, metrics, callback hoặc chuyển hướng OAuth ở local; một broker như Kafka là tùy chọn và phụ thuộc vào dịch vụ.'
+          }
+        ]
+      }
+    },
+    quarkus: {
+      replaceOverview: true,
+      paragraphs: [
+        'Quarkus là framework Java được thiết kế xung quanh khởi động nhanh, sử dụng bộ nhớ thấp và triển khai cloud-native. Nó kết hợp các API Jakarta, REST, persistence và reactive quen thuộc với cấu hình dựa trên extension cùng chế độ developer tải lại mã và cấu hình nhanh chóng.',
+        'Công việc Quarkus local thường xoay quanh `quarkus dev`, JDK đã chọn và các extension được dự án khai báo. Dev Services có thể cung cấp tự động một số container, nhưng cơ sở dữ liệu, Kafka, Redis hay công cụ build native chỉ nên được khởi động khi ứng dụng sử dụng chúng.'
+      ],
+      capabilities: [
+        'Dev Mode',
+        'Hệ sinh thái extension',
+        'RESTEasy Reactive',
+        'CDI với ArC',
+        'Dev Services',
+        'Build executable native'
+      ],
+      useCases: [
+        'API Java cloud-native',
+        'Microservice container-first',
+        'Dịch vụ điều khiển bởi sự kiện',
+        'Endpoint backend độ trễ thấp'
+      ],
+      localEnvironment: {
+        title: 'Công việc local của Quarkus theo các extension đã chọn',
+        description:
+          'Một dự án REST nhỏ có thể chạy chỉ với JDK, trong khi các extension persistence hoặc messaging mang theo các dịch vụ local riêng của chúng.',
+        items: [
+          {
+            title: 'JDK và quarkus dev',
+            description: 'Chạy continuous testing và live reload trong quá trình phát triển.'
+          },
+          {
+            title: 'Dịch vụ hỗ trợ extension',
+            description:
+              'Một datasource, client Redis hoặc channel Kafka đã cấu hình có thể cần một dịch vụ local tương ứng; Dev Services có thể xử lý một số thiết lập.'
+          },
+          {
+            title: 'Toolchain build native',
+            description:
+              'GraalVM hoặc Mandrel chỉ cần khi dự án build và kiểm thử executable native.'
+          }
+        ]
+      }
+    },
+    gin: {
+      replaceOverview: true,
+      paragraphs: [
+        'Gin là framework HTTP Go nhẹ tập trung vào định tuyến nhanh và pipeline middleware nhỏ, rõ ràng. Nó thường được dùng để xây dựng các API JSON nơi route group, binding, validation và phối hợp handler nằm sát mã ứng dụng.',
+        'Một dự án Gin được phát triển với toolchain và module của Go thay vì một runtime framework riêng. Hình dạng local của nó được định nghĩa bởi cấu hình ứng dụng: cơ sở dữ liệu SQL, Redis, client API được sinh ra hoặc reverse proxy là các dependency của dự án, không phải yêu cầu của Gin.'
+      ],
+      capabilities: [
+        'Định tuyến radix-tree',
+        'Chuỗi middleware',
+        'Route group',
+        'JSON binding',
+        'Validation',
+        'Xử lý context'
+      ],
+      useCases: [
+        'API JSON thông lượng cao',
+        'Dịch vụ Go nội bộ',
+        'Bộ tiếp nhận webhook',
+        'Endpoint gateway và tích hợp'
+      ],
+      localEnvironment: {
+        title: 'Một dịch vụ Gin được điều khiển bởi Go module và cấu hình',
+        description:
+          'Bản thân framework chỉ cần Go; các dịch vụ dữ liệu và tích hợp local cần khớp với các repository được dịch vụ import.',
+        items: [
+          {
+            title: 'Toolchain và module Go',
+            description: 'Chạy `go run`, kiểm thử, build và phân giải dependency module.'
+          },
+          {
+            title: 'Kho dữ liệu đã cấu hình',
+            description:
+              'PostgreSQL, MySQL hoặc Redis chỉ liên quan khi handler hoặc tầng repository sử dụng chúng.'
+          },
+          {
+            title: 'Client API và origin webhook',
+            description:
+              'Một tên miền local với HTTPS hữu ích khi client trình duyệt, webhook có chữ ký hoặc callback OAuth cần một origin ổn định.'
+          }
+        ]
+      }
+    },
+    'aspnet-core': {
+      replaceOverview: true,
+      paragraphs: [
+        'ASP.NET Core là framework .NET đa nền tảng cho các API HTTP và ứng dụng web được render ở server. Nó kết hợp mô hình hosting, pipeline middleware, dependency injection, configuration provider cùng các stack web như Minimal APIs, MVC, Razor Pages và SignalR.',
+        'Phát triển thường dùng SDK của dự án qua `dotnet run` hoặc launch profile của IDE. Cấu hình local có thể chọn chứng chỉ Kestrel, migration của Entity Framework Core, user secrets và chỉ những dịch vụ hỗ trợ như SQL Server, PostgreSQL, Redis hoặc một message broker mà ứng dụng thực sự cấu hình.'
+      ],
+      capabilities: [
+        'Minimal APIs',
+        'MVC và Razor Pages',
+        'Dependency injection tích hợp',
+        'Pipeline middleware',
+        'ASP.NET Core Identity',
+        'SignalR'
+      ],
+      useCases: [
+        'Ứng dụng web line-of-business',
+        'Dịch vụ REST và gRPC',
+        'Bảng điều khiển thời gian thực',
+        'API doanh nghiệp đa nền tảng'
+      ],
+      localEnvironment: {
+        title: 'Một dự án ASP.NET Core được định hình bởi launch profile của nó',
+        description:
+          'SDK của .NET và Kestrel có thể đủ cho một ứng dụng nhỏ; dữ liệu bền vững và các tính năng phân tán bổ sung các dịch vụ đã chọn.',
+        items: [
+          {
+            title: '.NET SDK và Kestrel',
+            description:
+              'Build và chạy ứng dụng qua `dotnet run` với các thiết lập phát triển.'
+          },
+          {
+            title: 'Cơ sở dữ liệu EF Core',
+            description:
+              'SQL Server, PostgreSQL hoặc provider khác được dùng khi dự án áp dụng migration và lưu trạng thái ứng dụng.'
+          },
+          {
+            title: 'HTTPS và secrets của phát triển',
+            description:
+              'Chứng chỉ phát triển local và Secret Manager hỗ trợ các luồng trình duyệt an toàn mà không đặt chứng thực vào source control.'
+          }
+        ]
+      }
+    },
+    nextcloud: {
+      replaceOverview: true,
+      paragraphs: [
+        'Nextcloud là nền tảng cộng tác tự lưu trữ xoay quanh đồng bộ tệp, chia sẻ và các ứng dụng nhóm mở rộng. Server của nó kết hợp lưu trữ người dùng với các ứng dụng lịch, danh bạ, tích hợp office, thông báo và external storage.',
+        'Một cài đặt Nextcloud local là một ứng dụng web PHP với cơ sở dữ liệu và thư mục dữ liệu có thể ghi, thường được quản lý qua lệnh `occ`. Redis, backend tìm kiếm toàn văn, server office và reverse proxy là những bổ sung phổ biến cho các triển khai cụ thể, nhưng không bắt buộc với mọi instance.'
+      ],
+      capabilities: [
+        'Đồng bộ và chia sẻ tệp',
+        'Hệ sinh thái ứng dụng',
+        'Lịch và danh bạ',
+        'External storage',
+        'Chia sẻ federation',
+        'Quản trị occ'
+      ],
+      useCases: [
+        'Chia sẻ tệp nhóm riêng tư',
+        'Cổng cộng tác tự lưu trữ',
+        'Kiểm thử đồng bộ tài liệu',
+        'Phát triển ứng dụng Nextcloud tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Nextcloud cần lưu trữ, truy cập web và bảo trì theo lịch',
+        description:
+          'Thư mục dữ liệu và cơ sở dữ liệu là cốt lõi. Các dịch vụ khác phụ thuộc vào ứng dụng đã bật, quy mô và cách instance được tích hợp.',
+        items: [
+          {
+            title: 'Web server PHP và thư mục dữ liệu',
+            description: 'Phục vụ ứng dụng và giữ các tệp người dùng bên ngoài mã ứng dụng.'
+          },
+          {
+            title: 'Cơ sở dữ liệu và occ',
+            description:
+              'MySQL, MariaDB hoặc PostgreSQL lưu trữ siêu dữ liệu trong khi `occ` thực hiện cài đặt, nâng cấp và bảo trì.'
+          },
+          {
+            title: 'Cron và Redis tùy chọn',
+            description:
+              'Các công việc nền nên chạy qua cron; Redis thường được cấu hình cho locking hoặc cache, nhưng tùy chọn với một instance cơ bản.'
+          },
+          {
+            title: 'Dịch vụ office hoặc tìm kiếm tùy chọn',
+            description:
+              'Collabora, OnlyOffice hoặc backend tìm kiếm chỉ được khởi động khi các tích hợp đó được bật.'
+          }
+        ]
+      }
+    },
+    erpnext: {
+      replaceOverview: true,
+      paragraphs: [
+        'ERPNext là ERP mã nguồn mở xây trên Frappe Framework cho kế toán, bán hàng, tồn kho, sản xuất, nhân sự và các luồng vận hành. Mô hình của nó dựa trên các DocType cấu hình được, biểu mẫu theo vai trò, báo cáo và quy trình nghiệp vụ chứ không chỉ một server request Python đơn lẻ.',
+        'Phát triển local dùng Bench để quản lý site, môi trường Python, tài nguyên, worker và các lệnh tiến trình. Một stack thông thường gồm MariaDB và Redis; Node.js dùng cho luồng tài nguyên, trong khi scheduler, tiến trình Socket.IO và hàng đợi worker là một phần của mô hình tiến trình Frappe.'
+      ],
+      capabilities: [
+        'DocType',
+        'Sổ cái kế toán',
+        'Luồng tồn kho',
+        'Báo cáo và định dạng in',
+        'Quyền theo vai trò',
+        'Frappe Bench'
+      ],
+      useCases: [
+        'Kế toán và lập hóa đơn',
+        'Tồn kho và mua sắm',
+        'Vận hành sản xuất',
+        'Luồng nhân sự và lương',
+        'Ứng dụng nghiệp vụ tùy chỉnh trên Frappe'
+      ],
+      localEnvironment: {
+        title: 'Phát triển ERPNext là stack đa tiến trình được Bench quản lý',
+        description:
+          'Khác với một site Python đơn giản, bench local phối hợp cơ sở dữ liệu site, các hàng đợi Redis, tài nguyên, worker và scheduler.',
+        items: [
+          {
+            title: 'Bench và môi trường Python',
+            description: 'Tạo site và chạy các lệnh Frappe hoặc ERPNext như `bench start`.'
+          },
+          {
+            title: 'MariaDB và Redis',
+            description:
+              'MariaDB lưu dữ liệu site; Redis hỗ trợ cache, hàng đợi và các dịch vụ liên quan Socket.IO.'
+          },
+          {
+            title: 'Worker, scheduler và Socket.IO',
+            description:
+              'Xử lý công việc nền, tài liệu theo lịch và cập nhật thời gian thực trong phát triển thực tế.'
+          },
+          {
+            title: 'Luồng tài nguyên Node.js',
+            description:
+              'Cần thiết cho việc build tài nguyên của Bench; nó không thay thế các tiến trình ứng dụng ERPNext.'
+          }
+        ]
+      }
+    },
+    odoo: {
+      replaceOverview: true,
+      paragraphs: [
+        'Odoo là bộ ứng dụng nghiệp vụ mô-đun bao gồm bán hàng, kế toán, tồn kho, sản xuất, CRM và nhiều hơn nữa. Các thay đổi chức năng thường được cung cấp dưới dạng module có thể cài đặt, định nghĩa model, view, quy tắc truy cập, tệp dữ liệu và logic nghiệp vụ trên Odoo ORM.',
+        'Một instance Odoo local chạy với môi trường Python tương thích phiên bản và cơ sở dữ liệu PostgreSQL. Phát triển thường trỏ `addons_path` tới các module tùy chỉnh và dùng `odoo-bin` để cài đặt hoặc nâng cấp chúng; longpolling, SMTP, proxy hay worker ngoài chỉ cần cho các tính năng sử dụng chúng.'
+      ],
+      capabilities: [
+        'Module addons',
+        'Odoo ORM',
+        'View và action',
+        'Danh sách kiểm soát truy cập',
+        'Action tự động',
+        'Hỗ trợ đa công ty'
+      ],
+      useCases: [
+        'Vận hành bán hàng và CRM',
+        'Kế toán và lập hóa đơn',
+        'Quản lý kho',
+        'Lập kế hoạch sản xuất',
+        'Module nghiệp vụ dọc tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Odoo xoay quanh addons và PostgreSQL',
+        description:
+          'Runtime và cơ sở dữ liệu là cốt lõi; các dịch vụ triển khai chỉ nên được bổ sung khi một module tùy chỉnh hoặc luồng kiểm thử cần chúng.',
+        items: [
+          {
+            title: 'Python và odoo-bin',
+            description:
+              'Chạy server, tải cấu hình phát triển và nâng cấp module với `-u`.'
+          },
+          {
+            title: 'PostgreSQL',
+            description:
+              'Lưu trữ từng cơ sở dữ liệu Odoo, registry module, bản ghi và siêu dữ liệu tệp đính kèm.'
+          },
+          {
+            title: 'Đường dẫn addons tùy chỉnh',
+            description:
+              'Giữ các module local tách biệt khỏi mã nguồn Odoo và cung cấp chúng cho instance.'
+          },
+          {
+            title: 'Dịch vụ mail và proxy tùy chọn',
+            description:
+              'SMTP hoặc reverse proxy chỉ liên quan khi đang kiểm thử luồng mail, URL công khai hoặc định tuyến giống triển khai.'
+          }
+        ]
+      }
+    },
+    suitecrm: {
+      replaceOverview: true,
+      paragraphs: [
+        'SuiteCRM là hệ thống quản lý quan hệ khách hàng PHP cho bán hàng, marketing, hỗ trợ và tự động hóa quy trình nghiệp vụ. Nó được tổ chức quanh các module như Accounts, Contacts, Leads, Opportunities, workflow, báo cáo và các trường cấu hình được, thay vì một cấu trúc dự án PHP chung.',
+        'Một cài đặt local cần PHP, cơ sở dữ liệu MySQL hoặc MariaDB tương thích và web server. Quản trị viên và nhà phát triển làm việc với Module Builder, Studio, công cụ sửa lỗi, công việc theo lịch và cấu hình email; các dịch vụ tìm kiếm hay cache không phải yêu cầu vốn có và chỉ nên được thêm khi cấu hình.'
+      ],
+      capabilities: [
+        'Module CRM',
+        'Studio và Module Builder',
+        'Tự động hóa workflow',
+        'Báo cáo và bảng điều khiển',
+        'Bảo mật theo vai trò',
+        'Công việc theo lịch'
+      ],
+      useCases: [
+        'Quản lý pipeline bán hàng',
+        'Vận hành hỗ trợ khách hàng',
+        'Theo dõi chiến dịch marketing',
+        'Phát triển module CRM tùy chỉnh'
+      ],
+      localEnvironment: {
+        title: 'Công việc local của SuiteCRM theo các module và công việc theo lịch',
+        description:
+          'Stack web PHP và cơ sở dữ liệu CRM là thiết yếu. Các dịch vụ nền và tích hợp phụ thuộc vào các luồng nghiệp vụ đã bật.',
+        items: [
+          {
+            title: 'Stack web PHP',
+            description:
+              'Chạy SuiteCRM qua Apache, Nginx với PHP-FPM hoặc web server local tương thích khác.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description: 'Lưu trữ bản ghi khách hàng, siêu dữ liệu module, thiết lập và dữ liệu quan hệ.'
+          },
+          {
+            title: 'Scheduler cron',
+            description: 'Chạy các công việc theo lịch đã cấu hình, hành động chiến dịch và nhiệm vụ bảo trì.'
+          },
+          {
+            title: 'Sandbox SMTP tùy chọn',
+            description: 'Hữu ích khi phát triển mẫu email và hành vi mail đến hoặc đi.'
+          }
+        ]
+      }
+    },
+    espocrm: {
+      replaceOverview: true,
+      paragraphs: [
+        'EspoCRM là nền tảng CRM PHP xây dựng quanh định nghĩa entity, siêu dữ liệu quan hệ, vai trò, layout và logic nghiệp vụ mở rộng. Nó cung cấp các luồng bán hàng, marketing, hỗ trợ và báo cáo trong khi cho phép các nhóm thêm entity và tích hợp tùy chỉnh qua mô hình điều khiển bởi siêu dữ liệu.',
+        'Một dự án EspoCRM local chạy trên PHP với MySQL hoặc MariaDB và web server. Endpoint công việc theo lịch tích hợp phải được kích hoạt bởi cron để tự động hóa hoạt động, trong khi các dịch vụ liên quan IMAP, SMTP, WebSocket hoặc Redis chỉ liên quan với các cài đặt đã cấu hình các tích hợp đó.'
+      ],
+      capabilities: [
+        'Entity Manager',
+        'Siêu dữ liệu quan hệ',
+        'Truy cập theo vai trò',
+        'BPM và workflow',
+        'Kịch bản công thức',
+        'REST API'
+      ],
+      useCases: [
+        'Quản lý bán hàng và tài khoản',
+        'Theo dõi hỗ trợ khách hàng',
+        'Đánh giá lead',
+        'Ứng dụng CRM tùy chỉnh dựa trên quan hệ'
+      ],
+      localEnvironment: {
+        title: 'EspoCRM kết hợp siêu dữ liệu entity với tự động hóa theo lịch',
+        description:
+          'Stack local chính cố ý gọn nhẹ; các dịch vụ tích hợp được dẫn bởi các tính năng đang phát triển.',
+        items: [
+          {
+            title: 'PHP và web server',
+            description: 'Phục vụ ứng dụng CRM và API của nó trên một URL local.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description: 'Lưu trữ entity, quan hệ, thiết lập người dùng và siêu dữ liệu tùy chỉnh.'
+          },
+          {
+            title: 'Cron cho công việc theo lịch',
+            description:
+              'Gọi xử lý công việc theo lịch của EspoCRM để tự động hóa hoạt động như một cài đặt đang chạy.'
+          },
+          {
+            title: 'Tích hợp mail tùy chọn',
+            description:
+              'Kiểm thử SMTP hoặc IMAP local chỉ cần cho các tính năng đồng bộ email và thông báo.'
+          }
+        ]
+      }
+    },
+    gitea: {
+      replaceOverview: true,
+      paragraphs: [
+        'Gitea là forge Git tự lưu trữ cung cấp hosting repository, pull request, issue, actions, package và quản lý tổ chức. Nó là một dịch vụ có thể triển khai với hành vi Git-over-SSH và HTTP, không đơn thuần là một dự án Go mà nhà phát triển chạy như framework API.',
+        'Một instance Gitea local có thể dùng SQLite nhúng cho đánh giá nhỏ, hoặc MySQL, MariaDB hoặc PostgreSQL cho thiết lập server đại diện hơn. `app.ini` của nó kiểm soát lưu trữ repository, SSH, OAuth, mail, actions và thiết lập cơ sở dữ liệu; Go chỉ cần khi build dịch vụ từ mã nguồn.'
+      ],
+      capabilities: [
+        'Git qua SSH và HTTP',
+        'Pull request',
+        'Issue và project',
+        'Gitea Actions',
+        'Registry package',
+        'Quản lý tổ chức'
+      ],
+      useCases: [
+        'Hosting Git nhóm riêng tư',
+        'Thử nghiệm CI tự quản lý',
+        'Kiểm thử tích hợp source control',
+        'Xuất bản package nội bộ'
+      ],
+      localEnvironment: {
+        title: 'Gitea kết hợp dịch vụ forge với vận chuyển Git',
+        description:
+          'Một đánh giá gọn có thể là một executable cùng SQLite, trong khi xác thực, actions và lưu trữ giống sản xuất bổ sung các dependency cụ thể.',
+        items: [
+          {
+            title: 'Dịch vụ Gitea và app.ini',
+            description:
+              'Chạy web forge và cấu hình repository, cổng SSH, thiết lập bảo mật và lưu trữ.'
+          },
+          {
+            title: 'Lựa chọn cơ sở dữ liệu',
+            description:
+              'SQLite phù hợp với instance local nhỏ; MySQL, MariaDB hoặc PostgreSQL được dùng khi cấu hình theo kiểu thiết lập chia sẻ.'
+          },
+          {
+            title: 'SSH và tên miền local',
+            description:
+              'Kiểm thử URL clone, khóa SSH, webhook và luồng trình duyệt với chính các endpoint mà client sẽ dùng.'
+          },
+          {
+            title: 'Runner Actions tùy chọn',
+            description: 'Runner chỉ cần khi xác thực workflow Gitea Actions.'
+          }
+        ]
+      }
+    },
+    keycloak: {
+      replaceOverview: true,
+      paragraphs: [
+        'Keycloak là server quản lý danh tính và truy cập cho single sign-on, OAuth 2.0, OpenID Connect, SAML và identity brokering. Các khái niệm cốt lõi của nó là realm, client, user, role, group, scope và luồng xác thực, mà các ứng dụng tiêu thụ qua các giao thức chuẩn.',
+        'Phát triển Keycloak local chủ yếu xoay quanh issuer URL ổn định và redirect URI thực tế. Server phát triển có thể dùng cơ sở dữ liệu phát triển, trong khi PostgreSQL là điển hình cho realm local bền vững; liên kết user ngoài, SMTP và HTTPS reverse proxy chỉ nên được bổ sung khi các luồng đó đang được kiểm thử.'
+      ],
+      capabilities: [
+        'Realm và client',
+        'OAuth 2.0 và OpenID Connect',
+        'SAML',
+        'Luồng xác thực',
+        'Identity brokering',
+        'Liên kết user'
+      ],
+      useCases: [
+        'Single sign-on cho ứng dụng',
+        'Kiểm thử tích hợp OAuth/OIDC',
+        'Quản lý role tập trung',
+        'Liên kết identity provider'
+      ],
+      localEnvironment: {
+        title: 'Kiểm thử Keycloak phụ thuộc vào issuer và URL chuyển hướng',
+        description:
+          'Server auth và kho realm bền vững là thiết yếu; các dịch vụ khác xuất phát từ kịch bản xác thực.',
+        items: [
+          {
+            title: 'Server Keycloak và nhập realm',
+            description:
+              'Chạy identity provider và có thể tải các client, role và user kiểm thử có thể lặp lại.'
+          },
+          {
+            title: 'PostgreSQL cho realm bền vững',
+            description:
+              'Phổ biến cho dữ liệu danh tính local bền vững; chế độ phát triển có thể dùng tùy chọn hỗ trợ khác để thử nghiệm nhanh.'
+          },
+          {
+            title: 'Tên miền HTTPS và redirect URI',
+            description:
+              'Giúp client trình duyệt, cookie, CORS và xác thực callback hoạt động như một môi trường tích hợp.'
+          },
+          {
+            title: 'SMTP hoặc IdP ngoài tùy chọn',
+            description:
+              'Chỉ cần cho xác minh email, khôi phục mật khẩu hoặc luồng đăng nhập qua broker.'
+          }
+        ]
+      }
+    },
+    pocketbase: {
+      replaceOverview: true,
+      paragraphs: [
+        'PocketBase là ứng dụng backend gọn tích hợp cơ sở dữ liệu SQLite nhúng, auth, REST API, đăng ký thời gian thực, lưu trữ tệp và giao diện quản trị. Mô hình triển khai của nó ưu tiên một executable và thư mục dữ liệu local thay vì một server cơ sở dữ liệu vận hành riêng cho các dự án thông thường.',
+        'Một quy trình PocketBase local khởi động executable cùng thư mục `pb_data` và kiểm thử collection, quy tắc API, hook, migration và client thời gian thực cùng nhau. Go cần cho các extension dựa trên mã nguồn hoặc build tùy chỉnh, trong khi reverse proxy và HTTPS là tùy chọn khi kiểm thử origin trình duyệt hoặc callback OAuth yêu cầu chúng.'
+      ],
+      capabilities: [
+        'SQLite nhúng',
+        'Quy tắc API của collection',
+        'Xác thực',
+        'Đăng ký thời gian thực',
+        'Lưu trữ tệp',
+        'Hook JavaScript và Go'
+      ],
+      useCases: [
+        'Backend sản phẩm nhỏ',
+        'API nguyên mẫu',
+        'Công cụ quản trị thời gian thực',
+        'Ứng dụng nội bộ tự chứa'
+      ],
+      localEnvironment: {
+        title: 'PocketBase giữ phần lớn trạng thái local trong một dịch vụ',
+        description:
+          'Kho dữ liệu nhúng của nó loại bỏ nhu cầu server SQL riêng trong nhiều dự án, dù tích hợp client vẫn có thể yêu cầu origin local ổn định.',
+        items: [
+          {
+            title: 'Executable PocketBase và pb_data',
+            description:
+              'Chạy backend và bảo toàn dữ liệu SQLite nhúng cùng lưu trữ tệp ở local.'
+          },
+          {
+            title: 'Quy trình migration và hook',
+            description:
+              'Giữ các thay đổi collection trong `pb_migrations` và kiểm thử hành vi extension JavaScript hoặc Go trên dữ liệu local.'
+          },
+          {
+            title: 'Proxy HTTPS tùy chọn',
+            description:
+              'Hữu ích cho provider OAuth, cookie an toàn hoặc client trình duyệt yêu cầu URL callback HTTPS.'
+          }
+        ]
+      }
+    },
+    matomo: {
+      replaceOverview: true,
+      paragraphs: [
+        'Matomo là nền tảng phân tích web tự lưu trữ tập trung vào việc giữ dữ liệu phân tích dưới sự kiểm soát của người vận hành. Nó ghi lại lượt truy cập qua một endpoint tracking và chuyển các sự kiện đã lưu thành báo cáo cho website, chiến dịch, mục tiêu, hoạt động thương mại điện tử và đo lường tôn trọng quyền riêng tư.',
+        'Phát triển Matomo local dùng PHP, cơ sở dữ liệu tương thích MySQL và web server, với tiến trình archive chạy theo lịch để có báo cáo giống sản xuất. Cần một site kiểm thử hoặc client tracking để tạo sự kiện; Redis, thiết lập Tag Manager hoặc proxy chỉ nên dùng khi cài đặt đã chọn bật chúng.'
+      ],
+      capabilities: [
+        'Tracker JavaScript',
+        'Mục tiêu và chuyển đổi',
+        'Phân tích thương mại điện tử',
+        'Báo cáo tùy chỉnh',
+        'Kiểm soát quyền riêng tư',
+        'Lưu trữ theo lịch'
+      ],
+      useCases: [
+        'Phân tích website tự lưu trữ',
+        'Kiểm thử gán chiến dịch',
+        'Báo cáo chuyển đổi thương mại điện tử',
+        'Triển khai đo lường nhạy cảm với quyền riêng tư'
+      ],
+      localEnvironment: {
+        title: 'Matomo cần cả lưu lượng tracking và lưu trữ báo cáo',
+        description:
+          'Ứng dụng phân tích và cơ sở dữ liệu là cốt lõi, nhưng báo cáo đại diện nhất khi lượt truy cập local và các công việc archive theo lịch được thực hiện.',
+        items: [
+          {
+            title: 'Ứng dụng web PHP',
+            description: 'Phục vụ giao diện Matomo và endpoint tracking mà các site kiểm thử dùng.'
+          },
+          {
+            title: 'MySQL hoặc MariaDB',
+            description: 'Lưu trữ cấu hình, nhật ký truy cập, chuyển đổi và dữ liệu báo cáo đã xử lý.'
+          },
+          {
+            title: 'Công việc cron archive',
+            description:
+              'Chạy `core:archive` theo lịch để xây dựng báo cáo thay vì chỉ phụ thuộc vào lưu trữ kích hoạt bởi trình duyệt.'
+          },
+          {
+            title: 'Origin tracking kiểm thử',
+            description:
+              'Một site local hoặc client kiểm thử cung cấp các yêu cầu tracking thực tế và hành vi đồng thuận.'
+          }
+        ]
+      }
+    },
+    metabase: {
+      replaceOverview: true,
+      paragraphs: [
+        'Metabase là ứng dụng business intelligence để khám phá dữ liệu, soạn câu hỏi, xuất bản dashboard và phân phối cảnh báo. Nó giữ siêu dữ liệu ứng dụng riêng tách biệt khỏi các cơ sở dữ liệu mà nhà phân tích truy vấn, nên quyền hạn, collection, card và kết nối có thể được quản lý độc lập với dữ liệu nghiệp vụ.',
+        'Một instance Metabase local chạy trên Java với cơ sở dữ liệu ứng dụng như PostgreSQL cho siêu dữ liệu bền vững. Nó cũng cần một hoặc nhiều nguồn dữ liệu mẫu có thể truy cập để phát triển có ý nghĩa; SMTP, SSO, thiết lập embedding và reverse proxy là các tích hợp tùy chọn do triển khai chọn.'
+      ],
+      capabilities: [
+        'Trình tạo truy vấn trực quan',
+        'Trình soạn SQL',
+        'Dashboard',
+        'Cảnh báo và đăng ký',
+        'Collection và quyền hạn',
+        'Embedding'
+      ],
+      useCases: [
+        'Dashboard vận hành',
+        'Khám phá dữ liệu tự phục vụ',
+        'Phân tích sản phẩm nhúng',
+        'Báo cáo nghiệp vụ theo lịch'
+      ],
+      localEnvironment: {
+        title: 'Metabase tách siêu dữ liệu khỏi các nguồn dữ liệu phân tích',
+        description:
+          'Cơ sở dữ liệu ứng dụng bền vững và mục tiêu truy vấn thực tế giúp dashboard local có thể tái tạo; các dịch vụ tích hợp phụ thuộc kịch bản.',
+        items: [
+          {
+            title: 'Runtime Java và ứng dụng Metabase',
+            description: 'Khởi động server và giao diện quản trị của nó.'
+          },
+          {
+            title: 'Cơ sở dữ liệu siêu dữ liệu ứng dụng',
+            description:
+              'PostgreSQL hoặc cơ sở dữ liệu hỗ trợ khác lưu trữ user, card, dashboard và kết nối.'
+          },
+          {
+            title: 'Nguồn dữ liệu mẫu đã kết nối',
+            description:
+              'Cần một cơ sở dữ liệu dự án có thể truy cập để xây dựng và xác minh câu hỏi, model và dashboard.'
+          },
+          {
+            title: 'SMTP hoặc SSO tùy chọn',
+            description:
+              'Chỉ dùng khi kiểm thử đăng ký, cấp phát user hoặc xác thực doanh nghiệp.'
+          }
+        ]
+      }
+    },
+    'apache-superset': {
+      replaceOverview: true,
+      paragraphs: [
+        'Apache Superset là nền tảng phân tích và khám phá dữ liệu mã nguồn mở xây dựng quanh các kết nối SQLAlchemy, SQL Lab, định nghĩa biểu đồ, dashboard và quyền hạn chi tiết. Nó thường được dùng để truy vấn các kho dữ liệu phân tích hiện có thay vì sở hữu dữ liệu nghiệp vụ.',
+        'Một môi trường Superset local dùng Python và cơ sở dữ liệu siêu dữ liệu, với Redis và Celery thường xử lý cache, truy vấn bất đồng bộ, cảnh báo và báo cáo. CLI `superset` khởi tạo siêu dữ liệu và role; broker, dịch vụ SMTP hoặc reverse proxy chỉ cần khi các tính năng đã chọn sử dụng chúng.'
+      ],
+      capabilities: [
+        'SQL Lab',
+        'Tầng ngữ nghĩa dataset',
+        'Trình khám phá biểu đồ',
+        'Dashboard',
+        'Quyền hạn theo role',
+        'Cảnh báo và báo cáo'
+      ],
+      useCases: [
+        'Phân tích SQL khám phá',
+        'Dashboard phân tích vận hành',
+        'BI nhúng',
+        'Giao báo cáo theo lịch',
+        'Kiểm thử tích hợp nguồn dữ liệu'
+      ],
+      localEnvironment: {
+        title: 'Phát triển Superset local trải rộng siêu dữ liệu, cache và engine dữ liệu',
+        description:
+          'Một instance cơ bản có thể khởi động đơn giản, nhưng các tính năng phân tích bất đồng bộ cần cùng topo worker được cấu hình cho dự án.',
+        items: [
+          {
+            title: 'Môi trường Python và CLI superset',
+            description:
+              'Chạy web server và các lệnh như `superset db upgrade` và `superset init`.'
+          },
+          {
+            title: 'Cơ sở dữ liệu siêu dữ liệu',
+            description:
+              'PostgreSQL hoặc MySQL thường lưu trữ user, dataset, biểu đồ, dashboard và cấu hình.'
+          },
+          {
+            title: 'Worker Redis và Celery',
+            description:
+              'Phổ biến khi cache, truy vấn SQL Lab bất đồng bộ, cảnh báo hoặc báo cáo được bật.'
+          },
+          {
+            title: 'Nguồn dữ liệu phân tích',
+            description:
+              'Chỉ kết nối các cơ sở dữ liệu hoặc warehouse cần thiết để kiểm thử dataset và dashboard.'
           }
         ]
       }

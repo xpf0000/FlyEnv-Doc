@@ -68,6 +68,14 @@ const copy = computed(() =>
             hub: 'Explora todas las historias de desarrolladores',
             hubPath: '/es/community'
           }
+        : props.locale === 'vi'
+          ? {
+              title: 'Nhà phát triển sử dụng FlyEnv như thế nào',
+              subtitle:
+                'Những câu chuyện công khai từ các nhà phát triển sử dụng FlyEnv trong các quy trình làm việc cục bộ PHP, Laravel, Linux và nhiều dịch vụ.',
+              hub: 'Khám phá tất cả câu chuyện của nhà phát triển',
+              hubPath: '/vi/community'
+            }
     : {
         title: 'How Developers Use FlyEnv',
         subtitle:

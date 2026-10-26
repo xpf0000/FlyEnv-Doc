@@ -1,4 +1,4 @@
-export type PaymentLocale = 'en' | 'zh' | 'id' | 'es'
+export type PaymentLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 interface PaymentSuccessCopy {
   title: string
@@ -202,6 +202,46 @@ export const paymentSuccessCopy: Record<PaymentLocale, PaymentSuccessCopy> = {
     download: 'Descargar FlyEnv',
     help: '¿Necesitas ayuda?',
     support: 'Contactar con soporte',
+    supportEmail: 'alexpengfeixu@gmail.com'
+  },
+  vi: {
+    title: 'Thanh toán thành công',
+    thanks: 'Cảm ơn bạn đã ủng hộ FlyEnv.',
+    description: 'Để kích hoạt giấy phép, hãy mở ứng dụng FlyEnv trên máy tính và gửi yêu cầu.',
+    progressLabel: 'Tiến trình kích hoạt giấy phép',
+    progress: ['Đã thanh toán', 'Yêu cầu giấy phép', 'Giấy phép được cấp'],
+    nextStep: 'Bước tiếp theo',
+    requestTitle: ['Yêu cầu giấy phép', 'trong ba bước.'],
+    intro: 'Thực hiện các bước này trong ứng dụng FlyEnv trên máy bạn muốn kích hoạt.',
+    step1Title: 'Mở FlyEnv trên máy tính',
+    step1Description: 'Vào Cài đặt → Giấy phép và cuộn xuống vùng yêu cầu.',
+    locationLabel: 'Cài đặt, sau đó Giấy phép',
+    settings: 'Cài đặt',
+    license: 'Giấy phép',
+    step2Title: 'Điền thông tin mua hàng',
+    step2Description:
+      'Trong trường Tin nhắn, nhập mã đơn hàng Paddle hoặc email hóa đơn, kèm địa chỉ email để chúng tôi liên hệ.',
+    step3Title: 'Gửi yêu cầu trong FlyEnv',
+    step3Description:
+      'Nhấn “Request License” trong ứng dụng. Chúng tôi sẽ gửi email cho bạn sau khi giấy phép được cấp.',
+    templateTitle: 'Cần nhập những gì',
+    templateDescription:
+      'Sao chép mẫu này, thay các phần trong ngoặc, rồi dán vào trường Tin nhắn trong FlyEnv.',
+    example: 'Ví dụ nội dung tin nhắn',
+    requestTemplate: 'Mã đơn hàng Paddle: [mã đơn hàng của bạn]\nEmail nhận thông báo: [email của bạn]',
+    copy: 'Sao chép mẫu',
+    copying: 'Đang sao chép…',
+    copied: 'Đã sao chép mẫu',
+    copySuccess: 'Đã sao chép. Thay cả hai phần trong ngoặc trước khi gửi.',
+    copyFailure: 'Không sao chép được. Hãy chọn và sao chép thủ công nội dung ở trên.',
+    receiptTitle: 'Không có mã đơn hàng?',
+    receiptNote: 'Bạn có thể dùng email hóa đơn Paddle thay thế.',
+    manualNote: 'Giấy phép được cấp thủ công sau khi yêu cầu trong ứng dụng được xác minh.',
+    processingNote: 'Hầu hết yêu cầu được xử lý trong vòng 24 giờ.',
+    guide: 'Xem hướng dẫn kích hoạt',
+    download: 'Tải xuống FlyEnv',
+    help: 'Cần hỗ trợ?',
+    support: 'Liên hệ hỗ trợ',
     supportEmail: 'alexpengfeixu@gmail.com'
   }
 }

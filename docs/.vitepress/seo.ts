@@ -4,7 +4,7 @@ import communityPostsZh from '../data/community-posts-zh.json'
 import { getComparisonFaqs, type ComparisonFaqSlug } from '../data/comparison-faqs'
 import { solutions } from '../data/solutions'
 
-export type SeoLocale = 'en' | 'zh' | 'id' | 'es'
+export type SeoLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 type HeadEntry = [string, Record<string, any>, string?]
 
@@ -52,21 +52,24 @@ const languages: Record<SeoLocale, string> = {
   en: 'en',
   zh: 'zh-CN',
   id: 'id-ID',
-  es: 'es-ES'
+  es: 'es-ES',
+  vi: 'vi-VN'
 }
 
 const ogLocales: Record<SeoLocale, string> = {
   en: 'en_US',
   zh: 'zh_CN',
   id: 'id_ID',
-  es: 'es_ES'
+  es: 'es_ES',
+  vi: 'vi_VN'
 }
 
 const genericDescriptions: Record<SeoLocale, string> = {
   en: 'All-in-One Full-Stack Environment Management Tool. Support macOS / Windows / Linux',
   zh: '一体化全栈环境管理工具. 支持macOS / Windows / Linux',
   id: 'Pengelola lingkungan pengembangan full-stack terpadu untuk macOS, Windows, dan Linux.',
-  es: 'Herramienta todo en uno para gestionar entornos de desarrollo full-stack. Compatible con macOS, Windows y Linux.'
+  es: 'Herramienta todo en uno para gestionar entornos de desarrollo full-stack. Compatible con macOS, Windows y Linux.',
+  vi: 'Công cụ quản lý môi trường full-stack tất cả trong một. Hỗ trợ macOS / Windows / Linux'
 }
 
 const labels = {
@@ -117,6 +120,18 @@ const labels = {
     demoList: 'Vídeos de demostración',
     communityList: 'Artículos de la comunidad',
     list: 'lista'
+  },
+  vi: {
+    home: 'FlyEnv',
+    features: 'Tính năng',
+    guide: 'Hướng dẫn',
+    solutions: 'Giải pháp',
+    compare: 'So sánh',
+    demos: 'Demo',
+    community: 'Cộng đồng',
+    demoList: 'Video demo',
+    communityList: 'Bài viết cộng đồng',
+    list: 'danh sách'
   }
 } satisfies Record<SeoLocale, Record<string, string>>
 
@@ -142,6 +157,7 @@ export function localeFromRelativePath(relativePath: string): SeoLocale {
   if (relativePath.startsWith('zh/')) return 'zh'
   if (relativePath.startsWith('id/')) return 'id'
   if (relativePath.startsWith('es/')) return 'es'
+  if (relativePath.startsWith('vi/')) return 'vi'
   return 'en'
 }
 
@@ -182,11 +198,14 @@ export function resolvePageDescription({
   if (locale === 'es') {
     return `${title}: guía de instalación, configuración y flujo de trabajo para desarrollo local en macOS, Windows y Linux.`
   }
+  if (locale === 'vi') {
+    return `${title}: hướng dẫn cài đặt, cấu hình và quy trình làm việc cho phát triển local trên macOS, Windows và Linux.`
+  }
   return `${title}: setup, configuration, and workflow guidance for local development on macOS, Windows, and Linux.`
 }
 
 function routeInfo(page: string, host: string): RouteInfo | undefined {
-  const match = page.match(/^(?:(zh|id|es)\/)?(.+?)\.md$/)
+  const match = page.match(/^(?:(zh|id|es|vi)\/)?(.+?)\.md$/)
   if (!match) return
 
   const locale = (match[1] ?? 'en') as SeoLocale
@@ -502,7 +521,7 @@ function buildSchemaGraph(
       '@id': `${host}/#website`,
       name: 'FlyEnv',
       url: `${host}/`,
-      inLanguage: ['en', 'zh-CN', 'id-ID', 'es-ES'],
+      inLanguage: ['en', 'zh-CN', 'id-ID', 'es-ES', 'vi-VN'],
       publisher: { '@id': `${host}/#organization` },
       about: { '@id': `${host}/#software` }
     })
@@ -546,7 +565,7 @@ export function buildSeoHead({
   socialImage,
   featureSlugs,
   featureLabels,
-  availableLocales = ['en', 'zh', 'id', 'es']
+  availableLocales = ['en', 'zh', 'id', 'es', 'vi']
 }: BuildSeoHeadOptions) {
   const route = routeInfo(page, host)
   if (!route) return
@@ -585,7 +604,9 @@ export function buildSeoHead({
         ? 'Ikon aplikasi FlyEnv'
         : route.locale === 'es'
           ? 'Icono de la aplicación FlyEnv'
-          : 'FlyEnv application icon'
+          : route.locale === 'vi'
+            ? 'Biểu tượng ứng dụng FlyEnv'
+            : 'FlyEnv application icon'
 
   upsertHeadEntry(head, additions, 'link', 'rel', 'canonical', {
     rel: 'canonical',

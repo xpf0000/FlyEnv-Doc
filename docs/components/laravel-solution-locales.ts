@@ -1,4 +1,4 @@
-export type LaravelSolutionLocale = 'en' | 'zh' | 'id' | 'es'
+export type LaravelSolutionLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
 
 type FeatureKey =
   | 'php'
@@ -208,6 +208,9 @@ const simplified = {
   },
   es: {
     breadcrumbSolutions: 'Soluciones', eyebrow: 'Solución para frameworks', heroTitle: 'Entorno de desarrollo local de Laravel con FlyEnv', heroDescription: 'Construye y ejecuta Laravel con PHP, bases de datos, Redis, dominios locales y HTTPS en un único workspace nativo.', download: 'Descargar FlyEnv', guide: 'Leer la guía de Laravel', heroStackTitle: 'Qué necesita un proyecto Laravel', heroStackDescription: 'Los componentes esenciales para un proyecto Laravel moderno.', requirementsTitle: 'Qué necesita Laravel en local', requirementsDescription: 'Una aplicación Laravel real se compone de varios elementos. FlyEnv los proporciona y gestiona por ti.', requirementHeaders: ['Necesidad', 'Servicio local', 'Compatibilidad de FlyEnv'], diagram: { domain: 'https://<br />shop.test', localDomain: 'Dominio local', withHttps: 'con HTTPS', webServer: 'Servidor web', port: 'puertos 80/443', application: 'Aplicación<br />Laravel', php: 'PHP 8.3<br />(FPM)', database: 'Base de datos', cacheQueues: 'Caché y colas', additionalTools: 'Herramientas adicionales (fuera de la cadena de peticiones)', frontendAssets: 'Recursos frontend', taskScheduling: 'Programación de tareas' }, stackTitle: 'Un stack real de desarrollo Laravel en FlyEnv', stackDescription: 'Un proyecto Laravel típico ejecutándose en FlyEnv, con una arquitectura clara y todos los servicios necesarios.', workspaceTitle: 'Así se ve en FlyEnv', workspaceDescription: 'Un proyecto Laravel con sus servicios y runtime gestionados en un solo workspace.', workspaceCaption: 'Un grupo PHP Laravel Project mantiene Nginx, PHP-FPM, MySQL y Redis juntos para un arranque repetible.', benefitsTitle: 'Por qué usar FlyEnv para desarrollar con Laravel', benefitsDescription: 'Una experiencia local de desarrollo Laravel más predecible y cómoda.', projectPathsTitle: 'Proyecto nuevo o proyecto existente', projectPathsDescription: 'FlyEnv funciona tanto para nuevas aplicaciones Laravel como para proyectos que ya tienes.', setupGuide: 'Ver la guía completa de configuración', comparisonTitle: 'Comparar enfoques locales para Laravel', comparisonDescription: 'Herramientas diferentes implican enfoques diferentes. Así se comparan para el desarrollo local de Laravel.', comparisonHeaders: ['Característica', 'Configuración local manual', 'Flujo con contenedores', 'FlyEnv'], faqTitle: 'Preguntas frecuentes de Laravel', faqDescription: 'Preguntas habituales sobre el uso de FlyEnv para desarrollar con Laravel.', relatedTitle: 'Soluciones relacionadas', ctaTitle: '¿Listo para desarrollar Laravel en local?', ctaDescription: 'Ejecuta PHP, bases de datos, Redis, dominios locales y HTTPS en un solo workspace.', haveQuestions: '¿Tienes preguntas sobre FlyEnv?'
+  },
+  vi: {
+    breadcrumbSolutions: 'Giải pháp', eyebrow: 'Giải pháp framework', heroTitle: 'Môi trường phát triển Laravel local với FlyEnv', heroDescription: 'Xây dựng và chạy Laravel với PHP, cơ sở dữ liệu, Redis, tên miền local và HTTPS trong một workspace gốc.', download: 'Tải xuống FlyEnv', guide: 'Đọc hướng dẫn Laravel', heroStackTitle: 'Dự án Laravel cần gì', heroStackDescription: 'Các thành phần thiết yếu cho dự án Laravel hiện đại.', requirementsTitle: 'Dự án Laravel cần gì trên local', requirementsDescription: 'Một ứng dụng Laravel thực tế gồm nhiều thành phần. FlyEnv cung cấp và quản lý chúng cho bạn.', requirementHeaders: ['Yêu cầu', 'Dịch vụ local', 'Hỗ trợ FlyEnv'], diagram: { domain: 'https://<br />shop.test', localDomain: 'Tên miền local', withHttps: 'với HTTPS', webServer: 'Web server', port: 'cổng 80/443', application: 'Ứng dụng<br />Laravel', php: 'PHP 8.3<br />(FPM)', database: 'Cơ sở dữ liệu', cacheQueues: 'Cache &amp; hàng đợi', additionalTools: 'Công cụ bổ sung (không nằm trong chuỗi request)', frontendAssets: 'Tài nguyên frontend', taskScheduling: 'Lập lịch tác vụ' }, stackTitle: 'Stack phát triển Laravel thực tế trong FlyEnv', stackDescription: 'Một dự án Laravel điển hình chạy trên FlyEnv, với kiến trúc rõ ràng và đầy đủ các dịch vụ cần thiết.', workspaceTitle: 'Giao diện trong FlyEnv', workspaceDescription: 'Dự án Laravel với các dịch vụ và runtime được quản lý trong một workspace.', workspaceCaption: 'Một nhóm PHP Laravel Project giữ Nginx, PHP-FPM, MySQL và Redis cùng nhau để khởi động lặp lại được.', benefitsTitle: 'Tại sao dùng FlyEnv để phát triển Laravel', benefitsDescription: 'Trải nghiệm phát triển local Laravel dễ đoán và dễ chịu hơn.', projectPathsTitle: 'Dự án mới hay dự án đã có', projectPathsDescription: 'FlyEnv hoạt động cho các ứng dụng Laravel mới và các dự án bạn đã có.', setupGuide: 'Xem hướng dẫn thiết lập đầy đủ', comparisonTitle: 'So sánh các cách phát triển Laravel local', comparisonDescription: 'Các công cụ khác nhau, cách tiếp cận khác nhau. Dưới đây là so sánh của chúng cho phát triển Laravel local.', comparisonHeaders: ['Tính năng', 'Thiết lập local thủ công', 'Quy trình container', 'FlyEnv'], faqTitle: 'Câu hỏi thường gặp về Laravel', faqDescription: 'Các câu hỏi thường gặp về việc dùng FlyEnv để phát triển Laravel.', relatedTitle: 'Giải pháp liên quan', ctaTitle: 'Sẵn sàng xây dựng Laravel trên local?', ctaDescription: 'Chạy PHP, cơ sở dữ liệu, Redis, tên miền local và HTTPS trong một workspace.', haveQuestions: 'Có câu hỏi khi dùng FlyEnv?'
   }
 } as const
 
@@ -378,6 +381,62 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { name: 'Symfony', description: 'Framework PHP moderno', slug: 'symfony', logo: relatedLogos.symfony },
       { name: 'WordPress', description: 'CMS y sitios web', slug: 'wordpress', logo: relatedLogos.wordpress },
       { name: 'Magento', description: 'Comercio electrónico', slug: 'magento', logo: relatedLogos.magento }
+    ]
+  },
+  vi: {
+    requirements: [
+      { icon: 'runtime', title: 'Runtime của ứng dụng', serviceParts: [{ label: 'PHP-FPM (ví dụ PHP 8.3)', feature: 'php' }], support: 'Nhiều phiên bản PHP cho mỗi dự án' },
+      { icon: 'dependencies', title: 'Phụ thuộc', serviceParts: [{ label: 'Composer' }], support: 'Composer tích hợp sẵn, dễ dùng' },
+      { icon: 'database', title: 'Cơ sở dữ liệu', serviceParts: [{ label: 'MySQL', feature: 'mysql' }, { label: ' hoặc ' }, { label: 'PostgreSQL', feature: 'postgresql' }], support: 'Hỗ trợ cả hai, chuyển đổi theo dự án' },
+      { icon: 'cache', title: 'Cache và hàng đợi', serviceParts: [{ label: 'Redis', feature: 'redis' }], support: 'Khởi động khi cần' },
+      { icon: 'web', title: 'Web server', serviceParts: [{ label: 'Nginx', feature: 'nginx' }, { label: ' / ' }, { label: 'Apache', feature: 'apache' }, { label: ' / ' }, { label: 'Caddy', feature: 'caddy' }], support: 'Hỗ trợ web server linh hoạt' },
+      { icon: 'frontend', title: 'Tài nguyên frontend', serviceParts: [{ label: 'Node.js + Vite', feature: 'nodejs' }], support: 'Toolchain frontend hiện đại' },
+      { icon: 'clock', title: 'Tác vụ định kỳ', serviceParts: [{ label: 'Cron', feature: 'cron' }], support: 'Quản lý Laravel scheduler' },
+      { icon: 'lock', title: 'HTTPS local', serviceParts: [{ label: 'Chứng chỉ local đáng tin cậy', feature: 'https' }], support: 'Tên miền local thực với HTTPS' }
+    ],
+    stackOutcomes: [
+      { icon: 'code', title: 'Phiên bản PHP theo dự án', description: 'Dùng phiên bản PHP mà mỗi dự án Laravel yêu cầu.' },
+      { icon: 'globe', title: 'Tên miền local + HTTPS', description: 'Truy cập dự án với chứng chỉ đáng tin cậy.' },
+      { icon: 'play', title: 'Nhóm khởi động một cú nhấp', description: 'Khởi động tất cả các dịch vụ cần thiết cùng nhau rồi bắt đầu làm việc.' },
+      { icon: 'list', title: 'Queue worker / scheduler', description: 'Chạy worker và Laravel scheduler dễ dàng.' }
+    ],
+    proofPoints: [
+      { icon: 'check', title: 'Runtime theo dự án', description: 'Chọn phiên bản PHP-FPM mà dự án Laravel này yêu cầu.' },
+      { icon: 'list', title: 'Nhóm dự án Laravel', description: 'Giữ Nginx, PHP-FPM, MySQL và Redis trong một thứ tự khởi động được kiểm soát.' },
+      { icon: 'database', title: 'Stack dịch vụ được quản lý', description: 'Xem các dịch vụ cốt lõi của Laravel cùng nhau trong một giao diện FlyEnv.' },
+      { icon: 'play', title: 'Khởi động lặp lại', description: 'Khởi động Startup Group của dự án mỗi khi bạn quay lại ứng dụng.' }
+    ],
+    benefits: [
+      { icon: 'code', title: 'Dùng các phiên bản PHP khác nhau theo dự án', description: 'Giữ các dự án Laravel ở các phiên bản chúng yêu cầu mà không thay đổi runtime toàn cục.', emphasis: true, evidence: 'Laravel 8 → PHP 7.4 · Laravel 11 → PHP 8.2 · Laravel 12 → PHP 8.3+' },
+      { icon: 'play', title: 'Chạy toàn bộ stack bằng một cú nhấp', description: 'Khởi động PHP, cơ sở dữ liệu, Redis, web server và hơn thế từ một Startup Group.', emphasis: true, evidence: 'PHP + Nginx + MySQL + Redis → Startup Group' },
+      { icon: 'database', title: 'Chọn MySQL hoặc PostgreSQL', description: 'Dùng cơ sở dữ liệu phù hợp với dự án thay vì đổi dự án cho phù hợp công cụ.' },
+      { icon: 'cache', title: 'Thêm Redis chỉ khi cần', description: 'Bật cache, session hoặc hàng đợi mà không phải mang theo một dịch vụ không dùng đến.' },
+      { icon: 'lock', title: 'Dùng tên miền local thực và HTTPS', description: 'Kiểm thử cookie, callback OAuth, webhook và các tính năng bảo mật của trình duyệt trên local.', emphasis: true, evidence: 'https://shop.test' },
+      { icon: 'clock', title: 'Chạy scheduler và queue worker', description: 'Giữ công việc nền luôn gần ứng dụng Laravel trong quá trình phát triển.' }
+    ],
+    projectPaths: [
+      { icon: 'plus', title: 'Bắt đầu dự án Laravel mới', steps: ['Mở PHP → New Project.', 'Chọn template Laravel, phiên bản framework, phiên bản PHP và phiên bản Composer.', 'FlyEnv chạy lệnh tạo của Composer và hiển thị output trên terminal.', 'Tạo site local tương ứng bằng một cú nhấp.', 'Mở dự án mới với tên miền local và HTTPS.'] },
+      { icon: 'web', title: 'Chạy dự án Laravel đã có', steps: ['Nhập hoặc mở dự án Laravel đã có.', 'Thiết lập phiên bản PHP cần thiết.', 'Cấu hình cơ sở dữ liệu, Redis và các dịch vụ khác nếu cần.', 'Thêm site local và chọn thư mục public.', 'Khởi động Startup Group của dự án và mở site.'] }
+    ],
+    comparisonRows: [
+      { feature: 'Mô hình môi trường', host: 'Một tiến trình PHP', container: 'Container Docker', flyenv: 'Môi trường local đầy đủ' },
+      { feature: 'Môi trường cơ sở dữ liệu', host: 'Local hoặc bên ngoài', container: 'Container', flyenv: 'Mô-đun MySQL hoặc PostgreSQL' },
+      { feature: 'Hỗ trợ Redis', host: 'Thiết lập thủ công', container: 'Dịch vụ container', flyenv: 'Tích hợp sẵn, theo nhu cầu' },
+      { feature: 'Tên miền local', host: 'Thiết lập thủ công', container: 'Phụ thuộc dự án', flyenv: 'Site local được quản lý' },
+      { feature: 'Phát triển đa stack', host: 'Chuyển đổi thủ công', container: 'Docker Compose', flyenv: 'Runtime và dịch vụ theo dự án' }
+    ],
+    faqs: [
+      { question: 'Các dự án Laravel khác nhau có thể dùng các phiên bản PHP khác nhau?', answer: 'Được. FlyEnv quản lý nhiều phiên bản PHP và cho phép mỗi dự án hoặc site local dùng phiên bản nó yêu cầu.' },
+      { question: 'Laravel có thể dùng MySQL hoặc PostgreSQL?', answer: 'Được. Chọn mô-đun cơ sở dữ liệu phù hợp với dự án và khởi động nó cùng ứng dụng Laravel.' },
+      { question: 'FlyEnv có hỗ trợ hàng đợi Redis?', answer: 'Có. Khởi động Redis khi ứng dụng dùng cache, session, Horizon hoặc queue worker, rồi giữ nó trong Startup Group của dự án.' },
+      { question: 'Có thể dùng tên miền .test với HTTPS?', answer: 'Có. Tạo một site local với tên miền dễ đọc và dùng hỗ trợ HTTPS local đáng tin cậy của FlyEnv.' },
+      { question: 'Có thể quản lý nhiều dự án Laravel?', answer: 'Có. Mỗi dự án có thể giữ phiên bản PHP, site local, lựa chọn cơ sở dữ liệu, cách dùng Redis và các dịch vụ hỗ trợ riêng.' },
+      { question: 'FlyEnv có thay thế hướng dẫn cài đặt Laravel?', answer: 'Không. Trang giải pháp giải thích môi trường và quy trình làm việc; hướng dẫn Laravel trình bày các bước thiết lập và cấu hình chi tiết.' }
+    ],
+    relatedSolutions: [
+      { name: 'Symfony', description: 'Framework PHP hiện đại', slug: 'symfony', logo: relatedLogos.symfony },
+      { name: 'WordPress', description: 'CMS và trang web', slug: 'wordpress', logo: relatedLogos.wordpress },
+      { name: 'Magento', description: 'Thương mại điện tử', slug: 'magento', logo: relatedLogos.magento }
     ]
   }
 }

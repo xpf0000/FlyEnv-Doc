@@ -63,10 +63,71 @@
           </template>
         </div>
       </template>
-      <template v-else>
-        <div class="text-center">
-          <span class="text-3xl font-bold md:text-6xl">Need New Project Name</span>
+    <template v-else-if="lang === 'vi-VN'">
+      <div class="text-center">
+        <span class="text-3xl font-bold md:text-6xl">Cần tên dự án mới</span>
+      </div>
+      <div class="flex justify-center mt-9">
+        <div class="flex flex-col gap-4 mt-9 max-w-3xl w-full">
+          <template v-if="AppRenameStore.list.length > 0">
+            <el-radio-group v-model="AppRenameStore.name" class="gap-3">
+              <template v-for="(item, index) in AppRenameStore.list" :key="index">
+                <el-card shadow="none" class="w-full" style="--el-card-padding: 10px 12px">
+                  <div class="flex items-center w-full gap-4">
+                    <el-radio :value="item.name" class="w-32 truncate">
+                      <template #default>
+                        <div class="flex items-center gap-3">
+                          <div>{{ item.name }}</div>
+                        </div>
+                      </template>
+                    </el-radio>
+                    <el-progress
+                      class="flex-1"
+                      :text-inside="true"
+                      :stroke-width="20"
+                      :percentage="item.percentage"
+                    >
+                      <span>{{ item.num }}</span>
+                    </el-progress>
+                  </div>
+                </el-card>
+              </template>
+            </el-radio-group>
+          </template>
+          <el-input v-model="AppRenameStore.name" placeholder="Tên dự án"></el-input>
+          <el-input
+            v-model="AppRenameStore.msg"
+            placeholder="Lý do"
+            type="textarea"
+            resize="none"
+            rows="3"
+          ></el-input>
         </div>
+      </div>
+      <div class="text-center mt-9">
+        <template v-if="AppRenameStore.time === 0">
+          <el-button
+            size="large"
+            class="mt-6 w-56"
+            type="primary"
+            :disabled="AppRenameStore.disabled()"
+            :loading="AppRenameStore.loading"
+            @click.stop="AppRenameStore.send()"
+          >
+            Gửi
+          </el-button>
+        </template>
+        <template v-else>
+          <el-button class="mt-6 w-56" size="large" type="primary" disabled
+            >{{ AppRenameStore.time }}s</el-button
+          >
+        </template>
+      </div>
+    </template>
+    <template v-else>
+      <div class="text-center">
+        <span class="text-3xl font-bold md:text-6xl">Need New Project Name</span>
+      </div>
         <div class="flex justify-center mt-9">
           <div class="flex flex-col gap-4 mt-9 max-w-3xl w-full">
             <template v-if="AppRenameStore.list.length > 0">

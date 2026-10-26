@@ -246,7 +246,9 @@
         ? 'id'
         : lang.value === 'es-ES'
           ? 'es'
-          : 'en'
+          : lang.value === 'vi-VN'
+            ? 'vi'
+            : 'en'
   )
   const copyByLocale = {
     en: {
@@ -488,6 +490,66 @@
       faq3AnswerPrefix: 'Los instaladores de Windows están firmados digitalmente a través de ',
       faq3AnswerSuffix:
         ', y los instaladores de macOS también están firmados digitalmente. Puedes revisar el código fuente y los registros de compilación en GitHub.'
+    },
+    vi: {
+      title: 'Tải xuống FlyEnv',
+      subtitle:
+        'Chọn bản build cho hệ thống của bạn. FlyEnv có sẵn cho Windows, macOS và Linux.',
+      latestVersion: 'Phiên bản mới nhất',
+      releaseNotes: 'Ghi chú phát hành',
+      buildHistory: 'Lịch sử build',
+      signedBuilds: 'Build đã ký',
+      otherDownloads: 'Chọn bản tải xuống của bạn',
+      download: 'Tải xuống',
+      notSureTitle: 'Không chắc nên chọn bản tải xuống nào?',
+      selectionHints: [
+        { label: 'Phần lớn người dùng Windows', value: 'Windows Installer' },
+        { label: 'Mac Apple Silicon', value: 'Apple Silicon' },
+        { label: 'Mac Intel', value: 'Intel' },
+        { label: 'Ubuntu/Debian', value: '.deb' },
+        { label: 'Fedora/Red Hat/SUSE/CentOS', value: '.rpm' }
+      ],
+      trustTitle: 'Tại sao tin tưởng bản tải xuống này?',
+      faqTitle: 'Câu hỏi thường gặp',
+      licenseGuide: 'Hướng dẫn giấy phép',
+      purchaseLicense: 'Mua giấy phép',
+      windowsDescription: 'Bản build Windows để cài đặt nhanh hoặc dùng không cần cài đặt.',
+      macDescription: 'Hình đĩa gốc cho Mac Apple Silicon và Intel.',
+      linuxDescription: 'Gói cho các bản phân phối dựa trên Debian và Red Hat.',
+      windowsInstaller: 'Windows Installer',
+      windowsInstallerDescription: 'Khuyến nghị cho phần lớn người dùng Windows.',
+      windowsPortable: 'Windows Portable',
+      windowsPortableDescription: 'Không cần cài đặt. Giải nén và chạy.',
+      macArm: 'macOS Apple Silicon',
+      macArmDescription: 'Cho Mac Apple Silicon M1, M2, M3, M4 và mới hơn.',
+      macX86: 'macOS Intel',
+      macX86Description: 'Cho Mac dùng Intel.',
+      debX64: 'Debian / Ubuntu',
+      debX64Description: 'Cài gói .deb x64 trên Debian hoặc Ubuntu.',
+      debArm64: 'Debian / Ubuntu ARM64',
+      debArm64Description: 'Cài gói .deb ARM64 trên các hệ thống tương thích.',
+      rpmX64: 'Red Hat / Fedora / SUSE / CentOS',
+      rpmX64Description: 'Cài gói .rpm x64 trên các bản phân phối dựa trên RPM.',
+      rpmArm64: 'Red Hat / Fedora / SUSE / CentOS ARM64',
+      rpmArm64Description: 'Cài gói .rpm ARM64 trên các hệ thống tương thích.',
+      openSource: 'Mã nguồn mở',
+      openSourceDescription: 'Mã nguồn có sẵn để xem xét trên GitHub.',
+      transparentBuilds: 'Build minh bạch',
+      transparentBuildsDescription: 'Tệp phát hành và lịch sử build được công khai.',
+      codeSigning: 'Ký mã',
+      signPathFoundation: 'SignPath Foundation',
+      codeSigningDescriptionPrefix: 'Bản build Windows được ký số thông qua ',
+      codeSigningDescriptionSuffix: '.',
+      faq1: 'Tôi nên tải bản build nào?',
+      faq1Answer:
+        'Chọn bản build phù hợp với hệ điều hành của bạn. Trên Linux, chọn .deb cho Debian hoặc Ubuntu và .rpm cho Fedora, Red Hat, SUSE hoặc CentOS.',
+      faq2: 'FlyEnv có miễn phí không?',
+      faq2Answer:
+        'FlyEnv có thể tải xuống và dùng cho phát triển cục lõi mà không cần giấy phép. Một số công cụ premium có giới hạn dùng thử; giấy phép một lần 10 đô la mở khóa quyền premium trên một thiết bị đang hoạt động.',
+      faq3: 'Các bản cài đặt đã được ký chưa?',
+      faq3AnswerPrefix: 'Bản cài đặt Windows được ký số thông qua ',
+      faq3AnswerSuffix:
+        ', và bản cài đặt macOS cũng được ký số. Bạn có thể xem mã nguồn và hồ sơ build trên GitHub.'
     }
   } as const
   const copy = computed(() => copyByLocale[locale.value])
@@ -680,7 +742,9 @@
                 ? '/id/guide/about-license'
                 : locale.value === 'es'
                   ? '/es/guide/about-license'
-                  : '/guide/about-license'
+                  : locale.value === 'vi'
+                    ? '/vi/guide/about-license'
+                    : '/guide/about-license'
         },
         {
           label: copy.value.purchaseLicense,
@@ -691,7 +755,9 @@
                 ? '/id/license'
                 : locale.value === 'es'
                   ? '/es/license'
-                  : '/license'
+                  : locale.value === 'vi'
+                    ? '/vi/license'
+                    : '/license'
         }
       ]
     },

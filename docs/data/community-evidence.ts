@@ -382,6 +382,106 @@ export const communityEvidence: Record<CommunityLocale, CommunityEvidence[]> = {
       relatedGuides: ['/es/guide/project-level-runtime-environment', '/es/guide/manage-multiple-node-php-versions'],
       featuredPlacements: ['home', 'community-hero']
     }
+  ],
+  vi: [
+    {
+      postId: 'abidar-flyenv-modern-local-development-php-laravel-wordpress',
+      locale: 'vi',
+      scenario: 'Dự án Laravel và WordPress trên Windows',
+      homepageTitle: 'Phát triển Laravel và WordPress trên Windows',
+      useCases: ['windows-local-development', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Một nhà phát triển Windows sử dụng FlyEnv cho các dự án Laravel, WordPress và PHP thuần cần các phiên bản PHP khác nhau mà không phải thay đổi cài đặt toàn cục.',
+      relatedGuides: [
+        '/vi/guide/project-level-runtime-environment',
+        '/vi/guide/run-laravel-use-flyenv'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'nh-ihsan-flyenv-mac-local-environment-2026',
+      locale: 'vi',
+      scenario: 'Dịch vụ trên Mac và HTTPS cục bộ',
+      homepageTitle: 'Dịch vụ PHP native và HTTPS trên macOS',
+      useCases: ['macos-local-development', 'local-services', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Một nhà phát triển Mac kể lại việc thay thế các quy trình Docker và Valet nặng nề bằng điều khiển dịch vụ native, phiên bản PHP theo từng dự án, tên miền HTTPS cục bộ và cơ sở dữ liệu.',
+      relatedGuides: [
+        '/vi/guide/flyenv-vs-docker-xampp',
+        '/vi/guide/project-level-runtime-environment'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'mencoba-flyenv-setelah-lama-menggunakan-xampp',
+      locale: 'vi',
+      scenario: 'Chuyển từ XAMPP',
+      homepageTitle: 'Chuyển các dự án PHP từ XAMPP sang FlyEnv',
+      useCases: ['xampp-migration', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Một nhà phát triển PHP kể lại việc rời khỏi quy trình XAMPP đã dùng lâu năm và cách xử lý các dự án cần phiên bản PHP khác nhau.',
+      relatedGuides: [
+        '/vi/guide/flyenv-vs-docker-xampp',
+        '/vi/guide/project-level-runtime-environment'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'why-i-finally-switched-from-laragon-to-flyenv',
+      locale: 'vi',
+      scenario: 'Chuyển từ Laragon',
+      useCases: ['laragon-migration', 'laravel-local-development'],
+      editorialSummary:
+        'Một nhà phát triển Laravel kể lại việc chuyển từ Laragon sang quy trình làm việc với FlyEnv cho PHP, PostgreSQL và công việc dự án hằng ngày.',
+      relatedGuides: ['/vi/guide/flyenv-vs-docker-xampp', '/vi/guide/run-laravel-use-flyenv'],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'flyenv-on-linux-actually-fixed-my-php-version-headache',
+      locale: 'vi',
+      scenario: 'Linux và nhiều phiên bản PHP',
+      useCases: ['linux-local-development', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Một nhà phát triển Linux Mint giải thích cách họ quản lý các dự án PHP cũ và mới cùng các dịch vụ cục bộ mà không phải đổi phiên bản trên toàn hệ thống liên tục.',
+      relatedGuides: [
+        '/vi/guide/project-level-runtime-environment',
+        '/vi/guide/manage-multiple-node-php-versions'
+      ],
+      featuredPlacements: ['community-hero', 'guide']
+    },
+    {
+      postId: 'goharabbas321-flyenv-modern-local-development-full-stack',
+      locale: 'vi',
+      scenario: 'Phát triển cục bộ full-stack',
+      homepageTitle: 'Một không gian làm việc duy nhất cho phát triển full-stack',
+      useCases: ['multiple-runtime-versions', 'local-services', 'ai-assisted-development'],
+      editorialSummary:
+        'Một nhà phát triển full-stack giới thiệu FlyEnv như một không gian làm việc desktop duy nhất cho runtime, cơ sở dữ liệu và công cụ phát triển cục bộ.',
+      relatedGuides: ['/vi/guide/what-is-flyenv', '/vi/guide/flyenv-work-with-ai'],
+      featuredPlacements: ['home', 'community-hero']
+    },
+    {
+      postId: 'mufaizabd-xampp-docker-to-flyenv',
+      locale: 'vi',
+      scenario: 'Thay thế XAMPP và Docker',
+      homepageTitle: 'Tạm biệt XAMPP và Docker',
+      useCases: ['xampp-migration', 'docker-alternative', 'multiple-runtime-versions'],
+      editorialSummary:
+        'Một nhà phát triển dùng máy ít RAM thay XAMPP và Docker bằng FlyEnv để đổi phiên bản PHP nhanh hơn và có quy trình hằng ngày nhẹ nhàng hơn.',
+      relatedGuides: ['/vi/guide/flyenv-vs-docker-xampp', '/vi/guide/project-level-runtime-environment'],
+      featuredPlacements: ['home', 'community-hero']
+    },
+    {
+      postId: 'kiki-six-months-flyenv-multi-project-dashboard',
+      locale: 'vi',
+      scenario: 'Quản lý nhiều dự án cục bộ',
+      homepageTitle: 'Sáu tháng với quy trình nhiều dự án',
+      useCases: ['multiple-runtime-versions', 'local-services'],
+      editorialSummary:
+        'Sau sáu tháng dùng FlyEnv, một nhà phát triển PHP chia sẻ quy trình thực tế cho nhiều dự án, dịch vụ dùng chung và dọn dẹp runtime.',
+      relatedGuides: ['/vi/guide/project-level-runtime-environment', '/vi/guide/manage-multiple-node-php-versions'],
+      featuredPlacements: ['home', 'community-hero']
+    }
   ]
 }
 

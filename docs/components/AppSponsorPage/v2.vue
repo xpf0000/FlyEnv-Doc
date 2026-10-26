@@ -338,7 +338,7 @@
 
   const props = withDefaults(
     defineProps<{
-      i18n?: 'en' | 'zh' | 'id' | 'es'
+      i18n?: 'en' | 'zh' | 'id' | 'es' | 'vi'
     }>(),
     {
       i18n: 'en'
@@ -573,6 +573,64 @@
       starOnGithub: 'Dar una estrella en GitHub',
       prev: 'Anterior',
       next: 'Siguiente'
+    },
+    vi: {
+      heroTitle: 'Giấy phép FlyEnv',
+      heroDesc:
+        'Mua giấy phép FlyEnv để truy cập có giấy phép vào các tính năng premium, kích hoạt một thiết bị và nhận cập nhật liên tục. FlyEnv vẫn mã nguồn mở và miễn phí để dùng thử.',
+      licenseTitle: 'Mua giấy phép FlyEnv',
+      licenseDesc:
+        'Quy trình thanh toán Paddle bán giấy phép phần mềm FlyEnv chính hãng. Sau khi thanh toán, dùng ID đơn hàng Paddle của bạn trong quy trình yêu cầu giấy phép của ứng dụng để cấp giấy phép thủ công.',
+      licenseGuide: 'Đọc điều khoản giấy phép và hướng dẫn kích hoạt',
+      licenseGuideShort: 'Điều khoản giấy phép',
+      paddleTitle: 'Giấy phép FlyEnv',
+      paddleDesc: 'Thanh toán giấy phép phần mềm bởi Paddle',
+      licensePriceLabel: 'Giấy phép vĩnh viễn',
+      paddleFeatures: [
+        'Kích hoạt một thiết bị',
+        'Xóa giới hạn dùng thử',
+        'Cấp giấy phép thủ công trong 24 giờ',
+        'Hỗ trợ chuyển giấy phép'
+      ],
+      openingCheckout: 'Đang mở thanh toán...',
+      buyWithPaddle: 'Mua giấy phép bằng Paddle',
+      termsLink: 'Điều khoản',
+      privacyLink: 'Quyền riêng tư',
+      refundLink: 'Hoàn tiền',
+      communityTitle: 'Các cách đóng góp cộng đồng khác',
+      communityDesc:
+        'WeChat Pay, Alipay, pull request và bài viết gốc được xử lý ngoài Paddle và có thể gửi thủ công làm bằng chứng yêu cầu giấy phép.',
+      wechatTitle: 'WeChat Pay',
+      alipayTitle: 'Alipay',
+      scanToContribute: 'Quét mã QR để đóng góp',
+      scanQr: 'Quét mã QR',
+      specialThanks: 'Cảm ơn đặc biệt',
+      specialThanksDesc: 'Cảm ơn mọi người bạn đã giúp FlyEnv ngày càng hoàn thiện.',
+      signPathPrefix: 'Ký mã miễn phí cho FlyEnv trên Windows được cung cấp bởi',
+      signPathMiddle: ', với chứng chỉ được cung cấp bởi',
+      signPathEnd: '',
+      f4Prefix: 'Nhà sáng lập',
+      f4Suffix: ', người tài trợ cho tên miền',
+      domainLabel: '',
+      sentenceEnd: '.',
+      articlesTitle: 'Bài viết của người dùng',
+      articlesDesc:
+        'Hướng dẫn, đánh giá, video và câu chuyện di chuyển gốc do người dùng FlyEnv chia sẻ.',
+      articlesHead: 'Bài viết',
+      postsLabel: 'bài viết',
+      articleFallback: 'Bài viết',
+      unknownAuthor: 'Tác giả không xác định',
+      pullRequestsTitle: 'Pull request của người dùng',
+      pullRequestsDesc:
+        'Đóng góp mã, tài liệu, bản dịch và sửa lỗi từ cộng đồng GitHub.',
+      pullRequestsHead: 'Pull request',
+      pullRequestsLabel: 'PR',
+      ctaTitle: 'Có giấy phép hoặc đóng góp',
+      ctaDesc:
+        'Mua giấy phép phần mềm qua Paddle, đóng góp mã hoặc chia sẻ nội dung FlyEnv gốc. Mỗi con đường đều hỗ trợ yêu cầu giấy phép theo hướng dẫn kích hoạt.',
+      starOnGithub: 'Đánh dấu sao trên GitHub',
+      prev: 'Trước',
+      next: 'Sau'
     }
   }
 
@@ -581,6 +639,7 @@
     if (props.i18n === 'zh') return '/zh'
     if (props.i18n === 'id') return '/id'
     if (props.i18n === 'es') return '/es'
+    if (props.i18n === 'vi') return '/vi'
     return ''
   })
   const licenseHref = computed(() => `${localePrefix.value}/guide/about-license`)
@@ -602,7 +661,9 @@
           ? 'Checkout Paddle sedang tidak tersedia. Silakan coba lagi nanti.'
           : props.i18n === 'es'
             ? 'El pago con Paddle no está disponible temporalmente. Prueba con otro método.'
-            : 'Paddle checkout is temporarily unavailable. Please try another method.'
+            : props.i18n === 'vi'
+              ? 'Thanh toán Paddle tạm thời không khả dụng. Vui lòng thử cách khác.'
+              : 'Paddle checkout is temporarily unavailable. Please try another method.'
   })
 
   const articleList = computed<ArticleItem[]>(() => {

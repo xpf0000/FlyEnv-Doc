@@ -354,7 +354,7 @@
 
   const props = withDefaults(
     defineProps<{
-      locale?: 'en' | 'zh' | 'id' | 'es'
+      locale?: 'en' | 'zh' | 'id' | 'es' | 'vi'
     }>(),
     { locale: 'en' }
   )
@@ -379,6 +379,11 @@
       badge: 'Soluciones', heroTitle: 'Ejecuta tus proyectos', heroTitleSecondLine: 'en local con FlyEnv',
       heroDescription: 'Explora frameworks, plataformas CMS, aplicaciones de comercio electrónico, sistemas ERP, herramientas CRM y herramientas para desarrolladores. FlyEnv gestiona los runtimes, bases de datos y servicios locales que necesitan en Windows, macOS y Linux.',
       browseSolutions: 'Explorar soluciones', downloadFlyEnv: 'Descargar FlyEnv', filterAriaLabel: 'Filtrar soluciones por categoría', searchDirectory: 'Buscar en el directorio de proyectos', searchPlaceholder: 'Buscar proyectos...', exploreSolutions: 'Explorar soluciones', catalogDescription: 'Proyectos y los runtimes, bases de datos y servicios locales que suelen necesitar.', projects: 'proyectos', viewSolution: 'Ver solución', noResultsTitle: 'No se encontraron soluciones coincidentes.', noResultsDescription: 'Prueba con otro nombre de proyecto o categoría.', showAll: 'Mostrar todas las soluciones', howFlyEnvHelps: 'Cómo ayuda FlyEnv', readyTitle: '¿Listo para ejecutar tu próximo proyecto?', readyDescription: 'Configura los runtimes, bases de datos y servicios que tu proyecto necesita con FlyEnv.', viewDocumentation: 'Ver documentación', all: 'Todas', result: 'soluciones mostradas', resultOne: 'solución mostrada'
+    },
+    vi: {
+      badge: 'Giải pháp', heroTitle: 'Chạy các dự án', heroTitleSecondLine: 'của bạn trên local với FlyEnv',
+      heroDescription: 'Khám phá các framework, nền tảng CMS, ứng dụng thương mại điện tử, hệ thống ERP, công cụ CRM và công cụ dành cho nhà phát triển. FlyEnv quản lý các runtime, cơ sở dữ liệu và dịch vụ local mà chúng cần trên Windows, macOS và Linux.',
+      browseSolutions: 'Duyệt giải pháp', downloadFlyEnv: 'Tải xuống FlyEnv', filterAriaLabel: 'Lọc giải pháp theo danh mục', searchDirectory: 'Tìm kiếm trong thư mục dự án', searchPlaceholder: 'Tìm dự án...', exploreSolutions: 'Duyệt giải pháp', catalogDescription: 'Các dự án cùng các runtime, cơ sở dữ liệu và dịch vụ local mà chúng thường cần.', projects: 'dự án', viewSolution: 'Xem giải pháp', noResultsTitle: 'Không tìm thấy giải pháp phù hợp.', noResultsDescription: 'Thử tên dự án hoặc danh mục khác.', showAll: 'Hiển thị tất cả giải pháp', howFlyEnvHelps: 'FlyEnv giúp gì', readyTitle: 'Sẵn sàng chạy dự án tiếp theo?', readyDescription: 'Thiết lập các runtime, cơ sở dữ liệu và dịch vụ mà dự án cần bằng FlyEnv.', viewDocumentation: 'Xem tài liệu', all: 'Tất cả', result: 'giải pháp đã hiển thị', resultOne: 'giải pháp đã hiển thị'
     }
   } as const
 
@@ -445,6 +450,12 @@
       { title: 'Configura el entorno', description: 'Gestiona runtimes, bases de datos y servidores web con FlyEnv.', icon: Setting },
       { title: 'Inicia el stack', description: 'Ejecuta los servicios necesarios a la vez.', icon: VideoPlay },
       { title: 'Desarrolla en local', description: 'Abre el proyecto con un dominio local y HTTPS.', icon: Promotion }
+    ],
+    vi: [
+      { title: 'Chọn dự án', description: 'Xem các runtime và dịch vụ mà nó cần.', icon: View },
+      { title: 'Thiết lập môi trường', description: 'Quản lý runtime, cơ sở dữ liệu và web server bằng FlyEnv.', icon: Setting },
+      { title: 'Khởi động stack', description: 'Chạy các dịch vụ cần thiết cùng nhau.', icon: VideoPlay },
+      { title: 'Phát triển trên local', description: 'Mở dự án với tên miền local và HTTPS.', icon: Promotion }
     ]
   } as const
 
