@@ -97,7 +97,7 @@ export const usePaddleCheckout = ({ source, errorMessage }: PaddleCheckoutOption
         paddleInitialized = true
       }
 
-      const locale = window.location.pathname.match(/^\/(zh|id|es)(?:\/|$)/)?.[1]
+      const locale = window.location.pathname.match(/^\/(zh|id|es|vi)(?:\/|$)/)?.[1]
       const successPath = `${locale ? `/${locale}` : ''}/payment-success`
 
       Paddle.Checkout.open({

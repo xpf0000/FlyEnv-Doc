@@ -34,7 +34,7 @@
           >
           <div class="mt-7 flex flex-wrap gap-3">
             <a
-              href="/download"
+              href="/vi/download"
               data-analytics-event="download_click"
               data-analytics-surface="new-home-hero"
               class="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold !text-white no-underline shadow-[0_12px_28px_rgba(37,99,235,0.24)] transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:translate-y-px"
@@ -205,7 +205,7 @@
             >
           </div>
           <a
-            href="/features"
+            href="/vi/features"
             data-analytics-surface="new-home-local-stack"
             class="shrink-0 text-sm font-bold text-blue-600 no-underline hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200"
             >Xem tất cả tính năng <span aria-hidden="true">→</span></a
@@ -681,7 +681,7 @@
             >
           </div>
           <a
-            href="/demos"
+            href="/vi/demos"
             data-analytics-event="demos_nav_click"
             data-analytics-surface="new-home-projects"
             class="shrink-0 text-sm font-bold text-blue-600 no-underline hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-200"
@@ -741,7 +741,7 @@
             >
           </div>
           <a
-            href="/download"
+            href="/vi/download"
             data-analytics-event="download_click"
             data-analytics-surface="new-home-final-cta"
             class="inline-flex shrink-0 items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-bold !text-blue-700 no-underline shadow-lg transition hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-px"

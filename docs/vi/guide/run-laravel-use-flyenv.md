@@ -56,7 +56,7 @@ Nhấp **"Create Host"** để tự động cấu hình site, hoặc tiếp tụ
 
 ### Cách 2: Dự án Laravel có sẵn
 
-Đã có sẵn một dự án Laravel? Bỏ qua tới phần [Tạo site](#create-site).
+Đã có sẵn một dự án Laravel? Bỏ qua tới phần [Tạo site](#tao-site).
 
 ## Tạo site
 

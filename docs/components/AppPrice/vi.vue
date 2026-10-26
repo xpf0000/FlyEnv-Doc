@@ -125,7 +125,7 @@
           </div>
 
           <a
-            href="/download"
+            href="/vi/download"
             data-analytics-event="download_click"
             data-analytics-surface="new-home-pricing-free"
             class="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-slate-100 px-5 py-3 text-sm font-extrabold !text-slate-800 no-underline transition hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:translate-y-px dark:bg-slate-800 dark:!text-slate-100 dark:hover:bg-slate-700"
@@ -235,7 +235,7 @@
           </section>
 
           <a
-            href="/license"
+            href="/vi/license"
             data-pricing-cta
             data-analytics-event="license_click"
             data-analytics-surface="new-home-pricing-pro"
@@ -319,7 +319,7 @@
     {
       title: 'Mua',
       description: '$10 một lần',
-      href: '/license',
+      href: '/vi/license',
       icon: ShoppingCart
     },
     {
@@ -331,7 +331,7 @@
     {
       title: 'Chia sẻ trải nghiệm của bạn',
       description: 'Bài viết hoặc câu chuyện gốc',
-      href: '/community',
+      href: '/vi/community',
       icon: Document
     }
   ]
