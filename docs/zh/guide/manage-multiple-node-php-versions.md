@@ -164,7 +164,7 @@ source "/Applications/FlyEnv.app/Contents/Resources/helper/flyenv.sh"
 ```powershell
 # 由 FlyEnv 添加 - 在 cd 时加载项目环境
 # FlyEnv Auto-Load
-. "FlyEnv数据文件夹/server/bin/flyenv.ps1"
+. "<FlyEnv 数据文件夹>/server/bin/flyenv.ps1"
 ```
 
 ### IDE 兼容性

@@ -100,7 +100,7 @@ Port: 3306 (MySQL/MariaDB)
       5432 (PostgreSQL)
       27017 (MongoDB)
 Username: root (MySQL/MariaDB)
-          postgres (PostgreSQL)
+          root (PostgreSQL)
 Password: [你配置的密码]
 ```
 

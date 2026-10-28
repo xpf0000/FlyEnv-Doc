@@ -3,14 +3,14 @@ title: 'NestJS、Node.js、Next.js 反向代理配置：Nginx、Apache、Caddy �
 head:
   - - meta
     - name: description
-      content: '使用 Nginx、Apache 或 Caddy 部署 Node.js 应用反向代理。学习适用于 NestJS、Next.js、Express 的生产环境配置，无需 Docker 复杂性。'
+      content: '使用 Nginx、Apache 或 Caddy 部署 Node.js 应用反向代理。学习适用于 NestJS、Next.js、Express 的本地开发配置，无需 Docker 复杂性。'
 ---
 
 # NestJS、Node.js、Next.js 反向代理配置：Nginx、Apache、Caddy 指南
 
 你的 Node.js 应用在 localhost:3000 上运行完美。但如何正确部署它呢？直接访问端口不安全，管理 PM2 加防火墙规则很痛苦，而 Docker 又显得过于复杂。
 
-**解决方案：反向代理。** 它处理 SSL 终止、负载均衡和干净的 URL，而你的 Node 应用专注于业务逻辑。本指南展示了适用于 Nginx、Apache 和 Caddy 的生产环境配置——全部通过 FlyEnv 的可视化界面进行管理。
+**解决方案：反向代理。** 它处理 SSL 终止、负载均衡和干净的 URL，而你的 Node 应用专注于业务逻辑。本指南展示的是 Nginx、Apache 和 Caddy 的本地开发配置——全部通过 FlyEnv 的可视化界面进行管理。若要改用于生产环境，请另行评估安全、容量与可观测性。
 
 ## 为什么要使用反向代理？
 

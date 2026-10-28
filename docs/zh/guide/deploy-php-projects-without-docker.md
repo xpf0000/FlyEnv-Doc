@@ -313,7 +313,7 @@ PHP 部署方式只是第一步。真实项目通常还需要很多周边服务�
 
 ## 视频教程
 
-更喜欢观看？看看 手把手教你将 Node/Python/Go 项目转化为原生服务 实际演示：
+更喜欢看视频？观看《在 FlyEnv 中无 Docker 部署 PHP 应用：Laravel Octane、RoadRunner、Swoole 与 Workerman 实操》：
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?isOutside=true&aid=116704025839419&bvid=BV1cFEp67E2v&cid=38915998602&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
