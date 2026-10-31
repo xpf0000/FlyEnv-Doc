@@ -39,7 +39,7 @@ PostgreSQL 是开源关系数据库，以严格的 SQL 标准支持和丰富的�
 
 ## 版本管理
 
-安装 和 keep 多个 PostgreSQL 版本 并行 从 **PostgreSQL → 版本管理器**.
+在 **PostgreSQL → 版本管理器** 中并行安装并保留多个 PostgreSQL 版本。
 
 - **各平台安装源：** macOS 使用 Homebrew（`postgresql@x`）和 MacPorts（`postgresqlN-server`），Linux 使用 Homebrew，Windows 使用静态在线软件包列表。
 - **自定义版本：** 添加包含自有 PostgreSQL 安装的目录，FlyEnv 扫描后会与托管版本一起列出。

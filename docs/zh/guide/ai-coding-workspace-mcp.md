@@ -77,7 +77,7 @@ FlyEnv 默认按本地开发场景设计：
 
 FlyEnv 目前支持两种接入方式。
 
-### HTTP MCP
+### 方式 A：HTTP MCP
 
 FlyEnv 可以直接在 UI 里生成 HTTP MCP 配置片段，并支持以下客户端的配置输出和一键注册：
 

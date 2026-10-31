@@ -11,7 +11,7 @@ head:
       content: '比较 FlyEnv 与主流本地开发工具的差异，选择适合项目的工作流。'
   - - meta
     - property: og:title
-      content: '了解 FlyEnv 与主流本地开发工具的差异，选择适合项目的工作流。'
+      content: '比较 FlyEnv 与 XAMPP、Laragon、MAMP、Herd、ServBay 和 Docker'
   - - meta
     - property: og:description
       content: '比较 FlyEnv 与主流本地开发工具的差异，选择适合项目的工作流。'

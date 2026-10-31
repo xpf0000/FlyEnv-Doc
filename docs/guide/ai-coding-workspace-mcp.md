@@ -77,7 +77,7 @@ This gives you a practical local default without exposing your machine more broa
 
 FlyEnv supports two connection patterns.
 
-### HTTP MCP
+### Option A: HTTP MCP
 
 FlyEnv can generate HTTP MCP config snippets directly in the app. The UI currently supports config output and one-click registration for:
 
