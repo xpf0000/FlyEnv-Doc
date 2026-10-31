@@ -13,6 +13,14 @@ Instala **MySQL Cluster** desde **[Settings → Plugin Market](/es/features/plug
 
 ![Lista de MySQL Cluster con instancias independientes de distintas versiones y un grupo de origen y réplica en ejecución](https://oss.macphpstudy.com/image/features/plugin/mysql-cluster-instances.webp)
 
+## Demostración en vídeo
+
+Descubre cómo FlyEnv prepara un entorno local de MySQL con origen y réplica. Después, comprueba la sincronización, el retraso y la recuperación con DbGate y una aplicación de pedidos independiente.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/ExFupRsveuM?rel=0" title="Configura la replicación local de MySQL con FlyEnv" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Ver en [YouTube](https://www.youtube.com/watch?v=ExFupRsveuM) o [Bilibili](https://www.bilibili.com/video/BV1QtHw67EE9/).
+
 ## Aprovecha las versiones de MySQL ya instaladas
 
 La pestaña **Versions** utiliza las fuentes de instalación de MySQL disponibles en FlyEnv. Instala una versión desde esa pestaña o selecciona una instalación existente al crear una instancia. Varias instancias pueden compartir los binarios del servidor y mantener sus archivos de datos separados. Las instancias independientes también pueden usar versiones distintas de MySQL.

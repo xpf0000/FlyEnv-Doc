@@ -13,6 +13,14 @@ Instal **MySQL Cluster** dari **[Settings → Plugin Market](/id/features/plugin
 
 ![Daftar instans MySQL Cluster dengan beberapa versi mandiri dan grup source/replica yang sedang berjalan](https://oss.macphpstudy.com/image/features/plugin/mysql-cluster-instances.webp)
 
+## Video demo
+
+Lihat cara FlyEnv menyiapkan lingkungan MySQL source/replica lokal, lalu periksa sinkronisasi, ketertinggalan replikasi, dan proses mengejar data melalui DbGate serta aplikasi demo pesanan terpisah.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/ExFupRsveuM?rel=0" title="Menyiapkan replikasi MySQL lokal dengan FlyEnv" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Tonton di [YouTube](https://www.youtube.com/watch?v=ExFupRsveuM) atau [Bilibili](https://www.bilibili.com/video/BV1QtHw67EE9/).
+
 ## Gunakan kembali versi MySQL yang sudah terpasang
 
 Tab **Versions** menggunakan sumber instalasi MySQL yang sudah tersedia di FlyEnv. Instal versi dari tab ini atau pilih instalasi yang sudah ada saat membuat instans. Beberapa instans dapat memakai satu instalasi program dengan file database yang terpisah. Instans mandiri yang berbeda juga dapat menggunakan versi MySQL yang berbeda.

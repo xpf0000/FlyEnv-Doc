@@ -11,6 +11,14 @@ description: '在 FlyEnv 中管理 llama.cpp 运行时和 GGUF 模型，调整�
 
 从 **[设置 → 插件市场](/zh/features/plugin-market)** 安装 **llama.cpp**。侧边栏中的模块包含 **服务**、**版本管理**、**模型**、**设置** 和 **日志** 标签页。
 
+## 视频演示
+
+观看如何在 FlyEnv 中安装插件、管理运行时与 GGUF 模型、调整模型设置并启动本地推理服务。
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://player.bilibili.com/player.html?bvid=BV1rcn56hEzF&page=1&autoplay=0" title="本地运行 llama.cpp，管理 GGUF 模型" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+也可以前往 [Bilibili](https://www.bilibili.com/video/BV1rcn56hEzF/) 或 [YouTube](https://www.youtube.com/watch?v=KVQKQ6xfLkw) 观看。
+
 ## 运行时版本与后端
 
 **版本管理** 列出与当前操作系统及架构兼容的上游发行构建。刷新列表后，选择版本和后端，安装所需运行时。列表会区分稳定版与预发布版。

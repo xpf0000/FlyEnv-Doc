@@ -11,6 +11,14 @@ description: 'Manage llama.cpp runtime versions and GGUF models, tune inference 
 
 Install **llama.cpp** from **[Settings → Plugin Market](/features/plugin-market)**. Its sidebar entry opens **Service**, **Version Management**, **Models**, **Settings** and **Logs** tabs.
 
+## Video walkthrough
+
+Watch the plugin installation, runtime and GGUF model management, model settings and local inference startup in FlyEnv.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/KVQKQ6xfLkw?rel=0" title="Run llama.cpp locally with GGUF models" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch on [YouTube](https://www.youtube.com/watch?v=KVQKQ6xfLkw) or [Bilibili](https://www.bilibili.com/video/BV1rcn56hEzF/).
+
 ## Runtime versions and backends
 
 The **Version Management** tab lists upstream release builds compatible with your operating system and architecture. Refresh the list, choose a release and backend, and install the runtime you need. Stable and prerelease builds are identified in the list.

@@ -13,6 +13,14 @@ Instal **Command Shortcuts** melalui **[Settings → Plugin Market](/id/features
 
 ![Kartu folder Pintasan Perintah dengan perintah tersimpan, tombol eksekusi, dan tindakan folder](https://oss.macphpstudy.com/image/features/plugin/command-shortcuts-folder-cards.png)
 
+## Video demo
+
+Lihat cara menyimpan perintah berdasarkan folder proyek, menjalankannya di terminal sistem, serta mengatur ulang urutan folder dan perintah dengan menyeretnya.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/Iz60XAzo7Us?rel=0" title="Menyimpan perintah per proyek dan menjalankannya dengan satu klik" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Tonton di [YouTube](https://www.youtube.com/watch?v=Iz60XAzo7Us) atau [Bilibili](https://www.bilibili.com/video/BV1QKJR6xEGQ/).
+
 ## Menambahkan folder dan perintah
 
 Klik **Add folder**, masukkan nama, lalu pilih atau ketik jalur absolut folder yang sudah ada. Ikon kartu otomatis menggunakan karakter pertama nama folder.

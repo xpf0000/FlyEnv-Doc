@@ -11,6 +11,14 @@ description: 'Kelola runtime llama.cpp dan model GGUF, sesuaikan pengaturan infe
 
 Instal **llama.cpp** melalui **[Settings → Plugin Market](/id/features/plugin-market)**. Modul di bilah samping menyediakan tab **Service**, **Version Management**, **Models**, **Settings**, dan **Logs**.
 
+## Video demo
+
+Lihat cara memasang plugin, mengelola runtime dan model GGUF, menyesuaikan pengaturan model, serta menjalankan inferensi lokal di FlyEnv.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/KVQKQ6xfLkw?rel=0" title="Menjalankan llama.cpp dengan model GGUF secara lokal" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Tonton di [YouTube](https://www.youtube.com/watch?v=KVQKQ6xfLkw) atau [Bilibili](https://www.bilibili.com/video/BV1rcn56hEzF/).
+
 ## Versi runtime dan backend
 
 Tab **Version Management** menampilkan build rilis upstream yang sesuai dengan sistem operasi dan arsitektur Anda. Segarkan daftar, pilih rilis serta backend, lalu instal runtime yang dibutuhkan. Rilis stabil dan prarilis diberi penanda dalam daftar.

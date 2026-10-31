@@ -13,6 +13,14 @@ Instala **Command Shortcuts** desde **[Settings → Plugin Market](/es/features/
 
 ![Tarjetas de carpetas de Comandos rápidos con comandos guardados, botones de ejecución y acciones de carpeta](https://oss.macphpstudy.com/image/features/plugin/command-shortcuts-folder-cards.png)
 
+## Demostración en vídeo
+
+Descubre cómo guardar comandos por carpeta de proyecto, ejecutarlos en el terminal del sistema y arrastrar carpetas y comandos para cambiar su orden.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/Iz60XAzo7Us?rel=0" title="Guarda comandos por proyecto y ejecútalos con un clic" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Ver en [YouTube](https://www.youtube.com/watch?v=Iz60XAzo7Us) o [Bilibili](https://www.bilibili.com/video/BV1QKJR6xEGQ/).
+
 ## Añadir una carpeta y sus comandos
 
 Pulsa **Add folder**, introduce un nombre y selecciona o escribe la ruta absoluta de una carpeta existente. El icono de la tarjeta utiliza automáticamente el primer carácter del nombre.

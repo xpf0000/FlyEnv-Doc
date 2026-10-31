@@ -13,6 +13,14 @@ MariaDB 集群插件可以在不同端口同时运行多个 MariaDB 实例。你
 
 ![FlyEnv 插件市场中的 MariaDB Cluster 插件及安装控制](https://oss.macphpstudy.com/image/features/plugin/mariadb-cluster-market.webp)
 
+## 视频演示
+
+先看已运行的本地 MariaDB 主从环境，再了解 FlyEnv 如何完成搭建；独立订单演示应用与 DbGate 用于验证从库读取和复制恢复。
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://player.bilibili.com/player.html?bvid=BV1P1HP6yE7h&page=1&autoplay=0" title="用 FlyEnv 轻松搭建本地 MariaDB 主从环境" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+也可以前往 [Bilibili](https://www.bilibili.com/video/BV1P1HP6yE7h/) 或 [YouTube](https://www.youtube.com/watch?v=OI5P39-LLes) 观看。
+
 ## 用已安装版本运行多个实例
 
 通过 **版本** 页使用 FlyEnv 现有的安装源安装 MariaDB，然后在创建实例时选择安装版本。插件要求 **MariaDB 10.4 或更高版本**。多个实例可以共用一套数据库程序，但使用独立的数据目录；不同独立实例可以选择不同版本。MySQL 安装不能作为 MariaDB 引擎使用。

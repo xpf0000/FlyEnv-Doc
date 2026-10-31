@@ -13,6 +13,14 @@ description: '用文件夹卡片整理常用终端命令，拖动调整顺序，
 
 ![快捷命令的文件夹卡片、已保存命令、执行按钮和文件夹操作](https://oss.macphpstudy.com/image/features/plugin/command-shortcuts-folder-cards.png)
 
+## 视频演示
+
+观看如何按项目文件夹保存常用命令，在系统终端中运行，并拖动调整文件夹和命令的顺序。
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://player.bilibili.com/player.html?bvid=BV1QKJR6xEGQ&page=1&autoplay=0" title="按项目保存命令，一键在终端运行" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+也可以前往 [Bilibili](https://www.bilibili.com/video/BV1QKJR6xEGQ/) 或 [YouTube](https://www.youtube.com/watch?v=Iz60XAzo7Us) 观看。
+
 ## 添加文件夹与命令
 
 点击 **添加文件夹**，填写名称，并选择或输入现有文件夹的绝对路径。卡片图标会自动使用文件夹名称的第一个字符。

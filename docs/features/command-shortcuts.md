@@ -13,6 +13,14 @@ Install **Command Shortcuts** from **[Settings → Plugin Market](/features/plug
 
 ![Command Shortcuts folder cards with saved commands, run buttons and folder actions](https://oss.macphpstudy.com/image/features/plugin/command-shortcuts-folder-cards.png)
 
+## Video walkthrough
+
+See how to save commands by project folder, run them in the system terminal and reorder folders and commands.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/Iz60XAzo7Us?rel=0" title="Save project commands and run them with one click" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch on [YouTube](https://www.youtube.com/watch?v=Iz60XAzo7Us) or [Bilibili](https://www.bilibili.com/video/BV1QKJR6xEGQ/).
+
 ## Add a folder and its commands
 
 Choose **Add folder**, enter a name and select or type an existing folder's absolute path. The card icon uses the first character of the folder name automatically.

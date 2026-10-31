@@ -13,6 +13,14 @@ MySQL 集群插件可以同时运行多个本地 MySQL 实例，每个实例都�
 
 ![MySQL 集群实例列表，同时展示不同版本的独立实例和正在运行的主从复制组](https://oss.macphpstudy.com/image/features/plugin/mysql-cluster-instances.webp)
 
+## 视频演示
+
+观看 FlyEnv 如何创建本地 MySQL 主从环境，再通过 DbGate 和独立的订单演示应用，验证数据同步、复制积压与恢复追平。
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://player.bilibili.com/player.html?bvid=BV1QtHw67EE9&page=1&autoplay=0" title="用 FlyEnv 轻松搭建本地 MySQL 主从复制环境" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+也可以前往 [Bilibili](https://www.bilibili.com/video/BV1QtHw67EE9/) 或 [YouTube](https://www.youtube.com/watch?v=ExFupRsveuM) 观看。
+
 ## 复用已安装的 MySQL 版本
 
 **版本** 页沿用 FlyEnv 现有的 MySQL 安装源。可以在这里安装版本，也可以在创建实例时直接选择已有安装。多个实例可以共用一套数据库程序，但各自使用独立的数据文件；不同独立实例也可以选择不同的 MySQL 版本。

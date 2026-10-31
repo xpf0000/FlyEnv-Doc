@@ -11,6 +11,14 @@ description: 'Gestiona runtimes de llama.cpp y modelos GGUF, ajusta la inferenci
 
 Instala **llama.cpp** desde **[Settings → Plugin Market](/es/features/plugin-market)**. Su entrada en la barra lateral abre las pestañas **Service**, **Version Management**, **Models**, **Settings** y **Logs**.
 
+## Demostración en vídeo
+
+Mira cómo instalar el complemento, gestionar runtimes y modelos GGUF, ajustar el modelo e iniciar la inferencia local en FlyEnv.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/KVQKQ6xfLkw?rel=0" title="Ejecuta llama.cpp con modelos GGUF en local" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Ver en [YouTube](https://www.youtube.com/watch?v=KVQKQ6xfLkw) o [Bilibili](https://www.bilibili.com/video/BV1rcn56hEzF/).
+
 ## Versiones del runtime y backends
 
 La pestaña **Version Management** muestra las compilaciones publicadas por el proyecto que son compatibles con tu sistema operativo y arquitectura. Actualiza la lista, elige una versión y un backend e instala el runtime que necesites. La lista distingue las versiones estables de las preliminares.

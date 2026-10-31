@@ -13,6 +13,14 @@ Install **MySQL Cluster** from **[Settings → Plugin Market](/features/plugin-m
 
 ![MySQL Cluster instance view showing independent MySQL versions and a running source/replica group](https://oss.macphpstudy.com/image/features/plugin/mysql-cluster-instances.webp)
 
+## Video walkthrough
+
+Watch FlyEnv create a local MySQL source/replica environment, then check data sync, replication lag and catch-up with DbGate and a separate order demo application.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/ExFupRsveuM?rel=0" title="Set up local MySQL replication with FlyEnv" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch on [YouTube](https://www.youtube.com/watch?v=ExFupRsveuM) or [Bilibili](https://www.bilibili.com/video/BV1QtHw67EE9/).
+
 ## Reuse installed MySQL versions
 
 The **Versions** tab uses FlyEnv's existing MySQL installation sources. Install a version there, or select an existing installation when creating an instance. Several instances can share one program installation while keeping separate database files. Different standalone instances can use different MySQL versions.

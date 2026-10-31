@@ -13,6 +13,14 @@ Instal **MariaDB Cluster** dari **[Settings → Plugin Market](/id/features/plug
 
 ![MariaDB Cluster dalam Pasar Plugin FlyEnv beserta kontrol instalasinya](https://oss.macphpstudy.com/image/features/plugin/mariadb-cluster-market.webp)
 
+## Video demo
+
+Lihat lingkungan MariaDB source/replica lokal yang sudah berjalan, lalu ikuti penyiapannya di FlyEnv. Aplikasi demo pesanan terpisah dan DbGate memverifikasi pembacaan replika serta pemulihan replikasi.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/OI5P39-LLes?rel=0" title="Replikasi MariaDB lokal lebih mudah dengan FlyEnv" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Tonton di [YouTube](https://www.youtube.com/watch?v=OI5P39-LLes) atau [Bilibili](https://www.bilibili.com/video/BV1P1HP6yE7h/).
+
 ## Beberapa instans dari versi MariaDB yang sudah terpasang
 
 Gunakan **Versions** untuk memasang MariaDB dari sumber instalasi FlyEnv yang tersedia, lalu pilih instalasinya saat membuat instans. Plugin memerlukan **MariaDB 10.4 atau lebih baru**. Beberapa instans dapat berbagi satu instalasi program dengan direktori data terpisah. Instans mandiri dapat memilih versi yang berbeda. Instalasi MySQL tidak dapat digunakan sebagai mesin MariaDB.

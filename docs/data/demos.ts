@@ -126,6 +126,8 @@ const categorySummaries: Record<DemoLocale, Record<DemoCategory, string>> = {
 }
 
 const bilibiliByYoutubeId: Partial<Record<string, string>> = {
+  'ExFupRsveuM': 'BV1QtHw67EE9',
+  'OI5P39-LLes': 'BV1P1HP6yE7h',
   'KVQKQ6xfLkw': 'BV1rcn56hEzF',
   'Iz60XAzo7Us': 'BV1QKJR6xEGQ',
   'TA2NA0JeGdo': 'BV1eCNR6FE2k',
@@ -255,6 +257,46 @@ function createDemo(source: DemoSource): Demo {
 }
 
 const sources: DemoSource[] = [
+  {
+    id: 'mysql-cluster-replication', youtubeId: 'ExFupRsveuM', category: 'databases-services',
+    publishedAt: '2026-10-24',
+    titles: {
+      en: 'Set up local MySQL replication with FlyEnv',
+      zh: '用 FlyEnv 轻松搭建本地 MySQL 主从复制环境',
+      id: 'Menyiapkan replikasi MySQL lokal dengan FlyEnv',
+      es: 'Configura la replicación local de MySQL con FlyEnv',
+      vi: 'Thiết lập sao chép MySQL local với FlyEnv'
+    },
+    summaries: {
+      en: 'Create a local source/replica environment with the MySQL Cluster plugin, inspect it in DbGate and use a separate order demo to verify data sync, replication lag and catch-up.',
+      zh: '通过 MySQL 集群插件创建本地主从环境，在 DbGate 中检查数据库，并用独立订单演示应用验证数据同步、复制积压与恢复追平。',
+      id: 'Buat lingkungan source/replica lokal dengan plugin MySQL Cluster, periksa di DbGate, lalu gunakan aplikasi demo pesanan terpisah untuk memverifikasi sinkronisasi, ketertinggalan replikasi, dan proses mengejar data.',
+      es: 'Crea un entorno local de origen y réplica con MySQL Cluster, revísalo en DbGate y usa una aplicación de pedidos independiente para comprobar la sincronización, el retraso y la recuperación de la réplica.',
+      vi: 'Tạo môi trường source/replica local bằng plugin MySQL Cluster, kiểm tra trong DbGate và dùng một ứng dụng demo đơn hàng riêng để kiểm chứng đồng bộ dữ liệu, độ trễ sao chép và khả năng bắt kịp của replica.'
+    },
+    tags: ['MySQL', 'replication', 'DbGate', 'plugin'],
+    relatedGuides: [], relatedModules: ['/features/mysql-cluster']
+  },
+  {
+    id: 'mariadb-cluster-replication', youtubeId: 'OI5P39-LLes', category: 'databases-services',
+    publishedAt: '2026-10-24',
+    titles: {
+      en: 'Local MariaDB replication, made easy with FlyEnv',
+      zh: '用 FlyEnv 轻松搭建本地 MariaDB 主从环境',
+      id: 'Replikasi MariaDB lokal lebih mudah dengan FlyEnv',
+      es: 'Replicación local de MariaDB más sencilla con FlyEnv',
+      vi: 'Dễ dàng thiết lập sao chép MariaDB local với FlyEnv'
+    },
+    summaries: {
+      en: 'See a working local source/replica environment, then follow its setup with the MariaDB Cluster plugin. A separate order demo and DbGate show how to test replica reads and replication recovery.',
+      zh: '先看运行中的本地主从环境，再了解 MariaDB 集群插件如何轻松完成搭建；通过独立订单演示应用与 DbGate，验证从库读取、复制积压与恢复追平。',
+      id: 'Lihat lingkungan source/replica lokal yang sudah berjalan, lalu ikuti penyiapannya dengan plugin MariaDB Cluster. Aplikasi demo pesanan terpisah dan DbGate menunjukkan cara menguji pembacaan replika serta pemulihan replikasi.',
+      es: 'Primero observa un entorno local de origen y réplica en funcionamiento y después su configuración con MariaDB Cluster. Una aplicación de pedidos independiente y DbGate muestran cómo probar las lecturas de la réplica y la recuperación de la replicación.',
+      vi: 'Xem môi trường source/replica local đang hoạt động, rồi làm theo các bước thiết lập bằng plugin MariaDB Cluster. Một ứng dụng demo đơn hàng riêng cùng DbGate cho thấy cách kiểm thử việc đọc từ replica và khả năng khôi phục sao chép.'
+    },
+    tags: ['MariaDB', 'replication', 'DbGate', 'plugin'],
+    relatedGuides: [], relatedModules: ['/features/mariadb-cluster']
+  },
   {
     id: 'llama-cpp-gguf-models', youtubeId: 'KVQKQ6xfLkw', category: 'ai-mcp',
     publishedAt: '2026-10-18',

@@ -13,6 +13,14 @@ Instala **MariaDB Cluster** desde **[Settings → Plugin Market](/es/features/pl
 
 ![MariaDB Cluster en el catálogo de complementos de FlyEnv con sus controles de instalación](https://oss.macphpstudy.com/image/features/plugin/mariadb-cluster-market.webp)
 
+## Demostración en vídeo
+
+Primero observa un entorno local de MariaDB con origen y réplica en funcionamiento y después su configuración en FlyEnv. Una aplicación de pedidos independiente y DbGate permiten verificar las lecturas de la réplica y la recuperación de la replicación.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/OI5P39-LLes?rel=0" title="Replicación local de MariaDB más sencilla con FlyEnv" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Ver en [YouTube](https://www.youtube.com/watch?v=OI5P39-LLes) o [Bilibili](https://www.bilibili.com/video/BV1P1HP6yE7h/).
+
 ## Varias instancias a partir de las versiones instaladas
 
 Utiliza **Versions** para instalar MariaDB desde las fuentes de FlyEnv y elige esa instalación al crear una instancia. El complemento requiere **MariaDB 10.4 o posterior**. Varias instancias pueden compartir los binarios del motor con directorios de datos separados; las instancias independientes también pueden elegir versiones distintas. Las instalaciones de MySQL no se aceptan como motores MariaDB.

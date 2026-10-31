@@ -13,6 +13,14 @@ Install **MariaDB Cluster** from **[Settings → Plugin Market](/features/plugin
 
 ![FlyEnv Plugin Market showing the MariaDB Cluster plugin and its install controls](https://oss.macphpstudy.com/image/features/plugin/mariadb-cluster-market.webp)
 
+## Video walkthrough
+
+See a working local MariaDB source/replica environment first, then follow its setup in FlyEnv. A separate order demo application and DbGate verify replica reads and replication recovery.
+
+<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube-nocookie.com/embed/OI5P39-LLes?rel=0" title="Local MariaDB replication, made easy with FlyEnv" loading="lazy" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch on [YouTube](https://www.youtube.com/watch?v=OI5P39-LLes) or [Bilibili](https://www.bilibili.com/video/BV1P1HP6yE7h/).
+
 ## Multiple instances from installed MariaDB versions
 
 Use **Versions** to install MariaDB through FlyEnv's existing sources, then choose an installation when creating an instance. The plugin requires **MariaDB 10.4 or later**. Multiple instances can share one program installation while using separate data directories; independent instances may select different installed versions. MySQL installations are not accepted as MariaDB engines.
