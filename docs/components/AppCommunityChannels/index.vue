@@ -8,20 +8,35 @@
 
       <div class="channel-grid">
         <component
-          :is="channel.url ? 'a' : 'div'"
+          :is="channel.url && !channel.badge ? 'a' : 'div'"
           v-for="channel in channels"
           :key="channel.name"
-          :href="channel.url || undefined"
-          :target="channel.url ? '_blank' : undefined"
-          :rel="channel.url ? 'noopener noreferrer' : undefined"
-          :class="['channel-card', { 'is-link': channel.url }]"
+          :href="channel.url && !channel.badge ? channel.url : undefined"
+          :target="channel.url && !channel.badge ? '_blank' : undefined"
+          :rel="channel.url && !channel.badge ? 'noopener noreferrer' : undefined"
+          :class="['channel-card', { 'is-link': channel.url && !channel.badge }]"
         >
           <span class="channel-mark" aria-hidden="true">{{ channel.mark }}</span>
           <div class="channel-copy">
             <h3>{{ channel.name }}</h3>
             <p>{{ channel.description }}</p>
           </div>
-          <span v-if="channel.url" class="channel-action">{{ t.open }} <span aria-hidden="true">↗</span></span>
+          <span v-if="channel.url && !channel.badge" class="channel-action">{{ t.open }} <span aria-hidden="true">↗</span></span>
+          <a
+            v-else-if="channel.badge"
+            class="channel-badge"
+            href="https://peerpush.com/p/flyenv"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src="https://peerpush.com/p/flyenv/badge.png"
+              alt="FlyEnv on PeerPush"
+              width="230"
+              height="65"
+              loading="lazy"
+            />
+          </a>
           <span v-else class="channel-action channel-group-number">{{ channel.groupNumber }}</span>
         </component>
       </div>
@@ -95,6 +110,13 @@ const channels = computed(() => [
     url: '',
     description: isZh.value ? '面向中文用户的 FlyEnv 交流群。' : isId.value ? 'Grup diskusi FlyEnv untuk pengguna berbahasa Mandarin.' : isEs.value ? 'Un grupo de discusión de FlyEnv para usuarios que hablan chino.' : isVi.value ? 'Nhóm thảo luận FlyEnv dành cho người dùng nói tiếng Trung.' : 'A FlyEnv discussion group for Chinese-speaking users.',
     groupNumber: isZh.value ? '群号：540738893' : isId.value ? 'Nomor grup: 540738893' : isEs.value ? 'Número de grupo: 540738893' : isVi.value ? 'Số nhóm: 540738893' : 'Group number: 540738893'
+  },
+  {
+    mark: 'PP',
+    name: 'PeerPush',
+    url: '',
+    badge: true,
+    description: isZh.value ? '在 PeerPush 上关注并支持 FlyEnv。' : isId.value ? 'Dukung FlyEnv dan ikuti perkembangannya di PeerPush.' : isEs.value ? 'Apoya a FlyEnv y sigue su evolución en PeerPush.' : isVi.value ? 'Ủng hộ FlyEnv và theo dõi sản phẩm trên PeerPush.' : 'Support FlyEnv and follow its progress on PeerPush.'
   }
 ])
 </script>
@@ -204,6 +226,20 @@ const channels = computed(() => [
 .channel-group-number {
   color: var(--channel-muted);
   font-weight: 600;
+}
+
+.channel-badge {
+  display: block;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.channel-badge img {
+  border-radius: 0.55rem;
+  display: block;
+  height: auto;
+  max-width: 230px;
+  width: 100%;
 }
 
 .channel-card.is-link:focus-visible {
