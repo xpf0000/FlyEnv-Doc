@@ -237,7 +237,7 @@
   import { CircleCheckFilled, Cpu, Download, InfoFilled, Link } from '@element-plus/icons-vue'
 
   const { lang } = useData()
-  const version = 'v4.20.1'
+  const version = 'v4.20.2'
 
   const locale = computed(() =>
     lang.value === 'zh-CN'
@@ -555,19 +555,19 @@
   const copy = computed(() => copyByLocale[locale.value])
 
   const urls = {
-    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-Setup-4.20.1.exe',
+    win: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-Setup-4.20.2.exe',
     winPortable:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-Portable-4.20.1.exe',
-    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-4.20.1.dmg',
-    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-4.20.1-arm64.dmg',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-Portable-4.20.2.exe',
+    macX86: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-4.20.2.dmg',
+    macArm: 'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-4.20.2-arm64.dmg',
     linuxDebX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-4.20.1-x64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-4.20.2-x64.deb',
     linuxDebArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-4.20.1-arm64.deb',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-4.20.2-arm64.deb',
     linuxRpmX64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-4.20.1-x64.rpm',
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-4.20.2-x64.rpm',
     linuxRpmArm64:
-      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.1/FlyEnv-4.20.1-arm64.rpm'
+      'https://github.com/xpf0000/FlyEnv/releases/download/v4.20.2/FlyEnv-4.20.2-arm64.rpm'
   }
   const osIconPaths = {
     windows:
@@ -586,7 +586,7 @@
       description: copy.value.windowsInstallerDescription,
       architecture: 'x64',
       format: '.exe',
-      size: 144794356,
+      size: 154910744,
       href: urls.win,
       icon: 'windows'
     },
@@ -597,7 +597,7 @@
       description: copy.value.windowsPortableDescription,
       architecture: 'x64',
       format: '.exe · portable',
-      size: 205357792,
+      size: 206105744,
       href: urls.winPortable,
       icon: 'windows'
     },
@@ -608,7 +608,7 @@
       description: copy.value.macArmDescription,
       architecture: 'arm64',
       format: '.dmg',
-      size: 170505055,
+      size: 173805440,
       href: urls.macArm,
       icon: 'macos'
     },
@@ -619,7 +619,7 @@
       description: copy.value.macX86Description,
       architecture: 'x86_64',
       format: '.dmg',
-      size: 180008988,
+      size: 183418570,
       href: urls.macX86,
       icon: 'macos'
     },
@@ -630,7 +630,7 @@
       description: copy.value.debX64Description,
       architecture: 'x64',
       format: '.deb',
-      size: 139648464,
+      size: 140799120,
       href: urls.linuxDebX64,
       icon: 'linux'
     },
@@ -641,7 +641,7 @@
       description: copy.value.debArm64Description,
       architecture: 'arm64',
       format: '.deb',
-      size: 133321620,
+      size: 134408112,
       href: urls.linuxDebArm64,
       icon: 'linux'
     },
@@ -652,7 +652,7 @@
       description: copy.value.rpmX64Description,
       architecture: 'x64',
       format: '.rpm',
-      size: 119386849,
+      size: 120448693,
       href: urls.linuxRpmX64,
       icon: 'linux'
     },
@@ -663,7 +663,7 @@
       description: copy.value.rpmArm64Description,
       architecture: 'arm64',
       format: '.rpm',
-      size: 113632117,
+      size: 114618993,
       href: urls.linuxRpmArm64,
       icon: 'linux'
     }
