@@ -798,7 +798,7 @@ export default defineConfigWithTheme({
     footer: {
       message: FootMessage,
       copyright:
-        'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> · <a href="/refund-policy">Refund Policy</a>'
+        'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> · <a href="/refund-policy">Refund Policy</a> · <a href="https://peerpush.com/p/flyenv" target="_blank" rel="noopener">FlyEnv on PeerPush</a>'
     },
     search: {
       provider: 'local'
@@ -1093,7 +1093,7 @@ export default defineConfigWithTheme({
         footer: {
           message: FootMessage,
           copyright:
-            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/zh/terms">服务条款</a> · <a href="/zh/privacy">隐私政策</a> · <a href="/zh/refund-policy">退款政策</a>'
+            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/zh/terms">服务条款</a> · <a href="/zh/privacy">隐私政策</a> · <a href="/zh/refund-policy">退款政策</a> · <a href="https://peerpush.com/p/flyenv" target="_blank" rel="noopener">FlyEnv on PeerPush</a>'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }],
         nav: [
@@ -1219,7 +1219,7 @@ export default defineConfigWithTheme({
         footer: {
           message: FootMessage,
           copyright:
-            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/id/terms">Ketentuan Layanan</a> · <a href="/id/privacy">Kebijakan Privasi</a> · <a href="/id/refund-policy">Kebijakan Pengembalian Dana</a>'
+            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/id/terms">Ketentuan Layanan</a> · <a href="/id/privacy">Kebijakan Privasi</a> · <a href="/id/refund-policy">Kebijakan Pengembalian Dana</a> · <a href="https://peerpush.com/p/flyenv" target="_blank" rel="noopener">FlyEnv on PeerPush</a>'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }],
         nav: [
@@ -1369,7 +1369,7 @@ export default defineConfigWithTheme({
         footer: {
           message: FootMessage,
           copyright:
-            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/es/terms">Términos de servicio</a> · <a href="/es/privacy">Política de privacidad</a> · <a href="/es/refund-policy">Política de reembolso</a>'
+            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/es/terms">Términos de servicio</a> · <a href="/es/privacy">Política de privacidad</a> · <a href="/es/refund-policy">Política de reembolso</a> · <a href="https://peerpush.com/p/flyenv" target="_blank" rel="noopener">FlyEnv on PeerPush</a>'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }],
         nav: [
@@ -1525,7 +1525,7 @@ export default defineConfigWithTheme({
         footer: {
           message: FootMessage,
           copyright:
-            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/vi/terms">Điều khoản dịch vụ</a> · <a href="/vi/privacy">Chính sách bảo mật</a> · <a href="/vi/refund-policy">Chính sách hoàn tiền</a>'
+            'Copyright © 2019-present <a href="https://github.com/xpf0000">Alex Xu</a> · <a href="/vi/terms">Điều khoản dịch vụ</a> · <a href="/vi/privacy">Chính sách bảo mật</a> · <a href="/vi/refund-policy">Chính sách hoàn tiền</a> · <a href="https://peerpush.com/p/flyenv" target="_blank" rel="noopener">FlyEnv on PeerPush</a>'
         },
         socialLinks: [{ icon: 'github', link: 'https://github.com/xpf0000/FlyEnv' }],
         nav: [
