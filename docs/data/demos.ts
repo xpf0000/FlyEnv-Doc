@@ -139,7 +139,7 @@ const bilibiliByYoutubeId: Partial<Record<string, string>> = {
   'lCEEocXdt_M': 'BV1Zc386VE4o',
   'lu68kw8_3dY': 'BV1GtGG6dE6y',
   '3ePJYddWYmQ': 'BV1S43w6QEvS',
-  'SHK12kXApTM': 'BV1cFEp67E2v',
+  'SHK12kXApTM': 'BV14eP4zUErm',
   'uOf2cWk3AtU': 'BV1Hu3463Ej7',
   'vPD3lXo1vr0': 'BV1EV346BEqi',
   'sdbIbnIYoYY': 'BV1zrFDz4ELJ',

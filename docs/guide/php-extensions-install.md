@@ -28,17 +28,14 @@ Install php xdebug extension
 
 ## Windows
 
-Currently no quick installation is provided. But it provides the ability to open pecl sites and php extension folders
+The extension panel provides quick installation on Windows:
 
-Note. The extensions folder contains most common extensions by default. PHP does not enable these extensions by default. Please enable them in php.ini.
+- **Online library:** search the extension catalog (powered by Packagist) and install with one click. FlyEnv downloads [PIE](https://github.com/php/pie), the official PHP extension installer, and uses it to install the extension for your exact PHP version, so version matching is handled automatically. The PIE download requires x64 Windows.
+- **Bundled extensions:** the extension folder contains most common extensions by default. PHP does not enable them automatically — enable or disable them directly in the panel and FlyEnv updates `php.ini` for you.
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="">
 
-Download the .dll file at [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) and put it in the php extension folder
-
-The Windows version of PHP extension quick installation is very simple to implement. But the corresponding relationship between the php version and the php extension version is too cumbersome. I don't have much time to deal with this.
-
-If anyone wants to contribute. You can fork the code and submit a PR. Or provide the correspondence between the php version and the php extension version
+You can also install an extension manually: download the `.dll` file from [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) and put it in the PHP extension folder.
 
 
 

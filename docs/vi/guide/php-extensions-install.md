@@ -28,14 +28,11 @@ Cài php extension xdebug
 
 ## Windows
 
-Hiện tại chưa có cài đặt nhanh. Nhưng FlyEnv cung cấp khả năng mở trang pecl và thư mục php extension
+Bảng extension trên Windows đã hỗ trợ cài đặt nhanh:
 
-Lưu ý. Thư mục extension chứa sẵn hầu hết các extension phổ biến. PHP không bật các extension này theo mặc định. Vui lòng bật chúng trong php.ini.
+- **Thư viện trực tuyến:** tìm trong danh mục extension (dữ liệu từ Packagist) và cài đặt bằng một cú nhấp. FlyEnv tải [PIE](https://github.com/php/pie) — trình cài extension chính thức của PHP — và dùng nó để cài extension đúng với phiên bản PHP của bạn, nên việc khớp phiên bản được xử lý tự động. Việc tải PIE yêu cầu Windows x64.
+- **Extension có sẵn:** thư mục extension chứa sẵn hầu hết các extension phổ biến. PHP không tự bật chúng — hãy bật hoặc tắt trực tiếp trong bảng extension và FlyEnv sẽ cập nhật `php.ini` cho bạn.
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="">
 
-Tải xuống tệp .dll tại [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) và đặt nó vào thư mục php extension
-
-Cài đặt nhanh PHP extension cho bản Windows thực ra rất đơn giản để hiện thực hóa. Nhưng mối quan hệ tương ứng giữa phiên bản php và phiên bản php extension lại quá rối rắm. Tôi không có nhiều thời gian để xử lý việc này.
-
-Nếu ai đó muốn đóng góp. Bạn có thể fork code và gửi PR. Hoặc cung cấp mối tương ứng giữa phiên bản php và phiên bản php extension
+Bạn cũng có thể cài thủ công: tải tệp `.dll` tại [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) và đặt nó vào thư mục php extension.

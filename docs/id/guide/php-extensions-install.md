@@ -26,12 +26,11 @@ Contoh pemasangan ekstensi PHP Xdebug:
 
 ## Windows
 
-Saat ini FlyEnv belum menyediakan pemasangan cepat di Windows, tetapi menyediakan akses untuk membuka situs PECL dan folder ekstensi PHP.
+Panel ekstensi menyediakan pemasangan cepat di Windows:
 
-Perhatikan bahwa folder ekstensi berisi sebagian besar ekstensi umum secara bawaan. PHP tidak mengaktifkannya secara default; aktifkan ekstensi yang diperlukan di `php.ini`.
+- **Pustaka online:** cari katalog ekstensi (didukung Packagist) dan pasang dengan satu klik. FlyEnv mengunduh [PIE](https://github.com/php/pie), pemasang ekstensi PHP resmi, dan menggunakannya untuk memasang ekstensi sesuai versi PHP Anda, sehingga pencocokan versi ditangani secara otomatis. Unduhan PIE memerlukan Windows x64.
+- **Ekstensi bawaan:** folder ekstensi berisi sebagian besar ekstensi umum secara default. PHP tidak mengaktifkannya secara otomatis — aktifkan atau nonaktifkan langsung di panel dan FlyEnv akan memperbarui `php.ini` untuk Anda.
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="" alt="Folder ekstensi PHP di Windows">
 
-Unduh berkas `.dll` dari [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php), lalu letakkan di folder ekstensi PHP.
-
-Pemasangan cepat ekstensi PHP di Windows secara teknis sederhana, tetapi pencocokan antara versi PHP dan versi ekstensi PHP cukup rumit. Kontribusi dipersilakan: fork kode dan kirim PR, atau sediakan tabel kecocokan antara versi PHP dan versi ekstensi PHP.
+Anda juga dapat memasang ekstensi secara manual: unduh berkas `.dll` dari [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php), lalu letakkan di folder ekstensi PHP.

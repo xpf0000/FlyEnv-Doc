@@ -28,17 +28,14 @@ FlyEnv提供了PHP扩展的快捷安装
 
 ## Windows
 
-当前未提供PHP扩展的快捷安装. 但是提供了pecl站点和PHP扩展文件夹的快速打开
+扩展面板在 Windows 上提供了快捷安装：
 
-注意. 扩展文件夹中, 已默认包含了大多数常用扩展.PHP默认并未启用这些扩展. 请自行在php.ini中启用
+- **在线扩展库：** 搜索扩展目录（由 Packagist 提供数据）并一键安装。FlyEnv 会下载 [PIE](https://github.com/php/pie)（PHP 官方扩展安装器），并针对你当前的 PHP 版本完成安装，版本对应关系自动处理。下载 PIE 需要 x64 架构的 Windows。
+- **内置扩展：** 扩展文件夹中默认包含了大多数常用扩展。PHP 不会自动启用它们——直接在面板中启用或禁用，FlyEnv 会自动更新 `php.ini`。
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="">
 
-在[https://pecl.php.net/packages.php](https://pecl.php.net/packages.php)站点下载.dll文件, 然后放到PHP扩展文件夹
-
-Windows版本的PHP扩展的快捷安装实现起来很简单. 但是PHP版本和PHP扩展版本的对应关系很麻烦. 我没有时间和精力去处理这些
-
-如果有人想要做出贡献. 您可以fork代码并提交PR。或者提供PHP版本和PHP扩展版本的对应关系
+你也可以手动安装：在 [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) 站点下载 `.dll` 文件，然后放到 PHP 扩展文件夹。
 
 
 
