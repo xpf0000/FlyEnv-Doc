@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # FlyEnv MCP 服务器
 
-FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你的本地技术堆栈：列出和控制服务、检查日志和配置、读取站点及数据库连接信息。服务器默认在 `127.0.0.1:7682` 上通过 Streamable HTTP 提供 MCP 服务，使用 Bearer 令牌进行身份验证，并公开 18 个带有独立审批策略的工具。每次调用都会写入审计日志，让你始终了解助手执行了哪些操作。[AI 编程工作区指南](/zh/guide/ai-coding-workspace-mcp) 展示了在真实项目中的完整设置。
+FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你的本地技术堆栈：列出和控制服务、检查日志和配置、读取站点及数据库连接信息。服务器默认在 `127.0.0.1:7682` 上通过 Streamable HTTP 提供 MCP 服务，使用 Bearer 令牌进行身份验证，并公开 18 个带有独立审批策略的内置工具。插件可以增加工具，例如 **[AI Memory](/zh/features/ai-memory)** 提供的持久化记忆工具。每次调用都会写入审计日志，让你始终了解助手执行了哪些操作。[AI 编程工作区指南](/zh/guide/ai-coding-workspace-mcp) 展示了在真实项目中的完整设置。
 
 ![FlyEnv MCP Server 模块概览截图](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
 
@@ -61,7 +61,7 @@ FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你�
 
 ## 工具
 
-**工具**选项卡列出服务器公开的 18 个工具，并决定助手可以使用哪些工具。
+**工具**选项卡将内置工具与插件工具分组展示，并决定助手可以使用哪些工具。18 个内置工具包括：
 
 - **读取工具**——用于清单和检查：`list_services`、`service_status`、`list_sites`、`resolve_site_runtime`、`resolve_site_urls`、`get_database_connection_info`、`get_service_exec_info`、`get_managed_file_map`、`list_log_files`、`list_config_files` 和 `list_online_versions`。
 - **操作工具**——修改你的环境：`start_service`、`stop_service`、`restart_service`、`create_site`、`update_site`、`delete_site` 和 `install_service`。
@@ -70,12 +70,16 @@ FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你�
 
 ![FlyEnv 工具选项卡及逐项工具开关和批准策略截图](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
+安装 **[AI Memory](/zh/features/ai-memory)** 后，可增加搜索、读取、保存、更新和删除本地助手记忆的五个工具。它们的启用开关和审批策略在插件分组中管理，与内置环境工具位于同一页面。
+
 ## 审计日志
 
 **审计日志**选项卡实时查看 FlyEnv MCP 数据目录中的 `audit.log`，其中以 JSON Lines 格式记录服务器处理的每次工具调用。
 
 - **完整调用历史：** 每条记录都会捕获运行的工具及其参数，为 AI 助手访问过的所有内容提供可审查轨迹；这对日常[使用 AI 助手](/zh/guide/flyenv-work-with-ai)至关重要。
 - **敏感信息遮罩：** 令牌和密码在写入日志前会被遮罩，因此查看或分享文件不会泄露凭据。
+
+AI Memory 调用在共享审计日志中使用精简记录，不包含搜索查询、摘要或完整记忆正文。插件自身的 **调用记录** 页提供当前会话中的更多详情，同样不包含完整正文。
 
 ![FlyEnv 审计日志选项卡显示记录的工具调用截图](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
 

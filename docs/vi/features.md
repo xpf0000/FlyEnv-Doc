@@ -72,6 +72,8 @@ import openSearchLogo from '../components/SVG/OpenSearch.svg'
 import sqlServerLogo from '../components/SVG/SqlServer.svg'
 import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
 import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
+import samWafLogo from '../components/SVG/SamWaf.svg'
+import aiMemoryLogo from '../components/SVG/AIMemory.svg'
 
 const categories = [
   {
@@ -186,6 +188,8 @@ const categories = [
     description: 'Cài đặt các tích hợp tùy chọn và quản lý runtime, dịch vụ cùng công cụ chuyên biệt của chúng ngay trong FlyEnv.', tone: 'bg-sky-50 text-sky-700',
     items: [
       { name: 'Plugin Market', detail: 'Khám phá, cài đặt và cập nhật module tùy chọn.', href: '/vi/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'SamWaf', detail: 'Chạy tường lửa ứng dụng web trước các trang web cục bộ.', href: '/vi/features/samwaf', logo: samWafLogo },
+      { name: 'AI Memory', detail: 'Giữ bộ nhớ cục bộ của tác nhân qua nhiều phiên và dự án.', href: '/vi/features/ai-memory', logo: aiMemoryLogo },
       { name: 'MySQL Cluster', detail: 'Chạy nhiều instance, bản sao GTID và Group Replication.', href: '/vi/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
       { name: 'MariaDB Cluster', detail: 'Chạy nhiều instance và tạo nhóm GTID source/replica.', href: '/vi/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
       { name: 'Kafka', detail: 'Chạy broker KRaft và quản lý topic local.', href: '/vi/features/kafka', logo: kafkaLogo },

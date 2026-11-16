@@ -81,6 +81,8 @@ const featureSlugs = [
   'zig',
   'zincsearch',
   'plugin-market',
+  'samwaf',
+  'ai-memory',
   'kafka',
   'llama-cpp',
   'opensearch',
@@ -92,6 +94,8 @@ const featureSlugs = [
 ]
 
 const featureLabelsEn: Record<string, string> = {
+  samwaf: 'SamWaf',
+  'ai-memory': 'AI Memory',
   'mysql-cluster': 'MySQL Cluster',
   'mariadb-cluster': 'MariaDB Cluster',
   'plugin-market': 'Plugin Market',
@@ -169,6 +173,8 @@ const featureLabelsEn: Record<string, string> = {
 }
 
 const featureLabelsZh: Record<string, string> = {
+  samwaf: 'SamWaf',
+  'ai-memory': 'AI Memory',
   'mysql-cluster': 'MySQL 集群',
   'mariadb-cluster': 'MariaDB 集群',
   'plugin-market': '插件市场',
@@ -246,6 +252,8 @@ const featureLabelsZh: Record<string, string> = {
 }
 
 const featureLabelsId: Record<string, string> = {
+  samwaf: 'SamWaf',
+  'ai-memory': 'AI Memory',
   'mysql-cluster': 'MySQL Cluster',
   'mariadb-cluster': 'MariaDB Cluster',
   'plugin-market': 'Pasar Plugin',
@@ -323,6 +331,8 @@ const featureLabelsId: Record<string, string> = {
 }
 
 const featureLabelsEs: Record<string, string> = {
+  samwaf: 'SamWaf',
+  'ai-memory': 'AI Memory',
   'mysql-cluster': 'MySQL Cluster',
   'mariadb-cluster': 'MariaDB Cluster',
   'plugin-market': 'Catálogo de complementos',
@@ -400,6 +410,8 @@ const featureLabelsEs: Record<string, string> = {
 }
 
 const featureLabelsVi: Record<string, string> = {
+  samwaf: 'SamWaf',
+  'ai-memory': 'AI Memory',
   'mysql-cluster': 'MySQL Cluster',
   'mariadb-cluster': 'MariaDB Cluster',
   'plugin-market': 'Plugin Market',
@@ -493,7 +505,7 @@ const featureGroups = [
     id: 'Pasar Plugin & Modul Tambahan',
     es: 'Complementos y módulos opcionales',
     vi: 'Plugin Market & Module tùy chọn',
-    slugs: ['plugin-market', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
+    slugs: ['plugin-market', 'samwaf', 'ai-memory', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
   },
   {
     key: 'runtimes',
@@ -961,6 +973,8 @@ export default defineConfigWithTheme({
               text: 'Plugin Market & Optional Modules',
               items: [
                 { text: 'Plugin Market', link: '/features/plugin-market' },
+                { text: 'SamWaf', link: '/features/samwaf' },
+                { text: 'AI Memory', link: '/features/ai-memory' },
                 { text: 'MySQL Cluster', link: '/features/mysql-cluster' },
                 { text: 'MariaDB Cluster', link: '/features/mariadb-cluster' },
                 { text: 'Kafka', link: '/features/kafka' },

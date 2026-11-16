@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # FlyEnv MCP Server
 
-FlyEnv đi kèm một MCP server tích hợp sẵn cho phép các trợ lý coding AI vận hành stack local của bạn — liệt kê và điều khiển dịch vụ, xem log và cấu hình, đọc chi tiết kết nối site và cơ sở dữ liệu — thông qua một giao diện có kiểm soát. Server nói MCP qua Streamable HTTP trên `127.0.0.1:7682` theo mặc định, xác thực bằng một Bearer token, và cung cấp 18 công cụ với chính sách phê duyệt theo từng công cụ. Mọi lệnh gọi đều ghi vào một Audit Log, nhờ đó bạn luôn biết trợ lý đã làm gì. [Hướng dẫn không gian làm việc coding AI](/vi/guide/ai-coding-workspace-mcp) cho thấy toàn bộ thiết lập trong một dự án thực tế.
+FlyEnv đi kèm một MCP server tích hợp sẵn cho phép các trợ lý coding AI vận hành stack local của bạn — liệt kê và điều khiển dịch vụ, xem log và cấu hình, đọc chi tiết kết nối site và cơ sở dữ liệu — thông qua một giao diện có kiểm soát. Server nói MCP qua Streamable HTTP trên `127.0.0.1:7682` theo mặc định, xác thực bằng một Bearer token, và cung cấp 18 công cụ tích hợp sẵn với chính sách phê duyệt theo từng công cụ. Plugin có thể bổ sung công cụ, bao gồm bộ nhớ bền vững thông qua **[AI Memory](/vi/features/ai-memory)**. Mọi lệnh gọi đều ghi vào một Audit Log, nhờ đó bạn luôn biết trợ lý đã làm gì. [Hướng dẫn không gian làm việc coding AI](/vi/guide/ai-coding-workspace-mcp) cho thấy toàn bộ thiết lập trong một dự án thực tế.
 
 ![Tổng quan module FlyEnv MCP Server](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
 
@@ -61,7 +61,7 @@ Tab **Client Config** kết nối server vào sáu công cụ AI CLI mà FlyEnv 
 
 ## Tools
 
-Tab **Tools** liệt kê 18 công cụ mà server cung cấp và quyết định công cụ nào trợ lý được dùng.
+Tab **Tools** nhóm các công cụ tích hợp sẵn và công cụ plugin, đồng thời quyết định công cụ nào trợ lý được dùng. 18 công cụ tích hợp sẵn bao gồm:
 
 - **Công cụ đọc** — kiểm kê và giám sát: `list_services`, `service_status`, `list_sites`, `resolve_site_runtime`, `resolve_site_urls`, `get_database_connection_info`, `get_service_exec_info`, `get_managed_file_map`, `list_log_files`, `list_config_files` và `list_online_versions`.
 - **Công cụ hành động** — thay đổi môi trường của bạn: `start_service`, `stop_service`, `restart_service`, `create_site`, `update_site`, `delete_site` và `install_service`.
@@ -70,12 +70,16 @@ Tab **Tools** liệt kê 18 công cụ mà server cung cấp và quyết định
 
 ![Tab Tools với công tắc theo từng công cụ và chính sách phê duyệt](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
+Cài **[AI Memory](/vi/features/ai-memory)** để thêm năm công cụ tìm kiếm, đọc, lưu, cập nhật và xóa bộ nhớ cục bộ của tác nhân. Các công tắc bật và chính sách phê duyệt của chúng được quản lý trong nhóm plugin, cùng với các công cụ môi trường tích hợp sẵn.
+
 ## Audit Log
 
 Tab **Audit Log** là một trình xem trực tiếp trên `audit.log` trong thư mục dữ liệu MCP của FlyEnv — một bản ghi dạng JSON-lines của mọi lệnh gọi công cụ mà server xử lý.
 
 - **Lịch sử lệnh gọi đầy đủ:** mỗi mục ghi lại công cụ nào đã chạy và với dữ liệu gì, cho bạn một dấu vết có thể rà soát về mọi thứ các trợ lý AI của bạn đã chạm vào — bối cảnh thiết yếu khi bạn [làm việc với trợ lý AI](/vi/guide/flyenv-work-with-ai) hằng ngày.
 - **Che giấu thông tin nhạy cảm:** token và mật khẩu được che trước khi vào log, nên việc rà soát hay chia sẻ tệp không làm rò rỉ thông tin đăng nhập.
+
+Các lệnh gọi AI Memory dùng mục kiểm toán chung được rút gọn, không chứa truy vấn tìm kiếm, tóm tắt hoặc toàn bộ nội dung bộ nhớ. Thẻ **Lịch sử gọi công cụ** riêng của plugin cung cấp thêm chi tiết cho phiên hiện tại, đồng thời vẫn loại trừ toàn bộ nội dung bộ nhớ.
 
 ![Tab Audit Log hiển thị các lệnh gọi công cụ đã ghi](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
 

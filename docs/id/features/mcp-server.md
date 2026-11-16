@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Server MCP FlyEnv
 
-FlyEnv menyertakan server MCP bawaan yang memungkinkan asisten coding AI mengoperasikan stack lokal Anda—mencantumkan dan mengendalikan layanan, memeriksa log dan konfigurasi, serta membaca detail koneksi situs dan basis data—melalui antarmuka yang terkontrol. Server berkomunikasi menggunakan MCP melalui Streamable HTTP pada `127.0.0.1:7682` secara bawaan, diautentikasi dengan token Bearer, dan menyediakan 18 alat dengan kebijakan persetujuan per alat. Setiap panggilan dicatat dalam Log Audit sehingga Anda selalu mengetahui tindakan asisten. [Panduan ruang kerja coding AI](/id/guide/ai-coding-workspace-mcp) menunjukkan penyiapan lengkap pada proyek nyata.
+FlyEnv menyertakan server MCP bawaan yang memungkinkan asisten coding AI mengoperasikan stack lokal Anda—mencantumkan dan mengendalikan layanan, memeriksa log dan konfigurasi, serta membaca detail koneksi situs dan basis data—melalui antarmuka yang terkontrol. Server berkomunikasi menggunakan MCP melalui Streamable HTTP pada `127.0.0.1:7682` secara bawaan, diautentikasi dengan token Bearer, dan menyediakan 18 alat bawaan dengan kebijakan persetujuan per alat. Plugin dapat menambahkan alat, termasuk memori persisten melalui **[AI Memory](/id/features/ai-memory)**. Setiap panggilan dicatat dalam Log Audit sehingga Anda selalu mengetahui tindakan asisten. [Panduan ruang kerja coding AI](/id/guide/ai-coding-workspace-mcp) menunjukkan penyiapan lengkap pada proyek nyata.
 
 ![Ikhtisar modul Server MCP FlyEnv](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
 
@@ -61,7 +61,7 @@ Tab **Konfigurasi Klien** menghubungkan server ke enam alat CLI AI yang telah di
 
 ## Alat
 
-Tab **Alat** mencantumkan 18 alat yang disediakan server dan menentukan alat mana yang boleh digunakan asisten.
+Tab **Alat** mengelompokkan alat bawaan dan plugin serta menentukan alat mana yang boleh digunakan asisten. Ke-18 alat bawaan mencakup:
 
 - **Alat baca**—inventaris dan inspeksi: `list_services`, `service_status`, `list_sites`, `resolve_site_runtime`, `resolve_site_urls`, `get_database_connection_info`, `get_service_exec_info`, `get_managed_file_map`, `list_log_files`, `list_config_files`, dan `list_online_versions`.
 - **Alat tindakan**—perubahan pada lingkungan: `start_service`, `stop_service`, `restart_service`, `create_site`, `update_site`, `delete_site`, dan `install_service`.
@@ -70,12 +70,16 @@ Tab **Alat** mencantumkan 18 alat yang disediakan server dan menentukan alat man
 
 ![Tab Alat dengan sakelar dan kebijakan persetujuan per alat](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
+Instal **[AI Memory](/id/features/ai-memory)** untuk menambahkan lima alat memori guna mencari, membaca, menyimpan, memperbarui, dan menghapus memori agen lokal. Sakelar dan kebijakan persetujuannya dikelola di grup plugin, bersama alat lingkungan bawaan.
+
 ## Log Audit
 
 Tab **Log Audit** adalah penampil langsung untuk `audit.log` di direktori data MCP FlyEnv—catatan JSON Lines dari setiap panggilan alat yang diproses server.
 
 - **Riwayat panggilan lengkap:** setiap entri merekam alat yang berjalan beserta parameternya, menyediakan jejak yang dapat ditinjau atas semua tindakan asisten AI—konteks penting saat Anda [bekerja dengan asisten AI](/id/guide/flyenv-work-with-ai) sehari-hari.
 - **Penyamaran rahasia:** token dan kata sandi disamarkan sebelum masuk log, sehingga meninjau atau membagikan berkas tidak membocorkan kredensial.
+
+Panggilan AI Memory menggunakan entri audit bersama yang dipangkas tanpa kueri pencarian, ringkasan, atau isi memori lengkap. Tab **Catatan Panggilan** milik plugin menyediakan detail lebih lanjut untuk sesi saat ini, tetap tanpa menyertakan isi lengkap.
 
 ![Tab Log Audit yang menampilkan panggilan alat](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
 

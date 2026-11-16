@@ -2,7 +2,7 @@
 layout: doc
 titleTemplate: false
 title: 'Pasar Plugin FlyEnv: Tambahkan Modul Sesuai Kebutuhan'
-description: 'Tambahkan cluster MySQL dan MariaDB, Kafka, llama.cpp, OpenSearch, SQL Server, Dameng DM8, serta pintasan perintah melalui Pasar Plugin FlyEnv.'
+description: 'Jelajahi plugin FlyEnv untuk SamWaf, memori AI persisten, cluster database, Kafka, llama.cpp, OpenSearch, SQL Server, dan perintah terminal tersimpan.'
 ---
 
 # Pasar Plugin FlyEnv
@@ -15,8 +15,10 @@ Buka **Settings → Plugin Market** untuk melihat plugin resmi, mengelola plugin
 
 ## Plugin yang tersedia
 
-Modul tambahan ini mencakup layanan lokal, inferensi AI, dan tugas terminal sehari-hari:
+Modul tambahan ini mencakup perlindungan situs web, memori AI persisten, layanan lokal, inferensi AI, dan tugas terminal sehari-hari:
 
+- **[SamWaf](/id/features/samwaf):** jalankan firewall aplikasi web ringan di depan situs lokal, kelola versi dan layanannya, lalu buka panel administrasi webnya.
+- **[AI Memory](/id/features/ai-memory):** berikan memori lokal persisten kepada agen pemrograman AI melalui MCP, dengan cakupan global dan proyek, peta memori 3D, penyiapan klien, pencadangan, dan pemulihan.
 - **[MySQL Cluster](/id/features/mysql-cluster):** jalankan instans mandiri pada port berbeda, buat grup replikasi GTID source/replica, atau gunakan Group Replication dengan satu primary.
 - **[MariaDB Cluster](/id/features/mariadb-cluster):** jalankan instans mandiri dan buat grup replikasi GTID source/replica dengan konfigurasi, log, dan pengelolaan data per instans.
 - **[Kafka](/id/features/kafka):** jalankan broker KRaft lokal, pilih runtime Java, serta buat atau hapus topik langsung di FlyEnv.
@@ -38,7 +40,7 @@ MySQL Cluster dan MariaDB Cluster menyediakan tampilan khusus untuk instans, mel
 
 Pada tab **Official**, perbarui daftar dan klik **Install** pada kartu plugin. Setiap kartu menampilkan deskripsi, pembuat, dan versi plugin. Instalasi dan pembaruan plugin memerlukan [lisensi FlyEnv](/id/license) yang aktif.
 
-Setelah terpasang dan diaktifkan, plugin menambahkan modulnya ke bilah samping. Untuk plugin layanan, buka modul tersebut dan instal perangkat lunak yang dikelolanya, misalnya distribusi Kafka, runtime llama.cpp, atau mesin database. Paket plugin dan runtime memiliki versi masing-masing; memperbarui plugin berarti memperbarui integrasinya dengan FlyEnv. Pintasan Perintah menggunakan terminal sistem yang sudah ada sehingga tidak memerlukan runtime layanan terpisah.
+Setelah terpasang dan diaktifkan, plugin menambahkan modulnya ke bilah samping. Untuk plugin layanan, buka modul tersebut dan instal perangkat lunak yang dikelolanya, misalnya SamWaf, distribusi Kafka, runtime llama.cpp, atau mesin database. Paket plugin dan runtime memiliki versi masing-masing; memperbarui plugin berarti memperbarui integrasinya dengan FlyEnv. AI Memory menggunakan server MCP FlyEnv, sedangkan Pintasan Perintah menggunakan terminal sistem yang sudah ada; keduanya tidak memerlukan runtime layanan terpisah.
 
 Perubahan plugin biasanya langsung diterapkan pada antarmuka dan backend tanpa perlu memulai ulang aplikasi. Jika perubahan tertentu memerlukan mulai ulang, FlyEnv akan menampilkan pemberitahuan.
 

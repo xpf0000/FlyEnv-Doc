@@ -2,7 +2,7 @@
 layout: doc
 titleTemplate: false
 title: 'Plugin Market: thêm module tùy chọn vào FlyEnv | FlyEnv'
-description: 'Khám phá các plugin FlyEnv cho MySQL Cluster, MariaDB Cluster, Kafka, llama.cpp, OpenSearch, SQL Server, Dameng DM8 và command shortcuts.'
+description: 'Khám phá các plugin FlyEnv cho SamWaf, bộ nhớ AI bền vững, cụm cơ sở dữ liệu, Kafka, llama.cpp, OpenSearch, SQL Server và lệnh terminal đã lưu.'
 ---
 
 # Plugin Market trong FlyEnv
@@ -15,8 +15,10 @@ Mở **Settings → Plugin Market** để duyệt các plugin chính thức, qu�
 
 ## Các plugin khả dụng
 
-Khám phá các module tùy chọn cho dịch vụ local, suy luận AI và các tác vụ terminal hằng ngày:
+Khám phá các module tùy chọn để bảo vệ website, lưu bộ nhớ AI bền vững, chạy dịch vụ local, suy luận AI và thực hiện các tác vụ terminal hằng ngày:
 
+- **[SamWaf](/vi/features/samwaf):** chạy tường lửa ứng dụng web nhẹ trước các trang web cục bộ, quản lý phiên bản và dịch vụ, đồng thời mở trang quản trị web.
+- **[AI Memory](/vi/features/ai-memory):** cung cấp bộ nhớ cục bộ bền vững cho tác nhân lập trình AI qua MCP, với phạm vi toàn cục và dự án, bản đồ bộ nhớ 3D, thiết lập ứng dụng khách, sao lưu và khôi phục.
 - **[MySQL Cluster](/vi/features/mysql-cluster):** chạy các instance MySQL độc lập trên cổng riêng, tạo nhóm source/replica GTID hay dựng Group Replication single-primary.
 - **[MariaDB Cluster](/vi/features/mariadb-cluster):** chạy các instance MariaDB độc lập và tạo nhóm source/replica GTID với cấu hình, log và quản lý dữ liệu theo từng instance.
 - **[Kafka](/vi/features/kafka):** chạy một broker KRaft local, gắn một runtime Java và tạo hay xóa topic ngay trong FlyEnv.
@@ -38,7 +40,7 @@ MySQL Cluster và MariaDB Cluster thêm các khung nhìn instance chuyên dụng
 
 Trong tab **Official**, làm mới danh mục và chọn **Install** trên một thẻ plugin. Danh mục hiển thị mô tả, tác giả và phiên bản của plugin. Cài và cập nhật plugin đòi hỏi một [giấy phép FlyEnv](/vi/license) còn hiệu lực.
 
-Sau khi cài, plugin được bật sẽ thêm module của nó vào thanh bên. Với một plugin dịch vụ, hãy mở module đó để cài phần mềm mà nó quản lý, chẳng hạn một bản phân phối Kafka, một runtime llama.cpp hay một engine cơ sở dữ liệu. Gói plugin và runtime phần mềm có phiên bản riêng; cập nhật một plugin cập nhật tích hợp FlyEnv của nó. Command Shortcuts dùng terminal hệ thống sẵn có của bạn và không có service runtime riêng phải cài.
+Sau khi cài, plugin được bật sẽ thêm module của nó vào thanh bên. Với một plugin dịch vụ, hãy mở module đó để cài phần mềm mà nó quản lý, chẳng hạn SamWaf, một bản phân phối Kafka, một runtime llama.cpp hay một engine cơ sở dữ liệu. Gói plugin và runtime phần mềm có phiên bản riêng; cập nhật một plugin cập nhật tích hợp FlyEnv của nó. AI Memory dùng MCP server của FlyEnv, còn Command Shortcuts dùng terminal hệ thống sẵn có của bạn; cả hai đều không có service runtime riêng phải cài.
 
 Các thay đổi plugin được áp dụng lên giao diện và backend mà không cần khởi động lại ứng dụng một cách định kỳ. Nếu một thay đổi cần khởi động lại để hoàn tất, FlyEnv sẽ đề xuất một lời nhắc khởi động lại.
 

@@ -72,6 +72,8 @@ import openSearchLogo from '../components/SVG/OpenSearch.svg'
 import sqlServerLogo from '../components/SVG/SqlServer.svg'
 import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
 import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
+import samWafLogo from '../components/SVG/SamWaf.svg'
+import aiMemoryLogo from '../components/SVG/AIMemory.svg'
 
 const categories = [
   {
@@ -186,6 +188,8 @@ const categories = [
     description: 'Tambahkan integrasi sesuai kebutuhan, lalu kelola runtime, layanan, dan alat khusus langsung di FlyEnv.', tone: 'bg-sky-50 text-sky-700',
     items: [
       { name: 'Pasar Plugin', detail: 'Temukan, instal, dan perbarui modul tambahan.', href: '/id/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
+      { name: 'SamWaf', detail: 'Jalankan firewall aplikasi web di depan situs lokal.', href: '/id/features/samwaf', logo: samWafLogo },
+      { name: 'AI Memory', detail: 'Simpan memori agen secara lokal lintas sesi dan proyek.', href: '/id/features/ai-memory', logo: aiMemoryLogo },
       { name: 'MySQL Cluster', detail: 'Jalankan banyak instans, replika GTID, dan Group Replication.', href: '/id/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
       { name: 'MariaDB Cluster', detail: 'Jalankan banyak instans dan buat grup replikasi GTID.', href: '/id/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
       { name: 'Kafka', detail: 'Jalankan broker KRaft dan kelola topik lokal.', href: '/id/features/kafka', logo: kafkaLogo },

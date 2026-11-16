@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Servidor MCP de FlyEnv
 
-FlyEnv incluye un servidor MCP integrado que permite a los asistentes de codificación con IA operar tu stack local — listar y controlar servicios, inspeccionar registros y configuraciones, leer detalles de conexión de sitios y bases de datos — a través de una interfaz controlada. El servidor habla MCP sobre Streamable HTTP en `127.0.0.1:7682` por defecto, se autentica con un token Bearer y expone 18 herramientas con políticas de aprobación por herramienta. Cada llamada queda registrada en un Registro de auditoría, de modo que siempre sabes lo que hizo un asistente. La [guía del espacio de trabajo de codificación con IA](/es/guide/ai-coding-workspace-mcp) muestra la configuración completa en un proyecto real.
+FlyEnv incluye un servidor MCP integrado que permite a los asistentes de codificación con IA operar tu stack local — listar y controlar servicios, inspeccionar registros y configuraciones, leer detalles de conexión de sitios y bases de datos — a través de una interfaz controlada. El servidor habla MCP sobre Streamable HTTP en `127.0.0.1:7682` por defecto, se autentica con un token Bearer y expone 18 herramientas integradas con políticas de aprobación por herramienta. Los complementos pueden añadir herramientas, incluida la memoria persistente mediante **[AI Memory](/es/features/ai-memory)**. Cada llamada queda registrada en un Registro de auditoría, de modo que siempre sabes lo que hizo un asistente. La [guía del espacio de trabajo de codificación con IA](/es/guide/ai-coding-workspace-mcp) muestra la configuración completa en un proyecto real.
 
 ![Vista general del módulo Servidor MCP de FlyEnv](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
 
@@ -61,7 +61,7 @@ La pestaña **Configuración de clientes** conecta el servidor con las seis herr
 
 ## Herramientas
 
-La pestaña **Herramientas** lista las 18 herramientas que expone el servidor y decide cuáles de ellas puede usar un asistente.
+La pestaña **Herramientas** agrupa las herramientas integradas y las de los complementos y decide cuáles de ellas puede usar un asistente. Las 18 herramientas integradas cubren:
 
 - **Herramientas de lectura** — inventario e inspección: `list_services`, `service_status`, `list_sites`, `resolve_site_runtime`, `resolve_site_urls`, `get_database_connection_info`, `get_service_exec_info`, `get_managed_file_map`, `list_log_files`, `list_config_files` y `list_online_versions`.
 - **Herramientas de acción** — cambios en tu entorno: `start_service`, `stop_service`, `restart_service`, `create_site`, `update_site`, `delete_site` y `install_service`.
@@ -70,12 +70,16 @@ La pestaña **Herramientas** lista las 18 herramientas que expone el servidor y 
 
 ![Pestaña Herramientas con interruptores por herramienta y políticas de aprobación](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
+Instala **[AI Memory](/es/features/ai-memory)** para añadir cinco herramientas de memoria que permiten buscar, leer, guardar, actualizar y eliminar las memorias locales de los agentes. Sus interruptores de activación y políticas de aprobación se gestionan en el grupo del complemento, junto a las herramientas integradas del entorno.
+
 ## Registro de auditoría
 
 La pestaña **Registro de auditoría** es un visor en vivo sobre `audit.log` en el directorio de datos MCP de FlyEnv — un registro en formato JSON Lines de cada llamada a herramienta que procesa el servidor.
 
 - **Historial completo de llamadas:** cada entrada captura qué herramienta se ejecutó y con qué parámetros, dándote un rastro revisable de todo lo que tus asistentes de IA han tocado — contexto esencial cuando [trabajas con asistentes de IA](/es/guide/flyenv-work-with-ai) a diario.
 - **Enmascaramiento de secretos:** los tokens y contraseñas se enmascaran antes de llegar al registro, de modo que revisar o compartir el archivo no filtra credenciales.
+
+Las llamadas de AI Memory utilizan entradas reducidas en el registro de auditoría compartido, sin consultas de búsqueda, resúmenes ni cuerpos completos de las memorias. La pestaña **Registro de llamadas** del propio complemento ofrece más detalles de la sesión actual y también excluye los cuerpos completos.
 
 ![Pestaña Registro de auditoría mostrando las llamadas a herramientas registradas](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
 

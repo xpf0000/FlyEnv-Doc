@@ -2,7 +2,7 @@
 layout: doc
 titleTemplate: false
 title: 'Plugin Market: Add Optional Modules to FlyEnv'
-description: 'Explore FlyEnv plugins for MySQL and MariaDB clusters, Kafka, llama.cpp, OpenSearch, SQL Server, Dameng DM8 and command shortcuts.'
+description: 'Explore FlyEnv plugins for SamWaf, persistent AI memory, database clusters, Kafka, llama.cpp, OpenSearch, SQL Server and saved terminal commands.'
 ---
 
 # Plugin Market in FlyEnv
@@ -15,8 +15,10 @@ Open **Settings → Plugin Market** to browse official plugins, manage installed
 
 ## Available plugins
 
-Explore optional modules for local services, AI inference and everyday terminal tasks:
+Explore optional modules for website protection, persistent AI memory, local services, AI inference and everyday terminal tasks:
 
+- **[SamWaf](/features/samwaf):** run a lightweight web application firewall in front of local sites, manage its versions and service, and open its web administration panel.
+- **[AI Memory](/features/ai-memory):** give AI coding agents persistent local memory through MCP, with global and project scopes, a 3D memory map, client setup, backup and restore.
 - **[MySQL Cluster](/features/mysql-cluster):** run independent MySQL instances on separate ports, create GTID source/replica groups or set up single-primary Group Replication.
 - **[MariaDB Cluster](/features/mariadb-cluster):** run independent MariaDB instances and create GTID source/replica groups with per-instance configuration, logs and data management.
 - **[Kafka](/features/kafka):** run a local KRaft broker, bind a Java runtime and create or delete topics inside FlyEnv.
@@ -38,7 +40,7 @@ MySQL Cluster and MariaDB Cluster add dedicated instance views alongside FlyEnv'
 
 In the **Official** tab, refresh the catalog and choose **Install** on a plugin card. The catalog shows the plugin's description, author and version. Installing and updating plugins requires an active [FlyEnv license](/license).
 
-After installation, the enabled plugin adds its module to the sidebar. For a service plugin, open that module to install the software it manages, such as a Kafka distribution, a llama.cpp runtime or a database engine. The plugin package and the software runtime have separate versions; updating a plugin updates its FlyEnv integration. Command Shortcuts uses your existing system terminal and has no separate service runtime to install.
+After installation, the enabled plugin adds its module to the sidebar. For a service plugin, open that module to install the software it manages, such as SamWaf, a Kafka distribution, a llama.cpp runtime or a database engine. The plugin package and the software runtime have separate versions; updating a plugin updates its FlyEnv integration. AI Memory uses FlyEnv's MCP server, and Command Shortcuts uses your existing system terminal; neither has a separate service runtime to install.
 
 Plugin changes are applied to the interface and backend without a routine app restart. If a change needs a restart to finish, FlyEnv offers a restart prompt.
 

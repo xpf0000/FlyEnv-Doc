@@ -2,7 +2,7 @@
 layout: doc
 titleTemplate: false
 title: 'FlyEnv 插件市场：按需添加模块'
-description: '通过 FlyEnv 插件市场安装和管理 MySQL 与 MariaDB 集群、Kafka、llama.cpp、OpenSearch、SQL Server、达梦 DM8 和快捷命令，按需扩展开发环境。'
+description: '探索 FlyEnv 插件，包括 SamWaf、持久化 AI 记忆、数据库集群、Kafka、llama.cpp、OpenSearch、SQL Server 和常用终端命令管理，按需扩展开发环境。'
 ---
 
 # FlyEnv 插件市场
@@ -15,8 +15,10 @@ description: '通过 FlyEnv 插件市场安装和管理 MySQL 与 MariaDB 集群
 
 ## 可用插件
 
-这些可选模块涵盖本地服务、AI 推理和日常终端任务：
+这些可选模块涵盖网站防护、持久化 AI 记忆、本地服务、AI 推理和日常终端任务：
 
+- **[SamWaf](/zh/features/samwaf)：** 在本地站点前方运行轻量级 Web 应用防火墙，管理版本与服务，并打开其 Web 管理面板。
+- **[AI Memory](/zh/features/ai-memory)：** 通过 MCP 为 AI 编程助手提供持久化本地记忆，支持全局与项目范围、3D 记忆星图、客户端接入、备份和恢复。
 - **[MySQL 集群](/zh/features/mysql-cluster)：** 在不同端口运行独立实例，一键创建 GTID 主从复制组或单主 Group Replication。
 - **[MariaDB 集群](/zh/features/mariadb-cluster)：** 运行多个独立实例，创建 GTID 主从复制组，并分别管理配置、日志和数据库。
 - **[Kafka](/zh/features/kafka)：** 运行本地 KRaft Broker，绑定 Java 运行时，并在 FlyEnv 中创建或删除主题。
@@ -38,7 +40,7 @@ MySQL Cluster 和 MariaDB Cluster 在内置数据库模块之外提供专门的�
 
 在 **官方** 标签页刷新列表，然后点击插件卡片上的 **安装**。卡片会显示插件说明、作者和版本。安装和更新插件需要有效的 [FlyEnv 授权](/zh/license)。
 
-安装并启用后，插件会在侧边栏中添加对应模块。服务类插件还需要进入模块，安装它所管理的软件，例如 Kafka 发行包、llama.cpp 运行时或数据库引擎。插件包与软件运行时各有自己的版本；更新插件，更新的是软件与 FlyEnv 的集成部分。快捷命令直接使用已有的系统终端，无需另外安装服务运行时。
+安装并启用后，插件会在侧边栏中添加对应模块。服务类插件还需要进入模块，安装它所管理的软件，例如 SamWaf、Kafka 发行包、llama.cpp 运行时或数据库引擎。插件包与软件运行时各有自己的版本；更新插件，更新的是软件与 FlyEnv 的集成部分。AI Memory 使用 FlyEnv 的 MCP 服务器，快捷命令使用已有的系统终端，两者均无需另外安装服务运行时。
 
 插件变更通常会直接应用到界面和后端，无需重启应用。如果某项变更需要重启才能完成，FlyEnv 会给出重启提示。
 

@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
 
 # FlyEnv MCP Server
 
-FlyEnv ships a built-in MCP server that lets AI coding assistants operate your local stack — list and control services, inspect logs and configs, read site and database connection details — through a governed interface. The server speaks MCP over Streamable HTTP on `127.0.0.1:7682` by default, authenticates with a Bearer token, and exposes 18 tools with per-tool approval policies. Every call lands in an Audit Log, so you always know what an assistant did. The [AI coding workspace guide](/guide/ai-coding-workspace-mcp) shows the full setup in a real project.
+FlyEnv ships a built-in MCP server that lets AI coding assistants operate your local stack — list and control services, inspect logs and configs, read site and database connection details — through a governed interface. The server speaks MCP over Streamable HTTP on `127.0.0.1:7682` by default, authenticates with a Bearer token, and exposes 18 built-in tools with per-tool approval policies. Plugins can add tools, including persistent memory through **[AI Memory](/features/ai-memory)**. Every call lands in an Audit Log, so you always know what an assistant did. The [AI coding workspace guide](/guide/ai-coding-workspace-mcp) shows the full setup in a real project.
 
 ![FlyEnv MCP Server module overview](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
 
@@ -61,7 +61,7 @@ The **Client Config** tab wires the server into the six AI CLI tools FlyEnv alre
 
 ## Tools
 
-The **Tools** tab lists the 18 tools the server exposes and decides which of them an assistant may use.
+The **Tools** tab groups built-in and plugin tools and decides which of them an assistant may use. The 18 built-in tools cover:
 
 - **Read tools** — inventory and inspection: `list_services`, `service_status`, `list_sites`, `resolve_site_runtime`, `resolve_site_urls`, `get_database_connection_info`, `get_service_exec_info`, `get_managed_file_map`, `list_log_files`, `list_config_files` and `list_online_versions`.
 - **Action tools** — changes to your environment: `start_service`, `stop_service`, `restart_service`, `create_site`, `update_site`, `delete_site` and `install_service`.
@@ -70,12 +70,16 @@ The **Tools** tab lists the 18 tools the server exposes and decides which of the
 
 ![Tools tab with per-tool switches and approval policies](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
+Install **[AI Memory](/features/ai-memory)** to add five memory tools for searching, reading, saving, updating and deleting local agent memories. Their enable switches and approval policies are managed in the plugin group, alongside the built-in environment tools.
+
 ## Audit Log
 
 The **Audit Log** tab is a live viewer over `audit.log` in FlyEnv's MCP data directory — a JSON-lines record of every tool call the server processes.
 
 - **Full call history:** each entry captures which tool ran and with what, giving you a reviewable trail of everything your AI assistants touched — essential context when you [work with AI assistants](/guide/flyenv-work-with-ai) day to day.
 - **Secret masking:** tokens and passwords are masked before they reach the log, so reviewing or sharing the file does not leak credentials.
+
+AI Memory calls use reduced shared audit entries without search queries, summaries or full memory bodies. The plugin's own **Call Records** tab provides more detail for the current session while still excluding full bodies.
 
 ![Audit Log tab showing recorded tool calls](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
 

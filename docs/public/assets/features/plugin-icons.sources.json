@@ -16,5 +16,13 @@
   "CommandShortcuts.svg": {
     "source": "FlyEnv/src/render/svg/terminal.svg",
     "note": "Native plugin terminal glyph in FlyEnv blue."
+  },
+  "SamWaf.svg": {
+    "source": "FlyEnv/plugins/samwaf/render/samwaf.svg",
+    "note": "Native plugin glyph in FlyEnv green."
+  },
+  "AIMemory.svg": {
+    "source": "FlyEnv/plugins/ai-memory/assets/ai-memory.svg",
+    "note": "Native AI Memory orbital M glyph in FlyEnv green."
   }
 }
