@@ -19,6 +19,7 @@ Los módulos opcionales cubren protección de sitios web, memoria persistente de
 
 - **[SamWaf](/es/features/samwaf):** ejecuta un firewall ligero de aplicaciones web delante de tus sitios locales, gestiona sus versiones y servicio y abre su panel de administración web.
 - **[AI Memory](/es/features/ai-memory):** proporciona memoria local persistente a los agentes de programación con IA mediante MCP, con ámbitos globales y por proyecto, un mapa de memorias en 3D, configuración de clientes, copias de seguridad y restauración.
+- **[NTP Server](/es/features/ntp-server)** sirve la hora actual, desfasada o congelada a clientes de prueba locales mediante NTP.
 - **[MySQL Cluster](/es/features/mysql-cluster):** ejecuta instancias independientes en puertos distintos, crea grupos de replicación GTID con origen y réplicas o configura Group Replication con un único primario.
 - **[MariaDB Cluster](/es/features/mariadb-cluster):** ejecuta instancias independientes y crea grupos de replicación GTID con configuración, registros y gestión de datos por instancia.
 - **[Kafka](/es/features/kafka):** ejecuta un broker KRaft local, asígnale un runtime de Java y crea o elimina temas desde FlyEnv.

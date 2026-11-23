@@ -74,6 +74,7 @@ import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
 import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 import samWafLogo from '../components/SVG/SamWaf.svg'
 import aiMemoryLogo from '../components/SVG/AIMemory.svg'
+import ntpServerLogo from '../components/SVG/NTPServer.svg'
 
 const categories = [
   {
@@ -190,6 +191,7 @@ const categories = [
       { name: '插件市场', detail: '发现、安装和更新可选模块。', href: '/zh/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
       { name: 'SamWaf', detail: '在本地站点前方运行 Web 应用防火墙。', href: '/zh/features/samwaf', logo: samWafLogo },
       { name: 'AI Memory', detail: '为 AI 编程助手保存跨会话的本地记忆。', href: '/zh/features/ai-memory', logo: aiMemoryLogo },
+      { name: 'NTP Server', detail: '为本地测试客户端提供实时、偏移或冻结时间。', href: '/zh/features/ntp-server', logo: ntpServerLogo },
       { name: 'MySQL 集群', detail: '同时运行多实例，配置 GTID 主从复制与组复制。', href: '/zh/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
       { name: 'MariaDB 集群', detail: '同时运行多实例，一键创建 GTID 主从复制组。', href: '/zh/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
       { name: 'Kafka', detail: '运行 KRaft Broker 并管理本地主题。', href: '/zh/features/kafka', logo: kafkaLogo },

@@ -74,6 +74,7 @@ import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
 import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 import samWafLogo from '../components/SVG/SamWaf.svg'
 import aiMemoryLogo from '../components/SVG/AIMemory.svg'
+import ntpServerLogo from '../components/SVG/NTPServer.svg'
 
 const categories = [
   {
@@ -190,6 +191,7 @@ const categories = [
       { name: 'Plugin Market', detail: 'Khám phá, cài đặt và cập nhật module tùy chọn.', href: '/vi/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
       { name: 'SamWaf', detail: 'Chạy tường lửa ứng dụng web trước các trang web cục bộ.', href: '/vi/features/samwaf', logo: samWafLogo },
       { name: 'AI Memory', detail: 'Giữ bộ nhớ cục bộ của tác nhân qua nhiều phiên và dự án.', href: '/vi/features/ai-memory', logo: aiMemoryLogo },
+      { name: 'NTP Server', detail: 'Cung cấp giờ thực, giờ có độ lệch hoặc giờ đóng băng cho máy khách kiểm thử.', href: '/vi/features/ntp-server', logo: ntpServerLogo },
       { name: 'MySQL Cluster', detail: 'Chạy nhiều instance, bản sao GTID và Group Replication.', href: '/vi/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
       { name: 'MariaDB Cluster', detail: 'Chạy nhiều instance và tạo nhóm GTID source/replica.', href: '/vi/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
       { name: 'Kafka', detail: 'Chạy broker KRaft và quản lý topic local.', href: '/vi/features/kafka', logo: kafkaLogo },

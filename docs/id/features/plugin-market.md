@@ -19,6 +19,7 @@ Modul tambahan ini mencakup perlindungan situs web, memori AI persisten, layanan
 
 - **[SamWaf](/id/features/samwaf):** jalankan firewall aplikasi web ringan di depan situs lokal, kelola versi dan layanannya, lalu buka panel administrasi webnya.
 - **[AI Memory](/id/features/ai-memory):** berikan memori lokal persisten kepada agen pemrograman AI melalui MCP, dengan cakupan global dan proyek, peta memori 3D, penyiapan klien, pencadangan, dan pemulihan.
+- **[NTP Server](/id/features/ntp-server)** menyajikan waktu saat ini, waktu dengan selisih tetap, atau waktu beku ke klien uji lokal melalui NTP.
 - **[MySQL Cluster](/id/features/mysql-cluster):** jalankan instans mandiri pada port berbeda, buat grup replikasi GTID source/replica, atau gunakan Group Replication dengan satu primary.
 - **[MariaDB Cluster](/id/features/mariadb-cluster):** jalankan instans mandiri dan buat grup replikasi GTID source/replica dengan konfigurasi, log, dan pengelolaan data per instans.
 - **[Kafka](/id/features/kafka):** jalankan broker KRaft lokal, pilih runtime Java, serta buat atau hapus topik langsung di FlyEnv.

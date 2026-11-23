@@ -74,6 +74,7 @@ import llamaCppLogo from '../components/SVG/LlamaCpp.svg'
 import commandShortcutsLogo from '../components/SVG/CommandShortcuts.svg'
 import samWafLogo from '../components/SVG/SamWaf.svg'
 import aiMemoryLogo from '../components/SVG/AIMemory.svg'
+import ntpServerLogo from '../components/SVG/NTPServer.svg'
 
 const categories = [
   {
@@ -190,6 +191,7 @@ const categories = [
       { name: 'Pasar Plugin', detail: 'Temukan, instal, dan perbarui modul tambahan.', href: '/id/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
       { name: 'SamWaf', detail: 'Jalankan firewall aplikasi web di depan situs lokal.', href: '/id/features/samwaf', logo: samWafLogo },
       { name: 'AI Memory', detail: 'Simpan memori agen secara lokal lintas sesi dan proyek.', href: '/id/features/ai-memory', logo: aiMemoryLogo },
+      { name: 'NTP Server', detail: 'Sajikan waktu nyata, waktu dengan selisih tetap, atau waktu beku ke klien uji lokal.', href: '/id/features/ntp-server', logo: ntpServerLogo },
       { name: 'MySQL Cluster', detail: 'Jalankan banyak instans, replika GTID, dan Group Replication.', href: '/id/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
       { name: 'MariaDB Cluster', detail: 'Jalankan banyak instans dan buat grup replikasi GTID.', href: '/id/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
       { name: 'Kafka', detail: 'Jalankan broker KRaft dan kelola topik lokal.', href: '/id/features/kafka', logo: kafkaLogo },

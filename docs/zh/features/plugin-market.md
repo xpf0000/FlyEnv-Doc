@@ -19,6 +19,7 @@ description: '探索 FlyEnv 插件，包括 SamWaf、持久化 AI 记忆、数�
 
 - **[SamWaf](/zh/features/samwaf)：** 在本地站点前方运行轻量级 Web 应用防火墙，管理版本与服务，并打开其 Web 管理面板。
 - **[AI Memory](/zh/features/ai-memory)：** 通过 MCP 为 AI 编程助手提供持久化本地记忆，支持全局与项目范围、3D 记忆星图、客户端接入、备份和恢复。
+- **[NTP Server](/zh/features/ntp-server)** 通过 NTP 向本地测试客户端返回实时、偏移或冻结时间。
 - **[MySQL 集群](/zh/features/mysql-cluster)：** 在不同端口运行独立实例，一键创建 GTID 主从复制组或单主 Group Replication。
 - **[MariaDB 集群](/zh/features/mariadb-cluster)：** 运行多个独立实例，创建 GTID 主从复制组，并分别管理配置、日志和数据库。
 - **[Kafka](/zh/features/kafka)：** 运行本地 KRaft Broker，绑定 Java 运行时，并在 FlyEnv 中创建或删除主题。

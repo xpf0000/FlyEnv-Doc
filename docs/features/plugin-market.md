@@ -19,6 +19,7 @@ Explore optional modules for website protection, persistent AI memory, local ser
 
 - **[SamWaf](/features/samwaf):** run a lightweight web application firewall in front of local sites, manage its versions and service, and open its web administration panel.
 - **[AI Memory](/features/ai-memory):** give AI coding agents persistent local memory through MCP, with global and project scopes, a 3D memory map, client setup, backup and restore.
+- **[NTP Server](/features/ntp-server)** serves real, offset or frozen time to local test clients over NTP.
 - **[MySQL Cluster](/features/mysql-cluster):** run independent MySQL instances on separate ports, create GTID source/replica groups or set up single-primary Group Replication.
 - **[MariaDB Cluster](/features/mariadb-cluster):** run independent MariaDB instances and create GTID source/replica groups with per-instance configuration, logs and data management.
 - **[Kafka](/features/kafka):** run a local KRaft broker, bind a Java runtime and create or delete topics inside FlyEnv.

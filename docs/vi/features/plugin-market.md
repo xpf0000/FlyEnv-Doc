@@ -19,6 +19,7 @@ Khám phá các module tùy chọn để bảo vệ website, lưu bộ nhớ AI 
 
 - **[SamWaf](/vi/features/samwaf):** chạy tường lửa ứng dụng web nhẹ trước các trang web cục bộ, quản lý phiên bản và dịch vụ, đồng thời mở trang quản trị web.
 - **[AI Memory](/vi/features/ai-memory):** cung cấp bộ nhớ cục bộ bền vững cho tác nhân lập trình AI qua MCP, với phạm vi toàn cục và dự án, bản đồ bộ nhớ 3D, thiết lập ứng dụng khách, sao lưu và khôi phục.
+- **[NTP Server](/vi/features/ntp-server)** cung cấp giờ thực, giờ có độ lệch hoặc giờ đóng băng cho máy khách kiểm thử qua NTP.
 - **[MySQL Cluster](/vi/features/mysql-cluster):** chạy các instance MySQL độc lập trên cổng riêng, tạo nhóm source/replica GTID hay dựng Group Replication single-primary.
 - **[MariaDB Cluster](/vi/features/mariadb-cluster):** chạy các instance MariaDB độc lập và tạo nhóm source/replica GTID với cấu hình, log và quản lý dữ liệu theo từng instance.
 - **[Kafka](/vi/features/kafka):** chạy một broker KRaft local, gắn một runtime Java và tạo hay xóa topic ngay trong FlyEnv.

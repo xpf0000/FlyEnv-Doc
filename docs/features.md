@@ -74,6 +74,7 @@ import llamaCppLogo from './components/SVG/LlamaCpp.svg'
 import commandShortcutsLogo from './components/SVG/CommandShortcuts.svg'
 import samWafLogo from './components/SVG/SamWaf.svg'
 import aiMemoryLogo from './components/SVG/AIMemory.svg'
+import ntpServerLogo from './components/SVG/NTPServer.svg'
 
 const categories = [
   {
@@ -190,6 +191,7 @@ const categories = [
       { name: 'Plugin Market', detail: 'Discover, install and update optional modules.', href: '/features/plugin-market', logo: 'https://oss.macphpstudy.com/image/app-icon.png' },
       { name: 'SamWaf', detail: 'Run a web application firewall in front of local sites.', href: '/features/samwaf', logo: samWafLogo },
       { name: 'AI Memory', detail: 'Keep local agent memories across sessions and projects.', href: '/features/ai-memory', logo: aiMemoryLogo },
+      { name: 'NTP Server', detail: 'Serve real, offset or frozen time to local test clients.', href: '/features/ntp-server', logo: ntpServerLogo },
       { name: 'MySQL Cluster', detail: 'Run multiple instances, GTID replicas and Group Replication.', href: '/features/mysql-cluster', logo: 'https://oss.macphpstudy.com/image/mysql.png' },
       { name: 'MariaDB Cluster', detail: 'Run multiple instances and create GTID source/replica groups.', href: '/features/mariadb-cluster', logo: 'https://oss.macphpstudy.com/image/mariadb.svg' },
       { name: 'Kafka', detail: 'Run a KRaft broker and manage local topics.', href: '/features/kafka', logo: kafkaLogo },

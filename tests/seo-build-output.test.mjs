@@ -15,7 +15,7 @@ const languageByLocale = {
 }
 
 test('plugin features are discoverable in every locale with reciprocal language links', () => {
-  const slugs = ['plugin-market', 'samwaf', 'ai-memory', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
+  const slugs = ['plugin-market', 'samwaf', 'ai-memory', 'ntp-server', 'mysql-cluster', 'mariadb-cluster', 'kafka', 'llama-cpp', 'opensearch', 'mssql', 'dameng', 'command-shortcuts']
   const locales = ['', 'zh', 'id', 'es', 'vi']
   for (const locale of locales) {
     const prefix = locale ? `/${locale}` : ''

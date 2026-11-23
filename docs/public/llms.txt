@@ -24,6 +24,7 @@ FlyEnv installs and manages native development services through one interface. U
 - [Plugin Market](https://flyenv.com/features/plugin-market): Discover, install, update, and manage optional FlyEnv modules.
 - [SamWaf](https://flyenv.com/features/samwaf): Manage a local web application firewall, its versions, configuration, logs and web administration panel.
 - [AI Memory](https://flyenv.com/features/ai-memory): Give coding agents persistent local memory through MCP, with project scopes, client setup, backup and restore.
+- [NTP Server](https://flyenv.com/features/ntp-server): Run a local NTP service with upstream synchronization, a running time offset or a frozen timestamp for testing.
 - [MySQL Cluster](https://flyenv.com/features/mysql-cluster): Run independent MySQL instances, GTID source/replica groups and single-primary Group Replication.
 - [MariaDB Cluster](https://flyenv.com/features/mariadb-cluster): Run independent MariaDB instances and GTID source/replica groups with per-instance data management.
 - [Kafka](https://flyenv.com/features/kafka): Manage a local KRaft broker, Java bindings, and topics.
@@ -65,18 +66,22 @@ FlyEnv installs and manages native development services through one interface. U
 - [中文插件市场](https://flyenv.com/zh/features/plugin-market): 按需安装和管理官方插件，并查看各模块说明。
 - [SamWaf 中文文档](https://flyenv.com/zh/features/samwaf): 管理本地 Web 应用防火墙的版本、服务、配置和日志。
 - [AI Memory 中文文档](https://flyenv.com/zh/features/ai-memory): 管理 AI 助手的持久记忆、项目隔离、客户端接入及备份恢复。
+- [NTP Server 中文文档](https://flyenv.com/zh/features/ntp-server): 运行本地 NTP 服务，支持上游校时、持续走时的偏移时间和冻结时间。
 - [Ikhtisar fitur Bahasa Indonesia](https://flyenv.com/id/features): Jelajahi runtime, layanan, dan plugin FlyEnv.
 - [Pasar Plugin Bahasa Indonesia](https://flyenv.com/id/features/plugin-market): Temukan modul tambahan dan panduan setiap plugin.
 - [SamWaf Bahasa Indonesia](https://flyenv.com/id/features/samwaf): Kelola versi, layanan, konfigurasi, dan log firewall aplikasi web lokal.
 - [AI Memory Bahasa Indonesia](https://flyenv.com/id/features/ai-memory): Kelola memori persisten agen AI, ruang lingkup proyek, koneksi klien, pencadangan, dan pemulihan.
+- [NTP Server Bahasa Indonesia](https://flyenv.com/id/features/ntp-server): Jalankan layanan NTP lokal dengan sinkronisasi sumber waktu, selisih tetap, atau waktu beku untuk pengujian.
 - [Funcionalidades en español](https://flyenv.com/es/features): Explora los runtimes, servicios y complementos de FlyEnv.
 - [Complementos en español](https://flyenv.com/es/features/plugin-market): Descubre los módulos opcionales y la documentación de cada uno.
 - [SamWaf en español](https://flyenv.com/es/features/samwaf): Gestiona versiones, servicio, configuración y registros de un cortafuegos de aplicaciones web local.
 - [AI Memory en español](https://flyenv.com/es/features/ai-memory): Gestiona la memoria persistente de agentes de IA, los ámbitos de proyecto, la conexión de clientes y las copias de seguridad.
+- [NTP Server en español](https://flyenv.com/es/features/ntp-server): Ejecuta un servicio NTP local con sincronización de referencia, un desfase constante o una hora congelada para pruebas.
 - [Tổng quan tính năng tiếng Việt](https://flyenv.com/vi/features): Khám phá runtime, dịch vụ và plugin của FlyEnv.
 - [Plugin Market tiếng Việt](https://flyenv.com/vi/features/plugin-market): Tìm và quản lý các module tùy chọn cùng tài liệu cho từng plugin.
 - [SamWaf tiếng Việt](https://flyenv.com/vi/features/samwaf): Quản lý phiên bản, dịch vụ, cấu hình và nhật ký tường lửa ứng dụng web cục bộ.
 - [AI Memory tiếng Việt](https://flyenv.com/vi/features/ai-memory): Quản lý bộ nhớ lâu dài cho tác nhân AI, phạm vi dự án, kết nối ứng dụng, sao lưu và khôi phục.
+- [NTP Server tiếng Việt](https://flyenv.com/vi/features/ntp-server): Chạy dịch vụ NTP cục bộ với đồng bộ giờ nguồn, độ lệch cố định hoặc thời gian đóng băng để kiểm thử.
 
 ## Project resources
 
