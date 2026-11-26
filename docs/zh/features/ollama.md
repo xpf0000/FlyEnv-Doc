@@ -50,7 +50,7 @@ Ollama 是一个开源工具，用于在自己的电脑上运行大型语言模�
 
 ## 服务与配置
 
-FlyEnv 以分离方式启动 `ollama serve`，并通过 pid 文件跟踪，以便干净地启动和停止。侧边栏开关和系统托盘入口可控制服务，无需打开模块页面。服务器默认监听标准 Ollama API 端口 `0.0.0.0:11434`。
+FlyEnv 以分离方式启动 `ollama serve`，并通过 pid 文件跟踪，以便干净地启动和停止。侧边栏开关和系统托盘入口可控制服务，无需打开模块页面。FlyEnv 的初始配置沿用 Ollama 默认 API 地址 `127.0.0.1:11434`。
 
 环境变量读取自 FlyEnv 基础目录中的 `ollama.conf`，每个以 `OLLAMA_` 开头的行都会传递给服务器进程。**配置文件**选项卡提供两种编辑方式：
 
@@ -72,7 +72,9 @@ FlyEnv 以分离方式启动 `ollama serve`，并通过 pid 文件跟踪，以�
 
 ![FlyEnv 在内置终端中拉取 Ollama 模型截图](https://oss.macphpstudy.com/image/features/ollama-5.webp)
 
-运行在 11434 端口的 Ollama 服务也能与其他 FlyEnv 模块配合：在 [n8n](/zh/features/n8n) 工作流中调用本地 API，将本地模型的嵌入存入 [Qdrant](/zh/features/qdrant) 向量数据库，或通过 [CLIProxyAPI](/zh/features/cliproxyapi) 在 OpenAI 兼容端点后运行基于 CLI 的 AI 账户。[FlyEnv 使用 AI 助手指南](/zh/guide/flyenv-work-with-ai)介绍这些组件如何组成更完整的工作区。
+如果只从本机访问，请设置 `OLLAMA_HOST=127.0.0.1:11434` 并重启服务。下载模型后，打开 `http://127.0.0.1:11434/api/tags`，确认 Ollama 正常响应并列出该模型。支持云功能的 Ollama 版本也可通过 `OLLAMA_NO_CLOUD=1` 以仅本地模式运行。[Ollama 仅本地模式](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+
+你可以把 [本地编程助手](/zh/guide/build-local-offline-ai-agent) 接到这个 API，也可以用它为 [自托管 n8n Webhook](/zh/guide/build-local-ai-workflow-by-n8n) 提供模型。 观看 [Ollama 离线助手配置演示](/zh/demos?video=offline-ai-agent)。
 
 ## 日志
 

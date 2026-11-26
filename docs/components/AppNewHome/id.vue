@@ -18,20 +18,14 @@
             id="new-home-hero-title"
             class="no-border !mb-0 !text-4xl !font-extrabold !leading-[1.04] !tracking-[-0.055em] text-slate-950 sm:!text-5xl lg:!text-[3.55rem] dark:!text-white"
           >
-            Cukup beri tahu AI apa yang ingin Anda jalankan.
-            <span class="block text-blue-600 dark:text-blue-400"
-              >FlyEnv menyiapkan semua yang dibutuhkannya.</span
-            >
+            FlyEnv
+            <span class="block text-blue-600 dark:text-blue-400">Satu ruang kerja untuk pengembangan lokal native</span>
           </h1>
           <p
             class="mt-6 max-w-[36rem] text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300"
           >
-            Berikan agen AI lingkungan lokal nyata untuk runtime, layanan, situs, domain, HTTPS, dan
-            URL yang benar-benar dapat diakses.
+            Kelola PHP, Node.js, Python, database, dan situs HTTPS lokal. Hubungkan alat coding AI ke lingkungan yang sama melalui MCP.
           </p>
-          <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400"
-            >Dari satu prompt hingga proyek berjalan di komputer Anda.</p
-          >
           <div class="mt-7 flex flex-wrap gap-3">
             <a
               href="/id/download"
@@ -47,6 +41,10 @@
               class="inline-flex items-center rounded-xl border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold !text-slate-800 no-underline transition hover:border-blue-300 hover:!text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:translate-y-px dark:border-slate-600 dark:bg-slate-900/70 dark:!text-slate-100 dark:hover:border-blue-400 dark:hover:!text-blue-300"
               >Lihat di GitHub <span class="ml-2" aria-hidden="true">↗</span></a
             >
+          </div>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a href="/id/guide/getting-started" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">Siapkan situs pertama</a>
+            <a href="/id/compare/" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">Bandingkan alat pengembangan lokal</a>
           </div>
         </div>
         <div class="relative">
@@ -738,11 +736,10 @@
             <h2
               id="final-cta-title"
               class="no-border !mb-0 !text-3xl !font-extrabold !tracking-[-0.04em] sm:!text-4xl"
-              >Siap memberi AI Anda stack lokal yang sesungguhnya?</h2
+              >Siap menjalankan proyek lokal pertama Anda?</h2
             >
             <p class="mt-4 text-base leading-7 text-blue-100"
-              >Unduh FlyEnv untuk macOS, Windows, atau Linux dan mulai membangun bersama AI hari
-              ini.</p
+              >Unduh FlyEnv untuk macOS, Windows, atau Linux, lalu pasang layanan yang dibutuhkan proyek Anda.</p
             >
           </div>
           <a

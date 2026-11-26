@@ -526,6 +526,8 @@
       ></section
     >
 
+    <slot name="migration" />
+
     <section
       v-if="competitor.faqs?.length"
       class="bg-slate-50 px-6 py-20 sm:px-10 sm:py-24 lg:px-16 dark:bg-slate-900/50"

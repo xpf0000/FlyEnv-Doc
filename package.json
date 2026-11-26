@@ -13,6 +13,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test:seo": "node --test tests/seo-build-output.test.mjs",
+    "test:seo:browser": "node --test tests/browser/seo.test.mjs",
     "docs:zh:dev": "vitepress dev docsZH",
     "docs:zh:build": "vitepress build docsZH",
     "docs:zh:preview": "vitepress preview docsZH"

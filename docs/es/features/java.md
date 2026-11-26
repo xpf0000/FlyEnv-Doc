@@ -82,6 +82,8 @@ La [guía del entorno de desarrollo Java](/es/guide/set-up-java-development-envi
 
 ![Lista de proyectos Java con vinculación de JDK por proyecto](https://oss.macphpstudy.com/image/features/java-5.webp)
 
+Mira la [demo de OpenMRS](/es/demos?video=openmrs-local-project) para ver una aplicación web Java en Tomcat. La [solución para Spring Boot](/es/solutions/spring-boot) cubre el flujo con un archivo JAR ejecutable.
+
 <FeatureRelatedLinks locale="es" slug="java" />
 
 ## Notas de compatibilidad

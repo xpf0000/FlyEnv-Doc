@@ -11,11 +11,15 @@
             class="!m-0 flex !list-none flex-wrap items-center gap-x-2 gap-y-1 !p-0 text-xs font-semibold text-[#758197] dark:text-[#9aa9bf]"
           >
             <li class="!m-0"
-              ><a href="/" class="!text-[#1769f9] no-underline hover:underline">FlyEnv</a></li
+              ><a :href="localizedHref('/')" class="!text-[#1769f9] no-underline hover:underline"
+                >FlyEnv</a
+              ></li
             >
             <li aria-hidden="true" class="!m-0 text-[#a9b9cc]">/</li>
             <li class="!m-0"
-              ><a :href="localizedHref('/solutions')" class="!text-[#1769f9] no-underline hover:underline"
+              ><a
+                :href="localizedHref('/solutions')"
+                class="!text-[#1769f9] no-underline hover:underline"
                 >{{ copy.breadcrumbSolutions }}</a
               ></li
             >
@@ -143,11 +147,13 @@
           <div
             v-for="item in requirements"
             :key="item.title"
-              class="grid grid-cols-[1.05fr_1fr_1.12fr] border-t border-[#e6edf5] text-[15px] leading-6 dark:border-[#2b3b55]"
-            >
-              <div
+            class="grid grid-cols-[1.05fr_1fr_1.12fr] border-t border-[#e6edf5] text-[15px] leading-6 dark:border-[#2b3b55]"
+          >
+            <div
               class="flex items-center gap-2 px-4 py-3 font-semibold text-[#26344a] dark:text-[#e9edf5]"
-              ><SvgIcon :name="item.icon" class="h-4 w-4 shrink-0 text-[#1769f9]" />{{ item.title }}</div
+              ><SvgIcon :name="item.icon" class="h-4 w-4 shrink-0 text-[#1769f9]" />{{
+                item.title
+              }}</div
             >
             <div class="px-4 py-3 font-medium text-[#526176] dark:text-[#b1bdcc]">
               <template v-for="(part, index) in item.serviceParts" :key="`${part.label}-${index}`">
@@ -160,8 +166,11 @@
                 <span v-else>{{ part.label }}</span>
               </template>
             </div>
-            <div class="flex items-center gap-2 px-4 py-3 font-semibold text-[#40506a] dark:text-[#c4d2e5]"
-              ><SvgIcon name="check" class="h-3.5 w-3.5 shrink-0 text-[#1aa86b]" />{{ item.support }}</div
+            <div
+              class="flex items-center gap-2 px-4 py-3 font-semibold text-[#40506a] dark:text-[#c4d2e5]"
+              ><SvgIcon name="check" class="h-3.5 w-3.5 shrink-0 text-[#1aa86b]" />{{
+                item.support
+              }}</div
             >
           </div>
         </div>
@@ -171,7 +180,9 @@
           <article v-for="item in requirements" :key="item.title" class="p-4">
             <div
               class="flex items-center gap-2 text-sm font-bold text-[#26344a] dark:text-[#e9edf5]"
-              ><SvgIcon :name="item.icon" class="h-4 w-4 shrink-0 text-[#1769f9]" />{{ item.title }}</div
+              ><SvgIcon :name="item.icon" class="h-4 w-4 shrink-0 text-[#1769f9]" />{{
+                item.title
+              }}</div
             >
             <p class="!mb-0 !mt-2 text-sm leading-6 text-[#5d6a7d] dark:text-[#b1bdcc]">
               <template v-for="(part, index) in item.serviceParts" :key="`${part.label}-${index}`">
@@ -186,7 +197,9 @@
             </p>
             <p
               class="!mb-0 !mt-1 flex items-center gap-2 text-sm leading-6 text-[#5d6a7d] dark:text-[#b1bdcc]"
-              ><SvgIcon name="check" class="h-3.5 w-3.5 shrink-0 text-[#1aa86b]" />{{ item.support }}</p
+              ><SvgIcon name="check" class="h-3.5 w-3.5 shrink-0 text-[#1aa86b]" />{{
+                item.support
+              }}</p
             >
           </article>
         </div>
@@ -214,101 +227,275 @@
           >
             <div class="relative hidden min-h-[360px] lg:block">
               <div class="absolute left-1/2 top-0 h-[360px] w-[780px] max-w-full -translate-x-1/2">
-              <svg
-                class="pointer-events-none absolute inset-0 h-full w-full"
-                viewBox="0 0 780 360"
-                fill="none"
-                preserveAspectRatio="xMinYMin meet"
-                aria-hidden="true"
-              >
-                <defs>
-                  <marker id="stack-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                    <path d="m0 0 6 3.5L0 7" fill="none" stroke="#8192aa" stroke-width="1.2" />
-                  </marker>
-                </defs>
-                <path d="M124 104h56" stroke="#8192aa" stroke-width="1.2" marker-end="url(#stack-arrow)" />
-                <path d="M284 104h56" stroke="#8192aa" stroke-width="1.2" marker-end="url(#stack-arrow)" />
-                <path d="M466 80h42V39h32" stroke="#8192aa" stroke-width="1.2" marker-end="url(#stack-arrow)" />
-                <path d="M466 146h42v-23h32" stroke="#8192aa" stroke-width="1.2" marker-end="url(#stack-arrow)" />
-                <path d="M403 170v50" stroke="#8192aa" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#stack-arrow)" />
-              </svg>
+                <svg
+                  class="pointer-events-none absolute inset-0 h-full w-full"
+                  viewBox="0 0 780 360"
+                  fill="none"
+                  preserveAspectRatio="xMinYMin meet"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <marker
+                      id="stack-arrow"
+                      markerWidth="7"
+                      markerHeight="7"
+                      refX="5"
+                      refY="3.5"
+                      orient="auto"
+                    >
+                      <path d="m0 0 6 3.5L0 7" fill="none" stroke="#8192aa" stroke-width="1.2" />
+                    </marker>
+                  </defs>
+                  <path
+                    d="M124 104h56"
+                    stroke="#8192aa"
+                    stroke-width="1.2"
+                    marker-end="url(#stack-arrow)"
+                  />
+                  <path
+                    d="M284 104h56"
+                    stroke="#8192aa"
+                    stroke-width="1.2"
+                    marker-end="url(#stack-arrow)"
+                  />
+                  <path
+                    d="M466 80h42V39h32"
+                    stroke="#8192aa"
+                    stroke-width="1.2"
+                    marker-end="url(#stack-arrow)"
+                  />
+                  <path
+                    d="M466 146h42v-23h32"
+                    stroke="#8192aa"
+                    stroke-width="1.2"
+                    marker-end="url(#stack-arrow)"
+                  />
+                  <path
+                    d="M403 170v50"
+                    stroke="#8192aa"
+                    stroke-width="1.2"
+                    stroke-dasharray="4 4"
+                    marker-end="url(#stack-arrow)"
+                  />
+                </svg>
 
-              <article
-                class="absolute left-5 top-[44px] flex h-[120px] w-[104px] flex-col items-center justify-center rounded-lg border border-[#dce7f2] bg-[#f6faff] px-2 text-center dark:border-[#34445e] dark:bg-[#182a49]"
-              >
-                <SvgIcon name="globe" class="h-8 w-8 text-[#1769f9]" />
-                <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"><a :href="featureLinks.https" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]" v-html="copy.diagram.domain"></a></h3>
-                <p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]" v-html="`${copy.diagram.localDomain}<br />${copy.diagram.withHttps}`"></p>
-              </article>
+                <article
+                  class="absolute left-5 top-[44px] flex h-[120px] w-[104px] flex-col items-center justify-center rounded-lg border border-[#dce7f2] bg-[#f6faff] px-2 text-center dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <SvgIcon name="globe" class="h-8 w-8 text-[#1769f9]" />
+                  <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"
+                    ><a
+                      :href="featureLinks.https"
+                      class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                      v-html="copy.diagram.domain"
+                    ></a
+                  ></h3>
+                  <p
+                    class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                    v-html="`${copy.diagram.localDomain}<br />${copy.diagram.withHttps}`"
+                  ></p>
+                </article>
 
-              <article
-                class="absolute left-[180px] top-[44px] flex h-[120px] w-[104px] flex-col items-center justify-center rounded-lg border border-[#dce7f2] bg-[#f6faff] px-2 text-center dark:border-[#34445e] dark:bg-[#182a49]"
-              >
-                <img src="/assets/demo-logos/nginx.svg" alt="Nginx" class="h-8 w-8 object-contain" />
-                <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"><a :href="featureLinks.nginx" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]">Nginx</a></h3>
-                <p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]" v-html="`${copy.diagram.webServer}<br />${copy.diagram.port}`"></p>
-              </article>
+                <article
+                  class="absolute left-[180px] top-[44px] flex h-[120px] w-[104px] flex-col items-center justify-center rounded-lg border border-[#dce7f2] bg-[#f6faff] px-2 text-center dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <img
+                    src="/assets/demo-logos/nginx.svg"
+                    alt="Nginx"
+                    class="h-8 w-8 object-contain"
+                  />
+                  <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"
+                    ><a
+                      :href="featureLinks.nginx"
+                      class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                      >Nginx</a
+                    ></h3
+                  >
+                  <p
+                    class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                    v-html="`${copy.diagram.webServer}<br />${copy.diagram.port}`"
+                  ></p>
+                </article>
 
-              <article
-                class="absolute left-[340px] top-[38px] flex h-[132px] w-[126px] flex-col items-center justify-center rounded-lg border-2 border-[#ff6b61]/45 bg-[#fffdfd] px-2 text-center dark:border-[#ff8078]/50 dark:bg-[#211b25]"
-              >
-                <img src="/assets/demo-logos/laravel.svg" alt="Laravel" class="h-9 w-9 object-contain" />
-                <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold" v-html="copy.diagram.application"></h3>
-                <p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"><a :href="featureLinks.php" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]" v-html="copy.diagram.php"></a></p>
-              </article>
+                <article
+                  class="absolute left-[340px] top-[38px] flex h-[132px] w-[126px] flex-col items-center justify-center rounded-lg border-2 border-[#ff6b61]/45 bg-[#fffdfd] px-2 text-center dark:border-[#ff8078]/50 dark:bg-[#211b25]"
+                >
+                  <img
+                    src="/assets/demo-logos/laravel.svg"
+                    alt="Laravel"
+                    class="h-9 w-9 object-contain"
+                  />
+                  <h3
+                    class="!m-0 !mt-1 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"
+                    v-html="copy.diagram.application"
+                  ></h3>
+                  <p
+                    class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                    ><a
+                      :href="featureLinks.php"
+                      class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                      v-html="copy.diagram.php"
+                    ></a
+                  ></p>
+                </article>
 
-              <article
-                class="absolute left-[540px] top-4 flex h-[70px] w-[210px] items-center gap-3 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-4 dark:border-[#34445e] dark:bg-[#182a49]"
-              >
-                <img src="/assets/demo-logos/mysql.svg" alt="MySQL" class="h-8 w-8 object-contain" />
-                <div><h3 class="!m-0 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"><a :href="featureLinks.mysql" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]">MySQL 8.4</a></h3><p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]">{{ copy.diagram.database }}</p></div>
-              </article>
+                <article
+                  class="absolute left-[540px] top-4 flex h-[70px] w-[210px] items-center gap-3 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-4 dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <img
+                    src="/assets/demo-logos/mysql.svg"
+                    alt="MySQL"
+                    class="h-8 w-8 object-contain"
+                  />
+                  <div
+                    ><h3 class="!m-0 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"
+                      ><a
+                        :href="featureLinks.mysql"
+                        class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                        >MySQL 8.4</a
+                      ></h3
+                    ><p
+                      class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                      >{{ copy.diagram.database }}</p
+                    ></div
+                  >
+                </article>
 
-              <article
-                class="absolute left-[540px] top-[88px] flex h-[70px] w-[210px] items-center gap-3 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-4 dark:border-[#34445e] dark:bg-[#182a49]"
-              >
-                <img src="/assets/demo-logos/redis.svg" alt="Redis" class="h-8 w-8 object-contain" />
-                <div><h3 class="!m-0 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"><a :href="featureLinks.redis" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]">Redis 7</a></h3><p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]" v-html="copy.diagram.cacheQueues"></p></div>
-              </article>
+                <article
+                  class="absolute left-[540px] top-[88px] flex h-[70px] w-[210px] items-center gap-3 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-4 dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <img
+                    src="/assets/demo-logos/redis.svg"
+                    alt="Redis"
+                    class="h-8 w-8 object-contain"
+                  />
+                  <div
+                    ><h3 class="!m-0 !border-0 !p-0 !text-[12px] !leading-5 font-extrabold"
+                      ><a
+                        :href="featureLinks.redis"
+                        class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                        >Redis 7</a
+                      ></h3
+                    ><p
+                      class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                      v-html="copy.diagram.cacheQueues"
+                    ></p
+                  ></div>
+                </article>
 
-              <p class="absolute left-[340px] top-[230px] !m-0 text-xs font-semibold text-[#8b99ab]">{{ copy.diagram.additionalTools }}</p>
-              <article
-                class="absolute left-[330px] top-[258px] flex h-[64px] w-[160px] items-center gap-2 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-3 dark:border-[#34445e] dark:bg-[#182a49]"
-              >
-                <img src="/assets/demo-logos/nodedotjs.svg" alt="Node.js" class="h-7 w-7 object-contain" />
-                <div><h3 class="!m-0 !border-0 !p-0 !text-[11px] !leading-5 font-extrabold"><a :href="featureLinks.nodejs" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]">Node.js / Vite</a></h3><p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]">{{ copy.diagram.frontendAssets }}</p></div>
-              </article>
-              <article
-                class="absolute left-[510px] top-[258px] flex h-[64px] w-[220px] items-center gap-2 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-3 dark:border-[#34445e] dark:bg-[#182a49]"
-              >
-                <SvgIcon name="clock" class="h-7 w-7 shrink-0 text-[#1769f9]" />
-                <div><h3 class="!m-0 !border-0 !p-0 !text-[11px] !leading-5 font-extrabold"><a :href="featureLinks.cron" class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]">Cron / Scheduler</a></h3><p class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]">{{ copy.diagram.taskScheduling }}</p></div>
-              </article>
+                <p
+                  class="absolute left-[340px] top-[230px] !m-0 text-xs font-semibold text-[#8b99ab]"
+                  >{{ copy.diagram.additionalTools }}</p
+                >
+                <article
+                  class="absolute left-[330px] top-[258px] flex h-[64px] w-[160px] items-center gap-2 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-3 dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <img
+                    src="/assets/demo-logos/nodedotjs.svg"
+                    alt="Node.js"
+                    class="h-7 w-7 object-contain"
+                  />
+                  <div
+                    ><h3 class="!m-0 !border-0 !p-0 !text-[11px] !leading-5 font-extrabold"
+                      ><a
+                        :href="featureLinks.nodejs"
+                        class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                        >Node.js / Vite</a
+                      ></h3
+                    ><p
+                      class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                      >{{ copy.diagram.frontendAssets }}</p
+                    ></div
+                  >
+                </article>
+                <article
+                  class="absolute left-[510px] top-[258px] flex h-[64px] w-[220px] items-center gap-2 rounded-lg border border-[#dce7f2] bg-[#f9fcff] px-3 dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <SvgIcon name="clock" class="h-7 w-7 shrink-0 text-[#1769f9]" />
+                  <div
+                    ><h3 class="!m-0 !border-0 !p-0 !text-[11px] !leading-5 font-extrabold"
+                      ><a
+                        :href="featureLinks.cron"
+                        class="!text-inherit underline decoration-[#b9c9dd] underline-offset-2 hover:!text-[#1769f9]"
+                        >Cron / Scheduler</a
+                      ></h3
+                    ><p
+                      class="!mb-0 !mt-0.5 !text-[10px] !leading-4 text-[#68758a] dark:text-[#aebbd0]"
+                      >{{ copy.diagram.taskScheduling }}</p
+                    ></div
+                  >
+                </article>
               </div>
             </div>
 
             <div class="grid gap-3 p-4 lg:hidden">
               <div class="grid grid-cols-3 gap-2">
-                <article v-for="item in primaryStack" :key="item.title" class="flex min-h-[92px] flex-col items-center justify-center rounded-lg border border-[#dce7f2] bg-[#f6faff] p-2 text-center dark:border-[#34445e] dark:bg-[#182a49]">
-                  <img v-if="item.logo" :src="item.logo" :alt="item.title" class="h-7 w-7 object-contain" />
+                <article
+                  v-for="item in primaryStack"
+                  :key="item.title"
+                  class="flex min-h-[92px] flex-col items-center justify-center rounded-lg border border-[#dce7f2] bg-[#f6faff] p-2 text-center dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <img
+                    v-if="item.logo"
+                    :src="item.logo"
+                    :alt="item.title"
+                    class="h-7 w-7 object-contain"
+                  />
                   <SvgIcon v-else :name="item.icon" class="h-7 w-7 text-[#1769f9]" />
-                  <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[10px] !leading-4 font-extrabold"><a v-if="item.href" :href="item.href" class="!text-inherit no-underline hover:!text-[#1769f9]">{{ item.title }}</a><span v-else>{{ item.title }}</span></h3>
+                  <h3 class="!m-0 !mt-1 !border-0 !p-0 !text-[10px] !leading-4 font-extrabold"
+                    ><a
+                      v-if="item.href"
+                      :href="item.href"
+                      class="!text-inherit no-underline hover:!text-[#1769f9]"
+                      >{{ item.title }}</a
+                    ><span v-else>{{ item.title }}</span></h3
+                  >
                 </article>
               </div>
               <div class="grid grid-cols-2 gap-2">
-                <article v-for="item in supportingServices" :key="item.title" class="flex items-center gap-2 rounded-lg border border-[#dce7f2] bg-[#f9fcff] p-3 dark:border-[#34445e] dark:bg-[#182a49]">
-                  <img v-if="item.logo" :src="item.logo" :alt="item.title" class="h-6 w-6 object-contain" />
+                <article
+                  v-for="item in supportingServices"
+                  :key="item.title"
+                  class="flex items-center gap-2 rounded-lg border border-[#dce7f2] bg-[#f9fcff] p-3 dark:border-[#34445e] dark:bg-[#182a49]"
+                >
+                  <img
+                    v-if="item.logo"
+                    :src="item.logo"
+                    :alt="item.title"
+                    class="h-6 w-6 object-contain"
+                  />
                   <SvgIcon v-else :name="item.icon" class="h-6 w-6 shrink-0 text-[#1769f9]" />
-                  <span class="text-[10px] font-extrabold"><a v-if="item.href" :href="item.href" class="!text-inherit no-underline hover:!text-[#1769f9]">{{ item.title }}</a><span v-else>{{ item.title }}</span></span>
+                  <span class="text-[10px] font-extrabold"
+                    ><a
+                      v-if="item.href"
+                      :href="item.href"
+                      class="!text-inherit no-underline hover:!text-[#1769f9]"
+                      >{{ item.title }}</a
+                    ><span v-else>{{ item.title }}</span></span
+                  >
                 </article>
               </div>
             </div>
           </div>
 
           <div class="grid gap-3">
-            <article v-for="item in stackOutcomes" :key="item.title" class="flex gap-3 rounded-lg border border-[#dce7f2] bg-white px-3 py-3 dark:border-[#34445e] dark:bg-[#151f31]">
-              <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#eaf3ff] text-[#1769f9] dark:bg-[#1a3158]"><SvgIcon :name="item.icon" class="h-4 w-4" /></span>
-              <div><h3 class="!m-0 !border-0 !p-0 !text-sm !leading-6 font-extrabold">{{ item.title }}</h3><p class="!mb-0 !mt-0.5 !text-xs !leading-5 text-[#68758a] dark:text-[#aebbd0]">{{ item.description }}</p></div>
+            <article
+              v-for="item in stackOutcomes"
+              :key="item.title"
+              class="flex gap-3 rounded-lg border border-[#dce7f2] bg-white px-3 py-3 dark:border-[#34445e] dark:bg-[#151f31]"
+            >
+              <span
+                class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#eaf3ff] text-[#1769f9] dark:bg-[#1a3158]"
+                ><SvgIcon :name="item.icon" class="h-4 w-4"
+              /></span>
+              <div
+                ><h3 class="!m-0 !border-0 !p-0 !text-sm !leading-6 font-extrabold">{{
+                  item.title
+                }}</h3
+                ><p class="!mb-0 !mt-0.5 !text-xs !leading-5 text-[#68758a] dark:text-[#aebbd0]">{{
+                  item.description
+                }}</p></div
+              >
             </article>
           </div>
         </div>
@@ -350,13 +537,45 @@
             >
               <div
                 class="flex items-center gap-2 text-base font-extrabold leading-6 text-[#26344a] dark:text-[#e9edf5]"
-                ><SvgIcon :name="item.icon" class="h-4 w-4 shrink-0 text-[#1769f9]" />{{ item.title }}</div
+                ><SvgIcon :name="item.icon" class="h-4 w-4 shrink-0 text-[#1769f9]" />{{
+                  item.title
+                }}</div
               >
               <p class="!mb-0 !mt-1.5 text-sm leading-6 text-[#68758a] dark:text-[#aebbd0]">{{
                 item.description
               }}</p>
             </article>
           </div>
+        </div>
+        <div class="mt-6 rounded-xl border border-[#dce7f2] px-4 py-4 dark:border-[#34445e]">
+          <h3 class="!m-0 !border-0 !p-0 text-lg font-extrabold">{{ verification.title }}</h3>
+          <p class="!mb-0 mt-2 text-sm leading-6 text-[#59677b] dark:text-[#b7c4d5]">{{
+            verification.request
+          }}</p>
+          <p class="!mb-0 mt-2 text-sm leading-6 text-[#59677b] dark:text-[#b7c4d5]">{{
+            verification.jobs
+          }}</p>
+          <ul class="mt-3 flex !list-none flex-wrap gap-x-6 gap-y-2 !p-0 text-sm">
+            <li
+              ><a :href="localizedHref('/features/startup-groups')" class="font-bold underline">{{
+                verification.group
+              }}</a></li
+            >
+            <li
+              ><a
+                :href="localizedHref('/guide/project-level-runtime-environment')"
+                class="font-bold underline"
+                >{{ verification.runtime }}</a
+              ></li
+            >
+            <li
+              ><a
+                :href="localizedHref('/demos?video=php-project-services')"
+                class="font-bold underline"
+                >{{ verification.demo }}</a
+              ></li
+            >
+          </ul>
         </div>
       </div>
     </section>
@@ -382,7 +601,11 @@
             v-for="item in benefits"
             :key="item.title"
             class="!m-0 rounded-xl border border-[#dce7f2] bg-white p-4 dark:border-[#34445e] dark:bg-[#151f31]"
-            :class="item.emphasis ? 'border-[#b9d4f8] shadow-[0_12px_28px_rgb(37_74_125_/_10%)] ring-1 ring-[#e5f0ff] dark:border-[#416ea8] dark:ring-[#1d3d67]' : ''"
+            :class="
+              item.emphasis
+                ? 'border-[#b9d4f8] shadow-[0_12px_28px_rgb(37_74_125_/_10%)] ring-1 ring-[#e5f0ff] dark:border-[#416ea8] dark:ring-[#1d3d67]'
+                : ''
+            "
           >
             <div class="flex items-center gap-3"
               ><span
@@ -479,7 +702,7 @@
             </colgroup>
             <thead>
               <tr>
-                  <th
+                <th
                   scope="col"
                   class="rounded-tl-2xl border-0 !bg-[#edf5ff] px-5 py-4 text-xs font-black uppercase tracking-[0.08em] text-[#52647d] dark:!bg-[#182a49] dark:text-[#cbd8eb]"
                 >
@@ -506,11 +729,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="row in comparisonRows"
-                :key="row.feature"
-                class="group"
-              >
+              <tr v-for="row in comparisonRows" :key="row.feature" class="group">
                 <th
                   scope="row"
                   class="border-t border-[#e1eaf4] px-5 py-4 text-sm font-extrabold leading-5 text-[#26344a] odd:bg-white even:bg-[#f8fbff] dark:border-[#2b3b55] dark:text-[#e9edf5] dark:odd:bg-[#151f31] dark:even:bg-[#182236]"
@@ -609,25 +828,23 @@
           </a>
         </div>
         <div
-            class="mt-6 flex flex-col items-center justify-between gap-4 rounded-xl bg-[#1769f9] px-5 py-4 text-white sm:flex-row"
+          class="mt-6 flex flex-col items-center justify-between gap-4 rounded-xl bg-[#1769f9] px-5 py-4 text-white sm:flex-row"
         >
           <div
-            ><h2 class="!m-0 !border-0 !p-0 text-lg font-black text-white"
-              >{{ copy.ctaTitle }}</h2
-            ><p class="!mb-0 !mt-1 text-sm leading-6 text-blue-100"
-              >{{ copy.ctaDescription }}</p
-            ></div
+            ><h2 class="!m-0 !border-0 !p-0 text-lg font-black text-white">{{ copy.ctaTitle }}</h2
+            ><p class="!mb-0 !mt-1 text-sm leading-6 text-blue-100">{{
+              copy.ctaDescription
+            }}</p></div
           >
           <a
             :href="localizedHref('/download')"
             class="inline-flex shrink-0 items-center rounded-lg bg-white px-4 py-2.5 text-sm font-extrabold !text-[#1769f9] no-underline transition hover:bg-blue-50"
-            >{{ copy.download }} <SvgIcon name="arrowDown" class="ml-2 h-4 w-4" /></a
-          >
+            >{{ copy.download }} <SvgIcon name="arrowDown" class="ml-2 h-4 w-4"
+          /></a>
         </div>
         <div
           class="mt-5 flex flex-col items-center justify-between gap-2 border-t border-[#dce7f2] pt-4 text-sm text-[#68758a] sm:flex-row dark:border-[#34445e] dark:text-[#aebbd0]"
-          ><span class="font-bold text-[#26344a] dark:text-[#e9edf5]"
-            >{{ copy.haveQuestions }}</span
+          ><span class="font-bold text-[#26344a] dark:text-[#e9edf5]">{{ copy.haveQuestions }}</span
           ><div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1"
             ><a
               href="https://github.com/xpf0000/FlyEnv/issues"
@@ -649,10 +866,15 @@
 
 <script setup lang="ts">
   import { defineComponent, h } from 'vue'
-  import { translateData, type LaravelSolutionLocale } from './laravel-solution-locales'
+  import {
+    laravelVerification,
+    translateData,
+    type LaravelSolutionLocale
+  } from './laravel-solution-locales'
 
   const props = withDefaults(defineProps<{ locale?: LaravelSolutionLocale }>(), { locale: 'en' })
   const locale = props.locale
+  const verification = laravelVerification[locale]
   const localizedHref = (path: string) => (locale === 'en' ? path : `/${locale}${path}`)
 
   const iconPaths: Record<string, string[]> = {
@@ -665,10 +887,20 @@
     ],
     cache: ['M4 8.5 12 4l8 4.5-8 4.5-8-4.5Z', 'M4 13l8 4.5 8-4.5', 'M4 17.5l8 4.5 8-4.5'],
     web: ['M4 5h16v14H4z', 'M4 9h16', 'M8 7h.01M11 7h.01'],
-    frontend: ['M4 4h6v6H4z', 'M14 4h6v6h-6z', 'M4 14h6v6H4z', 'M14 14h6v6h-6z', 'M10 7h4M7 10v4M17 10v4M10 17h4'],
+    frontend: [
+      'M4 4h6v6H4z',
+      'M14 4h6v6h-6z',
+      'M4 14h6v6H4z',
+      'M14 14h6v6h-6z',
+      'M10 7h4M7 10v4M17 10v4M10 17h4'
+    ],
     clock: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z', 'M12 7v5l3 2'],
     lock: ['M6 10h12v10H6z', 'M8 10V7a4 4 0 0 1 8 0v3', 'M12 14v2'],
-    globe: ['M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z', 'M3 12h18', 'M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18'],
+    globe: [
+      'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z',
+      'M3 12h18',
+      'M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18'
+    ],
     code: ['m8 9-3 3 3 3M16 9l3 3-3 3M14 6l-4 12'],
     play: ['M8 5v14l11-7L8 5Z'],
     list: ['M8 6h11M8 12h11M8 18h11', 'M4 6h.01M4 12h.01M4 18h.01'],
@@ -832,7 +1064,13 @@
       logo: '/assets/demo-logos/nodedotjs.svg',
       href: featureLinks.nodejs
     },
-    { icon: 'clock', title: 'Cron / Scheduler', description: 'Task scheduling', logo: '', href: featureLinks.cron }
+    {
+      icon: 'clock',
+      title: 'Cron / Scheduler',
+      description: 'Task scheduling',
+      logo: '',
+      href: featureLinks.cron
+    }
   ]
 
   const legacyStackOutcomes = [

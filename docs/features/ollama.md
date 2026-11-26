@@ -50,7 +50,7 @@ The **Version Manager** tab installs and keeps Ollama versions side by side, and
 
 ## Service and configuration
 
-FlyEnv spawns Ollama detached as `ollama serve` and tracks its pid file for clean start and stop. The sidebar on/off switch and the system tray entry control the service without opening the module page. By default the server listens on `0.0.0.0:11434`, the standard Ollama API port.
+FlyEnv spawns Ollama detached as `ollama serve` and tracks its pid file for clean start and stop. The sidebar on/off switch and the system tray entry control the service without opening the module page. A fresh FlyEnv configuration uses Ollama’s default API address, `127.0.0.1:11434`.
 
 Environment variables are read from `ollama.conf` in the FlyEnv base directory — every line starting with `OLLAMA_` is passed to the server process. The **Config File** tab edits this file two ways:
 
@@ -72,7 +72,9 @@ The **Model** tab is where models are pulled, listed and run.
 
 ![Pulling an Ollama model in the embedded terminal](https://oss.macphpstudy.com/image/features/ollama-5.webp)
 
-A running Ollama service on port 11434 also pairs well with other FlyEnv modules — call the local API from workflows built in [n8n](/features/n8n), store embeddings from local models in the [Qdrant](/features/qdrant) vector database, or run CLI-based AI accounts behind OpenAI-compatible endpoints with [CLIProxyAPI](/features/cliproxyapi). The guide on [FlyEnv working with AI assistants](/guide/flyenv-work-with-ai) shows how these pieces fit into a wider setup.
+For access from the same machine, set `OLLAMA_HOST=127.0.0.1:11434` and restart the service. After pulling a model, open `http://127.0.0.1:11434/api/tags` to confirm Ollama responds and lists the model. Ollama releases that support cloud features also support `OLLAMA_NO_CLOUD=1` for local-only operation. [Ollama local-only mode](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+
+Connect a [local coding assistant](/guide/build-local-offline-ai-agent) to this API or use it with a [self-hosted n8n webhook](/guide/build-local-ai-workflow-by-n8n). Watch the [offline Ollama setup demo](/demos?video=offline-ai-agent).
 
 ## Logs
 

@@ -158,9 +158,11 @@ php artisan migrate
 ### 启动所需服务
 
 在 FlyEnv 中启动以下模块：
-- ✅ PHP（与项目版本匹配）
+- ✅ PHP-FPM（与项目版本匹配）
 - ✅ Nginx 或 Apache 或 Caddy
 - ✅ MySQL/PostgreSQL（如果使用数据库）
+
+确认本地域名可以打开站点后，将 Web 服务器、所选 PHP-FPM 版本及项目实际使用的数据库或缓存保存到[启动组](/zh/features/startup-groups)。已经配置成项目服务的队列进程也可加入。[PHP 应用服务演示](/zh/demos?video=php-project-services)展示另一个基于 Octane 的流程。
 
 ### 访问您的站点
 

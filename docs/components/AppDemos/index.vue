@@ -5,6 +5,7 @@
         <p class="demos-kicker">{{ t.kicker }}</p>
         <h1>{{ t.title }}</h1>
         <p class="demos-intro">{{ t.intro }}</p>
+        <a class="demo-related-link mt-3 inline-block" :href="downloadHref" data-analytics-surface="demos-hero">{{ t.download }} →</a>
       </header>
 
       <section class="demos-controls demos-browse-bar" :aria-label="t.controlsLabel">
@@ -25,8 +26,8 @@
             :key="filter.value"
             type="button"
             class="demos-filter-button"
-            :aria-pressed="activeCategory === filter.value"
-            :class="{ selected: activeCategory === filter.value }"
+            :aria-pressed="!linkedDemoId && activeCategory === filter.value"
+            :class="{ selected: !linkedDemoId && activeCategory === filter.value }"
             @click="selectCategory(filter.value)"
           >
             <span>{{ filter.label }}</span>
@@ -121,12 +122,12 @@
               <span class="demos-section-count">{{ section.total }}</span>
             </div>
             <button
-              v-if="section.hasMore"
+              v-if="linkedDemoId || section.hasMore"
               type="button"
               class="demos-section-view-all"
-              @click="selectCategory(section.category)"
+              @click="linkedDemoId ? resetDiscovery() : selectCategory(section.category)"
             >
-              {{ t.viewAll() }}
+              {{ linkedDemoId ? t.all : t.viewAll() }}
             </button>
           </div>
           <div class="demos-grid">
@@ -173,7 +174,8 @@
               <div class="demo-card-body">
                 <p class="demo-category">{{ categoryLabel(demo.category) }}</p>
                 <h3>{{ demoCopy(demo).title }}</h3>
-              <ul class="demo-tags" :aria-label="t.tagsLabel">
+                <p v-if="linkedDemoId" class="demo-summary">{{ demoCopy(demo).summary }}</p>
+                <ul class="demo-tags" :aria-label="t.tagsLabel">
                   <li v-for="tag in demoCopy(demo).tags" :key="tag">{{ tag }}</li>
                 </ul>
                 <a
@@ -318,6 +320,7 @@ const props = defineProps<{
 
 const copy = {
   en: {
+    download: 'Download FlyEnv',
     kicker: 'FlyEnv demonstrations',
     title: 'See what runs locally with FlyEnv',
     intro: 'Browse demos of real projects, runtimes, databases, developer tools, and AI workflows running locally with FlyEnv.',
@@ -342,6 +345,7 @@ const copy = {
     openOn: (platform: DemoPlatform) => `Open on ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   },
   zh: {
+    download: '下载 FlyEnv',
     kicker: 'FlyEnv 演示',
     title: '查看 FlyEnv 可在本地运行的内容',
     intro: '浏览 FlyEnv 在本地运行真实项目、运行时、数据库、开发工具和 AI 工作流的演示视频。',
@@ -365,6 +369,7 @@ const copy = {
     openOn: (platform: DemoPlatform) => `在 ${platform === 'youtube' ? 'YouTube' : 'Bilibili'} 打开`
   },
   id: {
+    download: 'Unduh FlyEnv',
     kicker: 'Demo FlyEnv',
     title: 'Lihat apa yang berjalan lokal dengan FlyEnv',
     intro: 'Jelajahi video demo FlyEnv untuk proyek, runtime, database, alat developer, dan alur kerja AI yang berjalan secara lokal.',
@@ -388,6 +393,7 @@ const copy = {
     openOn: (platform: DemoPlatform) => `Buka di ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   },
   es: {
+    download: 'Descargar FlyEnv',
     kicker: 'Demostraciones de FlyEnv',
     title: 'Mira lo que se ejecuta en local con FlyEnv',
     intro: 'Explora demostraciones de proyectos reales, runtimes, bases de datos, herramientas de desarrollo y flujos de trabajo de IA ejecutándose en local con FlyEnv.',
@@ -412,6 +418,7 @@ const copy = {
     openOn: (platform: DemoPlatform) => `Abrir en ${platform === 'youtube' ? 'YouTube' : 'Bilibili'}`
   },
   vi: {
+    download: 'Tải FlyEnv',
     kicker: 'Bản demo FlyEnv',
     title: 'Xem những gì chạy local với FlyEnv',
     intro: 'Duyệt các bản demo về dự án thực tế, runtime, cơ sở dữ liệu, công cụ nhà phát triển và quy trình làm việc AI chạy local với FlyEnv.',
@@ -557,6 +564,7 @@ const coverVisualRules: DemoCoverRule[] = [
 
 const activeCategory = ref<FilterValue>('all')
 const searchQuery = ref('')
+const linkedDemoId = ref('')
 const selectedDemo = ref<Demo | null>(null)
 const selectedPlatform = ref<DemoPlatform>('youtube')
 const playerTrigger = ref<HTMLElement | null>(null)
@@ -566,6 +574,7 @@ const featuredHeadingId = 'demos-featured-heading'
 let searchTimer: ReturnType<typeof window.setTimeout> | undefined
 
 const t = computed(() => copy[props.locale])
+const downloadHref = computed(() => props.locale === 'en' ? '/download' : `/${props.locale}/download`)
 const filters = computed(() => [
   { value: 'all' as const, label: t.value.all, count: demos.length },
   ...categoryValues.map((value) => ({
@@ -575,6 +584,8 @@ const filters = computed(() => [
   }))
 ])
 const matchedDemos = computed(() => {
+  if (linkedDemoId.value) return demos.filter((demo) => demo.id === linkedDemoId.value)
+
   const query = searchQuery.value.trim().toLocaleLowerCase()
 
   return demos.filter((demo) => {
@@ -593,7 +604,7 @@ const matchedDemos = computed(() => {
   })
 })
 const categorySections = computed(() => {
-  const shouldLimitCategory = !searchQuery.value.trim() && activeCategory.value === 'all'
+  const shouldLimitCategory = !linkedDemoId.value && !searchQuery.value.trim() && activeCategory.value === 'all'
 
   return categoryValues
     .filter((category) => activeCategory.value === 'all' || category === activeCategory.value)
@@ -620,7 +631,7 @@ const featuredDemos = computed(() =>
     .filter((demo) => demo.featured && typeof demo.featuredRank === 'number')
     .sort((first, second) => first.featuredRank! - second.featuredRank!)
 )
-const showFeatured = computed(() => activeCategory.value === 'all' && !searchQuery.value.trim())
+const showFeatured = computed(() => !linkedDemoId.value && activeCategory.value === 'all' && !searchQuery.value.trim())
 const resultSummary = computed(() => t.value.resultSummary(matchedDemos.value.length, categorySections.value.length))
 const embedUrl = computed(() => {
   if (!selectedDemo.value) return ''
@@ -668,10 +679,14 @@ function playLabel(demo: Demo) {
 
 function localizedGuideLinks(demo: Demo) {
   const prefix = props.locale === 'en' ? '' : `/${props.locale}`
-  return demo.relatedGuides.concat(demo.relatedModules).map((href) => ({
+  const relatedLinks = demo.relatedGuides.concat(demo.relatedModules).map((href) => ({
     href: `${prefix}${href}`,
     label: t.value.relatedLink
   }))
+  for (const solution of demo.relatedSolutions || []) {
+    relatedLinks.push({ href: `${prefix}/solutions/${solution.slug}`, label: solution.name })
+  }
+  return relatedLinks
 }
 
 function syncDiscoveryUrl() {
@@ -686,10 +701,12 @@ function syncDiscoveryUrl() {
   if (query) url.searchParams.set('q', query)
   else url.searchParams.delete('q')
 
-  window.history.replaceState({}, '', url)
+  url.searchParams.delete('video')
+  window.history.replaceState(window.history.state, '', url)
 }
 
 function selectCategory(category: FilterValue) {
+  linkedDemoId.value = ''
   activeCategory.value = category
   syncDiscoveryUrl()
   trackEvent('demos_filter_change', {
@@ -699,6 +716,7 @@ function selectCategory(category: FilterValue) {
 }
 
 function scheduleSearchTracking() {
+  linkedDemoId.value = ''
   syncDiscoveryUrl()
   if (searchTimer) window.clearTimeout(searchTimer)
 
@@ -711,6 +729,7 @@ function scheduleSearchTracking() {
 }
 
 function resetDiscovery() {
+  linkedDemoId.value = ''
   activeCategory.value = 'all'
   searchQuery.value = ''
   syncDiscoveryUrl()
@@ -793,15 +812,18 @@ function handleDialogKeydown(event: KeyboardEvent) {
   if (event.key === 'Escape') closeDialog()
 }
 
-onMounted(() => {
+function restoreDiscoveryFromUrl() {
   const params = new URLSearchParams(window.location.search)
   const category = params.get('category')
+  const linkedDemo = demos.find((demo) => demo.id === params.get('video'))
+  linkedDemoId.value = linkedDemo?.id || ''
+  activeCategory.value = linkedDemo ? 'all' : categoryValues.find((value) => value === category) || 'all'
+  searchQuery.value = linkedDemo ? '' : params.get('q') || ''
+}
 
-  if (category && categoryValues.includes(category as DemoCategory)) {
-    activeCategory.value = category as DemoCategory
-  }
-
-  searchQuery.value = params.get('q') || ''
+onMounted(() => {
+  restoreDiscoveryFromUrl()
+  window.addEventListener('popstate', restoreDiscoveryFromUrl)
 })
 
 watch(selectedDemo, (demo) => {
@@ -811,7 +833,8 @@ watch(selectedDemo, (demo) => {
 })
 
 onUnmounted(() => {
-  if (typeof document !== 'undefined') document.removeEventListener('keydown', handleDialogKeydown)
+  document.removeEventListener('keydown', handleDialogKeydown)
+  window.removeEventListener('popstate', restoreDiscoveryFromUrl)
   if (searchTimer) window.clearTimeout(searchTimer)
 })
 </script>

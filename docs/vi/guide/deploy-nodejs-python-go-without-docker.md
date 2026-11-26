@@ -145,6 +145,8 @@ Mở trình duyệt và truy cập địa chỉ local (ví dụ `http://127.0.0.
 
 ![Xác nhận đang chạy](https://oss.macphpstudy.com/image/deploy-12.webp)
 
+Trước khi thêm reverse proxy, kiểm tra ứng dụng phản hồi trực tiếp trên cổng local đã cấu hình. Địa chỉ upstream (ví dụ `127.0.0.1:3000`) được đặt riêng với cổng HTTPS của web server. Sau đó bật **Auto SSL** cho site trong Host. [Xem demo dịch vụ native](/vi/demos?video=native-node-python-go-services).
+
 ## Bước 8: Theo dõi log
 
 Nhấp các nút thao tác để xem log đầu ra và log lỗi theo thời gian thực:

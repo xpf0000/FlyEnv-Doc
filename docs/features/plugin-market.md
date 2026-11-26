@@ -9,6 +9,8 @@ description: 'Explore FlyEnv plugins for SamWaf, persistent AI memory, database 
 
 The Plugin Market adds optional modules to your FlyEnv workspace. Install the tools your projects need, and manage them alongside your existing runtimes and services. Plugins can bring their own service controls, version management, configuration editors and specialized views into the app.
 
+The [MySQL Cluster demo](/demos?video=mysql-cluster-replication) shows a module installed through Plugin Market using a database version managed in FlyEnv.
+
 Open **Settings → Plugin Market** to browse official plugins, manage installed ones or add a third-party source.
 
 ![FlyEnv Plugin Market showing official plugins with install, reinstall and update controls](https://oss.macphpstudy.com/image/features/plugin/plugin-market-official.png)

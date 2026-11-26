@@ -61,7 +61,7 @@ Anggap Mailpit sebagai "lubang hitam" untuk email pengembangan.
 
 Arahkan pengaturan SMTP aplikasi ke Mailpit.
 
-**PHP (Laravel/Symfony/WordPress):**
+**Untuk Laravel (`.env`):**
 
 ```ini
 MAIL_MAILER=smtp
@@ -114,6 +114,23 @@ Titik akses bawaan:
 ### Langkah 4: Uji Penangkapan Email
 
 Kirim email percobaan dari aplikasi, lalu buka `http://127.0.0.1:8025` untuk melihat pesan yang tertangkap.
+
+Pada proyek Laravel lokal yang memakai pengaturan SMTP di atas, bersihkan cache konfigurasi dan buka Tinker. Jika proyek memakai `MAIL_URL`, hapus nilai yang menimpa konfigurasi SMTP lokal. Nonaktifkan relay dan penerusan SMTP selama pengujian. Setel `MAIL_SCHEME=smtp` jika `config/mail.php` membacanya.
+
+```sh
+php artisan config:clear
+php artisan tinker
+```
+
+Jalankan kode ini di Tinker, lalu cari subjek **Mailpit smoke test** di kotak masuk Mailpit.
+
+```php
+\Illuminate\Support\Facades\Mail::raw('Local SMTP check', function ($message) {
+    $message->from('app@example.test')->to('dev@example.test')->subject('Mailpit smoke test');
+});
+```
+
+Lihat [modul Mailpit](/id/features/mailpit) untuk alamat bind dan log, atau [tonton demo penangkapan SMTP](/id/demos?video=mailpit-local).
 
 ## Menggunakan Mailpit untuk Pengujian Email
 

@@ -10,7 +10,7 @@ head:
 
 Các dự án PHP không còn khuôn theo một mô hình triển khai local duy nhất. Một site WordPress cần một stack PHP-FPM ổn định, Laravel Octane cần một application server, Hyperf kỳ vọng Swoole, còn Workerman là một tiến trình PHP chạy dài, không nên bị nhét vào một cấu hình Apache giả lập. Docker có thể giải quyết việc này, nhưng nó thường kéo theo khởi động chậm, dùng nhiều RAM và một tầng mạng thứ hai.
 
-FlyEnv mang đến cho bạn quy trình triển khai PHP native trên Windows, macOS và Linux: PHP CGI Service, PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI, Composer, cơ sở dữ liệu, tên miền tùy chỉnh, SSL tự động, quy tắc reverse proxy, log và Cloudflare Tunnel — tất cả trong một ứng dụng desktop.
+FlyEnv mang đến cho bạn quy trình triển khai PHP native trên Windows, macOS và Linux: PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI, Composer, cơ sở dữ liệu, tên miền tùy chỉnh, SSL tự động, quy tắc reverse proxy, log và Cloudflare Tunnel — tất cả trong một ứng dụng desktop.
 
 ## Chọn đúng chế độ triển khai PHP của FlyEnv
 
@@ -20,7 +20,6 @@ Hãy dùng bảng này trước khi tạo dự án. Nó trả lời câu hỏi t
 | --- | --- | --- | --- |
 | WordPress, ClassicPress, Contao | PHP-FPM + Host | Site CMS và nội dung | Mô hình request/response ổn định, tích hợp cơ sở dữ liệu, tên miền tùy chỉnh, HTTPS và định tuyến Nginx/Apache/Caddy quen thuộc |
 | Laravel, Symfony, Yii2, ThinkPHP, CodeIgniter, CakePHP, Slim | PHP-FPM + Host | Dự án MVC và API tiêu chuẩn | Định tuyến FastCGI gần production mà không cần Docker, với phiên bản PHP và kiểm soát extension theo từng dự án |
-| PHP cũ hoặc script local đơn giản | PHP CGI Service | Kiểm thử tính tương thích | Hữu ích khi bạn cần một dịch vụ PHP dựa trên CGI nhẹ nhàng thay vì một application server đầy đủ |
 | Ứng dụng PHP hiện đại dùng web serving nhúng | FrankenPHP | Laravel, Symfony, dịch vụ API | Chạy PHP qua runtime FrankenPHP và tích hợp với FlyEnv Host, auto SSL, log và reverse proxy |
 | Laravel Octane, PHP worker PSR-7, API thông lượng cao | RoadRunner | Octane, PHP Worker, dự án có sẵn `.rr.yaml` | Chạy các PHP worker chạy dài, đồng bộ cổng và gắn với một runtime PHP do FlyEnv quản lý |
 | Hyperf, EasySwoole, Swoole thuần, Laravel Octane trên Swoole | Swoole CLI | Dịch vụ PHP hướng sự kiện | Chạy các dự án Swoole CLI với các mẫu thiết lập sẵn, phát hiện cấu hình, biến môi trường, cổng và log |
@@ -144,15 +143,7 @@ Xem quy trình riêng cho Laravel chi tiết tại [Chạy Laravel trên FlyEnv]
 
 ## Dùng PHP CGI Service cho các quy trình tương thích
 
-PHP CGI Service hữu ích khi bạn cần một dịch vụ PHP local nhẹ nhàng cho các dự án cũ, các stack hướng Windows, hoặc kiểm thử tính tương thích.
-
-Dùng nó khi:
-
-1. Dự án là một ứng dụng PHP đơn giản với định tuyến hạn chế.
-2. Bạn cần kiểm thử hành vi CGI thay vì một worker chạy dài.
-3. Bạn muốn một dịch vụ tối giản trước khi chuyển dự án sang PHP-FPM.
-
-Với đa số dự án MVC và CMS mới, hãy chọn PHP-FPM trước. Dùng PHP CGI Service khi dự án hay quy trình của hệ điều hành thực sự hưởng lợi từ tính tương thích CGI.
+Với site do Nginx, Apache hoặc Caddy phục vụ, chọn phiên bản PHP đã cài trong **Host** và khởi động phiên bản tương ứng trong [module PHP-FPM](/vi/features/php). Trên Windows, module chạy `php-cgi.exe` qua trình khởi chạy FastCGI. Trên macOS và Linux, module chạy `php-fpm`. Dịch vụ ứng dụng độc lập dùng tiến trình riêng và có thể đặt sau reverse proxy.
 
 ## Triển khai với FrankenPHP mà không cần cấu hình Caddy thủ công
 
@@ -316,6 +307,8 @@ Chế độ triển khai chỉ là một phần của môi trường local. Đa 
 Bạn thích xem? Xem Deploy PHP Apps Without Docker in FlyEnv: Laravel Octane, RoadRunner, Swoole & Workerman trong thực tế:
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/5NqSag8c4YY?si=fBlpEHxBKjKR7nX1" title="Trình phát video YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Xem demo dịch vụ ứng dụng PHP trong FlyEnv](/vi/demos?video=php-project-services).
 
 ## Câu hỏi thường gặp (FAQ)
 

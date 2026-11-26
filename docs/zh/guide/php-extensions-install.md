@@ -30,16 +30,20 @@ FlyEnv提供了PHP扩展的快捷安装
 
 扩展面板在 Windows 上提供了快捷安装：
 
-- **在线扩展库：** 搜索扩展目录（由 Packagist 提供数据）并一键安装。FlyEnv 会下载 [PIE](https://github.com/php/pie)（PHP 官方扩展安装器），并针对你当前的 PHP 版本完成安装，版本对应关系自动处理。下载 PIE 需要 x64 架构的 Windows。
+- **在线扩展库。** 在要使用的 PHP 版本中打开「扩展」。FlyEnv 显示可用版本，并按扩展包选择兼容的 Windows PECL DLL 或 [PIE](https://github.com/php/pie)。FlyEnv 下载的 PIE 安装器适用于 x64 Windows。
 - **内置扩展：** 扩展文件夹中默认包含了大多数常用扩展。PHP 不会自动启用它们——直接在面板中启用或禁用，FlyEnv 会自动更新 `php.ini`。
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="">
 
-你也可以手动安装：在 [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) 站点下载 `.dll` 文件，然后放到 PHP 扩展文件夹。
+手动安装时，从 [PECL](https://pecl.php.net/packages.php) 获取与 PHP 版本、架构和线程安全类型（TS/NTS）匹配的 DLL，将它放入所选版本的 `extension_dir`，并在该版本的配置中启用。Windows DLL 兼容性见 [PHP 手册](https://www.php.net/manual/en/install.pecl.windows.php)。
 
+## 在所选 PHP 版本中验证扩展
 
+使用刚修改的 PHP 版本执行以下命令。安装了多个版本时，请将 `php` 替换为目标版本的 `php` 或 `php.exe` 完整路径。
 
+```text
+php --ini
+php -m
+```
 
-
-
-
+核对加载的 INI 路径，并确认模块出现在列表中。如果 PHP 启动时报错，检查扩展文件、依赖和 INI 指令。对于网站，请在 FlyEnv 的 [PHP-FPM 模块](/zh/features/php) 中重启所选 Web 工作进程，再在站点内验证。CLI 的输出只反映 CLI 进程。

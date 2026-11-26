@@ -145,6 +145,8 @@ go run main.go
 
 ![验证运行](https://oss.macphpstudy.com/image/deploy-12.webp)
 
+添加反向代理前，先验证应用能在已配置的本地端口响应。上游监听地址（例如 `127.0.0.1:3000`）与 Web 服务器的 HTTPS 端口分别配置，然后在站点启用「自动 SSL」。[观看原生项目服务演示](/zh/demos?video=native-node-python-go-services)。
+
 ## 第八步：监控日志
 
 点击操作按钮实时查看输出和错误日志：

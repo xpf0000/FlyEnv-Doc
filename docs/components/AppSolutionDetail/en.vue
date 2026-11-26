@@ -333,7 +333,7 @@
           id="flyenv-helps-title"
           class="!mb-0 !mt-0 !border-0 !pt-0 text-[26px] font-extrabold leading-[1.2] text-[#172033] dark:text-[#e9edf5] md:text-3xl"
         >
-          {{ copy.howFlyEnvHelps }}
+          {{ workflow?.helpTitle ?? copy.howFlyEnvHelps }}
         </h2>
         <ul class="!mb-0 !mt-7 grid !list-none grid-cols-1 gap-x-10 gap-y-7 !p-0 md:grid-cols-2">
           <li v-for="item in detail.help" :key="item.title" class="!mt-0 min-w-0">
@@ -358,10 +358,10 @@
           id="setup-environment-title"
           class="!mb-0 !mt-0 !border-0 !pt-0 text-[26px] font-extrabold leading-[1.2] text-[#172033] dark:text-[#e9edf5] md:text-3xl"
         >
-          {{ copy.setupLocalEnvironment }}
+          {{ workflow?.setupTitle ?? copy.setupLocalEnvironment }}
         </h2>
         <p class="!mb-0 !mt-4 max-w-[720px] text-base leading-7 text-[#4b5565] dark:text-[#b1bdcc]">
-          {{ copy.setupDescription }}
+          {{ workflow?.setupIntro ?? copy.setupDescription }}
         </p>
         <ol class="!mb-0 !mt-7 grid !list-none grid-cols-1 gap-3 !p-0 md:grid-cols-2">
           <li
@@ -382,6 +382,15 @@
           class="mt-7 inline-flex min-h-11 items-center rounded-lg border border-[#cfd7e3] bg-white px-[17px] text-sm font-bold text-[#1769f9] no-underline transition-colors hover:border-[#adc5ea] hover:bg-[#eef5ff] hover:text-[#0d5be4] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#1769f9]/30 active:translate-y-px dark:border-[#3a4760] dark:bg-[#131d2d] dark:text-[#8fbcff] dark:hover:border-[#52627f] dark:hover:bg-[#15284d] dark:hover:text-[#b8d4ff]"
           >{{ detail.guide.label }}</a
         >
+        <ul v-if="workflow" class="mt-7 flex !list-none flex-wrap gap-x-6 gap-y-2 !p-0 text-sm">
+          <li v-for="link in workflow.links" :key="link.href">
+            <a
+              :href="link.href.startsWith('/') ? routePrefix + link.href : link.href"
+              class="font-bold !text-[#1769f9] underline dark:!text-[#8fbcff]"
+              >{{ link.label }}</a
+            >
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -399,13 +408,15 @@
           <p
             class="!mb-0 !mt-4 max-w-[600px] text-base leading-7 text-[#4b5565] dark:text-[#b1bdcc]"
           >
-            {{ demo.locales[props.locale].summary }}
+            {{ workflow?.demoNote ?? demo.locales[props.locale].summary }}
           </p>
         </div>
         <a
-          :href="demo.platforms.youtube"
-          target="_blank"
-          rel="noopener noreferrer"
+          :href="
+            workflow?.demoNote ? `${routePrefix}/demos?video=${demo.id}` : demo.platforms.youtube
+          "
+          :target="workflow?.demoNote ? undefined : '_blank'"
+          :rel="workflow?.demoNote ? undefined : 'noopener noreferrer'"
           class="group block overflow-hidden rounded-lg border border-[#dfe6ef] bg-white no-underline transition-colors hover:border-[#adc5ea] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#1769f9]/30 dark:border-[#3a4760] dark:bg-[#131d2d] dark:hover:border-[#52627f]"
           data-analytics-event="solution_demo_click"
           data-analytics-surface="solution-detail-demo"
@@ -568,6 +579,7 @@
   import { ChatDotSquare, Check, CopyDocument, Message } from '@element-plus/icons-vue'
   import { demos } from '../../data/demos'
   import { solutions } from '../../data/solutions'
+  import { solutionWorkflows } from '../../data/solution-workflows'
   import { solutionDetails } from '../../data/solution-details'
   import { resolveSolutionStackLinks } from '../../data/solution-stack-links'
   import { solutionAboutContentByLocale } from '../../data/solution-use-cases'
@@ -602,9 +614,24 @@
       (paragraph): paragraph is string => Boolean(paragraph)
     )
   })
+  const workflow = computed(() => solutionWorkflows[props.slug as SolutionSlug]?.[props.locale])
   const detail = computed(() => {
     const source = solutionDetails[props.slug as SolutionSlug]
     const localized = solutionContentByLocale[props.locale][props.slug]
+    if (source && workflow.value) {
+      const { summary, roles, help, setupSteps } = workflow.value
+      return {
+        ...source,
+        summary,
+        overview: localized?.overview ?? source.overview,
+        stack: source.stack.map((item) => ({
+          ...item,
+          role: (item.key && roles[item.key]) || item.role
+        })),
+        help,
+        setupSteps
+      }
+    }
     if (!source || !localized) return source ?? null
 
     const name = solution.value?.name ?? 'project'
@@ -644,35 +671,48 @@
             },
             {
               title: 'Configura dominios locales',
-              description: 'Accede a los proyectos mediante dominios locales y HTTPS cuando sea necesario.'
+              description:
+                'Accede a los proyectos mediante dominios locales y HTTPS cuando sea necesario.'
             }
           ]
         : isVietnamese
           ? [
-              { title: 'Khớp runtime dự án', description: `Chọn phiên bản runtime mà ${name} yêu cầu.` },
-              { title: 'Quản lý dịch vụ local', description: 'Chỉ khởi động cơ sở dữ liệu, cache và các dịch vụ khác khi dự án cần.' },
-              { title: 'Giữ dự án tách biệt', description: 'Để mỗi dự án dùng các phiên bản và cấu hình dịch vụ riêng.' },
-              { title: 'Cấu hình tên miền local', description: 'Truy cập dự án qua tên miền local và HTTPS khi cần.' }
+              {
+                title: 'Khớp runtime dự án',
+                description: `Chọn phiên bản runtime mà ${name} yêu cầu.`
+              },
+              {
+                title: 'Quản lý dịch vụ local',
+                description: 'Chỉ khởi động cơ sở dữ liệu, cache và các dịch vụ khác khi dự án cần.'
+              },
+              {
+                title: 'Giữ dự án tách biệt',
+                description: 'Để mỗi dự án dùng các phiên bản và cấu hình dịch vụ riêng.'
+              },
+              {
+                title: 'Cấu hình tên miền local',
+                description: 'Truy cập dự án qua tên miền local và HTTPS khi cần.'
+              }
             ]
           : [
-            {
-              title: 'Cocokkan runtime proyek',
-              description: `Pilih versi runtime yang dibutuhkan ${name}.`
-            },
-            {
-              title: 'Kelola layanan lokal',
-              description:
-                'Jalankan database, cache, dan layanan lain hanya saat proyek membutuhkannya.'
-            },
-            {
-              title: 'Jaga isolasi proyek',
-              description: 'Gunakan versi dan konfigurasi layanan tersendiri untuk setiap proyek.'
-            },
-            {
-              title: 'Atur domain lokal',
-              description: 'Akses proyek melalui domain lokal dan HTTPS saat diperlukan.'
-            }
-          ]
+              {
+                title: 'Cocokkan runtime proyek',
+                description: `Pilih versi runtime yang dibutuhkan ${name}.`
+              },
+              {
+                title: 'Kelola layanan lokal',
+                description:
+                  'Jalankan database, cache, dan layanan lain hanya saat proyek membutuhkannya.'
+              },
+              {
+                title: 'Jaga isolasi proyek',
+                description: 'Gunakan versi dan konfigurasi layanan tersendiri untuk setiap proyek.'
+              },
+              {
+                title: 'Atur domain lokal',
+                description: 'Akses proyek melalui domain lokal dan HTTPS saat diperlukan.'
+              }
+            ]
     const setupSteps = isChinese
       ? [
           `按照 ${name} 官方文档安装项目和依赖。`,
@@ -701,13 +741,13 @@
               'Nhóm các dịch vụ liên quan để dễ khởi động lại cùng nhau.'
             ]
           : [
-            `Pasang proyek dan dependensinya mengikuti dokumentasi resmi ${name}.`,
-            'Pilih versi runtime yang dibutuhkan proyek di FlyEnv.',
-            'Jalankan layanan database yang ditentukan dalam konfigurasi proyek.',
-            'Mulai cache, pencarian, atau layanan pendukung lain hanya bila diperlukan.',
-            'Konfigurasikan server web, domain lokal, dan HTTPS sesuai kebutuhan.',
-            'Kelompokkan layanan terkait agar mudah dijalankan kembali bersama-sama.'
-          ]
+              `Pasang proyek dan dependensinya mengikuti dokumentasi resmi ${name}.`,
+              'Pilih versi runtime yang dibutuhkan proyek di FlyEnv.',
+              'Jalankan layanan database yang ditentukan dalam konfigurasi proyek.',
+              'Mulai cache, pencarian, atau layanan pendukung lain hanya bila diperlukan.',
+              'Konfigurasikan server web, domain lokal, dan HTTPS sesuai kebutuhan.',
+              'Kelompokkan layanan terkait agar mudah dijalankan kembali bersama-sama.'
+            ]
 
     return {
       ...source,

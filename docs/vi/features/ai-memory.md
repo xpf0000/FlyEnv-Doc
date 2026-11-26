@@ -49,15 +49,15 @@ Nội dung mỗi bộ nhớ hỗ trợ tối đa 16 KiB văn bản UTF-8. Giữ 
 
 Mở **Kết nối tác nhân** và chọn một ứng dụng khách đã cài. Thiết lập một cú nhấp có sẵn cho **[Claude Code](/vi/features/claude-code)**, **[Antigravity CLI](/vi/features/antigravity-cli)**, **[Codex](/vi/features/codex)**, **[GitHub Copilot CLI](/vi/features/github-copilot-cli)**, **[OpenCode](/vi/features/opencode)** và **[Kimi](/vi/features/kimi)**.
 
-Thao tác kết nối chuẩn bị dịch vụ bộ nhớ cục bộ, ghi kết nối MCP toàn cục của ứng dụng khách và cài chỉ dẫn bộ nhớ toàn cục, đồng thời giữ nguyên cấu hình hiện có. Bạn có thể theo dõi kết quả từng bước và thử lại các bước chưa hoàn tất. Thiết lập nâng cao cũng cho phép cài chỉ dẫn riêng cho dự án khi cần.
+Thiết lập bằng một cú nhấp sẽ khởi động máy chủ MCP cục bộ nếu cần, bật năm công cụ bộ nhớ, đăng ký kết nối MCP toàn cục cho ứng dụng khách đã chọn và cài chỉ dẫn bộ nhớ toàn cục. Bạn có thể xem kết quả từng bước và thử lại bước chưa xong. Phần thiết lập nâng cao cũng cho phép cài chỉ dẫn riêng cho một dự án.
 
 ![Trang Kết nối tác nhân của AI Memory với sáu ứng dụng khách được hỗ trợ, thiết lập chung và ba bước thiết lập tự động cho Codex](https://oss.macphpstudy.com/image/features/plugin/ai-memory-connect-agent.webp)
 
 Với các ứng dụng khách MCP khác, chọn **Thiết lập chung**. Sao chép cấu hình HTTP hoặc dùng tùy chọn stdio khi ứng dụng khách yêu cầu. Thêm chỉ dẫn bộ nhớ vào tệp chỉ dẫn hoặc lời nhắc hệ thống mà ứng dụng khách hỗ trợ. Kết nối stdio yêu cầu Node.js cục bộ và cầu nối của FlyEnv.
 
-Sau khi thiết lập, kết nối lại ứng dụng khách hoặc mở phiên tác nhân mới để nó tải kết nối và chỉ dẫn. Yêu cầu nó lưu một bộ nhớ mẫu nhỏ, rồi truy xuất và báo ID cùng phiên bản sửa đổi thực tế. Bạn cũng có thể tìm bản ghi trong **Bộ nhớ** và xem yêu cầu trong **Lịch sử gọi công cụ**.
+Sau khi thiết lập, mở một phiên mới từ đường dẫn tuyệt đối tới thư mục gốc đã xác nhận của dự án. Yêu cầu ứng dụng khách đầu tiên lưu một thông tin mẫu, chẳng hạn “Lệnh kiểm thử nhanh là `npm test`”, rồi báo ID và phiên bản sửa đổi được trả về. Trong phiên mới của ứng dụng khách thứ hai đã kết nối, dùng cùng thư mục gốc và yêu cầu tìm “kiểm thử nhanh” rồi truy xuất bản ghi. Đối chiếu ID, phiên bản sửa đổi và kiểm tra cả hai thao tác trong **Lịch sử gọi công cụ**.
 
-Thiết lập thành công xác nhận rằng cấu hình đã được ghi. Việc tác nhân lưu kiến thức hữu ích và truy xuất lại sau này phụ thuộc vào chỉ dẫn và các lệnh gọi công cụ thực tế; không đảm bảo lưu tự động.
+Bài nghiệm thu bản xem trước cho nhà phát triển của FlyEnv đã xác minh việc chia sẻ hai chiều giữa Codex và Kimi, đồng thời đọc lại một bản ghi sau khi khởi động lại FlyEnv. Thiết lập phía ứng dụng khách ghi cấu hình kết nối và chỉ dẫn. Việc lưu và truy xuất kiến thức phụ thuộc vào chỉ dẫn của tác nhân và các lệnh gọi công cụ thực tế.
 
 ## Năm công cụ MCP cho bộ nhớ bền vững
 
@@ -68,6 +68,8 @@ AI Memory bổ sung năm công cụ vào máy chủ MCP của FlyEnv:
 - **`flyenv_memory_store`:** lưu bộ nhớ mới cùng nguồn của nó.
 - **`flyenv_memory_update`:** sửa đổi bản ghi hiện có với lý do và phiên bản sửa đổi dự kiến.
 - **`flyenv_memory_forget`:** xóa vĩnh viễn bản ghi và lịch sử của nó.
+
+Tìm kiếm trong dự án có thể dùng `include_global=true` để bao gồm bộ nhớ toàn cục. Đọc từng kết quả theo phạm vi được trả về. Khi cập nhật báo xung đột, đọc phiên bản sửa đổi mới nhất trước khi quyết định thay đổi. Khi thao tác ghi hết thời gian chờ hoặc trả về `unknown`, gửi lại cùng yêu cầu, giữ nguyên `request_id` và các tham số để xác nhận kết quả.
 
 Quản lý tính khả dụng của công cụ và chính sách phê duyệt trong thiết lập MCP của FlyEnv. Giữ FlyEnv chạy, plugin được bật và máy chủ MCP sẵn sàng trong khi tác nhân dùng các công cụ. Các ứng dụng khách đã kết nối khác nhau có thể truy cập cùng bộ sưu tập đã lưu khi dùng cùng phạm vi và thư mục gốc dự án.
 
@@ -89,7 +91,7 @@ Nếu thư mục đã chọn đã có bộ nhớ dự án, FlyEnv hỏi các b�
 
 Thẻ **Lịch sử gọi công cụ** hiển thị hoạt động và kết quả của công cụ bộ nhớ trong phiên FlyEnv hiện tại. Làm mới danh sách sau khi dùng tác nhân, rồi mở rộng một bản ghi để xem chi tiết yêu cầu và phản hồi.
 
-Khung xem giữ tối đa 200 mục chi tiết trong bộ nhớ và không chứa toàn bộ nội dung bộ nhớ. Các bản ghi này bị xóa khi FlyEnv thoát; bộ nhớ đã lưu vẫn tồn tại trên đĩa. Lưu trữ cục bộ mô tả nơi plugin giữ dữ liệu: nội dung được truy xuất qua MCP vẫn được gửi tới ứng dụng khách AI bạn chọn.
+Khung xem giữ tối đa 200 mục chi tiết trong bộ nhớ và không chứa toàn bộ nội dung bộ nhớ. Các bản ghi này bị xóa khi FlyEnv thoát; bộ nhớ đã lưu vẫn tồn tại trên đĩa. Lưu trữ cục bộ mô tả nơi plugin giữ dữ liệu: nội dung được truy xuất qua MCP vẫn được gửi tới ứng dụng khách AI bạn chọn. Ứng dụng khách có thể gửi nội dung truy xuất cho nhà cung cấp mô hình của nó. Hãy dùng bản ghi mẫu không chứa dữ liệu nhạy cảm khi kiểm tra kết nối.
 
 ![Thẻ Lịch sử gọi công cụ của AI Memory hiển thị hoạt động công cụ trong phiên, kết quả, thời gian thực hiện và nút làm mới](https://oss.macphpstudy.com/image/features/plugin/ai-memory-call-records.webp)
 

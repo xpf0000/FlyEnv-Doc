@@ -8,23 +8,13 @@ head:
 
 # Crea flujos de trabajo de IA autoalojados con n8n y Ollama (sin Docker)
 
-¿Cansado de pagar cuotas mensuales por herramientas de automatización con IA como Zapier o Coze? ¿Te preocupa enviar datos sensibles a servicios en la nube de terceros? Muchos desarrolladores quieren crear flujos de trabajo impulsados por IA, pero se atascan con configuraciones complejas de Docker, pesadillas de configuración manual y preocupaciones constantes sobre la privacidad de los datos.
-
-Esta guía te muestra cómo crear un flujo de trabajo de IA completamente autoalojado y capaz de funcionar sin conexión usando **n8n** (la alternativa open-source a Zapier) y **Ollama** (ejecutor de LLM locales), todo gestionado sin esfuerzo con FlyEnv. Sin Docker, sin dependencias de la nube, e incluso puedes exponer tus flujos de trabajo a internet de forma segura cuando lo necesites.
+Ejecuta n8n y Ollama en FlyEnv. Después, haz una petición POST local para enviar un mensaje a un modelo descargado y recibir la respuesta. La instalación de n8n y Ollama y la descarga del modelo requieren conexión. Tras la configuración, el webhook en loopback y la inferencia pueden ejecutarse sin conexión.
 
 ---
 
 ## Por qué importan los flujos de trabajo de IA autoalojados
 
-| Herramientas de automatización en la nube | Autoalojado con FlyEnv |
-|------------------------|-------------------------|
-| Cuotas de suscripción mensuales | Configuración única, gratis para siempre |
-| Datos enviados a servidores de terceros | 100% privado, se ejecuta localmente |
-| Personalización limitada | Control total sobre los flujos de trabajo |
-| Requiere conexión a internet | Funciona completamente sin conexión |
-| Límites de peticiones a la API complejos | Llamadas a la API local ilimitadas |
-
-FlyEnv ejecuta n8n y Ollama como procesos locales, evitando la sobrecarga base de la máquina virtual de Docker Desktop. El uso real de recursos depende del modelo seleccionado, los flujos de trabajo y los servicios.
+FlyEnv gestiona los dos procesos. Tú creas el flujo en n8n y eliges el modelo en el nodo de Ollama. El ejemplo usa el almacenamiento SQLite predeterminado de n8n y la API local de Ollama. Los nodos que llaman a API de terceros siguen necesitando internet.
 
 ---
 
@@ -40,22 +30,19 @@ Antes de empezar, asegúrate de tener:
 
 ## Paso 1: Instala e inicia n8n
 
-FlyEnv incluye n8n como módulo integrado, lo que elimina la necesidad de configurar Node.js manualmente o usar contenedores Docker.
+Instala una versión de [Node.js](/es/features/nodejs) compatible con tu versión de n8n y comprueba que `node` y `npm` funcionan en el terminal.
 
-1. Abre FlyEnv y ve a la sección **Tools**
-2. Busca **n8n** en la lista de módulos disponibles
-3. Haz clic en **Install**: FlyEnv gestiona automáticamente todas las dependencias
-4. Una vez instalado, haz clic en **Start** para lanzar el servicio n8n
+1. Abre el [módulo de n8n](/es/features/n8n) en FlyEnv y selecciona **Version Manager**.
+2. Instala una versión. FlyEnv ejecuta npm en su terminal, donde puedes consultar la salida.
+3. Inicia desde el módulo la versión instalada.
 
 ![Módulo n8n en FlyEnv](https://oss.macphpstudy.com/image/n8n-1.webp)
 
 ![Módulo n8n en FlyEnv](https://oss.macphpstudy.com/image/n8n-2.webp)
 
-5. Accede a la interfaz web de n8n en `http://localhost:5678`
+4. Accede a la interfaz web de n8n en `http://localhost:5678`
 
 ![Panel de n8n](https://oss.macphpstudy.com/image/n8n-3.webp)
-
-> **Consejo:** FlyEnv gestiona el runtime de Node.js automáticamente. No tienes que preocuparte por conflictos de versiones ni por paquetes npm globales.
 
 ---
 
@@ -66,18 +53,12 @@ Ahora vamos a configurar el cerebro de IA de tu flujo de trabajo usando Ollama.
 1. En FlyEnv, ve a la sección **AI Tools**
 2. Selecciona **Ollama** y haz clic en **Install**
 3. Inicia el servicio Ollama
-4. Descarga tu modelo preferido. Elige en función de las especificaciones de tu ordenador. Consulta [Crea un agente de IA local sin conexión](/es/guide/build-local-offline-ai-agent) para más detalles.
 
 ![Módulo Ollama en FlyEnv](https://oss.macphpstudy.com/image/n8n-4.webp)
 
 ![Modelos disponibles en Ollama](https://oss.macphpstudy.com/image/n8n-5.webp)
 
-Los modelos disponibles incluyen:
-- **Qwen 3.5** - Excelente para tareas generales y programación
-- **Kimi k2.5** - Genial para tareas generales y programación
-- **Gemma 3** - Los modelos abiertos y eficientes de Google
-- **Llama 4** - Lo último de Meta, con gran capacidad de razonamiento
-- **DeepSeek Coder** - Especializado en tareas de programación
+Descarga un modelo apropiado para tu equipo y comprueba que su etiqueta aparece en `http://127.0.0.1:11434/api/tags`. Selecciona ese modelo local en el flujo. [Configuración de modelos de Ollama](/es/guide/build-local-offline-ai-agent)
 
 ---
 
@@ -104,7 +85,7 @@ Ahora vamos a construir un flujo de trabajo que recibe peticiones HTTP, las proc
 
 1. Añade un nodo **Ollama** después del webhook
 2. Configura la conexión:
-   - **Base URL:** `http://localhost:11434` (el valor por defecto de Ollama)
+   - **Base URL:** `http://127.0.0.1:11434` (el valor por defecto de Ollama)
    - **Model:** selecciona el modelo que descargaste (p. ej., `qwen3.5`)
 
 3. Configura la plantilla de mensaje:
@@ -117,22 +98,21 @@ Ahora vamos a construir un flujo de trabajo que recibe peticiones HTTP, las proc
 
 ### 3.3 Prueba tu flujo de trabajo
 
-1. Guarda el flujo de trabajo y actívalo con el interruptor **Active**
-2. Copia la URL del webhook (n8n proporciona URL de prueba y de producción)
-3. Prueba con curl o cualquier cliente HTTP:
-   ```bash
-   curl -X POST "http://localhost:5678/webhook/ai-assistant" \
-     -H "Content-Type: application/json" \
-     -d '{"q": "Explain the benefits of local AI workflows"}'
-   ```
+Para probar en el editor, selecciona **Listen for Test Event** y copia la **Test URL**. Para usar el endpoint persistente del ejemplo, publica el flujo o actívalo con **Active** en las versiones anteriores. Copia su **Production URL**. Con el puerto y la ruta del ejemplo es `http://127.0.0.1:5678/webhook/ai-assistant`.
 
-4. ¡Deberías recibir una respuesta generada por tu modelo de IA local!
+```bash
+curl -X POST "http://127.0.0.1:5678/webhook/ai-assistant" \
+  -H "Content-Type: application/json" \
+  -d '{"q": "Explain the benefits of local AI workflows"}'
+```
+
+Comprueba que la respuesta HTTP contiene la salida del modelo y abre **Executions** en n8n para revisar la ejecución. Ante un `404`, comprueba la URL y si el flujo está publicado o la escucha de prueba está activa. Si falla el nodo de Ollama, verifica que `/api/tags` incluya el modelo elegido. [URL de Webhook de n8n](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/#webhook-urls)
 
 ---
 
 ## Paso 4: Activa HTTPS con proxy inverso
 
-Para uso en producción o acceso externo, necesitas HTTPS. El gestor de sitios integrado de FlyEnv lo hace trivial.
+El ejemplo ya funciona en loopback. Este proxy es opcional si quieres una dirección HTTPS local. Si n8n muestra una URL interna detrás del proxy, configura la dirección externa del webhook en su editor de variables de entorno y reinicia el servicio. [Ajustes de proxy inverso de n8n](https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url/)
 
 ### 4.1 Añade un dominio local
 
@@ -161,14 +141,7 @@ FlyEnv genera y gestiona automáticamente certificados SSL locales:
 
 ## Paso 5: Expón a internet con Cloudflare Tunnel
 
-¿Quieres acceder a tu flujo de trabajo de IA de forma remota? El módulo Cloudflare Tunnel de FlyEnv puede publicarlo sin abrir puertos de entrada en el firewall. Los túneles con nombre pueden usar nombres de host personalizados estables cuando tu cuenta de Cloudflare y tu zona DNS están configuradas; los límites del plan siguen sujetos a las condiciones vigentes de Cloudflare.
-
-| Característica | ngrok Free | **Cloudflare Tunnel** |
-|---------|------------|----------------------|
-| Dominios personalizados | ❌ URL aleatorias | ✅ GRATIS |
-| Nombre de host personalizado estable | Plan de pago o dominio reservado | Disponible con un túnel con nombre configurado |
-| Límites de ancho de banda | 1 GB/mes | Ilimitado GRATIS |
-| Configuración en FlyEnv | CLI manual | **Interfaz con un clic** |
+Omite este paso para trabajar sin conexión. Cloudflare Tunnel necesita internet. Configura la autenticación del nodo Webhook antes de compartir el endpoint. Protege el editor de n8n con controles de acceso y deja la API de Ollama en loopback.
 
 ### 5.1 Obtén tu API Token de Cloudflare
 
@@ -251,7 +224,7 @@ Combínalo con webhooks de Home Assistant para crear reglas de automatización i
 
 ## Vídeo tutorial
 
-¿Prefieres verlo? Mira "Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (No Docker!)" a través de FlyEnv en acción:
+Mira la [demo del flujo con n8n y Ollama](/es/demos?video=n8n-ollama-workflow).
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/YnA1B3qmDJU?si=8trvnWn7JUxDQeLA" title="Flujo de trabajo de IA autoalojado con n8n y Ollama" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -261,13 +234,7 @@ Combínalo con webhooks de Home Assistant para crear reglas de automatización i
 **A menudo, pero depende de la carga de trabajo.** FlyEnv ejecuta n8n y Ollama directamente en tu sistema y evita una máquina virtual de contenedores. El tamaño del modelo, los flujos de trabajo activos, las bases de datos y la configuración de Docker determinan la diferencia real.
 
 ### ¿Puedo usar esto completamente sin conexión?
-**Por supuesto.** Una vez instalados n8n y Ollama, todo el flujo de trabajo se ejecuta localmente sin conexión a internet. Es ideal para entornos aislados (air-gapped) o aplicaciones sensibles a la privacidad.
-
-### ¿Es n8n con Ollama mejor que las herramientas de automatización de pago?
-Para los desarrolladores que quieren control local: **a menudo sí.** n8n autoalojado y los modelos locales pueden reducir los costes recurrentes de servicios y mantener los datos seleccionados en tu máquina, pero las API de terceros, los servicios de mensajería y la infraestructura pueden seguir teniendo sus propios límites o tarifas. La contrapartida es la autogestión, que FlyEnv simplifica.
-
-### ¿Cómo se compara Cloudflare Tunnel con ngrok?
-Cloudflare Tunnel (mediante la integración de FlyEnv) ofrece URL persistentes, dominios personalizados, SSL integrado y es completamente gratuito para uso personal, a diferencia de las URL aleatorias y los límites de conexión de ngrok. Además, no requiere instalar software adicional más allá de FlyEnv.
+El webhook local y el modelo de Ollama descargado pueden funcionar sin conexión tras la instalación. Cloudflare Tunnel y los nodos que llaman a servicios remotos requieren internet.
 
 ### ¿Puedo conectar varios modelos de IA en un mismo flujo de trabajo?
 ¡Sí! n8n admite ramificaciones y lógica condicional. Puedes enrutar las peticiones a distintos modelos de Ollama según el tipo de tarea: usa CodeLlama para preguntas de programación, Qwen para conocimiento general, etc.
@@ -278,7 +245,7 @@ Cloudflare Tunnel (mediante la integración de FlyEnv) ofrece URL persistentes, 
 
 ¡Tu plataforma de automatización de IA autoalojada ya está lista! Estos son los próximos pasos recomendados:
 
-1. **Explora más herramientas de IA** — Aprende a [crear agentes de IA sin conexión](/es/guide/build-local-offline-ai-agent) con capacidades RAG completas
+- [Configura un asistente de programación sin conexión con Ollama](/es/guide/build-local-offline-ai-agent)
 2. **Protege tu configuración** — Lee la [guía de Cloudflare Tunnel](/es/guide/cloudflare-tunnel-local-development) para consejos de despliegue en producción
 3. **Descarga FlyEnv** — Si aún no lo has hecho, [consigue la última versión](/es/download) para tu sistema operativo
 

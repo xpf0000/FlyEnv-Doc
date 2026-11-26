@@ -49,15 +49,15 @@ El cuerpo de cada memoria admite hasta 16 KiB de texto UTF-8. Centra cada regist
 
 Abre **Conectar un agente** y elige un cliente instalado. La configuración con un clic está disponible para **[Claude Code](/es/features/claude-code)**, **[Antigravity CLI](/es/features/antigravity-cli)**, **[Codex](/es/features/codex)**, **[GitHub Copilot CLI](/es/features/github-copilot-cli)**, **[OpenCode](/es/features/opencode)** y **[Kimi](/es/features/kimi)**.
 
-La acción de conexión prepara el servicio local de memoria, escribe la conexión MCP global del cliente e instala las instrucciones globales de memoria, conservando la configuración existente. Puedes seguir el resultado de cada paso y reintentar los que queden pendientes. Los ajustes avanzados también permiten instalar instrucciones específicas del proyecto cuando sean necesarias.
+La configuración con un clic inicia el servidor MCP local si hace falta, activa las cinco herramientas de memoria, registra la conexión MCP global del cliente elegido e instala las instrucciones de memoria globales. Revisa el resultado de cada paso y reintenta los que queden pendientes. Los ajustes avanzados también permiten instalar instrucciones para un proyecto concreto.
 
 ![Página Conectar un agente de AI Memory con seis clientes compatibles, ajustes genéricos y tres pasos de configuración automática para Codex](https://oss.macphpstudy.com/image/features/plugin/ai-memory-connect-agent.webp)
 
 Para otros clientes MCP, elige **Configuración genérica**. Copia la configuración HTTP o utiliza la opción stdio si tu cliente la necesita. Añade las instrucciones de memoria al archivo de instrucciones compatible con el cliente o a su prompt del sistema. La conexión stdio requiere Node.js local y el puente de FlyEnv.
 
-Tras la configuración, vuelve a conectar el cliente o abre una nueva sesión del agente para que cargue la conexión y las instrucciones. Pídele que guarde una pequeña memoria de ejemplo, la recupere y comunique su ID y revisión reales. También puedes encontrar el registro en **Memorias** e inspeccionar la petición en **Registro de llamadas**.
+Tras conectar los clientes, abre una sesión nueva desde la ruta absoluta a la raíz confirmada del proyecto. Pide al primer cliente que guarde un dato de ejemplo, como «El comando de la prueba de humo es `npm test`», y te indique el ID y la revisión devueltos. Abre una sesión nueva en el segundo cliente conectado con la misma raíz y pídele que busque «prueba de humo» y recupere el registro. Comprueba que coinciden el ID y la revisión y revisa ambas operaciones en **Registro de llamadas**.
 
-Una configuración correcta confirma que se han escrito los ajustes. Que un agente guarde conocimientos útiles y los recupere después depende de sus instrucciones y de las llamadas reales a las herramientas; el guardado automático no está garantizado.
+La prueba de aceptación de la versión preliminar para desarrolladores verificó el intercambio en ambos sentidos entre Codex y Kimi. También recuperó un registro después de reiniciar FlyEnv. La configuración escribe los ajustes de conexión y las instrucciones. Guardar y recuperar conocimientos depende de las instrucciones del agente y de las llamadas a herramientas que realmente haga.
 
 ## Cinco herramientas MCP para memoria persistente
 
@@ -68,6 +68,8 @@ AI Memory añade cinco herramientas al servidor MCP de FlyEnv:
 - **`flyenv_memory_store`:** guarda una memoria nueva con su origen.
 - **`flyenv_memory_update`:** modifica un registro existente con un motivo y la revisión esperada.
 - **`flyenv_memory_forget`:** elimina de forma permanente un registro y su historial.
+
+Usa `include_global=true` en una búsqueda de proyecto para incluir memorias globales. Lee cada resultado en el ámbito que indique. Si una actualización devuelve un conflicto, consulta la última revisión antes de decidir qué cambiar. Si una escritura agota el tiempo de espera o devuelve `unknown`, repite la solicitud con el mismo `request_id` y los mismos parámetros para confirmar el resultado.
 
 Gestiona la disponibilidad de las herramientas y sus políticas de aprobación en los ajustes MCP de FlyEnv. Mantén FlyEnv en ejecución, con el complemento habilitado y el servidor MCP disponible, mientras los agentes utilicen las herramientas. Distintos clientes conectados pueden acceder a la misma colección almacenada si utilizan el mismo ámbito y directorio raíz de proyecto.
 
@@ -89,7 +91,7 @@ Si la carpeta seleccionada ya tiene memorias de proyecto, FlyEnv pregunta si las
 
 La pestaña **Registro de llamadas** muestra la actividad y los resultados de las herramientas de memoria durante la sesión actual de FlyEnv. Actualiza la lista después de utilizar un agente y despliega un registro para consultar los detalles de la petición y la respuesta.
 
-La vista mantiene hasta 200 entradas detalladas en memoria y excluye los cuerpos completos de las memorias. Estos registros se borran al cerrar FlyEnv; las memorias guardadas permanecen en disco. El almacenamiento local describe dónde guarda los datos el complemento: el contenido recuperado mediante MCP se sigue enviando al cliente de IA que hayas elegido.
+La vista mantiene hasta 200 entradas detalladas en memoria y excluye los cuerpos completos de las memorias. Estos registros se borran al cerrar FlyEnv; las memorias guardadas permanecen en disco. El almacenamiento local describe dónde guarda los datos el complemento: el contenido recuperado mediante MCP se sigue enviando al cliente de IA que hayas elegido. Tu cliente puede enviar el contenido recuperado a su proveedor de modelos. Utiliza un registro de prueba sin información sensible para comprobar la conexión.
 
 ![Pestaña Registro de llamadas de AI Memory con la actividad de las herramientas durante la sesión, resultados, duraciones y un botón de actualización](https://oss.macphpstudy.com/image/features/plugin/ai-memory-call-records.webp)
 

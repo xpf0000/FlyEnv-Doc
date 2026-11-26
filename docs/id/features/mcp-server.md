@@ -42,9 +42,9 @@ FlyEnv menyertakan server MCP bawaan yang memungkinkan asisten coding AI mengope
 Server berjalan di dalam aplikasi FlyEnv, jadi tidak ada yang perlu dipasang—tab **Layanan** hanya mengatur cara server mendengarkan dan kapan server dimulai.
 
 - **Host dan port bind:** alamat bawaan adalah `127.0.0.1:7682`; port menerima nilai 1024 hingga 65535. Bind non-loopback ditolak kecuali Anda mengaktifkan akses jarak jauh secara eksplisit, yang terlebih dahulu menampilkan dialog peringatan.
-- **Autentikasi token Bearer:** klien harus mengirim token yang dibuat pada setiap permintaan. Buat ulang token dengan satu klik untuk langsung mencabut semua klien yang ada.
+- **Autentikasi token Bearer:** klien mengirim token yang dibuat saat mengakses MCP. Buat ulang token untuk menonaktifkan token lama, lalu perbarui klien yang ingin Anda hubungkan kembali.
 - **Mulai otomatis:** server dapat dimulai otomatis setiap kali FlyEnv dibuka, sehingga asisten tidak menunjuk ke endpoint yang mati.
-- **Layanan independen:** Server MCP FlyEnv dikecualikan dari grup “mulai semua” global, sehingga memulai seluruh stack tidak menyalakan antarmuka AI tanpa sengaja.
+- **Layanan mandiri:** aktifkan pengaturan ini agar kontrol mulai atau hentikan semua layanan FlyEnv melewati server MCP.
 - **Jembatan stdio:** untuk klien yang memilih stdio, FlyEnv menyalin skrip jembatan `flyenv-mcp-stdio.mjs` ke direktori datanya agar siap dijalankan oleh runtime [Node.js](/id/features/nodejs) eksternal.
 
 ![Tab Layanan dengan opsi host, port, dan token](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
@@ -68,6 +68,8 @@ Tab **Alat** mengelompokkan alat bawaan dan plugin serta menentukan alat mana ya
 - **Sakelar per alat:** nonaktifkan alat individual agar tidak tersedia untuk dipanggil klien.
 - **Kebijakan persetujuan untuk alat berisiko:** tujuh alat siklus hidup, penulisan situs, dan pemasangan memiliki kebijakan otomatis/konfirmasi. Bawaan adalah konfirmasi, sehingga operasi sensitif menunggu persetujuan Anda kecuali Anda sengaja melonggarkannya.
 
+`delete_site` dan `install_service` dinonaktifkan secara bawaan. Resource MCP `flyenv://services` dan `flyenv://sites` tersedia saat alat `list_services` dan `list_sites` yang terkait diaktifkan.
+
 ![Tab Alat dengan sakelar dan kebijakan persetujuan per alat](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
 Instal **[AI Memory](/id/features/ai-memory)** untuk menambahkan lima alat memori guna mencari, membaca, menyimpan, memperbarui, dan menghapus memori agen lokal. Sakelar dan kebijakan persetujuannya dikelola di grup plugin, bersama alat lingkungan bawaan.
@@ -77,11 +79,13 @@ Instal **[AI Memory](/id/features/ai-memory)** untuk menambahkan lima alat memor
 Tab **Log Audit** adalah penampil langsung untuk `audit.log` di direktori data MCP FlyEnv—catatan JSON Lines dari setiap panggilan alat yang diproses server.
 
 - **Riwayat panggilan lengkap:** setiap entri merekam alat yang berjalan beserta parameternya, menyediakan jejak yang dapat ditinjau atas semua tindakan asisten AI—konteks penting saat Anda [bekerja dengan asisten AI](/id/guide/flyenv-work-with-ai) sehari-hari.
-- **Penyamaran rahasia:** token dan kata sandi disamarkan sebelum masuk log, sehingga meninjau atau membagikan berkas tidak membocorkan kredensial.
+- **Argumen alat:** panggilan alat bawaan dapat mencatat argumen dan pesan error. Periksa apakah ada kredensial atau jalur privat sebelum membagikan log. Opsi penyamaran hanya berlaku untuk kolom tertentu di respons alat.
 
 Panggilan AI Memory menggunakan entri audit bersama yang dipangkas tanpa kueri pencarian, ringkasan, atau isi memori lengkap. Tab **Catatan Panggilan** milik plugin menyediakan detail lebih lanjut untuk sesi saat ini, tetap tanpa menyertakan isi lengkap.
 
 ![Tab Log Audit yang menampilkan panggilan alat](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
+
+Lihat [demo proyek PHP dan MySQL](/id/demos?video=ai-cli-mcp-crud) untuk melihat alat lingkungan pada proyek yang berjalan.
 
 <FeatureRelatedLinks locale="id" slug="mcp-server" />
 

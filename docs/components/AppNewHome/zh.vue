@@ -18,19 +18,14 @@
             id="new-home-hero-title"
             class="no-border !mb-0 !text-4xl !font-extrabold !leading-[1.04] !tracking-[-0.055em] text-slate-950 sm:!text-5xl lg:!text-[3.55rem] dark:!text-white"
           >
-            告诉 AI 你想运行什么。
-            <span class="block text-blue-600 dark:text-blue-400"
-              >FlyEnv 会把所需环境准备妥当。</span
-            >
+            FlyEnv
+            <span class="block text-blue-600 dark:text-blue-400">一站式原生本地开发环境</span>
           </h1>
           <p
             class="mt-6 max-w-[36rem] text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300"
           >
-            为 AI 智能体提供真正可用的本地环境，包括运行时、服务、站点、域名、HTTPS 与可访问的 URL。
+            在同一工作区管理 PHP、Node.js、Python、数据库和本地 HTTPS 站点，并通过 MCP 将 AI 编程工具接入本地环境。
           </p>
-          <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400"
-            >从一句提示词，到项目在你的电脑上真正运行起来。</p
-          >
           <div class="mt-7 flex flex-wrap gap-3">
             <a
               href="/zh/download"
@@ -46,6 +41,10 @@
               class="inline-flex items-center rounded-xl border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold !text-slate-800 no-underline transition hover:border-blue-300 hover:!text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:translate-y-px dark:border-slate-600 dark:bg-slate-900/70 dark:!text-slate-100 dark:hover:border-blue-400 dark:hover:!text-blue-300"
               >在 GitHub 上查看 <span class="ml-2" aria-hidden="true">↗</span></a
             >
+          </div>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a href="/zh/guide/getting-started" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">搭建第一个站点</a>
+            <a href="/zh/compare/" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">比较本地开发工具</a>
           </div>
         </div>
         <div class="relative">
@@ -732,10 +731,10 @@
             <h2
               id="final-cta-title"
               class="no-border !mb-0 !text-3xl !font-extrabold !tracking-[-0.04em] sm:!text-4xl"
-              >准备好为你的 AI 配上一套真正的本地技术栈了吗？</h2
+              >准备运行你的第一个本地项目？</h2
             >
             <p class="mt-4 text-base leading-7 text-blue-100"
-              >下载适用于 macOS、Windows 或 Linux 的 FlyEnv，现在就开始与 AI 一起构建。</p
+              >下载适用于 macOS、Windows 或 Linux 的 FlyEnv，再安装项目所需的服务。</p
             >
           </div>
           <a

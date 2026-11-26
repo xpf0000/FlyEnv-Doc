@@ -50,7 +50,7 @@ Tab **Manajer Versi** memasang dan menyimpan beberapa versi Ollama berdampingan;
 
 ## Layanan dan konfigurasi
 
-FlyEnv menjalankan Ollama terlepas sebagai `ollama serve` dan melacak berkas pid untuk memulai serta menghentikan dengan bersih. Sakelar bilah sisi dan baki sistem mengontrol layanan. Secara bawaan server mendengarkan `0.0.0.0:11434`.
+FlyEnv menjalankan Ollama terlepas sebagai `ollama serve` dan melacak berkas pid untuk memulai serta menghentikan dengan bersih. Sakelar bilah sisi dan baki sistem mengontrol layanan. Konfigurasi awal FlyEnv memakai alamat API bawaan Ollama, `127.0.0.1:11434`.
 
 Variabel lingkungan dibaca dari `ollama.conf` di direktori dasar FlyEnv; setiap baris yang dimulai `OLLAMA_` diteruskan ke proses server. Tab **Berkas Konfigurasi** mengedit berkas ini dengan dua cara:
 
@@ -72,7 +72,9 @@ Tab **Model** digunakan untuk mengunduh, mencantumkan, dan menjalankan model.
 
 ![Menarik model Ollama di terminal tertanam](https://oss.macphpstudy.com/image/features/ollama-5.webp)
 
-Layanan Ollama pada port 11434 dapat dipadukan dengan modul FlyEnv lain: panggil API lokal dari alur [n8n](/id/features/n8n), simpan embedding di basis data vektor [Qdrant](/id/features/qdrant), atau jalankan akun AI CLI melalui endpoint kompatibel OpenAI dengan [CLIProxyAPI](/id/features/cliproxyapi). [Panduan FlyEnv bekerja dengan asisten AI](/id/guide/flyenv-work-with-ai) menjelaskan integrasinya.
+Untuk akses dari komputer yang sama, atur `OLLAMA_HOST=127.0.0.1:11434`, lalu mulai ulang layanan. Setelah mengunduh model, buka `http://127.0.0.1:11434/api/tags` untuk memastikan Ollama merespons dan mencantumkan model tersebut. Versi Ollama yang mendukung fitur cloud juga dapat memakai `OLLAMA_NO_CLOUD=1` agar hanya berjalan secara lokal. [Mode lokal Ollama](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+
+Hubungkan [asisten coding lokal](/id/guide/build-local-offline-ai-agent) ke API ini, atau gunakan API di [webhook n8n yang dihosting sendiri](/id/guide/build-local-ai-workflow-by-n8n). Lihat [demo penyiapan Ollama untuk penggunaan offline](/id/demos?video=offline-ai-agent).
 
 ## Log
 

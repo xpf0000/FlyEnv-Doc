@@ -4,7 +4,7 @@ description: 'Install and manage JDK, Maven, and Tomcat versions with FlyEnv and
 
 # Set up a Java development environment using FlyEnv
 
-FlyEnv already supports setting up a Java development environment. Using FlyEnv, you can quickly download and install Java, Maven, and Tomcat. It supports openjdk8 to the latest version of JDK. It supports Maven from 2.x to the latest version. It supports Tomcat8 to the latest version of Tomcat.
+Check the JDK and build tool required by your project. Install that JDK in FlyEnv’s [Java module](/features/java). Add Maven when the project needs it, and install Tomcat if you need to deploy a WAR to a standalone servlet container.
 
 1. Install java jdk and set environment variables
 
@@ -22,7 +22,7 @@ In the Java module Maven management, install the required maven version and set 
 
 <img src="https://oss.macphpstudy.com/image/java-maven-set.jpg" data-x-image-preview="">
 
-3. Install Tomcat and set environment variables
+3. **Optional: install Tomcat for a WAR deployment**
 
 Install Tomcat
 
@@ -32,4 +32,14 @@ Set environment variables
 
 <img src="https://oss.macphpstudy.com/image/tomcat-set-env.jpg" data-x-image-preview="">
 
-Now you have a Java development environment that includes JDK, Maven, and Tomcat
+## Verify the JDK and Maven in a new terminal
+
+Run these commands after applying the environment changes, then compare the resolved Java version in `mvn -v` with the JDK expected by the project. If the project includes Maven Wrapper, use `./mvnw -v` on macOS/Linux or `.\mvnw.cmd -v` in PowerShell.
+
+```text
+java -version
+javac -version
+mvn -v
+```
+
+For a Spring Boot project that builds an executable JAR, run `java -jar` with the actual JAR path. Open the application URL from the startup log. The [Spring Boot guide](/solutions/spring-boot) covers the optional reverse proxy and dependent services.

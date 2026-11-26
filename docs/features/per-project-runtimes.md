@@ -35,11 +35,13 @@ import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
 
 FlyEnv lets every project folder carry its own runtime version, so a legacy PHP codebase and a modern Node.js app can live side by side on the same machine — see [managing multiple Node and PHP versions](/guide/manage-multiple-node-php-versions) for the version-manager side of this. Register a project in any language module's **Projects** tab, pick the exact binary version it should use, and FlyEnv records that choice inside the project itself. From then on, terminals, editors and run commands started for that project resolve the right toolchain automatically — the step-by-step workflow is covered in the [project-level runtime environment guide](/guide/project-level-runtime-environment).
 
+For example, bind one Node.js project to Node.js 22 and another to Node.js 24. Open each from **Projects** or enter its registered directory in a supported shell with FlyEnv’s hook enabled. Run `node -v` to see which version each project uses. [Watch the project switching demo](/demos?video=project-environment-switching).
+
 ![FlyEnv Projects tab listing registered projects with their bound runtime versions](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## How .flyenv works
 
-When you add a project or change its bound version, FlyEnv writes a small `.flyenv` file into the project directory. That file is the single source of truth for the project's environment.
+An external editor or terminal that was opened separately can keep its original environment. Use the FlyEnv project action or a supported shell that loads the project.
 
 - **PATH prepending:** on macOS and Linux the file contains an `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"` line pointing at the bound runtime's directories; on Windows it uses the equivalent PowerShell `$env:PATH` assignment.
 - **Tagged and idempotent:** every line FlyEnv writes is marked with a `#FlyEnv-ID-<projectId>` tag, so re-editing the project rewrites the same lines in place instead of appending duplicates.
@@ -68,7 +70,7 @@ Because the binding lives in the project rather than in a global setting, any to
 
 ## Per-site version selection
 
-Project binding covers the command line; browser-facing sites get their own version choice. Each site created in the [Host](/features/local-sites-https) module selects the PHP-FPM version that serves it (or stays a static site), and several PHP-FPM versions can run simultaneously — each on its own socket — so different sites are served by different PHP builds at the same time. The site list shows which version serves which site, and the web-server integration config is regenerated when a version starts. The full capability set is documented on the [PHP feature page](/features/php).
+Each site created in [Host](/features/local-sites-https) can select which installed PHP version serves it. Multiple versions can serve different sites concurrently. macOS and Linux use separate Unix sockets, while Windows uses separate FastCGI listeners. See the [PHP feature](/features/php) for platform details.
 
 ![Host module site list showing the PHP version bound to each site](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
 

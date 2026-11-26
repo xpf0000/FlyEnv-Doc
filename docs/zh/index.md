@@ -2,19 +2,19 @@
 layout: home
 markdownStyles: false
 
-title: 'FlyEnv - 面向 AI 智能体的开源本地开发环境'
+title: 'FlyEnv - 开源原生本地开发环境'
 titleTemplate: false
 
 head:
   - - meta
     - name: description
-      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的开源本地开发环境，专为 AI 智能体打造。通过 FlyEnv MCP 管理 PHP、Node.js、Python、数据库、Web 服务器、本地站点和 HTTPS。'
+      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的开源原生本地开发环境。统一管理运行时、数据库和 HTTPS 站点，通过 MCP 接入 AI 编程工具。'
   - - meta
     - property: og:title
-      content: 'FlyEnv - 面向 AI 智能体的开源本地开发环境'
+      content: 'FlyEnv - 开源原生本地开发环境'
   - - meta
     - property: og:description
-      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的开源本地开发环境，专为 AI 智能体打造。通过 FlyEnv MCP 管理 PHP、Node.js、Python、数据库、Web 服务器、本地站点和 HTTPS。'
+      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的开源原生本地开发环境。统一管理运行时、数据库和 HTTPS 站点，通过 MCP 接入 AI 编程工具。'
   - - meta
     - property: og:type
       content: website
@@ -29,10 +29,10 @@ head:
       content: summary
   - - meta
     - name: twitter:title
-      content: 'FlyEnv - 面向 AI 智能体的开源本地开发环境'
+      content: 'FlyEnv - 开源原生本地开发环境'
   - - meta
     - name: twitter:description
-      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux、面向 AI 智能体的开源本地开发环境。'
+      content: 'FlyEnv 是适用于 macOS、Windows 和 Linux 的开源原生本地开发环境。统一管理运行时、数据库和 HTTPS 站点，通过 MCP 接入 AI 编程工具。'
   - - meta
     - name: twitter:image
       content: https://oss.macphpstudy.com/image/app-icon.png

@@ -9,6 +9,8 @@ description: '探索 FlyEnv 插件，包括 SamWaf、持久化 AI 记忆、数�
 
 插件市场让你按需扩展 FlyEnv 工作区。安装项目需要的工具后，就能与现有运行时和服务一起管理。插件可以在应用中提供独立的服务控制、版本管理、配置编辑器，以及针对特定功能的操作界面。
 
+[MySQL Cluster 演示](/zh/demos?video=mysql-cluster-replication)展示从插件市场安装的模块如何使用 FlyEnv 管理的数据库版本。
+
 打开 **设置 → 插件市场**，即可浏览官方插件、管理已安装插件，或添加第三方源。
 
 ![FlyEnv 插件市场中的官方插件及安装、重新安装和更新按钮](https://oss.macphpstudy.com/image/features/plugin/plugin-market-official.png)

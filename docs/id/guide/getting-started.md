@@ -1,14 +1,14 @@
 ---
-title: 'Panduan Mulai Cepat FlyEnv: Siap Digunakan dalam 5 Menit'
+title: 'Panduan Mulai Cepat FlyEnv untuk Menjalankan Situs Lokal Pertama'
 head:
   - - meta
     - name: description
-      content: Panduan lengkap FlyEnv untuk macOS, Windows, dan Linux. Pasang aplikasi, konfigurasi situs pertama, dan mulai mengembangkan dengan manajemen versi otomatis.
+      content: 'Pasang FlyEnv di macOS, Windows, atau Linux, lalu gunakan Nginx, PHP, dan Auto SSL untuk membuka situs HTTPS lokal pertama Anda.'
 ---
 
-# Panduan Mulai Cepat FlyEnv: Siap Digunakan dalam 5 Menit
+# Panduan Mulai Cepat FlyEnv untuk Menjalankan Situs Lokal Pertama
 
-Anda sudah mengunduh FlyEnv. Panduan ini membawa Anda dari pemasangan sampai situs lokal berjalan tanpa perlu konfigurasi terminal yang rumit.
+Pasang FlyEnv dan buka halaman PHP di `https://myproject.test`. Mulai dengan Nginx dan PHP, lalu tambahkan MySQL jika proyek memerlukan database.
 
 ## Pemasangan
 
@@ -17,7 +17,7 @@ Anda sudah mengunduh FlyEnv. Panduan ini membawa Anda dari pemasangan sampai sit
 **Opsi 1: Homebrew**
 
 ```bash
-brew update && brew install flyenv
+brew install --cask flyenv
 ```
 
 **Opsi 2: Unduh DMG**
@@ -25,24 +25,19 @@ brew update && brew install flyenv
 | Arsitektur | Unduhan |
 | --- | --- |
 | Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (ARM64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
 
 Untuk hosting PHP sederhana di macOS, lihat juga [FlyPHPServer](/id/flyphpserver) di Mac App Store.
 
 ### Windows
 
-Unduh lalu ekstrak berkas ZIP berikut, kemudian jalankan `FlyEnv.exe`.
-
-| Sumber unduhan | Tautan |
-| --- | --- |
-| GitHub Release | [Unduh](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Baidu Netdisk | [Unduh](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
+Jalankan installer x64 dari [halaman unduhan FlyEnv](/id/download) atau buka langsung berkas `.exe` portabel. Kedua paket tersedia di [rilis terbaru GitHub](https://github.com/xpf0000/FlyEnv/releases/latest). Jika memakai [mirror Baidu Netdisk](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4), periksa versinya sebelum mengunduh.
 
 ### Linux
 
 FlyEnv mendukung paket `.deb` untuk Debian/Ubuntu dan `.rpm` untuk Red Hat, Fedora, SUSE, serta CentOS, pada arsitektur x86_64 maupun arm64. Unduh paket dari [GitHub Releases](https://github.com/xpf0000/FlyEnv/releases/latest).
 
-## Penyiapan Saat Pertama Dijalanakan
+## Penyiapan Saat Pertama Dijalankan
 
 ### 1. Pasang FlyEnv Helper
 
@@ -82,7 +77,7 @@ FlyEnv mengunduh dan mengonfigurasi versi tersebut secara otomatis. Pasang beber
 2. Pilih versi yang sudah dipasang.
 3. Klik **Start**.
 
-Lakukan hal yang sama untuk PHP dan MySQL bila situs membutuhkannya.
+Untuk situs PHP, jalankan PHP di macOS atau Linux dan **PHP-FPM** di Windows. Jalankan MySQL jika proyek Anda memerlukan database.
 
 ![Memulai layanan](https://oss.macphpstudy.com/image/quick-start-3.webp)
 
@@ -90,7 +85,7 @@ Lakukan hal yang sama untuk PHP dan MySQL bila situs membutuhkannya.
 
 1. Buka modul **Host**.
 2. Klik **Add Site**.
-3. Isi domain seperti `myproject.test`, root proyek, versi PHP, dan port 80.
+3. Isi domain seperti `myproject.test`, folder berisi berkas publik situs, versi PHP, dan port 80.
 4. Aktifkan **Auto SSL** untuk HTTPS.
 5. Simpan.
 
@@ -98,7 +93,11 @@ Lakukan hal yang sama untuk PHP dan MySQL bila situs membutuhkannya.
 
 ### Langkah 3: Buka Situs
 
-Nyalakan server web jika belum berjalan, lalu klik tautan situs pada daftar Host atau buka `https://myproject.test`. Sertifikat lokal dipercaya otomatis oleh sistem setelah konfigurasi berhasil.
+Nyalakan server web jika belum berjalan, lalu klik tautan situs pada daftar Host atau buka `https://myproject.test`.
+
+Jika folder masih kosong, buat berkas `index.php` di root situs dengan isi `<?php echo "Hello from FlyEnv";`. Buka kembali URL situs dan pastikan muncul **Hello from FlyEnv**.
+
+Jika browser menampilkan peringatan sertifikat, buka [Domain Kustom dan Auto SSL](/id/guide/host) untuk memeriksa pengaturan kepercayaan sertifikat lokal.
 
 ## Mengatur Variabel Lingkungan
 
@@ -206,5 +205,7 @@ J: Gunakan domain `.test`, `.dev`, atau TLD kustom. Hindari `.local` pada jaring
 - [Domain Kustom dan SSL Otomatis](/id/guide/host)
 - [Bangun Agen AI Offline Lokal](/id/guide/build-local-offline-ai-agent)
 - [Unduh FlyEnv](/id/download)
+
+Versi gratis sudah cukup untuk mengikuti panduan ini. Lihat [lisensi FlyEnv](/id/license) jika Anda perlu mengelola lebih banyak situs lokal atau terus memakai alat premium.
 
 > Lihat cerita dan tutorial pengguna FlyEnv pada [halaman Komunitas](/id/community).

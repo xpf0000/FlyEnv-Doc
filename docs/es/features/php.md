@@ -57,7 +57,7 @@ PHP-FPM es un módulo dedicado en FlyEnv, pensado para servir sitios a través d
 - **Ciclo de vida por versión:** inicia, detén o reinicia cada versión de PHP-FPM de forma individual, o usa el interruptor de la barra lateral (también disponible en la bandeja del sistema) para iniciar o detener todas las versiones instaladas a la vez.
 - **Basado en sockets en macOS y Linux:** cada versión escucha en su propio socket unix, de modo que varias versiones de PHP-FPM pueden ejecutarse simultáneamente y cada sitio puede dirigirse a una distinta. FlyEnv regenera la configuración de integración con el servidor web cuando una versión se inicia.
 - **`php-fpm.conf` editable:** abre y edita la configuración del pool de FPM por versión (macOS y Linux), con visores integrados del log de FPM y del slow log.
-- **Windows funciona como FastCGI:** PHP sirve al servidor web a través de FastCGI, y el número de procesos de trabajo de FastCGI (`PHP_FCGI_CHILDREN`, 1–64) es ajustable por versión.
+- **Procesos FastCGI en Windows.** En Windows, el módulo **PHP-FPM** de FlyEnv ejecuta `php-cgi.exe` mediante `php-cgi-spawner.exe`. Configura el número de procesos por versión instalada. En macOS y Linux, el módulo ejecuta `php-fpm`.
 
 ![Módulo PHP-FPM con controles de servicio por versión](https://oss.macphpstudy.com/image/features/php-4.webp)
 
@@ -81,7 +81,7 @@ Abre **Extensions** desde cualquier versión de PHP para ver qué está cargado 
 
 - **Extensiones cargadas:** una lista con búsqueda de los módulos que la versión carga actualmente.
 - **PHP de Homebrew y MacPorts:** explora las fórmulas de extensiones disponibles para esa versión de PHP, instálalas o desinstálalas en el terminal integrado y copia un fragmento `extension=xxx.so` listo para usar — o una plantilla completa de configuración de Xdebug — directamente en `php.ini`.
-- **Windows:** activa o desactiva las DLL ya presentes en el directorio de extensiones, o descarga extensiones de la biblioteca en línea con un clic.
+- **Extensiones en Windows.** Activa las DLL incluidas compatibles o elige un paquete PECL/PIE disponible para tu compilación de PHP. La disponibilidad depende de la versión, la arquitectura y el tipo de seguridad de hilos.
 - **Navegación rápida:** salta directamente a `php.ini` o abre el directorio de extensiones en el gestor de archivos.
 
 ![Lista de extensiones cargadas para una versión de PHP](https://oss.macphpstudy.com/image/features/php-8.webp)

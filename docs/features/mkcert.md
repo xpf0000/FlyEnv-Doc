@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
 
 # Local HTTPS Certificates with FlyEnv
 
-mkcert is a small open source tool for locally trusted development certificates: it creates its own root CA, and once that CA is installed in your system trust store, every certificate it signs is accepted by your browsers without warnings. FlyEnv integrates [mkcert](https://github.com/FiloSottile/mkcert) and turns it into a point-and-click workflow: install the binary, trust its root CA once, then generate certificates for any of your [local sites](/features/local-sites-https) without touching the command line.
+mkcert creates a local certificate authority for development. The browser needs to trust that CA and the certificate must cover the hostname you open. FlyEnv provides controls for [mkcert](https://github.com/FiloSottile/mkcert) to install the CA and generate certificates for your [local sites](/features/local-sites-https).
 
 ![FlyEnv MkCert module overview](https://oss.macphpstudy.com/image/features/mkcert-1.webp)
 
@@ -50,7 +50,7 @@ The **Version Manager** tab installs and keeps the mkcert binary up to date.
 
 ## Local CA and the Certificates tab
 
-The **Certificates** tab is the heart of the module. It shows the mkcert **CA Root Path** (read live from `mkcert -CAROOT`, click it to reveal the folder in your file manager) and offers an **Install CA** action that runs `mkcert -install` in FlyEnv's embedded terminal — registering the local root CA in your system trust store so every certificate it signs is trusted by your browsers.
+The **Certificates** tab is the heart of the module. It shows the mkcert **CA Root Path** (read live from `mkcert -CAROOT`, click it to reveal the folder in your file manager) and offers an **Install CA** action that runs `mkcert -install` in FlyEnv's embedded terminal — registering the local root CA in the supported trust stores on your machine.
 
 - **Binary picker:** choose which installed mkcert build runs the commands; FlyEnv prefers the version on its own environment PATH.
 - **Transparent execution:** both CA installation and certificate generation run visibly in the embedded terminal, so you see exactly what mkcert does.
@@ -65,11 +65,13 @@ The Certificates tab lists the sites you have created in FlyEnv, each with its c
 
 ![Generating an HTTPS certificate for a FlyEnv site](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
 
+For a hostname or trust warning, follow the [Host guide](/guide/host) to check DNS, the certificate names, and browser trust. Keep the CA private key on your machine.
+
 <FeatureRelatedLinks slug="mkcert" />
 
 ## Compatibility Notes
 
 - mkcert is a one-shot command-line tool, not a background service: there is nothing to start or stop, and the module has no config file editor or log viewer by design.
-- The generated certificates are locally trusted development certificates — meant for your own machine, not for production or other devices.
-- Trusting the root CA (`mkcert -install`) modifies your system trust store and will ask for your system password, which mkcert handles in the embedded terminal.
+- On another development device, establish trust by installing the public `rootCA.pem` in that device’s trust store. Keep `rootCA-key.pem` private and use these certificates only for development.
+- Trusting the root CA (`mkcert -install`) modifies your system trust store and may ask for administrator approval in the embedded terminal.
 - Install sources differ by platform: static builds everywhere, Homebrew on macOS and Linux. See the [Download page](/download) for the platforms FlyEnv itself supports.

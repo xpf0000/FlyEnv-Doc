@@ -8,18 +8,13 @@ head:
 
 # Membangun Agen AI Offline yang Mengutamakan Privasi (Qwen, DeepSeek, Llama)
 
-Kode yang dikirim ke layanan AI cloud meninggalkan komputer Anda. Untuk basis kode proprietary, aplikasi kesehatan, atau sistem keuangan, hal ini dapat menjadi risiko. Dengan Ollama dan FlyEnv, model bahasa dapat berjalan sepenuhnya secara lokal tanpa penyiapan machine learning yang rumit.
+Jalankan model Ollama yang sudah diunduh untuk menjawab pertanyaan coding, menjelaskan kode, dan meninjau perubahan kecil. FlyEnv mengelola layanan Ollama dan menghubungkan antarmuka chat ke API lokal.
+
+Pemasangan Ollama dan pengunduhan model memerlukan koneksi jaringan. Setelah model diunduh, arahkan asisten ke `http://127.0.0.1:11434` dan pilih model lokal tersebut. Model cloud, pencarian web, dan alat yang memanggil layanan jarak jauh tetap memerlukan internet.
 
 ## Mengapa AI Offline
 
-| Aspek | AI cloud | AI lokal dengan Ollama |
-| --- | --- | --- |
-| Privasi data | Dikirim ke pihak ketiga | Tetap di mesin Anda |
-| Internet | Diperlukan | Tidak diperlukan setelah model diunduh |
-| Biaya | Biaya langganan atau token | Tanpa biaya API |
-| Kendali model | Terbatas | Pilih dan kelola model sendiri |
-
-Asisten lokal dapat menjawab pertanyaan coding, menjelaskan fungsi, membuat contoh kode, dan mereview perubahan tanpa mengirim isi proyek ke cloud.
+Dengan penyiapan ini, model pilihan memproses prompt pada komputer yang menjalankan Ollama. Kecepatan inferensi dan penggunaan memori bergantung pada model serta perangkat keras. Inferensi lokal tidak dikenai biaya API per permintaan.
 
 ## Persyaratan
 
@@ -66,6 +61,10 @@ Pada FlyEnv **Settings**, aktifkan **AI Assistant**. Buka ikon asisten di kanan 
 
 ![Pengaturan Asisten AI](https://oss.macphpstudy.com/image/ollama-4.png)
 
+Untuk memeriksa inferensi offline, jalankan `curl http://127.0.0.1:11434/api/tags` dan pastikan model yang diunduh tercantum. Putuskan koneksi internet, lalu kirim prompt singkat melalui chat FlyEnv. Pertahankan endpoint dan model lokal yang sama setelah tersambung kembali. Jika memakai klien lain, periksa penyedia dan alat yang digunakannya. [API daftar model Ollama](https://docs.ollama.com/api/tags)
+
+Lihat [demo penyiapan Ollama untuk penggunaan offline](/id/demos?video=offline-ai-agent). Lihat [Ollama di FlyEnv](/id/features/ollama) untuk pengaturan modul dan log layanan.
+
 ## Menggunakannya untuk Pengembangan
 
 Gunakan asisten untuk menjelaskan kode, membuat boilerplate, mereview fungsi, atau membantu belajar:
@@ -92,7 +91,7 @@ ollama list
 
 **T: Apakah benar-benar offline?**
 
-J: Ya. Setelah model diunduh, pemrosesan tidak membutuhkan internet dan data tidak meninggalkan komputer Anda.
+J: Pemasangan Ollama dan pengunduhan model memerlukan koneksi jaringan. Setelah model diunduh, arahkan asisten ke `http://127.0.0.1:11434` dan pilih model lokal tersebut. Model cloud, pencarian web, dan alat yang memanggil layanan jarak jauh tetap memerlukan internet.
 
 **T: Dapatkah model fine-tuned dipakai?**
 

@@ -52,11 +52,11 @@ The group editor watches for conflicts as you pick members and warns you when tw
 
 ## Ordered Start and Stop
 
-Members run in the order they are listed in the group, so infrastructure comes up before the apps that depend on it.
+- **Start in list order.** FlyEnv starts members from top to bottom and skips members already running. An unavailable member is marked invalid and the sequence continues.
+- **Choose how to handle start failures.** By default, FlyEnv stops the sequence after a start operation reports an error. Enable **Continue starting remaining members if one fails** to attempt the rest.
+- **Stop in reverse order.** FlyEnv attempts to stop the remaining members even if a stop fails. A group can stop a member that was already running when the group started, so stopping a shared Nginx or Redis instance can affect another group.
 
-- **Start runs top to bottom:** each member is started in listed order, and members that are already running are skipped rather than restarted.
-- **A failure stops the chain:** if a member fails to start, the remaining members are marked as not run instead of being launched into a half-prepared environment.
-- **Stop runs in reverse and always finishes:** shutdown walks the list backwards, and it keeps going even if one member fails to stop.
+In the [ERPNext demo](/demos?video=erpnext-local-project), the macOS group lists Nginx, Redis, MariaDB, and the Python ERPNext project. Watch the services restart and the browser return to ERPNext. FlyEnv runs each member’s start action in order. Check the application URL to verify that the stack is ready.
 
 ## Default Group, Auto-Start and Tray
 
@@ -72,4 +72,4 @@ Exactly one group can be the default group, and it becomes the target of FlyEnv'
 
 ## Compatibility Notes
 
-Startup Groups is pure orchestration: it sequences the start and stop operations that each module already provides, and it does not install versions or runtimes of its own — a group can only contain service versions and projects that their own modules already manage. The feature works the same way on macOS, Windows and Linux, with no platform-specific behavior of its own; any platform limits come from the underlying modules. Hiding the Startup Groups entry in the sidebar settings first stops every member of every group, so nothing is left running in the background. Browse the other [feature pages](/features) for the capabilities of the individual services you group together.
+Startup Groups uses the operations of the modules available on your platform. Add installed service versions and configured projects to a group. When you hide Startup Groups in sidebar settings, FlyEnv attempts to stop the grouped services first and keeps the entry visible if shutdown fails.

@@ -8,9 +8,9 @@ head:
 
 # What Is FlyEnv? Native Local Stack, AI Coding CLI, and MCP Workspace
 
-Modern local development is no longer just PHP and MySQL. A real project usually needs multiple runtimes, local services, HTTPS sites, and now AI coding clients that must see the same local environment you use yourself.
+FlyEnv is an open-source desktop workspace for native local development on Windows, macOS, and Linux. Install the runtimes and services your project needs, choose runtime versions per project, and serve local sites with custom domains and HTTPS. Save services in a Startup Group so you can start them together.
 
-FlyEnv is a native desktop workspace that brings those pieces together. It manages local runtimes and services, switches versions per project, launches AI coding CLIs, and exposes your managed local context through the built-in **FlyEnv MCP Server**.
+From the same workspace, you can launch supported AI coding CLIs and connect them to managed services, sites, and logs through the built-in **FlyEnv MCP Server**.
 
 ## What FlyEnv Actually Does
 
@@ -34,7 +34,7 @@ FlyEnv lets you install only the software you need and manage it from one native
 | Utilities | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE)                                                                                                                                                                                                        |
 | Custom modules | Custom modules can be added as services or commands and work like built-in modules.                                                                                                                                                                                                                  |
 
-All modules support multi-version co-existence, so projects can use the versions they need without a separate manager for each runtime or service.
+For modules that offer multiple versions, FlyEnv can keep supported versions installed side by side. Choose the runtime version each project needs.
 
 Alongside these modules, FlyEnv manages local sites with custom domains, HTTPS/SSL, reverse proxy, logs, and site-level runtime settings. It also brings AI coding clients and the FlyEnv MCP Server into the same workspace, giving AI clients structured access to managed services, sites, configs, logs, and selected actions.
 

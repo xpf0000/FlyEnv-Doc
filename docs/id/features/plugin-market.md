@@ -9,6 +9,8 @@ description: 'Jelajahi plugin FlyEnv untuk SamWaf, memori AI persisten, cluster 
 
 Pasar Plugin memungkinkan Anda menambahkan modul sesuai kebutuhan proyek. Alat yang dipasang dapat dikelola bersama runtime dan layanan yang sudah ada. Sebuah plugin dapat menyediakan kontrol layanan, pengelolaan versi, editor konfigurasi, serta tampilan khusus untuk fitur yang ditawarkannya.
 
+[Demo MySQL Cluster](/id/demos?video=mysql-cluster-replication) menampilkan modul yang dipasang melalui Plugin Market dan memakai versi database yang dikelola FlyEnv.
+
 Buka **Settings → Plugin Market** untuk melihat plugin resmi, mengelola plugin yang terpasang, atau menambahkan sumber pihak ketiga.
 
 ![Plugin resmi di Pasar Plugin FlyEnv dengan tombol instal, instal ulang, dan pembaruan](https://oss.macphpstudy.com/image/features/plugin/plugin-market-official.png)

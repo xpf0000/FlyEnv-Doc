@@ -3,20 +3,20 @@
 layout: home
 markdownStyles: false
 
-title: 'FlyEnv - Open Source Local Development Environment for AI Agents'
+title: 'FlyEnv - Open Source Native Local Development Environment'
 titleTemplate: false
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
   - - meta
     - name: description
-      content: 'FlyEnv is an open-source local development workspace for AI agents on macOS, Windows, and Linux, with runtimes, databases, web servers, sites, HTTPS, and MCP.'
+      content: 'FlyEnv is an open-source native workspace for local development on macOS, Windows and Linux. Manage runtimes, databases, HTTPS sites and AI coding tools with MCP.'
   - - meta
     - property: og:title
-      content: 'FlyEnv - Open Source Local Development Environment for AI Agents'
+      content: 'FlyEnv - Open Source Native Local Development Environment'
   - - meta
     - property: og:description
-      content: 'FlyEnv is an open-source local development environment for AI agents on macOS, Windows and Linux. Manage PHP, Node.js, Python, databases, web servers, local sites and HTTPS with FlyEnv MCP.'
+      content: 'FlyEnv is an open-source native workspace for local development on macOS, Windows and Linux. Manage runtimes, databases, HTTPS sites and AI coding tools with MCP.'
   - - meta
     - property: og:type
       content: website
@@ -31,10 +31,10 @@ head:
       content: summary
   - - meta
     - name: twitter:title
-      content: 'FlyEnv - Open Source Local Development Environment for AI Agents'
+      content: 'FlyEnv - Open Source Native Local Development Environment'
   - - meta
     - name: twitter:description
-      content: 'FlyEnv is an open-source local development environment for AI agents on macOS, Windows and Linux.'
+      content: 'FlyEnv is an open-source native workspace for local development on macOS, Windows and Linux. Manage runtimes, databases, HTTPS sites and AI coding tools with MCP.'
   - - meta
     - name: twitter:image
       content: https://oss.macphpstudy.com/image/app-icon.png

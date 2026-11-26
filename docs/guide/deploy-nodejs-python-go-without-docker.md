@@ -145,6 +145,8 @@ Open your browser and visit the local address (e.g., `http://127.0.0.1:3000`):
 
 ![Verify It's Running](https://oss.macphpstudy.com/image/deploy-12.webp)
 
+Before adding a reverse proxy, verify the process responds directly on its configured local port. Keep the upstream listener (for example, `127.0.0.1:3000`) separate from the HTTPS port on your web server. Then enable **Auto SSL** on the Host site. [Watch the native services demo](/demos?video=native-node-python-go-services).
+
 ## Step 8: Monitor Logs
 
 Click the action buttons to view output and error logs in real-time:

@@ -16,6 +16,8 @@ import { communityEvidence } from '../../data/community-evidence'
 
 现在选择本地开发方案，已经不只是决定怎么跑 PHP 或 MySQL。你还要决定多运行时、本地服务、HTTPS 站点，以及 AI 编程客户端要如何一起工作。
 
+如需分别了解工具取舍和使用条件，可查看 [FlyEnv 与 Docker 对比](/zh/compare/docker)和 [FlyEnv 与 XAMPP 对比](/zh/compare/xampp)。准备迁移现有项目时，按下文的迁移步骤操作。
+
 如果你觉得 Docker 对日常应用开发偏重，而 XAMPP 对现代多运行时项目又太固定，那么 FlyEnv 处在另一条路径上：它是一个面向运行时、服务、AI 编程 CLI 和 MCP 的原生本地工作区。
 
 ## 先说结论

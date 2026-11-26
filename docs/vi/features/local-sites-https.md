@@ -77,6 +77,8 @@ Auto SSL tạo một Certificate Authority local của FlyEnv khi cần, cấp c
 
 Đừng dùng một chứng chỉ local làm bằng chứng rằng một site được tin cậy công khai: những chứng chỉ này dành cho phát triển và kiểm thử local. Để xem trước công khai, ghép dịch vụ local với [Cloudflare Tunnel](/vi/guide/cloudflare-tunnel-local-development) hoặc triển khai nó vào một môi trường dành cho lưu lượng bên ngoài.
 
+Xem [Gitea với MySQL và HTTPS](/vi/demos?video=gitea-local-project) để biết cách truy cập ứng dụng local qua tên miền được quản lý.
+
 <FeatureRelatedLinks locale="vi" slug="local-sites-https" />
 
 ## Lưu ý tương thích

@@ -10,6 +10,8 @@ head:
 
 Truy cập dự án của bạn qua `http://localhost:8080/myproject` trông thật thiếu chuyên nghiệp khi chia sẻ cho khách hàng. Các lập trình viên chuyên nghiệp dùng những tên miền sạch như `https://clientproject.test`—với chứng chỉ SSL hợp lệ mà trình duyệt tin tưởng.
 
+Xem ứng dụng đang chạy trong [demo Gitea với MySQL và HTTPS](/vi/demos?video=gitea-local-project). Hãy kiểm tra dịch vụ phản hồi trên cổng local trước khi thử truy cập tên miền HTTPS.
+
 Hướng dẫn này cho bạn thấy cách thiết lập tên miền local tùy chỉnh với HTTPS tự động, khiến môi trường phát triển của bạn không thể phân biệt được với production.
 
 ## Vì sao tên miền tùy chỉnh lại quan trọng

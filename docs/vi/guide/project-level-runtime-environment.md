@@ -113,11 +113,20 @@ cd ~/work/modern-node-app
 node -v
 # v20.11.0
 
-which node
-# /Users/you/.flyenv/versions/node/20.11.0/bin/node
+command -v node
 ```
 
 Tích hợp shell của FlyEnv phát hiện thư mục hiện tại của bạn và chèn đúng các đường dẫn **trước khi** lệnh của bạn chạy. Không `nvm use`, không `source venv/bin/activate`, không quên chuyển đổi.
+
+Đối chiếu phiên bản và đường dẫn tệp thực thi trong cả hai dự án. Trong zsh hoặc Bash, dùng `command -v php` và `command -v node`. Trong PowerShell, chạy các lệnh sau từ thư mục đã đăng ký của từng dự án.
+
+```powershell
+php -v
+node -v
+Get-Command php,node | Select-Object Name,Source
+```
+
+Kiểm tra riêng phiên bản PHP xử lý yêu cầu từ trình duyệt trong **Host**. Module **PHP-FPM** chạy `php-fpm` trên macOS và Linux và dùng FastCGI worker trên Windows.
 
 ![Demo terminal - Hiển thị chuyển đổi phiên bản tự động khi cd](https://oss.macphpstudy.com/image/project-env6.png)
 

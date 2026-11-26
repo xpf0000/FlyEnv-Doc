@@ -144,9 +144,11 @@ php artisan migrate
 
 Nyalakan modul berikut:
 
-- PHP dengan versi yang cocok untuk proyek.
+- PHP-FPM dengan versi yang cocok untuk proyek.
 - Nginx, Apache, atau Caddy.
 - MySQL atau PostgreSQL bila proyek memakai basis data.
+
+Setelah situs terbuka melalui domain lokal, simpan server web, versi PHP-FPM, serta database atau cache yang dipakai dalam [Grup Startup](/id/features/startup-groups). Tambahkan worker antrean jika sudah dikonfigurasi sebagai layanan proyek. [Demo layanan aplikasi PHP](/id/demos?video=php-project-services) menunjukkan alur terpisah seperti Octane.
 
 ### Buka Situs
 

@@ -18,20 +18,14 @@
             id="new-home-hero-title"
             class="no-border !mb-0 !text-4xl !font-extrabold !leading-[1.04] !tracking-[-0.055em] text-slate-950 sm:!text-5xl lg:!text-[3.55rem] dark:!text-white"
           >
-            Dile a tu IA qué quieres ejecutar.
-            <span class="block text-blue-600 dark:text-blue-400"
-              >FlyEnv le da todo lo que necesita.</span
-            >
+            FlyEnv
+            <span class="block text-blue-600 dark:text-blue-400">Desarrollo local nativo en un solo lugar</span>
           </h1>
           <p
             class="mt-6 max-w-[36rem] text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300"
           >
-            Ofrece a los agentes de IA un entorno local real con runtimes, servicios, sitios,
-            dominios, HTTPS y URLs funcionales.
+            Gestiona PHP, Node.js, Python, bases de datos y sitios HTTPS locales. Conecta tus herramientas de programación con IA al mismo entorno mediante MCP.
           </p>
-          <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400"
-            >De un solo prompt a un proyecto funcionando en tu máquina.</p
-          >
           <div class="mt-7 flex flex-wrap gap-3">
             <a
               href="/es/download"
@@ -47,6 +41,10 @@
               class="inline-flex items-center rounded-xl border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold !text-slate-800 no-underline transition hover:border-blue-300 hover:!text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:translate-y-px dark:border-slate-600 dark:bg-slate-900/70 dark:!text-slate-100 dark:hover:border-blue-400 dark:hover:!text-blue-300"
               >Ver en GitHub <span class="ml-2" aria-hidden="true">↗</span></a
             >
+          </div>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a href="/es/guide/getting-started" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">Configura tu primer sitio</a>
+            <a href="/es/compare/" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">Compara herramientas de desarrollo local</a>
           </div>
         </div>
         <div class="relative">
@@ -740,11 +738,10 @@
             <h2
               id="final-cta-title"
               class="no-border !mb-0 !text-3xl !font-extrabold !tracking-[-0.04em] sm:!text-4xl"
-              >¿Listo para darle a tu IA un stack local real?</h2
+              >¿Listo para ejecutar tu primer proyecto local?</h2
             >
             <p class="mt-4 text-base leading-7 text-blue-100"
-              >Descarga FlyEnv para macOS, Windows o Linux y empieza a construir con IA hoy
-              mismo.</p
+              >Descarga FlyEnv para macOS, Windows o Linux e instala los servicios que necesita tu proyecto.</p
             >
           </div>
           <a

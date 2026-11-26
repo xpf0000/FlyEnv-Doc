@@ -72,11 +72,11 @@ El editor de grupos vigila los conflictos mientras eliges miembros y te avisa cu
 
 ## Inicio y detención ordenados
 
-Los miembros se ejecutan en el orden en que aparecen en el grupo, de modo que la infraestructura se activa antes que las aplicaciones que dependen de ella.
+- **Inicio según el orden de la lista.** FlyEnv inicia los miembros de arriba abajo y omite los que ya están en ejecución. Marca como no válido cualquier miembro que no esté disponible y continúa.
+- **Elige qué hacer si falla un inicio.** Por defecto, FlyEnv interrumpe la secuencia cuando una operación de inicio devuelve un error. Activa la opción de continuar con los demás miembros si uno falla para intentar iniciarlos.
+- **Detención en orden inverso.** FlyEnv intenta detener el resto de miembros aunque falle uno. El grupo también puede detener miembros que ya estaban en ejecución. Detener una instancia compartida de Nginx o Redis puede afectar a otro grupo.
 
-- **El inicio va de arriba abajo:** cada miembro se inicia en el orden de la lista, y los miembros que ya están en ejecución se omiten en lugar de reiniciarse.
-- **Un fallo detiene la cadena:** si un miembro no consigue iniciarse, los miembros restantes se marcan como no ejecutados en lugar de lanzarse en un entorno a medio preparar.
-- **La detención va en orden inverso y siempre termina:** el apagado recorre la lista hacia atrás y continúa incluso si un miembro no consigue detenerse.
+En la [demo de ERPNext](/es/demos?video=erpnext-local-project), el grupo de macOS incluye Nginx, Redis, MariaDB y el proyecto ERPNext en Python. El vídeo muestra el reinicio y la vuelta a ERPNext en el navegador. FlyEnv ejecuta la operación de inicio de cada miembro en orden. Abre la URL de la aplicación para comprobar que esté lista.
 
 ## Grupo predeterminado, inicio automático y bandeja
 
@@ -92,4 +92,4 @@ Exactamente un grupo puede ser el grupo predeterminado, y se convierte en el obj
 
 ## Notas de compatibilidad
 
-Startup Groups es pura orquestación: ordena las operaciones de inicio y detención que cada módulo ya proporciona, y no instala versiones ni runtimes por sí mismo —un grupo solo puede contener versiones de servicio y proyectos que sus propios módulos ya gestionan. La funcionalidad funciona igual en macOS, Windows y Linux, sin comportamientos propios específicos de plataforma; cualquier límite de plataforma proviene de los módulos subyacentes. Al ocultar la entrada Startup Groups en los ajustes de la barra lateral, primero se detienen todos los miembros de todos los grupos, de modo que nada queda ejecutándose en segundo plano. Explora las demás [páginas de funcionalidades](/es/features) para conocer las capacidades de los servicios individuales que agrupas.
+Los grupos usan las operaciones de los módulos disponibles en tu plataforma. Añade versiones instaladas y proyectos configurados. Si ocultas Startup Groups en la barra lateral, FlyEnv intenta detener primero los servicios agrupados. Si falla la detención, conserva la entrada visible.

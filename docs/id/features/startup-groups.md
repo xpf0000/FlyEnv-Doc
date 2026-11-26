@@ -52,11 +52,11 @@ Editor grup memantau konflik ketika Anda memilih anggota dan memperingatkan jika
 
 ## Mulai dan henti berurutan
 
-Anggota berjalan menurut urutan dalam grup, sehingga infrastruktur aktif sebelum aplikasi yang bergantung padanya.
+- **Mulai sesuai urutan daftar.** FlyEnv memulai anggota dari atas ke bawah dan melewati anggota yang sudah berjalan. Anggota yang tidak tersedia ditandai tidak valid dan urutan tetap berlanjut.
+- **Atur penanganan kegagalan.** Secara default, FlyEnv berhenti memulai anggota setelah operasi mulai melaporkan kesalahan. Aktifkan opsi untuk tetap memulai anggota lain jika salah satunya gagal.
+- **Hentikan dalam urutan terbalik.** FlyEnv tetap mencoba menghentikan anggota lain jika terjadi kegagalan. Grup dapat menghentikan anggota yang sudah aktif sebelum grup dijalankan, sehingga menghentikan Nginx atau Redis bersama dapat memengaruhi grup lain.
 
-- **Mulai dari atas ke bawah:** setiap anggota dimulai sesuai urutan daftar; anggota yang telah berjalan dilewati, bukan dimulai ulang.
-- **Kegagalan menghentikan rangkaian:** jika satu anggota gagal mulai, anggota berikutnya ditandai tidak dijalankan agar tidak masuk ke lingkungan yang belum siap.
-- **Henti berjalan terbalik dan selalu selesai:** proses henti menelusuri daftar dari belakang dan tetap melanjutkan meskipun satu anggota gagal berhenti.
+[Demo ERPNext](/id/demos?video=erpnext-local-project) memperlihatkan grup macOS dengan Nginx, Redis, MariaDB, dan proyek Python ERPNext. Layanan dimulai ulang dan ERPNext kembali terbuka di browser. FlyEnv menjalankan tindakan mulai setiap anggota secara berurutan. Buka URL aplikasi untuk memastikan stack siap.
 
 ## Grup bawaan, mulai otomatis, dan baki
 
@@ -72,4 +72,4 @@ Tepat satu grup dapat menjadi grup bawaan dan menjadi target kontrol global FlyE
 
 ## Catatan kompatibilitas
 
-Grup Startup murni berfungsi sebagai orkestrasi: fitur ini mengurutkan operasi mulai dan henti yang sudah disediakan setiap modul, tanpa memasang versi atau runtime sendiri. Grup hanya dapat memuat versi layanan dan proyek yang sudah dikelola modul masing-masing. Fitur ini bekerja sama di macOS, Windows, dan Linux tanpa perilaku khusus platform; batas platform berasal dari modul dasar. Menyembunyikan entri Grup Startup dalam pengaturan bilah sisi terlebih dahulu menghentikan semua anggota setiap grup agar tidak ada proses yang tertinggal di latar belakang. Lihat [halaman fitur lain](/id/features) untuk kemampuan tiap layanan yang dapat dikelompokkan.
+Grup Startup memakai operasi modul yang tersedia di platform Anda. Pasang versi layanan dan siapkan proyek sebelum menambahkannya ke grup. Saat menyembunyikan Grup Startup di pengaturan bilah sisi, FlyEnv mencoba menghentikan layanan dalam grup terlebih dahulu. Entri tetap terlihat jika penghentian gagal.

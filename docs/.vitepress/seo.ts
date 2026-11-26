@@ -1,4 +1,4 @@
-import { demos, getDemoCopy, getDemoEmbedUrl, getDemoPlatform } from '../data/demos'
+import { demos, getDemoCopy, getDemoPlatform } from '../data/demos'
 import communityPosts from '../data/community-posts.json'
 import communityPostsZh from '../data/community-posts-zh.json'
 import { getComparisonFaqs, type ComparisonFaqSlug } from '../data/comparison-faqs'
@@ -325,23 +325,12 @@ function visibleDemos() {
   return [...featured, ...catalog]
 }
 
-function demoVideoNodes(route: RouteInfo, host: string) {
-  return visibleDemos().map((demo) => {
-    const copy = getDemoCopy(demo, route.locale)
-    const platform = getDemoPlatform(demo, route.locale)
-    return {
-      '@type': 'VideoObject',
-      '@id': `${route.url}#video-${demo.id}`,
-      name: copy.title,
-      description: copy.summary,
-      thumbnailUrl: `https://i.ytimg.com/vi/${demo.youtubeId}/hqdefault.jpg`,
-      uploadDate: demo.publishedAt,
-      embedUrl: getDemoEmbedUrl(demo, platform),
-      url: demo.platforms[platform],
-      inLanguage: route.language,
-      publisher: { '@type': 'Organization', name: 'FlyEnv', url: `${host}/` }
-    }
-  })
+function demoCollectionItems(route: RouteInfo) {
+  return visibleDemos().map((demo) => ({
+    '@type': 'WebPage',
+    name: getDemoCopy(demo, route.locale).title,
+    url: demo.platforms[getDemoPlatform(demo, route.locale)]
+  }))
 }
 
 function visibleCommunityPosts(locale: SeoLocale) {
@@ -376,7 +365,7 @@ function itemListNode(
 
   if (route.pagePath === 'demos') {
     name = labels[route.locale].demoList
-    items = demoVideoNodes(route, host)
+    items = demoCollectionItems(route)
   } else if (route.pagePath === 'community') {
     name = labels[route.locale].communityList
     items = communityArticleNodes(route, host)

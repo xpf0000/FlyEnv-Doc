@@ -2,19 +2,19 @@
 layout: home
 markdownStyles: false
 
-title: 'FlyEnv - Entorno de Desarrollo Local Open Source para Agentes de IA'
+title: 'FlyEnv - Entorno de Desarrollo Local Nativo de Código Abierto'
 titleTemplate: false
 
 head:
   - - meta
     - name: description
-      content: 'FlyEnv es un espacio de trabajo de desarrollo local open source para agentes de IA en macOS, Windows y Linux, con runtimes, bases de datos, servidores web, sitios, HTTPS y MCP.'
+      content: 'FlyEnv es un entorno de desarrollo local nativo y de código abierto para macOS, Windows y Linux. Gestiona runtimes, bases de datos, sitios HTTPS y herramientas de IA con MCP.'
   - - meta
     - property: og:title
-      content: 'FlyEnv - Entorno de Desarrollo Local Open Source para Agentes de IA'
+      content: 'FlyEnv - Entorno de Desarrollo Local Nativo de Código Abierto'
   - - meta
     - property: og:description
-      content: 'FlyEnv es un entorno de desarrollo local open source para agentes de IA en macOS, Windows y Linux. Gestiona PHP, Node.js, Python, bases de datos, servidores web, sitios locales y HTTPS con FlyEnv MCP.'
+      content: 'FlyEnv es un entorno de desarrollo local nativo y de código abierto para macOS, Windows y Linux. Gestiona runtimes, bases de datos, sitios HTTPS y herramientas de IA con MCP.'
   - - meta
     - property: og:type
       content: website
@@ -29,10 +29,10 @@ head:
       content: summary
   - - meta
     - name: twitter:title
-      content: 'FlyEnv - Entorno de Desarrollo Local Open Source para Agentes de IA'
+      content: 'FlyEnv - Entorno de Desarrollo Local Nativo de Código Abierto'
   - - meta
     - name: twitter:description
-      content: 'FlyEnv es un entorno de desarrollo local open source para agentes de IA en macOS, Windows y Linux.'
+      content: 'FlyEnv es un entorno de desarrollo local nativo y de código abierto para macOS, Windows y Linux. Gestiona runtimes, bases de datos, sitios HTTPS y herramientas de IA con MCP.'
   - - meta
     - name: twitter:image
       content: https://oss.macphpstudy.com/image/app-icon.png

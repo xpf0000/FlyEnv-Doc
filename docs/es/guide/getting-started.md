@@ -1,14 +1,14 @@
 ---
-title: 'Guía de inicio rápido de FlyEnv: en funcionamiento en 5 minutos'
+title: 'Guía de inicio rápido de FlyEnv para ejecutar tu primer sitio local'
 head:
   - - meta
     - name: description
-      content: 'Guía completa de configuración de FlyEnv para macOS, Windows y Linux. Instálalo, configura tu primer sitio y empieza a desarrollar en menos de 5 minutos con gestión automática de versiones.'
+      content: 'Instala FlyEnv en macOS, Windows o Linux y abre tu primer sitio HTTPS local con Nginx, PHP y Auto SSL.'
 ---
 
-# Guía de inicio rápido de FlyEnv: en funcionamiento en 5 minutos
+# Guía de inicio rápido de FlyEnv para ejecutar tu primer sitio local
 
-Ya has descargado FlyEnv. ¿Y ahora qué? Esta guía te lleva de la instalación a un sitio web local en funcionamiento en menos de cinco minutos, sin necesidad de magia en la terminal.
+Instala FlyEnv y abre una página PHP en `https://myproject.test`. Empieza con Nginx y PHP, y añade MySQL si tu proyecto necesita una base de datos.
 
 ## Instalación
 
@@ -16,7 +16,7 @@ Ya has descargado FlyEnv. ¿Y ahora qué? Esta guía te lleva de la instalación
 
 **Opción 1: Homebrew (recomendada)**
 ```bash
-brew update && brew install flyenv
+brew install --cask flyenv
 ```
 
 **Opción 2: Descargar el DMG**
@@ -24,20 +24,13 @@ brew update && brew install flyenv
 | Arquitectura | Descarga |
 |--------------|----------|
 | Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (ARM64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
 
 **Nota para usuarios de macOS:** si solo necesitas un alojamiento PHP sencillo, echa un vistazo a [FlyPHPServer](/es/flyphpserver) en la Mac App Store, una aplicación complementaria ligera.
 
 ### Windows
 
-Descarga y extrae el archivo ZIP:
-
-| Fuente de descarga | Enlace |
-|--------------------|--------|
-| GitHub Release | [Descargar](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Baidu Netdisk | [Descargar](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-
-Ejecuta `FlyEnv.exe` después de la extracción.
+Ejecuta el instalador x64 desde la [página de descargas de FlyEnv](/es/download) o abre directamente el archivo `.exe` portátil. Ambos paquetes están en la [última versión de GitHub](https://github.com/xpf0000/FlyEnv/releases/latest). Si consultas la [réplica de Baidu Netdisk](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4), comprueba la versión antes de descargarla.
 
 ### Linux
 
@@ -101,7 +94,7 @@ Antes de crear un sitio, inicia tu servidor web y PHP:
 2. Selecciona la versión que instalaste
 3. Haz clic en el botón **Start**
 
-Haz lo mismo con **PHP** y **MySQL** si lo necesitas.
+Para un sitio PHP, inicia PHP en macOS o Linux y **PHP-FPM** en Windows. Inicia MySQL si tu proyecto necesita una base de datos.
 
 ![Arranque de servicios](https://oss.macphpstudy.com/image/quick-start-3.webp)
 
@@ -110,8 +103,8 @@ Haz lo mismo con **PHP** y **MySQL** si lo necesitas.
 1. Abre el módulo **Host**
 2. Haz clic en **"Add Site"**
 3. Rellena los datos:
-   - **Domain**: `myproject.test` (vale cualquier dominio)
-   - **Root Path**: `/Users/you/projects/myproject`
+   - **Domain**: `myproject.test`
+   - **Root Path**: la carpeta con los archivos públicos de tu sitio
    - **PHP Version**: selecciona la versión que instalaste
    - **Port**: 80 (por defecto)
 
@@ -127,7 +120,9 @@ Después de guardar:
 2. Haz clic en el enlace del sitio en la lista de Host
 3. O abre `https://myproject.test` en tu navegador
 
-El certificado SSL es de confianza automática para tu sistema.
+Si empiezas con una carpeta vacía, crea un archivo `index.php` en la raíz del sitio con el contenido `<?php echo "Hello from FlyEnv";`. Vuelve a abrir la URL y comprueba que aparezca **Hello from FlyEnv**.
+
+Si el navegador muestra un aviso de certificado, consulta [Dominios personalizados y Auto SSL](/es/guide/host) para revisar la configuración de confianza del certificado local.
 
 ## Configuración de variables de entorno
 
@@ -320,6 +315,8 @@ Ahora que ya está en marcha, explora estas funciones:
 - [Aislamiento de versión por proyecto](/es/guide/project-level-runtime-environment) — Cambio automático de versión
 - [Dominios personalizados y SSL](/es/guide/host) — Desarrollo local profesional
 - [Construir un agente de IA local](/es/guide/build-local-offline-ai-agent) — IA sin conexión con Ollama
+
+La versión gratuita cubre este inicio rápido. Consulta la [licencia de FlyEnv](/es/license) si necesitas gestionar más sitios locales o seguir usando las herramientas premium.
 
 [Descarga FlyEnv](/es/download) si aún no lo has hecho, ¡y feliz programación!
 

@@ -8,23 +8,13 @@ head:
 
 # Dựng quy trình AI tự lưu trữ với n8n & Ollama (Không cần Docker)
 
-Bạn có mệt vì phải trả phí hàng tháng cho các công cụ tự động hóa AI như Zapier hay Coze? Bạn có lo ngại khi phải gửi dữ liệu nhạy cảm cho các dịch vụ đám mây của bên thứ ba? Nhiều lập trình viên muốn dựng các quy trình hỗ trợ AI nhưng lại vướng vào cấu hình Docker phức tạp, những cơn ác mộng cấu hình thủ công và nỗi lo thường trực về quyền riêng tư dữ liệu.
-
-Hướng dẫn này sẽ cho bạn thấy cách tạo một quy trình AI tự lưu trữ hoàn toàn, có khả năng chạy offline bằng **n8n** (phương án mã nguồn mở thay thế Zapier) và **Ollama** (trình chạy LLM local)—tất cả được quản lý dễ dàng bằng FlyEnv. Không cần Docker, không phụ thuộc đám mây, và bạn thậm chí có thể mở các quy trình của mình ra internet một cách an toàn khi cần.
+Chạy n8n và Ollama trong FlyEnv, sau đó gửi yêu cầu POST cục bộ để chuyển lời nhắc tới mô hình đã tải và nhận phản hồi. Việc cài n8n, Ollama và tải mô hình cần kết nối mạng. Sau khi thiết lập, webhook qua địa chỉ loopback và quá trình suy luận có thể chạy ngoại tuyến.
 
 ---
 
 ## Vì sao quy trình AI tự lưu trữ lại quan trọng
 
-| Công cụ tự động hóa đám mây | Tự lưu trữ với FlyEnv |
-|------------------------|-------------------------|
-| Phí đăng ký hàng tháng | Thiết lập một lần, miễn phí mãi |
-| Dữ liệu gửi tới server của bên thứ ba | 100% riêng tư, chạy hoàn toàn local |
-| Tùy chỉnh hạn chế | Toàn quyền kiểm soát quy trình |
-| Đòi hỏi kết nối internet | Hoạt động hoàn toàn offline |
-| Giới hạn gọi API phức tạp | Gọi API local không giới hạn |
-
-FlyEnv chạy n8n và Ollama dưới dạng tiến trình local, tránh được chi phí máy ảo nền của Docker Desktop. Mức tài nguyên thực tế phụ thuộc vào model, quy trình và dịch vụ bạn chọn.
+FlyEnv quản lý hai tiến trình dịch vụ. Bạn tạo quy trình trong n8n và chọn mô hình ở node Ollama. Ví dụ này dùng bộ lưu trữ SQLite mặc định của n8n và API Ollama cục bộ. Các node gọi API bên thứ ba vẫn cần internet.
 
 ---
 
@@ -40,22 +30,19 @@ Trước khi bắt đầu, hãy bảo đảm bạn có:
 
 ## Bước 1: Cài đặt và khởi động n8n
 
-FlyEnv tích hợp sẵn n8n như một module, loại bỏ hoàn toàn nhu cầu thiết lập Node.js thủ công hay container Docker.
+Cài phiên bản [Node.js](/vi/features/nodejs) tương thích với bản n8n sẽ dùng và kiểm tra `node`, `npm` trong terminal.
 
-1. Mở FlyEnv và đi tới mục **Tools**
-2. Tìm **n8n** trong danh sách các module khả dụng
-3. Nhấp **Install**—FlyEnv tự xử lý toàn bộ các phụ thuộc
-4. Sau khi cài xong, nhấp **Start** để khởi chạy dịch vụ n8n
+1. Mở [mô-đun n8n](/vi/features/n8n) trong FlyEnv và chọn **Version Manager**.
+2. Cài một phiên bản. FlyEnv chạy npm trong terminal để bạn theo dõi kết quả.
+3. Khởi động phiên bản đã cài từ mô-đun.
 
 ![Module n8n trong FlyEnv](https://oss.macphpstudy.com/image/n8n-1.webp)
 
 ![Module n8n trong FlyEnv](https://oss.macphpstudy.com/image/n8n-2.webp)
 
-5. Truy cập giao diện web của n8n tại `http://localhost:5678`
+4. Truy cập giao diện web của n8n tại `http://localhost:5678`
 
 ![Bảng điều khiển n8n](https://oss.macphpstudy.com/image/n8n-3.webp)
-
-> **Mẹo:** FlyEnv tự quản lý runtime Node.js giúp bạn. Bạn không cần lo về xung đột phiên bản hay các gói npm toàn cục.
 
 ---
 
@@ -66,18 +53,12 @@ Bây giờ hãy thiết lập "bộ não" AI cho quy trình của bạn bằng O
 1. Trong FlyEnv, đi tới mục **AI Tools**
 2. Chọn **Ollama** và nhấp **Install**
 3. Khởi động dịch vụ Ollama
-4. Tải model bạn ưa thích. Hãy chọn theo cấu hình máy tính của bạn. Xem chi tiết tại [Dựng AI Agent offline local](/vi/guide/build-local-offline-ai-agent).
 
 ![Module Ollama trong FlyEnv](https://oss.macphpstudy.com/image/n8n-4.webp)
 
 ![Các model khả dụng trong Ollama](https://oss.macphpstudy.com/image/n8n-5.webp)
 
-Các model khả dụng bao gồm:
-- **Qwen 3.5** - Xuất sắc cho tác vụ tổng quát và lập trình
-- **Kimi k2.5** - Tuyệt vời cho tác vụ tổng quát và lập trình
-- **Gemma 3** - Các model mở hiệu quả của Google
-- **Llama 4** - Mới nhất của Meta với năng lực suy luận mạnh
-- **DeepSeek Coder** - Chuyên biệt cho các tác vụ lập trình
+Tải mô hình phù hợp với máy và kiểm tra thẻ mô hình xuất hiện tại `http://127.0.0.1:11434/api/tags`. Chọn đúng mô hình cục bộ đó trong quy trình. [Thiết lập mô hình Ollama](/vi/guide/build-local-offline-ai-agent)
 
 ---
 
@@ -104,7 +85,7 @@ Giờ hãy dựng một quy trình nhận yêu cầu HTTP, xử lý chúng qua A
 
 1. Thêm một node **Ollama** sau webhook
 2. Cấu hình kết nối:
-   - **Base URL:** `http://localhost:11434` (mặc định của Ollama)
+   - **Base URL:** `http://127.0.0.1:11434` (mặc định của Ollama)
    - **Model:** Chọn model bạn đã tải (ví dụ `qwen3.5`)
    
 3. Thiết lập mẫu tin nhắn:
@@ -117,22 +98,21 @@ Giờ hãy dựng một quy trình nhận yêu cầu HTTP, xử lý chúng qua A
 
 ### 3.3 Kiểm thử quy trình của bạn
 
-1. Lưu quy trình và bật nó sang trạng thái **Active**
-2. Sao chép URL webhook (n8n cung cấp cả URL test và production)
-3. Kiểm thử bằng curl hoặc bất kỳ HTTP client nào:
-   ```bash
-   curl -X POST "http://localhost:5678/webhook/ai-assistant" \
-     -H "Content-Type: application/json" \
-     -d '{"q": "Explain the benefits of local AI workflows"}'
-   ```
+Để kiểm thử trong trình chỉnh sửa, chọn **Listen for Test Event** và sao chép **Test URL**. Muốn dùng endpoint cố định như ví dụ dưới đây, hãy xuất bản quy trình hoặc chuyển sang **Active** trên bản cũ. Sao chép **Production URL**. Với cổng mặc định và đường dẫn mẫu, URL là `http://127.0.0.1:5678/webhook/ai-assistant`.
 
-4. Bạn sẽ nhận được một phản hồi do model AI local của mình sinh ra!
+```bash
+curl -X POST "http://127.0.0.1:5678/webhook/ai-assistant" \
+  -H "Content-Type: application/json" \
+  -d '{"q": "Explain the benefits of local AI workflows"}'
+```
+
+Kiểm tra phản hồi HTTP có đầu ra của mô hình, rồi mở **Executions** trong n8n để xem lần chạy. Khi gặp `404`, kiểm tra lại URL và xác nhận quy trình đã xuất bản hoặc trình lắng nghe thử đang hoạt động. Nếu node Ollama lỗi, xác nhận `/api/tags` liệt kê mô hình đã chọn. [URL Webhook của n8n](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/#webhook-urls)
 
 ---
 
 ## Bước 4: Bật HTTPS với Reverse Proxy
 
-Để dùng trong môi trường production hoặc truy cập từ bên ngoài, bạn cần HTTPS. Site Manager tích hợp sẵn của FlyEnv khiến việc này trở nên cực kỳ đơn giản.
+Ví dụ đã hoạt động qua loopback. Chỉ cần bước proxy tùy chọn này nếu muốn có địa chỉ HTTPS cục bộ. Nếu n8n phía sau proxy vẫn hiển thị URL nội bộ, hãy đặt địa chỉ webhook bên ngoài trong trình sửa biến môi trường n8n rồi khởi động lại dịch vụ. [Cài đặt proxy ngược cho n8n](https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url/)
 
 ### 4.1 Thêm một tên miền local
 
@@ -161,14 +141,7 @@ FlyEnv tự sinh và tự quản lý các chứng chỉ SSL local:
 
 ## Bước 5: Mở ra internet với Cloudflare Tunnel
 
-Bạn muốn truy cập quy trình AI của mình từ xa? Module Cloudflare Tunnel của FlyEnv có thể công bố nó mà không cần mở cổng inbound trên tường lửa. Named tunnel có thể dùng hostname tùy chỉnh ổn định khi tài khoản Cloudflare và vùng DNS của bạn đã được cấu hình; giới hạn gói dịch vụ vẫn tuân theo điều khoản hiện hành của Cloudflare.
-
-| Tính năng | ngrok Free | **Cloudflare Tunnel** |
-|---------|------------|----------------------|
-| Tên miền tùy chỉnh | ❌ URL ngẫu nhiên | ✅ MIỄN PHÍ |
-| Hostname tùy chỉnh ổn định | Gói trả phí hoặc tên miền đặt trước | Khả dụng với named tunnel đã cấu hình |
-| Giới hạn băng thông | 1GB/tháng | Không giới hạn, MIỄN PHÍ |
-| Thiết lập trong FlyEnv | CLI thủ công | **UI một cú nhấp** |
+Bỏ qua bước này khi dùng ngoại tuyến. Cloudflare Tunnel cần internet. Cấu hình xác thực cho node Webhook trước khi chia sẻ endpoint. Giữ trình chỉnh sửa n8n sau lớp kiểm soát truy cập và để API Ollama chỉ lắng nghe qua loopback.
 
 ### 5.1 Lấy API Token của Cloudflare
 
@@ -251,7 +224,7 @@ Kết hợp với Home Assistant webhook để tạo các quy tắc tự động
 
 ## Hướng dẫn bằng video
 
-Bạn thích xem? Xem Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (No Docker!) qua FlyEnv trong thực tế:
+Xem [video quy trình n8n và Ollama](/vi/demos?video=n8n-ollama-workflow).
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/YnA1B3qmDJU?si=8trvnWn7JUxDQeLA" title="Trình phát video YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -261,13 +234,7 @@ Bạn thích xem? Xem Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (N
 **Thường là có, nhưng tùy khối lượng công việc.** FlyEnv chạy n8n và Ollama trực tiếp trên hệ thống của bạn và tránh được máy ảo container. Kích thước model, các quy trình đang chạy, cơ sở dữ liệu và cấu hình Docker quyết định mức chênh lệch thực tế.
 
 ### Tôi có thể dùng hoàn toàn offline không?
-**Hoàn toàn được.** Khi n8n và Ollama đã được cài, toàn bộ quy trình chạy local mà không cần kết nối internet nào. Đây là lựa chọn lý tưởng cho môi trường cách ly mạng hoặc các ứng dụng nhạy cảm về quyền riêng tư.
-
-### n8n với Ollama có tốt hơn các công cụ tự động hóa trả phí không?
-Với lập trình viên muốn kiểm soát tại chỗ: **thường là có.** n8n tự lưu trữ và các model local có thể giảm chi phí dịch vụ định kỳ và giữ dữ liệu được chọn trên máy của bạn, nhưng các API bên thứ ba, dịch vụ nhắn tin và hạ tầng vẫn có thể có giới hạn hoặc phí riêng. Cái giá phải đánh đổi là tự quản lý, và FlyEnv giúp điều đó đơn giản hơn.
-
-### Cloudflare Tunnel so với ngrok thì sao?
-Cloudflare Tunnel (qua tích hợp của FlyEnv) cung cấp URL bền vững, tên miền tùy chỉnh, SSL tích hợp sẵn, và hoàn toàn miễn phí cho mục đích cá nhân—khác với URL ngẫu nhiên và giới hạn kết nối của ngrok. Hơn nữa, nó không đòi hỏi cài thêm phần mềm nào ngoài FlyEnv.
+Webhook cục bộ và mô hình Ollama đã tải có thể chạy ngoại tuyến sau khi cài đặt. Cloudflare Tunnel và node gọi dịch vụ từ xa vẫn cần internet.
 
 ### Tôi có thể kết nối nhiều model AI trong một quy trình không?
 Có! n8n hỗ trợ rẽ nhánh và logic điều kiện. Bạn có thể định tuyến yêu cầu tới các model Ollama khác nhau theo loại tác vụ—dùng CodeLlama cho câu hỏi lập trình, Qwen cho kiến thức tổng quát, v.v.
@@ -278,7 +245,7 @@ Có! n8n hỗ trợ rẽ nhánh và logic điều kiện. Bạn có thể địn
 
 Nền tảng tự động hóa AI tự lưu trữ của bạn giờ đã sẵn sàng! Dưới đây là các bước tiếp theo được khuyến nghị:
 
-1. **Khám phá thêm công cụ AI** — Tìm hiểu cách [dựng AI agent offline](/vi/guide/build-local-offline-ai-agent) với đầy đủ năng lực RAG
+- [Thiết lập trợ lý lập trình ngoại tuyến với Ollama](/vi/guide/build-local-offline-ai-agent)
 2. **Bảo mật thiết lập của bạn** — Đọc [hướng dẫn Cloudflare Tunnel](/vi/guide/cloudflare-tunnel-local-development) để có các mẹo triển khai production
 3. **Tải xuống FlyEnv** — Nếu chưa có, [hãy lấy phiên bản mới nhất](/vi/download) cho hệ điều hành của bạn
 

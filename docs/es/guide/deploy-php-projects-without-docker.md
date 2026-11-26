@@ -10,7 +10,7 @@ head:
 
 Los proyectos PHP ya no encajan en un único patrón de despliegue local. Un sitio de WordPress necesita un stack PHP-FPM estable, Laravel Octane necesita un servidor de aplicaciones, Hyperf espera Swoole, y Workerman es un proceso PHP de larga duración que no debería forzarse en un montaje falso de Apache. Docker puede resolver esto, pero a menudo añade arranques lentos, un alto consumo de memoria y una segunda capa de red.
 
-FlyEnv te ofrece un flujo de despliegue de PHP nativo en Windows, macOS y Linux: PHP CGI Service, PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI, Composer, bases de datos, dominios personalizados, SSL automático, reglas de proxy inverso, logs y Cloudflare Tunnel en una sola aplicación de escritorio.
+FlyEnv te ofrece un flujo de despliegue de PHP nativo en Windows, macOS y Linux: PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI, Composer, bases de datos, dominios personalizados, SSL automático, reglas de proxy inverso, logs y Cloudflare Tunnel en una sola aplicación de escritorio.
 
 ## Elige el modo de despliegue PHP de FlyEnv adecuado
 
@@ -20,7 +20,6 @@ Consulta esta tabla antes de crear el proyecto. Responde a la pregunta práctica
 | --- | --- | --- | --- |
 | WordPress, ClassicPress, Contao | PHP-FPM + Host | CMS y sitios de contenido | Modelo estable de petición/respuesta, integración con bases de datos, dominio personalizado, HTTPS y el enrutado habitual de Nginx/Apache/Caddy |
 | Laravel, Symfony, Yii2, ThinkPHP, CodeIgniter, CakePHP, Slim | PHP-FPM + Host | Proyectos MVC y API estándar | Enrutado FastCGI similar a producción sin Docker, con versiones de PHP por proyecto y control de extensiones |
-| PHP heredado o scripts locales sencillos | PHP CGI Service | Pruebas de compatibilidad | Útil cuando necesitas un servicio PHP ligero basado en CGI en lugar de un servidor de aplicaciones completo |
 | Aplicaciones PHP modernas con servidor web integrado | FrankenPHP | Laravel, Symfony, servicios API | Ejecuta PHP a través del runtime de FrankenPHP y se integra con FlyEnv Host, SSL automático, logs y proxy inverso |
 | Laravel Octane, workers PSR-7, APIs de alto rendimiento | RoadRunner | Octane, PHP Worker, proyectos con `.rr.yaml` existente | Ejecuta workers PHP de larga duración, sincroniza puertos y se vincula a un runtime de PHP gestionado por FlyEnv |
 | Hyperf, EasySwoole, Swoole nativo, Laravel Octane sobre Swoole | Swoole CLI | Servicios PHP orientados a eventos | Ejecuta proyectos de Swoole CLI con presets, detección de configuración, variables de entorno, puertos y logs |
@@ -144,15 +143,7 @@ Para un flujo de trabajo detallado solo de Laravel, consulta [Ejecuta Laravel co
 
 ## Usa PHP CGI Service para flujos de compatibilidad
 
-PHP CGI Service es útil cuando necesitas un servicio PHP local ligero para proyectos antiguos, stacks orientados a Windows o pruebas de compatibilidad.
-
-Úsalo cuando:
-
-1. El proyecto es una aplicación PHP sencilla con enrutado limitado.
-2. Necesitas probar el comportamiento CGI en lugar de un worker de larga duración.
-3. Quieres un servicio mínimo antes de migrar el proyecto a PHP-FPM.
-
-Para la mayoría de los proyectos MVC y CMS nuevos, elige primero PHP-FPM. Usa PHP CGI Service cuando el proyecto o el flujo de trabajo del sistema operativo se beneficie específicamente de la compatibilidad CGI.
+Para servir un sitio con Nginx, Apache o Caddy, elige en **Host** la versión instalada de PHP e inicia esa versión en el [módulo PHP-FPM](/es/features/php). En Windows el módulo ejecuta `php-cgi.exe` mediante un lanzador FastCGI. En macOS y Linux ejecuta `php-fpm`. Un servicio de aplicación independiente usa su propio proceso y puede ejecutarse detrás de un proxy inverso.
 
 ## Despliega con FrankenPHP sin configurar Caddy manualmente
 
@@ -316,6 +307,8 @@ El modo de despliegue es solo una parte del entorno local. La mayoría de los pr
 ¿Prefieres verlo? Mira Deploy PHP Apps Without Docker in FlyEnv: Laravel Octane, RoadRunner, Swoole & Workerman en acción:
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/5NqSag8c4YY?si=fBlpEHxBKjKR7nX1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Mira la demo de servicios de aplicaciones PHP en FlyEnv](/es/demos?video=php-project-services).
 
 ## Preguntas frecuentes (FAQ)
 

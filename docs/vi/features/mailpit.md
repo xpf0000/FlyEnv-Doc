@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Kiểm thử email local với FlyEnv
 
-Mailpit là một công cụ kiểm thử SMTP mã nguồn mở dành cho nhà phát triển: nó đóng vai trò một máy chủ thư giả, bắt mọi email ứng dụng của bạn gửi đi và hiển thị chúng trong một hộp thư web, nhờ đó các thư kiểm thử không bao giờ đến được người nhận thật. FlyEnv chạy nó như một dịch vụ local được quản lý: cài một phiên bản từ Trình quản lý phiên bản, khởi động binary bằng một công tắc, và mọi thư ứng dụng của bạn gửi qua SMTP sẽ rơi vào hộp thư web của Mailpit thay vì đến tay người nhận thật. Bộ lắng nghe SMTP mặc định trên cổng 1025, web UI trên cổng 8025, và cả cấu hình lẫn log đều có thể chỉnh và xem trực tiếp trong ứng dụng.
+Mailpit là công cụ kiểm thử SMTP mã nguồn mở, hiển thị thư gửi đến trình lắng nghe SMTP trong hộp thư web. Để chỉ bắt thư khi thử nghiệm, hãy tắt relay và chuyển tiếp SMTP. FlyEnv quản lý phiên bản, dịch vụ, cấu hình và nhật ký. Cổng mặc định là 1025 cho SMTP và 8025 cho hộp thư web. Để chỉ thử trên máy này, đặt địa chỉ lắng nghe đang dùng thành `127.0.0.1` trong tệp cấu hình.
 
 ![Tổng quan module Mailpit của FlyEnv](https://oss.macphpstudy.com/image/features/mailpit-1.webp)
 
@@ -73,6 +73,8 @@ Khi dịch vụ đang chạy, tab Dịch vụ hiển thị một nút mở trong
 Tab **Log** mở log Mailpit trực tiếp bên trong FlyEnv. Đường dẫn được suy ra từ thiết lập `MP_LOG_FILE` trong cấu hình của bạn — mặc định là `mailpit.log` dưới thư mục Mailpit của FlyEnv — nhờ đó trình xem luôn theo đúng tệp mà dịch vụ đang chạy thực sự ghi vào. Đây là điểm dừng đầu tiên khi dịch vụ không khởi động được hay thư không đến như mong đợi.
 
 ![Trình xem log Mailpit](https://oss.macphpstudy.com/image/features/mailpit-5.webp)
+
+[Xem demo bắt thư SMTP bằng Mailpit](/vi/demos?video=mailpit-local)
 
 <FeatureRelatedLinks locale="vi" slug="mailpit" />
 

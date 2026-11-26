@@ -57,7 +57,7 @@ PHP-FPM adalah modul khusus di FlyEnv, yang dibuat untuk melayani situs melalui 
 - **Siklus hidup per versi:** mulai, hentikan, atau mulai ulang setiap versi PHP-FPM secara terpisah, atau gunakan tombol di bilah sisi (juga tersedia di baki sistem) untuk memulai atau menghentikan seluruh versi yang terpasang sekaligus.
 - **Berbasis socket di macOS dan Linux:** setiap versi mendengarkan Unix socket-nya sendiri, sehingga beberapa versi PHP-FPM dapat berjalan bersamaan dan setiap situs dapat dirutekan ke versi yang berbeda. FlyEnv membuat ulang konfigurasi integrasi server web ketika sebuah versi dimulai.
 - **`php-fpm.conf` yang dapat diedit:** buka dan edit konfigurasi pool FPM per versi (macOS dan Linux), dengan penampil log FPM dan slow log bawaan.
-- **Windows berjalan sebagai FastCGI:** PHP melayani server web melalui FastCGI, dan jumlah proses pekerja FastCGI (`PHP_FCGI_CHILDREN`, 1–64) dapat disesuaikan per versi.
+- **Worker FastCGI di Windows.** Modul **PHP-FPM** di FlyEnv menjalankan `php-cgi.exe` melalui `php-cgi-spawner.exe` di Windows. Jumlah worker dapat diatur per versi terpasang. Di macOS dan Linux, modul menjalankan `php-fpm`.
 
 ![Modul PHP-FPM dengan kontrol layanan per versi](https://oss.macphpstudy.com/image/features/php-4.webp)
 
@@ -81,7 +81,7 @@ Buka **Ekstensi** dari versi PHP mana pun untuk melihat yang dimuat dan memasang
 
 - **Ekstensi yang dimuat:** daftar modul yang saat ini dimuat oleh versi tersebut dan dapat dicari.
 - **PHP Homebrew dan MacPorts:** telusuri formula ekstensi yang tersedia untuk versi PHP tersebut, pasang atau hapus di terminal tertanam, lalu salin potongan `extension=xxx.so` siap pakai — atau templat konfigurasi Xdebug lengkap — langsung ke `php.ini`.
-- **Windows:** aktifkan atau nonaktifkan DLL yang sudah ada di direktori ekstensi, atau unduh ekstensi dari pustaka online dengan satu klik.
+- **Ekstensi Windows.** Aktifkan DLL bawaan yang kompatibel atau pilih paket PECL/PIE yang tersedia untuk build PHP Anda. Ketersediaannya bergantung pada versi, arsitektur, dan thread safety.
 - **Navigasi cepat:** langsung lompat ke `php.ini` atau buka direktori ekstensi di pengelola berkas.
 
 ![Daftar ekstensi yang dimuat untuk versi PHP](https://oss.macphpstudy.com/image/features/php-8.webp)

@@ -50,7 +50,7 @@ La pestaña **Version Manager** instala y mantiene varias versiones de Ollama la
 
 ## Servicio y configuración
 
-FlyEnv lanza Ollama de forma independiente como `ollama serve` y sigue su archivo pid para un arranque y una parada limpios. El interruptor de la barra lateral y la entrada de la bandeja del sistema controlan el servicio sin abrir la página del módulo. Por defecto, el servidor escucha en `0.0.0.0:11434`, el puerto estándar de la API de Ollama.
+FlyEnv lanza Ollama de forma independiente como `ollama serve` y sigue su archivo pid para un arranque y una parada limpios. El interruptor de la barra lateral y la entrada de la bandeja del sistema controlan el servicio sin abrir la página del módulo. Una configuración nueva de FlyEnv usa la dirección predeterminada de la API de Ollama, `127.0.0.1:11434`.
 
 Las variables de entorno se leen desde `ollama.conf` en el directorio base de FlyEnv: cada línea que empieza por `OLLAMA_` se pasa al proceso del servidor. La pestaña **Config File** edita este archivo de dos maneras:
 
@@ -72,7 +72,9 @@ La pestaña **Model** es donde se descargan, listan y ejecutan los modelos.
 
 ![Descargando un modelo de Ollama en el terminal integrado](https://oss.macphpstudy.com/image/features/ollama-5.webp)
 
-Un servicio Ollama en ejecución en el puerto 11434 también combina bien con otros módulos de FlyEnv: llama a la API local desde flujos de trabajo construidos en [n8n](/es/features/n8n), guarda embeddings de modelos locales en la base de datos vectorial [Qdrant](/es/features/qdrant), o ejecuta cuentas de IA basadas en CLI detrás de endpoints compatibles con OpenAI usando [CLIProxyAPI](/es/features/cliproxyapi). La guía sobre [FlyEnv trabajando con asistentes de IA](/es/guide/flyenv-work-with-ai) muestra cómo encajan estas piezas en una configuración más amplia.
+Para acceder desde el mismo equipo, configura `OLLAMA_HOST=127.0.0.1:11434` y reinicia el servicio. Cuando descargues un modelo, abre `http://127.0.0.1:11434/api/tags` para comprobar que Ollama responde y lo incluye. Las versiones de Ollama con funciones en la nube también admiten `OLLAMA_NO_CLOUD=1` para el modo exclusivamente local. [Modo local de Ollama](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+
+Conecta un [asistente de programación local](/es/guide/build-local-offline-ai-agent) a esta API o úsala en un [webhook n8n autoalojado](/es/guide/build-local-ai-workflow-by-n8n). Mira la [demo de configuración de Ollama sin conexión](/es/demos?video=offline-ai-agent).
 
 ## Logs
 

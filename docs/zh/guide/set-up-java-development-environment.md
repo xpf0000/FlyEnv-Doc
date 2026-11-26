@@ -4,7 +4,7 @@ description: '使用 FlyEnv 安装和管理 JDK、Maven 与 Tomcat，并为 Java
 
 # 使用FlyEnv搭建Java开发环境
 
-FlyEnv已经支持搭建Java开发环境。使用FlyEnv，您可以快速下载并安装Java、Maven和Tomcat。支持openjdk8到最新版本的JDK。支持Maven从2.x到最新版本。支持Tomcat8到最新版本的Tomcat。
+先确认项目要求的 JDK 和构建工具，再在 FlyEnv 的 [Java 模块](/zh/features/java)中安装所需 JDK。项目需要时安装 Maven。将 WAR 部署到独立 Servlet 容器时，再安装 Tomcat。
 
 1. 安装Java JDK并设置环境变量
 
@@ -22,7 +22,7 @@ FlyEnv已经支持搭建Java开发环境。使用FlyEnv，您可以快速下载�
 
 <img src="https://oss.macphpstudy.com/image/java-maven-set.jpg" data-x-image-preview="">
 
-3. 安装Tomcat并设置环境变量
+3. **可选：为 WAR 部署安装 Tomcat**
 
 安装Tomcat
 
@@ -32,4 +32,14 @@ FlyEnv已经支持搭建Java开发环境。使用FlyEnv，您可以快速下载�
 
 <img src="https://oss.macphpstudy.com/image/tomcat-set-env.jpg" data-x-image-preview="">
 
-现在你已经有了一个Java开发环境，包括JDK、Maven和Tomcat
+## 在新终端中验证 JDK 和 Maven
+
+环境变量生效后运行以下命令，确认 `mvn -v` 所显示的 Java 版本符合项目要求。项目包含 Maven Wrapper 时，macOS/Linux 可用 `./mvnw -v`，PowerShell 可用 `.\mvnw.cmd -v`。
+
+```text
+java -version
+javac -version
+mvn -v
+```
+
+如果 Spring Boot 项目会生成可执行 JAR，用 `java -jar` 加上实际 JAR 路径运行，再打开启动日志中的应用地址。可选的反向代理与依赖服务见 [Spring Boot 方案](/zh/solutions/spring-boot)。

@@ -10,6 +10,8 @@ head:
 
 Accessing your project at `http://localhost:8080/myproject` is embarrassing when sharing with clients. Professional developers use clean domains like `https://clientproject.test`—with valid SSL certificates that browsers trust.
 
+For a running example, watch [Gitea with MySQL and HTTPS](/demos?video=gitea-local-project). Check that the upstream responds on its local port before testing the HTTPS domain.
+
 This guide shows you how to set up custom local domains with automatic HTTPS, making your development environment indistinguishable from production.
 
 ## Why Custom Domains Matter

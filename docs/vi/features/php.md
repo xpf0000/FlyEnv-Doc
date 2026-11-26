@@ -57,7 +57,7 @@ PHP-FPM là một module chuyên dụng trong FlyEnv, được xây dựng để
 - **Vòng đời theo từng phiên bản:** khởi động, dừng hay khởi động lại từng phiên bản PHP-FPM riêng lẻ, hay dùng công tắc thanh bên (cũng có trên khay hệ thống) để khởi động hay dừng tất cả các phiên bản đã cài cùng lúc.
 - **Dựa trên socket trên macOS và Linux:** mỗi phiên bản lắng nghe trên unix socket riêng, nhờ đó nhiều phiên bản PHP-FPM có thể chạy đồng thời và mỗi site có thể được định tuyến tới một phiên bản khác nhau. FlyEnv sinh lại cấu hình tích hợp web server khi một phiên bản khởi động.
 - **`php-fpm.conf` chỉnh được:** mở và chỉnh cấu hình FPM pool theo từng phiên bản (macOS và Linux), với trình xem FPM log và slow log tích hợp sẵn.
-- **Windows chạy dưới dạng FastCGI:** PHP phục vụ web server qua FastCGI, và số tiến trình FastCGI worker (`PHP_FCGI_CHILDREN`, 1–64) điều chỉnh được theo từng phiên bản.
+- **FastCGI worker trên Windows.** Module **PHP-FPM** của FlyEnv chạy `php-cgi.exe` qua `php-cgi-spawner.exe` trên Windows. Bạn có thể đặt số worker cho từng phiên bản đã cài. Trên macOS và Linux, module chạy `php-fpm`.
 
 ![Module PHP-FPM với các nút điều khiển dịch vụ theo từng phiên bản](https://oss.macphpstudy.com/image/features/php-4.webp)
 
@@ -81,7 +81,7 @@ Mở **Extensions** từ bất kỳ phiên bản PHP nào để xem cái gì đa
 
 - **Extension đã nạp:** một danh sách có tìm kiếm các module mà phiên bản hiện đang nạp.
 - **PHP từ Homebrew và MacPorts:** duyệt các extension formula khả dụng cho phiên bản PHP đó, cài hay gỡ chúng trong terminal nhúng, và sao chép một đoạn `extension=xxx.so` làm sẵn — hay một mẫu cấu hình Xdebug hoàn chỉnh — thẳng vào `php.ini`.
-- **Windows:** bật hay tắt các DLL đã có trong thư mục extension, hay tải extension từ thư viện trực tuyến chỉ với một cú nhấp.
+- **Extension trên Windows.** Bật DLL đi kèm tương thích hoặc chọn gói PECL/PIE có sẵn cho bản PHP bạn đang dùng. Tính khả dụng tùy thuộc phiên bản, kiến trúc và chế độ thread safety.
 - **Điều hướng nhanh:** nhảy thẳng tới `php.ini` hay mở thư mục extension trong trình quản lý tệp.
 
 ![Danh sách extension đã nạp của một phiên bản PHP](https://oss.macphpstudy.com/image/features/php-8.webp)

@@ -61,7 +61,7 @@ FlyEnv makes this trivial:
 
 Point your app's SMTP settings to Mailpit:
 
-**For PHP (Laravel/Symfony/WordPress):**
+**For Laravel (`.env`):**
 ```ini
 MAIL_MAILER=smtp
 MAIL_HOST=127.0.0.1
@@ -109,6 +109,23 @@ Default access points:
 ### Step 4: Test Email Capture
 
 Send a test email from your application. Open http://127.0.0.1:8025 to view captured messages.
+
+In a local Laravel project using the SMTP settings above, clear cached configuration and open Tinker. If the project sets `MAIL_URL`, remove the overriding value from the local configuration first. Keep SMTP relay and forwarding disabled during the test. Set `MAIL_SCHEME=smtp` if your `config/mail.php` reads that setting.
+
+```sh
+php artisan config:clear
+php artisan tinker
+```
+
+Run this in Tinker, then look for the subject **Mailpit smoke test** in the Mailpit inbox.
+
+```php
+\Illuminate\Support\Facades\Mail::raw('Local SMTP check', function ($message) {
+    $message->from('app@example.test')->to('dev@example.test')->subject('Mailpit smoke test');
+});
+```
+
+See the [Mailpit module](/features/mailpit) for bind addresses and logs, or [watch the SMTP capture demo](/demos?video=mailpit-local).
 
 ## Using Mailpit for Email Testing
 

@@ -52,11 +52,11 @@ Trình chỉnh sửa nhóm theo dõi các xung đột trong khi bạn chọn th�
 
 ## Khởi động và dừng có thứ tự
 
-Các thành viên chạy theo thứ tự chúng được liệt kê trong nhóm, nhờ đó hạ tầng lên trước các ứng dụng phụ thuộc vào nó.
+- **Khởi động theo thứ tự danh sách.** FlyEnv chạy các thành viên từ trên xuống và bỏ qua thành viên đang chạy. Thành viên không khả dụng được đánh dấu không hợp lệ, sau đó quy trình tiếp tục.
+- **Chọn cách xử lý khi khởi động lỗi.** Theo mặc định, FlyEnv dừng chuỗi sau khi một thao tác khởi động báo lỗi. Bật tùy chọn tiếp tục khởi động các thành viên còn lại nếu một thành viên thất bại.
+- **Dừng theo thứ tự ngược lại.** FlyEnv vẫn thử dừng các thành viên khác nếu một lần dừng thất bại. Nhóm có thể dừng cả thành viên đã chạy trước khi nhóm khởi động, nên việc dừng Nginx hoặc Redis dùng chung có thể ảnh hưởng nhóm khác.
 
-- **Khởi động chạy từ trên xuống dưới:** mỗi thành viên được khởi động theo thứ tự liệt kê, và những thành viên đã đang chạy bị bỏ qua thay vì khởi động lại.
-- **Một lỗi dừng cả chuỗi:** nếu một thành viên không khởi động nổi, các thành viên còn lại được đánh dấu là chưa chạy thay vì bị phóng vào một môi trường nửa vời.
-- **Dừng chạy ngược và luôn hoàn tất:** việc tắt đi ngược danh sách, và nó vẫn tiếp tục ngay cả khi một thành viên không dừng nổi.
+[Demo ERPNext](/vi/demos?video=erpnext-local-project) cho thấy nhóm trên macOS gồm Nginx, Redis, MariaDB và dự án Python ERPNext. Video ghi lại quá trình khởi động lại và mở được ERPNext trong trình duyệt. FlyEnv thực hiện thao tác khởi động của từng thành viên theo thứ tự. Mở URL ứng dụng để kiểm tra stack đã sẵn sàng.
 
 ## Nhóm mặc định, auto-start và khay
 
@@ -72,4 +72,4 @@ Chính xác một nhóm có thể là nhóm mặc định, và nó trở thành 
 
 ## Lưu ý tương thích
 
-Startup Groups thuần túy là điều phối: nó xếp trình tự các thao tác khởi động và dừng mà mỗi module vốn đã cung cấp, và nó không tự cài phiên bản hay runtime nào — một nhóm chỉ có thể chứa các phiên bản dịch vụ và dự án mà các module riêng của chúng đã quản lý. Tính năng hoạt động như nhau trên macOS, Windows và Linux, không có hành vi riêng theo nền tảng; mọi giới hạn nền tảng đến từ các module bên dưới. Việc ẩn mục Startup Groups trong cài đặt thanh bên trước tiên dừng mọi thành viên của mọi nhóm, nhờ đó không có gì còn chạy ngầm trong nền. Duyệt các [trang tính năng](/vi/features) khác để biết khả năng của từng dịch vụ mà bạn gom vào nhóm.
+Startup Groups dùng các thao tác của module khả dụng trên nền tảng đang dùng. Hãy cài phiên bản dịch vụ và cấu hình dự án trước khi thêm vào nhóm. Khi ẩn Startup Groups trong cài đặt thanh bên, FlyEnv sẽ thử dừng các dịch vụ trong nhóm. Mục này vẫn hiển thị nếu thao tác dừng thất bại.

@@ -1,18 +1,18 @@
 ---
 layout: doc
 titleTemplate: false
-title: 'Gestor de gateway de IA local CLIProxyAPI | FlyEnv'
-description: 'Ejecuta versiones de CLIProxyAPI como un gateway de IA local con config.yaml gestionado, backends env y una interfaz de administración.'
+title: 'Interfaz de CLIProxyAPI para gestionar el proxy local | FlyEnv'
+description: 'Instala y cambia de versión de CLIProxyAPI en FlyEnv, edita config.yaml, inicia el proxy local y abre su panel de administración.'
 head:
   - - meta
     - name: description
-      content: 'Ejecuta versiones de CLIProxyAPI como un gateway de IA local con config.yaml gestionado, backends env y una interfaz de administración.'
+      content: 'Instala y cambia de versión de CLIProxyAPI en FlyEnv, edita config.yaml, inicia el proxy local y abre su panel de administración.'
   - - meta
     - property: og:title
-      content: 'Gestor de gateway de IA local CLIProxyAPI | FlyEnv'
+      content: 'Interfaz de CLIProxyAPI para gestionar el proxy local | FlyEnv'
   - - meta
     - property: og:description
-      content: 'Ejecuta versiones de CLIProxyAPI como un gateway de IA local con config.yaml gestionado, backends env y una interfaz de administración.'
+      content: 'Instala y cambia de versión de CLIProxyAPI en FlyEnv, edita config.yaml, inicia el proxy local y abre su panel de administración.'
   - - meta
     - property: og:type
       content: website
@@ -51,9 +51,11 @@ head:
 import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 </script>
 
-# CLIProxyAPI en FlyEnv
+# Interfaz gráfica de CLIProxyAPI en FlyEnv
 
 CLIProxyAPI es un proxy local de código abierto que coloca herramientas de IA basadas en CLI —como Gemini CLI, [Claude Code](/es/features/claude-code) y [Codex](/es/features/codex), que FlyEnv también gestiona— detrás de endpoints de API estándar compatibles con OpenAI, Gemini y Claude. Permite que las aplicaciones que esperan una API de modelo alojada llamen a estas cuentas CLI como si fueran servicios HTTP normales, con varios proveedores unificados tras un único gateway local. FlyEnv ejecuta CLIProxyAPI como un gateway de IA local gestionado: instala versiones desde el Version Manager, inicia el proceso `cli-proxy-api` desde la barra lateral o la página del módulo, edita `config.yaml` y el archivo de entorno de los backends dentro de la aplicación, y abre el panel de administración integrado en tu navegador. La salida del arranque se captura en archivos de log por versión, de modo que un arranque fallido es fácil de diagnosticar.
+
+FlyEnv ofrece una interfaz de escritorio para instalar, iniciar y configurar CLIProxyAPI. El panel del navegador y las integraciones con proveedores dependen de la versión de CLIProxyAPI que ejecutes. Consulta la [documentación de CLIProxyAPI](https://help.router-for.me/) para configurar proveedores y conocer el comportamiento de la API.
 
 ![Vista general del módulo CLIProxyAPI en FlyEnv](https://oss.macphpstudy.com/image/features/cliproxyapi-1.webp)
 
@@ -79,7 +81,9 @@ La pestaña Service lanza la versión seleccionada como `cli-proxy-api -config <
 
 ## Interfaz de administración en el puerto 8317
 
-Mientras el servicio está en ejecución, la pestaña Service muestra un botón que abre el panel de administración integrado de CLIProxyAPI en tu navegador en `http://127.0.0.1:<port>/management.html`. FlyEnv lee el puerto desde `config.yaml`; con la plantilla predeterminada es 8317. Define `MANAGEMENT_PASSWORD` en la pestaña Env antes de exponer el panel a algo más que el uso local.
+Con CLIProxyAPI en marcha, abre su panel de administración desde la pestaña Service. FlyEnv lee el puerto de `config.yaml` y abre `http://127.0.0.1:<port>/management.html`.
+
+Para usarlo solo en este equipo, configura `host: "127.0.0.1"` en `config.yaml` y mantén `remote-management.allow-remote` desactivado. Configura una clave privada en `remote-management.secret-key` y deja `MANAGEMENT_PASSWORD` sin definir, ya que esta variable puede habilitar la administración remota. Reinicia el servicio. El puerto predeterminado de la plantilla es 8317.
 
 ![Abriendo el panel de administración de CLIProxyAPI desde la pestaña Service](https://oss.macphpstudy.com/image/features/cliproxyapi-4.webp)
 
@@ -88,6 +92,8 @@ Mientras el servicio está en ejecución, la pestaña Service muestra un botón 
 La pestaña Log muestra la salida capturada de cada versión como `cliproxyapi-<version>-start-out.log` y `cliproxyapi-<version>-start-error.log`, con un conmutador entre ambos flujos. Cuando una versión se niega a arrancar o la página de administración no responde, el log de errores es el primer lugar donde mirar.
 
 ![Visor de logs de arranque de CLIProxyAPI con conmutador de salida y errores](https://oss.macphpstudy.com/image/features/cliproxyapi-5.webp)
+
+[Ver la demostración de configuración de CLIProxyAPI](/es/demos?video=cliproxyapi-gateway)
 
 <FeatureRelatedLinks locale="es" slug="cliproxyapi" />
 

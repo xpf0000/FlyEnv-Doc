@@ -10,6 +10,8 @@ head:
 
 Acceder a tu proyecto en `http://localhost:8080/myproject` da mala imagen cuando lo compartes con clientes. Los desarrolladores profesionales usan dominios limpios como `https://clientproject.test`, con certificados SSL válidos en los que los navegadores confían.
 
+Mira un ejemplo en funcionamiento en la [demo de Gitea con MySQL y HTTPS](/es/demos?video=gitea-local-project). Comprueba que el servicio responde en su puerto local antes de probar el dominio HTTPS.
+
 Esta guía te muestra cómo configurar dominios locales personalizados con HTTPS automático, para que tu entorno de desarrollo sea indistinguible del de producción.
 
 ## Por qué importan los dominios personalizados

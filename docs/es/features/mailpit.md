@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Pruebas de correo electrónico local con FlyEnv
 
-Mailpit es una herramienta de pruebas SMTP de código abierto para desarrolladores: actúa como un servidor de correo falso que captura los correos que envía tu aplicación y los muestra en una bandeja de entrada web, de modo que los mensajes de prueba nunca llegan a destinatarios reales. FlyEnv lo ejecuta como un servicio local gestionado: instala una versión desde el Gestor de versiones, inicia el binario con un solo interruptor, y cada mensaje que tu aplicación envíe por SMTP llegará a la bandeja de entrada web de Mailpit en lugar de llegar a destinatarios reales. El listener SMTP usa el puerto 1025 por defecto, la interfaz web el puerto 8025, y tanto la configuración como el registro se pueden editar y consultar directamente dentro de la aplicación.
+Mailpit es una herramienta de pruebas SMTP de código abierto que muestra en una bandeja web los mensajes enviados a su servidor SMTP. Para probar solo la captura, desactiva la retransmisión y el reenvío SMTP. FlyEnv gestiona versiones, servicio, configuración y registros. Los puertos predeterminados son 1025 para SMTP y 8025 para la bandeja web. Para probar solo en este equipo, configura las direcciones de escucha que uses en `127.0.0.1` en el archivo de configuración.
 
 ![Vista general del módulo Mailpit de FlyEnv](https://oss.macphpstudy.com/image/features/mailpit-1.webp)
 
@@ -73,6 +73,8 @@ Para capturar el correo, apunta los ajustes SMTP de tu aplicación a `127.0.0.1:
 La pestaña **Registro** abre el registro de Mailpit directamente dentro de FlyEnv. La ruta se resuelve a partir del ajuste `MP_LOG_FILE` de tu configuración — por defecto `mailpit.log` en el directorio de Mailpit de FlyEnv — de modo que el visor siempre sigue el archivo en el que el servicio en ejecución escribe realmente. Es el primer lugar donde mirar cuando el servicio no se inicia o los mensajes no llegan como se esperaba.
 
 ![Visor de registros de Mailpit](https://oss.macphpstudy.com/image/features/mailpit-5.webp)
+
+[Ver la demo de captura SMTP con Mailpit](/es/demos?video=mailpit-local)
 
 <FeatureRelatedLinks locale="es" slug="mailpit" />
 

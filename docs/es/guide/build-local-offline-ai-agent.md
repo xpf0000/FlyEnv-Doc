@@ -8,31 +8,13 @@ head:
 
 # Crea un agente de IA offline y privado en local (Qwen, DeepSeek, Llama)
 
-Cada línea de código que envías a ChatGPT o GitHub Copilot sale de tu máquina. Para bases de código propietarias, aplicaciones sanitarias o sistemas financieros, esto es un problema insalvable. Pero ejecutar IA en local antes requería un doctorado en machine learning.
+Ejecuta un modelo de Ollama descargado en tu equipo para resolver dudas de programación, explicar código o revisar cambios pequeños. FlyEnv gestiona el servicio de Ollama y conecta su chat a la API local.
 
-**Ya no.** Con Ollama y FlyEnv, puedes ejecutar modelos de lenguaje de última generación completamente sin conexión: en minutos, no en días.
+Instalar Ollama y descargar un modelo requiere conexión a la red. Después, configura el asistente para usar `http://127.0.0.1:11434` y selecciona el modelo local descargado. Los modelos en la nube, la búsqueda web y las herramientas que llaman a servicios remotos requieren conexión.
 
 ## Por qué importa la IA offline
 
-### El problema de privacidad de la IA en la nube
-
-Cuando usas asistentes de programación con IA basados en la nube:
-- Tu código propietario viaja a servidores externos
-- Los datos de entrenamiento pueden retener fragmentos sensibles
-- Infracciones de cumplimiento normativo (HIPAA, GDPR, SOC2)
-- La latencia de red ralentiza las respuestas
-- Los costes de API se acumulan
-
-### La ventaja de la IA offline
-
-| Aspecto | IA en la nube | IA local (Ollama) |
-|--------|----------|-------------------|
-| Privacidad de datos | Se envía a terceros | Nunca sale de tu máquina |
-| Requiere internet | Sí | No |
-| Velocidad de respuesta | 500ms-2s | 50-500ms (local) |
-| Coste mensual | 10-20 $/usuario | Gratis |
-| Personalización | Limitada | Control total del modelo |
-| Cumplimiento normativo | Complejo | Sencillo |
+Con esta configuración, el modelo procesa tus indicaciones en el equipo que ejecuta Ollama. La velocidad de inferencia y el uso de memoria dependen del modelo y del hardware. La inferencia local no genera un cargo de API por petición.
 
 ## Qué vas a construir
 
@@ -41,7 +23,7 @@ Un asistente de IA totalmente local capaz de:
 - Explicar funciones complejas
 - Generar fragmentos de código
 - Revisar pull requests
-- Todo sin conexión a internet
+- Usar el modelo local descargado para estas tareas después de configurarlo
 
 ## Requisitos previos
 
@@ -137,7 +119,9 @@ En el panel del asistente de IA:
 
 ![Configuración de Ollama](https://oss.macphpstudy.com/image/ollama-6.png)
 
-**Configuración para equipos**: Para recursos de IA compartidos, introduce la IP del servidor Ollama de un compañero. Una única estación de trabajo potente puede dar servicio a todo el equipo.
+Para verificar la inferencia sin conexión, ejecuta `curl http://127.0.0.1:11434/api/tags` y comprueba que aparece el modelo descargado. Desconecta internet y envía un mensaje de prueba en el chat de FlyEnv. Mantén seleccionados el mismo endpoint y modelo locales cuando vuelvas a conectarte. Si usas otro cliente, comprueba qué proveedor y herramientas utiliza. [API de lista de modelos de Ollama](https://docs.ollama.com/api/tags)
+
+Mira la [demo de configuración de Ollama sin conexión](/es/demos?video=offline-ai-agent). Consulta [Ollama en FlyEnv](/es/features/ollama) para ver los ajustes del módulo y los registros del servicio.
 
 ### Paso 7: Empieza tu primer chat
 
@@ -271,7 +255,7 @@ ollama list            # See installed models
 
 **P: ¿Es esto realmente completamente offline?**
 
-R: Sí. Una vez descargados los modelos, no se necesita conexión a internet. Tus datos nunca salen de tu máquina.
+A: Instalar Ollama y descargar un modelo requiere conexión a la red. Después, configura el asistente para usar `http://127.0.0.1:11434` y selecciona el modelo local descargado. Los modelos en la nube, la búsqueda web y las herramientas que llaman a servicios remotos requieren conexión.
 
 **P: ¿Cómo se compara con GitHub Copilot?**
 

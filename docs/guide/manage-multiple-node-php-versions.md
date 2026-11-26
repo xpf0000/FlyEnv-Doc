@@ -214,9 +214,9 @@ Perfect for testing the same code across multiple PHP versions.
 
 ### "Conflicts with existing version managers"
 
-1. Remove NVM from `.zshrc` (FlyEnv replaces it)
-2. Unlink Homebrew PHP: `brew unlink php`
-3. Let FlyEnv manage all versions
+Compare the resolved command and version from inside the registered directory. Use `command -v php` and `command -v node` in zsh/Bash or `Get-Command php,node` in PowerShell. If an alias or a shell startup script takes precedence, adjust that project shell’s configuration. The [project-level setup guide](/guide/project-level-runtime-environment) shows how to verify the hook.
+
+Check the PHP handler for browser requests separately in **Host**. FlyEnv’s **PHP-FPM** module uses `php-fpm` on macOS and Linux and FastCGI workers on Windows.
 
 ## Frequently Asked Questions (FAQ)
 

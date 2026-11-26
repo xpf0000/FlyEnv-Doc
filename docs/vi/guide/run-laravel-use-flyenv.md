@@ -164,9 +164,11 @@ php artisan migrate
 ### Khởi động các dịch vụ cần thiết
 
 Khởi động các module này trong FlyEnv:
-- ✅ PHP (khớp phiên bản của dự án)
+- ✅ PHP-FPM (khớp phiên bản của dự án)
 - ✅ Nginx hoặc Apache hoặc Caddy
 - ✅ MySQL/PostgreSQL (nếu dùng cơ sở dữ liệu)
+
+Khi site mở được qua tên miền local, lưu web server, phiên bản PHP-FPM và cơ sở dữ liệu hoặc cache mà dự án sử dụng vào [Startup Group](/vi/features/startup-groups). Thêm queue worker nếu đã cấu hình dưới dạng dịch vụ dự án. [Demo dịch vụ ứng dụng PHP](/vi/demos?video=php-project-services) minh họa quy trình riêng với Octane.
 
 ### Truy cập site của bạn
 

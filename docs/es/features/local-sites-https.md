@@ -77,6 +77,8 @@ Auto SSL crea una Certificate Authority local de FlyEnv cuando es necesario, emi
 
 No uses un certificado local como prueba de que un sitio es de confianza pública: estos certificados son para desarrollo y pruebas locales. Para una vista previa pública, combina el servicio local con [Cloudflare Tunnel](/es/guide/cloudflare-tunnel-local-development) o despliégalo en un entorno destinado al tráfico externo.
 
+Mira [Gitea con MySQL y HTTPS](/es/demos?video=gitea-local-project) para ver cómo se accede a una aplicación local mediante un dominio gestionado.
+
 <FeatureRelatedLinks locale="es" slug="local-sites-https" />
 
 ## Notas de compatibilidad

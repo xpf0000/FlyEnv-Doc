@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Certificados HTTPS locales con FlyEnv
 
-mkcert es una pequeña herramienta de código abierto para crear certificados de desarrollo de confianza local: crea su propia CA raíz y, una vez que esa CA está instalada en el almacén de confianza de tu sistema, todos los certificados que firma son aceptados por tus navegadores sin advertencias. FlyEnv integra [mkcert](https://github.com/FiloSottile/mkcert) y lo convierte en un flujo de trabajo de apuntar y hacer clic: instala el binario, confía en su CA raíz una sola vez y luego genera certificados para cualquiera de tus [sitios locales](/es/features/local-sites-https) sin tocar la línea de comandos.
+mkcert crea una autoridad de certificación local para desarrollo. El navegador debe confiar en esa CA y el certificado debe cubrir el nombre del sitio que abres. FlyEnv integra [mkcert](https://github.com/FiloSottile/mkcert) para instalar la CA y generar certificados para tus [sitios locales](/es/features/local-sites-https).
 
 ![Vista general del módulo MkCert de FlyEnv](https://oss.macphpstudy.com/image/features/mkcert-1.webp)
 
@@ -50,7 +50,7 @@ La pestaña **Version Manager** instala el binario de mkcert y lo mantiene actua
 
 ## CA local y la pestaña Certificates
 
-La pestaña **Certificates** es el corazón del módulo. Muestra la **CA Root Path** de mkcert (leída en directo desde `mkcert -CAROOT`; haz clic para revelar la carpeta en tu gestor de archivos) y ofrece la acción **Install CA**, que ejecuta `mkcert -install` en la terminal integrada de FlyEnv: registra la CA raíz local en el almacén de confianza de tu sistema para que todos los certificados que firma sean de confianza para tus navegadores.
+La pestaña **Certificates** es el corazón del módulo. Muestra la **CA Root Path** de mkcert (leída en directo desde `mkcert -CAROOT`; haz clic para revelar la carpeta en tu gestor de archivos) y ofrece la acción **Install CA**, que ejecuta `mkcert -install` en la terminal integrada de FlyEnv: registra la CA raíz local en los almacenes de confianza compatibles de tu equipo.
 
 - **Selector de binario:** elige qué build de mkcert instalado ejecuta los comandos; FlyEnv prefiere la versión presente en el PATH de su propio entorno.
 - **Ejecución transparente:** tanto la instalación de la CA como la generación de certificados se ejecutan de forma visible en la terminal integrada, para que veas exactamente lo que hace mkcert.
@@ -65,11 +65,13 @@ La pestaña Certificates enumera los sitios que has creado en FlyEnv, cada uno c
 
 ![Generación de un certificado HTTPS para un sitio de FlyEnv](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
 
+Si aparece una advertencia sobre el nombre o la confianza, consulta la [guía de Host](/es/guide/host) para revisar DNS, los nombres del certificado y la confianza del navegador. Guarda la clave privada de la CA en tu equipo.
+
 <FeatureRelatedLinks locale="es" slug="mkcert" />
 
 ## Notas de compatibilidad
 
 - mkcert es una herramienta de línea de comandos de ejecución puntual, no un servicio en segundo plano: no hay nada que iniciar o detener, y por diseño el módulo no tiene editor de archivos de configuración ni visor de logs.
-- Los certificados generados son certificados de desarrollo de confianza local: están pensados para tu propia máquina, no para producción ni para otros dispositivos.
-- Confiar en la CA raíz (`mkcert -install`) modifica el almacén de confianza de tu sistema y te pedirá tu contraseña del sistema, algo que mkcert gestiona en la terminal integrada.
+- En otro dispositivo de desarrollo, instala el `rootCA.pem` público en su almacén de confianza. Mantén `rootCA-key.pem` en privado y usa estos certificados solo para desarrollo.
+- Confiar en la CA raíz (`mkcert -install`) modifica el almacén de confianza de tu sistema y puede pedir permisos de administrador en la terminal integrada.
 - Las fuentes de instalación varían según la plataforma: builds estáticos en todas, Homebrew en macOS y Linux. Consulta la [página de descarga](/es/download) para ver las plataformas que admite el propio FlyEnv.

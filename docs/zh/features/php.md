@@ -57,7 +57,7 @@ PHP-FPM 是 FlyEnv 的专用模块，用于通过 Nginx、Apache 或 Caddy 为�
 - **按版本管理生命周期：** 可单独启动、停止或重启每个 PHP-FPM 版本；也可使用侧边栏开关（系统托盘中同样可用）一次启动或停止所有已安装版本。
 - **macOS 和 Linux 使用 Socket：** 每个版本监听自己的 Unix socket，因此多个 PHP-FPM 版本可同时运行，且每个站点都可路由到不同版本。版本启动时，FlyEnv 会重新生成 Web 服务器集成配置。
 - **可编辑 `php-fpm.conf`：** 可按版本打开和编辑 FPM 池配置（macOS 和 Linux），并内置 FPM 日志和慢日志查看器。
-- **Windows 以 FastCGI 运行：** PHP 通过 FastCGI 为 Web 服务器提供服务，且每个版本的 FastCGI 工作进程数（`PHP_FCGI_CHILDREN`，1–64）均可调整。
+- **Windows 使用 FastCGI 工作进程。** FlyEnv 的 **PHP-FPM** 模块在 Windows 上通过 `php-cgi-spawner.exe` 启动 `php-cgi.exe`，可为各已安装版本设置进程数。macOS 和 Linux 上运行的是 `php-fpm`。
 
 ![带有按版本服务控制的 PHP-FPM 模块](https://oss.macphpstudy.com/image/features/php-4.webp)
 
@@ -81,7 +81,7 @@ PHP-FPM 是 FlyEnv 的专用模块，用于通过 Nginx、Apache 或 Caddy 为�
 
 - **已加载扩展：** 可搜索地列出该版本当前加载的模块。
 - **Homebrew 和 MacPorts PHP：** 浏览该 PHP 版本可用的扩展 formula，在内置终端中安装或卸载它们，并将现成的 `extension=xxx.so` 片段——或完整的 Xdebug 配置模板——直接复制到 `php.ini`。
-- **Windows：** 启用或禁用扩展目录中已有的 DLL，也可一键从在线库下载扩展。
+- **Windows 扩展。** 可启用兼容的自带 DLL，或为所选 PHP 构建选择可用的 PECL/PIE 扩展包。可用性取决于 PHP 版本、架构和线程安全类型。
 - **快速导航：** 直接跳转到 `php.ini`，或在文件管理器中打开扩展目录。
 
 ![某个 PHP 版本已加载的扩展列表](https://oss.macphpstudy.com/image/features/php-8.webp)

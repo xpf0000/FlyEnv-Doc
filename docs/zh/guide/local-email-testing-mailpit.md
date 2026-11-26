@@ -61,7 +61,7 @@ FlyEnv 让这个过程变得非常简单：
 
 将你应用的 SMTP 设置指向 Mailpit：
 
-**PHP（Laravel/Symfony/WordPress）：**
+**Laravel（`.env`）：**
 ```ini
 MAIL_MAILER=smtp
 MAIL_HOST=127.0.0.1
@@ -109,6 +109,23 @@ config.action_mailer.smtp_settings = {
 ### 步骤 4：测试邮件捕获
 
 从你的应用程序发送测试邮件。打开 http://127.0.0.1:8025 查看捕获的消息。
+
+先按上文为本地 Laravel 项目配置 SMTP，再清理配置缓存并打开 Tinker。如果项目设置了 `MAIL_URL`，先从本地配置中移除这个覆盖项。测试期间关闭 SMTP 中继和自动转发。如果 `config/mail.php` 读取 `MAIL_SCHEME`，将其设为 `smtp`。
+
+```sh
+php artisan config:clear
+php artisan tinker
+```
+
+在 Tinker 中运行下列代码，再到 Mailpit 收件箱查找主题为 **Mailpit smoke test** 的邮件。
+
+```php
+\Illuminate\Support\Facades\Mail::raw('Local SMTP check', function ($message) {
+    $message->from('app@example.test')->to('dev@example.test')->subject('Mailpit smoke test');
+});
+```
+
+监听地址和日志见 [Mailpit 模块](/zh/features/mailpit)，也可以 [观看 SMTP 捕获演示](/zh/demos?video=mailpit-local)。
 
 ## 使用 Mailpit 进行邮件测试
 

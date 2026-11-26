@@ -214,9 +214,9 @@ source "/Applications/FlyEnv.app/Contents/Resources/helper/flyenv.sh"
 
 ### "与现有版本管理器冲突"
 
-1. 从 `.zshrc` 中移除 NVM（FlyEnv 替代它）
-2. 取消链接 Homebrew PHP：`brew unlink php`
-3. 让 FlyEnv 管理所有版本
+在已注册的项目目录中，检查实际命令路径与版本。zsh/Bash 中使用 `command -v php` 和 `command -v node`，PowerShell 中使用 `Get-Command php,node`。如果别名或启动脚本的优先级更高，请调整该项目使用的 Shell 配置。参见[项目级运行时配置指南](/zh/guide/project-level-runtime-environment)验证钩子。
+
+浏览器请求所用的 PHP 版本需在「站点」中单独核对。FlyEnv 的 **PHP-FPM** 模块在 macOS 和 Linux 上运行 `php-fpm`，在 Windows 上运行 FastCGI 工作进程。
 
 ## 常见问题（FAQ）
 

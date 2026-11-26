@@ -45,7 +45,18 @@ interface ProjectResource {
   href: string
 }
 
+export type SolutionWorkflowStackKey =
+  | 'python'
+  | 'mariadb'
+  | 'redis'
+  | 'nginx'
+  | 'nodejs'
+  | 'java'
+  | 'database'
+  | 'proxy'
+
 interface StackItem {
+  key?: SolutionWorkflowStackKey
   component: string
   role: string
 }
@@ -331,10 +342,10 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       { label: 'Official Documentation', href: 'https://fastapi.tiangolo.com/' }
     ],
     stack: [
-      { component: 'Python', role: 'Runs the API application.' },
-      { component: 'PostgreSQL / MySQL', role: 'Stores API data when configured.' },
-      { component: 'Redis', role: 'May support caching, queues, or rate limiting.' },
-      { component: 'Nginx / Caddy', role: 'May proxy a local API domain.' }
+      { key: 'python', component: 'Python', role: 'Runs the API application.' },
+      { key: 'database', component: 'PostgreSQL / MySQL', role: 'Stores API data when configured.' },
+      { key: 'redis', component: 'Redis', role: 'May support caching, queues, or rate limiting.' },
+      { key: 'proxy', component: 'Nginx / Caddy', role: 'May proxy a local API domain.' }
     ],
     help: [
       { title: 'Manage Python versions', description: 'Match the runtime version to the project requirements.' },
@@ -362,10 +373,10 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       { label: 'Official Documentation', href: 'https://docs.spring.io/spring-boot/' }
     ],
     stack: [
-      { component: 'Java', role: 'Runs the Spring Boot application.' },
-      { component: 'PostgreSQL / MySQL', role: 'May store service data.' },
-      { component: 'Redis', role: 'May support caching or messaging patterns.' },
-      { component: 'Nginx / Caddy', role: 'May proxy a local service domain.' }
+      { key: 'java', component: 'Java', role: 'Runs the Spring Boot application.' },
+      { key: 'database', component: 'PostgreSQL / MySQL', role: 'May store service data.' },
+      { key: 'redis', component: 'Redis', role: 'May support caching or messaging patterns.' },
+      { key: 'proxy', component: 'Nginx / Caddy', role: 'May proxy a local service domain.' }
     ],
     help: [
       { title: 'Select the Java runtime', description: 'Use the JDK version required by the service.' },
@@ -614,11 +625,11 @@ export const solutionDetails: Record<SolutionSlug, SolutionDetail> = {
       { label: 'Official Documentation', href: 'https://docs.frappe.io/erpnext' }
     ],
     stack: [
-      { component: 'Python', role: 'Runs ERPNext application services.' },
-      { component: 'MariaDB', role: 'Stores ERP application data.' },
-      { component: 'Redis', role: 'Supports cache, queues, and real-time services.' },
-      { component: 'Nginx', role: 'May serve the local application.' },
-      { component: 'Node.js', role: 'May support asset build workflows.' }
+      { key: 'python', component: 'Python', role: 'Runs ERPNext application services.' },
+      { key: 'mariadb', component: 'MariaDB', role: 'Stores ERP application data.' },
+      { key: 'redis', component: 'Redis', role: 'Supports cache, queues, and real-time services.' },
+      { key: 'nginx', component: 'Nginx', role: 'May serve the local application.' },
+      { key: 'nodejs', component: 'Node.js', role: 'May support asset build workflows.' }
     ],
     help: [
       { title: 'Manage the Python runtime', description: 'Keep the project runtime available alongside its services.' },

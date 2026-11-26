@@ -8,31 +8,13 @@ head:
 
 # Dựng AI Agent offline ưu tiên quyền riêng tư ngay tại local (Qwen, DeepSeek, Llama)
 
-Mỗi dòng code bạn gửi tới ChatGPT hay GitHub Copilot đều rời khỏi máy của bạn. Với các codebase độc quyền, ứng dụng y tế hay hệ thống tài chính, đây là điều không thể chấp nhận. Nhưng chạy AI tại local trước đây đòi hỏi bằng tiến sĩ về machine learning.
+Chạy mô hình Ollama đã tải trên máy của bạn để hỏi về lập trình, giải thích mã và rà soát những thay đổi nhỏ. FlyEnv quản lý dịch vụ Ollama và kết nối giao diện chat với API cục bộ.
 
-**Giờ thì không nữa.** Với Ollama và FlyEnv, bạn có thể chạy các ngôn ngữ model hiện đại nhất hoàn toàn offline—trong vài phút chứ không phải vài ngày.
+Cài Ollama và tải mô hình cần kết nối mạng. Sau khi tải xong, trỏ trợ lý đến `http://127.0.0.1:11434` và chọn mô hình cục bộ đó. Mô hình đám mây, tìm kiếm web và các công cụ gọi dịch vụ từ xa vẫn cần kết nối.
 
 ## Vì sao AI offline lại quan trọng
 
-### Vấn đề quyền riêng tư của AI đám mây
-
-Khi bạn dùng các trợ lý lập trình AI trên đám mây:
-- Code độc quyền của bạn được truyền tới server bên ngoài
-- Dữ liệu huấn luyện có thể lưu giữ các đoạn mã nhạy cảm
-- Vi phạm tuân thủ (HIPAA, GDPR, SOC2)
-- Độ trễ mạng làm chậm phản hồi
-- Chi phí API tích lũy dần
-
-### Lợi thế của AI offline
-
-| Khía cạnh | AI đám mây | AI local (Ollama) |
-|--------|----------|-------------------|
-| Quyền riêng tư dữ liệu | Gửi cho bên thứ ba | Không bao giờ rời khỏi máy bạn |
-| Cần internet | Có | Không |
-| Tốc độ phản hồi | 500ms-2s | 50-500ms (local) |
-| Chi phí hàng tháng | $10-20/người dùng | Miễn phí |
-| Tùy biến | Hạn chế | Toàn quyền kiểm soát model |
-| Tuân thủ | Phức tạp | Trực tiếp, đơn giản |
+Với thiết lập này, mô hình xử lý lời nhắc trên máy chạy Ollama. Tốc độ suy luận và lượng bộ nhớ cần dùng phụ thuộc vào mô hình và phần cứng. Suy luận cục bộ không phát sinh phí API theo từng yêu cầu.
 
 ## Bạn sẽ dựng được gì
 
@@ -137,7 +119,9 @@ Trong panel AI Assistant:
 
 ![Cấu hình Ollama](https://oss.macphpstudy.com/image/ollama-6.png)
 
-**Thiết lập cho nhóm**: Để dùng chung tài nguyên AI, hãy nhập địa chỉ IP của server Ollama của đồng nghiệp. Một máy trạm mạnh có thể phục vụ cả nhóm.
+Để kiểm tra khả năng suy luận ngoại tuyến, chạy `curl http://127.0.0.1:11434/api/tags` để xác nhận mô hình đã tải xuất hiện trong danh sách. Sau đó ngắt kết nối internet và gửi một lời nhắc ngắn trong chat FlyEnv. Giữ nguyên endpoint và mô hình cục bộ khi kết nối mạng trở lại. Với ứng dụng khách khác, hãy kiểm tra nhà cung cấp mô hình và các công cụ mà nó dùng. [API danh sách mô hình của Ollama](https://docs.ollama.com/api/tags)
+
+Xem [video thiết lập Ollama để dùng ngoại tuyến](/vi/demos?video=offline-ai-agent). Xem [Ollama trong FlyEnv](/vi/features/ollama) để biết cách cấu hình mô-đun và xem nhật ký dịch vụ.
 
 ### Bước 7: Bắt đầu buổi chat đầu tiên
 
@@ -271,7 +255,7 @@ ollama list            # See installed models
 
 **H: Cái này có thực sự hoàn toàn offline không?**
 
-Đ: Có. Khi các model đã được tải xuống, không cần kết nối internet nào. Dữ liệu của bạn không bao giờ rời khỏi máy.
+A: Cài Ollama và tải mô hình cần kết nối mạng. Sau khi tải xong, trỏ trợ lý đến `http://127.0.0.1:11434` và chọn mô hình cục bộ đó. Mô hình đám mây, tìm kiếm web và các công cụ gọi dịch vụ từ xa vẫn cần kết nối.
 
 **H: So với GitHub Copilot thì thế nào?**
 

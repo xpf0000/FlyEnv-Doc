@@ -1,14 +1,14 @@
 ---
-title: 'FlyEnv 快速入门指南：5 分钟快速上手'
+title: 'FlyEnv 快速入门指南：运行第一个本地站点'
 head:
   - - meta
     - name: description
-      content: '完整的 FlyEnv 安装配置指南，支持 macOS、Windows 和 Linux。在 5 分钟内完成安装、配置第一个站点并开始开发，支持自动版本管理。'
+      content: '在 macOS、Windows 或 Linux 上安装 FlyEnv，用 Nginx、PHP 和自动 SSL 打开第一个本地 HTTPS 站点。'
 ---
 
-# FlyEnv 快速入门指南：5 分钟快速上手
+# FlyEnv 快速入门指南：运行第一个本地站点
 
-你已经下载了 FlyEnv，接下来呢？本指南帮助你在 5 分钟内完成从安装到运行本地网站的整个过程——无需复杂的终端操作。
+安装 FlyEnv 后，在 `https://myproject.test` 打开一个 PHP 页面。先启动 Nginx 和 PHP，如果项目需要数据库，再添加 MySQL。
 
 ## 安装
 
@@ -16,7 +16,7 @@ head:
 
 **选项 1：Homebrew（推荐）**
 ```bash
-brew update && brew install flyenv
+brew install --cask flyenv
 ```
 
 **选项 2：下载 DMG**
@@ -24,20 +24,13 @@ brew update && brew install flyenv
 | 架构 | 下载 |
 |-------------|----------|
 | Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (ARM64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
 
 **macOS 用户注意：** 如果你只需要简单的 PHP 托管环境，可以在 Mac App Store 查看 [FlyPHPServer](/zh/flyphpserver)——这是一个轻量级配套应用。
 
 ### Windows
 
-下载并解压 ZIP 文件：
-
-| 下载源 | 链接 |
-|----------------|------|
-| GitHub Release | [下载](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| 百度网盘 | [下载](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-
-解压后运行 `FlyEnv.exe`。
+在 [FlyEnv 下载页](/zh/download) 选择 x64 安装版，或直接运行便携版 `.exe`。这两个包均可从 [GitHub 最新发布](https://github.com/xpf0000/FlyEnv/releases/latest) 获取。也可查看 [百度网盘镜像](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4)，下载前请核对版本。
 
 ### Linux
 
@@ -101,7 +94,7 @@ FlyEnv 会自动下载并配置该版本。
 2. 选择你安装的版本
 3. 点击 **启动** 按钮
 
-如果需要，对 **PHP** 和 **MySQL** 执行相同操作。
+运行 PHP 站点时，macOS 或 Linux 上启动 PHP，Windows 上启动 **PHP-FPM**。项目需要数据库时再启动 MySQL。
 
 ![服务启动](https://oss.macphpstudy.com/image/quick-start-3.webp)
 
@@ -110,8 +103,8 @@ FlyEnv 会自动下载并配置该版本。
 1. 打开 **Host** 模块
 2. 点击 **"添加站点"**
 3. 填写详细信息：
-   - **域名**：`myproject.test`（任何域名都可以）
-   - **根目录**：`/Users/you/projects/myproject`
+   - **域名**：`myproject.test`
+   - **根目录**：存放站点公开文件的目录
    - **PHP 版本**：选择你安装的版本
    - **端口**：80（默认）
 
@@ -127,7 +120,9 @@ FlyEnv 会自动下载并配置该版本。
 2. 点击 Host 列表中的站点链接
 3. 或在浏览器中打开 `https://myproject.test`
 
-SSL 证书会被你的系统自动信任。
+如果站点目录为空，在根目录新建 `index.php`，内容为 `<?php echo "Hello from FlyEnv";`。重新打开站点地址，页面应显示 **Hello from FlyEnv**。
+
+如果浏览器提示证书不受信任，请参考[本地域名与自动 SSL](/zh/guide/host)检查本地证书信任设置。
 
 ## 设置环境变量
 
@@ -320,6 +315,8 @@ A：任何以 .test、.local、.dev 结尾的域名或自定义 TLD。在某些�
 - [项目级版本隔离](/zh/guide/project-level-runtime-environment) — 自动版本切换
 - [自定义域名和 SSL](/zh/guide/host) — 专业本地开发
 - [构建本地 AI 代理](/zh/guide/build-local-offline-ai-agent) — 使用 Ollama 的离线 AI
+
+免费版即可完成本指南。需要管理更多本地站点或继续使用高级工具时，可查看 [FlyEnv 许可证](/zh/license)。
 
 如果还没有 [下载 FlyEnv](/zh/download)，祝你编码愉快！
 

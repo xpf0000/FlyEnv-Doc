@@ -4,7 +4,7 @@ description: 'Instala y gestiona versiones de JDK, Maven y Tomcat con FlyEnv y c
 
 # Configurar un entorno de desarrollo Java con FlyEnv
 
-FlyEnv ya admite la configuración de un entorno de desarrollo Java. Con FlyEnv puedes descargar e instalar Java, Maven y Tomcat rápidamente. Admite desde OpenJDK 8 hasta la versión más reciente del JDK, desde Maven 2.x hasta la versión más reciente, y desde Tomcat 8 hasta la versión más reciente de Tomcat.
+Comprueba qué JDK y herramienta de compilación pide el proyecto. Instala ese JDK en el [módulo Java](/es/features/java) de FlyEnv. Instala Maven si lo requiere el proyecto y Tomcat cuando necesites desplegar un WAR en un contenedor de servlets independiente.
 
 1. **Instala el JDK de Java y configura las variables de entorno**
 
@@ -22,7 +22,7 @@ FlyEnv ya admite la configuración de un entorno de desarrollo Java. Con FlyEnv 
 
    <img src="https://oss.macphpstudy.com/image/java-maven-set.jpg" data-x-image-preview="" alt="Configurar Maven">
 
-3. **Instala Tomcat y configura las variables de entorno**
+3. **Instala Tomcat si vas a desplegar un WAR**
 
    Instala Tomcat.
 
@@ -32,4 +32,14 @@ FlyEnv ya admite la configuración de un entorno de desarrollo Java. Con FlyEnv 
 
    <img src="https://oss.macphpstudy.com/image/tomcat-set-env.jpg" data-x-image-preview="" alt="Configurar el entorno de Tomcat">
 
-Ahora tienes un entorno de desarrollo Java que incluye JDK, Maven y Tomcat.
+## Verifica el JDK y Maven en un terminal nuevo
+
+Ejecuta estos comandos una vez aplicados los cambios de entorno. Comprueba que la versión de Java que muestra `mvn -v` coincide con la requerida por el proyecto. Si el proyecto incluye Maven Wrapper, usa `./mvnw -v` en macOS/Linux o `.\mvnw.cmd -v` en PowerShell.
+
+```text
+java -version
+javac -version
+mvn -v
+```
+
+Si el proyecto Spring Boot genera un JAR ejecutable, usa `java -jar` con la ruta real del JAR. Abre la URL de la aplicación que aparece en el log de inicio. La [solución Spring Boot](/es/solutions/spring-boot) cubre el proxy inverso opcional y los servicios dependientes.

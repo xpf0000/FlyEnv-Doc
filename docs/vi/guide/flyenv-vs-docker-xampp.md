@@ -16,6 +16,8 @@ import { communityEvidence } from '../../data/community-evidence'
 
 Chọn một thiết lập phát triển local ngày nay không chỉ là chọn cách chạy PHP hay MySQL. Bạn còn phải quyết định nhiều runtime, dịch vụ local, site HTTPS và các AI coding client sẽ kết hợp với nhau như thế nào.
 
+Để xem yêu cầu và ưu điểm của từng công cụ, đọc [FlyEnv và Docker](/vi/compare/docker) cùng [FlyEnv và XAMPP](/vi/compare/xampp). Khi sẵn sàng chuyển dự án hiện có, hãy làm theo mục chuyển dự án.
+
 Nếu Docker cảm giác quá nặng cho công việc ứng dụng hằng ngày và XAMPP cảm giác quá cứng nhắc cho các dự án multi-runtime hiện đại, thì FlyEnv nằm ở một vị trí khác: một workspace local native cho runtime, dịch vụ, AI coding CLI và MCP.
 
 ## Câu trả lời ngắn

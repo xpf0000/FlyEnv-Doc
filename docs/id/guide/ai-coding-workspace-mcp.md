@@ -94,17 +94,18 @@ Gunakan sakelar alat, mode persetujuan, dan audit log untuk menjaga agen tetap b
 
 ### 5. Jalankan Alur Kerja Praktis
 
-1. Buka proyek pada FlyEnv.
-2. Biarkan FlyEnv memuat runtime yang tepat.
-3. Nyalakan layanan yang diperlukan.
-4. Jalankan atau konfigurasikan CLI AI.
-5. Nyalakan MCP Server.
-6. Tambahkan konfigurasi MCP yang dibuat FlyEnv ke klien AI.
-7. Biarkan AI memeriksa layanan, situs, konfigurasi, dan log lokal yang sama.
+Pilih situs PHP dan MySQL yang sudah terdaftar di FlyEnv. Video di bawah mengikuti proyek CRUD PHP mulai dari penyiapan basis data hingga halaman berjalan. Alat hanya-baca yang sama dapat memeriksa situs PHP lain yang terdaftar.
+
+1. Jalankan server web pilihan Anda, layanan PHP yang dipakai situs, dan MySQL. Buka situs di browser sebelum menghubungkan agen untuk memastikan halaman dapat dimuat.
+2. Jalankan [Server MCP FlyEnv](/id/features/mcp-server), hubungkan klien, lalu pastikan `list_sites`, `resolve_site_runtime`, dan `resolve_site_urls` muncul dalam daftar alat. Biarkan alat tulis nonaktif selama pemeriksaan.
+3. Minta agen memanggil `list_sites`, lalu gunakan nama situs yang dikembalikan sebagai `siteName` di `resolve_site_runtime` dan `resolve_site_urls`. Cocokkan versi PHP dengan pengaturan situs dan buka URL yang dikembalikan di browser.
+4. Tinjau panggilan di **Server MCP → Log Audit** pada FlyEnv. Jika halaman gagal dimuat, periksa status server web dan PHP sebelum mengubah pengaturan situs.
 
 ## Video Demo
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/frprHkD1_rQ" title="Demo FlyEnv AI CLI dan MCP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Lihat [demo CRUD PHP dan MySQL](/id/demos?video=ai-cli-mcp-crud) di pustaka demo FlyEnv.
 
 ## Catatan Keamanan
 
@@ -113,6 +114,10 @@ Gunakan sakelar alat, mode persetujuan, dan audit log untuk menjaga agen tetap b
 - Aktifkan hanya alat yang diperlukan.
 - Gunakan persetujuan untuk tindakan berisiko.
 - Aktifkan akses jarak jauh hanya jika Anda memahami paparan jaringan yang ditimbulkan.
+
+HTTP `401` berarti token tidak dikirim atau tidak valid. Segarkan konfigurasi klien setelah membuat ulang token. Jika klien browser menerima `403`, periksa origin persisnya dan pengaturan akses jarak jauh. Jika suatu alat tidak muncul, periksa sakelarnya di FlyEnv, lalu hubungkan ulang klien. Panggilan dibatalkan jika Anda menolak konfirmasinya.
+
+Gunakan [plugin AI Memory](/id/features/ai-memory) jika Anda ingin agen coding yang terhubung menyimpan keputusan proyek untuk sesi berikutnya. Plugin ini menambahkan alatnya sendiri ke server MCP yang sama.
 
 ## Pertanyaan Umum
 

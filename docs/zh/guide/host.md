@@ -10,6 +10,8 @@ head:
 
 当与客户分享时，通过 `http://localhost:8080/myproject` 访问你的项目显得很业余。专业开发者使用干净的域名，如 `https://clientproject.test`——并且浏览器信任的 SSL 证书。
 
+观看 [Gitea、MySQL 与 HTTPS 演示](/zh/demos?video=gitea-local-project)了解运行效果。测试 HTTPS 域名前，先确认上游服务在本地端口上能正常响应。
+
 本指南向你展示如何设置带有自动 HTTPS 的自定义本地域名，使你的开发环境与生产环境无异。
 
 ## 为什么自定义域名很重要

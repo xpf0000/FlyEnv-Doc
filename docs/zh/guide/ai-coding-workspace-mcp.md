@@ -176,23 +176,20 @@ FlyEnv 的 MCP 面板不只是开关，它还允许你精细控制 AI 的能力�
 
 ## 第 5 步：跑通一个实用的本地 AI 编程工作流
 
-常见的使用流程如下：
+在 FlyEnv 中选择一个已有的 PHP 和 MySQL 站点。下方视频展示了一个 PHP CRUD 应用从建库到页面运行的过程。已登记的 PHP 站点都可以用同样的只读工具检查。
 
-1. 在 FlyEnv 中打开项目。
-2. 让 FlyEnv 自动切换到该项目需要的运行时版本。
-3. 启动项目依赖的本地服务。
-4. 在同一个工作区里启动或配置你偏好的 AI 编程 CLI。
-5. 启动 FlyEnv MCP Server。
-6. 通过生成的配置片段或 UI 里的 “Add to Client” 动作，把 FlyEnv MCP 接到对应客户端。
-7. 让 AI 读取与你自己开发时一致的服务、站点、配置和日志。
-
-FlyEnv 和纯 shell 工作流的差异就在这里：运行时、服务、AI CLI 和 MCP 连接都对准同一个本地上下文。
+1. 启动所选 Web 服务器、站点使用的 PHP 服务及 MySQL。接入助手前，先用浏览器确认已登记的站点可以打开。
+2. 启动 [FlyEnv MCP 服务器](/zh/features/mcp-server)，连接客户端，确认工具列表中有 `list_sites`、`resolve_site_runtime` 和 `resolve_site_urls`。验证时保持写入工具关闭。
+3. 请助手调用 `list_sites`，将返回的站点名称原样作为 `siteName` 传给 `resolve_site_runtime` 和 `resolve_site_urls`。在站点设置里核对返回的 PHP 版本，再用浏览器打开返回的 URL，确认应用可以加载。
+4. 在 FlyEnv 的 **MCP 服务器 → 审计日志** 中查看这些操作。如果站点无法加载，先检查 Web 服务器和 PHP 服务的状态，再调整站点配置。
 
 ## 端到端演示视频
 
 如果你想看一遍真实项目里的完整流程，这个演示会把 MySQL、本地 PHP CRUD 站点、AI CLI 和 MCP 桥接串起来走一遍。
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?bvid=BV1AyM761EpZ&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+在 FlyEnv 演示库中观看 [PHP 与 MySQL CRUD 项目](/zh/demos?video=ai-cli-mcp-crud)。
 
 ## 为什么这类本地 AI 工作流不一定要先上 Docker
 
@@ -210,6 +207,10 @@ FlyEnv 和纯 shell 工作流的差异就在这里：运行时、服务、AI CLI
 - 对高风险操作开启审批
 
 只有在你明确理解网络暴露范围并确实需要远程接入时，再开启 remote access。
+
+HTTP `401` 表示客户端未发送令牌或令牌无效。重新生成令牌后，请刷新客户端配置。如果浏览器客户端收到 `403`，检查准确的来源地址和远程访问开关。如果客户端缺少某个工具，请检查 FlyEnv 中的工具开关，然后重新连接客户端。取消审批后，该次调用不会执行。
+
+如果还希望已连接的编程助手保存项目决策，供后续会话读取，可以使用 [AI Memory 插件](/zh/features/ai-memory)。它会为同一个 MCP 服务器添加自己的工具。
 
 ## 常见问题（FAQ）
 

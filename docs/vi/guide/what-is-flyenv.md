@@ -8,9 +8,9 @@ head:
 
 # FlyEnv là gì? Native Local Stack, AI Coding CLI, và MCP Workspace
 
-Phát triển local hiện đại không còn chỉ là PHP và MySQL. Một dự án thực tế thường cần nhiều runtime, dịch vụ local, site HTTPS, và giờ đây cả những AI coding client vốn phải nhìn thấy cùng một môi trường local mà bạn đang dùng.
+FlyEnv là workspace desktop mã nguồn mở để phát triển local native trên Windows, macOS và Linux. Cài runtime và dịch vụ mà dự án cần, chọn phiên bản runtime theo từng dự án và chạy site local với tên miền tùy chỉnh và HTTPS. Lưu các dịch vụ vào Startup Group để khởi động cùng nhau.
 
-FlyEnv là một desktop workspace native gom tất cả những phần đó lại với nhau. Nó quản lý các runtime và dịch vụ local, chuyển đổi phiên bản theo dự án, khởi chạy các AI coding CLI, và mở ra ngữ cảnh local được quản lý của bạn thông qua **FlyEnv MCP Server** tích hợp sẵn.
+Từ cùng một workspace, bạn có thể khởi chạy các CLI lập trình AI được hỗ trợ và kết nối chúng với các dịch vụ, site và log được quản lý qua **FlyEnv MCP Server** tích hợp.
 
 ## FlyEnv thực sự làm được gì
 
@@ -34,7 +34,7 @@ FlyEnv cho bạn cài đặt chỉ những phần mềm bạn cần và quản l
 | Utilities | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE) |
 | Custom modules | Các module tùy chỉnh có thể được thêm dưới dạng dịch vụ hay lệnh và hoạt động như các module tích hợp sẵn. |
 
-Tất cả các module đều hỗ trợ tồn tại song song nhiều phiên bản, nhờ đó các dự án có thể dùng phiên bản chúng cần mà không cần một trình quản lý riêng cho từng runtime hay dịch vụ.
+Với các module có nhiều phiên bản, FlyEnv có thể cài song song các phiên bản được hỗ trợ. Hãy chọn phiên bản runtime phù hợp với từng dự án.
 
 Cùng với các module này, FlyEnv quản lý các site local với tên miền tùy chỉnh, HTTPS/SSL, reverse proxy, log, và các thiết lập runtime cấp site. Nó cũng đưa các AI coding client và FlyEnv MCP Server vào cùng một workspace, cho các AI client truy cập có cấu trúc vào các dịch vụ, site, cấu hình, log, và các hành động đã chọn được quản lý.
 

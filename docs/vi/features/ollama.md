@@ -50,7 +50,7 @@ Tab **Version Manager** cài đặt và giữ các phiên bản Ollama song song
 
 ## Dịch vụ và cấu hình
 
-FlyEnv khởi chạy Ollama detached dưới dạng `ollama serve` và theo dõi tệp pid của nó để khởi động và dừng sạch sẽ. Công tắc bật tắt trên thanh bên và mục trên khay hệ thống điều khiển dịch vụ mà không cần mở trang module. Theo mặc định, server lắng nghe trên `0.0.0.0:11434`, cổng API tiêu chuẩn của Ollama.
+FlyEnv khởi chạy Ollama detached dưới dạng `ollama serve` và theo dõi tệp pid của nó để khởi động và dừng sạch sẽ. Công tắc bật tắt trên thanh bên và mục trên khay hệ thống điều khiển dịch vụ mà không cần mở trang module. Cấu hình FlyEnv mới dùng địa chỉ API mặc định của Ollama, `127.0.0.1:11434`.
 
 Các biến môi trường được đọc từ `ollama.conf` trong thư mục gốc của FlyEnv — mọi dòng bắt đầu bằng `OLLAMA_` đều được truyền cho tiến trình server. Tab **Config File** chỉnh tệp này theo hai cách:
 
@@ -72,7 +72,9 @@ Tab **Model** là nơi các model được pull, liệt kê và chạy.
 
 ![Pull một model Ollama trong terminal nhúng](https://oss.macphpstudy.com/image/features/ollama-5.webp)
 
-Một dịch vụ Ollama đang chạy trên cổng 11434 còn kết hợp tốt với các module FlyEnv khác — gọi API local từ các workflow dựng trong [n8n](/vi/features/n8n), lưu các embedding từ model local vào cơ sở dữ liệu vector [Qdrant](/vi/features/qdrant), hay chạy các tài khoản AI dạng CLI sau các endpoint tương thích OpenAI với [CLIProxyAPI](/vi/features/cliproxyapi). Hướng dẫn về [FlyEnv làm việc cùng trợ lý AI](/vi/guide/flyenv-work-with-ai) cho thấy những mảnh ghép này khớp vào một thiết lập rộng hơn thế nào.
+Để truy cập từ cùng một máy, đặt `OLLAMA_HOST=127.0.0.1:11434` rồi khởi động lại dịch vụ. Sau khi tải mô hình, mở `http://127.0.0.1:11434/api/tags` để xác nhận Ollama phản hồi và liệt kê mô hình. Các phiên bản Ollama có tính năng đám mây cũng hỗ trợ `OLLAMA_NO_CLOUD=1` để chỉ chạy cục bộ. [Chế độ chỉ chạy cục bộ của Ollama](https://docs.ollama.com/faq#how-do-i-disable-ollamas-cloud-features)
+
+Kết nối [trợ lý lập trình cục bộ](/vi/guide/build-local-offline-ai-agent) với API này hoặc dùng nó trong [webhook n8n tự lưu trữ](/vi/guide/build-local-ai-workflow-by-n8n). Xem [video thiết lập Ollama để dùng ngoại tuyến](/vi/demos?video=offline-ai-agent).
 
 ## Log
 

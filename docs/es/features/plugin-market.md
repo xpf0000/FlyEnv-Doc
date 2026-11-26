@@ -9,6 +9,8 @@ description: 'Explora los complementos de FlyEnv para SamWaf, memoria persistent
 
 El catálogo de complementos permite añadir módulos a tu espacio de trabajo según las necesidades de cada proyecto. Una vez instalados, puedes gestionarlos junto con los runtimes y servicios que ya utilizas. Los complementos pueden incorporar controles de servicio, gestión de versiones, editores de configuración y vistas específicas dentro de la aplicación.
 
+La [demo de MySQL Cluster](/es/demos?video=mysql-cluster-replication) muestra un módulo instalado desde Plugin Market que usa una versión de base de datos gestionada por FlyEnv.
+
 Abre **Settings → Plugin Market** para explorar los complementos oficiales, gestionar los instalados o añadir una fuente de terceros.
 
 ![Catálogo oficial de complementos de FlyEnv con opciones para instalar, reinstalar y actualizar](https://oss.macphpstudy.com/image/features/plugin/plugin-market-official.png)

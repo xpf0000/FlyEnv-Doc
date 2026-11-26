@@ -77,6 +77,8 @@ Auto SSL membuat Certificate Authority lokal FlyEnv saat diperlukan, menerbitkan
 
 Jangan gunakan sertifikat lokal sebagai bukti bahwa situs dipercaya publik: sertifikat ini ditujukan untuk pengembangan dan pengujian lokal. Untuk pratinjau publik, pasangkan layanan lokal dengan [Cloudflare Tunnel](/id/guide/cloudflare-tunnel-local-development) atau deploy ke lingkungan yang ditujukan bagi lalu lintas eksternal.
 
+Lihat [situs Gitea dengan MySQL dan HTTPS](/id/demos?video=gitea-local-project) untuk contoh akses ke aplikasi lokal lewat domain terkelola.
+
 <FeatureRelatedLinks locale="id" slug="local-sites-https" />
 
 ## Catatan kompatibilitas

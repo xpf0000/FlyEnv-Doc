@@ -87,6 +87,8 @@ Gunakan jalur absolut. Tambahkan nomor port pada Notes agar konflik mudah ditemu
 
 Modul baru tampil pada sidebar FlyEnv. Klik **Start**, kemudian buka alamat lokal seperti `http://127.0.0.1:3000`. Gunakan tombol log pada modul untuk membaca output dan galat secara real-time.
 
+Sebelum menambahkan reverse proxy, pastikan aplikasi merespons langsung pada port lokal yang dipilih. Pisahkan alamat upstream (misalnya `127.0.0.1:3000`) dari port HTTPS server web. Kemudian aktifkan **Auto SSL** pada situs di Host. [Lihat demo layanan native](/id/demos?video=native-node-python-go-services).
+
 ## Domain Kustom, HTTPS, dan Tunneling
 
 Untuk memakai `https://myapp.test`, buat situs pada modul Host lalu buat reverse proxy ke port aplikasi, misalnya 3000. FlyEnv mengelola sertifikat lokal.

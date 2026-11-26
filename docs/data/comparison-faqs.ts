@@ -372,7 +372,7 @@ const comparisonFaqs: Record<
       ],
       [
         `Is FlyEnv really free?`,
-        `The core is: FlyEnv is open source, and all runtimes, databases and environment management features are always accessible without paying. The free evaluation version limits you to 3 local sites, and a few premium tools (AI assistant, screenshot, image optimizer) are 3-day trials; a $10 Personal license removes those limits. ServBay similarly offers a free tier (5 websites) with Pro features such as the mail server, tunnels and PKI/ACME requiring a paid license.`
+        `FlyEnv publishes its source under BSD-3-Clause. The app can be downloaded and used for local development, with a separate optional license for app features. ServBay lists a Free plan for up to five sites and paid Pro and Team plans.`
       ],
       [
         `Do both tools support MCP and AI workflows?`,
@@ -380,7 +380,7 @@ const comparisonFaqs: Record<
       ],
       [
         `Can both run multiple PHP versions per project?`,
-        `Yes. Both support multiple coexisting PHP versions with per-project/per-site assignment. ServBay covers older versions (from PHP 5.3); FlyEnv focuses on currently used versions.`
+        `Yes. Both can run multiple PHP versions side by side and assign a version to each site. Verify that the PHP version and extensions your project needs are available on your operating system.`
       ],
       [
         `Can I migrate from ServBay to FlyEnv?`,
@@ -406,7 +406,7 @@ const comparisonFaqs: Record<
       ],
       [
         `FlyEnv 真的是免费的吗？`,
-        `核心是：FlyEnv 开源，所有运行时、数据库和环境管理功能始终无需付费即可使用。免费评估版限制为 3 个本地站点，部分高级工具提供 3 天试用；10 美元个人许可证可解除这些限制。ServBay 同样提供免费层级（5 个网站），邮件服务器、隧道和 PKI/ACME 等 Pro 功能需要付费许可证。`
+        `FlyEnv 的源代码采用 BSD-3-Clause 许可证。应用可以下载用于本地开发，部分功能另有可选授权。ServBay 的 Free 方案最多支持五个站点，另有付费的 Pro 和 Team 方案。`
       ],
       [
         `两款工具都支持 MCP 和 AI 工作流吗？`,
@@ -414,7 +414,7 @@ const comparisonFaqs: Record<
       ],
       [
         `两款工具都能为每个项目运行多个 PHP 版本吗？`,
-        `支持。两者都支持共存的多个 PHP 版本，并可按项目/站点分配。ServBay 覆盖 PHP 5.3 起的旧版本；FlyEnv 更关注当前常用版本。`
+        `可以。两者都能并行运行多个 PHP 版本，并为每个站点选择版本。请确认项目所需的 PHP 版本和扩展在你的操作系统上可用。`
       ],
       [
         `可以从 ServBay 迁移到 FlyEnv 吗？`,
@@ -440,7 +440,7 @@ const comparisonFaqs: Record<
       ],
       [
         `Apakah FlyEnv benar-benar gratis?`,
-        `Intinya: FlyEnv bersumber terbuka, dan semua runtime, database, serta fitur pengelolaan lingkungan dapat digunakan tanpa biaya. Versi evaluasi gratis membatasi 3 situs lokal, sementara beberapa alat premium tersedia sebagai uji coba 3 hari; lisensi Personal $10 menghapus batas tersebut. ServBay juga menawarkan tier gratis (5 situs), sedangkan fitur Pro seperti server email, tunnel, dan PKI/ACME memerlukan lisensi berbayar.`
+        `Kode sumber FlyEnv memakai lisensi BSD-3-Clause. Aplikasinya bisa diunduh untuk pengembangan lokal, dengan lisensi opsional terpisah untuk fitur aplikasi. ServBay menawarkan paket Free untuk maksimal lima situs serta paket Pro dan Team berbayar.`
       ],
       [
         `Apakah keduanya mendukung alur MCP dan AI?`,
@@ -448,7 +448,7 @@ const comparisonFaqs: Record<
       ],
       [
         `Apakah keduanya dapat menjalankan beberapa versi PHP per proyek?`,
-        `Ya. Keduanya mendukung beberapa versi PHP yang hidup berdampingan dengan penetapan per proyek/situs. ServBay mencakup versi lama mulai PHP 5.3; FlyEnv berfokus pada versi yang umum digunakan.`
+        `Bisa. Keduanya dapat menjalankan beberapa versi PHP secara bersamaan dan menetapkan versi untuk tiap situs. Periksa versi PHP dan ekstensi yang dibutuhkan proyek pada sistem operasi Anda.`
       ],
       [
         `Bisakah saya bermigrasi dari ServBay ke FlyEnv?`,
@@ -474,7 +474,7 @@ const comparisonFaqs: Record<
       ],
       [
         `¿FlyEnv es realmente gratuito?`,
-        `El núcleo sí lo es: FlyEnv es de código abierto, y todos los runtimes, bases de datos y funciones de gestión de entornos siempre son accesibles sin pagar. La versión de evaluación gratuita te limita a 3 sitios locales, y algunas herramientas premium (asistente de IA, capturas de pantalla, optimizador de imágenes) son pruebas de 3 días; una licencia Personal de $10 elimina esos límites. ServBay ofrece de forma similar un nivel gratuito (5 sitios web) con funciones Pro como el servidor de correo, los túneles y PKI/ACME que requieren una licencia de pago.`
+        `FlyEnv publica su código bajo BSD-3-Clause. Puedes descargar la aplicación para desarrollo local, con una licencia opcional para funciones de la aplicación. ServBay ofrece un plan Free de hasta cinco sitios y planes de pago Pro y Team.`
       ],
       [
         `¿Ambas herramientas son compatibles con flujos de trabajo de MCP e IA?`,
@@ -482,7 +482,7 @@ const comparisonFaqs: Record<
       ],
       [
         `¿Pueden ambas ejecutar varias versiones de PHP por proyecto?`,
-        `Sí. Ambas admiten varias versiones de PHP coexistentes con asignación por proyecto/sitio. ServBay cubre versiones más antiguas (desde PHP 5.3); FlyEnv se centra en las versiones actualmente en uso.`
+        `Sí. Ambos permiten ejecutar varias versiones de PHP en paralelo y elegir una para cada sitio. Comprueba que tu sistema operativo tenga disponibles la versión de PHP y las extensiones que necesita el proyecto.`
       ],
       [
         `¿Puedo migrar de ServBay a FlyEnv?`,
@@ -508,7 +508,7 @@ const comparisonFaqs: Record<
       ],
       [
         `FlyEnv có thực sự miễn phí không?`,
-        `Phần cốt lõi thì có: FlyEnv là mã nguồn mở, và toàn bộ runtime, cơ sở dữ liệu cùng các tính năng quản lý môi trường luôn dùng được mà không phải trả phí. Bản dùng thử miễn phí giới hạn 3 local site, một vài công cụ cao cấp (trợ lý AI, chụp màn hình, tối ưu ảnh) chỉ dùng thử 3 ngày; giấy phép Personal 10 USD sẽ bỏ các giới hạn đó. ServBay cũng có gói miễn phí tương tự (5 website), còn các tính năng Pro như mail server, tunnel và PKI/ACME đòi hỏi giấy phép trả phí.`
+        `FlyEnv công bố mã nguồn theo BSD-3-Clause. Bạn có thể tải ứng dụng để phát triển cục bộ và mua giấy phép tùy chọn cho các tính năng ứng dụng. ServBay có gói Free cho tối đa năm site và các gói Pro, Team trả phí.`
       ],
       [
         `Cả hai công cụ có hỗ trợ MCP và quy trình làm việc AI không?`,
@@ -516,7 +516,7 @@ const comparisonFaqs: Record<
       ],
       [
         `Cả hai có thể chạy nhiều phiên bản PHP cho mỗi dự án không?`,
-        `Có. Cả hai đều hỗ trợ nhiều phiên bản PHP cùng tồn tại với cách gán theo từng dự án/từng site. ServBay hỗ trợ các phiên bản cũ hơn (từ PHP 5.3); FlyEnv tập trung vào các phiên bản đang được sử dụng.`
+        `Có. Cả hai có thể chạy nhiều phiên bản PHP song song và gán phiên bản cho từng site. Hãy kiểm tra hệ điều hành của bạn có phiên bản PHP và tiện ích mở rộng mà dự án cần.`
       ],
       [
         `Tôi có thể chuyển từ ServBay sang FlyEnv không?`,

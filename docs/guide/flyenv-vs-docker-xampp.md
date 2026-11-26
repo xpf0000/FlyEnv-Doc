@@ -16,6 +16,8 @@ import { communityEvidence } from '../data/community-evidence'
 
 Choosing a local development setup now means choosing more than just how to run PHP or MySQL. You also need to decide how multiple runtimes, local services, HTTPS sites, and AI coding clients fit together.
 
+For each tool’s tradeoffs and requirements, read [FlyEnv vs Docker](/compare/docker) and [FlyEnv vs XAMPP](/compare/xampp). Use the migration section when you are ready to move an existing project.
+
 If Docker feels heavy for daily app work and XAMPP feels too fixed for modern multi-runtime projects, FlyEnv sits in a different spot: a native local workspace for runtimes, services, AI coding CLIs, and MCP.
 
 ## Short Answer

@@ -49,15 +49,15 @@ Each memory body supports up to 16 KiB of UTF-8 text. Keep records focused on on
 
 Open **Connect an agent** and choose an installed client. One-click setup is available for **[Claude Code](/features/claude-code)**, **[Antigravity CLI](/features/antigravity-cli)**, **[Codex](/features/codex)**, **[GitHub Copilot CLI](/features/github-copilot-cli)**, **[OpenCode](/features/opencode)** and **[Kimi](/features/kimi)**.
 
-The connection action prepares the local memory service, writes the client's global MCP connection and installs global memory instructions while preserving existing configuration. You can follow each step's result and retry unfinished steps. Advanced settings also let you install project-specific instructions where needed.
+One-click setup starts the local MCP server if needed, enables the five memory tools, registers the global MCP connection for the selected client and installs global memory instructions. Review each step and retry any unfinished one. In the advanced settings you can also install instructions for a specific project.
 
 ![AI Memory Connect an agent page with six supported clients, generic settings and three automatic setup steps for Codex](https://oss.macphpstudy.com/image/features/plugin/ai-memory-connect-agent.webp)
 
 For other MCP clients, choose **Generic settings**. Copy the HTTP configuration or use the stdio option when required by your client. Add the memory instructions to the client's supported instruction file or system prompt. The stdio connection requires local Node.js and FlyEnv's bridge.
 
-After setup, reconnect the client or open a new agent session so it loads the connection and instructions. Ask it to save a small sample memory, then retrieve it and report the actual ID and revision. You can also find the record in **Memories** and inspect the request in **Call Records**.
+After setup, open a new session from your project's confirmed absolute root. Ask the first client to save a sample project fact, such as “The smoke test command is `npm test`,” and report the returned ID and revision. In a fresh session in a second connected client, use the same project root and ask it to search for “smoke test” and retrieve the record. Check that the ID and revision match and confirm both calls in **Call Records**.
 
-Successful setup confirms the configuration was written. Whether an agent saves useful knowledge and retrieves it later depends on its instructions and actual tool calls; automatic saving is not guaranteed.
+FlyEnv's developer-preview acceptance test verified this handoff in both directions between Codex and Kimi and read a saved record again after restarting FlyEnv. Client setup writes connection settings and instructions. Saving and recalling useful knowledge depends on the agent's instructions and actual tool calls.
 
 ## Five MCP tools for persistent memory
 
@@ -68,6 +68,8 @@ AI Memory adds five tools to FlyEnv's MCP server:
 - **`flyenv_memory_store`:** save a new memory with its source.
 - **`flyenv_memory_update`:** revise an existing record with a reason and expected revision.
 - **`flyenv_memory_forget`:** permanently delete a record and its history.
+
+Project searches can use `include_global=true` to include global memories. Read each match using its returned scope. If an update reports a conflict, read the latest revision before deciding what to change. If a write times out or returns `unknown`, replay the same request with the same `request_id` and parameters to confirm what happened.
 
 Manage tool availability and approval policies in FlyEnv's MCP settings. Keep FlyEnv running with the plugin enabled and the MCP server available while agents use the tools. Different connected clients can access the same stored collection when they use the same scope and project root.
 
@@ -89,7 +91,7 @@ If the selected folder already has project memories, FlyEnv asks whether the col
 
 The **Call Records** tab shows memory tool activity and results for the current FlyEnv session. Refresh the list after using an agent, then expand a record to inspect request and response details.
 
-The view keeps up to 200 detailed entries in memory and excludes full memory bodies. These records clear when FlyEnv exits; saved memories persist on disk. Local storage describes where the plugin keeps data: content retrieved through MCP is still passed to your chosen AI client.
+The view keeps up to 200 detailed entries in memory and excludes full memory bodies. These records clear when FlyEnv exits; saved memories persist on disk. Local storage describes where the plugin keeps data: content retrieved through MCP is still passed to your chosen AI client. Your client may send retrieved content to its model provider. Use a harmless test record when checking your connection.
 
 ![AI Memory Call Records tab showing session tool activity, results, durations and a refresh button](https://oss.macphpstudy.com/image/features/plugin/ai-memory-call-records.webp)
 

@@ -10,12 +10,13 @@ head:
 
 FlyEnv menjalankan runtime dan layanan PHP secara native. Pilih mode yang sesuai dengan framework serta arsitektur aplikasi, lalu gunakan Host FlyEnv untuk domain, SSL, log, dan hubungan ke basis data atau cache.
 
+Untuk situs yang dilayani Nginx, Apache, atau Caddy, pilih versi PHP terpasang di **Host** lalu jalankan versi yang sama di [modul PHP-FPM](/id/features/php). Di Windows, modul menjalankan `php-cgi.exe` melalui spawner FastCGI. Di macOS dan Linux, modul menjalankan `php-fpm`. Layanan aplikasi mandiri berjalan sebagai proses tersendiri di belakang reverse proxy bila diperlukan.
+
 ## Memilih Mode PHP
 
 | Mode | Cocok untuk |
 | --- | --- |
 | PHP-FPM dengan Nginx/Apache/Caddy | WordPress, Laravel, Symfony, CMS, dan aplikasi PHP klasik |
-| PHP CGI | Alur kompatibilitas atau aplikasi lama |
 | FrankenPHP | Proyek modern yang ingin Caddy dan PHP dalam satu server aplikasi |
 | RoadRunner | Laravel Octane atau worker PHP jangka panjang |
 | Swoole CLI | Hyperf, EasySwoole, atau aplikasi Swoole native |
@@ -104,3 +105,5 @@ J: Ya. Jalankan sebagai service atau modul kustom dan kelola command serta log d
 - [Menjalankan Laravel dengan FlyEnv](/id/guide/run-laravel-use-flyenv)
 - [Domain kustom dan SSL otomatis](/id/guide/host)
 - [Debug PHP dengan Xdebug](/id/guide/php-debug-with-xdebug)
+
+[Lihat demo layanan aplikasi PHP di FlyEnv](/id/demos?video=php-project-services).

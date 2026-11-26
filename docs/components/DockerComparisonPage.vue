@@ -729,6 +729,8 @@
       </div>
     </section>
 
+    <ComparisonMigration :migration="dockerMigration" :locale="locale" />
+
     <section class="px-6 py-20 sm:px-10 sm:py-24 lg:px-16" aria-labelledby="faq-title">
       <div class="mx-auto max-w-5xl">
         <header class="mx-auto max-w-3xl text-center">
@@ -781,6 +783,8 @@
 </template>
 
 <script setup lang="ts">
+  import ComparisonMigration from './ComparisonMigration.vue'
+  import { dockerMigration } from '../data/compare/stack-migrations'
   import { computed } from 'vue'
   import { getComparisonFaqs } from '../data/comparison-faqs'
 

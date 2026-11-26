@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Chứng chỉ HTTPS local với FlyEnv
 
-mkcert là một công cụ mã nguồn mở nhỏ gọn dành cho các chứng chỉ phát triển được tin cậy local: nó tự tạo một root CA riêng, và một khi CA đó được cài vào kho tin cậy hệ thống, mọi chứng chỉ nó ký đều được các trình duyệt của bạn chấp nhận mà không có cảnh báo. FlyEnv tích hợp [mkcert](https://github.com/FiloSottile/mkcert) và biến nó thành một quy trình chỉ cần trỏ và nhấp: cài binary, tin cậy root CA một lần, rồi sinh chứng chỉ cho bất kỳ [site local](/vi/features/local-sites-https) nào của bạn mà không cần chạm đến dòng lệnh.
+mkcert tạo một tổ chức cấp chứng chỉ cục bộ cho môi trường phát triển. Trình duyệt phải tin cậy CA đó và chứng chỉ phải bao gồm tên miền đang mở. FlyEnv tích hợp [mkcert](https://github.com/FiloSottile/mkcert) để cài CA và tạo chứng chỉ cho [trang web cục bộ](/vi/features/local-sites-https).
 
 ![Tổng quan module MkCert của FlyEnv](https://oss.macphpstudy.com/image/features/mkcert-1.webp)
 
@@ -50,7 +50,7 @@ Tab **Trình quản lý phiên bản** cài đặt và giữ binary mkcert luôn
 
 ## CA local và tab Certificates
 
-Tab **Certificates** là trái tim của module. Nó hiển thị **CA Root Path** của mkcert (đọc trực tiếp từ `mkcert -CAROOT`, nhấp vào để hiện thư mục trong trình quản lý tệp của bạn) và cung cấp một thao tác **Install CA** chạy `mkcert -install` trong terminal nhúng của FlyEnv — đăng ký root CA local vào kho tin cậy hệ thống để mọi chứng chỉ nó ký đều được các trình duyệt của bạn tin cậy.
+Tab **Certificates** là trái tim của module. Nó hiển thị **CA Root Path** của mkcert (đọc trực tiếp từ `mkcert -CAROOT`, nhấp vào để hiện thư mục trong trình quản lý tệp của bạn) và cung cấp một thao tác **Install CA** chạy `mkcert -install` trong terminal nhúng của FlyEnv — đăng ký root CA local vào các kho tin cậy được hỗ trợ trên máy.
 
 - **Bộ chọn binary:** chọn bản build mkcert đã cài nào sẽ chạy các lệnh; FlyEnv ưu tiên phiên bản đang có trên PATH môi trường của riêng nó.
 - **Thực thi minh bạch:** cả cài CA lẫn sinh chứng chỉ đều chạy rõ ràng trong terminal nhúng, để bạn thấy chính xác mkcert làm gì.
@@ -65,11 +65,13 @@ Tab Certificates liệt kê các site bạn đã tạo trong FlyEnv, mỗi site 
 
 ![Sinh một chứng chỉ HTTPS cho một site FlyEnv](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
 
+Nếu trình duyệt cảnh báo về tên máy chủ hoặc độ tin cậy, dùng [hướng dẫn Host](/vi/guide/host) để kiểm tra DNS, tên trong chứng chỉ và thiết lập tin cậy. Giữ khóa riêng của CA trên máy của bạn.
+
 <FeatureRelatedLinks locale="vi" slug="mkcert" />
 
 ## Lưu ý tương thích
 
 - mkcert là một công cụ dòng lệnh chạy một lần, không phải dịch vụ nền: không có gì để khởi động hay dừng, và module không có trình chỉnh sửa tệp cấu hình hay trình xem log theo chủ ý thiết kế.
-- Các chứng chỉ được sinh là chứng chỉ phát triển được tin cậy local — dành cho chính máy của bạn, không phải cho môi trường sản xuất hay các thiết bị khác.
-- Tin cậy root CA (`mkcert -install`) sẽ thay đổi kho tin cậy hệ thống và sẽ yêu cầu mật khẩu hệ thống của bạn, việc mà mkcert xử lý ngay trong terminal nhúng.
+- Trên thiết bị phát triển khác, cài `rootCA.pem` công khai vào kho tin cậy của thiết bị. Giữ bí mật `rootCA-key.pem` và chỉ dùng chứng chỉ này cho phát triển.
+- Tin cậy root CA (`mkcert -install`) sẽ thay đổi kho tin cậy hệ thống và có thể yêu cầu quyền quản trị trong terminal nhúng.
 - Nguồn cài khác nhau tùy nền tảng: bản build tĩnh trên mọi nơi, Homebrew trên macOS và Linux. Xem [trang tải xuống](/vi/download) để biết các nền tảng mà chính FlyEnv hỗ trợ.

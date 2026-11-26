@@ -67,6 +67,7 @@
               type="button"
               class="mt-12 inline-flex min-h-14 w-full items-center justify-center rounded-md bg-orange-500 px-6 text-base font-semibold text-white transition hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 active:translate-y-px disabled:cursor-wait disabled:opacity-70"
               :disabled="paddleLoading"
+              data-analytics-license-purchase="hero"
               @click="openPaddleCheckout"
             >
               {{ paddleLoading ? copy.openingCheckout : copy.buyWithPaddle }}
@@ -390,6 +391,7 @@
               type="button"
               class="inline-flex min-h-14 items-center justify-center rounded-md bg-white px-6 text-base font-semibold text-slate-900 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-px disabled:cursor-wait disabled:opacity-70"
               :disabled="paddleLoading"
+              data-analytics-license-purchase="footer"
               @click="openPaddleCheckout"
             >
               {{ paddleLoading ? copy.openingCheckout : copy.buyLicense }}
@@ -489,7 +491,7 @@
     zh: {
       eyebrow: 'FlyEnv 许可证',
       title: '获取 FlyEnv 许可证',
-      description: '一次性购买即可在一台设备上解锁高级功能，无需订阅。',
+      description: '核心本地开发功能免费。一次性支付 10 美元可在一台已激活的设备上解锁高级功能。付款后，请在 FlyEnv 中申请许可证。',
       benefitsLabel: '许可证权益',
       benefits: ['10 美元一次性付款', '1 台设备', '未来更新', '设备激活'],
       licenseName: 'FlyEnv 许可证',
@@ -501,14 +503,14 @@
       activationGuideLink: '激活说明 ->',
       howItWorks: '使用流程',
       steps: [
-        { title: '购买', description: '通过 Paddle 安全完成购买。' },
+        { title: '购买', description: '通过 Paddle 完成购买，保留订单 ID 或收据邮箱。' },
         {
           title: '在 FlyEnv 中申请许可证',
-          description: '打开 FlyEnv 设置 -> 许可证，提交 Paddle 订单 ID 或收据邮箱，并填写联系邮箱。'
+          description: '打开 FlyEnv 的设置 → 许可证，滚动到申请表。填写订单 ID 或收据邮箱，并提供接收通知的邮箱。'
         },
         {
           title: '获取许可证',
-          description: '您的申请将由人工审核，验证后即会发放许可证。'
+          description: 'FlyEnv 会人工审核申请，并在许可证发放后通过邮件通知您。'
         }
       ],
       deviceTransfer:
@@ -611,7 +613,7 @@
     id: {
       eyebrow: 'Lisensi FlyEnv',
       title: 'Dapatkan Lisensi FlyEnv',
-      description: 'Pembelian satu kali membuka fitur premium di satu perangkat. Tanpa langganan.',
+      description: 'Fitur inti pengembangan lokal tersedia gratis. Lisensi seharga $10 dibayar sekali dan membuka fitur premium pada satu perangkat aktif. Setelah membayar, ajukan lisensi di FlyEnv.',
       benefitsLabel: 'Manfaat lisensi',
       benefits: ['$10 sekali bayar', '1 perangkat', 'Pembaruan mendatang', 'Aktivasi perangkat'],
       licenseName: 'Lisensi FlyEnv',
@@ -628,15 +630,15 @@
       activationGuideLink: 'Panduan aktivasi ->',
       howItWorks: 'Cara kerjanya',
       steps: [
-        { title: 'Beli', description: 'Selesaikan pembelian dengan aman melalui Paddle.' },
+        { title: 'Beli', description: 'Selesaikan pembelian melalui Paddle dan simpan ID pesanan atau alamat email pada tanda terima.' },
         {
           title: 'Ajukan lisensi di FlyEnv',
           description:
-            'Buka Pengaturan FlyEnv -> Lisensi, lalu kirim ID pesanan Paddle atau email tanda terima bersama email kontak.'
+            'Buka Pengaturan → Lisensi di FlyEnv, lalu gulir ke formulir pengajuan. Masukkan ID pesanan atau alamat email pada tanda terima, serta alamat email untuk menerima pemberitahuan.'
         },
         {
           title: 'Terima lisensi',
-          description: 'Permintaan Anda ditinjau secara manual dan lisensi diterbitkan setelah diverifikasi.'
+          description: 'FlyEnv meninjau pengajuan secara manual dan mengirim email ketika lisensi diterbitkan.'
         }
       ],
       deviceTransfer:
@@ -740,7 +742,7 @@
       eyebrow: 'Licencia de FlyEnv',
       title: 'Obtén una licencia de FlyEnv',
       description:
-        'Una compra única desbloquea las funciones premium en un dispositivo. Sin suscripción.',
+        'Las funciones básicas de desarrollo local son gratuitas. Una licencia de 10 USD con un único pago desbloquea las funciones premium en un dispositivo activo. Después de pagar, solicita la licencia en FlyEnv.',
       benefitsLabel: 'Beneficios de la licencia',
       benefits: [
         '$10 pago único',
@@ -762,16 +764,16 @@
       activationGuideLink: 'Guía de activación ->',
       howItWorks: 'Cómo funciona',
       steps: [
-        { title: 'Compra', description: 'Completa tu compra de forma segura a través de Paddle.' },
+        { title: 'Compra', description: 'Completa la compra en Paddle y guarda el ID del pedido o el correo del recibo.' },
         {
           title: 'Solicita una licencia en FlyEnv',
           description:
-            'Abre la Configuración de FlyEnv -> Licencia, luego envía el ID de tu pedido de Paddle o el correo del recibo junto con un correo de contacto.'
+            'Abre Configuración → Licencia en FlyEnv y desplázate hasta el formulario. Introduce el ID del pedido o el correo del recibo y una dirección de correo para recibir notificaciones.'
         },
         {
           title: 'Recibe tu licencia',
           description:
-            'Tu solicitud se revisa manualmente y la licencia se emite una vez verificada.'
+            'FlyEnv revisa las solicitudes manualmente y te avisa por correo cuando emite tu licencia.'
         }
       ],
       deviceTransfer:
@@ -891,7 +893,7 @@
       eyebrow: 'Giấy phép FlyEnv',
       title: 'Nhận giấy phép FlyEnv',
       description:
-        'Mua một lần để mở khóa các tính năng cao cấp trên một thiết bị. Không cần đăng ký.',
+        'Các tính năng phát triển local cơ bản được cung cấp miễn phí. Giấy phép 10 USD, thanh toán một lần, mở khóa các tính năng cao cấp trên một thiết bị đang kích hoạt. Sau khi thanh toán, hãy yêu cầu cấp giấy phép trong FlyEnv.',
       benefitsLabel: 'Quyền lợi của giấy phép',
       benefits: [
         '$10 thanh toán một lần',
@@ -913,16 +915,16 @@
       activationGuideLink: 'Hướng dẫn kích hoạt ->',
       howItWorks: 'Cách hoạt động',
       steps: [
-        { title: 'Mua', description: 'Hoàn tất việc mua hàng một cách an toàn qua Paddle.' },
+        { title: 'Mua', description: 'Hoàn tất thanh toán qua Paddle rồi lưu mã đơn hàng hoặc địa chỉ email trên biên lai.' },
         {
           title: 'Yêu cầu giấy phép trong FlyEnv',
           description:
-            'Mở Cài đặt FlyEnv -> Giấy phép, sau đó gửi mã đơn hàng Paddle hoặc email biên lai cùng với email liên hệ.'
+            'Mở Cài đặt → Giấy phép trong FlyEnv và cuộn đến biểu mẫu yêu cầu. Nhập mã đơn hàng hoặc địa chỉ email trên biên lai cùng địa chỉ email để nhận thông báo.'
         },
         {
           title: 'Nhận giấy phép',
           description:
-            'Yêu cầu của bạn được xem xét thủ công và giấy phép sẽ được cấp sau khi xác minh.'
+            'FlyEnv xét duyệt yêu cầu theo cách thủ công và gửi email cho bạn khi giấy phép được cấp.'
         }
       ],
       deviceTransfer:

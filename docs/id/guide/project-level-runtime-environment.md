@@ -96,11 +96,20 @@ cd ~/work/modern-node-app
 node -v
 # v20.11.0
 
-which node
-# /Users/you/.flyenv/versions/node/20.11.0/bin/node
+command -v node
 ```
 
 Integrasi shell FlyEnv mendeteksi direktori aktif dan menambahkan jalur yang tepat **sebelum** perintah dijalankan. Anda tidak perlu menjalankan `nvm use`, `source venv/bin/activate`, atau mengingat versi untuk setiap proyek.
+
+Di kedua proyek, bandingkan versi dan jalur program. Di zsh atau Bash, jalankan `command -v php` dan `command -v node`. Di PowerShell, jalankan perintah berikut dari setiap direktori proyek yang terdaftar.
+
+```powershell
+php -v
+node -v
+Get-Command php,node | Select-Object Name,Source
+```
+
+Periksa versi PHP untuk permintaan browser secara terpisah di **Host**. Modul **PHP-FPM** menjalankan `php-fpm` di macOS dan Linux serta worker FastCGI di Windows.
 
 ![Demo terminal untuk pergantian versi otomatis](https://oss.macphpstudy.com/image/project-env6.png)
 

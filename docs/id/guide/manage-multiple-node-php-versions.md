@@ -189,7 +189,9 @@ Pasang versi tersebut dari antarmuka modul FlyEnv. Unduhan berasal dari sumber r
 
 ### Konflik dengan Pengelola Versi Lama
 
-Hapus NVM dari `.zshrc`, lepas tautan PHP Homebrew dengan `brew unlink php`, lalu biarkan FlyEnv mengelola versi yang digunakan proyek.
+Di direktori proyek terdaftar, periksa perintah yang dipakai dan versinya. Gunakan `command -v php` dan `command -v node` di zsh/Bash atau `Get-Command php,node` di PowerShell. Jika alias atau skrip awal shell lebih diutamakan, sesuaikan konfigurasi shell proyek tersebut. [Panduan runtime per proyek](/id/guide/project-level-runtime-environment) menjelaskan cara memeriksa hook.
+
+Periksa versi PHP untuk permintaan browser secara terpisah di **Host**. Modul **PHP-FPM** menjalankan `php-fpm` di macOS dan Linux serta worker FastCGI di Windows.
 
 ## Pertanyaan Umum
 

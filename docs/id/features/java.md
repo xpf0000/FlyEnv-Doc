@@ -82,6 +82,8 @@ Proyek yang berbeda sering memerlukan JDK berbeda. Pada **Java → Proyek Java**
 
 ![Daftar proyek Java dengan pengikatan JDK per proyek](https://oss.macphpstudy.com/image/features/java-5.webp)
 
+Lihat [demo OpenMRS](/id/demos?video=openmrs-local-project) untuk contoh aplikasi web Java di Tomcat. [Solusi Spring Boot](/id/solutions/spring-boot) membahas alur JAR yang dapat dijalankan.
+
 <FeatureRelatedLinks locale="id" slug="java" />
 
 ## Catatan kompatibilitas

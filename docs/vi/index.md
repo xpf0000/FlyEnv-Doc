@@ -3,20 +3,20 @@
 layout: home
 markdownStyles: false
 
-title: 'FlyEnv - Môi trường phát triển local mã nguồn mở cho AI agent'
+title: 'FlyEnv - Môi trường phát triển local native mã nguồn mở'
 titleTemplate: false
 
 # 在 head 中显式添加 Meta Description，提升搜索结果的点击率 (CTR)
 head:
   - - meta
     - name: description
-      content: 'FlyEnv là một workspace phát triển local mã nguồn mở cho AI agent trên macOS, Windows, và Linux, với runtime, cơ sở dữ liệu, web server, site, HTTPS, và MCP.'
+      content: 'FlyEnv là workspace phát triển local native mã nguồn mở cho macOS, Windows và Linux. Quản lý runtime, cơ sở dữ liệu, site HTTPS và công cụ lập trình AI qua MCP.'
   - - meta
     - property: og:title
-      content: 'FlyEnv - Môi trường phát triển local mã nguồn mở cho AI agent'
+      content: 'FlyEnv - Môi trường phát triển local native mã nguồn mở'
   - - meta
     - property: og:description
-      content: 'FlyEnv là một môi trường phát triển local mã nguồn mở cho AI agent trên macOS, Windows và Linux. Quản lý PHP, Node.js, Python, cơ sở dữ liệu, web server, site local và HTTPS với FlyEnv MCP.'
+      content: 'FlyEnv là workspace phát triển local native mã nguồn mở cho macOS, Windows và Linux. Quản lý runtime, cơ sở dữ liệu, site HTTPS và công cụ lập trình AI qua MCP.'
   - - meta
     - property: og:type
       content: website
@@ -31,10 +31,10 @@ head:
       content: summary
   - - meta
     - name: twitter:title
-      content: 'FlyEnv - Môi trường phát triển local mã nguồn mở cho AI agent'
+      content: 'FlyEnv - Môi trường phát triển local native mã nguồn mở'
   - - meta
     - name: twitter:description
-      content: 'FlyEnv là một môi trường phát triển local mã nguồn mở cho AI agent trên macOS, Windows và Linux.'
+      content: 'FlyEnv là workspace phát triển local native mã nguồn mở cho macOS, Windows và Linux. Quản lý runtime, cơ sở dữ liệu, site HTTPS và công cụ lập trình AI qua MCP.'
   - - meta
     - name: twitter:image
       content: https://oss.macphpstudy.com/image/app-icon.png

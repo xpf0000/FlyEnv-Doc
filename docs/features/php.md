@@ -57,7 +57,7 @@ PHP-FPM is a dedicated module in FlyEnv, built for serving sites through Nginx, 
 - **Per-version lifecycle:** start, stop or restart each PHP-FPM version individually, or use the sidebar switch (also available in the system tray) to start or stop all installed versions at once.
 - **Socket-based on macOS and Linux:** each version listens on its own unix socket, so several PHP-FPM versions can run simultaneously and each site can be routed to a different one. FlyEnv regenerates the web-server integration config when a version starts.
 - **Editable `php-fpm.conf`:** open and edit the FPM pool configuration per version (macOS and Linux), with FPM log and slow-log viewers built in.
-- **Windows runs as FastCGI:** PHP serves the web server through FastCGI, and the number of FastCGI worker processes (`PHP_FCGI_CHILDREN`, 1–64) is adjustable per version.
+- **Windows uses FastCGI workers.** In FlyEnv’s **PHP-FPM** module, the Windows service runs `php-cgi.exe` via `php-cgi-spawner.exe`. Set the worker count per installed version. On macOS and Linux, the module runs `php-fpm`.
 
 ![PHP-FPM module with per-version service controls](https://oss.macphpstudy.com/image/features/php-4.webp)
 
@@ -81,7 +81,7 @@ Open **Extensions** from any PHP version to see what is loaded and install what 
 
 - **Loaded extensions:** a searchable list of the modules the version currently loads.
 - **Homebrew and MacPorts PHP:** browse the extension formulae available for that PHP version, install or uninstall them in the embedded terminal, and copy a ready-made `extension=xxx.so` snippet — or a complete Xdebug configuration template — straight into `php.ini`.
-- **Windows:** enable or disable the DLLs already present in the extension directory, or download extensions from the online library with one click.
+- **Windows extensions.** Enable compatible bundled DLLs or select an available PECL/PIE package for the chosen PHP build. Availability depends on the version, architecture, and thread-safety build.
 - **Quick navigation:** jump directly to `php.ini` or open the extension directory in the file manager.
 
 ![Loaded extension list for a PHP version](https://oss.macphpstudy.com/image/features/php-8.webp)

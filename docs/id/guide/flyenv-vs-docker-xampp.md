@@ -10,6 +10,8 @@ head:
 
 Memilih penyiapan pengembangan lokal kini bukan sekadar memilih cara menjalankan PHP atau MySQL. Anda juga perlu mempertimbangkan bagaimana banyak runtime, layanan lokal, situs HTTPS, dan klien pemrograman AI bekerja bersama.
 
+Untuk membandingkan kebutuhan dan karakter tiap alat, baca [FlyEnv vs Docker](/id/compare/docker) dan [FlyEnv vs XAMPP](/id/compare/xampp). Ikuti bagian migrasi jika ingin memindahkan proyek yang sudah ada.
+
 Jika Docker terasa berat untuk pekerjaan aplikasi sehari-hari dan XAMPP terasa terlalu tetap untuk proyek modern dengan banyak runtime, FlyEnv berada di posisi yang berbeda: workspace lokal native untuk runtime, layanan, CLI pemrograman AI, dan MCP.
 
 ## Jawaban Singkat

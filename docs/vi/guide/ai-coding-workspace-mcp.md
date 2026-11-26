@@ -176,23 +176,20 @@ Nhờ đó bạn giữ cho AI agent hữu ích mà không phải mặc nhiên tr
 
 ## Bước 5: Chạy một quy trình viết code AI local thực tế
 
-Đây là vòng lặp thiết lập phổ biến trong FlyEnv:
+Chọn một site PHP và MySQL đã đăng ký trong FlyEnv. Video bên dưới theo dõi một ứng dụng CRUD bằng PHP từ lúc thiết lập cơ sở dữ liệu đến khi tải được trang. Bạn có thể dùng cùng các công cụ chỉ đọc để kiểm tra những site PHP khác đã đăng ký.
 
-1. Mở dự án của bạn trong FlyEnv.
-2. Để FlyEnv tự chuyển sang các phiên bản runtime chính xác cho dự án đó.
-3. Khởi động các dịch vụ local mà dự án cần.
-4. Khởi chạy hoặc cấu hình AI coding CLI ưa thích của bạn từ cùng workspace đó.
-5. Khởi động FlyEnv MCP Server.
-6. Thêm cấu hình FlyEnv MCP vào AI client bằng đoạn cấu hình đã sinh sẵn hoặc thao tác "Add to Client" ngay trong ứng dụng.
-7. Để AI kiểm tra chính những dịch vụ, site, cấu hình và log local mà bạn đang dùng.
-
-Đây là điểm FlyEnv khác biệt so với quy trình chỉ dùng shell thông thường: runtime, dịch vụ, AI CLI và kết nối MCP cùng chỉ vào một bối cảnh local duy nhất.
+1. Khởi động máy chủ web đã chọn, dịch vụ PHP của site và MySQL. Mở site trong trình duyệt để xác nhận tải được trang trước khi kết nối tác nhân.
+2. Khởi động [FlyEnv MCP Server](/vi/features/mcp-server), kết nối ứng dụng khách và xác nhận danh sách công cụ có `list_sites`, `resolve_site_runtime` và `resolve_site_urls`. Giữ các công cụ ghi ở trạng thái tắt trong bước kiểm tra này.
+3. Yêu cầu tác nhân gọi `list_sites` và dùng đúng tên site được trả về làm `siteName` cho `resolve_site_runtime` và `resolve_site_urls`. Đối chiếu phiên bản PHP với cấu hình site rồi mở URL trả về để xác nhận ứng dụng tải được.
+4. Xem các lệnh gọi trong **MCP Server → Audit Log** ở FlyEnv. Nếu site không tải, hãy kiểm tra trạng thái máy chủ web và PHP trước khi sửa cấu hình site.
 
 ## Xem demo toàn trình
 
 Nếu bạn muốn thấy quy trình này trong một dự án thật, demo sau đi từ thiết lập MySQL đến một site PHP CRUD chạy thật bằng cách kết hợp FlyEnv, một AI CLI và cầu nối MCP.
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/frprHkD1_rQ" title="Demo toàn trình FlyEnv AI CLI + MCP: Từ MySQL đến một site PHP CRUD chạy thật" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Xem [video CRUD với PHP và MySQL](/vi/demos?video=ai-cli-mcp-crud) trong thư viện demo FlyEnv.
 
 ## Vì sao cách này hiệu quả mà không cần chi phí Docker-first
 
@@ -210,6 +207,10 @@ Với đa số thiết lập, hãy giữ các mặc định sau:
 - dùng chế độ phê duyệt cho các thao tác rủi ro
 
 Chỉ bật truy cập từ xa khi bạn hiểu rõ mức độ phơi nhiễm mạng và thực sự cần đến nó.
+
+HTTP `401` nghĩa là ứng dụng khách thiếu token hoặc dùng token không hợp lệ. Hãy cập nhật cấu hình ứng dụng khách sau khi tạo lại token. Nếu ứng dụng trên trình duyệt nhận `403`, kiểm tra chính xác origin và tùy chọn truy cập từ xa. Nếu danh sách thiếu một công cụ, xem lại tùy chọn bật công cụ trong FlyEnv rồi kết nối lại. Khi hủy phê duyệt, FlyEnv sẽ bỏ qua thao tác đó.
+
+Dùng [plugin AI Memory](/vi/features/ai-memory) nếu muốn tác nhân đã kết nối lưu quyết định dự án để dùng ở phiên sau. Plugin thêm bộ công cụ riêng vào cùng máy chủ MCP.
 
 ## Câu hỏi thường gặp (FAQ)
 

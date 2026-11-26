@@ -8,9 +8,9 @@ head:
 
 # ¿Qué es FlyEnv? Stack Local Nativo, CLI de Programación con IA y Espacio de Trabajo MCP
 
-El desarrollo local moderno ya no es solo PHP y MySQL. Un proyecto real suele necesitar varios runtimes, servicios locales, sitios HTTPS y, ahora, clientes de programación con IA que deben ver el mismo entorno local que usas tú.
+FlyEnv es un espacio de trabajo de escritorio de código abierto para el desarrollo local nativo en Windows, macOS y Linux. Instala los runtimes y servicios que necesita tu proyecto, elige la versión de cada runtime por proyecto y usa dominios personalizados y HTTPS en tus sitios locales. Guarda los servicios en un grupo de inicio para arrancarlos juntos.
 
-FlyEnv es un espacio de trabajo de escritorio nativo que reúne todas esas piezas. Gestiona runtimes y servicios locales, cambia de versión por proyecto, lanza CLI de programación con IA y expone tu contexto local gestionado a través del **FlyEnv MCP Server** integrado.
+Desde el mismo espacio de trabajo puedes iniciar las CLI de programación con IA compatibles y conectarlas a los servicios, sitios y logs gestionados mediante el **FlyEnv MCP Server** integrado.
 
 ## Lo que FlyEnv Hace Realmente
 
@@ -34,7 +34,7 @@ FlyEnv te permite instalar solo el software que necesitas y gestionarlo desde un
 | Utilidades | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE) |
 | Módulos personalizados | Los módulos personalizados pueden añadirse como servicios o comandos y funcionan igual que los módulos integrados. |
 
-Todos los módulos admiten la coexistencia de múltiples versiones, de modo que cada proyecto puede usar las versiones que necesita sin un gestor independiente para cada runtime o servicio.
+En los módulos que ofrecen varias versiones, FlyEnv puede mantener instaladas en paralelo las versiones compatibles. Elige la versión de runtime que necesita cada proyecto.
 
 Además de estos módulos, FlyEnv gestiona sitios locales con dominios personalizados, HTTPS/SSL, proxy inverso, logs y ajustes de runtime a nivel de sitio. También integra los clientes de programación con IA y el FlyEnv MCP Server en el mismo espacio de trabajo, dando a los clientes de IA acceso estructurado a servicios, sitios, configuraciones, logs y acciones seleccionadas.
 

@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Sertifikat HTTPS Lokal dengan FlyEnv
 
-mkcert adalah alat sumber terbuka kecil untuk membuat sertifikat pengembangan yang dipercaya secara lokal: alat ini membuat CA root sendiri, dan setelah CA tersebut dipasang di penyimpanan kepercayaan sistem, setiap sertifikat yang ditandatanganinya diterima browser tanpa peringatan. FlyEnv mengintegrasikan [mkcert](https://github.com/FiloSottile/mkcert) menjadi alur kerja klik-saja: pasang binarinya, percayai CA root sekali, lalu buat sertifikat untuk semua [situs lokal](/id/features/local-sites-https) tanpa menyentuh baris perintah.
+mkcert membuat otoritas sertifikat lokal untuk pengembangan. Peramban harus memercayai CA tersebut dan sertifikat harus mencakup nama host yang dibuka. FlyEnv mengintegrasikan [mkcert](https://github.com/FiloSottile/mkcert) untuk memasang CA dan membuat sertifikat bagi [situs lokal](/id/features/local-sites-https) Anda.
 
 ![FlyEnv MkCert ikhtisar modul](https://oss.macphpstudy.com/image/features/mkcert-1.webp)
 
@@ -50,7 +50,7 @@ Tab **Manajer Versi** memasang dan menjaga binari mkcert tetap mutakhir.
 
 ## CA lokal dan tab Sertifikat
 
-Tab **Sertifikat** adalah inti modul ini. Tab tersebut menampilkan **Jalur Root CA** mkcert (dibaca langsung dari `mkcert -CAROOT`; klik untuk membuka foldernya di pengelola berkas) dan menyediakan tindakan **Pasang CA** yang menjalankan `mkcert -install` di terminal tertanam FlyEnv. Tindakan ini mendaftarkan CA root lokal di penyimpanan kepercayaan sistem agar setiap sertifikat yang ditandatanganinya dipercaya browser Anda.
+Tab **Sertifikat** adalah inti modul ini. Tab tersebut menampilkan **Jalur Root CA** mkcert (dibaca langsung dari `mkcert -CAROOT`; klik untuk membuka foldernya di pengelola berkas) dan menyediakan tindakan **Pasang CA** yang menjalankan `mkcert -install` di terminal tertanam FlyEnv. Tindakan ini mendaftarkan CA root lokal di penyimpanan kepercayaan yang didukung pada perangkat Anda.
 
 - **Pemilih binari:** pilih build mkcert terpasang yang menjalankan perintah; FlyEnv mengutamakan versi pada PATH lingkungannya sendiri.
 - **Eksekusi transparan:** pemasangan CA dan pembuatan sertifikat berjalan terlihat di terminal tertanam, sehingga Anda dapat melihat persis apa yang dilakukan mkcert.
@@ -65,11 +65,13 @@ Tab Sertifikat mencantumkan situs yang Anda buat di FlyEnv, masing-masing besert
 
 ![Generating HTTPS certificate untuk FlyEnv situs](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
 
+Jika muncul peringatan nama host atau kepercayaan, periksa DNS, nama dalam sertifikat, dan kepercayaan peramban dengan [panduan Host](/id/guide/host). Simpan kunci privat CA di perangkat Anda.
+
 <FeatureRelatedLinks locale="id" slug="mkcert" />
 
 ## Catatan kompatibilitas
 
 - mkcert adalah alat baris perintah sekali jalan, bukan layanan latar belakang: tidak ada yang perlu dimulai atau dihentikan, dan modul ini memang tidak memiliki editor berkas konfigurasi maupun penampil log.
-- Sertifikat yang dibuat adalah sertifikat pengembangan tepercaya secara lokal—ditujukan untuk komputer Anda sendiri, bukan produksi atau perangkat lain.
-- Mempercayai CA root (`mkcert -install`) mengubah penyimpanan kepercayaan sistem dan meminta kata sandi sistem Anda; mkcert menanganinya di terminal tertanam.
+- Pada perangkat pengembangan lain, pasang `rootCA.pem` publik di penyimpanan kepercayaan perangkat. Jaga kerahasiaan `rootCA-key.pem` dan gunakan sertifikat ini hanya untuk pengembangan.
+- Mempercayai CA root (`mkcert -install`) mengubah penyimpanan kepercayaan sistem dan mungkin meminta persetujuan administrator di terminal tertanam.
 - Sumber pemasangan berbeda menurut platform: build statis tersedia di semua platform, sedangkan Homebrew tersedia di macOS dan Linux. Lihat [halaman Unduhan](/id/download) untuk platform yang didukung FlyEnv.

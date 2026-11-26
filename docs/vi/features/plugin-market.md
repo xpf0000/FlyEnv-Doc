@@ -9,6 +9,8 @@ description: 'Khám phá các plugin FlyEnv cho SamWaf, bộ nhớ AI bền vữ
 
 Plugin Market thêm các module tùy chọn vào workspace FlyEnv của bạn. Cài những công cụ mà dự án của bạn cần, và quản lý chúng ngay cạnh các runtime và dịch vụ sẵn có. Plugin có thể mang theo điều khiển dịch vụ, quản lý phiên bản, trình chỉnh sửa cấu hình và các khung nhìn chuyên biệt của riêng mình vào ứng dụng.
 
+[Demo MySQL Cluster](/vi/demos?video=mysql-cluster-replication) cho thấy module cài từ Plugin Market sử dụng phiên bản cơ sở dữ liệu được FlyEnv quản lý.
+
 Mở **Settings → Plugin Market** để duyệt các plugin chính thức, quản lý các plugin đã cài hay thêm một nguồn bên thứ ba.
 
 ![Plugin Market FlyEnv hiển thị các plugin chính thức với điều khiển cài, cài lại và cập nhật](https://oss.macphpstudy.com/image/features/plugin/plugin-market-official.png)

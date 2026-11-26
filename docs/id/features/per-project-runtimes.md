@@ -35,11 +35,13 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 FlyEnv memungkinkan setiap folder proyek membawa versi runtime sendiri, sehingga basis kode PHP lama dan aplikasi Node.js modern dapat hidup berdampingan di komputer yang sama. Lihat [mengelola beberapa versi Node dan PHP](/id/guide/manage-multiple-node-php-versions) untuk sisi manajer versi. Daftarkan proyek di tab **Proyek** modul bahasa apa pun, pilih versi binari yang tepat, dan FlyEnv mencatat pilihan itu di dalam proyek. Sejak saat itu, terminal, editor, dan perintah yang dijalankan untuk proyek tersebut otomatis menggunakan toolchain yang benar. Alur langkah demi langkah tersedia di [panduan lingkungan runtime tingkat proyek](/id/guide/project-level-runtime-environment).
 
+Misalnya, ikat satu proyek ke Node.js 22 dan proyek lain ke Node.js 24. Buka masing-masing dari **Projects**, atau masuk ke direktori terdaftarnya di shell yang didukung dengan hook FlyEnv aktif. Jalankan `node -v` untuk memeriksa versi yang dipakai. [Lihat demo perpindahan proyek](/id/demos?video=project-environment-switching).
+
 ![Tab Proyek FlyEnv yang mencantumkan proyek terdaftar dan versi runtime terikat](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## Cara kerja .flyenv
 
-Saat Anda menambahkan proyek atau mengubah versi terikatnya, FlyEnv menulis berkas kecil `.flyenv` ke direktori proyek. Berkas itu menjadi satu-satunya sumber kebenaran lingkungan proyek.
+Editor atau terminal yang dibuka secara terpisah bisa memakai lingkungan awalnya. Gunakan tindakan buka proyek FlyEnv atau shell yang mendukung pemuatan konfigurasi proyek.
 
 - **Menambahkan PATH di depan:** di macOS dan Linux, berkas berisi baris `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"` yang menunjuk direktori runtime terikat; di Windows digunakan penetapan PowerShell `$env:PATH` yang setara.
 - **Bertanda dan idempoten:** setiap baris yang ditulis FlyEnv diberi tag `#FlyEnv-ID-<projectId>`, sehingga pengeditan ulang menulis baris yang sama di tempatnya, bukan menambahkan duplikat.
@@ -68,7 +70,7 @@ Karena pengikatan berada di proyek, bukan pengaturan global, alat apa pun yang d
 
 ## Pemilihan versi per situs
 
-Pengikatan proyek berlaku untuk baris perintah; situs yang diakses melalui browser memiliki pilihan versi sendiri. Setiap situs yang dibuat di modul [Host](/id/features/local-sites-https) memilih versi PHP-FPM yang melayaninya (atau tetap menjadi situs statis). Beberapa versi PHP-FPM dapat berjalan bersamaan, masing-masing pada soket sendiri, sehingga situs berbeda dilayani build PHP berbeda pada waktu yang sama. Daftar situs menampilkan versi yang melayani tiap situs, dan konfigurasi integrasi server web dibuat ulang saat versi dimulai. Kemampuan lengkap dijelaskan di [halaman fitur PHP](/id/features/php).
+Setiap situs yang dibuat di [Host](/id/features/local-sites-https) dapat memilih versi PHP terpasang yang melayaninya. Beberapa versi dapat melayani situs berbeda sekaligus. macOS dan Linux memakai soket Unix terpisah, sementara Windows memakai listener FastCGI terpisah. Lihat [fitur PHP](/id/features/php) untuk detail platform.
 
 ![Daftar situs modul Host yang menampilkan versi PHP untuk setiap situs](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
 

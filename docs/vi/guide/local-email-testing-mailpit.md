@@ -61,7 +61,7 @@ FlyEnv biến việc này thành chuyện nhỏ:
 
 Trỏ các cài đặt SMTP của ứng dụng về Mailpit:
 
-**Cho PHP (Laravel/Symfony/WordPress):**
+**Cho Laravel (`.env`):**
 ```ini
 MAIL_MAILER=smtp
 MAIL_HOST=127.0.0.1
@@ -109,6 +109,23 @@ Các điểm truy cập mặc định:
 ### Bước 4: Kiểm tra việc bắt email
 
 Gửi một email kiểm thử từ ứng dụng của bạn. Mở http://127.0.0.1:8025 để xem các thư đã được bắt.
+
+Trong dự án Laravel cục bộ dùng cấu hình SMTP ở trên, xóa bộ nhớ đệm cấu hình rồi mở Tinker. Nếu dự án đặt `MAIL_URL`, hãy bỏ giá trị ghi đè khỏi cấu hình local trước. Tắt relay và chuyển tiếp SMTP trong khi thử. Đặt `MAIL_SCHEME=smtp` nếu `config/mail.php` đọc thiết lập này.
+
+```sh
+php artisan config:clear
+php artisan tinker
+```
+
+Chạy đoạn mã này trong Tinker, sau đó tìm thư có tiêu đề **Mailpit smoke test** trong hộp thư Mailpit.
+
+```php
+\Illuminate\Support\Facades\Mail::raw('Local SMTP check', function ($message) {
+    $message->from('app@example.test')->to('dev@example.test')->subject('Mailpit smoke test');
+});
+```
+
+Xem [mô-đun Mailpit](/vi/features/mailpit) để biết địa chỉ lắng nghe và nhật ký, hoặc [xem demo bắt thư SMTP](/vi/demos?video=mailpit-local).
 
 ## Dùng Mailpit để kiểm thử email
 

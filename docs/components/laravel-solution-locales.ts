@@ -82,7 +82,6 @@ const featurePaths: Record<FeatureKey, string> = {
 }
 
 const relatedLogos = {
-  symfony: 'https://cdn.simpleicons.org/symfony/000000',
   wordpress: 'https://cdn.simpleicons.org/wordpress/21759B',
   magento: '/assets/demo-logos/magento.svg'
 }
@@ -158,7 +157,7 @@ const english: CopyData = {
   benefitsTitle: 'Why use FlyEnv for Laravel development',
   benefitsDescription: 'A more predictable and enjoyable local development experience for Laravel.',
   benefits: [
-    { icon: 'code', title: 'Use different PHP versions per project', description: 'Keep Laravel projects on the versions they require without changing a global runtime.', emphasis: true, evidence: 'Laravel 8 → PHP 7.4 · Laravel 11 → PHP 8.2 · Laravel 12 → PHP 8.3+' },
+    { icon: 'code', title: 'Use different PHP versions per project', description: 'Keep Laravel projects on the versions they require without changing a global runtime.', emphasis: true, evidence: 'composer.json → project PHP → site PHP' },
     { icon: 'play', title: 'Run the full stack with one click', description: 'Start PHP, the database, Redis, the web server, and more from one Startup Group.', emphasis: true, evidence: 'PHP + Nginx + MySQL + Redis → Startup Group' },
     { icon: 'database', title: 'Choose MySQL or PostgreSQL', description: 'Use the database that matches the project instead of adapting the project to the tool.' },
     { icon: 'cache', title: 'Add Redis only when needed', description: 'Enable cache, sessions, or queues without carrying an unused service everywhere.' },
@@ -193,7 +192,7 @@ const english: CopyData = {
     { question: 'Does FlyEnv replace the Laravel installation guide?', answer: 'No. The Solution page explains the environment and workflow; the Laravel Guide covers the detailed setup steps and configuration.' }
   ],
   relatedTitle: 'Related solutions',
-  relatedSolutions: [{ name: 'Symfony', description: 'Modern PHP framework', slug: 'symfony', logo: relatedLogos.symfony }, { name: 'WordPress', description: 'CMS & websites', slug: 'wordpress', logo: relatedLogos.wordpress }, { name: 'Magento', description: 'E-commerce', slug: 'magento', logo: relatedLogos.magento }],
+  relatedSolutions: [{ name: 'WordPress', description: 'CMS & websites', slug: 'wordpress', logo: relatedLogos.wordpress }, { name: 'Magento', description: 'E-commerce', slug: 'magento', logo: relatedLogos.magento }],
   ctaTitle: 'Ready to build Laravel locally?',
   ctaDescription: 'Run PHP, databases, Redis, local domains, and HTTPS in one workspace.',
   haveQuestions: 'Have questions using FlyEnv?'
@@ -239,7 +238,7 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { icon: 'play', title: '可重复启动', description: '每次返回项目时，都可以直接启动它的 Startup Group。' }
     ],
     benefits: [
-      { icon: 'code', title: '每个项目使用不同的 PHP 版本', description: '让 Laravel 项目使用各自需要的版本，无需修改全局运行时。', emphasis: true, evidence: 'Laravel 8 → PHP 7.4 · Laravel 11 → PHP 8.2 · Laravel 12 → PHP 8.3+' },
+      { icon: 'code', title: '每个项目使用不同的 PHP 版本', description: '让 Laravel 项目使用各自需要的版本，无需修改全局运行时。', emphasis: true, evidence: 'composer.json → project PHP → site PHP' },
       { icon: 'play', title: '一键运行完整技术栈', description: '通过一个 Startup Group 启动 PHP、数据库、Redis、Web 服务器等服务。', emphasis: true, evidence: 'PHP + Nginx + MySQL + Redis → Startup Group' },
       { icon: 'database', title: '选择 MySQL 或 PostgreSQL', description: '根据项目选择合适的数据库，而不是让项目迁就工具。' },
       { icon: 'cache', title: '需要时再添加 Redis', description: '按需启用缓存、Session 或队列，不必让每个项目都携带闲置服务。' },
@@ -266,7 +265,6 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { question: 'FlyEnv 会替代 Laravel 官方安装指南吗？', answer: '不会。本解决方案页面介绍环境和工作流，Laravel 指南则提供详细的安装步骤与配置说明。' }
     ],
     relatedSolutions: [
-      { name: 'Symfony', description: '现代 PHP 框架', slug: 'symfony', logo: relatedLogos.symfony },
       { name: 'WordPress', description: 'CMS 与网站', slug: 'wordpress', logo: relatedLogos.wordpress },
       { name: 'Magento', description: '电子商务', slug: 'magento', logo: relatedLogos.magento }
     ]
@@ -295,7 +293,7 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { icon: 'play', title: 'Startup yang konsisten', description: 'Jalankan Startup Group proyek setiap kali kembali mengerjakannya.' }
     ],
     benefits: [
-      { icon: 'code', title: 'Gunakan versi PHP berbeda untuk tiap proyek', description: 'Pertahankan setiap proyek Laravel pada versi yang dibutuhkannya tanpa mengubah runtime global.', emphasis: true, evidence: 'Laravel 8 → PHP 7.4 · Laravel 11 → PHP 8.2 · Laravel 12 → PHP 8.3+' },
+      { icon: 'code', title: 'Gunakan versi PHP berbeda untuk tiap proyek', description: 'Pertahankan setiap proyek Laravel pada versi yang dibutuhkannya tanpa mengubah runtime global.', emphasis: true, evidence: 'composer.json → project PHP → site PHP' },
       { icon: 'play', title: 'Jalankan seluruh stack dengan satu klik', description: 'Mulai PHP, database, Redis, web server, dan lainnya dari satu Startup Group.', emphasis: true, evidence: 'PHP + Nginx + MySQL + Redis → Startup Group' },
       { icon: 'database', title: 'Pilih MySQL atau PostgreSQL', description: 'Gunakan database yang sesuai dengan proyek tanpa menyesuaikan proyek pada tool.' },
       { icon: 'cache', title: 'Tambahkan Redis hanya saat diperlukan', description: 'Aktifkan cache, session, atau antrean tanpa membawa layanan yang tidak digunakan.' },
@@ -322,7 +320,6 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { question: 'Apakah FlyEnv menggantikan panduan instalasi Laravel?', answer: 'Tidak. Halaman Solusi menjelaskan lingkungan dan workflow, sedangkan Panduan Laravel membahas langkah setup dan konfigurasi secara rinci.' }
     ],
     relatedSolutions: [
-      { name: 'Symfony', description: 'Framework PHP modern', slug: 'symfony', logo: relatedLogos.symfony },
       { name: 'WordPress', description: 'CMS & website', slug: 'wordpress', logo: relatedLogos.wordpress },
       { name: 'Magento', description: 'E-commerce', slug: 'magento', logo: relatedLogos.magento }
     ]
@@ -351,7 +348,7 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { icon: 'play', title: 'Inicio repetible', description: 'Inicia el Startup Group del proyecto cada vez que vuelvas a la aplicación.' }
     ],
     benefits: [
-      { icon: 'code', title: 'Usa distintas versiones de PHP por proyecto', description: 'Mantén cada proyecto Laravel en la versión que necesita sin cambiar el runtime global.', emphasis: true, evidence: 'Laravel 8 → PHP 7.4 · Laravel 11 → PHP 8.2 · Laravel 12 → PHP 8.3+' },
+      { icon: 'code', title: 'Usa distintas versiones de PHP por proyecto', description: 'Mantén cada proyecto Laravel en la versión que necesita sin cambiar el runtime global.', emphasis: true, evidence: 'composer.json → project PHP → site PHP' },
       { icon: 'play', title: 'Ejecuta todo el stack con un clic', description: 'Inicia PHP, la base de datos, Redis, el servidor web y más desde un único Startup Group.', emphasis: true, evidence: 'PHP + Nginx + MySQL + Redis → Startup Group' },
       { icon: 'database', title: 'Elige MySQL o PostgreSQL', description: 'Usa la base de datos que corresponde al proyecto, sin adaptar el proyecto a la herramienta.' },
       { icon: 'cache', title: 'Añade Redis solo cuando haga falta', description: 'Activa caché, sesiones o colas sin mantener servicios que no utilizas.' },
@@ -378,7 +375,6 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { question: '¿FlyEnv sustituye la guía de instalación de Laravel?', answer: 'No. Esta página explica el entorno y el flujo de trabajo; la guía de Laravel cubre los pasos detallados de configuración e instalación.' }
     ],
     relatedSolutions: [
-      { name: 'Symfony', description: 'Framework PHP moderno', slug: 'symfony', logo: relatedLogos.symfony },
       { name: 'WordPress', description: 'CMS y sitios web', slug: 'wordpress', logo: relatedLogos.wordpress },
       { name: 'Magento', description: 'Comercio electrónico', slug: 'magento', logo: relatedLogos.magento }
     ]
@@ -407,7 +403,7 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { icon: 'play', title: 'Khởi động lặp lại', description: 'Khởi động Startup Group của dự án mỗi khi bạn quay lại ứng dụng.' }
     ],
     benefits: [
-      { icon: 'code', title: 'Dùng các phiên bản PHP khác nhau theo dự án', description: 'Giữ các dự án Laravel ở các phiên bản chúng yêu cầu mà không thay đổi runtime toàn cục.', emphasis: true, evidence: 'Laravel 8 → PHP 7.4 · Laravel 11 → PHP 8.2 · Laravel 12 → PHP 8.3+' },
+      { icon: 'code', title: 'Dùng các phiên bản PHP khác nhau theo dự án', description: 'Giữ các dự án Laravel ở các phiên bản chúng yêu cầu mà không thay đổi runtime toàn cục.', emphasis: true, evidence: 'composer.json → project PHP → site PHP' },
       { icon: 'play', title: 'Chạy toàn bộ stack bằng một cú nhấp', description: 'Khởi động PHP, cơ sở dữ liệu, Redis, web server và hơn thế từ một Startup Group.', emphasis: true, evidence: 'PHP + Nginx + MySQL + Redis → Startup Group' },
       { icon: 'database', title: 'Chọn MySQL hoặc PostgreSQL', description: 'Dùng cơ sở dữ liệu phù hợp với dự án thay vì đổi dự án cho phù hợp công cụ.' },
       { icon: 'cache', title: 'Thêm Redis chỉ khi cần', description: 'Bật cache, session hoặc hàng đợi mà không phải mang theo một dịch vụ không dùng đến.' },
@@ -434,10 +430,52 @@ const localizedSections: Record<Exclude<LaravelSolutionLocale, 'en'>, Partial<Co
       { question: 'FlyEnv có thay thế hướng dẫn cài đặt Laravel?', answer: 'Không. Trang giải pháp giải thích môi trường và quy trình làm việc; hướng dẫn Laravel trình bày các bước thiết lập và cấu hình chi tiết.' }
     ],
     relatedSolutions: [
-      { name: 'Symfony', description: 'Framework PHP hiện đại', slug: 'symfony', logo: relatedLogos.symfony },
       { name: 'WordPress', description: 'CMS và trang web', slug: 'wordpress', logo: relatedLogos.wordpress },
       { name: 'Magento', description: 'Thương mại điện tử', slug: 'magento', logo: relatedLogos.magento }
     ]
+  }
+}
+
+export const laravelVerification = {
+  en: {
+    title: 'Verify the Laravel request and the background job separately',
+    request: 'In Projects, set the PHP version required by composer.json and check php -v in the project terminal. In Host, point the local domain at public and select a compatible site PHP version. Open a database-backed route over HTTPS to check the web server, application and database connection.',
+    jobs: 'If the project uses a queue, run its configured worker, for example php artisan queue:work, and verify a test job. For scheduled tasks, use the project’s scheduler configuration and verify a due task. A running Redis service only supplies the backend that the app configures.',
+    group: 'Configure Startup Groups',
+    runtime: 'Set the project PHP runtime',
+    demo: 'Watch the PHP app services demo for Octane-style processes'
+  },
+  zh: {
+    title: '分别验证 Laravel 网页请求和后台任务',
+    request: '在「项目」中选择 composer.json 所需的 PHP，并在项目终端中检查 php -v。在「站点」把本地域名指向 public 目录，并选择兼容的站点 PHP。用 HTTPS 打开一个读取数据库的路由，检查 Web 服务器、应用和数据库连接。',
+    jobs: '项目使用队列时，运行配置好的 Worker，例如 php artisan queue:work，并验证一条测试任务。使用定时任务时，按项目的调度配置验证一个到期任务。Redis 进程只提供应用配置的后端服务。',
+    group: '配置启动组',
+    runtime: '设置项目 PHP 运行时',
+    demo: '观看 Octane 类 PHP 应用进程演示'
+  },
+  id: {
+    title: 'Uji permintaan Laravel dan pekerjaan latar belakang secara terpisah',
+    request: 'Di Projects, pilih PHP sesuai composer.json dan cek php -v di terminal proyek. Di Host, arahkan domain ke public dan pilih PHP situs yang kompatibel. Buka rute yang membaca database lewat HTTPS untuk memeriksa server web, aplikasi, dan koneksi.',
+    jobs: 'Jika proyek memakai antrean, jalankan worker yang dikonfigurasi, misalnya php artisan queue:work, lalu uji satu pekerjaan. Untuk tugas terjadwal, gunakan konfigurasi scheduler proyek dan periksa tugas yang waktunya tiba. Redis menyediakan backend sesuai konfigurasi aplikasi.',
+    group: 'Atur Startup Groups',
+    runtime: 'Tetapkan runtime PHP proyek',
+    demo: 'Tonton demo layanan PHP untuk proses seperti Octane'
+  },
+  es: {
+    title: 'Comprueba por separado la petición de Laravel y el trabajo en segundo plano',
+    request: 'En Projects, asigna el PHP requerido en composer.json y verifica php -v en la terminal del proyecto. En Host, dirige el dominio a public y selecciona un PHP compatible para el sitio. Abre por HTTPS una ruta que acceda a la base para comprobar el servidor, la aplicación y la conexión.',
+    jobs: 'Si el proyecto usa colas, ejecuta su worker configurado, por ejemplo php artisan queue:work, y comprueba un trabajo de prueba. Para tareas programadas, usa la configuración del planificador del proyecto y verifica una tarea pendiente. Redis proporciona el servicio que define la configuración de la aplicación.',
+    group: 'Configura los grupos de inicio',
+    runtime: 'Asigna el runtime PHP del proyecto',
+    demo: 'Mira la demo de servicios PHP para procesos como Octane'
+  },
+  vi: {
+    title: 'Kiểm tra riêng yêu cầu Laravel và tác vụ nền',
+    request: 'Trong Projects, chọn PHP theo composer.json và chạy php -v trong terminal dự án. Trong Host, trỏ tên miền về public và chọn PHP tương thích cho site. Dùng HTTPS mở một route có đọc cơ sở dữ liệu để kiểm tra máy chủ web, ứng dụng và kết nối.',
+    jobs: 'Nếu dự án dùng hàng đợi, chạy worker đã cấu hình, chẳng hạn php artisan queue:work, rồi kiểm tra một tác vụ thử. Với tác vụ định kỳ, dùng cấu hình bộ lập lịch của dự án và kiểm tra một tác vụ đến hạn. Redis cung cấp dịch vụ nền mà ứng dụng đã cấu hình.',
+    group: 'Cấu hình Startup Groups',
+    runtime: 'Gán PHP cho dự án',
+    demo: 'Xem demo dịch vụ PHP cho tiến trình kiểu Octane'
   }
 }
 

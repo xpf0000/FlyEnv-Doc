@@ -2,7 +2,7 @@
 layout: page
 titleTemplate: false
 title: 'Run ERPNext Locally with FlyEnv'
-description: 'Run ERPNext locally with Python, MariaDB, Redis, Nginx and HTTPS using FlyEnv on Windows, macOS and Linux.'
+description: 'Manage an existing ERPNext/Frappe stack with MariaDB, Redis, Nginx and FlyEnv Startup Groups. See a recorded macOS restart and verify the site.'
 head:
   - - meta
     - name: keywords
@@ -12,7 +12,7 @@ head:
       content: 'Run ERPNext Locally with FlyEnv'
   - - meta
     - property: og:description
-      content: 'Manage a local ERPNext environment with FlyEnv on Windows, macOS, and Linux.'
+      content: 'Manage an existing ERPNext/Frappe stack with MariaDB, Redis, Nginx and FlyEnv Startup Groups. See a recorded macOS restart and verify the site.'
   - - meta
     - property: og:url
       content: https://flyenv.com/solutions/erpnext

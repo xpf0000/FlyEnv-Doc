@@ -176,23 +176,20 @@ Esto te permite mantener a los agentes de IA útiles sin entregarles por defecto
 
 ## Paso 5: Ejecuta un flujo de trabajo práctico de programación con IA local
 
-Este es el ciclo de configuración habitual dentro de FlyEnv:
+Elige un sitio PHP y MySQL que ya tengas registrado en FlyEnv. La demo muestra un proyecto CRUD en PHP desde la configuración de la base de datos hasta la página en funcionamiento. Puedes comprobar otros sitios PHP registrados con las mismas herramientas de solo lectura.
 
-1. Abre tu proyecto en FlyEnv.
-2. Deja que FlyEnv cambie a las versiones de runtime correctas para ese proyecto.
-3. Inicia los servicios locales que tu proyecto necesita.
-4. Lanza o configura tu CLI de programación con IA preferido desde el mismo espacio de trabajo.
-5. Inicia el FlyEnv MCP Server.
-6. Añade la configuración MCP de FlyEnv al cliente de IA usando el fragmento generado o la acción "Add to Client" dentro de la app.
-7. Deja que la IA inspeccione los mismos servicios locales, sitios, configuraciones y logs que usas tú.
-
-Aquí es donde FlyEnv se diferencia de un flujo de trabajo genérico solo con shell: el runtime, los servicios, el CLI de IA y la conexión MCP apuntan todos al mismo contexto local.
+1. Inicia el servidor web elegido, el servicio PHP del sitio y MySQL. Abre el sitio en el navegador para comprobar que carga antes de conectar un agente.
+2. Inicia el [servidor MCP de FlyEnv](/es/features/mcp-server), conecta el cliente y comprueba que ofrece `list_sites`, `resolve_site_runtime` y `resolve_site_urls`. Mantén desactivadas las herramientas de escritura durante esta comprobación.
+3. Pide al agente que llame a `list_sites` y use el nombre exacto que devuelve como `siteName` en `resolve_site_runtime` y `resolve_site_urls`. Compara la versión de PHP con los ajustes del sitio y abre la URL devuelta para confirmar que carga.
+4. Revisa las llamadas en **Servidor MCP → Registro de auditoría** en FlyEnv. Si el sitio no carga, comprueba primero el estado de PHP y del servidor web.
 
 ## Mira la demo de principio a fin
 
 Si quieres ver este flujo de trabajo en un proyecto real, esta demo va desde la configuración de MySQL hasta un sitio PHP CRUD en funcionamiento, usando FlyEnv, un CLI de IA y el puente MCP juntos.
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/frprHkD1_rQ" title="Demo completa de FlyEnv AI CLI y MCP: de MySQL a un sitio PHP CRUD en funcionamiento" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Mira la [demo de CRUD con PHP y MySQL](/es/demos?video=ai-cli-mcp-crud) en la biblioteca de FlyEnv.
 
 ## Por qué funciona bien sin la sobrecarga de un enfoque Docker-first
 
@@ -210,6 +207,10 @@ Para la mayoría de las configuraciones, mantén estos valores por defecto:
 - usa la aprobación para las operaciones arriesgadas
 
 Activa el acceso remoto solo si entiendes la exposición de red que implica y la necesitas explícitamente.
+
+Un HTTP `401` indica que falta el token o que no es válido. Actualiza la configuración del cliente tras regenerarlo. Si un cliente de navegador recibe un `403`, revisa su origen exacto y el ajuste de acceso remoto. Si una herramienta no aparece, revisa su interruptor en FlyEnv y vuelve a conectar el cliente. Al cancelar la confirmación, la llamada queda sin ejecutar.
+
+Usa el [complemento AI Memory](/es/features/ai-memory) si también quieres que un agente conectado guarde decisiones del proyecto para otra sesión. El complemento añade sus propias herramientas al mismo servidor MCP.
 
 ## Preguntas frecuentes (FAQ)
 

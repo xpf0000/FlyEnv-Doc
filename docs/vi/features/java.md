@@ -82,6 +82,8 @@ Các dự án khác nhau thường cần các JDK khác nhau. Trong **Java → D
 
 ![Danh sách dự án Java với gắn JDK theo từng dự án](https://oss.macphpstudy.com/image/features/java-5.webp)
 
+Xem [demo OpenMRS](/vi/demos?video=openmrs-local-project) để biết cách chạy ứng dụng web Java bằng Tomcat. [Giải pháp Spring Boot](/vi/solutions/spring-boot) hướng dẫn quy trình với JAR thực thi.
+
 <FeatureRelatedLinks locale="vi" slug="java" />
 
 ## Lưu ý tương thích

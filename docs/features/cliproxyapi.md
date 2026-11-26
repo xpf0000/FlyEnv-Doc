@@ -1,18 +1,18 @@
 ---
 layout: doc
 titleTemplate: false
-title: 'CLIProxyAPI Local AI Gateway Manager | FlyEnv'
-description: 'Run CLIProxyAPI versions as a local AI gateway with managed config.yaml, env backends and a management UI.'
+title: 'CLIProxyAPI GUI: Install and Manage the Local Proxy | FlyEnv'
+description: 'Install and switch CLIProxyAPI versions in FlyEnv, edit config.yaml, start the local proxy and open its upstream management panel.'
 head:
   - - meta
     - name: description
-      content: 'Run CLIProxyAPI versions as a local AI gateway with managed config.yaml, env backends and a management UI.'
+      content: 'Install and switch CLIProxyAPI versions in FlyEnv, edit config.yaml, start the local proxy and open its upstream management panel.'
   - - meta
     - property: og:title
-      content: 'CLIProxyAPI Local AI Gateway Manager | FlyEnv'
+      content: 'CLIProxyAPI GUI: Install and Manage the Local Proxy | FlyEnv'
   - - meta
     - property: og:description
-      content: 'Run CLIProxyAPI versions as a local AI gateway with managed config.yaml, env backends and a management UI.'
+      content: 'Install and switch CLIProxyAPI versions in FlyEnv, edit config.yaml, start the local proxy and open its upstream management panel.'
   - - meta
     - property: og:type
       content: website
@@ -31,9 +31,11 @@ head:
 import FeatureRelatedLinks from '../components/FeatureRelatedLinks.vue'
 </script>
 
-# CLIProxyAPI in FlyEnv
+# CLIProxyAPI GUI in FlyEnv
 
 CLIProxyAPI is an open source local proxy that puts CLI-based AI tools — such as Gemini CLI, [Claude Code](/features/claude-code) and [Codex](/features/codex), both of which FlyEnv also manages — behind standard OpenAI-, Gemini- and Claude-compatible API endpoints. It lets applications that expect a hosted model API call these CLI accounts as if they were ordinary HTTP services, with several providers unified behind one local gateway. FlyEnv runs CLIProxyAPI as a managed local AI gateway: install versions from the Version Manager, start the `cli-proxy-api` process from the sidebar or the module page, edit `config.yaml` and the backend environment file inside the app, and open the built-in management panel in your browser. Startup output is captured to per-version log files, so a failed start is easy to diagnose.
+
+FlyEnv provides the desktop controls for installing, starting and configuring CLIProxyAPI. The browser management panel and provider integrations come from the CLIProxyAPI version you run. See the [upstream CLIProxyAPI documentation](https://help.router-for.me/) for provider setup and API behavior.
 
 ![CLIProxyAPI module overview in FlyEnv](https://oss.macphpstudy.com/image/features/cliproxyapi-1.webp)
 
@@ -59,7 +61,9 @@ The Service tab launches the selected version as `cli-proxy-api -config <config.
 
 ## Management UI on port 8317
 
-While the service is running, the Service tab shows a button that opens CLIProxyAPI's built-in management panel in your browser at `http://127.0.0.1:<port>/management.html`. FlyEnv reads the port from `config.yaml`; with the default template that is 8317. Set `MANAGEMENT_PASSWORD` in the Env tab before exposing the panel to anything beyond local use.
+When CLIProxyAPI is running, open its upstream management panel from the Service tab. FlyEnv reads the port from `config.yaml` and opens `http://127.0.0.1:<port>/management.html`.
+
+For a local-only setup, set `host: "127.0.0.1"` in `config.yaml` and keep `remote-management.allow-remote` disabled. Set a private `remote-management.secret-key` in the bundled configuration and leave `MANAGEMENT_PASSWORD` unset, since that environment variable can enable remote management. Restart the service. The bundled default port is 8317.
 
 ![Opening the CLIProxyAPI management panel from the Service tab](https://oss.macphpstudy.com/image/features/cliproxyapi-4.webp)
 
@@ -68,6 +72,8 @@ While the service is running, the Service tab shows a button that opens CLIProxy
 The Log tab displays the captured output of each version as `cliproxyapi-<version>-start-out.log` and `cliproxyapi-<version>-start-error.log`, with a toggle between the two streams. When a version refuses to start or the management page does not respond, the error log is the first place to look.
 
 ![CLIProxyAPI start log viewer with out and error toggle](https://oss.macphpstudy.com/image/features/cliproxyapi-5.webp)
+
+[Watch the CLIProxyAPI setup demo](/demos?video=cliproxyapi-gateway)
 
 <FeatureRelatedLinks slug="cliproxyapi" />
 

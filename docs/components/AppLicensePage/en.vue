@@ -16,7 +16,8 @@
             Get a FlyEnv License
           </h1>
           <p class="!mb-0 !mt-7 !text-lg !leading-8 text-slate-600 dark:text-slate-300 md:!text-xl">
-            A one-time purchase unlocks premium features on one device. No subscription.
+            Core local development is free. A one-time $10 license unlocks premium features on
+            one active device. After checkout, request your license in FlyEnv.
           </p>
           <div
             class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-medium text-slate-600 dark:text-slate-300"
@@ -104,6 +105,7 @@
               type="button"
               class="mt-12 inline-flex min-h-14 w-full items-center justify-center rounded-md bg-orange-500 px-6 text-base font-semibold text-white transition hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 active:translate-y-px disabled:cursor-wait disabled:opacity-70"
               :disabled="paddleLoading"
+              data-analytics-license-purchase="hero"
               @click="openPaddleCheckout"
             >
               {{ paddleLoading ? 'Opening checkout...' : 'Buy securely with Paddle' }}
@@ -151,7 +153,7 @@
                     >Purchase</strong
                   >
                   <span class="mt-2 block !text-base !leading-7 text-slate-500 dark:text-slate-400">
-                    Complete your purchase securely through Paddle.
+                    Complete your purchase through Paddle and keep your order ID or receipt email.
                   </span>
                 </div>
               </li>
@@ -166,8 +168,8 @@
                     >Request a license in FlyEnv</strong
                   >
                   <span class="mt-2 block !text-base !leading-7 text-slate-500 dark:text-slate-400">
-                    Open FlyEnv Settings -&gt; License, then submit your Paddle order ID or receipt
-                    email with a contact email.
+                    Open Settings → License in FlyEnv and scroll to the request form. Enter your
+                    order ID or receipt email and provide an email address for notifications.
                   </span>
                 </div>
               </li>
@@ -182,8 +184,7 @@
                     Receive your license
                   </strong>
                   <span class="mt-2 block !text-base !leading-7 text-slate-500 dark:text-slate-400">
-                    Your request is reviewed manually, and the license is issued once it has been
-                    verified.
+                    FlyEnv reviews requests manually and emails you when your license is issued.
                   </span>
                 </div>
               </li>
@@ -542,6 +543,7 @@
               type="button"
               class="inline-flex min-h-14 items-center justify-center rounded-md bg-white px-6 text-base font-semibold text-slate-900 transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:translate-y-px disabled:cursor-wait disabled:opacity-70"
               :disabled="paddleLoading"
+              data-analytics-license-purchase="footer"
               @click="openPaddleCheckout"
             >
               {{ paddleLoading ? 'Opening checkout...' : 'Buy License' }}

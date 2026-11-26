@@ -42,9 +42,9 @@ FlyEnv ships a built-in MCP server that lets AI coding assistants operate your l
 The server runs inside the FlyEnv app itself, so there is nothing to install — the **Service** tab only controls how it listens and when it starts.
 
 - **Bind host and port:** the default address is `127.0.0.1:7682`; the port accepts any value from 1024 to 65535. Non-loopback binding is rejected unless you explicitly enable remote access, which triggers a warning dialog first.
-- **Bearer-token authentication:** clients must present the generated token on every request. Regenerate it with one click to revoke all existing clients at once.
+- **Bearer-token authentication:** clients send the generated token when accessing MCP. Regenerate it to invalidate the previous token, then update the clients you want to reconnect.
 - **Auto-start on launch:** the server can come up automatically whenever FlyEnv opens, so your assistants are never left pointing at a dead endpoint.
-- **Independent service:** FlyEnv MCP Server is excluded from the global "start all" group, so bulk-starting your stack never brings the AI interface up unintentionally.
+- **Independent service:** enable this setting to skip the MCP server when FlyEnv starts or stops services through its global controls.
 - **stdio bridge:** for clients that prefer stdio, FlyEnv copies a `flyenv-mcp-stdio.mjs` bridge script into its data directory, ready to be executed by an external [Node.js](/features/nodejs) runtime.
 
 ![Service tab with host, port and token options](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
@@ -68,6 +68,8 @@ The **Tools** tab groups built-in and plugin tools and decides which of them an 
 - **Per-tool enable switch:** turn any individual tool off to remove it from what clients can call at all.
 - **Approval policies for risky tools:** the 7 lifecycle, site-write and install tools each carry an auto/confirm policy — default is confirm, so sensitive operations wait for your approval unless you deliberately relax it.
 
+`delete_site` and `install_service` are disabled by default. The `flyenv://services` and `flyenv://sites` MCP resources are available when the corresponding `list_services` and `list_sites` tools are enabled.
+
 ![Tools tab with per-tool switches and approval policies](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
 Install **[AI Memory](/features/ai-memory)** to add five memory tools for searching, reading, saving, updating and deleting local agent memories. Their enable switches and approval policies are managed in the plugin group, alongside the built-in environment tools.
@@ -77,11 +79,13 @@ Install **[AI Memory](/features/ai-memory)** to add five memory tools for search
 The **Audit Log** tab is a live viewer over `audit.log` in FlyEnv's MCP data directory — a JSON-lines record of every tool call the server processes.
 
 - **Full call history:** each entry captures which tool ran and with what, giving you a reviewable trail of everything your AI assistants touched — essential context when you [work with AI assistants](/guide/flyenv-work-with-ai) day to day.
-- **Secret masking:** tokens and passwords are masked before they reach the log, so reviewing or sharing the file does not leak credentials.
+- **Tool arguments:** built-in calls can record arguments and errors. Review entries for credentials or private paths before sharing them. The masking setting applies only to selected fields in tool responses.
 
 AI Memory calls use reduced shared audit entries without search queries, summaries or full memory bodies. The plugin's own **Call Records** tab provides more detail for the current session while still excluding full bodies.
 
 ![Audit Log tab showing recorded tool calls](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
+
+Watch the [PHP and MySQL project demo](/demos?video=ai-cli-mcp-crud) to see the environment tools in a running project.
 
 <FeatureRelatedLinks slug="mcp-server" />
 

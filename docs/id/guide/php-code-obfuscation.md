@@ -4,39 +4,35 @@ description: 'Bandingkan teknik obfuscation PHP, dampaknya terhadap pemeliharaan
 
 # Obfuscation Kode PHP
 
-Obfuscation mengubah bentuk kode sumber agar lebih sulit dibaca manusia, tanpa mengubah perilakunya saat dijalankan. Ini dapat membantu melindungi distribusi kode PHP, tetapi bukan pengganti lisensi, kontrol akses, atau pengelolaan rahasia yang benar.
+Obfuscation membuat kode sumber yang didistribusikan lebih sulit dibaca. Simpan sumber asli dalam version control dan perlakukan hasilnya sebagai artefak build. Keluarkan rahasia dan konfigurasi pribadi dari berkas distribusi.
 
-## Menggunakan Obfuscator PHP di FlyEnv
+## Jalankan Php Obfuscator pada salinan uji
 
-1. Buka modul **PHP** atau alat yang terkait pada FlyEnv.
-2. Pilih versi PHP yang dipakai proyek Anda.
-3. Buka alat **PHP Code Obfuscation**.
-4. Pilih folder atau berkas sumber, lalu tentukan folder keluaran yang berbeda dari sumber asli.
-5. Jalankan proses obfuscation dan uji hasilnya pada lingkungan terpisah.
+Buat cadangan atau salinan sementara. Di **Tools → Php Obfuscator**, pilih versi PHP terpasang, pilih berkas atau folder sumber, lalu tentukan lokasi keluaran terpisah. Buka **Config** untuk menyesuaikan transformasi jika perlu, lalu klik **Generate**.
 
-Jangan menimpa source repository. Simpan kode asli dalam Git dan perlakukan keluaran obfuscation sebagai artefak build.
+<img src="https://oss.macphpstudy.com/image/98d80872b153.png" data-x-image-preview="">
 
-## Praktik Aman
+<img src="https://oss.macphpstudy.com/image/003391cd543e.png" data-x-image-preview="">
 
-- Jalankan test suite sebelum dan setelah obfuscation.
-- Kecualikan `.env`, kunci privat, sertifikat, token, dan data pengguna. Obfuscation tidak membuat rahasia aman bila berkas tersebut ikut didistribusikan.
-- Pastikan autoloader Composer, nama kelas yang direfleksikan, route framework, dan template tetap bekerja.
-- Buat artefak untuk setiap versi rilis agar masalah dapat ditelusuri kembali ke source asli.
+## Verifikasi perilaku berkas keluaran
 
-## Contoh Sederhana
-
-Kode asli yang mudah dibaca:
+Gunakan versi PHP yang sama untuk menjalankan contoh asli dan salinan yang dihasilkan. Simpan keduanya sebagai `source.php` dan `output.php` di folder sementara, lalu bandingkan hasilnya.
 
 ```php
+<?php
+
 class Calculator {
     public function add(int $left, int $right): int {
         return $left + $right;
     }
 }
+
+echo (new Calculator())->add(2, 3);
 ```
 
-Setelah obfuscation, nama kelas, variabel, dan struktur kontrol dapat berubah. Jangan mengedit hasilnya secara manual; lakukan perubahan pada source asli kemudian bangun ulang artefak.
+```text
+php source.php
+php output.php
+```
 
-## Batasan Obfuscation
-
-PHP tetap harus dapat menjalankan kode, sehingga obfuscation tidak menjamin kode mustahil dibongkar. Gunakan bersama lisensi yang jelas, validasi server-side, kontrol distribusi, dan audit keamanan. Untuk logika yang sangat sensitif, pertimbangkan menjalankannya sebagai layanan terpisah daripada mengirimkannya ke klien.
+Kedua perintah harus mencetak hasil yang sama. Untuk proyek, jalankan juga rangkaian pengujian pada berkas yang dihasilkan, termasuk autoloading Composer serta rute, templat, atau kelas yang dirujuk secara dinamis. Simpan sumber asli untuk debugging. Runtime PHP masih bisa menjalankan dan memeriksa hasilnya, sehingga obfuscation hanya membuat kode lebih sulit dibaca.

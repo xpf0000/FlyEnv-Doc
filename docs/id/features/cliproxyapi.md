@@ -1,18 +1,18 @@
 ---
 layout: doc
 titleTemplate: false
-title: 'Manajer Gateway AI Lokal CLIProxyAPI | FlyEnv'
-description: 'Jalankan versi CLIProxyAPI sebagai gateway AI lokal dengan config.yaml, backend env, dan UI manajemen terkelola.'
+title: 'GUI CLIProxyAPI: Pasang dan Kelola Proksi Lokal | FlyEnv'
+description: 'Pasang dan ganti versi CLIProxyAPI di FlyEnv, edit config.yaml, jalankan proksi lokal, lalu buka panel manajemen bawaan CLIProxyAPI.'
 head:
   - - meta
     - name: description
-      content: 'Jalankan versi CLIProxyAPI sebagai gateway AI lokal dengan config.yaml, backend env, dan UI manajemen terkelola.'
+      content: 'Pasang dan ganti versi CLIProxyAPI di FlyEnv, edit config.yaml, jalankan proksi lokal, lalu buka panel manajemen bawaan CLIProxyAPI.'
   - - meta
     - property: og:title
-      content: 'Manajer Gateway AI Lokal CLIProxyAPI | FlyEnv'
+      content: 'GUI CLIProxyAPI: Pasang dan Kelola Proksi Lokal | FlyEnv'
   - - meta
     - property: og:description
-      content: 'Jalankan versi CLIProxyAPI sebagai gateway AI lokal dengan config.yaml, backend env, dan UI manajemen terkelola.'
+      content: 'Pasang dan ganti versi CLIProxyAPI di FlyEnv, edit config.yaml, jalankan proksi lokal, lalu buka panel manajemen bawaan CLIProxyAPI.'
   - - meta
     - property: og:type
       content: website
@@ -31,9 +31,11 @@ head:
 import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 </script>
 
-# CLIProxyAPI di FlyEnv
+# GUI CLIProxyAPI di FlyEnv
 
 CLIProxyAPI adalah proksi lokal sumber terbuka yang menempatkan alat AI berbasis CLI, seperti Gemini CLI, [Claude Code](/id/features/claude-code), dan [Codex](/id/features/codex), di balik endpoint API yang kompatibel dengan OpenAI, Gemini, dan Claude. Aplikasi yang mengharapkan API model terhosting dapat memanggil akun CLI tersebut seperti layanan HTTP biasa, sementara beberapa penyedia disatukan dalam satu gateway lokal. FlyEnv menjalankan CLIProxyAPI sebagai gateway AI lokal terkelola: pasang versi dari Manajer Versi, mulai proses `cli-proxy-api` dari bilah sisi atau halaman modul, sunting `config.yaml` dan berkas lingkungan backend di dalam aplikasi, lalu buka panel manajemen bawaannya di peramban. Keluaran mulai disimpan dalam log per versi sehingga kegagalan mudah didiagnosis.
+
+FlyEnv menyediakan antarmuka desktop untuk memasang, menjalankan, dan mengatur CLIProxyAPI. Panel manajemen di peramban dan integrasi penyedia berasal dari versi CLIProxyAPI yang Anda jalankan. Lihat [dokumentasi CLIProxyAPI](https://help.router-for.me/) untuk pengaturan penyedia dan perilaku API.
 
 ![Ringkasan modul CLIProxyAPI FlyEnv](https://oss.macphpstudy.com/image/features/cliproxyapi-1.webp)
 
@@ -59,7 +61,9 @@ Tab Layanan meluncurkan versi terpilih sebagai `cli-proxy-api -config <config.ya
 
 ## UI manajemen di port 8317
 
-Ketika layanan berjalan, tab Layanan menampilkan tombol untuk membuka panel manajemen bawaan CLIProxyAPI di `http://127.0.0.1:<port>/management.html`. FlyEnv membaca port dari `config.yaml`; pada templat bawaan nilainya 8317. Atur `MANAGEMENT_PASSWORD` pada tab Env sebelum mengekspos panel untuk penggunaan selain lokal.
+Saat CLIProxyAPI berjalan, buka panel manajemen bawaannya dari tab Layanan. FlyEnv membaca port dari `config.yaml` dan membuka `http://127.0.0.1:<port>/management.html`.
+
+Untuk akses dari perangkat ini saja, setel `host: "127.0.0.1"` di `config.yaml` dan biarkan `remote-management.allow-remote` nonaktif. Isi `remote-management.secret-key` dengan kunci privat di konfigurasi bawaan. Biarkan `MANAGEMENT_PASSWORD` kosong karena variabel tersebut dapat mengaktifkan manajemen jarak jauh. Mulai ulang layanan. Port bawaan templat adalah 8317.
 
 ![Membuka panel manajemen CLIProxyAPI dari tab Layanan](https://oss.macphpstudy.com/image/features/cliproxyapi-4.webp)
 
@@ -68,6 +72,8 @@ Ketika layanan berjalan, tab Layanan menampilkan tombol untuk membuka panel mana
 Tab Log menampilkan keluaran yang direkam dari setiap versi sebagai `cliproxyapi-<version>-start-out.log` dan `cliproxyapi-<version>-start-error.log`, dengan pilihan di antara kedua aliran tersebut. Jika versi menolak mulai atau halaman manajemen tidak merespons, log kesalahan adalah tempat pertama untuk diperiksa.
 
 ![Penampil log mulai CLIProxyAPI dengan pilihan keluaran dan kesalahan](https://oss.macphpstudy.com/image/features/cliproxyapi-5.webp)
+
+[Tonton demo pengaturan CLIProxyAPI](/id/demos?video=cliproxyapi-gateway)
 
 <FeatureRelatedLinks locale="id" slug="cliproxyapi" />
 

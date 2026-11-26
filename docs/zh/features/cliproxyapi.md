@@ -1,18 +1,18 @@
 ---
 layout: doc
 titleTemplate: false
-title: 'FlyEnv CLIProxyAPI：本地开发模块与配置指南'
-description: '在 FlyEnv 中将 CLIProxyAPI 作为本地 AI 网关运行，管理配置、环境后端和管理界面。'
+title: 'CLIProxyAPI 图形界面：安装与管理本地代理 | FlyEnv'
+description: '在 FlyEnv 中安装与切换 CLIProxyAPI 版本、编辑 config.yaml、启动本地代理并打开上游管理面板。'
 head:
   - - meta
     - name: description
-      content: '在 FlyEnv 中将 CLIProxyAPI 作为本地 AI 网关运行，管理配置、环境后端和管理界面。'
+      content: '在 FlyEnv 中安装与切换 CLIProxyAPI 版本、编辑 config.yaml、启动本地代理并打开上游管理面板。'
   - - meta
     - property: og:title
-      content: 'FlyEnv CLIProxyAPI：本地开发模块与配置指南'
+      content: 'CLIProxyAPI 图形界面：安装与管理本地代理 | FlyEnv'
   - - meta
     - property: og:description
-      content: '在 FlyEnv 中将 CLIProxyAPI 作为本地 AI 网关运行，管理配置、环境后端和管理界面。'
+      content: '在 FlyEnv 中安装与切换 CLIProxyAPI 版本、编辑 config.yaml、启动本地代理并打开上游管理面板。'
   - - meta
     - property: og:type
       content: website
@@ -31,9 +31,11 @@ head:
 import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 </script>
 
-# CLIProxyAPI 在 FlyEnv 中
+# 在 FlyEnv 中用图形界面管理 CLIProxyAPI
 
 CLIProxyAPI 是开源本地代理，将 Gemini CLI、[Claude Code](/zh/features/claude-code) 和 [Codex](/zh/features/codex) 等基于 CLI 的 AI 工具置于标准 OpenAI、Gemini 和 Claude 兼容 API 端点之后。它让需要托管模型 API 的应用像调用普通 HTTP 服务一样使用这些 CLI 账户，并在一个本地网关中统一多个提供商。FlyEnv 将 CLIProxyAPI 作为托管本地 AI 网关运行：从版本管理器安装版本，在侧边栏或模块页面启动 `cli-proxy-api`，在应用内编辑 `config.yaml` 和后端环境文件，并在浏览器打开内置管理面板。启动输出按版本捕获到日志文件，启动失败时易于诊断。
+
+FlyEnv 的桌面界面负责安装、启停和编辑 CLIProxyAPI 配置。浏览器中的管理面板与模型提供商集成由所选的 CLIProxyAPI 版本提供。提供商设置和接口行为请查阅 [CLIProxyAPI 上游文档](https://help.router-for.me/cn/)。
 
 ![FlyEnv 中的 CLIProxyAPI 模块概览截图](https://oss.macphpstudy.com/image/features/cliproxyapi-1.webp)
 
@@ -59,7 +61,9 @@ CLIProxyAPI 是开源本地代理，将 Gemini CLI、[Claude Code](/zh/features/
 
 ## 管理界面在端口 8317
 
-服务运行时，服务选项卡显示按钮，可在浏览器打开 CLIProxyAPI 内置管理面板 `http://127.0.0.1:<port>/management.html`。FlyEnv 从 `config.yaml` 读取端口，默认模板为 8317。将面板暴露给本地以外环境前，请在 Env 选项卡设置 `MANAGEMENT_PASSWORD`。
+启动 CLIProxyAPI 后，在服务选项卡打开上游管理面板。FlyEnv 读取 `config.yaml` 中的端口并打开 `http://127.0.0.1:<port>/management.html`。
+
+仅在本机使用时，在 `config.yaml` 中设置 `host: "127.0.0.1"`，并保持 `remote-management.allow-remote` 关闭。在随附配置中设置私密的 `remote-management.secret-key`，保持 `MANAGEMENT_PASSWORD` 未设置，因为该环境变量可能启用远程管理。然后重启服务。模板默认端口为 8317。
 
 ![FlyEnv 从服务选项卡打开 CLIProxyAPI 管理面板截图](https://oss.macphpstudy.com/image/features/cliproxyapi-4.webp)
 
@@ -68,6 +72,8 @@ CLIProxyAPI 是开源本地代理，将 Gemini CLI、[Claude Code](/zh/features/
 日志选项卡显示每个版本捕获的输出：`cliproxyapi-<version>-start-out.log` 和 `cliproxyapi-<version>-start-error.log`，可在两种流之间切换。版本拒绝启动或管理页面无响应时，应首先查看错误日志。
 
 ![FlyEnv CLIProxyAPI 启动日志查看器及输出、错误切换截图](https://oss.macphpstudy.com/image/features/cliproxyapi-5.webp)
+
+[观看 CLIProxyAPI 配置演示](/zh/demos?video=cliproxyapi-gateway)
 
 <FeatureRelatedLinks locale="zh" slug="cliproxyapi" />
 

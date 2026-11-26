@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # Pengujian Email Lokal dengan FlyEnv
 
-Mailpit adalah alat pengujian SMTP sumber terbuka untuk pengembang. Mailpit bertindak sebagai server email palsu yang menangkap email yang dikirim aplikasi Anda dan menampilkannya di kotak masuk web, sehingga pesan pengujian tidak pernah sampai ke penerima sebenarnya. FlyEnv menjalankannya sebagai layanan lokal terkelola: pasang versi dari Manajer Versi, jalankan binari dengan satu sakelar, dan setiap pesan yang dikirim aplikasi melalui SMTP masuk ke kotak masuk web Mailpit. Listener SMTP menggunakan port 1025 secara bawaan, sedangkan UI web menggunakan port 8025. Konfigurasi dan log dapat diedit serta dilihat langsung di dalam aplikasi.
+Mailpit adalah alat uji SMTP sumber terbuka yang menampilkan pesan yang dikirim ke listener SMTP-nya di kotak masuk web. Untuk pengujian tangkap saja, nonaktifkan relay dan penerusan SMTP. FlyEnv mengelola versi, layanan, konfigurasi, dan log. Port bawaan SMTP adalah 1025 dan kotak masuk web memakai 8025. Untuk pengujian di perangkat ini saja, atur listener yang dipakai ke `127.0.0.1` di berkas konfigurasi.
 
 ![Ikhtisar modul Mailpit FlyEnv](https://oss.macphpstudy.com/image/features/mailpit-1.webp)
 
@@ -73,6 +73,8 @@ Untuk menangkap email, arahkan pengaturan SMTP aplikasi ke `127.0.0.1:1025`. [Pa
 Tab **Log** membuka log Mailpit langsung di dalam FlyEnv. Jalurnya ditentukan dari pengaturan `MP_LOG_FILE` pada konfigurasi Anda—secara bawaan `mailpit.log` di direktori Mailpit FlyEnv—sehingga penampil selalu mengikuti berkas yang benar-benar ditulis oleh layanan. Ini adalah tempat pertama untuk memeriksa ketika layanan gagal dimulai atau pesan tidak tiba seperti yang diharapkan.
 
 ![Penampil log Mailpit](https://oss.macphpstudy.com/image/features/mailpit-5.webp)
+
+[Tonton demo penangkapan SMTP Mailpit](/id/demos?video=mailpit-local)
 
 <FeatureRelatedLinks locale="id" slug="mailpit" />
 

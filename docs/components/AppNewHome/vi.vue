@@ -18,20 +18,14 @@
             id="new-home-hero-title"
             class="no-border !mb-0 !text-4xl !font-extrabold !leading-[1.04] !tracking-[-0.055em] text-slate-950 sm:!text-5xl lg:!text-[3.55rem] dark:!text-white"
           >
-            Nói cho AI của bạn biết bạn muốn chạy gì.
-            <span class="block text-blue-600 dark:text-blue-400"
-              >FlyEnv cung cấp mọi thứ nó cần.</span
-            >
+            FlyEnv
+            <span class="block text-blue-600 dark:text-blue-400">Một workspace phát triển local native</span>
           </h1>
           <p
             class="mt-6 max-w-[36rem] text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300"
           >
-            Cung cấp cho các AI agent một môi trường local thực sự với các runtime,
-            dịch vụ, site, tên miền, HTTPS và các URL hoạt động.
+            Quản lý PHP, Node.js, Python, cơ sở dữ liệu và site HTTPS local. Kết nối công cụ lập trình AI với cùng môi trường qua MCP.
           </p>
-          <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400"
-            >Từ một câu nhắc đến một dự án đang chạy trên máy của bạn.</p
-          >
           <div class="mt-7 flex flex-wrap gap-3">
             <a
               href="/vi/download"
@@ -47,6 +41,10 @@
               class="inline-flex items-center rounded-xl border border-slate-300 bg-white/80 px-5 py-3 text-sm font-semibold !text-slate-800 no-underline transition hover:border-blue-300 hover:!text-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:translate-y-px dark:border-slate-600 dark:bg-slate-900/70 dark:!text-slate-100 dark:hover:border-blue-400 dark:hover:!text-blue-300"
               >Xem trên GitHub <span class="ml-2" aria-hidden="true">↗</span></a
             >
+          </div>
+          <div class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium">
+            <a href="/vi/guide/getting-started" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">Thiết lập site đầu tiên</a>
+            <a href="/vi/compare/" class="text-blue-700 underline underline-offset-4 hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100">So sánh công cụ phát triển local</a>
           </div>
         </div>
         <div class="relative">
@@ -733,11 +731,10 @@
             <h2
               id="final-cta-title"
               class="no-border !mb-0 !text-3xl !font-extrabold !tracking-[-0.04em] sm:!text-4xl"
-              >Sẵn sàng trang bị cho AI của bạn một stack local thực sự?</h2
+              >Bạn đã sẵn sàng chạy dự án local đầu tiên?</h2
             >
             <p class="mt-4 text-base leading-7 text-blue-100"
-              >Tải xuống FlyEnv cho macOS, Windows hoặc Linux và bắt đầu xây dựng với AI ngay hôm
-              nay.</p
+              >Tải FlyEnv cho macOS, Windows hoặc Linux, rồi cài đặt các dịch vụ mà dự án cần.</p
             >
           </div>
           <a

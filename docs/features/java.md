@@ -82,6 +82,8 @@ The [Java development environment guide](/guide/set-up-java-development-environm
 
 ![Java projects list with per-project JDK binding](https://oss.macphpstudy.com/image/features/java-5.webp)
 
+Watch the [OpenMRS demo](/demos?video=openmrs-local-project) for an example of Tomcat running a Java web application. The [Spring Boot solution](/solutions/spring-boot) covers the executable JAR workflow.
+
 <FeatureRelatedLinks slug="java" />
 
 ## Compatibility Notes

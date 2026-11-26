@@ -1,14 +1,14 @@
 ---
-title: 'FlyEnv Quick Start Guide: Get Running in 5 Minutes'
+title: 'FlyEnv Quick Start Guide: Run Your First Local Site'
 head:
   - - meta
     - name: description
-      content: 'Complete FlyEnv setup guide for macOS, Windows, and Linux. Install, configure your first site, and start developing in under 5 minutes with automatic version management.'
+      content: 'Install FlyEnv on macOS, Windows, or Linux and use Nginx, PHP, and Auto SSL to open your first local HTTPS site.'
 ---
 
-# FlyEnv Quick Start Guide: Get Running in 5 Minutes
+# FlyEnv Quick Start Guide: Run Your First Local Site
 
-You have downloaded FlyEnv. Now what? This guide gets you from installation to a running local website in under five minutes—no terminal wizardry required.
+Install FlyEnv and open a PHP page at `https://myproject.test`. Start with Nginx and PHP, then add MySQL if your project needs a database.
 
 ## Installation
 
@@ -16,7 +16,7 @@ You have downloaded FlyEnv. Now what? This guide gets you from installation to a
 
 **Option 1: Homebrew (Recommended)**
 ```bash
-brew update && brew install flyenv
+brew install --cask flyenv
 ```
 
 **Option 2: Download DMG**
@@ -24,20 +24,13 @@ brew update && brew install flyenv
 | Architecture | Download |
 |-------------|----------|
 | Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (ARM64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
 
 **Note for macOS users:** If you only need simple PHP hosting, check out [FlyPHPServer](/flyphpserver) on the Mac App Store—a lightweight companion app.
 
 ### Windows
 
-Download and extract the ZIP file:
-
-| Download Source | Link |
-|----------------|------|
-| GitHub Release | [Download](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Baidu Netdisk | [Download](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-
-Run `FlyEnv.exe` after extraction.
+Run the x64 installer from the [FlyEnv download page](/download) or launch the portable `.exe` directly. Both are available from the [latest GitHub release](https://github.com/xpf0000/FlyEnv/releases/latest). If you use the [Baidu Netdisk mirror](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4), check its version before downloading.
 
 ### Linux
 
@@ -101,7 +94,7 @@ Before creating a site, start your web server and PHP:
 2. Select your installed version
 3. Click the **Start** button
 
-Do the same for **PHP** and **MySQL** if needed.
+For a PHP site, start PHP on macOS or Linux and **PHP-FPM** on Windows. Start MySQL only if your project needs a database.
 
 ![Service Start](https://oss.macphpstudy.com/image/quick-start-3.webp)
 
@@ -110,8 +103,8 @@ Do the same for **PHP** and **MySQL** if needed.
 1. Open the **Host** module
 2. Click **"Add Site"**
 3. Fill in the details:
-   - **Domain**: `myproject.test` (any domain works)
-   - **Root Path**: `/Users/you/projects/myproject`
+   - **Domain**: `myproject.test`
+   - **Root Path**: a folder containing your public website files
    - **PHP Version**: Select your installed version
    - **Port**: 80 (default)
 
@@ -127,7 +120,9 @@ After saving:
 2. Click the site link in the Host list
 3. Or open `https://myproject.test` in your browser
 
-The SSL certificate is automatically trusted by your system.
+If you are starting with an empty folder, create an `index.php` file in the site root containing `<?php echo "Hello from FlyEnv";`. Open the site URL again and look for **Hello from FlyEnv**.
+
+If your browser warns about the certificate, see [Custom Domains and Auto SSL](/guide/host) to check the local certificate trust setup.
 
 ## Setting Up Environment Variables
 
@@ -320,6 +315,8 @@ Now that you are running, explore these features:
 - [Project-Level Version Isolation](/guide/project-level-runtime-environment) — Automatic version switching
 - [Custom Domains & SSL](/guide/host) — Professional local development
 - [Build Local AI Agent](/guide/build-local-offline-ai-agent) — Offline AI with Ollama
+
+The free version covers this quick start. See the [FlyEnv license](/license) if you need to manage more local sites or keep using premium tools.
 
 [Download FlyEnv](/download) if you haven't already, and happy coding!
 

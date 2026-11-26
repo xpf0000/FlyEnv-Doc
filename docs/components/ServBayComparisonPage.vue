@@ -495,6 +495,8 @@
       ></section
     >
 
+    <ComparisonMigration :migration="servbayMigration" :locale="locale" />
+
     <section
       class="bg-slate-50 px-6 py-20 sm:px-10 sm:py-24 lg:px-16 dark:bg-slate-900/50"
       aria-labelledby="faq-title"
@@ -542,6 +544,8 @@
 
 <script setup lang="ts">
   import { getComparisonFaqs } from '../data/comparison-faqs'
+  import ComparisonMigration from './ComparisonMigration.vue'
+  import { servbayMigration } from '../data/compare/migrations'
 
   const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' | 'vi' }>()
   const locale = props.locale || 'en'
@@ -672,7 +676,7 @@
     },
     {
       name: 'Startup Groups (per-project service stacks)',
-      servbay: { label: 'Not available', text: '', status: 'no' },
+      servbay: { label: 'Website grouping (Pro / Team)', text: '', status: 'yes' },
       flyenv: { label: 'Built-in', text: '', status: 'yes' }
     },
     {
@@ -685,16 +689,11 @@
       }
     },
     {
-      name: 'Java servlet server',
-      servbay: { label: 'Not available', text: '', status: 'no' },
-      flyenv: { label: 'Built-in', text: 'Tomcat module', status: 'yes' }
-    },
-    {
-      name: 'Open source',
-      servbay: { label: 'Closed source', text: 'Free tier plus paid Pro', status: 'no' },
+      name: 'Licensing',
+      servbay: { label: 'Free / Pro / Team', text: '', status: 'yes' },
       flyenv: {
         label: 'Open source',
-        text: 'Core free; optional $10 license for premium tools',
+        text: 'BSD-3-Clause source code. Optional app license.',
         status: 'yes'
       }
     }
@@ -709,7 +708,7 @@
     {
       name: 'Public certificates (PKI/ACME)',
       servbay: { label: 'Built-in', text: '(Pro)', status: 'yes' },
-      flyenv: { label: 'Partial', text: 'Local CA and mkcert — self-signed only', status: 'partial' }
+      flyenv: { label: 'Partial', text: 'Local CA, mkcert or existing certificate files', status: 'partial' }
     },
     {
       name: 'Tunnel providers',
@@ -718,7 +717,7 @@
     },
     {
       name: 'Multiple database instances',
-      servbay: { label: 'Built-in', text: 'Multiple instances of any database (Pro)', status: 'yes' },
+      servbay: { label: 'Built-in', text: 'Concurrent database instances (Pro / Team)', status: 'yes' },
       flyenv: {
         label: 'Partial',
         text: 'MySQL group instances; multiple versions side by side',
@@ -764,8 +763,7 @@
     'You develop on macOS or Windows.',
     "You value ServBay's first-party AI Gateway with provider routing and cost tracking.",
     'You want its integrated PKI/ACME public certificates or four tunnel providers.',
-    "ServBay's package/service model matches how you organize local environments.",
-    'You need legacy runtimes such as PHP 5.3.'
+    "ServBay's package/service model matches how you organize local environments."
   ]
 
   const chooseFlyenv = [
@@ -779,6 +777,7 @@
 
   const maps: Record<string, Record<string, string>> = {
     zh: {
+      'Licensing': '授权', 'Website grouping (Pro / Team)': '站点分组（Pro / Team）', 'BSD-3-Clause source code. Optional app license.': '源代码采用 BSD-3-Clause，应用另有可选授权。', 'Concurrent database instances (Pro / Team)': '并行运行数据库实例（Pro / Team）', 'Local CA, mkcert or existing certificate files': '本地 CA、mkcert 或现有的证书文件',
       Comparison: '比较', 'Two all-in-one local development workspaces. Which workflow fits you better?': '两个一体化本地开发工作区。哪种工作流更适合你？', 'Download FlyEnv': '下载 FlyEnv', 'Read quick summary': '查看快速摘要', 'Free and open source': '免费且开源', 'macOS 12+ and Windows': 'macOS 12+ 和 Windows', Yes: '是', No: '否', 'A strong all-in-one workspace for macOS and Windows developers.': '适合 macOS 和 Windows 开发者的一体化工作区。', 'macOS, Windows and Linux': 'macOS、Windows 和 Linux', 'Native on all three desktop platforms, free and open source.': '原生支持三大桌面平台，免费且开源。',
       'A large shared core, different priorities': '共享核心很大，但侧重点不同', 'Both products cover the same foundation. Each then invests in a different set of strengths.': '两款产品覆盖相同基础能力，但各自投入于不同优势。', 'ServBay emphasis': 'ServBay 的侧重点', 'Where ServBay goes deeper': 'ServBay 深耕的领域', 'Shared foundation': '共同基础', 'Both products include these': '两款产品都包含', 'The shared core is genuinely large: runtimes, databases, web servers, local sites, managed HTTPS, local AI models, mail testing, tunnels and MCP support are present on both sides.': '两者的共同核心非常广泛：运行时、数据库、Web 服务器、本地站点、托管 HTTPS、本地 AI 模型、邮件测试、隧道和 MCP 支持都已提供。', 'FlyEnv emphasis': 'FlyEnv 的侧重点', 'Where FlyEnv goes further': 'FlyEnv 扩展的领域',
       'Three key differences': '三个关键差异', 'Both are credible all-in-one workspaces. These are the differences that actually matter.': '两者都是可靠的一体化工作区，以下是实际重要的差异。', 'What this looks like in daily development': '日常开发中的实际体验', "See the same setup in FlyEnv's runtime, site, and service workflows.": '在 FlyEnv 的运行时、站点和服务工作流中查看相同配置。', 'Feature comparison': '功能对比', 'A practical comparison: a large shared core, plus real strengths on each side.': '实用对比：共同核心很大，同时各有真正的优势。', 'Shared capabilities': '共同能力', 'Both products provide these — no winner here, just a genuinely overlapping core.': '两款产品都提供这些能力——这里没有胜负，只有真正重叠的核心。', Capability: '能力', 'Same goal, different workflow': '目标相同，工作流不同', 'Managing several different local project stacks, side by side.': '并行管理多个不同的本地项目堆栈。', 'With ServBay': '使用 ServBay', 'With FlyEnv': '使用 FlyEnv', 'Which one should you choose?': '应该选择哪一个？', 'Both tools can be useful; the right choice depends on your workflow.': '两款工具都很有用，正确选择取决于你的工作流。', 'Choose ServBay if': '适合选择 ServBay 的情况', 'Choose FlyEnv if': '适合选择 FlyEnv 的情况', 'Both are capable all-in-one workspaces. If you are on macOS or Windows, the deciding factor is usually workflow preference and the specific modules you rely on.': '两者都是强大的一体化工作区。如果你使用 macOS 或 Windows，决定因素通常是工作流偏好和所依赖的具体模块。', 'Frequently asked questions': '常见问题', 'Try a different all-in-one local development workflow': '尝试另一种一体化本地开发工作流', 'FlyEnv brings runtimes, sites, services, database tools and MCP automation together on macOS, Windows and Linux.': 'FlyEnv 在 macOS、Windows 和 Linux 上将运行时、站点、服务、数据库工具和 MCP 自动化集中到一起。',
@@ -787,6 +786,7 @@
 
     },
     id: {
+      'Licensing': 'Lisensi', 'Website grouping (Pro / Team)': 'Pengelompokan situs (Pro / Team)', 'BSD-3-Clause source code. Optional app license.': 'Kode sumber BSD-3-Clause. Lisensi aplikasi opsional.', 'Concurrent database instances (Pro / Team)': 'Beberapa instans database sekaligus (Pro / Team)', 'Local CA, mkcert or existing certificate files': 'CA lokal, mkcert, atau berkas sertifikat yang sudah ada',
       Comparison: 'Perbandingan', 'Two all-in-one local development workspaces. Which workflow fits you better?': 'Dua ruang kerja pengembangan lokal all-in-one. Alur mana yang lebih cocok?', 'Download FlyEnv': 'Unduh FlyEnv', 'Read quick summary': 'Baca ringkasan cepat', 'Free and open source': 'Gratis dan sumber terbuka', 'macOS 12+ and Windows': 'macOS 12+ dan Windows', Yes: 'Ya', No: 'Tidak', 'A strong all-in-one workspace for macOS and Windows developers.': 'Ruang kerja all-in-one yang kuat untuk developer macOS dan Windows.', 'macOS, Windows and Linux': 'macOS, Windows, dan Linux', 'Native on all three desktop platforms, free and open source.': 'Berjalan secara native di ketiga platform desktop, gratis dan sumber terbuka.',
       'A large shared core, different priorities': 'Inti bersama yang luas, prioritas berbeda', 'Both products cover the same foundation. Each then invests in a different set of strengths.': 'Keduanya mencakup fondasi yang sama, lalu berinvestasi pada keunggulan berbeda.', 'ServBay emphasis': 'Fokus ServBay', 'Where ServBay goes deeper': 'Keunggulan ServBay', 'Shared foundation': 'Fondasi bersama', 'Both products include these': 'Keduanya menyediakan ini', 'The shared core is genuinely large: runtimes, databases, web servers, local sites, managed HTTPS, local AI models, mail testing, tunnels and MCP support are present on both sides.': 'Inti bersama benar-benar luas: runtime, database, server web, situs lokal, HTTPS terkelola, model AI lokal, pengujian email, tunnel, dan dukungan MCP tersedia di kedua sisi.', 'FlyEnv emphasis': 'Fokus FlyEnv', 'Where FlyEnv goes further': 'Keunggulan FlyEnv',
       'Three key differences': 'Tiga perbedaan utama', 'Both are credible all-in-one workspaces. These are the differences that actually matter.': 'Keduanya adalah ruang kerja all-in-one yang mumpuni. Inilah perbedaan yang penting.', 'What this looks like in daily development': 'Dalam pengembangan sehari-hari', "See the same setup in FlyEnv's runtime, site, and service workflows.": 'Lihat konfigurasi yang sama dalam alur runtime, situs, dan layanan FlyEnv.', 'Feature comparison': 'Perbandingan fitur', 'A practical comparison: a large shared core, plus real strengths on each side.': 'Perbandingan praktis: inti bersama yang luas dan keunggulan nyata di tiap sisi.', 'Shared capabilities': 'Kemampuan bersama', 'Both products provide these — no winner here, just a genuinely overlapping core.': 'Keduanya menyediakan ini—tidak ada pemenang, hanya inti yang benar-benar tumpang tindih.', Capability: 'Kemampuan', 'Same goal, different workflow': 'Tujuan sama, alur kerja berbeda', 'Managing several different local project stacks, side by side.': 'Mengelola beberapa stack proyek lokal secara berdampingan.', 'With ServBay': 'Dengan ServBay', 'With FlyEnv': 'Dengan FlyEnv', 'Which one should you choose?': 'Mana yang harus dipilih?', 'Both tools can be useful; the right choice depends on your workflow.': 'Keduanya berguna; pilihan yang tepat bergantung pada alur kerja Anda.', 'Choose ServBay if': 'Pilih ServBay jika', 'Choose FlyEnv if': 'Pilih FlyEnv jika', 'Both are capable all-in-one workspaces. If you are on macOS or Windows, the deciding factor is usually workflow preference and the specific modules you rely on.': 'Keduanya adalah ruang kerja all-in-one yang mumpuni. Jika Anda memakai macOS atau Windows, penentunya biasanya preferensi alur kerja dan modul yang dibutuhkan.', 'Frequently asked questions': 'Pertanyaan umum', 'Try a different all-in-one local development workflow': 'Coba alur pengembangan lokal all-in-one lainnya', 'FlyEnv brings runtimes, sites, services, database tools and MCP automation together on macOS, Windows and Linux.': 'FlyEnv menyatukan runtime, situs, layanan, alat database, dan otomasi MCP di macOS, Windows, dan Linux.',
@@ -795,6 +795,7 @@
 
     },
     es: {
+      'Licensing': 'Licencias', 'Website grouping (Pro / Team)': 'Agrupación de sitios (Pro / Team)', 'BSD-3-Clause source code. Optional app license.': 'Código fuente BSD-3-Clause. Licencia opcional de la aplicación.', 'Concurrent database instances (Pro / Team)': 'Instancias de base de datos simultáneas (Pro / Team)', 'Local CA, mkcert or existing certificate files': 'CA local, mkcert o archivos de certificado existentes',
       Comparison: 'Comparación', 'Two all-in-one local development workspaces. Which workflow fits you better?': 'Dos espacios de trabajo de desarrollo local todo en uno. ¿Qué flujo de trabajo te conviene más?', 'Download FlyEnv': 'Descargar FlyEnv', 'Read quick summary': 'Leer resumen rápido', 'Free and open source': 'Gratuito y de código abierto', 'macOS 12+ and Windows': 'macOS 12+ y Windows', Yes: 'Sí', No: 'No', 'A strong all-in-one workspace for macOS and Windows developers.': 'Un potente espacio de trabajo todo en uno para desarrolladores de macOS y Windows.', 'macOS, Windows and Linux': 'macOS, Windows y Linux', 'Native on all three desktop platforms, free and open source.': 'Nativo en las tres plataformas de escritorio, gratuito y de código abierto.',
       'A large shared core, different priorities': 'Un gran núcleo compartido, prioridades diferentes', 'Both products cover the same foundation. Each then invests in a different set of strengths.': 'Ambos productos cubren la misma base. Luego, cada uno invierte en un conjunto diferente de fortalezas.', 'ServBay emphasis': 'Enfoque de ServBay', 'Where ServBay goes deeper': 'Donde ServBay profundiza', 'Shared foundation': 'Base compartida', 'Both products include these': 'Ambos productos incluyen esto', 'The shared core is genuinely large: runtimes, databases, web servers, local sites, managed HTTPS, local AI models, mail testing, tunnels and MCP support are present on both sides.': 'El núcleo compartido es realmente amplio: runtimes, bases de datos, servidores web, sitios locales, HTTPS gestionado, modelos de IA locales, pruebas de correo, túneles y soporte de MCP están presentes en ambos lados.', 'FlyEnv emphasis': 'Enfoque de FlyEnv', 'Where FlyEnv goes further': 'Donde FlyEnv llega más lejos',
       'Three key differences': 'Tres diferencias clave', 'Both are credible all-in-one workspaces. These are the differences that actually matter.': 'Ambos son espacios de trabajo todo en uno confiables. Estas son las diferencias que realmente importan.', 'What this looks like in daily development': 'Cómo se ve esto en el desarrollo diario', "See the same setup in FlyEnv's runtime, site, and service workflows.": 'Mira la misma configuración en los flujos de trabajo de runtimes, sitios y servicios de FlyEnv.', 'Feature comparison': 'Comparación de funciones', 'A practical comparison: a large shared core, plus real strengths on each side.': 'Una comparación práctica: un gran núcleo compartido, además de fortalezas reales en cada lado.', 'Shared capabilities': 'Capacidades compartidas', 'Both products provide these — no winner here, just a genuinely overlapping core.': 'Ambos productos las ofrecen: no hay un ganador aquí, solo un núcleo que realmente se solapa.', Capability: 'Capacidad', 'Same goal, different workflow': 'Mismo objetivo, flujo de trabajo diferente', 'Managing several different local project stacks, side by side.': 'Gestiona varios stacks de proyectos locales diferentes, uno al lado del otro.', 'With ServBay': 'Con ServBay', 'With FlyEnv': 'Con FlyEnv', 'Which one should you choose?': '¿Cuál deberías elegir?', 'Both tools can be useful; the right choice depends on your workflow.': 'Ambas herramientas pueden ser útiles; la elección correcta depende de tu flujo de trabajo.', 'Choose ServBay if': 'Elige ServBay si', 'Choose FlyEnv if': 'Elige FlyEnv si', 'Both are capable all-in-one workspaces. If you are on macOS or Windows, the deciding factor is usually workflow preference and the specific modules you rely on.': 'Ambos son espacios de trabajo todo en uno muy capaces. Si usas macOS o Windows, el factor decisivo suele ser la preferencia de flujo de trabajo y los módulos específicos de los que dependes.', 'Frequently asked questions': 'Preguntas frecuentes', 'Try a different all-in-one local development workflow': 'Prueba un flujo de trabajo de desarrollo local todo en uno diferente', 'FlyEnv brings runtimes, sites, services, database tools and MCP automation together on macOS, Windows and Linux.': 'FlyEnv reúne runtimes, sitios, servicios, herramientas de bases de datos y automatización MCP en macOS, Windows y Linux.',
@@ -803,6 +804,7 @@
 
     },
     vi: {
+      'Licensing': 'Giấy phép', 'Website grouping (Pro / Team)': 'Nhóm site (Pro / Team)', 'BSD-3-Clause source code. Optional app license.': 'Mã nguồn BSD-3-Clause. Giấy phép ứng dụng tùy chọn.', 'Concurrent database instances (Pro / Team)': 'Nhiều instance cơ sở dữ liệu chạy cùng lúc (Pro / Team)', 'Local CA, mkcert or existing certificate files': 'CA cục bộ, mkcert hoặc tệp chứng chỉ hiện có',
       Comparison: 'So sánh', 'Two all-in-one local development workspaces. Which workflow fits you better?': 'Hai không gian làm việc phát triển local all-in-one. Quy trình nào phù hợp với bạn hơn?', 'Download FlyEnv': 'Tải xuống FlyEnv', 'Read quick summary': 'Đọc tóm tắt nhanh', 'Free and open source': 'Miễn phí và mã nguồn mở', 'macOS 12+ and Windows': 'macOS 12+ và Windows', Yes: 'Có', No: 'Không', 'A strong all-in-one workspace for macOS and Windows developers.': 'Một không gian làm việc all-in-one mạnh mẽ cho các nhà phát triển trên macOS và Windows.', 'macOS, Windows and Linux': 'macOS, Windows và Linux', 'Native on all three desktop platforms, free and open source.': 'Native trên cả ba nền tảng desktop, miễn phí và mã nguồn mở.',
       'A large shared core, different priorities': 'Lõi chung lớn, ưu tiên khác nhau', 'Both products cover the same foundation. Each then invests in a different set of strengths.': 'Cả hai sản phẩm đều có cùng nền tảng. Sau đó mỗi sản phẩm đầu tư vào một tập hợp điểm mạnh khác nhau.', 'ServBay emphasis': 'Điểm nhấn của ServBay', 'Where ServBay goes deeper': 'Nơi ServBay đi sâu hơn', 'Shared foundation': 'Nền tảng chung', 'Both products include these': 'Cả hai sản phẩm đều bao gồm những điều này', 'The shared core is genuinely large: runtimes, databases, web servers, local sites, managed HTTPS, local AI models, mail testing, tunnels and MCP support are present on both sides.': 'Lõi chung thực sự lớn: runtime, cơ sở dữ liệu, web server, site local, HTTPS được quản lý, mô hình AI local, kiểm thử email, tunnel và hỗ trợ MCP đều có ở cả hai phía.', 'FlyEnv emphasis': 'Điểm nhấn của FlyEnv', 'Where FlyEnv goes further': 'Nơi FlyEnv đi xa hơn',
       'Three key differences': 'Ba điểm khác biệt chính', 'Both are credible all-in-one workspaces. These are the differences that actually matter.': 'Cả hai đều là những không gian làm việc all-in-one đáng tin cậy. Đây là những điểm khác biệt thực sự quan trọng.', 'What this looks like in daily development': 'Điều này trông như thế nào trong phát triển hàng ngày', "See the same setup in FlyEnv's runtime, site, and service workflows.": 'Xem cùng một thiết lập trong các quy trình runtime, site và dịch vụ của FlyEnv.', 'Feature comparison': 'So sánh tính năng', 'A practical comparison: a large shared core, plus real strengths on each side.': 'Một phép so sánh thực tế: lõi chung lớn, cộng với điểm mạnh thực tế ở mỗi phía.', 'Shared capabilities': 'Khả năng chung', 'Both products provide these — no winner here, just a genuinely overlapping core.': 'Cả hai sản phẩm đều cung cấp những điều này — không có người thắng ở đây, chỉ là một lõi trùng lặp thực sự.', Capability: 'Khả năng', 'Same goal, different workflow': 'Cùng mục tiêu, quy trình khác nhau', 'Managing several different local project stacks, side by side.': 'Quản lý nhiều stack dự án local khác nhau, cạnh nhau.', 'With ServBay': 'Với ServBay', 'With FlyEnv': 'Với FlyEnv', 'Which one should you choose?': 'Bạn nên chọn cái nào?', 'Both tools can be useful; the right choice depends on your workflow.': 'Cả hai công cụ đều hữu ích; lựa chọn đúng phụ thuộc vào quy trình làm việc của bạn.', 'Choose ServBay if': 'Chọn ServBay nếu', 'Choose FlyEnv if': 'Chọn FlyEnv nếu', 'Both are capable all-in-one workspaces. If you are on macOS or Windows, the deciding factor is usually workflow preference and the specific modules you rely on.': 'Cả hai đều là những không gian làm việc all-in-one mạnh mẽ. Nếu bạn dùng macOS hoặc Windows, yếu tố quyết định thường là sở thích quy trình làm việc và các mô-đun cụ thể bạn dựa vào.', 'Frequently asked questions': 'Câu hỏi thường gặp', 'Try a different all-in-one local development workflow': 'Thử một quy trình phát triển local all-in-one khác', 'FlyEnv brings runtimes, sites, services, database tools and MCP automation together on macOS, Windows and Linux.': 'FlyEnv tập hợp runtime, site, dịch vụ, công cụ cơ sở dữ liệu và tự động hóa MCP trên macOS, Windows và Linux.',

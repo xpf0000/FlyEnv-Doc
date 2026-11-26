@@ -10,7 +10,7 @@ head:
 
 PHP projects no longer fit one local deployment pattern. A WordPress site needs a stable PHP-FPM stack, Laravel Octane needs an application server, Hyperf expects Swoole, and Workerman is a long-running PHP process that should not be forced into a fake Apache setup. Docker can solve this, but it often adds slow startup, heavy memory use, and a second layer of networking.
 
-FlyEnv gives you a native PHP deployment workflow on Windows, macOS, and Linux: PHP CGI Service, PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI, Composer, databases, custom domains, automatic SSL, reverse proxy rules, logs, and Cloudflare Tunnel in one desktop app.
+FlyEnv gives you a native PHP deployment workflow on Windows, macOS, and Linux: PHP-FPM, FrankenPHP, RoadRunner, Swoole CLI, Composer, databases, custom domains, automatic SSL, reverse proxy rules, logs, and Cloudflare Tunnel in one desktop app.
 
 ## Choose the Right FlyEnv PHP Deployment Mode
 
@@ -20,7 +20,6 @@ Use this table before creating the project. It answers the practical question: "
 | --- | --- | --- | --- |
 | WordPress, ClassicPress, Contao | PHP-FPM + Host | CMS and content sites | Stable request/response model, database integration, custom domain, HTTPS, and familiar Nginx/Apache/Caddy routing |
 | Laravel, Symfony, Yii2, ThinkPHP, CodeIgniter, CakePHP, Slim | PHP-FPM + Host | Standard MVC and API projects | Production-like FastCGI routing without Docker, with per-project PHP versions and extension control |
-| Legacy PHP or simple local scripts | PHP CGI Service | Compatibility testing | Useful when you need a lightweight CGI-backed PHP service instead of a full application server |
 | Modern PHP apps using embedded web serving | FrankenPHP | Laravel, Symfony, API services | Runs PHP through the FrankenPHP runtime and integrates with FlyEnv Host, auto SSL, logs, and reverse proxy |
 | Laravel Octane, PSR-7 workers, high-throughput APIs | RoadRunner | Octane, PHP Worker, existing `.rr.yaml` projects | Runs long-lived PHP workers, syncs ports, and binds to a FlyEnv-managed PHP runtime |
 | Hyperf, EasySwoole, native Swoole, Laravel Octane on Swoole | Swoole CLI | Event-driven PHP services | Runs Swoole CLI projects with presets, config detection, environment variables, ports, and logs |
@@ -144,15 +143,7 @@ For a detailed Laravel-only workflow, see [Run Laravel on FlyEnv](/guide/run-lar
 
 ## Use PHP CGI Service for Compatibility Workflows
 
-PHP CGI Service is useful when you need a lightweight local PHP service for older projects, Windows-oriented stacks, or compatibility testing.
-
-Use it when:
-
-1. The project is a simple PHP app with limited routing.
-2. You need to test CGI behavior instead of a long-running worker.
-3. You want a minimal service before moving the project to PHP-FPM.
-
-For most new MVC and CMS projects, choose PHP-FPM first. Use PHP CGI Service when the project or operating system workflow specifically benefits from CGI compatibility.
+For a site served by Nginx, Apache or Caddy, select the installed PHP version in **Host** and start the matching version in FlyEnv’s [PHP-FPM module](/features/php). On Windows that module runs `php-cgi.exe` through a FastCGI spawner. On macOS and Linux it runs `php-fpm`. A standalone application service uses its own process and can sit behind a reverse proxy.
 
 ## Deploy with FrankenPHP Without Manual Caddy Configuration
 
@@ -316,6 +307,8 @@ The deployment mode is only one part of the local environment. Most PHP projects
 Prefer watching? See Deploy PHP Apps Without Docker in FlyEnv: Laravel Octane, RoadRunner, Swoole & Workerman in action:
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/5NqSag8c4YY?si=fBlpEHxBKjKR7nX1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Watch the FlyEnv PHP app services demo](/demos?video=php-project-services).
 
 ## Frequently Asked Questions (FAQ)
 

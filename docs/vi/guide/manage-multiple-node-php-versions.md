@@ -214,9 +214,9 @@ Hoàn hảo để kiểm thử cùng một bộ code trên nhiều phiên bản 
 
 ### "Xung đột với các trình quản lý phiên bản hiện có"
 
-1. Xóa NVM khỏi `.zshrc` (FlyEnv thay thế nó)
-2. Unlink PHP của Homebrew: `brew unlink php`
-3. Để FlyEnv quản lý toàn bộ các phiên bản
+Kiểm tra lệnh được dùng và phiên bản của nó từ thư mục dự án đã đăng ký. Dùng `command -v php` và `command -v node` trong zsh/Bash hoặc `Get-Command php,node` trong PowerShell. Nếu alias hoặc script khởi động được ưu tiên, điều chỉnh cấu hình shell của dự án. Xem [hướng dẫn runtime theo dự án](/vi/guide/project-level-runtime-environment) để kiểm tra hook.
+
+Kiểm tra riêng phiên bản PHP xử lý yêu cầu từ trình duyệt trong **Host**. Module **PHP-FPM** chạy `php-fpm` trên macOS và Linux và dùng FastCGI worker trên Windows.
 
 ## Câu hỏi thường gặp (FAQ)
 

@@ -2,19 +2,19 @@
 layout: home
 markdownStyles: false
 
-title: 'FlyEnv - Lingkungan Pengembangan Lokal Open Source untuk Agen AI'
+title: 'FlyEnv - Lingkungan Pengembangan Lokal Native dan Open Source'
 titleTemplate: false
 
 head:
   - - meta
     - name: description
-      content: 'FlyEnv adalah workspace pengembangan lokal open source untuk agen AI di macOS, Windows, dan Linux, dengan runtime, database, server web, situs, HTTPS, dan MCP.'
+      content: 'FlyEnv adalah ruang kerja open source untuk pengembangan lokal native di macOS, Windows, dan Linux. Kelola runtime, database, situs HTTPS, dan alat coding AI melalui MCP.'
   - - meta
     - property: og:title
-      content: 'FlyEnv - Lingkungan Pengembangan Lokal Open Source untuk Agen AI'
+      content: 'FlyEnv - Lingkungan Pengembangan Lokal Native dan Open Source'
   - - meta
     - property: og:description
-      content: 'FlyEnv adalah lingkungan pengembangan lokal open-source untuk agen AI di macOS, Windows, dan Linux. Kelola PHP, Node.js, Python, database, server web, situs lokal, dan HTTPS melalui FlyEnv MCP.'
+      content: 'FlyEnv adalah ruang kerja open source untuk pengembangan lokal native di macOS, Windows, dan Linux. Kelola runtime, database, situs HTTPS, dan alat coding AI melalui MCP.'
   - - meta
     - property: og:type
       content: website
@@ -29,10 +29,10 @@ head:
       content: summary
   - - meta
     - name: twitter:title
-      content: 'FlyEnv - Lingkungan Pengembangan Lokal Open Source untuk Agen AI'
+      content: 'FlyEnv - Lingkungan Pengembangan Lokal Native dan Open Source'
   - - meta
     - name: twitter:description
-      content: 'FlyEnv adalah lingkungan pengembangan lokal open-source untuk agen AI di macOS, Windows, dan Linux.'
+      content: 'FlyEnv adalah ruang kerja open source untuk pengembangan lokal native di macOS, Windows, dan Linux. Kelola runtime, database, situs HTTPS, dan alat coding AI melalui MCP.'
   - - meta
     - name: twitter:image
       content: https://oss.macphpstudy.com/image/app-icon.png

@@ -49,15 +49,15 @@ Setiap isi memori mendukung teks UTF-8 hingga 16 KiB. Fokuskan catatan pada satu
 
 Buka **Hubungkan agen** dan pilih klien yang sudah terpasang. Penyiapan satu klik tersedia untuk **[Claude Code](/id/features/claude-code)**, **[Antigravity CLI](/id/features/antigravity-cli)**, **[Codex](/id/features/codex)**, **[GitHub Copilot CLI](/id/features/github-copilot-cli)**, **[OpenCode](/id/features/opencode)**, dan **[Kimi](/id/features/kimi)**.
 
-Tindakan koneksi menyiapkan layanan memori lokal, menulis koneksi MCP global klien, dan memasang instruksi memori global sambil mempertahankan konfigurasi yang sudah ada. Anda dapat memantau hasil setiap langkah dan mencoba lagi langkah yang belum selesai. Pengaturan lanjutan juga memungkinkan Anda memasang instruksi khusus proyek jika diperlukan.
+Penyiapan satu klik akan menjalankan server MCP lokal bila perlu, mengaktifkan lima alat memori, mendaftarkan koneksi MCP global untuk klien yang dipilih, dan memasang instruksi memori global. Tinjau hasil setiap langkah dan coba ulang langkah yang belum selesai. Pengaturan lanjutan juga dapat memasang instruksi khusus proyek.
 
 ![Halaman Hubungkan agen AI Memory dengan enam klien yang didukung, pengaturan umum, dan tiga langkah penyiapan otomatis untuk Codex](https://oss.macphpstudy.com/image/features/plugin/ai-memory-connect-agent.webp)
 
 Untuk klien MCP lainnya, pilih **Pengaturan umum**. Salin konfigurasi HTTP atau gunakan opsi stdio jika klien Anda memerlukannya. Tambahkan instruksi memori ke berkas instruksi atau prompt sistem yang didukung klien. Koneksi stdio memerlukan Node.js lokal dan jembatan FlyEnv.
 
-Setelah penyiapan, hubungkan ulang klien atau buka sesi agen baru agar koneksi dan instruksi dimuat. Minta agen menyimpan contoh memori sederhana, lalu mengambilnya kembali dan melaporkan ID serta revisi yang sebenarnya. Anda juga dapat menemukan catatan itu di **Memori** dan memeriksa permintaannya di **Catatan Panggilan**.
+Setelah penyiapan, buka sesi baru dari direktori root absolut proyek yang telah dikonfirmasi. Minta klien pertama menyimpan contoh fakta proyek, misalnya “Perintah smoke test adalah `npm test`,” lalu menyebutkan ID dan revisi yang diterima. Pada sesi baru di klien kedua yang sudah terhubung, gunakan root proyek yang sama dan minta klien mencari “smoke test” serta mengambil catatannya. Cocokkan ID dan revisinya dan periksa kedua operasi di **Catatan Panggilan**.
 
-Penyiapan yang berhasil mengonfirmasi bahwa konfigurasi telah ditulis. Apakah agen menyimpan pengetahuan yang berguna dan mengambilnya kembali bergantung pada instruksi serta pemanggilan alat yang benar-benar dilakukan; penyimpanan otomatis tidak dijamin.
+Uji penerimaan pratinjau pengembang FlyEnv memverifikasi pertukaran dua arah antara Codex dan Kimi, serta membaca kembali catatan setelah FlyEnv dimulai ulang. Penyiapan klien menulis pengaturan koneksi dan instruksi. Penyimpanan dan pengambilan pengetahuan bergantung pada instruksi agen dan pemanggilan alat yang benar-benar terjadi.
 
 ## Lima alat MCP untuk memori persisten
 
@@ -68,6 +68,8 @@ AI Memory menambahkan lima alat ke server MCP FlyEnv:
 - **`flyenv_memory_store`:** menyimpan memori baru beserta sumbernya.
 - **`flyenv_memory_update`:** merevisi catatan yang sudah ada dengan alasan dan revisi yang diharapkan.
 - **`flyenv_memory_forget`:** menghapus catatan dan riwayatnya secara permanen.
+
+Pencarian proyek dapat memakai `include_global=true` untuk menyertakan memori global. Baca setiap hasil sesuai cakupan yang dikembalikan. Jika pembaruan mengalami konflik, baca revisi terakhir sebelum menentukan perubahan. Jika penulisan kehabisan waktu atau mengembalikan `unknown`, ulangi permintaan yang sama dengan `request_id` dan parameter yang sama untuk memastikan hasilnya.
 
 Kelola ketersediaan alat dan kebijakan persetujuan di pengaturan MCP FlyEnv. Biarkan FlyEnv tetap berjalan dengan plugin aktif dan server MCP tersedia saat agen menggunakan alat tersebut. Klien terhubung yang berbeda dapat mengakses koleksi tersimpan yang sama jika menggunakan cakupan dan direktori root proyek yang sama.
 
@@ -89,7 +91,7 @@ Jika folder yang dipilih sudah memiliki memori proyek, FlyEnv akan menanyakan ap
 
 Tab **Catatan Panggilan** menampilkan aktivitas dan hasil alat memori untuk sesi FlyEnv saat ini. Perbarui daftar setelah menggunakan agen, lalu perluas catatan untuk memeriksa detail permintaan dan respons.
 
-Tampilan ini menyimpan hingga 200 entri terperinci dalam memori dan tidak menyertakan isi memori lengkap. Catatan panggilan dihapus saat FlyEnv ditutup; memori yang disimpan tetap berada di disk. Penyimpanan lokal menjelaskan lokasi plugin menyimpan data: konten yang diambil melalui MCP tetap diteruskan ke klien AI pilihan Anda.
+Tampilan ini menyimpan hingga 200 entri terperinci dalam memori dan tidak menyertakan isi memori lengkap. Catatan panggilan dihapus saat FlyEnv ditutup; memori yang disimpan tetap berada di disk. Penyimpanan lokal menjelaskan lokasi plugin menyimpan data: konten yang diambil melalui MCP tetap diteruskan ke klien AI pilihan Anda. Klien Anda dapat mengirim isi yang diambil ke penyedia modelnya. Gunakan catatan contoh yang tidak sensitif untuk memeriksa koneksi.
 
 ![Tab Catatan Panggilan AI Memory yang menampilkan aktivitas alat dalam sesi, hasil, durasi, dan tombol perbarui](https://oss.macphpstudy.com/image/features/plugin/ai-memory-call-records.webp)
 

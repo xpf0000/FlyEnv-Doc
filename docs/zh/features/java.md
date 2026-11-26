@@ -82,6 +82,8 @@ Java 模块中的 **Maven** 选项卡本身就是完整的版本管理器，因�
 
 ![FlyEnv Java 项目列表及按项目 JDK 绑定截图](https://oss.macphpstudy.com/image/features/java-5.webp)
 
+[OpenMRS 演示](/zh/demos?video=openmrs-local-project)展示如何在 Tomcat 中运行 Java Web 应用。[Spring Boot 方案](/zh/solutions/spring-boot)介绍可执行 JAR 的流程。
+
 <FeatureRelatedLinks locale="zh" slug="java" />
 
 ## 兼容性说明

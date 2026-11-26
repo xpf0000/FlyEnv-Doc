@@ -140,6 +140,11 @@
                 <a
                   :href="item.href"
                   :download="fileName(item.href)"
+                  :data-analytics-platform="item.platform"
+                  :data-analytics-architecture="item.architecture === 'x86_64' ? 'x64' : item.architecture"
+                  :data-analytics-version="version"
+                  :data-analytics-package-type="item.id === 'winPortable' ? 'portable' : item.format.slice(1)"
+                  data-analytics-download-source="github"
                   class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-blue-200 px-4 py-2.5 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-[0.99] dark:border-blue-800 dark:text-blue-300 dark:hover:bg-blue-950/50 dark:focus:ring-offset-slate-900"
                   ><el-icon :size="17"><Download /></el-icon>{{ copy.download }}</a
                 >
@@ -147,6 +152,25 @@
             </div>
           </section>
         </div>
+      </section>
+
+      <section
+        class="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
+        aria-labelledby="getting-started-title"
+      >
+        <div>
+          <h2 id="getting-started-title" class="text-xl font-bold">{{ copy.setupTitle }}</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+            {{ copy.setupDescription }}
+          </p>
+        </div>
+        <a
+          :href="`${locale === 'en' ? '' : '/' + locale}/guide/getting-started`"
+          class="inline-flex items-center gap-2 rounded-lg border border-blue-200 px-4 py-2.5 text-sm font-semibold text-blue-700 transition hover:bg-blue-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-blue-800 dark:text-blue-300 dark:hover:bg-blue-950/50"
+        >
+          {{ copy.setupLink }}
+          <span aria-hidden="true">→</span>
+        </a>
       </section>
 
       <section class="grid gap-6 lg:grid-cols-[1.05fr_1fr]" aria-labelledby="help-title">
@@ -254,13 +278,16 @@
     en: {
       title: 'Download FlyEnv',
       subtitle:
-        'Choose the build for your system. FlyEnv is available for Windows, macOS and Linux.',
+        'Choose a package from GitHub Releases that matches your operating system and processor.',
       latestVersion: 'Latest version',
       releaseNotes: 'Release notes',
       buildHistory: 'Build history',
       signedBuilds: 'Signed builds',
       otherDownloads: 'Choose your download',
       download: 'Download',
+      setupTitle: 'After you download',
+      setupDescription: 'Install FlyEnv, start the services you need, and open your first local HTTPS site.',
+      setupLink: 'Follow the quick start guide',
       notSureTitle: 'Not sure which download to choose?',
       selectionHints: [
         { label: 'Most Windows users', value: 'Windows Installer' },
@@ -275,11 +302,11 @@
       purchaseLicense: 'Buy a license',
       windowsDescription: 'Windows builds for a quick setup or a no-install workflow.',
       macDescription: 'Native disk images for both Apple Silicon and Intel Macs.',
-      linuxDescription: 'Packages for Debian-based and Red Hat-based distributions.',
+      linuxDescription: 'Choose .deb or .rpm for your distribution, then match x64 or ARM64 to your processor.',
       windowsInstaller: 'Windows Installer',
       windowsInstallerDescription: 'Recommended for most Windows users.',
       windowsPortable: 'Windows Portable',
-      windowsPortableDescription: 'No installation required. Extract and run.',
+      windowsPortableDescription: 'Run the portable .exe directly.',
       macArm: 'macOS Apple Silicon',
       macArmDescription: 'For M1, M2, M3, M4 and newer Apple Silicon Macs.',
       macX86: 'macOS Intel',
@@ -313,13 +340,16 @@
     },
     zh: {
       title: '下载 FlyEnv',
-      subtitle: '选择适合你系统的版本。FlyEnv 支持 Windows、macOS 和 Linux。',
+      subtitle: '请选择 GitHub Releases 中与你的操作系统和处理器架构匹配的安装包。',
       latestVersion: '最新版本',
       releaseNotes: '更新日志',
       buildHistory: '构建记录',
       signedBuilds: '已签名构建',
       otherDownloads: '选择下载版本',
       download: '下载',
+      setupTitle: '下载之后',
+      setupDescription: '安装 FlyEnv、启动所需服务，然后打开你的第一个本地 HTTPS 站点。',
+      setupLink: '查看快速入门指南',
       notSureTitle: '不知道该选择哪个版本？',
       selectionHints: [
         { label: '大多数 Windows 用户', value: 'Windows 安装版' },
@@ -334,11 +364,11 @@
       purchaseLicense: '购买许可证',
       windowsDescription: '提供快速安装和免安装两种 Windows 版本。',
       macDescription: '同时支持 Apple Silicon 与 Intel Mac。',
-      linuxDescription: '提供 Debian 系和 Red Hat 系发行版的软件包。',
+      linuxDescription: '按发行版选择 .deb 或 .rpm，再按处理器架构选择 x64 或 ARM64。',
       windowsInstaller: 'Windows 安装版',
       windowsInstallerDescription: '适合大多数 Windows 用户。',
       windowsPortable: 'Windows 便携版',
-      windowsPortableDescription: '无需安装，解压后即可运行。',
+      windowsPortableDescription: '直接运行便携版 .exe。',
       macArm: 'macOS Apple Silicon',
       macArmDescription: '适用于 M1、M2、M3、M4 及更新的 Apple Silicon Mac。',
       macX86: 'macOS Intel',
@@ -372,13 +402,16 @@
     },
     id: {
       title: 'Unduh FlyEnv',
-      subtitle: 'Pilih build untuk sistem Anda. FlyEnv tersedia untuk Windows, macOS, dan Linux.',
+      subtitle: 'Pilih paket dari GitHub Releases yang sesuai dengan sistem operasi dan prosesor Anda.',
       latestVersion: 'Versi terbaru',
       releaseNotes: 'Catatan rilis',
       buildHistory: 'Riwayat build',
       signedBuilds: 'Build bertanda tangan',
       otherDownloads: 'Pilih unduhan Anda',
       download: 'Unduh',
+      setupTitle: 'Setelah mengunduh',
+      setupDescription: 'Pasang FlyEnv, jalankan layanan yang dibutuhkan, lalu buka situs HTTPS lokal pertama Anda.',
+      setupLink: 'Ikuti panduan mulai cepat',
       notSureTitle: 'Bingung memilih unduhan?',
       selectionHints: [
         { label: 'Sebagian besar pengguna Windows', value: 'Windows Installer' },
@@ -393,11 +426,11 @@
       purchaseLicense: 'Beli lisensi',
       windowsDescription: 'Build Windows untuk instalasi cepat atau penggunaan tanpa instalasi.',
       macDescription: 'Disk image native untuk Mac Apple Silicon dan Intel.',
-      linuxDescription: 'Paket untuk distribusi berbasis Debian dan Red Hat.',
+      linuxDescription: 'Pilih .deb atau .rpm sesuai distro, lalu pilih x64 atau ARM64 sesuai prosesor Anda.',
       windowsInstaller: 'Windows Installer',
       windowsInstallerDescription: 'Direkomendasikan untuk sebagian besar pengguna Windows.',
       windowsPortable: 'Windows Portable',
-      windowsPortableDescription: 'Tanpa instalasi. Ekstrak lalu jalankan.',
+      windowsPortableDescription: 'Jalankan langsung berkas .exe portabel.',
       macArm: 'macOS Apple Silicon',
       macArmDescription: 'Untuk Mac Apple Silicon M1, M2, M3, M4 dan yang lebih baru.',
       macX86: 'macOS Intel',
@@ -432,13 +465,16 @@
     es: {
       title: 'Descargar FlyEnv',
       subtitle:
-        'Elige la versión para tu sistema. FlyEnv está disponible para Windows, macOS y Linux.',
+        'Elige en GitHub Releases el paquete que corresponda a tu sistema operativo y procesador.',
       latestVersion: 'Última versión',
       releaseNotes: 'Notas de la versión',
       buildHistory: 'Historial de compilaciones',
       signedBuilds: 'Compilaciones firmadas',
       otherDownloads: 'Elige tu descarga',
       download: 'Descargar',
+      setupTitle: 'Después de descargar',
+      setupDescription: 'Instala FlyEnv, inicia los servicios que necesitas y abre tu primer sitio HTTPS local.',
+      setupLink: 'Sigue la guía de inicio rápido',
       notSureTitle: '¿No sabes qué descarga elegir?',
       selectionHints: [
         { label: 'La mayoría de los usuarios de Windows', value: 'Instalador de Windows' },
@@ -453,11 +489,11 @@
       purchaseLicense: 'Comprar una licencia',
       windowsDescription: 'Versiones de Windows para una instalación rápida o un uso sin instalación.',
       macDescription: 'Imágenes de disco nativas para Mac con Apple Silicon e Intel.',
-      linuxDescription: 'Paquetes para distribuciones basadas en Debian y en Red Hat.',
+      linuxDescription: 'Elige .deb o .rpm según tu distribución y selecciona x64 o ARM64 según tu procesador.',
       windowsInstaller: 'Instalador de Windows',
       windowsInstallerDescription: 'Recomendado para la mayoría de los usuarios de Windows.',
       windowsPortable: 'Windows Portable',
-      windowsPortableDescription: 'No requiere instalación. Descomprime y ejecuta.',
+      windowsPortableDescription: 'Ejecuta directamente el archivo .exe portátil.',
       macArm: 'macOS Apple Silicon',
       macArmDescription: 'Para Mac con Apple Silicon M1, M2, M3, M4 y modelos posteriores.',
       macX86: 'macOS Intel',
@@ -494,13 +530,16 @@
     vi: {
       title: 'Tải xuống FlyEnv',
       subtitle:
-        'Chọn bản build cho hệ thống của bạn. FlyEnv có sẵn cho Windows, macOS và Linux.',
+        'Chọn gói trên GitHub Releases phù hợp với hệ điều hành và bộ xử lý của bạn.',
       latestVersion: 'Phiên bản mới nhất',
       releaseNotes: 'Ghi chú phát hành',
       buildHistory: 'Lịch sử build',
       signedBuilds: 'Build đã ký',
       otherDownloads: 'Chọn bản tải xuống của bạn',
       download: 'Tải xuống',
+      setupTitle: 'Sau khi tải xuống',
+      setupDescription: 'Cài FlyEnv, khởi động các dịch vụ cần thiết rồi mở site HTTPS local đầu tiên.',
+      setupLink: 'Xem hướng dẫn bắt đầu nhanh',
       notSureTitle: 'Không chắc nên chọn bản tải xuống nào?',
       selectionHints: [
         { label: 'Phần lớn người dùng Windows', value: 'Windows Installer' },
@@ -515,11 +554,11 @@
       purchaseLicense: 'Mua giấy phép',
       windowsDescription: 'Bản build Windows để cài đặt nhanh hoặc dùng không cần cài đặt.',
       macDescription: 'Hình đĩa gốc cho Mac Apple Silicon và Intel.',
-      linuxDescription: 'Gói cho các bản phân phối dựa trên Debian và Red Hat.',
+      linuxDescription: 'Chọn .deb hoặc .rpm theo bản phân phối, rồi chọn x64 hoặc ARM64 theo bộ xử lý.',
       windowsInstaller: 'Windows Installer',
       windowsInstallerDescription: 'Khuyến nghị cho phần lớn người dùng Windows.',
       windowsPortable: 'Windows Portable',
-      windowsPortableDescription: 'Không cần cài đặt. Giải nén và chạy.',
+      windowsPortableDescription: 'Chạy trực tiếp tệp .exe portable.',
       macArm: 'macOS Apple Silicon',
       macArmDescription: 'Cho Mac Apple Silicon M1, M2, M3, M4 và mới hơn.',
       macX86: 'macOS Intel',
@@ -545,7 +584,7 @@
         'Chọn bản build phù hợp với hệ điều hành của bạn. Trên Linux, chọn .deb cho Debian hoặc Ubuntu và .rpm cho Fedora, Red Hat, SUSE hoặc CentOS.',
       faq2: 'FlyEnv có miễn phí không?',
       faq2Answer:
-        'FlyEnv có thể tải xuống và dùng cho phát triển cục lõi mà không cần giấy phép. Một số công cụ premium có giới hạn dùng thử; giấy phép một lần 10 đô la mở khóa quyền premium trên một thiết bị đang hoạt động.',
+        'Bạn có thể tải FlyEnv và dùng các tính năng phát triển local cơ bản miễn phí. Một số công cụ cao cấp có giới hạn dùng thử. Giấy phép 10 USD, thanh toán một lần, mở khóa các tính năng cao cấp trên một thiết bị đang kích hoạt.',
       faq3: 'Các bản cài đặt đã được ký chưa?',
       faq3AnswerPrefix: 'Bản cài đặt Windows được ký số thông qua ',
       faq3AnswerSuffix:

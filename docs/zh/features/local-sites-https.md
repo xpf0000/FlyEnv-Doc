@@ -77,6 +77,8 @@ Host 不必亲自启动应用进程。让语言模块负责运行进程，再将
 
 不要将本地证书视为网站获得公共信任的证明：这些证书仅用于本地开发和测试。若要公开预览，可将本地服务与 [Cloudflare Tunnel](/zh/guide/cloudflare-tunnel-local-development) 配合，或将其部署到面向外部流量的环境中。
 
+可观看 [Gitea、MySQL 与 HTTPS 演示](/zh/demos?video=gitea-local-project)，了解如何用受管理的域名访问本地应用。
+
 <FeatureRelatedLinks locale="zh" slug="local-sites-https" />
 
 ## 兼容性说明

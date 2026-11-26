@@ -29,6 +29,7 @@ export interface Demo {
   }
   relatedGuides: string[]
   relatedModules: string[]
+  relatedSolutions?: { slug: string; name: string }[]
 }
 
 type DemoSource = Omit<Demo, 'featured' | 'featuredRank' | 'locales' | 'platforms'> & {
@@ -252,7 +253,8 @@ function createDemo(source: DemoSource): Demo {
       ...(bilibili ? { bilibili: 'https://www.bilibili.com/video/' + bilibili } : {})
     },
     relatedGuides: source.relatedGuides,
-    relatedModules: source.relatedModules
+    relatedModules: source.relatedModules,
+    relatedSolutions: source.relatedSolutions
   }
 }
 
@@ -369,7 +371,9 @@ const sources: DemoSource[] = [
       es: 'Ejecuta ERPNext y sus servicios Frappe juntos como un stack local gestionado.',
       vi: 'Chạy ERPNext cùng các dịch vụ Frappe như một stack local được quản lý thống nhất.'
     },
-    tags: ['ERPNext', 'Frappe', 'local stack'], relatedGuides: [], relatedModules: []
+    tags: ['ERPNext', 'Frappe', 'local stack'],
+    relatedGuides: [], relatedModules: ['/features/startup-groups'],
+    relatedSolutions: [{ slug: 'erpnext', name: 'ERPNext' }]
   },
   {
     id: 'php-project-services', youtubeId: '5NqSag8c4YY', category: 'projects',

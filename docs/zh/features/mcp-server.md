@@ -42,9 +42,9 @@ FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你�
 服务器直接运行在 FlyEnv 应用内部，无需额外安装；**服务**选项卡仅用于控制监听方式和启动时机。
 
 - **绑定主机和端口：** 默认地址为 `127.0.0.1:7682`，端口可设置为 1024 至 65535 之间的任意值。除非明确启用远程访问，否则会拒绝非回环地址绑定，并先弹出警告对话框。
-- **Bearer 令牌身份验证：** 客户端每次请求都必须提供生成的令牌。点击一次即可重新生成令牌，同时撤销所有现有客户端。
+- **Bearer 令牌验证：** 客户端访问 MCP 时发送生成的令牌。重新生成令牌会让旧令牌失效。要重新连接，请更新客户端配置。
 - **启动时自动运行：** 每次 FlyEnv 打开时服务器都可自动启动，避免助手指向失效的端点。
-- **独立服务：** FlyEnv MCP 服务器不会加入全局“全部启动”组，因此批量启动技术堆栈时不会意外启动 AI 接口。
+- **独立服务：** 启用后，FlyEnv 的全局启停操作会跳过 MCP 服务器。
 - **stdio 桥接：** 对于偏好 stdio 的客户端，FlyEnv 会将 `flyenv-mcp-stdio.mjs` 桥接脚本复制到数据目录，可由外部 [Node.js](/zh/features/nodejs) 运行时执行。
 
 ![FlyEnv 服务选项卡中的主机、端口和令牌选项截图](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
@@ -68,6 +68,8 @@ FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你�
 - **按工具启用开关：** 可关闭任意单个工具，使客户端完全无法调用它。
 - **高风险工具的审批策略：** 7 个生命周期、站点写入和安装工具都带有自动/确认策略；默认是确认，敏感操作会等待你的批准，除非你主动放宽策略。
 
+`delete_site` 和 `install_service` 默认关闭。启用 `list_services` 或 `list_sites` 后，可访问对应的 MCP 资源 `flyenv://services` 或 `flyenv://sites`。
+
 ![FlyEnv 工具选项卡及逐项工具开关和批准策略截图](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
 安装 **[AI Memory](/zh/features/ai-memory)** 后，可增加搜索、读取、保存、更新和删除本地助手记忆的五个工具。它们的启用开关和审批策略在插件分组中管理，与内置环境工具位于同一页面。
@@ -77,11 +79,13 @@ FlyEnv 内置的 MCP 服务器允许 AI 编程助手通过受控接口操作你�
 **审计日志**选项卡实时查看 FlyEnv MCP 数据目录中的 `audit.log`，其中以 JSON Lines 格式记录服务器处理的每次工具调用。
 
 - **完整调用历史：** 每条记录都会捕获运行的工具及其参数，为 AI 助手访问过的所有内容提供可审查轨迹；这对日常[使用 AI 助手](/zh/guide/flyenv-work-with-ai)至关重要。
-- **敏感信息遮罩：** 令牌和密码在写入日志前会被遮罩，因此查看或分享文件不会泄露凭据。
+- **工具参数：** 内置工具的日志可能包含参数和错误信息。分享前请检查其中的凭据或私有路径。脱敏选项只适用于工具响应中的部分字段。
 
 AI Memory 调用在共享审计日志中使用精简记录，不包含搜索查询、摘要或完整记忆正文。插件自身的 **调用记录** 页提供当前会话中的更多详情，同样不包含完整正文。
 
 ![FlyEnv 审计日志选项卡显示记录的工具调用截图](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
+
+观看 [PHP 与 MySQL 项目演示](/zh/demos?video=ai-cli-mcp-crud)，了解如何在运行的项目中使用环境工具。
 
 <FeatureRelatedLinks locale="zh" slug="mcp-server" />
 

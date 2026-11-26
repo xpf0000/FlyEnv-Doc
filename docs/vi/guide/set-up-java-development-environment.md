@@ -4,7 +4,7 @@ description: 'Cài đặt và quản lý các phiên bản JDK, Maven, và Tomca
 
 # Thiết lập môi trường phát triển Java bằng FlyEnv
 
-FlyEnv đã hỗ trợ thiết lập môi trường phát triển Java. Với FlyEnv, bạn có thể nhanh chóng tải xuống và cài đặt Java, Maven, và Tomcat. Nó hỗ trợ openjdk8 tới phiên bản JDK mới nhất. Hỗ trợ Maven từ 2.x tới phiên bản mới nhất. Hỗ trợ Tomcat8 tới phiên bản Tomcat mới nhất.
+Kiểm tra JDK và công cụ build dự án yêu cầu. Cài JDK đó trong [module Java](/vi/features/java) của FlyEnv. Thêm Maven nếu dự án cần và cài Tomcat khi cần triển khai WAR lên servlet container độc lập.
 
 1. Cài java jdk và đặt biến môi trường
 
@@ -22,7 +22,7 @@ Trong phần quản lý Maven của module Java, cài phiên bản maven bạn c
 
 <img src="https://oss.macphpstudy.com/image/java-maven-set.jpg" data-x-image-preview="">
 
-3. Cài Tomcat và đặt biến môi trường
+3. **Cài Tomcat nếu cần triển khai WAR**
 
 Cài Tomcat
 
@@ -32,4 +32,14 @@ Cài Tomcat
 
 <img src="https://oss.macphpstudy.com/image/tomcat-set-env.jpg" data-x-image-preview="">
 
-Giờ bạn đã có một môi trường phát triển Java bao gồm JDK, Maven, và Tomcat
+## Kiểm tra JDK và Maven trong terminal mới
+
+Sau khi áp dụng thay đổi môi trường, chạy các lệnh sau. So sánh phiên bản Java trong `mvn -v` với phiên bản dự án yêu cầu. Nếu dự án có Maven Wrapper, dùng `./mvnw -v` trong macOS/Linux hoặc `.\mvnw.cmd -v` trong PowerShell.
+
+```text
+java -version
+javac -version
+mvn -v
+```
+
+Nếu dự án Spring Boot tạo JAR thực thi, dùng `java -jar` với đường dẫn JAR thực tế. Mở URL ứng dụng xuất hiện trong log khởi động. [Giải pháp Spring Boot](/vi/solutions/spring-boot) trình bày reverse proxy tùy chọn và các dịch vụ phụ thuộc.

@@ -113,11 +113,20 @@ cd ~/work/modern-node-app
 node -v
 # v20.11.0
 
-which node
-# /Users/you/.flyenv/versions/node/20.11.0/bin/node
+command -v node
 ```
 
 FlyEnv 的 shell 集成会检测你的当前目录，并在命令运行前**注入正确的路径**。无需 `nvm use`，无需 `source venv/bin/activate`，不会忘记切换。
+
+在两个项目中分别核对版本和可执行文件路径。zsh 或 Bash 中使用 `command -v php` 和 `command -v node`。PowerShell 中进入每个已注册项目的目录，运行以下命令。
+
+```powershell
+php -v
+node -v
+Get-Command php,node | Select-Object Name,Source
+```
+
+浏览器请求所用的 PHP 版本需在「站点」中单独核对。FlyEnv 的 **PHP-FPM** 模块在 macOS 和 Linux 上运行 `php-fpm`，在 Windows 上运行 FastCGI 工作进程。
 
 ![终端演示 - 显示 cd 时自动版本切换](https://oss.macphpstudy.com/image/project-env6.png)
 

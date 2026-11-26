@@ -10,6 +10,8 @@ head:
 
 URL seperti `localhost:3000` praktis, tetapi tidak selalu merepresentasikan perilaku domain, cookie, OAuth callback, atau HTTPS di aplikasi nyata. Modul Host FlyEnv memungkinkan situs lokal memakai domain kustom dan sertifikat lokal yang dipercaya.
 
+Lihat contoh yang berjalan dalam [demo Gitea dengan MySQL dan HTTPS](/id/demos?video=gitea-local-project). Pastikan layanan merespons pada port lokalnya sebelum menguji domain HTTPS.
+
 ## Mengapa Domain Kustom
 
 - URL seperti `https://myproject.test` mudah dibaca dan dibagikan dalam tim.

@@ -1,6 +1,6 @@
 import { defineConfig, defineConfigWithTheme } from 'vitepress'
 import * as vueCompiler from 'vue/compiler-sfc'
-import { AppHost, GoogleID, PROD, FootMessage } from './env'
+import { AppHost, PROD, FootMessage } from './env'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -727,18 +727,7 @@ const chineseCompareDescriptions: Record<string, string> = {
     '比较 FlyEnv 与 XAMPP 的运行时、Web 服务器、数据库、本地域名、HTTPS、服务管理和项目隔离。'
 }
 if (PROD) {
-  head.push(
-    ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${GoogleID}` }],
-    [
-      'script',
-      {},
-      `window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GoogleID}');`
-    ],
-    ['script', { async: '', src: `/js/index.js` }]
-  )
+  head.push(['script', { async: '', src: '/js/index.js' }])
 }
 
 // https://vitepress.dev/reference/site-config

@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # FlyEnv 本地邮件测试
 
-Mailpit 是一个面向开发者的开源 SMTP 测试工具：它充当虚拟邮件服务器，捕获应用发送的邮件并显示在 Web 收件箱中，因此测试邮件不会到达真实收件人。FlyEnv 将其作为托管的本地服务运行：从版本管理器安装版本，一键启动二进制文件，应用通过 SMTP 发送的每封邮件都会进入 Mailpit Web 收件箱。SMTP 监听器默认使用 1025 端口，Web 界面使用 8025 端口；配置和日志都可直接在应用内编辑和查看。
+Mailpit 是开源 SMTP 测试工具，会在 Web 收件箱显示应用发送到其 SMTP 监听器的邮件。只做捕获测试时，请关闭 SMTP 中继和自动转发。FlyEnv 管理版本、服务启停、配置和日志。SMTP 默认使用 1025 端口，Web 收件箱使用 8025。 仅在本机测试时，在配置文件中将用到的监听地址设为 `127.0.0.1`。
 
 ![FlyEnv Mailpit 模块概览截图](https://oss.macphpstudy.com/image/features/mailpit-1.webp)
 
@@ -73,6 +73,8 @@ Mailpit 是一个面向开发者的开源 SMTP 测试工具：它充当虚拟邮
 **日志**选项卡可直接在 FlyEnv 中打开 Mailpit 日志。日志路径由配置中的 `MP_LOG_FILE` 设置决定，默认是 FlyEnv Mailpit 目录下的 `mailpit.log`，因此查看器始终跟踪正在运行的服务实际写入的文件。当服务无法启动或邮件未按预期到达时，应首先查看这里。
 
 ![FlyEnv Mailpit 日志查看器截图](https://oss.macphpstudy.com/image/features/mailpit-5.webp)
+
+[观看 Mailpit SMTP 捕获演示](/zh/demos?video=mailpit-local)
 
 <FeatureRelatedLinks locale="zh" slug="mailpit" />
 

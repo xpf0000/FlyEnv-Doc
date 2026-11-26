@@ -30,9 +30,20 @@ Instala la extensión de PHP Xdebug:
 
 El panel de extensiones ofrece instalación rápida en Windows:
 
-- **Biblioteca en línea:** busca en el catálogo de extensiones (con datos de Packagist) e instala con un clic. FlyEnv descarga [PIE](https://github.com/php/pie), el instalador oficial de extensiones de PHP, y lo usa para instalar la extensión para tu versión exacta de PHP, por lo que la correspondencia de versiones se resuelve automáticamente. La descarga de PIE requiere Windows x64.
+- **Catálogo en línea.** Abre **Extensions** desde la versión de PHP que vas a usar. FlyEnv muestra las versiones disponibles e instala una DLL PECL compatible con Windows o usa [PIE](https://github.com/php/pie), según el paquete. El instalador de PIE que descarga FlyEnv es para Windows x64.
 - **Extensiones incluidas:** la carpeta de extensiones contiene por defecto la mayoría de las extensiones comunes. PHP no las activa automáticamente; actívalas o desactívalas directamente en el panel y FlyEnv actualizará `php.ini` por ti.
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="" alt="Carpeta de extensiones de PHP en Windows">
 
-También puedes instalar una extensión manualmente: descarga el archivo `.dll` desde [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) y colócalo en la carpeta de extensiones de PHP.
+Para instalar manualmente, descarga de [PECL](https://pecl.php.net/packages.php) una DLL que coincida con la versión de PHP, la arquitectura y el tipo de seguridad de hilos (TS/NTS). Colócala en el `extension_dir` de esa versión y actívala en su configuración. El [manual de PHP](https://www.php.net/manual/en/install.pecl.windows.php) describe la compatibilidad de las DLL en Windows.
+
+## Verifica la extensión en la versión de PHP elegida
+
+Ejecuta estos comandos con el ejecutable de la versión de PHP que cambiaste. Si tienes varias instaladas, usa la ruta completa a `php` o `php.exe` de esa versión en lugar de `php`.
+
+```text
+php --ini
+php -m
+```
+
+Comprueba qué archivo INI se ha cargado y busca el módulo en el listado. Si PHP emite un aviso de inicio, revisa la extensión, sus dependencias y la directiva INI. Para un sitio web, reinicia el proceso correspondiente desde el [módulo PHP-FPM](/es/features/php) y comprueba la extensión dentro del sitio. La salida de CLI solo describe ese proceso.

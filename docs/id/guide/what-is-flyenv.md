@@ -8,9 +8,9 @@ head:
 
 # Apa Itu FlyEnv? Stack Lokal Native, CLI Coding AI, dan Ruang Kerja MCP
 
-Pengembangan lokal modern tidak lagi hanya membutuhkan PHP dan MySQL. Proyek nyata biasanya memakai beberapa runtime, layanan lokal, situs HTTPS, dan kini klien coding AI yang harus melihat lingkungan lokal yang sama dengan yang Anda gunakan.
+FlyEnv adalah ruang kerja desktop open source untuk pengembangan lokal native di Windows, macOS, dan Linux. Pasang runtime dan layanan yang dibutuhkan, pilih versi runtime per proyek, dan jalankan situs lokal dengan domain kustom dan HTTPS. Simpan layanan dalam Startup Group agar bisa dijalankan bersama.
 
-FlyEnv adalah ruang kerja desktop native yang menyatukan semua bagian itu. FlyEnv mengelola runtime dan layanan lokal, mengganti versi per proyek, menjalankan CLI coding AI, serta membuka konteks lokal terkelola melalui **FlyEnv MCP Server** bawaan.
+Di ruang kerja yang sama, Anda bisa menjalankan CLI coding AI yang didukung dan menghubungkannya ke layanan, situs, serta log yang dikelola melalui **FlyEnv MCP Server** bawaan.
 
 ## Apa yang Sebenarnya Dilakukan FlyEnv
 
@@ -34,7 +34,7 @@ FlyEnv memungkinkan Anda memasang hanya perangkat lunak yang diperlukan dan meng
 | Utilitas | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE) |
 | Modul kustom | Modul kustom dapat ditambahkan sebagai layanan atau perintah dan bekerja seperti modul bawaan. |
 
-Semua modul mendukung beberapa versi secara berdampingan, sehingga setiap proyek dapat menggunakan versi yang dibutuhkannya tanpa pengelola terpisah untuk setiap runtime atau layanan.
+Untuk modul yang menyediakan beberapa versi, FlyEnv dapat memasang versi yang didukung secara berdampingan. Pilih versi runtime yang dibutuhkan tiap proyek.
 
 Selain modul tersebut, FlyEnv mengelola situs lokal dengan domain kustom, HTTPS/SSL, reverse proxy, log, dan pengaturan runtime tingkat situs. FlyEnv juga menyatukan klien coding AI dan FlyEnv MCP Server dalam ruang kerja yang sama, sehingga klien AI memiliki akses terstruktur ke layanan, situs, konfigurasi, log, dan tindakan terpilih yang dikelola.
 

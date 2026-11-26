@@ -176,23 +176,20 @@ That lets you keep AI agents useful without handing them an unrestricted control
 
 ## Step 5: Run a Practical Local AI Coding Workflow
 
-Here is the common setup loop inside FlyEnv:
+Use an existing PHP and MySQL site in FlyEnv. The demo below follows a PHP CRUD app from database setup to a live page. You can check any registered PHP site with the same read-only calls.
 
-1. Open your project in FlyEnv.
-2. Let FlyEnv switch to the correct runtime versions for that project.
-3. Start the local services your project needs.
-4. Launch or configure your preferred AI coding CLI from the same workspace.
-5. Start the FlyEnv MCP Server.
-6. Add the FlyEnv MCP config to the AI client by using the generated snippet or the in-app "Add to Client" action.
-7. Let the AI inspect the same local services, sites, configs, and logs you use yourself.
-
-This is where FlyEnv differs from a generic shell-only workflow: the runtime, services, AI CLI, and MCP connection all point at the same local context.
+1. Start your selected web server, the PHP service for your site, and MySQL. Open the registered site once to confirm it loads before you connect an agent.
+2. Start the [FlyEnv MCP Server](/features/mcp-server), connect your client, and confirm it lists `list_sites`, `resolve_site_runtime`, and `resolve_site_urls`. Leave write tools disabled for this check.
+3. Ask the agent to call `list_sites` and use the exact site name it returns as `siteName` in both `resolve_site_runtime` and `resolve_site_urls`. Compare the reported PHP version with the Host settings, then open the returned URL in a browser to verify the app loads.
+4. In FlyEnv, review these operations in **MCP Server → Audit Log**. For a site that fails to load, check the web server and PHP status before you change the site configuration.
 
 ## Watch the End-to-End Demo
 
 If you want to see this workflow in a real project, this demo walks from MySQL setup to a live PHP CRUD site by using FlyEnv, an AI CLI, and the MCP bridge together.
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/frprHkD1_rQ" title="FlyEnv AI CLI + MCP End-to-End Demo: From MySQL to a Live PHP CRUD Site" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch the [PHP and MySQL CRUD demo](/demos?video=ai-cli-mcp-crud) in the FlyEnv demo library.
 
 ## Why This Works Well Without Docker-First Overhead
 
@@ -210,6 +207,10 @@ For most setups, keep these defaults:
 - use approval for risky operations
 
 Only turn on remote access if you understand the network exposure and explicitly need it.
+
+An HTTP `401` means the client sent an invalid token or omitted it. Refresh the client configuration after regenerating the token. If a browser client receives `403`, check its exact origin and whether remote access is disabled. If a tool is missing from the client, check the switch in FlyEnv and reconnect the client. A cancelled confirmation leaves that tool call unexecuted.
+
+Use the [AI Memory plugin](/features/ai-memory) if you also want a connected coding agent to save project decisions for a later session. It adds its own tools to the same MCP server.
 
 ## Frequently Asked Questions (FAQ)
 

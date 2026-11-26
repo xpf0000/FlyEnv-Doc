@@ -30,9 +30,20 @@ Cài php extension xdebug
 
 Bảng extension trên Windows đã hỗ trợ cài đặt nhanh:
 
-- **Thư viện trực tuyến:** tìm trong danh mục extension (dữ liệu từ Packagist) và cài đặt bằng một cú nhấp. FlyEnv tải [PIE](https://github.com/php/pie) — trình cài extension chính thức của PHP — và dùng nó để cài extension đúng với phiên bản PHP của bạn, nên việc khớp phiên bản được xử lý tự động. Việc tải PIE yêu cầu Windows x64.
+- **Danh mục trực tuyến.** Mở **Extensions** từ phiên bản PHP bạn định dùng. FlyEnv hiển thị các bản phát hành khả dụng và dùng DLL PECL tương thích với Windows hoặc [PIE](https://github.com/php/pie), tùy gói. Bộ cài PIE mà FlyEnv tải xuống dành cho Windows x64.
 - **Extension có sẵn:** thư mục extension chứa sẵn hầu hết các extension phổ biến. PHP không tự bật chúng — hãy bật hoặc tắt trực tiếp trong bảng extension và FlyEnv sẽ cập nhật `php.ini` cho bạn.
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="">
 
-Bạn cũng có thể cài thủ công: tải tệp `.dll` tại [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php) và đặt nó vào thư mục php extension.
+Khi cài thủ công, tải DLL từ [PECL](https://pecl.php.net/packages.php) phù hợp với phiên bản PHP, kiến trúc và chế độ thread safety (TS/NTS). Chép DLL vào `extension_dir` của phiên bản đó và bật trong cấu hình tương ứng. Xem [tài liệu PHP](https://www.php.net/manual/en/install.pecl.windows.php) về khả năng tương thích DLL trên Windows.
+
+## Kiểm tra extension trong phiên bản PHP đã chọn
+
+Chạy các lệnh sau với tệp thực thi của phiên bản PHP vừa thay đổi. Nếu cài nhiều phiên bản, thay `php` bằng đường dẫn đầy đủ đến `php` hoặc `php.exe` của phiên bản đó.
+
+```text
+php --ini
+php -m
+```
+
+Kiểm tra đường dẫn INI đã nạp và tìm module trong danh sách. Nếu PHP báo lỗi khi khởi động, kiểm tra tệp extension, phần phụ thuộc và chỉ thị INI. Với website, khởi động lại web worker đã chọn trong [module PHP-FPM](/vi/features/php) rồi kiểm tra extension trong site. Kết quả CLI chỉ mô tả tiến trình CLI.

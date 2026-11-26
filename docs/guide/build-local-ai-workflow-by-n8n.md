@@ -8,23 +8,13 @@ head:
 
 # Build Self-Hosted AI Workflows with n8n & Ollama (No Docker Required)
 
-Tired of paying monthly fees for AI automation tools like Zapier or Coze? Concerned about sending sensitive data to third-party cloud services? Many developers want to build AI-powered workflows but get stuck with complex Docker setups, manual configuration nightmares, and constant worries about data privacy.
-
-This guide shows you how to create a fully self-hosted, offline-capable AI workflow using **n8n** (the open-source alternative to Zapier) and **Ollama** (local LLM runner)—all managed effortlessly with FlyEnv. No Docker required, no cloud dependencies, and you can even expose your workflows securely to the internet when needed.
+Run n8n and Ollama in FlyEnv, then make a local POST request that sends a prompt to a downloaded model and returns its response. You need internet access to install n8n and Ollama and download the model. The loopback webhook and inference can run offline after setup.
 
 ---
 
 ## Why Self-Hosted AI Workflows Matter
 
-| Cloud Automation Tools | Self-Hosted with FlyEnv |
-|------------------------|-------------------------|
-| Monthly subscription fees | One-time setup, free forever |
-| Data sent to third-party servers | 100% private, runs locally |
-| Limited customization | Full control over workflows |
-| Requires internet connection | Works offline completely |
-| Complex API rate limits | Unlimited local API calls |
-
-FlyEnv runs n8n and Ollama as local processes, avoiding the baseline virtual-machine overhead of Docker Desktop. Actual resource use depends on the selected model, workflows, and services.
+FlyEnv manages the two service processes. You build the workflow in n8n and choose the model in its Ollama node. The example uses n8n’s default SQLite storage and the local Ollama API. Nodes that call third-party APIs still need internet access.
 
 ---
 
@@ -40,22 +30,19 @@ Before starting, ensure you have:
 
 ## Step 1: Install and Start n8n
 
-FlyEnv includes n8n as a built-in module, eliminating the need for manual Node.js setup or Docker containers.
+Install a [Node.js](/features/nodejs) version supported by your n8n release and make sure `node` and `npm` work in the terminal.
 
-1. Open FlyEnv and navigate to the **Tools** section
-2. Find **n8n** in the available modules list
-3. Click **Install**—FlyEnv automatically handles all dependencies
-4. Once installed, click **Start** to launch the n8n service
+1. Open the [n8n module](/features/n8n) in FlyEnv and select **Version Manager**.
+2. Install a version. FlyEnv runs npm in its terminal, where you can check the output.
+3. Start the installed version from the module.
 
 ![n8n module in FlyEnv](https://oss.macphpstudy.com/image/n8n-1.webp)
 
 ![n8n module in FlyEnv](https://oss.macphpstudy.com/image/n8n-2.webp)
 
-5. Access the n8n web interface at `http://localhost:5678`
+4. Access the n8n web interface at `http://localhost:5678`
 
 ![n8n dashboard](https://oss.macphpstudy.com/image/n8n-3.webp)
-
-> **Tip:** FlyEnv manages the Node.js runtime automatically. You don't need to worry about version conflicts or global npm packages.
 
 ---
 
@@ -66,18 +53,12 @@ Now let's set up the AI brain of your workflow using Ollama.
 1. In FlyEnv, go to the **AI Tools** section
 2. Select **Ollama** and click **Install**
 3. Start the Ollama service
-4. Download your preferred model. Choose based on your computer's specs. See [/guide/build-local-offline-ai-agent](Build Local Offline AI Agent) for details.
 
 ![Ollama module in FlyEnv](https://oss.macphpstudy.com/image/n8n-4.webp)
 
 ![Available models in Ollama](https://oss.macphpstudy.com/image/n8n-5.webp)
 
-Available models include:
-- **Qwen 3.5** - Excellent for general tasks and coding
-- **Kimi k2.5** - Great for general tasks and programming
-- **Gemma 3** - Google's efficient open models
-- **Llama 4** - Meta's latest with strong reasoning capabilities
-- **DeepSeek Coder** - Specialized for programming tasks
+Download a model that fits your machine and confirm its tag appears at `http://127.0.0.1:11434/api/tags`. Use that exact local model in the workflow. [Ollama model setup](/guide/build-local-offline-ai-agent)
 
 ---
 
@@ -104,7 +85,7 @@ Now let's build a workflow that receives HTTP requests, processes them through y
 
 1. Add an **Ollama** node after the webhook
 2. Configure the connection:
-   - **Base URL:** `http://localhost:11434` (Ollama's default)
+   - **Base URL:** `http://127.0.0.1:11434` (Ollama's default)
    - **Model:** Select the model you downloaded (e.g., `qwen3.5`)
    
 3. Set up the message template:
@@ -117,22 +98,21 @@ Now let's build a workflow that receives HTTP requests, processes them through y
 
 ### 3.3 Test Your Workflow
 
-1. Save the workflow and toggle it to **Active**
-2. Copy the webhook URL (n8n provides both test and production URLs)
-3. Test with curl or any HTTP client:
-   ```bash
-   curl -X POST "http://localhost:5678/webhook/ai-assistant" \
-     -H "Content-Type: application/json" \
-     -d '{"q": "Explain the benefits of local AI workflows"}'
-   ```
+For an editor test, select **Listen for Test Event** and copy the **Test URL**. For the persistent endpoint in the example below, publish the workflow or switch it to **Active** on older versions. Copy its **Production URL**. In the example with default ports and path, this is `http://127.0.0.1:5678/webhook/ai-assistant`.
 
-4. You should receive a response generated by your local AI model!
+```bash
+curl -X POST "http://127.0.0.1:5678/webhook/ai-assistant" \
+  -H "Content-Type: application/json" \
+  -d '{"q": "Explain the benefits of local AI workflows"}'
+```
+
+Check the HTTP response for the model output and open **Executions** in n8n to inspect the run. A `404` usually calls for checking which URL you copied and whether the workflow is published or the test listener is running. If the Ollama node fails, check that `/api/tags` lists the chosen model. [n8n Webhook URLs](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/#webhook-urls)
 
 ---
 
 ## Step 4: Enable HTTPS with Reverse Proxy
 
-For production use or external access, you need HTTPS. FlyEnv's built-in Site Manager makes this trivial.
+The example already works on loopback. Use this optional proxy step if you want a local HTTPS address. If n8n advertises an internal URL from behind the proxy, configure its external webhook address in the n8n environment editor and restart the service. [n8n reverse-proxy settings](https://docs.n8n.io/hosting/configuration/configuration-examples/webhook-url/)
 
 ### 4.1 Add a Local Domain
 
@@ -161,14 +141,7 @@ FlyEnv automatically generates and manages local SSL certificates:
 
 ## Step 5: Expose to Internet with Cloudflare Tunnel
 
-Want to access your AI workflow remotely? FlyEnv's Cloudflare Tunnel module can publish it without opening inbound firewall ports. Named tunnels can use stable custom hostnames when your Cloudflare account and DNS zone are configured; plan limits remain subject to Cloudflare's current terms.
-
-| Feature | ngrok Free | **Cloudflare Tunnel** |
-|---------|------------|----------------------|
-| Custom domains | ❌ Random URLs | ✅ FREE |
-| Stable custom hostname | Paid plan or reserved domain | Available with a configured named tunnel |
-| Bandwidth limits | 1GB/month | Unlimited FREE |
-| Setup in FlyEnv | Manual CLI | **One-click UI** |
+Skip this step for offline use. A Cloudflare tunnel needs internet access. Configure authentication on the Webhook node before sharing the endpoint. Keep the n8n editor behind access controls, and leave the Ollama API on loopback.
 
 ### 5.1 Get Your Cloudflare API Token
 
@@ -251,7 +224,7 @@ Combine with Home Assistant webhooks to create AI-powered automation rules using
 
 ## Video Walkthrough
 
-Prefer watching? See Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (No Docker!) via FlyEnv in action:
+Watch the [n8n and Ollama workflow demo](/demos?video=n8n-ollama-workflow).
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/YnA1B3qmDJU?si=8trvnWn7JUxDQeLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -261,13 +234,7 @@ Prefer watching? See Build a 100% Free Self-Hosted AI Workflow: n8n + Ollama (No
 **Often, but it depends on the workload.** FlyEnv runs n8n and Ollama directly on your system and avoids a container VM. Model size, active workflows, databases, and the Docker configuration determine the actual difference.
 
 ### Can I use this completely offline?
-**Absolutely.** Once n8n and Ollama are installed, the entire workflow runs locally without any internet connection. This is ideal for air-gapped environments or privacy-sensitive applications.
-
-### Is n8n with Ollama better than paid automation tools?
-For developers who want local control: **often yes.** Self-hosted n8n and local models can reduce recurring service costs and keep selected data on your machine, but third-party APIs, messaging services, and infrastructure may still have their own limits or fees. The trade-off is self-management, which FlyEnv simplifies.
-
-### How does Cloudflare Tunnel compare to ngrok?
-Cloudflare Tunnel (via FlyEnv's integration) offers persistent URLs, custom domains, built-in SSL, and is completely free for personal use—unlike ngrok's random URLs and connection limits. Plus, it doesn't require installing additional software beyond FlyEnv.
+The local webhook and downloaded Ollama model can run offline after installation. Cloudflare Tunnel and any nodes that call remote services require an internet connection.
 
 ### Can I connect multiple AI models in one workflow?
 Yes! n8n supports branching and conditional logic. You could route requests to different Ollama models based on task type—use CodeLlama for programming questions, Qwen for general knowledge, etc.
@@ -278,7 +245,7 @@ Yes! n8n supports branching and conditional logic. You could route requests to d
 
 Your self-hosted AI automation platform is now ready! Here are recommended next steps:
 
-1. **Explore more AI tools** — Learn about [building offline AI agents](/guide/build-local-offline-ai-agent) with full RAG capabilities
+- [Set up an offline coding assistant with Ollama](/guide/build-local-offline-ai-agent)
 2. **Secure your setup** — Read the [Cloudflare Tunnel guide](/guide/cloudflare-tunnel-local-development) for production deployment tips
 3. **Download FlyEnv** — If you haven't already, [get the latest version](/download) for your operating system
 

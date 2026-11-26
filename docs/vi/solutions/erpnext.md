@@ -2,7 +2,7 @@
 layout: page
 titleTemplate: false
 title: 'Chạy ERPNext local với FlyEnv'
-description: 'Chạy ERPNext local với Python, MariaDB, Redis, Nginx và HTTPS bằng FlyEnv trên Windows, macOS và Linux.'
+description: 'Quản lý stack ERPNext/Frappe có sẵn với MariaDB, Redis, Nginx và Startup Groups của FlyEnv. Xem cách khởi động lại và kiểm tra site trên macOS.'
 head:
   - - meta
     - name: keywords
@@ -12,7 +12,7 @@ head:
       content: 'Chạy ERPNext local với FlyEnv'
   - - meta
     - property: og:description
-      content: 'Quản lý môi trường ERPNext local với FlyEnv trên Windows, macOS và Linux.'
+      content: 'Quản lý stack ERPNext/Frappe có sẵn với MariaDB, Redis, Nginx và Startup Groups của FlyEnv. Xem cách khởi động lại và kiểm tra site trên macOS.'
   - - meta
     - property: og:url
       content: https://flyenv.com/vi/solutions/erpnext

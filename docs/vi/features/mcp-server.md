@@ -42,9 +42,9 @@ FlyEnv đi kèm một MCP server tích hợp sẵn cho phép các trợ lý codi
 Server chạy ngay bên trong ứng dụng FlyEnv, nên không có gì phải cài — tab **Dịch vụ** chỉ điều khiển cách nó lắng nghe và thời điểm nó khởi động.
 
 - **Bind host và cổng:** địa chỉ mặc định là `127.0.0.1:7682`; cổng nhận mọi giá trị từ 1024 đến 65535. Bind ngoài loopback bị từ chối trừ khi bạn bật truy cập từ xa một cách tường minh, hành động này sẽ hiện một hộp thoại cảnh báo trước.
-- **Xác thực bằng Bearer token:** client phải trình token đã sinh trên mọi yêu cầu. Tái sinh token chỉ với một cú nhấp để thu hồi toàn bộ client hiện có cùng một lúc.
+- **Xác thực bằng Bearer token:** ứng dụng khách gửi token đã tạo khi truy cập MCP. Tạo token mới để vô hiệu hóa token cũ, rồi cập nhật các ứng dụng khách cần kết nối lại.
 - **Tự khởi động khi mở ứng dụng:** server có thể lên tự động mỗi khi FlyEnv mở, nhờ đó các trợ lý của bạn không bao giờ bị bỏ lại trỏ vào một endpoint đã chết.
-- **Dịch vụ độc lập:** FlyEnv MCP Server bị loại khỏi nhóm "start all" toàn cục, nên việc khởi động hàng loạt stack của bạn không bao giờ vô tình bật giao diện AI lên.
+- **Dịch vụ độc lập:** bật tùy chọn này để thao tác khởi động hoặc dừng dịch vụ toàn cục của FlyEnv bỏ qua máy chủ MCP.
 - **Cầu nối stdio:** cho các client ưa dùng stdio, FlyEnv sao chép một script cầu nối `flyenv-mcp-stdio.mjs` vào thư mục dữ liệu của nó, sẵn sàng được thực thi bởi một runtime [Node.js](/vi/features/nodejs) bên ngoài.
 
 ![Tab Dịch vụ với các tùy chọn host, cổng và token](https://oss.macphpstudy.com/image/features/mcp-server-1.webp)
@@ -68,6 +68,8 @@ Tab **Tools** nhóm các công cụ tích hợp sẵn và công cụ plugin, đ�
 - **Công tắc bật theo từng công cụ:** tắt bất kỳ công cụ riêng lẻ nào để loại nó khỏi phạm vi client có thể gọi.
 - **Chính sách phê duyệt cho công cụ rủi ro:** 7 công cụ vòng đời, ghi site và cài đặt mỗi cái mang một chính sách auto/confirm — mặc định là confirm, nên các thao tác nhạy cảm chờ phê duyệt của bạn trừ khi bạn chủ động nới lỏng.
 
+`delete_site` và `install_service` tắt theo mặc định. Tài nguyên MCP `flyenv://services` và `flyenv://sites` khả dụng khi bật các công cụ tương ứng `list_services` và `list_sites`.
+
 ![Tab Tools với công tắc theo từng công cụ và chính sách phê duyệt](https://oss.macphpstudy.com/image/features/mcp-server-3.webp)
 
 Cài **[AI Memory](/vi/features/ai-memory)** để thêm năm công cụ tìm kiếm, đọc, lưu, cập nhật và xóa bộ nhớ cục bộ của tác nhân. Các công tắc bật và chính sách phê duyệt của chúng được quản lý trong nhóm plugin, cùng với các công cụ môi trường tích hợp sẵn.
@@ -77,11 +79,13 @@ Cài **[AI Memory](/vi/features/ai-memory)** để thêm năm công cụ tìm ki
 Tab **Audit Log** là một trình xem trực tiếp trên `audit.log` trong thư mục dữ liệu MCP của FlyEnv — một bản ghi dạng JSON-lines của mọi lệnh gọi công cụ mà server xử lý.
 
 - **Lịch sử lệnh gọi đầy đủ:** mỗi mục ghi lại công cụ nào đã chạy và với dữ liệu gì, cho bạn một dấu vết có thể rà soát về mọi thứ các trợ lý AI của bạn đã chạm vào — bối cảnh thiết yếu khi bạn [làm việc với trợ lý AI](/vi/guide/flyenv-work-with-ai) hằng ngày.
-- **Che giấu thông tin nhạy cảm:** token và mật khẩu được che trước khi vào log, nên việc rà soát hay chia sẻ tệp không làm rò rỉ thông tin đăng nhập.
+- **Tham số công cụ:** lệnh gọi công cụ tích hợp có thể ghi tham số và lỗi. Hãy kiểm tra thông tin xác thực hoặc đường dẫn riêng tư trước khi chia sẻ. Tùy chọn che dữ liệu chỉ áp dụng cho một số trường trong phản hồi của công cụ.
 
 Các lệnh gọi AI Memory dùng mục kiểm toán chung được rút gọn, không chứa truy vấn tìm kiếm, tóm tắt hoặc toàn bộ nội dung bộ nhớ. Thẻ **Lịch sử gọi công cụ** riêng của plugin cung cấp thêm chi tiết cho phiên hiện tại, đồng thời vẫn loại trừ toàn bộ nội dung bộ nhớ.
 
 ![Tab Audit Log hiển thị các lệnh gọi công cụ đã ghi](https://oss.macphpstudy.com/image/features/mcp-server-4.webp)
+
+Xem [video dự án PHP và MySQL](/vi/demos?video=ai-cli-mcp-crud) để thấy cách dùng các công cụ môi trường trong dự án đang chạy.
 
 <FeatureRelatedLinks locale="vi" slug="mcp-server" />
 

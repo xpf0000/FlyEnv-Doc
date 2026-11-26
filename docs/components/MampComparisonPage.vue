@@ -1,10 +1,13 @@
 <script setup lang="ts">
+  import ComparisonMigration from './ComparisonMigration.vue'
+  import { mampMigration } from '../data/compare/stack-migrations'
   import ComparisonLoopPage from './ComparisonLoopPage.vue'
   const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' | 'vi' }>()
   const locale = props.locale || 'en'
   const localeText = (value: any, locale: string): any => {
     const maps: Record<string, Record<string, string>> = {
       zh: {
+        'Per-host configuration (MAMP PRO)': '每站点配置（MAMP PRO）',
         'Three key differences': '三个关键差异',
         'Different development scopes': '不同的开发范围',
         'Feature comparison': '功能对比',
@@ -127,6 +130,7 @@
         'One workspace for broader development workflows': '一个工作区覆盖更广泛的开发工作流'
       },
       id: {
+        'Per-host configuration (MAMP PRO)': 'Konfigurasi per host (MAMP PRO)',
         'Three key differences': 'Tiga perbedaan utama',
         'Different development scopes': 'Cakupan pengembangan yang berbeda',
         'Feature comparison': 'Perbandingan fitur',
@@ -247,6 +251,7 @@
         'One workspace for broader development workflows': 'Satu ruang kerja untuk alur pengembangan yang lebih luas'
       },
       es: {
+        'Per-host configuration (MAMP PRO)': 'Configuración por host (MAMP PRO)',
         'Three key differences': 'Tres diferencias clave',
         'Different development scopes': 'Diferentes ámbitos de desarrollo',
         'Feature comparison': 'Comparación de funciones',
@@ -367,6 +372,7 @@
         'One workspace for broader development workflows': 'Un solo espacio de trabajo para flujos de desarrollo más amplios'
       },
       vi: {
+        'Per-host configuration (MAMP PRO)': 'Cấu hình theo host (MAMP PRO)',
         'Three key differences': 'Ba khác biệt chính',
         'Different development scopes': 'Phạm vi phát triển khác nhau',
         'Feature comparison': 'So sánh tính năng',
@@ -626,20 +632,14 @@
         competitorOk: true
       },
       {
-        name: 'MySQL / MariaDB',
-        competitor: 'Built-in or supported',
+        name: 'MySQL',
+        competitor: 'Built-in',
         flyenv: 'Multiple database modules',
         competitorOk: true
       },
       {
-        name: 'PostgreSQL / Redis',
-        competitor: 'Optional add-on',
-        flyenv: 'Built-in modules',
-        competitorOk: false
-      },
-      {
         name: 'Local hosts / SSL',
-        competitor: 'Per-host configuration',
+        competitor: 'Per-host configuration (MAMP PRO)',
         flyenv: 'Built-in and automatic per project',
         competitorOk: true
       },
@@ -650,29 +650,11 @@
         competitorOk: true
       },
       {
-        name: 'Infrastructure modules',
-        competitor: 'Some add-ons',
-        flyenv: 'Many first-class modules',
-        competitorOk: false
-      },
-      {
         name: 'Database GUI tools',
         competitor: 'phpMyAdmin',
         flyenv: 'phpMyAdmin, pgAdmin, DbGate and more',
         competitorOk: true
       },
-      {
-        name: 'AI / MCP integration',
-        competitor: 'Not included',
-        flyenv: 'FlyEnv MCP Server and AI CLI modules',
-        competitorOk: false
-      },
-      {
-        name: 'Object storage',
-        competitor: 'Add separately',
-        flyenv: 'Managed MinIO / RustFS modules',
-        competitorOk: false
-      }
     ],
     workflowTitle: 'Typical workflow: a project that needs more than a web stack',
     workflow: {
@@ -783,5 +765,9 @@
     ], locale)"
     :flyenv-workflow="localeText(flyenvWorkflow, locale)"
     :locale="props.locale"
-  />
+  >
+    <template #migration>
+      <ComparisonMigration :migration="mampMigration" :locale="locale" />
+    </template>
+  </ComparisonLoopPage>
 </template>

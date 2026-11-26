@@ -10,7 +10,7 @@ head:
 
 现在的 PHP 项目已经不是一种部署方式可以全部解决。WordPress 需要稳定的 PHP-FPM 站点环境，Laravel Octane 需要应用服务器，Hyperf 依赖 Swoole，Workerman 则是一个常驻 PHP 进程，不能简单塞进 Apache 或 Nginx 的传统请求模型里。Docker 可以处理这些场景，但它也经常带来启动慢、内存占用高、网络层复杂、文件同步慢等额外成本。
 
-FlyEnv 在 Windows、macOS 和 Linux 上提供原生 PHP 部署工作流：PHP CGI Service、PHP-FPM、FrankenPHP、RoadRunner、Swoole CLI、Composer、数据库、自定义域名、自动 SSL、反向代理、日志和 Cloudflare Tunnel 都可以在一个桌面应用里完成。
+FlyEnv 在 Windows、macOS 和 Linux 上提供原生 PHP 部署工作流：PHP-FPM、FrankenPHP、RoadRunner、Swoole CLI、Composer、数据库、自定义域名、自动 SSL、反向代理、日志和 Cloudflare Tunnel 都可以在一个桌面应用里完成。
 
 ## 先选择正确的 PHP 部署方式
 
@@ -20,7 +20,6 @@ FlyEnv 在 Windows、macOS 和 Linux 上提供原生 PHP 部署工作流：PHP C
 | --- | --- | --- | --- |
 | WordPress、ClassicPress、Contao | PHP-FPM + Host | CMS 和内容站点 | 稳定的请求响应模型，支持数据库、自定义域名、HTTPS、Nginx/Apache/Caddy 路由 |
 | Laravel、Symfony、Yii2、ThinkPHP、CodeIgniter、CakePHP、Slim | PHP-FPM + Host | 标准 MVC 和 API 项目 | 无需 Docker 即可获得接近生产环境的 FastCGI 工作流，并可选择项目 PHP 版本 |
-| 老项目或简单 PHP 脚本 | PHP CGI Service | 兼容性测试 | 适合需要轻量 CGI 支持的老项目，或临时验证 PHP 运行环境 |
 | 现代 PHP 应用服务器项目 | FrankenPHP | Laravel、Symfony、API 服务 | 使用 FrankenPHP 自带运行时，并可联动 FlyEnv Host、自动 SSL、日志和反向代理 |
 | Laravel Octane、PSR-7 Worker、高吞吐 API | RoadRunner | Octane、PHP Worker、已有 `.rr.yaml` 的项目 | 支持常驻 PHP Worker、端口同步、FlyEnv PHP runtime 绑定 |
 | Hyperf、EasySwoole、原生 Swoole、Laravel Octane on Swoole | Swoole CLI | 事件驱动 PHP 服务 | 支持预设命令、配置检测、环境变量、端口和日志 |
@@ -144,15 +143,7 @@ Laravel 详细流程可以继续阅读 [运行 Laravel](/zh/guide/run-laravel-us
 
 ## 使用 PHP CGI Service 处理兼容性场景
 
-PHP CGI Service 适合老项目、Windows 风格本地栈、简单 PHP 应用或需要验证 CGI 行为的场景。
-
-适合使用 PHP CGI Service 的情况：
-
-1. 项目是简单 PHP 应用，路由逻辑不复杂。
-2. 需要测试 CGI 行为，而不是常驻 Worker。
-3. 想先用最小服务跑通项目，再迁移到 PHP-FPM。
-
-对于新的 MVC 或 CMS 项目，优先使用 PHP-FPM。只有当项目或操作系统工作流确实需要 CGI 兼容性时，再选择 PHP CGI Service。
+Nginx、Apache 或 Caddy 承载的站点，可在「站点」中选择已安装的 PHP 版本，并在 [PHP-FPM 模块](/zh/features/php)中启动对应版本。Windows 上该模块通过 FastCGI 启动器运行 `php-cgi.exe`，macOS 和 Linux 上运行 `php-fpm`。独立应用服务则有自己的进程，可放在反向代理后面。
 
 ## 使用 FrankenPHP 部署现代 PHP 项目
 
@@ -316,6 +307,8 @@ PHP 部署方式只是第一步。真实项目通常还需要很多周边服务�
 更喜欢看视频？观看《在 FlyEnv 中无 Docker 部署 PHP 应用：Laravel Octane、RoadRunner、Swoole 与 Workerman 实操》：
 
 <iframe style="width: 100%; aspect-ratio: 16 / 9;" src="//player.bilibili.com/player.html?isOutside=true&aid=116704025839419&bvid=BV1cFEp67E2v&cid=38915998602&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+[观看 FlyEnv PHP 应用服务演示](/zh/demos?video=php-project-services).
 
 ## Frequently Asked Questions (FAQ)
 

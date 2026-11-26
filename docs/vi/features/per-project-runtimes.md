@@ -35,11 +35,13 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 FlyEnv cho phép mỗi thư mục dự án mang theo phiên bản runtime riêng của nó, nhờ đó một codebase PHP cũ và một ứng dụng Node.js hiện đại có thể sống cạnh nhau trên cùng một máy — xem [quản lý nhiều phiên bản Node và PHP](/vi/guide/manage-multiple-node-php-versions) để biết phía trình quản lý phiên bản của việc này. Đăng ký một dự án trong tab **Projects** của bất kỳ module ngôn ngữ nào, chọn chính xác phiên bản binary mà nó nên dùng, và FlyEnv ghi lại lựa chọn đó ngay bên trong dự án. Từ đó về sau, các terminal, trình soạn thảo và lệnh chạy được mở cho dự án đó sẽ tự động phân giải đúng toolchain — quy trình từng bước được trình bày trong [hướng dẫn môi trường runtime cấp dự án](/vi/guide/project-level-runtime-environment).
 
+Ví dụ, gán Node.js 22 cho một dự án và Node.js 24 cho dự án khác. Mở từng dự án từ **Projects** hoặc vào thư mục đã đăng ký trong shell được hỗ trợ và đã bật hook của FlyEnv. Chạy `node -v` để kiểm tra phiên bản mỗi dự án đang dùng. [Xem demo chuyển đổi theo dự án](/vi/demos?video=project-environment-switching).
+
 ![Tab Projects của FlyEnv liệt kê các dự án đã đăng ký cùng phiên bản runtime được gắn](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## .flyenv hoạt động thế nào
 
-Khi bạn thêm một dự án hay đổi phiên bản được gắn của nó, FlyEnv ghi một tệp `.flyenv` nhỏ vào thư mục dự án. Tệp đó là nguồn chân lý duy nhất cho môi trường của dự án.
+Trình soạn thảo hay terminal mở riêng có thể giữ môi trường ban đầu. Hãy mở từ mục dự án của FlyEnv hoặc dùng shell được hỗ trợ có tải cấu hình dự án.
 
 - **Đặt PATH lên trước:** trên macOS và Linux tệp chứa một dòng `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"` trỏ tới các thư mục của runtime được gắn; trên Windows nó dùng phép gán `$env:PATH` tương đương trong PowerShell.
 - **Có gắn nhãn và idempotent:** mọi dòng FlyEnv ghi đều được đánh dấu bằng thẻ `#FlyEnv-ID-<projectId>`, nhờ đó việc chỉnh lại dự án ghi đè đúng những dòng cũ tại chỗ thay vì nối thêm bản trùng.
@@ -68,7 +70,7 @@ Vì việc gắn kết nằm trong dự án chứ không phải trong một thi�
 
 ## Chọn phiên bản theo từng site
 
-Gắn runtime cho dự án phủ đến dòng lệnh; các site hướng trình duyệt có lựa chọn phiên bản riêng. Mỗi site được tạo trong module [Host](/vi/features/local-sites-https) chọn phiên bản PHP-FPM phục vụ nó (hay giữ nguyên là site tĩnh), và nhiều phiên bản PHP-FPM có thể chạy đồng thời — mỗi phiên bản trên socket riêng — nhờ đó các site khác nhau được phục vụ bởi các bản build PHP khác nhau cùng một lúc. Danh sách site cho thấy phiên bản nào phục vụ site nào, và cấu hình tích hợp web server được sinh lại khi một phiên bản khởi động. Toàn bộ bộ tính năng được ghi lại trên [trang tính năng PHP](/vi/features/php).
+Mỗi site tạo trong [Host](/vi/features/local-sites-https) có thể chọn phiên bản PHP đã cài để phục vụ site. Nhiều phiên bản có thể phục vụ các site khác nhau cùng lúc. macOS và Linux dùng Unix socket riêng, Windows dùng các cổng lắng nghe FastCGI riêng. Xem [tính năng PHP](/vi/features/php) để biết chi tiết theo nền tảng.
 
 ![Danh sách site của module Host hiển thị phiên bản PHP được gắn cho từng site](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
 

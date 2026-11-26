@@ -35,11 +35,13 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 FlyEnv permite que cada carpeta de proyecto lleve su propia versión de runtime, de modo que una base de código PHP antigua y una aplicación Node.js moderna pueden convivir en la misma máquina; consulta [gestionar varias versiones de Node y PHP](/es/guide/manage-multiple-node-php-versions) para conocer el lado del gestor de versiones. Registra un proyecto en la pestaña **Projects** de cualquier módulo de lenguaje, elige la versión exacta del binario que debe usar y FlyEnv guarda esa elección dentro del propio proyecto. A partir de ahí, los terminales, editores y comandos de ejecución lanzados para ese proyecto resuelven la toolchain correcta automáticamente; el flujo de trabajo paso a paso se explica en la [guía de entorno de runtime a nivel de proyecto](/es/guide/project-level-runtime-environment).
 
+Por ejemplo, asigna Node.js 22 a un proyecto y Node.js 24 a otro. Abre cada uno desde **Projects** o entra en su carpeta registrada en una shell compatible con el hook de FlyEnv activo. Ejecuta `node -v` para comprobar la versión que usa cada proyecto. [Mira la demo de cambio de proyecto](/es/demos?video=project-environment-switching).
+
 ![Pestaña Projects de FlyEnv con los proyectos registrados y sus versiones de runtime vinculadas](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## Cómo funciona .flyenv
 
-Cuando añades un proyecto o cambias su versión vinculada, FlyEnv escribe un pequeño archivo `.flyenv` en el directorio del proyecto. Ese archivo es la única fuente de verdad del entorno del proyecto.
+Un editor o terminal abierto por separado puede conservar su entorno original. Ábrelo desde el proyecto en FlyEnv o usa una shell compatible que cargue la configuración del proyecto.
 
 - **PATH anteponiéndose:** en macOS y Linux el archivo contiene una línea `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"` que apunta a los directorios del runtime vinculado; en Windows usa la asignación equivalente de PowerShell `$env:PATH`.
 - **Etiquetado e idempotente:** cada línea que escribe FlyEnv está marcada con una etiqueta `#FlyEnv-ID-<projectId>`, de modo que al volver a editar el proyecto se reescriben las mismas líneas en su lugar en lugar de añadir duplicados.
@@ -68,7 +70,7 @@ Como la vinculación vive en el proyecto y no en un ajuste global, cualquier her
 
 ## Selección de versión por sitio
 
-La vinculación de proyectos cubre la línea de comandos; los sitios accedidos desde el navegador tienen su propia elección de versión. Cada sitio creado en el módulo [Host](/es/features/local-sites-https) selecciona la versión de PHP-FPM que lo sirve (o sigue siendo un sitio estático), y varias versiones de PHP-FPM pueden ejecutarse simultáneamente — cada una en su propio socket — de modo que distintos sitios son servidos por distintas builds de PHP al mismo tiempo. La lista de sitios muestra qué versión sirve a cada sitio, y la configuración de integración con el servidor web se regenera cuando una versión arranca. El conjunto completo de capacidades está documentado en la [página de la característica PHP](/es/features/php).
+Cada sitio creado en [Host](/es/features/local-sites-https) puede elegir la versión instalada de PHP que lo sirve. Varias versiones pueden atender sitios distintos a la vez. macOS y Linux usan sockets Unix separados y Windows usa puertos FastCGI separados. Consulta la [funcionalidad de PHP](/es/features/php) para ver los detalles de cada plataforma.
 
 ![Lista de sitios del módulo Host mostrando la versión de PHP vinculada a cada sitio](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
 

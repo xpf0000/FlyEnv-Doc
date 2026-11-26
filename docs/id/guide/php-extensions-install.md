@@ -28,9 +28,20 @@ Contoh pemasangan ekstensi PHP Xdebug:
 
 Panel ekstensi menyediakan pemasangan cepat di Windows:
 
-- **Pustaka online:** cari katalog ekstensi (didukung Packagist) dan pasang dengan satu klik. FlyEnv mengunduh [PIE](https://github.com/php/pie), pemasang ekstensi PHP resmi, dan menggunakannya untuk memasang ekstensi sesuai versi PHP Anda, sehingga pencocokan versi ditangani secara otomatis. Unduhan PIE memerlukan Windows x64.
+- **Katalog online.** Buka **Extensions** dari versi PHP yang ingin dipakai. FlyEnv menampilkan rilis yang tersedia dan menggunakan DLL PECL Windows yang kompatibel atau [PIE](https://github.com/php/pie), tergantung paket. Installer PIE yang diunduh FlyEnv ditujukan untuk Windows x64.
 - **Ekstensi bawaan:** folder ekstensi berisi sebagian besar ekstensi umum secara default. PHP tidak mengaktifkannya secara otomatis — aktifkan atau nonaktifkan langsung di panel dan FlyEnv akan memperbarui `php.ini` untuk Anda.
 
 <img src="https://oss.macphpstudy.com/image/a4e9e0dd1b67.png" data-x-image-preview="" alt="Folder ekstensi PHP di Windows">
 
-Anda juga dapat memasang ekstensi secara manual: unduh berkas `.dll` dari [https://pecl.php.net/packages.php](https://pecl.php.net/packages.php), lalu letakkan di folder ekstensi PHP.
+Untuk pemasangan manual, ambil DLL dari [PECL](https://pecl.php.net/packages.php) yang cocok dengan versi PHP, arsitektur, dan thread safety (TS/NTS). Letakkan di `extension_dir` milik versi tersebut dan aktifkan di konfigurasinya. Lihat [manual PHP](https://www.php.net/manual/en/install.pecl.windows.php) untuk kompatibilitas DLL Windows.
+
+## Verifikasi ekstensi pada versi PHP yang dipilih
+
+Jalankan perintah ini dengan executable untuk versi PHP yang Anda ubah. Bila beberapa versi terpasang, ganti `php` dengan jalur lengkap ke `php` atau `php.exe` versi tersebut.
+
+```text
+php --ini
+php -m
+```
+
+Periksa jalur INI yang dimuat dan pastikan modul muncul dalam daftar. Jika PHP memberi peringatan saat mulai, periksa berkas ekstensi, dependensi, dan direktif INI. Untuk situs, mulai ulang worker web yang dipilih dari [modul PHP-FPM](/id/features/php), lalu periksa ekstensi di situs. Hasil CLI hanya berlaku untuk proses CLI.

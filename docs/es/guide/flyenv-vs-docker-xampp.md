@@ -16,6 +16,8 @@ import { communityEvidence } from '../../data/community-evidence'
 
 Elegir una configuración de desarrollo local hoy significa elegir mucho más que cómo ejecutar PHP o MySQL. También tienes que decidir cómo encajan varios runtimes, servicios locales, sitios HTTPS y clientes de programación con IA.
 
+Para conocer los requisitos y ventajas de cada herramienta, consulta [FlyEnv frente a Docker](/es/compare/docker) y [FlyEnv frente a XAMPP](/es/compare/xampp). Si vas a trasladar un proyecto existente, sigue los pasos de migración.
+
 Si Docker resulta pesado para el trabajo diario con aplicaciones y XAMPP se queda demasiado fijo para proyectos modernos con múltiples runtimes, FlyEnv ocupa un lugar distinto: un espacio de trabajo local nativo para runtimes, servicios, CLI de programación con IA y MCP.
 
 ## Respuesta corta

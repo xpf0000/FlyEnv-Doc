@@ -425,8 +425,15 @@ test('hierarchical and collection routes use content-specific schema', () => {
       }
     }
     if (/^(?:(?:zh|id|es|vi)\/)?demos\.html$/.test(page.relativePath)) {
-      if (!allNodes.some((node) => typeIncludes(node, 'VideoObject'))) {
-        issues.push(`${page.relativePath}: missing VideoObject entries`)
+      const catalog = nodes.find((node) => typeIncludes(node, 'ItemList'))
+      if (!catalog?.itemListElement?.length || !catalog.itemListElement.every(({ item }) =>
+        typeIncludes(item, 'WebPage') &&
+        /^https:\/\/www\.(youtube\.com|bilibili\.com)\//.test(item.url)
+      )) {
+        issues.push(`${page.relativePath}: missing video platform links in collection`)
+      }
+      if (allNodes.some((node) => typeIncludes(node, 'VideoObject'))) {
+        issues.push(`${page.relativePath}: the discovery collection should not claim watch-page video markup`)
       }
     }
     if (/^(?:(?:zh|id|es|vi)\/)?community\.html$/.test(page.relativePath)) {
@@ -641,4 +648,14 @@ test('hreflang, sitemap, robots and noindex pages agree', () => {
   const robots = fs.readFileSync(path.join(distRoot, 'robots.txt'), 'utf8')
   assert.match(robots, /^Sitemap: https:\/\/flyenv\.com\/sitemap\.xml$/m)
   assert.deepEqual(issues, [], formatIssues(issues))
+})
+
+test('localized related projects and translated not-found links resolve to built pages', () => {
+  for (const locale of ['', 'zh', 'id', 'es', 'vi']) {
+    const folder = path.join(distRoot, locale)
+    const prefix = locale ? '/' + locale : ''
+    const laravel = fs.readFileSync(path.join(folder, 'solutions', 'laravel.html'), 'utf8')
+    assert.ok(!laravel.includes(`href="${prefix}/solutions/symfony"`))
+    assert.ok(fs.existsSync(path.join(folder, '404.html')), `Missing 404 target for ${locale || 'en'}`)
+  }
 })

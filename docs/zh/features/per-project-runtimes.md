@@ -35,11 +35,13 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 FlyEnv 允许每个项目文件夹使用自己的运行时版本，因此旧版 PHP 代码库和现代 Node.js 应用可以在同一台机器上并行运行。版本管理部分请参阅[管理多个 Node 和 PHP 版本](/zh/guide/manage-multiple-node-php-versions)。在任意语言模块的**项目**选项卡中注册项目，选择要使用的确切二进制版本，FlyEnv 会将选择记录在项目本身。此后，从 FlyEnv 为该项目启动的终端、编辑器和命令都会自动解析正确工具链；分步流程请参阅[项目级运行时环境指南](/zh/guide/project-level-runtime-environment)。
 
+例如，为两个 Node.js 项目分别绑定 Node.js 22 和 Node.js 24。从「项目」列表打开，或在已启用 FlyEnv 钩子的受支持 Shell 中进入注册目录。运行 `node -v` 核对各项目实际使用的版本。[观看项目切换演示](/zh/demos?video=project-environment-switching)。
+
 ![FlyEnv 项目选项卡列出已注册项目及绑定的运行时版本](https://oss.macphpstudy.com/image/flyenv-version-switch.webp)
 
 ## .flyenv 的工作原理
 
-添加项目或更改绑定版本时，FlyEnv 会在项目目录写入小型 `.flyenv` 文件。该文件是项目环境的唯一依据。
+独立打开的编辑器或终端可能保留原有的环境。请使用 FlyEnv 的项目打开入口，或使用会加载项目配置的受支持 Shell。
 
 - **路径置前：** macOS 和 Linux 文件包含 `export PATH="<bin>:<bin>/bin:<bin>/sbin:$PATH"`，指向绑定运行时目录；Windows 使用等效的 PowerShell `$env:PATH` 赋值。
 - **带标签且幂等：** FlyEnv 写入的每一行都带有 `#FlyEnv-ID-<projectId>` 标签，重新编辑项目时会原地改写，不会重复追加。
@@ -68,7 +70,7 @@ FlyEnv 允许每个项目文件夹使用自己的运行时版本，因此旧版 
 
 ## 站点版本选择
 
-项目绑定负责命令行，面向浏览器的站点则有独立版本选择。在 [Host](/zh/features/local-sites-https) 模块创建的每个站点都可选择提供服务的 PHP-FPM 版本（或设为静态站点），多个 PHP-FPM 版本可同时运行且各自使用独立 socket，因此不同站点可由不同 PHP 构建提供服务。站点列表会显示服务该站点的版本，版本启动时会重新生成 Web 服务器集成配置。完整能力请参阅 [PHP 特性页面](/zh/features/php)。
+在[站点管理](/zh/features/local-sites-https)中，可为各站点选择已安装的 PHP 版本。多个版本可同时为不同站点提供服务。macOS 和 Linux 使用独立的 Unix 套接字，Windows 使用独立的 FastCGI 监听端口。平台差异见 [PHP 特性](/zh/features/php)。
 
 ![FlyEnv Host 模块站点列表显示每个站点绑定的 PHP 版本](https://oss.macphpstudy.com/image/features/per-project-runtimes-4.webp)
 

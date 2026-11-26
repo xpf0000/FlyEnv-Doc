@@ -113,11 +113,20 @@ cd ~/work/modern-node-app
 node -v
 # v20.11.0
 
-which node
-# /Users/you/.flyenv/versions/node/20.11.0/bin/node
+command -v node
 ```
 
 FlyEnv's shell integration detects your current directory and injects the correct paths **before** your command runs. No `nvm use`, no `source venv/bin/activate`, no forgetting to switch.
+
+For both projects, compare the version and executable path. In zsh or Bash, use `command -v php` and `command -v node`. In PowerShell, use the following in each registered project directory.
+
+```powershell
+php -v
+node -v
+Get-Command php,node | Select-Object Name,Source
+```
+
+Check the PHP handler for browser requests separately in **Host**. FlyEnv’s **PHP-FPM** module uses `php-fpm` on macOS and Linux and FastCGI workers on Windows.
 
 ![Terminal Demo - Showing automatic version switching on cd](https://oss.macphpstudy.com/image/project-env6.png)
 

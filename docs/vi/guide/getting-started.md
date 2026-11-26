@@ -1,14 +1,14 @@
 ---
-title: 'Hướng dẫn bắt đầu nhanh FlyEnv: Chạy được trong 5 phút'
+title: 'Hướng dẫn bắt đầu nhanh với FlyEnv để chạy site local đầu tiên'
 head:
   - - meta
     - name: description
-      content: 'Hướng dẫn thiết lập FlyEnv hoàn chỉnh cho macOS, Windows và Linux. Cài đặt, cấu hình site đầu tiên, và bắt đầu phát triển trong vòng 5 phút với quản lý phiên bản tự động.'
+      content: 'Cài FlyEnv trên macOS, Windows hoặc Linux, rồi dùng Nginx, PHP và Auto SSL để mở site HTTPS local đầu tiên.'
 ---
 
-# Hướng dẫn bắt đầu nhanh FlyEnv: Chạy được trong 5 phút
+# Hướng dẫn bắt đầu nhanh với FlyEnv để chạy site local đầu tiên
 
-Bạn đã tải FlyEnv. Giờ làm gì tiếp? Hướng dẫn này sẽ đưa bạn từ khâu cài đặt đến một website local đang chạy trong vòng chưa tới năm phút—không cần tài thuật terminal nào.
+Cài FlyEnv và mở một trang PHP tại `https://myproject.test`. Bắt đầu với Nginx và PHP, rồi thêm MySQL nếu dự án cần cơ sở dữ liệu.
 
 ## Cài đặt
 
@@ -16,7 +16,7 @@ Bạn đã tải FlyEnv. Giờ làm gì tiếp? Hướng dẫn này sẽ đưa b
 
 **Phương án 1: Homebrew (Khuyến nghị)**
 ```bash
-brew update && brew install flyenv
+brew install --cask flyenv
 ```
 
 **Phương án 2: Tải DMG**
@@ -24,20 +24,13 @@ brew update && brew install flyenv
 | Kiến trúc | Tải xuống |
 |-------------|----------|
 | Intel (x86_64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Apple Silicon (M1/M2/M3) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
+| Apple Silicon (ARM64) | [GitHub Release](https://github.com/xpf0000/FlyEnv/releases/latest) |
 
 **Lưu ý cho người dùng macOS:** Nếu bạn chỉ cần hosting PHP đơn giản, hãy xem qua [FlyPHPServer](/vi/flyphpserver) trên Mac App Store—một ứng dụng đồng hành gọn nhẹ.
 
 ### Windows
 
-Tải xuống và giải nén tệp ZIP:
-
-| Nguồn tải | Liên kết |
-|----------------|------|
-| GitHub Release | [Tải xuống](https://github.com/xpf0000/FlyEnv/releases/latest) |
-| Baidu Netdisk | [Tải xuống](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4) |
-
-Chạy `FlyEnv.exe` sau khi giải nén.
+Chạy bộ cài x64 từ [trang tải FlyEnv](/vi/download) hoặc chạy trực tiếp tệp `.exe` portable. Cả hai gói đều có trong [bản phát hành mới nhất trên GitHub](https://github.com/xpf0000/FlyEnv/releases/latest). Nếu dùng [mirror Baidu Netdisk](https://pan.baidu.com/s/1tqHN9piZVVuTyTD3FXI71A?pwd=mnb4), hãy kiểm tra phiên bản trước khi tải.
 
 ### Linux
 
@@ -101,7 +94,7 @@ Trước khi tạo site, hãy khởi động web server và PHP của bạn:
 2. Chọn phiên bản đã cài
 3. Nhấp nút **Start**
 
-Làm tương tự cho **PHP** và **MySQL** nếu cần.
+Để chạy site PHP, hãy khởi động PHP trên macOS hoặc Linux và **PHP-FPM** trên Windows. Chỉ cần khởi động MySQL nếu dự án cần cơ sở dữ liệu.
 
 ![Khởi động dịch vụ](https://oss.macphpstudy.com/image/quick-start-3.webp)
 
@@ -110,8 +103,8 @@ Làm tương tự cho **PHP** và **MySQL** nếu cần.
 1. Mở module **Host**
 2. Nhấp **"Add Site"**
 3. Điền các thông tin:
-   - **Domain**: `myproject.test` (bất kỳ tên miền nào cũng được)
-   - **Root Path**: `/Users/you/projects/myproject`
+   - **Domain**: `myproject.test`
+   - **Root Path**: thư mục chứa các tệp công khai của site
    - **PHP Version**: Chọn phiên bản đã cài
    - **Port**: 80 (mặc định)
 
@@ -127,7 +120,9 @@ Sau khi lưu:
 2. Nhấp vào liên kết site trong danh sách Host
 3. Hoặc mở `https://myproject.test` trong trình duyệt
 
-Chứng chỉ SSL được hệ thống của bạn tự động tin tưởng.
+Nếu thư mục đang trống, hãy tạo tệp `index.php` trong thư mục gốc của site với nội dung `<?php echo "Hello from FlyEnv";`. Mở lại URL và kiểm tra xem trang có hiển thị **Hello from FlyEnv** không.
+
+Nếu trình duyệt hiển thị cảnh báo chứng chỉ, hãy xem [Tên miền tùy chỉnh và Auto SSL](/vi/guide/host) để kiểm tra thiết lập tin cậy cho chứng chỉ local.
 
 ## Thiết lập biến môi trường
 
@@ -320,6 +315,8 @@ Giờ khi mọi thứ đã chạy, hãy khám phá các tính năng sau:
 - [Cách ly phiên bản theo dự án](/vi/guide/project-level-runtime-environment) — Chuyển phiên bản tự động
 - [Tên miền tùy chỉnh & SSL](/vi/guide/host) — Phát triển local chuyên nghiệp
 - [Dựng AI Agent local](/vi/guide/build-local-offline-ai-agent) — AI offline với Ollama
+
+Bạn có thể hoàn thành hướng dẫn này với bản miễn phí. Xem [giấy phép FlyEnv](/vi/license) nếu cần quản lý thêm site local hoặc tiếp tục dùng các công cụ cao cấp.
 
 [Tải xuống FlyEnv](/vi/download) nếu bạn chưa có, và chúc bạn viết code vui vẻ!
 

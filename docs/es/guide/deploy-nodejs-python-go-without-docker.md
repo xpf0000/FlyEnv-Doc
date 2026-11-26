@@ -145,6 +145,8 @@ Abre tu navegador y visita la dirección local (por ejemplo, `http://127.0.0.1:3
 
 ![Verificar que está en ejecución](https://oss.macphpstudy.com/image/deploy-12.webp)
 
+Antes de añadir un proxy inverso, verifica que el proceso responde en su puerto local. La dirección del servicio de destino (por ejemplo, `127.0.0.1:3000`) se configura por separado del puerto HTTPS del servidor web. Activa después **Auto SSL** en Host. [Mira la demo de servicios nativos](/es/demos?video=native-node-python-go-services).
+
 ## Paso 8: Monitoriza los logs
 
 Haz clic en los botones de acción para ver los logs de salida y de errores en tiempo real:

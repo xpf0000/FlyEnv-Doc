@@ -164,9 +164,11 @@ php artisan migrate
 ### Iniciar los servicios necesarios
 
 Inicia estos módulos en FlyEnv:
-- ✅ PHP (con la versión que necesita tu proyecto)
+- ✅ PHP-FPM (con la versión que necesita tu proyecto)
 - ✅ Nginx o Apache o Caddy
 - ✅ MySQL/PostgreSQL (si usas base de datos)
+
+Cuando el sitio abra en su dominio local, guarda el servidor web, la versión de PHP-FPM y la base de datos o caché que use el proyecto en un [grupo de inicio](/es/features/startup-groups). Añade el proceso de cola si ya está configurado como servicio del proyecto. La [demo de servicios de aplicaciones PHP](/es/demos?video=php-project-services) muestra el flujo independiente de Octane.
 
 ### Acceder a tu sitio
 

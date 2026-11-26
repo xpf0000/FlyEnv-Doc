@@ -164,9 +164,11 @@ php artisan migrate
 ### Start Required Services
 
 Start these modules in FlyEnv:
-- ✅ PHP (matching your project's version)
+- ✅ PHP-FPM (matching your project's version)
 - ✅ Nginx or Apache or Caddy
 - ✅ MySQL/PostgreSQL (if using database)
+
+Once this site opens on its local domain, save the web server, PHP-FPM version, and any database or cache the project uses in a [Startup Group](/features/startup-groups). Add a queue worker only if it is already configured as a project service. The [PHP app services demo](/demos?video=php-project-services) shows the separate Octane-style workflow.
 
 ### Access Your Site
 

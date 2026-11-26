@@ -1,18 +1,18 @@
 ---
 layout: doc
 titleTemplate: false
-title: 'Trình quản lý AI Gateway local CLIProxyAPI | FlyEnv'
-description: 'Chạy các phiên bản CLIProxyAPI như một AI gateway local với config.yaml được quản lý, backend env và giao diện quản lý.'
+title: 'GUI CLIProxyAPI: Cài và quản lý proxy local | FlyEnv'
+description: 'Cài và chuyển phiên bản CLIProxyAPI trong FlyEnv, chỉnh config.yaml, chạy proxy local và mở bảng điều khiển của CLIProxyAPI.'
 head:
   - - meta
     - name: description
-      content: 'Chạy các phiên bản CLIProxyAPI như một AI gateway local với config.yaml được quản lý, backend env và giao diện quản lý.'
+      content: 'Cài và chuyển phiên bản CLIProxyAPI trong FlyEnv, chỉnh config.yaml, chạy proxy local và mở bảng điều khiển của CLIProxyAPI.'
   - - meta
     - property: og:title
-      content: 'Trình quản lý AI Gateway local CLIProxyAPI | FlyEnv'
+      content: 'GUI CLIProxyAPI: Cài và quản lý proxy local | FlyEnv'
   - - meta
     - property: og:description
-      content: 'Chạy các phiên bản CLIProxyAPI như một AI gateway local với config.yaml được quản lý, backend env và giao diện quản lý.'
+      content: 'Cài và chuyển phiên bản CLIProxyAPI trong FlyEnv, chỉnh config.yaml, chạy proxy local và mở bảng điều khiển của CLIProxyAPI.'
   - - meta
     - property: og:type
       content: website
@@ -31,9 +31,11 @@ head:
 import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 </script>
 
-# CLIProxyAPI trong FlyEnv
+# GUI CLIProxyAPI trong FlyEnv
 
 CLIProxyAPI là một proxy local mã nguồn mở đặt các công cụ AI dựa trên CLI — như Gemini CLI, [Claude Code](/vi/features/claude-code) và [Codex](/vi/features/codex), cả hai đều do FlyEnv quản lý — đằng sau các API endpoint tương thích chuẩn OpenAI, Gemini và Claude. Nó cho phép các ứng dụng vốn mong đợi một API model hosted gọi các tài khoản CLI này như thể chúng là những dịch vụ HTTP bình thường, với nhiều nhà cung cấp được hợp nhất sau một gateway local duy nhất. FlyEnv vận hành CLIProxyAPI như một AI gateway local được quản lý: cài các phiên bản từ Version Manager, khởi chạy tiến trình `cli-proxy-api` từ sidebar hoặc trang module, chỉnh sửa `config.yaml` và tệp môi trường backend ngay trong ứng dụng, và mở panel quản lý tích hợp trong trình duyệt. Đầu ra khởi động được ghi vào các tệp log theo từng phiên bản, nên một lần khởi động thất bại rất dễ chẩn đoán.
+
+FlyEnv cung cấp giao diện desktop để cài đặt, khởi chạy và cấu hình CLIProxyAPI. Bảng điều khiển trong trình duyệt và tích hợp nhà cung cấp đến từ phiên bản CLIProxyAPI đang chạy. Xem [tài liệu CLIProxyAPI](https://help.router-for.me/) để cấu hình nhà cung cấp và tìm hiểu hành vi của API.
 
 ![Tổng quan module CLIProxyAPI trong FlyEnv](https://oss.macphpstudy.com/image/features/cliproxyapi-1.webp)
 
@@ -59,7 +61,9 @@ Tab Service khởi chạy phiên bản đã chọn dưới dạng `cli-proxy-api
 
 ## Giao diện quản lý trên port 8317
 
-Khi dịch vụ đang chạy, tab Service hiển thị một nút mở panel quản lý tích hợp của CLIProxyAPI trong trình duyệt của bạn tại `http://127.0.0.1:<port>/management.html`. FlyEnv đọc port từ `config.yaml`; với mẫu mặc định thì đó là 8317. Hãy đặt `MANAGEMENT_PASSWORD` trong tab Env trước khi mở panel cho bất cứ thứ gì ngoài việc dùng local.
+Khi CLIProxyAPI đang chạy, mở bảng điều khiển của nó từ tab Service. FlyEnv đọc cổng trong `config.yaml` và mở `http://127.0.0.1:<port>/management.html`.
+
+Để chỉ dùng trên máy này, đặt `host: "127.0.0.1"` trong `config.yaml` và giữ `remote-management.allow-remote` ở trạng thái tắt. Đặt khóa riêng trong `remote-management.secret-key` của mẫu đi kèm. Giữ `MANAGEMENT_PASSWORD` ở trạng thái chưa thiết lập vì biến này có thể bật quản lý từ xa. Khởi động lại dịch vụ. Cổng mặc định trong mẫu là 8317.
 
 ![Mở panel quản lý CLIProxyAPI từ tab Service](https://oss.macphpstudy.com/image/features/cliproxyapi-4.webp)
 
@@ -68,6 +72,8 @@ Khi dịch vụ đang chạy, tab Service hiển thị một nút mở panel qu�
 Tab Log hiển thị đầu ra được thu nhận của từng phiên bản dưới dạng `cliproxyapi-<version>-start-out.log` và `cliproxyapi-<version>-start-error.log`, với một công tắc chuyển giữa hai luồng. Khi một phiên bản từ chối khởi động hoặc trang quản lý không phản hồi, log lỗi là nơi đầu tiên cần xem.
 
 ![Trình xem log khởi động CLIProxyAPI với công tắc chuyển giữa out và error](https://oss.macphpstudy.com/image/features/cliproxyapi-5.webp)
+
+[Xem bản demo cấu hình CLIProxyAPI](/vi/demos?video=cliproxyapi-gateway)
 
 <FeatureRelatedLinks locale="vi" slug="cliproxyapi" />
 

@@ -214,9 +214,9 @@ Perfecto para probar el mismo código en varias versiones de PHP.
 
 ### "Conflictos con gestores de versiones existentes"
 
-1. Elimina NVM de `.zshrc` (FlyEnv lo sustituye)
-2. Desenlaza el PHP de Homebrew: `brew unlink php`
-3. Deja que FlyEnv gestione todas las versiones
+Comprueba el comando y su versión desde la carpeta registrada. Usa `command -v php` y `command -v node` en zsh/Bash o `Get-Command php,node` en PowerShell. Si tiene prioridad un alias o un script de inicio, ajusta la configuración de la shell de ese proyecto. Consulta la [guía de runtimes por proyecto](/es/guide/project-level-runtime-environment) para verificar el hook.
+
+Comprueba en **Host** el PHP que atiende las peticiones del navegador. El módulo **PHP-FPM** ejecuta `php-fpm` en macOS y Linux y procesos FastCGI en Windows.
 
 ## Preguntas frecuentes (FAQ)
 

@@ -33,7 +33,7 @@ import FeatureRelatedLinks from '../../components/FeatureRelatedLinks.vue'
 
 # 使用 FlyEnv 管理本地 HTTPS 证书
 
-mkcert 是用于创建本地可信开发证书的小型开源工具：它会创建自己的根 CA；将该 CA 安装到系统信任库后，它签发的证书即可被浏览器接受，不会出现警告。FlyEnv 集成了 [mkcert](https://github.com/FiloSottile/mkcert)，将整个过程变成点击式工作流：安装二进制文件、信任一次根 CA，然后为任意[本地站点](/zh/features/local-sites-https)生成证书，无需使用命令行。
+mkcert 会创建用于开发的本地证书颁发机构。浏览器需要信任这个 CA，证书也必须覆盖所访问的域名。FlyEnv 集成了 [mkcert](https://github.com/FiloSottile/mkcert)，可安装 CA 并为[本地站点](/zh/features/local-sites-https)生成证书。
 
 ![FlyEnv MkCert 模块概览截图](https://oss.macphpstudy.com/image/features/mkcert-1.webp)
 
@@ -50,7 +50,7 @@ mkcert 是用于创建本地可信开发证书的小型开源工具：它会创�
 
 ## 本地 CA 和证书
 
-**证书**选项卡是模块的核心。它显示 mkcert **CA 根目录路径**（实时读取 `mkcert -CAROOT` 的结果，点击即可在文件管理器中打开文件夹），并提供“安装 CA”操作，在 FlyEnv 内置终端中运行 `mkcert -install`，将本地根 CA 注册到系统信任库，使浏览器信任它签发的证书。
+**证书**选项卡显示 mkcert 的 **CA 根目录路径**，结果来自 `mkcert -CAROOT`，点击即可打开文件夹。“安装 CA”会在 FlyEnv 内置终端中运行 `mkcert -install`，将本地根 CA 注册到当前机器支持的信任存储。
 
 - **二进制文件选择：** 选择已安装的 mkcert 构建来执行命令；FlyEnv 优先使用自身环境路径中的版本。
 - **透明执行：** CA 安装和证书生成都会在内置终端中可见地运行，你可以准确看到 mkcert 的操作。
@@ -65,11 +65,13 @@ mkcert 是用于创建本地可信开发证书的小型开源工具：它会创�
 
 ![FlyEnv 为站点生成 HTTPS 证书截图](https://oss.macphpstudy.com/image/features/mkcert-3.webp)
 
+如果浏览器提示域名不匹配或证书不受信任，按 [Host 指南](/zh/guide/host) 检查域名解析、证书名称和浏览器信任设置。请将 CA 私钥留在本机。
+
 <FeatureRelatedLinks locale="zh" slug="mkcert" />
 
 ## 兼容性说明
 
 - mkcert 是一次性命令行工具，不是后台服务：无需启动或停止，模块也没有配置文件编辑器或日志查看器。
-- 生成的证书是本地可信开发证书，仅用于你自己的电脑，不适用于生产环境或其他设备。
-- 信任根 CA（`mkcert -install`）会修改系统信任库并请求系统密码，mkcert 会在内置终端中处理。
+- 如需在另一台开发设备上建立信任，将公有的 `rootCA.pem` 安装到该设备的信任存储。请妥善保管 `rootCA-key.pem`，证书仅用于开发。
+- 信任根 CA（`mkcert -install`）会修改信任存储，内置终端可能提示授予管理员权限。
 - 安装源因平台而异：所有平台提供静态构建，macOS 和 Linux 另提供 Homebrew。请参阅[下载页面](/zh/download)了解 FlyEnv 支持的平台。
