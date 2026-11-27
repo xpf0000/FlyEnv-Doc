@@ -1,637 +1,241 @@
+<script setup lang="ts">
+  import { computed } from 'vue'
+  import type { CompareLocale } from '../data/compare/types'
+  import {
+    compareOverviewCopy,
+    compareOverviewSourceNote,
+    compareOverviewTools
+  } from '../data/compare/prototype-index'
+  import CompareIndexDiagram from './CompareIndexDiagram.vue'
+  import memoryIcon from './SVG/AIMemory.svg'
+  import kafkaIcon from './SVG/Kafka.svg'
+  import searchIcon from './SVG/OpenSearch.svg'
+  import llamaIcon from './SVG/LlamaCpp.svg'
+  import sqlServerIcon from './SVG/SqlServer.svg'
+
+  const props = withDefaults(defineProps<{ locale?: CompareLocale }>(), { locale: 'en' })
+  const copy = computed(() => compareOverviewCopy[props.locale])
+  const localizedHref = (path: string) => (props.locale === 'en' ? path : `/${props.locale}${path}`)
+
+  const modules = [
+    { name: 'AI Memory', slug: 'ai-memory', icon: memoryIcon },
+    { name: 'MySQL Cluster', slug: 'mysql-cluster', icon: '/assets/demo-logos/mysql.svg' },
+    { name: 'Kafka', slug: 'kafka', icon: kafkaIcon },
+    { name: 'OpenSearch', slug: 'opensearch', icon: searchIcon },
+    { name: 'llama.cpp', slug: 'llama-cpp', icon: llamaIcon },
+    { name: 'SQL Server', slug: 'mssql', icon: sqlServerIcon }
+  ]
+  const marketScreenshot = '/assets/compare/plugin-market-clusters.webp'
+
+  const featureSections = [
+    { copyKey: 'runtimes', slug: 'per-project-runtimes', variant: 'runtimes' },
+    { copyKey: 'startup', slug: 'startup-groups', variant: 'startup' }
+  ] as const
+  const matrixGroups = computed(() => [copy.value.cells.slice(0, 3), copy.value.cells.slice(3)])
+</script>
+
 <template>
-  <main class="w-full overflow-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
-    <section
-      class="relative isolate overflow-hidden bg-gradient-to-br from-sky-50 via-white to-indigo-50 px-6 py-14 sm:px-10 sm:py-20 lg:px-16 lg:py-20 dark:from-slate-950 dark:via-slate-950 dark:to-indigo-950/40"
-    >
-      <div
-        class="pointer-events-none absolute -right-32 -top-32 -z-10 h-96 w-96 rounded-full bg-sky-200/50 blur-3xl dark:bg-sky-500/10"
-      ></div>
-      <div
-        class="pointer-events-none absolute -bottom-40 left-1/3 -z-10 h-96 w-96 rounded-full bg-indigo-200/50 blur-3xl dark:bg-indigo-500/10"
-      ></div>
-      <div class="mx-auto grid max-w-7xl items-center gap-10 xl:grid-cols-[1fr_1.1fr] lg:gap-16">
-        <div>
-          <p
-            class="mb-5 inline-flex rounded-full border border-sky-200 bg-white/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-sky-700 shadow-sm dark:border-sky-800 dark:bg-slate-900/80 dark:text-sky-300"
-            >{{ copy.kicker }}</p
-          >
-          <h1
-            class="!m-0 !border-0 !p-0 !text-4xl !leading-tight font-black tracking-tight text-slate-950 sm:!text-5xl lg:!text-6xl dark:text-white"
-            >{{ copy.title }}</h1
-          >
-          <p
-            class="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300"
-            >{{ copy.description }}</p
-          >
-          <div class="mt-8 flex flex-wrap gap-3"
-            ><a
-              href="#comparisons"
-              class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold !text-white no-underline shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700"
-              >{{ copy.browse }} →</a
-            ></div
-          >
-          <div
-            class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-slate-600 dark:text-slate-300"
-            ><span class="inline-flex items-center gap-2"
-              ><span class="text-blue-600">✓</span> macOS</span
-            ><span class="inline-flex items-center gap-2"
-              ><span class="text-blue-600">✓</span> Windows</span
-            ><span class="inline-flex items-center gap-2"
-              ><span class="text-blue-600">✓</span> Linux</span
-            ><span class="inline-flex items-center gap-2"
-              ><span class="text-blue-600">✓</span> {{ copy.freeOpen }}</span
-            ></div
-          >
-        </div>
-        <div class="relative mx-auto hidden h-[420px] w-full max-w-[580px] lg:block">
-          <svg
-            class="absolute inset-0 h-full w-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path
-              v-for="tool in hubTools"
-              :key="tool.name"
-              :d="tool.d"
-              fill="none"
-              vector-effect="non-scaling-stroke"
-              stroke-width="1.5"
-              stroke-dasharray="4 4"
-              class="stroke-slate-300 dark:stroke-slate-700"
-            />
-          </svg>
-          <a
-            v-for="tool in localizedHubTools"
-            :key="tool.name"
-            :href="localizedHref(tool.link)"
-            class="absolute z-10 flex items-center gap-2.5 whitespace-nowrap rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 no-underline shadow-md shadow-slate-950/5 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/95"
-            :class="tool.pos"
-            ><span
-              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-black text-white"
-              :class="tool.color"
-              >{{ tool.mark }}</span
-            ><span
-              ><span class="block text-sm font-bold leading-4 text-slate-800 dark:text-slate-100">{{
-                tool.name
-              }}</span
-              ><span class="block text-[10px] text-slate-500 dark:text-slate-400">{{
-                tool.tag
-              }}</span></span
-            ></a
-          >
-          <div
-            class="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded-3xl border border-sky-200 bg-white/95 px-8 py-9 shadow-xl shadow-blue-950/10 dark:border-sky-900/60 dark:bg-slate-900/95"
-            ><span
-              class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-2xl font-black text-white"
-              >F</span
-            ><span class="mt-3 text-lg font-black text-slate-900 dark:text-white">FlyEnv</span
-            ><span class="mt-1 text-center text-[11px] leading-4 text-slate-500 dark:text-slate-400"
-              >{{ copy.projects }}<br />{{ copy.environment }}</span
-            ></div
-          >
+  <main class="comparison-page prototype-index">
+    <section class="hero" aria-labelledby="compare-title">
+      <div class="wrap">
+        <div class="crumb"
+          ><span>{{ copy.navigation }}</span></div
+        >
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">{{ copy.kicker }}</div>
+            <h1 id="compare-title">
+              {{ copy.headline[0] }}<br />
+              <span class="accent">{{ copy.headline[1] }}<br />{{ copy.headline[2] }}</span>
+            </h1>
+            <p class="lead">{{ copy.intro }}</p>
+            <div class="hero-actions">
+              <a
+                class="btn primary"
+                :href="localizedHref('/download')"
+                data-analytics-surface="compare-hero"
+              >
+                <span>{{ copy.download }} <span aria-hidden="true">→</span></span>
+              </a>
+              <a class="btn ghost" href="#tools">{{ copy.browse }}</a>
+            </div>
+            <div class="trust">
+              <span>macOS</span><span>Windows</span><span>Linux</span><span>{{ copy.source }}</span>
+            </div>
+          </div>
+          <CompareIndexDiagram :copy="copy" :locale="locale" variant="workspace" />
         </div>
       </div>
     </section>
 
-    <section
-      id="comparisons"
-      class="px-6 py-20 sm:px-10 sm:py-24 lg:px-16"
-      aria-labelledby="comparisons-title"
-    >
-      <div class="mx-auto max-w-7xl">
-        <header class="mx-auto max-w-3xl text-center">
-          <h2
-            id="comparisons-title"
-            class="!m-0 !border-0 !p-0 !text-3xl !leading-tight font-black tracking-tight sm:!text-4xl"
-            >{{ copy.start }}</h2
-          >
-          <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">{{
-            copy.select
-          }}</p>
+    <section id="tools" class="section" aria-labelledby="tools-title">
+      <div id="comparisons" class="wrap">
+        <header class="section-head">
+          <div class="eyebrow">{{ copy.tools[0] }}</div>
+          <h2 id="tools-title">{{ copy.tools[1] }}</h2>
+          <p class="section-description">{{ copy.tools[2] }}</p>
         </header>
-        <div v-for="group in scenarioGroups" :key="group.title" class="mt-10">
-          <h3 class="!m-0 !border-0 !p-0 !text-xl !leading-7 font-black">{{ group.title }}</h3>
-          <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <a
-              v-for="tool in group.tools"
-              :key="tool.name"
-              :href="localizedHref(tool.link)"
-              class="group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 no-underline shadow-sm transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-800"
-              ><span
-                class="flex h-12 w-12 items-center justify-center rounded-xl text-xl font-black text-white"
-                :class="tool.color"
-                >{{ tool.mark }}</span
-              ><h4 class="!m-0 !mt-5 !border-0 !p-0 !text-xl !leading-7 font-black"
-                >FlyEnv vs {{ tool.name }}</h4
-              ><p class="mt-2 flex-1 leading-7 text-slate-600 dark:text-slate-300">{{
-                tool.tagline
-              }}</p
-              ><span
-                class="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 transition group-hover:gap-2.5 dark:text-blue-400"
-                >{{ copy.view }} →</span
-              ></a
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <a
+            v-for="(tool, index) in compareOverviewTools"
+            :key="tool.slug"
+            class="panel tool-card"
+            :href="localizedHref('/compare/' + tool.slug)"
+            data-analytics-surface="compare-entry"
+          >
+            <div class="card-top" aria-hidden="true">
+              <span class="tool-icon" :style="{ backgroundColor: tool.color }">{{
+                tool.mark
+              }}</span>
+              <span class="arrow">↗</span>
+            </div>
+            <h3
+              ><span lang="en">FlyEnv vs {{ tool.name }}</span></h3
             >
+            <p>{{ copy.taglines[index] }}</p>
+            <span class="link">{{ copy.tools[3] }} <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparison" class="section tinted" aria-labelledby="matrix-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="eyebrow">{{ copy.matrix[0] }}</div>
+          <h2 id="matrix-title">{{ copy.matrix[1] }}</h2>
+          <p class="section-description">{{ copy.matrix[2] }}</p>
+        </header>
+        <div class="matrix-wrap" role="region" aria-labelledby="matrix-title" tabindex="0">
+          <table aria-labelledby="matrix-title" aria-describedby="compare-matrix-note">
+            <thead>
+              <tr>
+                <th scope="col">{{ copy.matrix[3] }}</th>
+                <th scope="col" class="flycol">FlyEnv</th>
+                <th scope="col">Laragon</th>
+                <th scope="col">ServBay</th>
+              </tr>
+            </thead>
+            <tbody v-for="(rows, group) in matrixGroups" :key="group">
+              <tr class="rowgroup">
+                <th scope="rowgroup" colspan="4">{{ copy.matrix[4 + group] }}</th>
+              </tr>
+              <tr v-for="[label, flyenv, laragon, servbay] in rows" :key="label">
+                <th scope="row">{{ label }}</th>
+                <td class="flycol">{{ flyenv }}</td>
+                <td>{{ laragon }}</td>
+                <td>{{ servbay }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="compare-matrix-note" class="note">{{ compareOverviewSourceNote[locale] }}</p>
+        <p class="source">
+          {{ copy.sources[0] }}: <a href="https://laragon.org/docs">{{ copy.sources[1] }}</a> ·
+          <a href="https://www.servbay.com/features">{{ copy.sources[2] }}</a> ·
+          <a :href="localizedHref('/features')">{{ copy.sources[3] }}</a>
+        </p>
+        <div class="benefits">
+          <div v-for="[title, description] in copy.benefits" :key="title" class="benefit">
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section
-      class="bg-slate-50 px-6 py-20 sm:px-10 sm:py-24 lg:px-16 dark:bg-slate-900/50"
-      aria-labelledby="glance-title"
-    >
-      <div class="mx-auto max-w-7xl">
-        <header class="mx-auto max-w-3xl text-center">
-          <h2
-            id="glance-title"
-            class="!m-0 !border-0 !p-0 !text-3xl !leading-tight font-black tracking-tight sm:!text-4xl"
-            >{{ copy.glance }}</h2
-          >
-          <p class="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">{{
-            copy.glanceIntro
-          }}</p>
+    <section id="workflow" class="section" aria-labelledby="workflow-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="eyebrow">{{ copy.workflow[0] }}</div>
+          <h2 id="workflow-title">{{ copy.workflow[1] }}</h2>
         </header>
         <div
-          class="mt-12 overflow-hidden rounded-2xl border-x border-b border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950"
+          v-for="feature in featureSections"
+          :key="feature.slug"
+          class="feature-split"
+          :class="{ reverse: feature.variant === 'startup' }"
         >
-          <table
-            class="!table !my-0 w-full table-fixed border-collapse text-left text-sm leading-6"
-          >
-            <thead
-              class="bg-slate-100 text-xs uppercase tracking-wide text-slate-600 dark:bg-slate-900 dark:text-slate-300"
-            >
-              <tr>
-                <th class="px-3 !py-4 font-bold sm:px-6 sm:py-5">{{ copy.tool }}</th>
-                <th class="px-3 !py-4 font-bold sm:px-6 sm:py-5">{{ copy.bestFit }}</th>
-                <th class="px-3 !py-4 font-bold sm:px-6 sm:py-5">{{ copy.difference }}</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
-              <tr v-for="tool in selectionRows" :key="tool.name">
-                <th class="px-3 !py-5 sm:px-6 sm:py-5">
-                  <a
-                    :href="localizedHref(tool.link)"
-                    class="flex items-center gap-2.5 font-bold !text-slate-800 no-underline hover:!text-blue-600 dark:!text-slate-100 dark:hover:!text-blue-400"
-                    ><span
-                      class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-black !text-white"
-                      :class="tool.color"
-                      >{{ tool.mark }}</span
-                    >{{ tool.name }}</a
-                  >
-                </th>
-                <td
-                  class="px-3 !py-5 ![word-break:normal] text-slate-600 sm:px-6 sm:py-5 dark:text-slate-300"
-                  >{{ tool.bestFit }}</td
-                >
-                <td
-                  class="px-3 !py-5 ![word-break:normal] text-slate-600 sm:px-6 sm:py-5 dark:text-slate-300"
-                  >{{ tool.tagline }}</td
-                >
-              </tr>
-            </tbody>
-          </table>
+          <div>
+            <div class="eyebrow">{{ copy[feature.copyKey][0] }}</div>
+            <h3>{{ copy[feature.copyKey][1] }}</h3>
+            <p>{{ copy[feature.copyKey][2] }}</p>
+            <a class="link" :href="localizedHref('/features/' + feature.slug)">
+              {{ copy[feature.copyKey][3] }} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div class="visual">
+            <CompareIndexDiagram :copy="copy" :locale="locale" :variant="feature.variant" />
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="px-6 py-16 sm:px-10 lg:px-16">
-      <div
-        class="mx-auto flex max-w-7xl flex-col gap-7 rounded-3xl bg-gradient-to-r from-blue-950 via-blue-800 to-sky-700 px-7 py-12 text-white shadow-2xl shadow-blue-950/20 sm:flex-row sm:items-center sm:justify-between sm:px-10"
-      >
-        <div>
-          <p class="!m-0 text-xs font-bold uppercase tracking-[0.18em] text-sky-300">{{
-            copy.ready
-          }}</p>
-          <h2 class="!m-0 !mt-3 !border-0 !p-0 !text-2xl !leading-8 font-black sm:!text-3xl">{{
-            copy.ctaTitle
-          }}</h2>
-          <p class="mt-2 max-w-2xl text-sm leading-6 text-blue-100">{{ copy.ctaText }}</p>
+    <section id="plugins" class="section tinted" aria-labelledby="market-title">
+      <div class="wrap">
+        <div id="plugin-market" class="workspace">
+          <div>
+            <div class="eyebrow">{{ copy.market[0] }}</div>
+            <h2 id="market-title">{{ copy.market[1] }}</h2>
+            <p>{{ copy.market[2] }}</p>
+            <div class="hero-actions">
+              <a
+                class="btn dark-btn"
+                :href="localizedHref('/features/plugin-market')"
+                data-analytics-surface="compare-plugin-market"
+              >
+                {{ copy.market[3] }}
+              </a>
+            </div>
+            <div class="note">{{ copy.market[4] }}</div>
+          </div>
+          <div class="diagram">
+            <div class="diagram-top">
+              <span class="diagram-title">{{ copy.market[5] }}</span>
+              <span class="tiny-tag uppercase">{{ copy.market[6] }}</span>
+            </div>
+            <div class="module-grid">
+              <a
+                v-for="module in modules"
+                :key="module.slug"
+                class="module"
+                :href="localizedHref('/features/' + module.slug)"
+              >
+                <span class="module-icon"
+                  ><img :src="module.icon" alt="" width="18" height="18" loading="lazy"
+                /></span>
+                <b>{{ module.name }}</b>
+              </a>
+            </div>
+            <div class="diagram-bottom">
+              <a class="market-reference" :href="marketScreenshot">{{ copy.market[7] }}</a>
+            </div>
+          </div>
         </div>
-        <div class="flex shrink-0 flex-wrap gap-3">
-          <a
-            :href="localizedHref('/download')"
-            class="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-bold !text-blue-900 no-underline transition hover:bg-blue-50"
-            >{{ copy.download }}</a
-          >
-          <a
-            :href="localizedHref('/features')"
-            class="inline-flex items-center justify-center rounded-xl border border-white/40 px-5 py-3 text-sm font-bold !text-white no-underline transition hover:bg-white/10"
-            >{{ copy.features }}</a
-          >
+      </div>
+    </section>
+
+    <section id="download" class="section section-tight" aria-labelledby="download-title">
+      <div class="wrap">
+        <div class="cta">
+          <div>
+            <div class="eyebrow">{{ copy.final[0] }}</div>
+            <h2 id="download-title">{{ copy.final[1] }}</h2>
+            <p>{{ copy.final[2] }}</p>
+          </div>
+          <div class="hero-actions">
+            <a
+              class="btn dark-btn"
+              :href="localizedHref('/download')"
+              data-analytics-surface="compare-final-cta"
+            >
+              <span>{{ copy.download }} <span aria-hidden="true">→</span></span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 </template>
 
-<script setup lang="ts">
-  import { computed } from 'vue'
-  const props = defineProps<{ locale?: 'en' | 'zh' | 'id' | 'es' | 'vi' }>()
-  const locale = props.locale || 'en'
-  const localizedHref = (href: string) =>
-    locale === 'en' || href.startsWith('http') ? href : href.replace(/^\//, `/${locale}/`)
-  const copy = computed(() =>
-    locale === 'zh'
-      ? {
-          kicker: '本地开发工具对比',
-          title: '将 FlyEnv 与热门本地开发工具进行比较',
-          description:
-            '探索 FlyEnv 与 XAMPP、Laragon、MAMP / MAMP Pro、Laravel Herd、ServBay 和 Docker 的关键差异，为项目找到合适工具。',
-          browse: '浏览对比',
-          projects: '你的项目。',
-          environment: '你的环境。',
-          freeOpen: '免费且开源',
-          start: '选择比较起点',
-          select: '选择工具，查看 FlyEnv 的差异。',
-          view: '查看对比',
-          glance: '快速了解',
-          glanceIntro: '快速概览，帮助你选择合适的对比。',
-          tool: '工具',
-          bestFit: '适合场景',
-          difference: '与 FlyEnv 的主要差异',
-          ready: '准备开始比较',
-          ctaTitle: '尝试适合项目的工作流',
-          ctaText: '比较工具并选择适合项目的工作流。',
-          download: '下载 FlyEnv',
-          features: '查看特性'
-        }
-      : locale === 'id'
-        ? {
-            kicker: 'Bandingkan alat pengembangan lokal',
-            title: 'Bandingkan FlyEnv dengan alat pengembangan lokal populer',
-            description:
-              'Jelajahi perbedaan utama FlyEnv dengan XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay, dan Docker untuk menemukan alat yang tepat.',
-            browse: 'Lihat perbandingan',
-            projects: 'Proyek Anda.',
-            environment: 'Lingkungan Anda.',
-            freeOpen: 'Gratis dan sumber terbuka',
-            start: 'Pilih titik awal',
-            select: 'Pilih alat untuk melihat perbandingan FlyEnv.',
-            view: 'Lihat perbandingan',
-            glance: 'Sekilas',
-            glanceIntro: 'Ringkasan cepat untuk membantu memilih perbandingan.',
-            tool: 'Alat',
-            bestFit: 'Paling cocok untuk',
-            difference: 'Perbedaan utama dari FlyEnv',
-            ready: 'Siap membandingkan',
-            ctaTitle: 'Coba alur kerja yang sesuai proyek',
-            ctaText: 'Bandingkan alat dan pilih alur kerja yang sesuai.',
-            download: 'Unduh FlyEnv',
-            features: 'Lihat fitur'
-          }
-        : locale === 'es'
-          ? {
-              kicker: 'Compara herramientas de desarrollo local',
-              title: 'Compara FlyEnv con herramientas populares de desarrollo local',
-              description:
-                'Explora las diferencias clave entre FlyEnv y XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay y Docker para encontrar la herramienta adecuada para tus proyectos.',
-              browse: 'Explorar comparaciones',
-              projects: 'Tus proyectos.',
-              environment: 'Tu entorno.',
-              freeOpen: 'Gratuito y de código abierto',
-              start: 'Elige tu punto de partida',
-              select: 'Selecciona una herramienta para ver cómo se compara FlyEnv.',
-              view: 'Ver comparación',
-              glance: 'De un vistazo',
-              glanceIntro: 'Un resumen rápido para ayudarte a elegir la comparación adecuada.',
-              tool: 'Herramienta',
-              bestFit: 'Ideal para',
-              difference: 'Diferencia principal con FlyEnv',
-              ready: 'Listo para comparar',
-              ctaTitle: 'Prueba el flujo de trabajo que se adapta a tus proyectos',
-              ctaText:
-                'Compara herramientas y elige el flujo de trabajo adecuado para tus proyectos.',
-              download: 'Descargar FlyEnv',
-              features: 'Ver características'
-            }
-          : locale === 'vi'
-            ? {
-                kicker: 'So sánh các công cụ phát triển local',
-                title: 'So sánh FlyEnv với các công cụ phát triển local phổ biến',
-                description:
-                  'Khám phá các điểm khác biệt chính giữa FlyEnv và XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay và Docker để tìm công cụ phù hợp cho các dự án của bạn.',
-                browse: 'Duyệt các phép so sánh',
-                projects: 'Các dự án của bạn.',
-                environment: 'Môi trường của bạn.',
-                freeOpen: 'Miễn phí và mã nguồn mở',
-                start: 'Chọn điểm bắt đầu',
-                select: 'Chọn một công cụ để xem FlyEnv so sánh như thế nào.',
-                view: 'Xem phép so sánh',
-                glance: 'Nhìn nhanh',
-                glanceIntro: 'Tổng quan nhanh, giúp bạn chọn phép so sánh phù hợp.',
-                tool: 'Công cụ',
-                bestFit: 'Phù hợp nhất',
-                difference: 'Điểm khác biệt chính so với FlyEnv',
-                ready: 'Sẵn sàng so sánh',
-                ctaTitle: 'Thử quy trình làm việc phù hợp với các dự án của bạn',
-                ctaText:
-                  'So sánh các công cụ và chọn quy trình làm việc phù hợp với các dự án của bạn.',
-                download: 'Tải xuống FlyEnv',
-                features: 'Xem tính năng'
-              }
-            : {
-                kicker: 'Compare local development tools',
-                title: 'Compare FlyEnv with popular local development tools',
-                description:
-                  'Explore the key differences between FlyEnv and XAMPP, Laragon, MAMP / MAMP Pro, Laravel Herd, ServBay, and Docker to find the right tool for your projects.',
-                browse: 'Browse comparisons',
-                projects: 'Your projects.',
-                environment: 'Your environment.',
-                freeOpen: 'Free and open source',
-                start: 'Choose your starting point',
-                select: 'Select a tool to see how FlyEnv compares.',
-                view: 'View comparison',
-                glance: 'At a glance',
-                glanceIntro: 'A quick overview to help you choose the right comparison.',
-                tool: 'Tool',
-                bestFit: 'Best fit',
-                difference: 'Main difference from FlyEnv',
-                ready: 'Ready to compare',
-                ctaTitle: 'Try the workflow that fits your projects',
-                ctaText: 'Compare tools and choose the workflow that fits your projects.',
-                download: 'Download FlyEnv',
-                features: 'View Features'
-              }
-  )
-  const tools = [
-    {
-      name: 'XAMPP',
-      mark: 'X',
-      color: 'bg-orange-500',
-      tag: 'Shared stack',
-      tagline: 'Shared PHP stack vs project-specific environments',
-      bestFit: 'PHP with Apache and MariaDB on Windows, macOS or Linux',
-      link: '/compare/xampp'
-    },
-    {
-      name: 'Laragon',
-      mark: 'L',
-      color: 'bg-rose-500',
-      tag: 'Windows focused',
-      tagline: 'Windows stack profiles and portable tools',
-      bestFit: 'Windows with Quick App and stack profiles. Commercial use requires a license.',
-      link: '/compare/laragon'
-    },
-    {
-      name: 'MAMP / MAMP Pro',
-      mark: 'M',
-      color: 'bg-slate-600',
-      tag: 'Web-host stack',
-      tagline: 'Web-host style stack vs broader workspace',
-      bestFit: 'PHP and WordPress on macOS or Windows. MAMP is free, PRO adds per-site settings.',
-      link: '/compare/mamp'
-    },
-    {
-      name: 'Laravel Herd',
-      mark: 'H',
-      color: 'bg-red-500',
-      tag: 'Laravel focused',
-      tagline: 'Laravel-first workflow vs framework-agnostic workspace',
-      bestFit: 'Laravel on macOS or Windows. Consider Pro for managed databases and Redis.',
-      link: '/compare/herd'
-    },
-    {
-      name: 'ServBay',
-      mark: 'S',
-      color: 'bg-blue-600',
-      tag: 'All-in-one',
-      tagline: 'Large shared core vs different priorities',
-      bestFit: 'Multiple runtimes on macOS or Windows. Free, Pro and Team plans.',
-      link: '/compare/servbay'
-    },
-    {
-      name: 'Docker',
-      mark: 'D',
-      color: 'bg-sky-500',
-      tag: 'Containers',
-      tagline: 'Native local services vs containers',
-      bestFit: 'Teams sharing Compose or shipping container images. Check Docker Desktop terms.',
-      link: '/compare/docker'
-    }
-  ]
-  const hubTools = [
-    { ...tools[0], pos: 'left-[9%] top-[3%]', d: 'M 31 11 C 40 11, 44 24, 44 35' },
-    { ...tools[2], pos: '-left-[3%] top-[42%]', d: 'M 27 49 C 31 49, 35 50, 37 50' },
-    { ...tools[4], pos: 'left-[9%] top-[81%]', d: 'M 32 84 C 40 84, 44 76, 44 65' },
-    { ...tools[1], pos: 'right-[9%] top-[3%]', d: 'M 65 11 C 60 11, 56 24, 56 35' },
-    { ...tools[3], pos: 'right-0 top-[42%]', d: 'M 73 49 C 70 49, 66 50, 63 50' },
-    { ...tools[5], pos: 'right-[9%] top-[81%]', d: 'M 68 84 C 60 84, 56 76, 56 65' }
-  ]
-  const localizedTools = computed(() => {
-    if (locale === 'en') return tools
-    const zh: Record<string, [string, string, string]> = {
-      XAMPP: [
-        '共享技术栈',
-        '共享 PHP 技术栈 vs 项目专属环境',
-        '在 Windows、macOS 或 Linux 上使用 Apache 和 MariaDB 开发 PHP'
-      ],
-      Laragon: [
-        '专注 Windows',
-        'Windows 上的多套环境配置与便携工具',
-        'Windows 上用 Quick App 和多套环境配置。商业使用需授权。'
-      ],
-      'MAMP / MAMP Pro': [
-        'Web 主机技术栈',
-        '主机式技术栈 vs 更广泛工作区',
-        'macOS 或 Windows 上的 PHP 和 WordPress。MAMP 免费，PRO 提供独立站点设置。'
-      ],
-      'Laravel Herd': [
-        '专注 Laravel',
-        'Laravel 优先工作流 vs 框架无关工作区',
-        'macOS 或 Windows 上的 Laravel 开发。需要托管数据库和 Redis 时可考虑 Pro。'
-      ],
-      ServBay: [
-        '一体化',
-        '共享核心较大但侧重点不同',
-        'macOS 或 Windows 上的多运行时开发。提供 Free、Pro 和 Team 方案。'
-      ],
-      Docker: [
-        '容器',
-        '原生本地服务 vs 容器',
-        '团队共享 Compose 或交付容器镜像。Docker Desktop 适用单独的条款。'
-      ]
-    }
-    const id: Record<string, [string, string, string]> = {
-      XAMPP: [
-        'Stack bersama',
-        'Stack PHP bersama vs lingkungan khusus proyek',
-        'PHP dengan Apache dan MariaDB di Windows, macOS, atau Linux'
-      ],
-      Laragon: [
-        'Fokus Windows',
-        'Profil stack dan alat portabel di Windows',
-        'Windows dengan Quick App dan profil stack. Penggunaan komersial memerlukan lisensi.'
-      ],
-      'MAMP / MAMP Pro': [
-        'Stack host web',
-        'Stack bergaya host vs workspace lebih luas',
-        'PHP dan WordPress di macOS atau Windows. MAMP gratis, PRO menambah pengaturan tiap situs.'
-      ],
-      'Laravel Herd': [
-        'Fokus Laravel',
-        'Alur Laravel-first vs workspace agnostik framework',
-        'Laravel di macOS atau Windows. Pertimbangkan Pro untuk database dan Redis terkelola.'
-      ],
-      ServBay: [
-        'All-in-one',
-        'Inti bersama besar dengan prioritas berbeda',
-        'Beberapa runtime di macOS atau Windows. Paket Free, Pro, dan Team.'
-      ],
-      Docker: [
-        'Kontainer',
-        'Layanan lokal native vs kontainer',
-        'Tim yang berbagi Compose atau merilis image container. Cek ketentuan Docker Desktop.'
-      ]
-    }
-    const es: Record<string, [string, string, string]> = {
-      XAMPP: [
-        'Stack compartido',
-        'Stack de PHP compartido vs entornos específicos por proyecto',
-        'PHP con Apache y MariaDB en Windows, macOS o Linux'
-      ],
-      Laragon: [
-        'Enfocado en Windows',
-        'Perfiles de stack y herramientas portátiles en Windows',
-        'Windows con Quick App y perfiles de stack. El uso comercial requiere licencia.'
-      ],
-      'MAMP / MAMP Pro': [
-        'Stack de hosting web',
-        'Stack estilo hosting web vs un espacio de trabajo más amplio',
-        'PHP y WordPress en macOS o Windows. MAMP es gratis y PRO añade ajustes por sitio.'
-      ],
-      'Laravel Herd': [
-        'Enfocado en Laravel',
-        'Flujo de trabajo centrado en Laravel vs espacio de trabajo independiente del framework',
-        'Laravel en macOS o Windows. Valora Pro para bases de datos y Redis gestionados.'
-      ],
-      ServBay: [
-        'Todo en uno',
-        'Núcleo compartido grande con prioridades diferentes',
-        'Varios runtimes en macOS o Windows. Planes Free, Pro y Team.'
-      ],
-      Docker: [
-        'Contenedores',
-        'Servicios locales nativos vs contenedores',
-        'Equipos que comparten Compose o publican imágenes. Consulta las condiciones de Docker Desktop.'
-      ]
-    }
-    const vi: Record<string, [string, string, string]> = {
-      XAMPP: [
-        'Stack chia sẻ',
-        'Stack PHP chia sẻ so với môi trường riêng theo dự án',
-        'PHP cùng Apache và MariaDB trên Windows, macOS hoặc Linux'
-      ],
-      Laragon: [
-        'Tập trung vào Windows',
-        'Profile stack và công cụ di động trên Windows',
-        'Windows với Quick App và profile stack. Dùng thương mại cần giấy phép.'
-      ],
-      'MAMP / MAMP Pro': [
-        'Stack lưu trữ web',
-        'Stack kiểu lưu trữ web so với không gian làm việc rộng hơn',
-        'PHP và WordPress trên macOS hoặc Windows. MAMP miễn phí, PRO có cài đặt riêng theo site.'
-      ],
-      'Laravel Herd': [
-        'Tập trung vào Laravel',
-        'Quy trình tập trung vào Laravel so với không gian làm việc không phụ thuộc framework',
-        'Laravel trên macOS hoặc Windows. Cân nhắc Pro nếu cần cơ sở dữ liệu và Redis được quản lý.'
-      ],
-      ServBay: [
-        'All-in-one',
-        'Lõi chung lớn với các ưu tiên khác nhau',
-        'Nhiều runtime trên macOS hoặc Windows. Các gói Free, Pro và Team.'
-      ],
-      Docker: [
-        'Container',
-        'Dịch vụ local native so với container',
-        'Nhóm dùng chung Compose hoặc phát hành image. Xem điều khoản Docker Desktop.'
-      ]
-    }
-    const map = locale === 'zh' ? zh : locale === 'es' ? es : locale === 'vi' ? vi : id
-    return tools.map((tool) => {
-      const v = map[tool.name]
-      return v ? { ...tool, tag: v[0], tagline: v[1], bestFit: v[2] } : tool
-    })
-  })
-  const scenarioCopy = {
-    en: {
-      groups: [
-        'PHP, Laravel and WordPress sites',
-        'Windows tooling and multi-runtime desktops',
-        'Shared container workflows'
-      ],
-      native: 'Native services and project runtimes on macOS, Windows and Linux',
-      terms: 'Open source with an optional app license'
-    },
-    zh: {
-      groups: ['PHP、Laravel 和 WordPress 站点', 'Windows 工具与桌面多运行时', '团队共享容器环境'],
-      native: '在 macOS、Windows 和 Linux 上管理原生服务和项目运行时',
-      terms: '源代码开放，应用另有可选授权'
-    },
-    id: {
-      groups: [
-        'Situs PHP, Laravel, dan WordPress',
-        'Peralatan Windows dan desktop dengan banyak runtime',
-        'Alur kerja container bersama'
-      ],
-      native: 'Layanan native dan runtime proyek di macOS, Windows, dan Linux',
-      terms: 'Sumber terbuka dengan lisensi aplikasi opsional'
-    },
-    es: {
-      groups: [
-        'Sitios PHP, Laravel y WordPress',
-        'Herramientas de Windows y varios runtimes de escritorio',
-        'Flujos compartidos con contenedores'
-      ],
-      native: 'Servicios nativos y runtimes por proyecto en macOS, Windows y Linux',
-      terms: 'Código abierto con licencia opcional para la aplicación'
-    },
-    vi: {
-      groups: [
-        'Site PHP, Laravel và WordPress',
-        'Công cụ Windows và nhiều runtime trên desktop',
-        'Quy trình container dùng chung'
-      ],
-      native: 'Dịch vụ native và runtime theo dự án trên macOS, Windows và Linux',
-      terms: 'Mã nguồn mở với giấy phép ứng dụng tùy chọn'
-    }
-  }[locale]
-
-  const scenarioGroups = computed(() => [
-    {
-      title: scenarioCopy.groups[0],
-      tools: localizedTools.value.filter((tool) =>
-        ['/compare/xampp', '/compare/mamp', '/compare/herd'].includes(tool.link)
-      )
-    },
-    {
-      title: scenarioCopy.groups[1],
-      tools: localizedTools.value.filter((tool) =>
-        ['/compare/laragon', '/compare/servbay'].includes(tool.link)
-      )
-    },
-    {
-      title: scenarioCopy.groups[2],
-      tools: localizedTools.value.filter((tool) => tool.link === '/compare/docker')
-    }
-  ])
-
-  const selectionRows = computed(() => [
-    {
-      name: 'FlyEnv',
-      link: '/guide/getting-started',
-      color: 'bg-blue-700',
-      mark: 'F',
-      bestFit: scenarioCopy.native,
-      tagline: scenarioCopy.terms
-    },
-    ...localizedTools.value
-  ])
-  const localizedHubTools = computed(() =>
-    localizedTools.value.map((tool) => ({
-      ...(hubTools.find((h) => h.name === tool.name) || {}),
-      ...tool
-    }))
-  )
-</script>
+<style src="./CompareIndexPage.css"></style>

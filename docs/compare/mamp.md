@@ -3,12 +3,8 @@ layout: page
 aside: false
 outline: false
 titleTemplate: false
-title: 'FlyEnv vs MAMP and MAMP Pro: Local Development Comparison'
-description: 'Compare FlyEnv with MAMP and MAMP Pro across local hosts, runtimes, databases, services and project workflows.'
-head:
-  - - link
-    - rel: canonical
-      href: https://flyenv.com/compare/mamp
+title: 'FlyEnv vs MAMP / MAMP PRO — More than a local web server.'
+description: 'Manage your PHP and WordPress sites, frontend projects, databases and background services from one native development workspace. FlyEnv grows with the way you build applications.'
 ---
 
 <script setup>

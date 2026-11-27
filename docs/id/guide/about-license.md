@@ -1,120 +1,277 @@
 ---
-description: 'Pahami batas evaluasi FlyEnv, lisensi $10, alur aktivasi, kebijakan perangkat, dan permintaan lisensi melalui kontribusi komunitas.'
+title: Panduan Lisensi FlyEnv – Membeli, Mengaktifkan, dan Memindahkan Lisensi
+pageClass: flyenv-license-guide
+description: Pelajari cara mendapatkan dan mengaktifkan lisensi FlyEnv, menghubungkan akun GitHub, memindahkan lisensi ke komputer baru, dan mengatasi masalah lisensi.
 ---
 
-# Panduan Lisensi FlyEnv
+# Panduan Lisensi FlyEnv {#panduan-lisensi-flyenv}
 
-Model lisensi FlyEnv menyediakan lisensi perangkat lunak berbayar untuk pengguna yang membutuhkan akses berkelanjutan ke fitur premium sekaligus membantu mendanai pengembangan. Tujuan kami **bukan membatasi pengembangan lokal inti**, melainkan membuat pemeliharaan jangka panjang alat pengembang independen tetap berkelanjutan.
+Anda dapat menggunakan FlyEnv untuk pengembangan lokal sehari-hari tanpa membeli lisensi. Lisensi FlyEnv Pro menghapus batas penggunaan versi gratis, membuka akses ke alat premium, dan mendukung kelanjutan pengembangan FlyEnv.
 
-Aktivasi lisensi memberi akses berlisensi di luar batas evaluasi di bawah ini. Kontribusi kode komunitas dan konten edukasi orisinal juga dapat diajukan sebagai bukti permintaan lisensi.
+Setelah membeli lisensi, berkontribusi pada proyek, atau membagikan konten orisinal tentang pengalaman Anda kepada komunitas, Anda dapat mengajukan lisensi langsung dari aplikasi desktop FlyEnv.
 
-## 1. Batasan Versi Evaluasi
+## Ringkasan Lisensi
 
-FlyEnv tetap dapat digunakan tanpa lisensi, tetapi versi evaluasi memiliki batas berikut:
+| | Lisensi Personal FlyEnv |
+| --- | --- |
+| Harga | $10 USD |
+| Pembayaran | Satu kali bayar, tanpa langganan |
+| Masa berlaku | Seumur hidup |
+| Pembaruan | Mencakup pembaruan FlyEnv mendatang |
+| Perangkat | Satu perangkat aktif per lisensi |
+| Pemindahan ke perangkat lain | Didukung melalui akun GitHub dan menu Lisensi Saya (My Licenses) |
+| Penerbitan | Peninjauan dan verifikasi manual |
 
-- **Pengelolaan situs**: maksimum **3** situs lokal.
-- **Asisten AI**: akses ke fitur berbasis AI dibatasi uji coba **3 hari**.
-- **Utilitas screenshot**: alat screenshot bawaan dibatasi uji coba **3 hari**.
-- **Image Optimizer**: utilitas kompresi gambar dibatasi uji coba **3 hari**.
-- **Pembaruan mendatang**: fitur premium baru dapat menerapkan masa uji coba atau batas serupa.
+Kunjungi [halaman Lisensi](/id/license) untuk melihat opsi pembelian dan informasi lisensi terkini.
 
-**Runtime inti dan fitur pengelolaan lingkungan akan selalu tetap dapat diakses.** Lisensi berbayar menghapus batas evaluasi alat premium dan membantu FlyEnv tetap terpelihara di macOS, Windows, serta Linux.
+## Tautan Cepat
 
-## 2. Cara Mendapatkan Lisensi
+Apa yang ingin Anda lakukan?
 
-Kami menyediakan tiga jalur aplikasi lisensi. FlyEnv saat ini belum dapat menerbitkan lisensi secara otomatis, sehingga permintaan melalui setiap jalur ditinjau dan diterbitkan secara manual.
+- [Mendapatkan lisensi baru](#_2-how-to-get-licensed) dengan membeli lisensi, menyumbangkan kode, atau membagikan pengalaman Anda.
+- [Mengaktifkan lisensi](#_3-request-activation-process) setelah membeli atau berkontribusi.
+- [Memindahkan lisensi yang sudah ada ke komputer lain](#transfer-to-another-device).
+- [Mengaktifkan kembali lisensi setelah menginstal ulang sistem operasi](#reinstall-your-operating-system).
+- [Menggunakan FlyEnv di beberapa komputer](#use-flyenv-on-multiple-computers).
+- [Melihat fitur Gratis dan Pro](#_1-evaluation-version-limitations).
+- [Mengatasi masalah lisensi](#frequently-asked-questions).
 
-### Opsi A: Membeli Lisensi FlyEnv
+<div id="_2-cara-mendapatkan-lisensi"></div>
 
-- **Harga lisensi:** **$10 USD** untuk Lisensi FlyEnv.
-- **Cakupan lisensi:** satu perangkat aktif; transfer perangkat didukung melalui pengelolaan lisensi.
-- **Akses premium:** menghapus batas evaluasi di atas pada perangkat berlisensi.
-- **Pemroses pembayaran:** Paddle dapat memproses checkout, pajak, tanda terima, faktur, dan dukungan terkait pembayaran.
+## Cara Mendapatkan Lisensi {#_2-how-to-get-licensed}
 
-Setelah membeli, simpan ID pesanan Paddle dan kirimkan bersama permintaan lisensi di aplikasi. Penerbitan lisensi untuk jalur pembelian ini juga dilakukan secara manual. Untuk membeli lisensi, buka [halaman Lisensi](/id/license).
+**Beli lisensi, kontribusikan kode, atau bagikan pengalaman Anda.**
 
-![Riwayat pembelian lisensi FlyEnv dengan informasi pelanggan disamarkan](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
+Ada tiga cara untuk mendapatkan lisensi FlyEnv. Ketiganya menggunakan proses pengajuan dan aktivasi yang sama di aplikasi. Setiap pengajuan ditinjau sebelum lisensi diterbitkan.
 
-### Opsi B: Berkontribusi pada Kode
+<div id="opsi-a-membeli-lisensi-flyenv"></div>
 
-- **Kirim PR**: bantu menyempurnakan FlyEnv dengan mengirim Pull Request di GitHub.
-- **Setiap kontribusi berarti**: baik fitur besar maupun perbaikan dokumentasi sederhana, setiap kontribusi yang bermakna dapat memenuhi syarat lisensi.
+### Opsi A — Beli Lisensi Personal {#option-a-purchase-a-personal-license}
 
-![Daftar pull request FlyEnv di GitHub](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
+1. Buka [halaman Lisensi](/id/license).
+2. Selesaikan pembelian melalui Paddle atau ikuti petunjuk pembayaran alternatif di halaman tersebut.
+3. Simpan ID pesanan atau alamat email yang Anda gunakan untuk pembelian. Untuk metode pembayaran lain, simpan bukti pembayarannya.
+4. [Ajukan lisensi di FlyEnv](#_3-request-activation-process).
 
-### Opsi C: Membagikan Pengalaman Anda
+Untuk pembelian melalui Paddle, Paddle menangani proses pembayaran, pajak yang berlaku, tanda terima, dan faktur. Hubungi Paddle jika Anda memerlukan bantuan terkait pembayaran tersebut.
 
-Bagikan pengalaman FlyEnv Anda di **platform apa pun** dan dalam **bahasa apa pun**. Kami menghargai umpan balik yang **autentik dan objektif** dari pengguna.
+::: tip Sudah membeli lisensi?
+Anda tidak perlu membeli lagi. Pembayaran yang sudah selesai tidak otomatis mengaktifkan aplikasi. Kirim informasi pembelian melalui **Pengaturan → Lisensi** (**Settings → License**) terlebih dahulu.
+:::
 
-Platform yang direkomendasikan untuk berbagi:
+<div id="opsi-b-berkontribusi-pada-kode"></div>
 
-**Media sosial dan jejaring:**
+### Opsi B — Berkontribusi pada FlyEnv {#option-b-contribute-to-the-codebase}
 
-- **X (Twitter)**: [https://x.com](https://x.com)
-- **Threads**: [https://www.threads.net](https://www.threads.net)
-- **Facebook**: [https://www.facebook.com](https://www.facebook.com)
-- **Instagram**: [https://www.instagram.com](https://www.instagram.com)
-- **LinkedIn**: [https://www.linkedin.com](https://www.linkedin.com)
+Bantu meningkatkan [proyek sumber terbuka FlyEnv](https://github.com/xpf0000/FlyEnv) dengan mengirim pull request yang bermanfaat. Kontribusi dapat berupa fitur baru, perbaikan bug, penyempurnaan dokumentasi, atau koreksi terjemahan.
 
-**Video dan konten kreatif:**
+Saat kontribusi Anda siap ditinjau, sertakan URL pull request saat mengajukan lisensi. Pemenuhan syarat dinilai melalui peninjauan manual.
 
-- **YouTube**: [https://www.youtube.com](https://www.youtube.com)
-- **TikTok / Reels**: [https://www.tiktok.com](https://www.tiktok.com)
+<div id="opsi-c-membagikan-pengalaman-anda"></div>
 
-**Komunitas teknologi dan blog engineering:**
+### Opsi C — Bagikan Pengalaman Anda {#option-c-spread-the-word-promotion}
 
-- **Reddit (r/webdev, r/programming)**: [https://www.reddit.com](https://www.reddit.com)
-- **Product Hunt**: [https://www.producthunt.com](https://www.producthunt.com)
-- **Hacker News**: [https://news.ycombinator.com](https://news.ycombinator.com)
-- **V2EX**: [https://www.v2ex.com](https://www.v2ex.com)
-- **Dev.to**: [https://dev.to](https://dev.to)
-- **Medium**: [https://medium.com](https://medium.com)
-- **Hashnode**: [https://hashnode.com](https://hashnode.com)
-- **Blog teknis pribadi Anda**
+Buat konten orisinal tentang pengalaman Anda menggunakan FlyEnv. Anda dapat membagikannya dalam bahasa apa pun di platform yang sesuai.
 
-**Catatan pengajuan:** setelah membagikan FlyEnv, tempel tautan ke postingan, video, atau artikel Anda pada kolom **Message** di bagian permintaan lisensi aplikasi.
+| Jenis konten | Contoh |
+| --- | --- |
+| Artikel teknis | Blog pribadi, Dev.to, Medium, Hashnode |
+| Video dan tutorial | YouTube, Bilibili, TikTok |
+| Unggahan di media sosial | X, Threads, Facebook, LinkedIn, Instagram |
+| Diskusi pengembang | Reddit, V2EX, dan komunitas pengembang lainnya |
 
-Contoh catatan kontribusi komunitas tersedia di [catatan komunitas](/id/community).
+Uraian langkah demi langkah tentang proyek, tutorial praktis, perbandingan, atau ulasan jujur dapat membantu pengembang lain memahami cara kerja FlyEnv. Anda dapat memenuhi syarat tanpa memberikan ulasan positif. Lihat [halaman Komunitas](/id/community) untuk contoh kontribusi pengembang.
 
-**Pedoman tambahan:**
+#### Persyaratan Konten
 
-- Kirim permintaan lisensi segera setelah konten dipublikasikan.
-- Karena FlyEnv berkembang cepat dengan fitur dan perbaikan yang sering, konten promosi yang diterbitkan lebih dari **3 bulan** lalu mungkin tidak lagi memenuhi syarat.
-- Kirimkan hanya **konten orisinal yang Anda buat sendiri**. Repost atau konten orang lain tidak memenuhi syarat.
-- Setiap artikel, video, atau konten promosi hanya memenuhi syarat untuk **satu lisensi**.
+- Buat dan publikasikan konten orisinal karya Anda sendiri. Unggahan ulang atau karya orang lain tidak memenuhi syarat.
+- Ajukan lisensi segera setelah konten dipublikasikan. Konten yang sudah berusia lebih dari tiga bulan mungkin tidak lagi memenuhi syarat.
+- Setiap artikel, video, atau unggahan hanya memenuhi syarat untuk satu lisensi. Tautan yang sudah digunakan tidak dapat dipakai untuk mengajukan lisensi lain.
+- Berikan tautan yang dapat dibuka untuk ditinjau. Patuhi aturan platform dan ungkapkan insentif berupa lisensi jika diwajibkan.
 
-## 3. Proses Permintaan & Aktivasi
+Setelah konten dipublikasikan, cantumkan URL konten dan alamat email kontak pada formulir pengajuan di aplikasi.
 
-Setelah menyelesaikan pembelian, kontribusi, atau promosi yang diperlukan melalui salah satu jalur di atas, kirim permintaan lisensi di aplikasi:
+<div id="_3-proses-permintaan-aktivasi"></div>
 
-1. **Buka area permintaan lisensi**: buka **FlyEnv Settings -> License**, gulir ke bawah, lalu temukan area permintaan lisensi.
+## Ajukan dan Aktifkan Lisensi Anda {#_3-request-activation-process}
 
-   ![Pengaturan lisensi FlyEnv 1](https://oss.macphpstudy.com/image/flyenv-license-1.webp)
+Ikuti langkah berikut setelah membeli lisensi atau menyiapkan kontribusi Anda. Prosesnya sama di Windows, macOS, dan Linux. Tampilan antarmuka dapat sedikit berbeda tergantung versi FlyEnv yang Anda gunakan.
 
-2. **Berikan bukti dan alamat email**: pada kolom **Message**, sertakan:
-   - **Pembeli lisensi**: ID pesanan atau email tanda terima Paddle Anda.
-   - **Kontributor**: tautan Pull Request GitHub Anda.
-   - **Promotor**: tautan postingan, video, atau konten yang Anda bagikan.
-   - **Email pemberitahuan**: berikan alamat email yang valid. FlyEnv akan memberi tahu Anda melalui email setelah lisensi diterbitkan.
+### Langkah 1 — Buka Pengaturan Lisensi
 
-   ![Pengaturan lisensi FlyEnv 2](https://oss.macphpstudy.com/image/flyenv-license-2.webp)
+Buka FlyEnv dan pilih **Pengaturan → Lisensi** (**Settings → License**). Status aktivasi perangkat ini tampil di bagian atas halaman. Gulir ke bawah hingga bagian pengajuan lisensi.
 
-3. **Kirim**: klik tombol **Request License**.
-4. **Pemrosesan dan penerbitan manual**: sebagian besar permintaan diproses dalam **24 jam**. FlyEnv meninjau dan menerbitkan lisensi secara manual.
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-1.webp" alt="Pengaturan lisensi FlyEnv yang menampilkan status aktivasi perangkat saat ini" width="2048" height="1296"></p>
 
-   ![Pengaturan lisensi FlyEnv 3](https://oss.macphpstudy.com/image/flyenv-license-3.webp)
+### Langkah 2 — Masukkan Informasi Pengajuan
 
-   ![Pengaturan lisensi FlyEnv 4](https://oss.macphpstudy.com/image/flyenv-license-4.webp)
+Di kolom **Pesan** (**Message**), cantumkan alamat email yang valid dan informasi yang sesuai dengan jenis pengajuan Anda.
 
-## 4. Pengelolaan Lisensi & Pengikatan Perangkat
+| Jenis pengajuan | Informasi yang perlu disertakan |
+| --- | --- |
+| Pembelian melalui Paddle | ID pesanan atau alamat email yang digunakan untuk membeli atau menerima tanda terima |
+| Metode pembayaran lain | Bukti pembayaran terkait |
+| Kontribusi kode | URL pull request di GitHub |
+| Konten orisinal | URL artikel, video, atau unggahan yang telah dipublikasikan |
 
-Pada kebijakan lisensi saat ini, lisensi FlyEnv yang dibeli bersifat **permanen** dan mengikuti kebijakan "satu lisensi per mesin". Kebijakan ini dapat disesuaikan menjadi langganan tahunan di masa mendatang.
+Untuk pembelian, isi pesan dapat ditulis seperti berikut.
 
-- **Pengikatan perangkat**: setiap lisensi terikat pada UUID perangkat keras tertentu.
-- **Migrasi perangkat keras**: bila Anda mendapatkan komputer baru, lisensi dapat dipindahkan. Masuk dengan **akun GitHub** Anda dan buka **My Licenses**:
-  1. Temukan UUID perangkat lama dan klik **Unbind**.
-  2. Klik **Bind This Device** untuk mengaktifkan FlyEnv di komputer baru.
+```text
+Email kontak: anda@example.com
+ID pesanan Paddle: ID_PESANAN_ANDA
+```
 
-![Pengaturan lisensi FlyEnv 5](https://oss.macphpstudy.com/image/flyenv-license-5.webp)
+Untuk kontribusi kepada komunitas, gunakan contoh berikut.
 
-![Pengaturan lisensi FlyEnv 6](https://oss.macphpstudy.com/image/flyenv-license-6.webp)
+```text
+Email kontak: anda@example.com
+URL konten: https://example.com/artikel-flyenv-saya
+```
+
+Jangan sertakan kata sandi, nomor kartu lengkap, atau token akses GitHub.
+
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-2.webp" alt="Formulir pengajuan lisensi dengan kolom Message (Pesan) dan tombol Request License (Ajukan Lisensi) yang disorot" width="2048" height="1296"></p>
+
+### Langkah 3 — Kirim Pengajuan
+
+Klik **Ajukan Lisensi** (**Request License**) untuk mengirim pengajuan Anda. FlyEnv meninjau pengajuan secara manual dan mengirim pemberitahuan melalui email setelah lisensi diterbitkan. Pastikan Anda tetap bisa mengakses alamat email yang dicantumkan.
+
+Anda tidak perlu mengirim ulang pengajuan yang sama selama peninjauan berlangsung.
+
+### Langkah 4 — Aktifkan Lisensi
+
+Setelah menerima pemberitahuan bahwa lisensi telah diterbitkan, ikuti langkah berikut.
+
+1. Kembali ke **Pengaturan → Lisensi** (**Settings → License**) di FlyEnv pada perangkat yang digunakan untuk mengajukan lisensi.
+2. Gulir ke bagian pengajuan, lalu klik **Segarkan Status** (**Refresh State**).
+3. Periksa status aktivasi di bagian atas halaman Lisensi. Status akan menunjukkan **Lisensi diaktifkan** (**License activated**).
+
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-3.webp" alt="Tombol Refresh State (Segarkan Status) pada bagian pengajuan lisensi FlyEnv" width="2048" height="1296"></p>
+
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-4.webp" alt="Aktivasi FlyEnv berhasil, ditandai centang hijau dan status License activated (Lisensi diaktifkan)" width="2048" height="1296"></p>
+
+::: info Catatan tangkapan layar
+Beberapa tangkapan layar menampilkan versi aplikasi sebelumnya. Teks kebijakan yang terlihat di sana mungkin sudah tidak berlaku. Ikuti kebijakan lisensi dan petunjuk terkini di halaman ini.
+:::
+
+### Langkah 5 — Hubungkan Akun GitHub Anda
+
+Setelah lisensi aktif pada perangkat Anda, buka **Lisensi Saya** (**My Licenses**) di halaman Lisensi dan gunakan tombol masuk melalui GitHub untuk mengotorisasi akun Anda. Pastikan lisensi Anda muncul di bagian tersebut.
+
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-5.webp" alt="Bagian My Licenses (Lisensi Saya) dengan tombol masuk melalui GitHub yang disorot" width="2048" height="1296"></p>
+
+::: tip Hubungkan GitHub sebelum berganti perangkat
+Hubungkan lisensi dengan akun GitHub Anda sekarang, meskipun Anda belum berencana mengganti komputer. Dengan begitu, Anda dapat mengelola sendiri lisensi jika menginstal ulang sistem operasi atau kehilangan akses ke komputer lama.
+:::
+
+<div id="_4-pengelolaan-lisensi-pengikatan-perangkat"></div>
+
+## Kelola Lisensi Anda {#_4-license-management-device-binding}
+
+Lisensi FlyEnv dikaitkan dengan UUID perangkat yang dilaporkan oleh aplikasi. Setiap lisensi dapat digunakan pada satu perangkat aktif dalam satu waktu dan dapat dipindahkan dari komputer asal ke perangkat lain.
+
+Gunakan akun GitHub yang telah dihubungkan untuk mengakses **Lisensi Saya** (**My Licenses**) dan mengelola perangkat yang terikat ke lisensi Anda.
+
+### Pindahkan Lisensi ke Perangkat Lain {#transfer-to-another-device}
+
+Saat mengganti komputer, Anda dapat memindahkan lisensi yang sudah ada.
+
+1. Instal FlyEnv di komputer baru.
+2. Buka **Pengaturan → Lisensi → Lisensi Saya** (**Settings → License → My Licenses**).
+3. Masuk dengan akun GitHub yang sebelumnya dihubungkan dengan lisensi Anda.
+4. Temukan lisensi yang ingin dipindahkan. Periksa UUID yang terikat, terutama jika Anda memiliki beberapa lisensi.
+5. Buka menu tindakan untuk lisensi tersebut, lalu pilih **Batalkan Ikat** (**Unbind**) untuk melepaskan perangkat lama.
+6. Pilih **Ikat Perangkat Ini** (**Bind This Device**) untuk lisensi yang sama.
+7. Pastikan perangkat baru menampilkan status **Lisensi diaktifkan** (**License activated**). Klik **Segarkan Status** (**Refresh State**) jika diperlukan.
+
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-6.webp" alt="Bagian My Licenses (Lisensi Saya) dengan beberapa lisensi serta tindakan Unbind (Batalkan Ikat) dan Bind This Device (Ikat Perangkat Ini)" width="2048" height="1296"></p>
+
+::: warning Satu perangkat aktif per lisensi
+Memindahkan lisensi akan melepaskan ikatan dengan perangkat sebelumnya. Agar lisensi tetap aktif di kedua komputer, Anda memerlukan satu lisensi untuk setiap komputer.
+:::
+
+### Instal Ulang Sistem Operasi {#reinstall-your-operating-system}
+
+Menginstal ulang Windows, macOS, atau Linux dapat mengubah UUID perangkat. Jika FlyEnv masih mengenali lisensi setelah instalasi ulang, Anda tidak perlu melakukan apa pun. Jika lisensi tidak dikenali, ikuti [langkah pemindahan lisensi](#transfer-to-another-device) untuk melepaskan UUID lama dan mengikat perangkat saat ini.
+
+Jika Anda belum pernah menghubungkan lisensi ke GitHub dan tidak dapat lagi mengakses instalasi lama, [hubungi tim dukungan](#get-help) untuk verifikasi dan bantuan.
+
+### Gunakan FlyEnv di Beberapa Komputer {#use-flyenv-on-multiple-computers}
+
+Untuk menggunakan FlyEnv di beberapa perangkat pada saat yang sama, Anda dapat membeli lisensi tambahan atau mendapatkannya melalui jalur lain jika memenuhi syarat. Misalnya, Anda dapat menggunakan satu lisensi untuk komputer kerja dan satu lagi untuk komputer pribadi.
+
+### Kelola Beberapa Lisensi
+
+**Satu akun GitHub dapat digunakan untuk mengelola beberapa lisensi, masing-masing untuk satu perangkat aktif.**
+
+Anda dapat menghubungkan beberapa lisensi FlyEnv yang terpisah ke akun GitHub yang sama. Mengikat atau memindahkan satu lisensi tidak memengaruhi lisensi lain yang terhubung ke akun tersebut. Pilih lisensi yang benar sebelum melepaskan perangkat.
+
+<div id="_1-batasan-versi-evaluasi"></div>
+
+## Fitur Gratis dan Berlisensi {#_1-evaluation-version-limitations}
+
+Fitur inti untuk pengembangan lokal tersedia secara gratis, termasuk pengelolaan runtime dan basis data, HTTPS, serta Grup Startup. Batas berikut berlaku untuk fitur tertentu.
+
+| Fitur | Gratis | Pro |
+| --- | --- | --- |
+| Situs lokal | Maksimal 3 | Jumlah situs tidak dibatasi |
+| Proyek kustom | Maksimal 3 per runtime | Jumlah proyek tidak dibatasi |
+| Cloudflare Tunnel | 1 tunnel | Beberapa tunnel |
+| Asisten AI | Uji coba 3 hari | Akses penuh |
+| Alat tangkapan layar | Uji coba 3 hari | Akses penuh |
+| Pengoptimal gambar | Uji coba 3 hari | Akses penuh |
+| Pasar Plugin | Lisensi aktif diperlukan untuk menginstal dan memperbarui plugin | Dapat menginstal dan memperbarui plugin |
+
+Batas tersebut berlaku untuk fitur FlyEnv. Perangkat lunak atau layanan pihak ketiga mungkin memiliki ketentuan, persyaratan platform, atau biaya tersendiri.
+
+Untuk informasi tentang modul opsional, lihat [panduan Pasar Plugin](/id/features/plugin-market). Untuk server MCP bawaan, lihat [panduan Ruang Kerja Coding AI Lokal dengan MCP](/id/guide/ai-coding-workspace-mcp).
+
+## Pertanyaan Umum {#frequently-asked-questions}
+
+### Saya sudah membayar lisensi. Mengapa FlyEnv belum aktif?
+
+Pembelian dan aktivasi dilakukan dalam dua langkah terpisah. Pastikan pembayaran Anda sudah selesai, lalu [ajukan lisensi](#_3-request-activation-process) di FlyEnv. Setelah menerima pemberitahuan penerbitan, klik **Segarkan Status** (**Refresh State**) di halaman Lisensi.
+
+### Pengajuan lisensi saya masih menunggu peninjauan. Apa yang harus saya lakukan?
+
+Pengajuan diverifikasi secara manual. Periksa kotak masuk dan folder spam pada alamat email yang Anda cantumkan. Jika Anda menduga ada informasi pengajuan yang keliru atau belum menerima tanggapan, [hubungi tim dukungan](#get-help) dan sertakan informasi pengajuan Anda.
+
+### Pembayaran saya gagal. Apakah saya masih bisa mendapatkan lisensi?
+
+Pembayaran yang gagal tidak dapat digunakan sebagai bukti pembelian. Periksa status pembayaran sebelum mengirim pengajuan baru. Jika metode pembayaran tidak tersedia di wilayah Anda, periksa alternatifnya di [halaman Lisensi](/id/license).
+
+### Apakah saya perlu lisensi baru setelah menginstal ulang sistem?
+
+Lisensi yang sudah ada tetap dapat digunakan. Jika UUID perangkat berubah, gunakan akun GitHub yang telah dihubungkan untuk memindahkan lisensi ke perangkat saat ini.
+
+### Bagaimana jika komputer lama saya hilang atau tidak berfungsi?
+
+Jika lisensi sudah dihubungkan ke GitHub, Anda dapat mengelola perangkat yang terikat dari komputer baru tanpa mengakses komputer lama. Jika lisensi belum dihubungkan, hubungi tim dukungan untuk mendapatkan bantuan memulihkan lisensi.
+
+### Bisakah saya menggunakan lisensi yang sama di dua komputer?
+
+Setiap komputer yang ingin Anda aktifkan pada saat yang sama memerlukan lisensinya sendiri. Anda dapat mengelola beberapa lisensi melalui satu akun GitHub.
+
+### Bisakah saya mengajukan lisensi dengan artikel atau pembelian yang sudah pernah digunakan?
+
+Kontribusi atau tautan konten yang sudah pernah digunakan tidak dapat digunakan untuk mengajukan lisensi lain. Jumlah lisensi yang dapat Anda ajukan melalui pembelian sesuai dengan jumlah yang dibeli. Untuk memindahkan lisensi yang sudah ada, gunakan **Lisensi Saya** (**My Licenses**).
+
+### Apakah lisensi saya kedaluwarsa? Apakah pembaruan mendatang sudah termasuk?
+
+Lisensi Personal yang tersedia saat ini berlaku seumur hidup tanpa biaya berulang. Pembaruan FlyEnv mendatang sudah termasuk sesuai kebijakan lisensi saat ini.
+
+### Apakah tersedia lisensi untuk tim atau pendidikan?
+
+Opsi lisensi untuk tim atau institusi pendidikan dapat dibicarakan sesuai kebutuhan. Gunakan informasi kontak di [halaman Lisensi](/id/license) dan cantumkan organisasi Anda, rencana penggunaan, serta jumlah perangkat.
+
+## Dapatkan Bantuan {#get-help}
+
+Jika langkah-langkah di atas belum menyelesaikan masalah Anda, gunakan informasi kontak di [halaman Lisensi](/id/license). Untuk masalah teknis umum, kunjungi [GitHub Issues](https://github.com/xpf0000/FlyEnv/issues).
+
+Untuk mendapatkan bantuan lisensi secara privat, sertakan alamat email yang digunakan saat mengajukan lisensi, ID pesanan atau tautan kontribusi yang relevan, dan penjelasan singkat tentang masalahnya. Cantumkan versi FlyEnv dan UUID perangkat saat ini jika relevan.
+
+Jangan unggah tanda terima, alamat email pribadi, nomor lisensi, atau pengenal perangkat ke issue maupun diskusi publik.
+
+- [Lihat opsi lisensi](/id/license)
+- [Unduh FlyEnv](/id/download)
+- [Lihat kontribusi komunitas](/id/community)

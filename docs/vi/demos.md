@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 title: 'FlyEnv Demos: Local Stack, Công cụ và Quy trình làm việc'
 head:
   - - meta

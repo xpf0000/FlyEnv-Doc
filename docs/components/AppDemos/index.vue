@@ -1,16 +1,17 @@
 <template>
-  <section class="demos-library" :data-locale="props.locale">
+  <main class="demos-library" :data-locale="props.locale">
     <div class="demos-shell">
       <header class="demos-masthead">
         <p class="demos-kicker">{{ t.kicker }}</p>
         <h1>{{ t.title }}</h1>
         <p class="demos-intro">{{ t.intro }}</p>
-        <a class="demo-related-link mt-3 inline-block" :href="downloadHref" data-analytics-surface="demos-hero">{{ t.download }} →</a>
+        <a class="demos-download" :href="downloadHref" data-analytics-surface="demos-hero">{{ t.download }} →</a>
       </header>
 
       <section class="demos-controls demos-browse-bar" :aria-label="t.controlsLabel">
         <label class="demos-search-label">
-          <span>{{ t.searchLabel }}</span>
+          <span class="visually-hidden">{{ t.searchLabel }}</span>
+          <Search class="demos-search-icon" aria-hidden="true" />
           <input
             v-model="searchQuery"
             type="search"
@@ -198,7 +199,7 @@
         <button type="button" @click="resetDiscovery">{{ t.reset }}</button>
       </div>
     </div>
-  </section>
+  </main>
 
   <Teleport to="body">
     <div v-if="selectedDemo" class="demo-dialog-backdrop" @mousedown.self="closeDialog">
@@ -256,6 +257,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { Search } from '@element-plus/icons-vue'
 import { trackEvent } from '../../utils/analytics'
 import { demos, demoCategories, getDemoCopy, getDemoEmbedUrl, getDemoPlatform } from '../../data/demos'
 import type { Demo, DemoCategory, DemoLocale, DemoPlatform } from '../../data/demos'
@@ -327,7 +329,7 @@ const copy = {
     controlsLabel: 'Browse FlyEnv demonstrations',
     categoryLabel: 'Filter by category',
     searchLabel: 'Search demos',
-    searchPlaceholder: 'Search projects, stacks, and tools',
+    searchPlaceholder: 'Search demos',
     all: 'All demos',
     featuredTitle: 'Featured demos',
     catalogTitle: 'All demonstrations',
@@ -352,7 +354,7 @@ const copy = {
     controlsLabel: '浏览 FlyEnv 演示',
     categoryLabel: '按分类筛选',
     searchLabel: '搜索演示',
-    searchPlaceholder: '搜索项目、技术栈和工具',
+    searchPlaceholder: '搜索演示',
     all: '全部演示',
     featuredTitle: '精选演示',
     catalogTitle: '全部演示',
@@ -376,7 +378,7 @@ const copy = {
     controlsLabel: 'Telusuri demo FlyEnv',
     categoryLabel: 'Filter berdasarkan kategori',
     searchLabel: 'Cari demo',
-    searchPlaceholder: 'Cari proyek, stack, dan alat',
+    searchPlaceholder: 'Cari demo',
     all: 'Semua demo',
     featuredTitle: 'Demo pilihan',
     catalogTitle: 'Semua demo',
@@ -400,7 +402,7 @@ const copy = {
     controlsLabel: 'Explorar demostraciones de FlyEnv',
     categoryLabel: 'Filtrar por categoría',
     searchLabel: 'Buscar demostraciones',
-    searchPlaceholder: 'Busca proyectos, stacks y herramientas',
+    searchPlaceholder: 'Buscar demos',
     all: 'Todas las demos',
     featuredTitle: 'Demos destacadas',
     catalogTitle: 'Todas las demostraciones',
@@ -425,7 +427,7 @@ const copy = {
     controlsLabel: 'Duyệt bản demo FlyEnv',
     categoryLabel: 'Lọc theo danh mục',
     searchLabel: 'Tìm kiếm bản demo',
-    searchPlaceholder: 'Tìm kiếm dự án, stack và công cụ',
+    searchPlaceholder: 'Tìm bản demo',
     all: 'Tất cả bản demo',
     featuredTitle: 'Bản demo nổi bật',
     catalogTitle: 'Tất cả bản demo',
@@ -841,8 +843,8 @@ onUnmounted(() => {
 
 <style scoped>
 .demos-library {
-  --demos-accent: #1d4ed8;
-  --demos-accent-dark: #1e3a8a;
+  --demos-accent: var(--vp-c-brand-1);
+  --demos-selected-bg: #3451b2;
   --demos-ink: #172033;
   --demos-muted: #526072;
   --demos-line: #d9e1ec;
@@ -850,15 +852,14 @@ onUnmounted(() => {
   --demos-control-muted: #e8eef8;
   --demos-tag-ink: #3b4d66;
   --demos-tag-surface: #edf2f8;
-  --demos-wash: #f4f7fb;
-  background: var(--demos-wash);
+  --demos-masthead-wash: #eef3fc;
+  --demos-wash: #f8fafd;
+  background: linear-gradient(180deg, var(--demos-masthead-wash), var(--demos-wash) 380px);
   color: var(--demos-ink);
-  padding: 64px 24px 88px;
+  padding-block: clamp(38px, 3.9vw, 72px) clamp(64px, 6vw, 112px);
 }
 
 :global(html.dark .demos-library) {
-  --demos-accent: #60a5fa;
-  --demos-accent-dark: #bfdbfe;
   --demos-control-muted: #26364d;
   --demos-ink: #e5edf9;
   --demos-line: #314158;
@@ -866,23 +867,50 @@ onUnmounted(() => {
   --demos-surface: #151f30;
   --demos-tag-ink: #d9e4f2;
   --demos-tag-surface: #22314a;
+  --demos-masthead-wash: #172238;
   --demos-wash: #0f1726;
 }
 
 .demos-shell {
   margin: 0 auto;
-  max-width: 1240px;
+  /* Match the Solutions index, including its VitePress container and inner gutters. */
+  max-width: 1280px;
+  padding-inline: 40px;
+}
+
+@media (min-width: 640px) {
+  .demos-shell {
+    padding-inline: 72px;
+  }
+}
+
+@media (min-width: 960px) {
+  .demos-shell {
+    padding-inline: 88px;
+  }
 }
 
 .demos-masthead {
-  max-width: 760px;
+  max-width: 1260px;
 }
 
 .demos-kicker {
-  color: var(--demos-accent-dark);
+  align-items: center;
+  color: var(--demos-accent);
+  display: flex;
   font-size: 13px;
-  font-weight: 700;
-  margin: 0 0 12px;
+  font-weight: 750;
+  gap: 10px;
+  line-height: 1.35;
+  margin: 0 0 14px;
+}
+
+.demos-kicker::before {
+  background: currentColor;
+  border-radius: 2px;
+  content: '';
+  height: 2px;
+  width: 22px;
 }
 
 .demos-masthead h1,
@@ -893,33 +921,58 @@ onUnmounted(() => {
 }
 
 .demos-masthead h1 {
-  font-size: 48px;
-  line-height: 1.08;
+  font-size: clamp(34px, 3.5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   margin: 0;
-  max-width: 700px;
+  text-wrap: balance;
 }
 
 .demos-intro {
   color: var(--demos-muted);
   font-size: 17px;
   line-height: 1.65;
-  margin: 18px 0 0;
-  max-width: 680px;
+  margin: 14px 0 0;
+  max-width: 74ch;
+}
+
+.demos-masthead .demos-download {
+  align-items: center;
+  background: var(--demos-surface);
+  border: 1px solid var(--demos-line);
+  border-radius: 8px;
+  color: var(--demos-accent);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 20px;
+  min-height: 40px;
+  padding: 6px 13px;
+  text-decoration: none;
+}
+
+.demos-masthead .demos-download:hover {
+  border-color: var(--demos-accent);
 }
 
 .demos-controls {
-  align-items: end;
-  border-bottom: 1px solid var(--demos-line);
+  align-items: center;
+  background: var(--demos-surface);
+  border: 1px solid var(--demos-line);
+  border-radius: 12px;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 12px;
-  margin-top: 36px;
-  padding-bottom: 22px;
-  row-gap: 12px;
+  gap: 12px 14px;
+  margin-top: clamp(26px, 3vw, 44px);
+  padding: 12px;
 }
 
 .demos-filter-group {
-  display: contents;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 100%;
 }
 
 .demos-filter-button {
@@ -951,13 +1004,19 @@ onUnmounted(() => {
 .demos-empty button:hover,
 .demo-platform-switch:hover {
   border-color: var(--demos-accent);
-  color: var(--demos-accent-dark);
+  color: var(--demos-accent);
 }
 
 .demos-filter-button.selected {
-  background: var(--demos-accent);
-  border-color: var(--demos-accent);
+  background: var(--demos-selected-bg);
+  border-color: var(--demos-selected-bg);
   color: #ffffff;
+}
+
+.demos-filter-group .demos-filter-button {
+  font-size: 13px;
+  min-height: 38px;
+  padding: 6px 8px;
 }
 
 .demos-filter-count {
@@ -977,43 +1036,49 @@ onUnmounted(() => {
 }
 
 .demos-search-label {
-  display: grid;
-  flex: 0 1 280px;
-  gap: 7px;
-  max-width: 280px;
-  min-width: 220px;
-  margin-right: 8px;
+  display: block;
+  flex: 1 1 274px;
+  max-width: 312px;
+  min-width: 0;
+  position: relative;
 }
 
-.demos-search-label > span {
+.demos-search-icon {
   color: var(--demos-muted);
-  font-size: 13px;
-  font-weight: 650;
+  height: 16px;
+  inset-inline-start: 12px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
 }
 
 .demos-search-label input {
-  background: var(--demos-surface);
-  border: 1px solid #b9c6d8;
-  border-radius: 6px;
+  background: var(--demos-wash);
+  border: 1px solid var(--demos-line);
+  border-radius: 8px;
   color: var(--demos-ink);
   font: inherit;
-  font-size: 15px;
-  min-height: 40px;
-  padding: 8px 11px;
+  font-size: 14px;
+  min-height: 42px;
+  padding: 8px 12px;
+  padding-inline-start: 36px;
   width: 100%;
 }
 
 .demos-search-label input::placeholder {
-  color: #64748b;
+  color: var(--demos-muted);
+  opacity: 1;
 }
 
 .demos-section {
-  margin-top: 44px;
+  margin-top: clamp(30px, 3.2vw, 48px);
 }
 
 .demos-catalog-section {
   border-top: 1px solid var(--demos-line);
-  margin-top: 72px;
+  margin-top: clamp(42px, 4.2vw, 72px);
   padding-top: 28px;
 }
 
@@ -1033,7 +1098,9 @@ onUnmounted(() => {
 }
 
 .demos-section-heading h2 {
-  font-size: 24px;
+  font-size: clamp(22px, 1.8vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.25;
   margin: 0;
 }
@@ -1054,7 +1121,7 @@ onUnmounted(() => {
 .demos-section-view-all {
   background: transparent;
   border: 0;
-  color: var(--demos-accent-dark);
+  color: var(--demos-accent);
   cursor: pointer;
   flex: 0 0 auto;
   font: inherit;
@@ -1073,21 +1140,14 @@ onUnmounted(() => {
 .demos-featured-grid,
 .demos-grid {
   display: grid;
-  gap: 18px;
-}
-
-.demos-featured-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.demos-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 1.45vw, 26px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
 }
 
 .demo-card {
   background: var(--demos-surface);
   border: 1px solid var(--demos-line);
-  border-radius: 8px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -1095,7 +1155,7 @@ onUnmounted(() => {
 }
 
 .demo-card:hover {
-  border-color: #aebed4;
+  border-color: var(--demos-accent);
 }
 
 .demo-cover {
@@ -1211,8 +1271,8 @@ onUnmounted(() => {
 }
 
 .demo-card-featured .demo-cover-logo {
-  height: 40%;
-  max-height: 116px;
+  height: 55%;
+  max-height: 100px;
   max-width: 34%;
   width: 34%;
 }
@@ -1299,7 +1359,7 @@ onUnmounted(() => {
 }
 
 .demo-category {
-  color: var(--demos-accent-dark);
+  color: var(--demos-accent);
   font-size: 12px;
   font-weight: 700;
   line-height: 1.3;
@@ -1309,6 +1369,7 @@ onUnmounted(() => {
 .demo-card h3 {
   color: var(--demos-ink);
   font-size: 18px;
+  font-weight: 650;
   line-height: 1.35;
   margin: 0;
   min-height: 2.7em;
@@ -1358,11 +1419,13 @@ onUnmounted(() => {
 }
 
 .demo-related-link {
-  color: var(--demos-accent-dark);
+  color: var(--demos-accent);
   font-size: 13px;
   font-weight: 600;
   margin-top: 16px;
   overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .demo-related-link:hover,
@@ -1374,6 +1437,7 @@ onUnmounted(() => {
   background: var(--demos-surface);
   border: 1px solid var(--demos-line);
   border-radius: 8px;
+  margin-top: 28px;
   padding: 32px;
   text-align: center;
 }
@@ -1390,7 +1454,7 @@ onUnmounted(() => {
 }
 
 .demos-empty button {
-  color: var(--demos-accent-dark);
+  color: var(--demos-accent);
 }
 
 :global(.demo-dialog-backdrop) {
@@ -1505,37 +1569,42 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-@media (max-width: 960px) {
-  .demos-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.demo-cover:focus-visible {
+  outline-offset: -4px;
 }
 
 @media (max-width: 700px) {
-  .demos-library {
-    padding: 44px 16px 64px;
-  }
-
-  .demos-masthead h1 {
-    font-size: 34px;
+  .demos-intro {
+    font-size: 16px;
   }
 
   .demos-controls {
     align-items: stretch;
+    padding: 10px;
   }
 
   .demos-search-label {
     flex: 1 1 100%;
     max-width: none;
-    min-width: 0;
-    margin-right: 0;
-    order: 2;
-    width: 100%;
   }
 
-  .demos-featured-grid,
-  .demos-grid {
-    grid-template-columns: minmax(0, 1fr);
+  .demos-search-label input {
+    min-height: 44px;
+  }
+
+  .demos-filter-group {
+    flex-wrap: nowrap;
+    margin: -5px -4px;
+    max-width: none;
+    overflow-x: auto;
+    padding: 5px 4px;
+    scroll-padding-inline: 4px;
+    scrollbar-color: var(--demos-line) transparent;
+    scrollbar-width: thin;
+  }
+
+  .demos-filter-group .demos-filter-button {
+    min-height: 44px;
   }
 
   .demo-cover-native,
@@ -1558,6 +1627,10 @@ input:focus-visible {
     min-height: 36px;
   }
 
+  .demo-card-featured .demo-cover-logo {
+    max-height: 72px;
+  }
+
   .demo-cover-fallback {
     font-size: 36px;
   }
@@ -1568,7 +1641,8 @@ input:focus-visible {
 
   .demo-play {
     bottom: 12px;
-    right: 12px;
+    left: 12px;
+    right: auto;
   }
 
   .demos-section {
@@ -1603,6 +1677,16 @@ input:focus-visible {
   :global(.demo-platform-switch) {
     justify-content: center;
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-cover-thumbnail {
+    transition: none;
+  }
+
+  .demo-cover:hover .demo-cover-thumbnail {
+    transform: none;
   }
 }
 </style>

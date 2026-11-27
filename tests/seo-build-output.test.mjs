@@ -93,7 +93,10 @@ function faqSectionText(html) {
   const start = html.indexOf('id="faq-title"')
   if (start < 0) return ''
   const end = html.indexOf('<section', start)
-  return plainText(html.slice(start, end < 0 ? html.length : end))
+  const section = html
+    .slice(start, end < 0 ? html.length : end)
+    .replace(/<!--[\s\S]*?-->|<\/?(?:a|span|strong|em|code)\b[^>]*>/g, '')
+  return plainText(section)
 }
 
 function topLevelNodes(documents) {

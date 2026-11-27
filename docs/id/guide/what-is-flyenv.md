@@ -1,155 +1,267 @@
 ---
-title: 'Apa Itu FlyEnv? Stack Lokal dan Ruang Kerja AI'
+title: 'Apa Itu FlyEnv? Lingkungan Pengembangan Lokal Native Terpadu'
 head:
   - - meta
     - name: description
-      content: 'FlyEnv adalah ruang kerja desktop native untuk runtime lokal, layanan, situs HTTPS, CLI coding AI, dan FlyEnv MCP Server di macOS, Windows, serta Linux.'
+      content: 'Pelajari cara FlyEnv menyatukan runtime bahasa, server web, basis data, lingkungan proyek, plugin, dan alat pengembangan AI dalam satu ruang kerja native untuk Windows, macOS, dan Linux.'
 ---
 
-# Apa Itu FlyEnv? Stack Lokal Native, CLI Coding AI, dan Ruang Kerja MCP
+# Apa Itu FlyEnv?
 
-FlyEnv adalah ruang kerja desktop open source untuk pengembangan lokal native di Windows, macOS, dan Linux. Pasang runtime dan layanan yang dibutuhkan, pilih versi runtime per proyek, dan jalankan situs lokal dengan domain kustom dan HTTPS. Simpan layanan dalam Startup Group agar bisa dijalankan bersama.
+FlyEnv adalah **lingkungan pengembangan lokal native** yang terpadu dan bersifat open source untuk Windows, macOS, dan Linux.
 
-Di ruang kerja yang sama, Anda bisa menjalankan CLI coding AI yang didukung dan menghubungkannya ke layanan, situs, serta log yang dikelola melalui **FlyEnv MCP Server** bawaan.
+FlyEnv menyatukan runtime bahasa, server web, basis data, layanan lokal, alat pengembangan, serta fitur pengembangan AI dalam satu ruang kerja desktop yang dapat diperluas.
 
-## Apa yang Sebenarnya Dilakukan FlyEnv
+Dari satu tempat, Anda dapat memilih perangkat lunak yang dibutuhkan proyek, mengonfigurasi lingkungannya, dan mengatur dependensinya dalam Grup Startup yang bisa digunakan kembali. Untuk pengembangan lokal sehari-hari, FlyEnv menjalankan layanan langsung di komputer Anda tanpa memerlukan kontainer.
 
-FlyEnv memungkinkan Anda memasang hanya perangkat lunak yang diperlukan dan mengelolanya dari satu ruang kerja desktop native:
+**Beragam alat dalam satu ruang kerja.**
 
-| Kategori modul | Modul yang didukung |
+[Unduh FlyEnv](/id/download) · [Panduan Mulai Cepat](/id/guide/getting-started) · [Tonton Demo](/id/demos)
+
+<div id="mengapa-developer-menggunakannya"></div>
+
+## Mengapa FlyEnv Dibuat
+
+Lingkungan pengembangan modern mencakup runtime, layanan, dan alat yang perlu bekerja bersama.
+
+Sebuah aplikasi web bisa menggunakan PHP untuk backend, Node.js untuk frontend, MySQL untuk penyimpanan, Redis untuk cache, Mailpit untuk pengujian email, dan Nginx untuk menyajikan aplikasi. Proyek lain di komputer yang sama mungkin memerlukan versi runtime dan layanan yang sama sekali berbeda.
+
+Setiap alat punya kegunaannya sendiri. Tantangannya adalah mengelola semua alat tersebut secara bersamaan, mulai dari memasang versi, mengedit berkas konfigurasi, mencatat port, berpindah antarproyek, menyiapkan HTTPS lokal, hingga mengingat layanan mana saja yang perlu berjalan.
+
+FlyEnv menyatukan tugas-tugas harian tersebut dalam satu lapisan pengelolaan. Anda tetap menggunakan bahasa pemrograman, basis data, dan server web yang sama, dengan FlyEnv untuk membantu semuanya bekerja bersama sebagai satu lingkungan pengembangan.
+
+<div id="dukungan-platform"></div>
+
+## Cara Kerja FlyEnv
+
+Ruang kerja FlyEnv menghubungkan proyek Anda dengan perangkat lunak yang berjalan di komputer.
+
+```text
+Proyek Anda
+  Laravel · WordPress · Node.js · Python · Java · AI
+                         │
+                 Ruang kerja FlyEnv
+                         │
+  ┌────────────────────────────────────────────────┐
+  │ Lingkungan proyek                              │
+  │ Versi runtime · Situs lokal · HTTPS            │
+  ├────────────────────────────────────────────────┤
+  │ Grup Startup                                   │
+  │ Atur dan jalankan dependensi proyek            │
+  ├────────────────────────────────────────────────┤
+  │ Pengelolaan modul                              │
+  │ Pasang · Konfigurasi · Jalankan · Perbarui     │
+  ├────────────────────────┬───────────────────────┤
+  │ Pasar Plugin           │ Alat AI & MCP         │
+  │ Perluas ruang kerja    │ Hubungkan agen AI     │
+  └────────────────────────┴───────────────────────┘
+                         │
+          Windows · macOS · Linux
+```
+
+*Gambaran konseptual ruang kerja FlyEnv yang menunjukkan bagaimana bagian-bagiannya saling terhubung.*
+
+Empat prinsip berikut mendasari cara kerja FlyEnv.
+
+### Jalankan layanan secara native
+
+FlyEnv mengelola runtime native dan layanan lokal. Anda dapat mengakses langsung berkas konfigurasi, log, dan port jaringan dengan alat yang biasa Anda gunakan di sistem operasi. Alur kerja ini berjalan tanpa lapisan kontainer.
+
+### Pasang sesuai kebutuhan
+
+Anda bisa mulai dengan lingkungan PHP atau Node.js yang sederhana. Tambahkan basis data, cache, server web, dan alat lain saat proyek membutuhkannya.
+
+### Gunakan runtime yang sesuai untuk setiap proyek
+
+Proyek yang berbeda bisa memerlukan versi bahasa yang berbeda. Untuk bahasa yang didukung, FlyEnv memungkinkan Anda memasang beberapa versi dan memilih runtime per proyek, sehingga tidak perlu sering mengubah lingkungan global.
+
+Lihat [Runtime per Proyek](/id/features/per-project-runtimes) dan [panduan runtime per proyek](/id/guide/project-level-runtime-environment).
+
+Pengaturan per proyek ini berlaku untuk versi runtime. Keamanan dan isolasi sistem berkas pada tingkat kontainer berada di luar cakupannya.
+
+### Jalankan dependensi proyek bersama-sama
+
+Selain runtime, lingkungan sebuah proyek mungkin memerlukan server web, basis data, cache, dan layanan latar belakang lainnya.
+
+Dengan [Grup Startup](/id/features/startup-groups), Anda dapat menata layanan yang dikelola ke dalam grup yang bisa digunakan kembali, lalu menjalankan atau menghentikan semuanya sekaligus. Cukup siapkan satu grup untuk proyek agar Anda bisa menjalankan rangkaian layanan yang sama setiap hari dalam satu langkah.
+
+<div id="apa-yang-sebenarnya-dilakukan-flyenv"></div>
+
+## Ruang Kerja yang Berkembang Sesuai Kebutuhan {#what-flyenv-actually-does}
+
+FlyEnv mendukung stack web lokal yang sederhana hingga alur pengembangan yang lebih luas. Ruang kerja Anda berkembang sesuai dengan alat yang Anda pilih untuk dipasang dan digunakan.
+
+| Kategori | Contoh |
 | --- | --- |
-| Coding AI & MCP | [FlyEnv MCP Server](https://youtu.be/frprHkD1_rQ), Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, GitHub Copilot CLI |
-| Integrasi & otomasi AI | Hermes Agent, [OpenClaw](https://youtu.be/j7_B-VzIyEU), [n8n](https://youtu.be/YnA1B3qmDJU), [Ollama](https://youtu.be/yPk9HQJRvb8), [CLIProxyAPI](https://youtu.be/RmSl4jgmEyI) |
-| Kontainer | Podman |
-| Tunnel jaringan | Cloudflared, Cloudflare Tunnel |
-| Server web | FrankenPHP, [Apache](https://youtu.be/t7nKL45FdVk), [Nginx](https://youtu.be/zfdNZFRt3k4), [Caddy](https://youtu.be/NuaYnRiD3AY), Tomcat |
-| Basis data | [MySQL](https://youtu.be/uWWHAqxhVyk), [MariaDB](https://youtu.be/mvmbRi6KsgI), [PostgreSQL](https://youtu.be/5gW3WHh8_Jw), [MongoDB](https://youtu.be/wPjgwVeA6lw), [Qdrant](https://youtu.be/ahetMNLLS7s), [ClickHouse](https://youtu.be/3ePJYddWYmQ), Neo4j |
-| Server email | [Mailpit](https://youtu.be/D4MkA25Ofd0) |
-| Bahasa pemrograman & runtime | .NET, Flutter, [PHP](https://youtu.be/OYP1IOoJOtI), Composer, PHP-CLI, PHP-FPM, RoadRunner, Swoole CLI, Go, [Node.js](https://youtu.be/Pt_I3NDciZw), [Python](https://youtu.be/dhy0nJYsfQQ), Java, Maven, Gradle, SDKMAN, Erlang, Ruby, Rust, Rustup, [Bun](https://youtu.be/lu68kw8_3dY), Deno, Zig |
-| Cache & antrean pesan | [Redis](https://youtu.be/u9xjPN-VWT4), Memcached, [RabbitMQ](https://youtu.be/ymbyrr5zGkI) |
-| Tata kelola layanan | [Consul](https://youtu.be/pa0QFgpu17w), [Etcd](https://youtu.be/xsw8BQxii10), [R-Nacos](https://youtu.be/8ceC7QqY4UA), [Temporal](https://youtu.be/E_jetPnVxBo), [Temporal CLI](https://youtu.be/80psOMuDK9I) |
-| Mesin pencari | [Elasticsearch](https://youtu.be/B9Eo2Y-aXWQ), [Meilisearch](https://youtu.be/vPD3lXo1vr0), [Typesense](https://youtu.be/3Uo22iqty9k), [ZincSearch](https://youtu.be/uOf2cWk3AtU) |
-| Penyimpanan objek | [RustFS](https://youtu.be/lCEEocXdt_M), [Minio](https://youtu.be/MJ9OQBOBXMg) |
-| Otomasi & penjadwalan | Cron Jobs |
-| Utilitas | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE) |
-| Modul kustom | Modul kustom dapat ditambahkan sebagai layanan atau perintah dan bekerja seperti modul bawaan. |
+| Runtime bahasa | PHP, Node.js, Python, Java, Go, Rust |
+| Server web dan situs | Nginx, Apache, Caddy, FrankenPHP, domain lokal dan HTTPS |
+| Basis data dan layanan lokal | MySQL, PostgreSQL, MariaDB, Redis, RabbitMQ, Mailpit |
+| Alur kerja proyek | Runtime per proyek, Grup Startup, modul kustom |
+| Pengembangan AI | CLI coding AI, Server MCP, Ollama, CLIProxyAPI, plugin AI Memory |
+| Plugin opsional | Kafka, OpenSearch, MySQL Cluster, llama.cpp, Command Shortcuts |
 
-Untuk modul yang menyediakan beberapa versi, FlyEnv dapat memasang versi yang didukung secara berdampingan. Pilih versi runtime yang dibutuhkan tiap proyek.
+Tabel ini memuat beberapa contoh. Versi perangkat lunak, ketersediaan di tiap platform, dan persyaratan lisensi berbeda menurut modul. Lihat [ringkasan fitur](/id/features) untuk daftar terkini.
 
-Selain modul tersebut, FlyEnv mengelola situs lokal dengan domain kustom, HTTPS/SSL, reverse proxy, log, dan pengaturan runtime tingkat situs. FlyEnv juga menyatukan klien coding AI dan FlyEnv MCP Server dalam ruang kerja yang sama, sehingga klien AI memiliki akses terstruktur ke layanan, situs, konfigurasi, log, dan tindakan terpilih yang dikelola.
+### Perluas ruang kerja dengan plugin
 
-Alih-alih menyatukan Docker, pengelola versi, alias shell, pengeditan file hosts, serta penyiapan klien AI yang terpisah, Anda bekerja dari satu ruang kerja desktop lokal.
+Pemasangan sesuai kebutuhan dan [Pasar Plugin](/id/features/plugin-market) memberi Anda dua cara untuk menyesuaikan ruang kerja.
 
-## Lihat Fitur Inti FlyEnv dalam 13 Menit
+- Pemasangan sesuai kebutuhan memungkinkan Anda memilih runtime dan layanan yang akan dipasang.
+- Pasar Plugin memungkinkan Anda menambahkan integrasi opsional ke FlyEnv, termasuk panel pengelolaan khusus dan alat untuk tugas tertentu.
 
-Video ini membahas alur pengembangan lokal inti FlyEnv: memilih modul, memasang dan mengganti versi, mengelola layanan, membuat grup startup yang dapat digunakan kembali, mengonfigurasi situs lokal, dan memakai alat developer bawaan.
+Anda bisa mulai dengan PHP, Nginx, dan MySQL. Nantinya Anda dapat menambahkan Node.js dan Redis untuk aplikasi baru, atau memasang Kafka, OpenSearch, atau AI Memory sesuai kebutuhan pekerjaan.
 
-<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/TA2NA0JeGdo" title="Ringkasan Fitur FlyEnv - Pengembangan Lokal Native Tanpa Docker" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Anda dapat mengelola plugin dari katalog resmi maupun dari sumber pihak ketiga yang tepercaya. Pemasangan dan pembaruan plugin memerlukan lisensi FlyEnv yang aktif. Periksa halaman setiap plugin untuk mengetahui persyaratan dan dukungan platform.
 
-Untuk fitur CLI coding AI dan MCP, lanjutkan ke [Panduan FlyEnv AI Workspace & MCP](/id/guide/ai-coding-workspace-mcp).
+**Banyak kemampuan, ruang kerja tetap ringkas.**
 
-## Mengapa Developer Menggunakannya
+Ruang kerja sehari-hari bisa tetap sederhana dan dapat diperluas kapan pun diperlukan.
 
-| Masalah umum pengembangan lokal | Solusi sementara yang umum | Perubahan dengan FlyEnv |
-| --- | --- | --- |
-| Konflik versi antarproyek | `nvm`, `pyenv`, pergantian PHP manual, glue shell kustom | Pergantian runtime per proyek dari satu ruang kerja |
-| Terlalu banyak alat lokal untuk dikelola | Satu aplikasi untuk runtime, aplikasi lain untuk basis data, aplikasi lain untuk situs | Runtime, layanan, situs, dan utilitas di satu tempat |
-| HTTPS dan domain kustom lokal membutuhkan waktu | Proxy, sertifikat, dan file hosts manual | Situs lokal terkelola dengan domain, SSL, dan log |
-| Klien AI dapat membaca kode tetapi tidak konteks lokal sebenarnya | Konfigurasi buatan tangan, skrip, atau akses shell yang terlalu luas | CLI AI terkelola dan akses MCP ke konteks lokal |
-| Stack lokal yang mengutamakan kontainer terasa berat untuk kerja sehari-hari | Docker untuk semuanya | Alur lokal native tanpa overhead yang mengutamakan kontainer |
+<div id="kekuatan-sebenarnya-saat-semuanya-bekerja-bersama"></div>
 
-## Kekuatan Sebenarnya: Saat Semuanya Bekerja Bersama
+## Contoh Alur Kerja Pengembangan {#the-real-power-when-everything-works-together}
 
-Setiap kemampuan FlyEnv berguna secara mandiri: pengganti versi, dasbor layanan, domain lokal dan SSL, alat tunnel, pengelolaan CLI coding AI, atau akses MCP ke stack lokal.
+Sebuah aplikasi Laravel dengan frontend Vue bisa menggunakan lingkungan lokal seperti berikut.
 
-Anda dapat menemukan versi fitur-fitur itu di alat lain. Yang lebih sulit ditemukan adalah **semuanya berada di satu tempat, berbagi proyek, situs, dan alur kerja yang sama**. Di titik itulah FlyEnv bukan lagi sekadar utilitas praktis, melainkan tempat Anda benar-benar bekerja.
+| Komponen | Peran dalam proyek |
+| --- | --- |
+| PHP 8.4 | Runtime backend |
+| Node.js | Alat pengembangan dan build frontend |
+| Nginx dan PHP-FPM | Menyajikan aplikasi PHP |
+| MySQL | Basis data aplikasi |
+| Redis | Cache dan antrean |
+| Mailpit | Pengujian email lokal |
+| `https://myapp.test` | URL lokal aplikasi dengan HTTPS |
 
-Bayangkan hari kerja biasa:
+Konfigurasi ini merupakan contoh. Pilih versi dan layanan yang sesuai dengan proyek Anda.
 
-1. Pasang atau kelola runtime dan layanan yang dibutuhkan proyek.
-2. Biarkan FlyEnv memasang versi yang tepat pada proyek aktif.
-3. Jalankan situs lokal dengan domain, SSL, aturan reverse proxy, log, dan layanan yang bergantung padanya dari ruang kerja yang sama.
-4. Jalankan Claude Code, Codex, atau CLI coding AI lain yang didukung dengan konteks proyek yang sama.
-5. Buka stack lokal terkelola melalui FlyEnv MCP Server agar AI dapat memeriksa layanan, konfigurasi, log, dan tindakan terpilih.
+Berikut langkah-langkahnya di FlyEnv.
 
-Berbagai alat, file konfigurasi, dan glue shell yang sebelumnya terpisah menjadi satu alur lokal berkelanjutan:
+1. Pasang versi perangkat lunak yang diperlukan.
+2. Konfigurasikan lingkungan PHP dan Node.js untuk proyek.
+3. Siapkan basis data dan perbarui konfigurasi lingkungan aplikasi.
+4. Buat situs lokal dengan domain kustom dan HTTPS.
+5. Masukkan layanan yang dikelola ke dalam satu Grup Startup.
+6. Jalankan perintah penyiapan dan pengembangan aplikasi sesuai kebutuhan proyek.
 
-> **Pasang -> Konfigurasi -> Jalankan -> Proxy -> Tunnel -> Debug -> Hubungkan AI -> Kirim**
+Setelah dikonfigurasi, grup layanan ini bisa digunakan setiap kali Anda kembali mengerjakan proyek. Dari ruang kerja yang sama, Anda dapat mengakses situs lokal, mengelola dependensi, dan memeriksa log layanan.
 
-Kesinambungan inilah kekuatan utamanya. Penghematan waktu tidak berasal dari satu fitur cepat, melainkan dari tidak perlu terus-menerus meninggalkan ruang kerja.
+FlyEnv mempermudah penyiapan, pengelolaan, dan penggunaan kembali lingkungan pengembangan. Jalankan perintah penyiapan yang diperlukan oleh framework Anda seperti biasa.
 
-## Perbedaan FlyEnv dengan Stack Docker dan XAMPP
+Baca panduan [Menjalankan Laravel dengan FlyEnv](/id/guide/run-laravel-use-flyenv), pelajari [Situs Lokal dan HTTPS](/id/features/local-sites-https), atau jelajahi [solusi untuk proyek lain](/id/solutions).
 
-| Pendekatan | Paling sesuai untuk | Perbandingan dengan FlyEnv |
-| --- | --- | --- |
-| Docker Desktop | Paritas kontainer dan orkestrasi kontainer multi-layanan | Memerlukan penyiapan serta overhead kontainer lebih besar untuk pekerjaan aplikasi lokal sehari-hari |
-| Bundel seperti XAMPP / MAMP | Sandbox PHP/MySQL sederhana dan tetap | Dukungan multi-versi, multi-runtime, dan alur AI lebih terbatas |
-| FlyEnv | Pengembangan lokal native multi-runtime beserta alur AI dan MCP | Tidak berfokus untuk mereproduksi topologi kontainer selengkap Docker |
+<div id="lihat-fitur-inti-flyenv-dalam-13-menit"></div>
 
-Jika pekerjaan lokal Anda terutama membangun dan men-debug aplikasi dengan runtime serta layanan lokal nyata, FlyEnv dirancang untuk jalur itu terlebih dahulu.
+### Lihat Fitur Inti FlyEnv dalam 13 Menit {#watch-flyenv-s-core-features-in-13-minutes}
 
-## Mengapa AI Mengubah Definisi Lingkungan Lokal
+Video ini memperlihatkan cara memasang modul, mengelola versi, mengendalikan layanan, memakai Grup Startup, menyiapkan situs lokal, dan menggunakan alat pengembangan di FlyEnv.
 
-Klien coding AI tidak hanya membutuhkan file repositori. Mereka juga membutuhkan:
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #111827;">
+  <iframe src="https://www.youtube.com/embed/TA2NA0JeGdo" title="Ringkasan Fitur FlyEnv - Pengembangan Lokal Native Tanpa Docker" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-- versi PHP, Node.js, atau Python yang aktif
-- basis data, cache, dan layanan web lokal yang berjalan
-- URL situs, log, dan file konfigurasi terkelola
-- cara terkontrol untuk memeriksa atau mengoperasikan lingkungan tersebut
+[Tonton di YouTube](https://www.youtube.com/watch?v=TA2NA0JeGdo) · [Jelajahi demo singkat lainnya](/id/demos)
 
-FlyEnv menyimpan lapisan runtime dan lapisan akses AI di tempat yang sama:
+<div id="mengapa-ai-mengubah-definisi-lingkungan-lokal"></div>
 
-- pergantian runtime per proyek
-- modul CLI coding AI dalam ruang kerja yang sama
-- MCP bawaan dengan autentikasi token, sakelar alat, mode persetujuan, dan log audit
+## Dirancang untuk Era AI {#why-ai-changes-the-definition-of-a-local-environment}
 
-Untuk panduan penyiapan AI lengkap, baca [Panduan FlyEnv AI Workspace & MCP](/id/guide/ai-coding-workspace-mcp).
+Selain akses ke kode sumber, agen coding AI mungkin perlu mengetahui runtime yang aktif, basis data, URL lokal, status layanan, konfigurasi, dan log agar bisa bekerja dengan efektif pada sebuah proyek.
 
-## Dibangun dan Digerakkan oleh Komunitas
+FlyEnv mendukung alur kerja AI di ruang kerja pengembangan lokal yang sama. Anda tetap bisa menggunakannya untuk pengembangan sehari-hari tanpa fitur AI.
 
-FlyEnv tidak tumbuh hanya dari roadmap internal. Sebagian besar modul, perbaikan, terjemahan, dan peningkatan dokumentasi berasal dari permintaan komunitas serta pull request langsung.
+### Pengelolaan CLI coding AI
 
-Hal itu penting secara praktis: fitur yang Anda butuhkan hari ini mungkin sudah sedang dikerjakan. FlyEnv dibangun dengan arsitektur modular, sehingga lebih mudah diperluas dengan runtime, layanan, alat AI, dan integrasi baru tanpa menulis ulang seluruh aplikasi.
+FlyEnv membantu Anda mengelola klien coding yang didukung, termasuk Claude Code, Codex, OpenCode, dan Kimi, bersama alat pengembangan lainnya.
 
-Jika FlyEnv belum mencakup alat atau alur lokal yang Anda perlukan, langkah berikutnya jelas:
+### Server MCP bawaan
 
-- Buat permintaan di GitHub
-- Kirim pull request
+[Server MCP FlyEnv](/id/features/mcp-server) memberi agen yang kompatibel akses terstruktur ke informasi lingkungan yang dikelola dan operasi tertentu. Ketersediaan alat dan pengaturan persetujuan menentukan apa saja yang dapat diperiksa atau diubah oleh agen.
 
-Produk ini dibentuk secara terbuka, dan itulah salah satu alasan FlyEnv dapat bergerak di banyak skenario pengembangan lokal.
+Dengan akses ini, agen dapat membantu menyiapkan lingkungan, memeriksa layanan, dan mencari penyebab masalah pada aplikasi lokal sambil bekerja dengan kode.
 
-## Untuk Siapa FlyEnv
+### AI Memory bersama
 
-- Developer yang berpindah di antara banyak proyek lokal dan versi runtime
-- Tim yang menginginkan lingkungan lokal native tanpa glue shell buatan tangan
-- Developer yang memakai Claude Code, Codex, atau klien AI lain dengan layanan lokal nyata
-- Pengguna yang menginginkan alur harian lebih ringan daripada penyiapan yang mengutamakan kontainer
+[Plugin AI Memory](/id/features/ai-memory) bersifat opsional dan menyediakan penyimpanan lokal yang bertahan antarsesi bagi agen yang terhubung. Anda dapat menyimpan preferensi pengembangan, keputusan proyek, prosedur penyiapan, dan perbaikan yang bisa dipakai kembali. Memori global dan memori proyek memiliki cakupan tersendiri.
 
-## Dukungan Platform
+Agen dapat mengambil pengetahuan yang disimpan oleh klien lain yang terhubung jika keduanya menggunakan koleksi memori yang sesuai. Penyimpanan dan pengambilan pengetahuan bergantung pada instruksi klien serta pemanggilan alat.
 
-FlyEnv berjalan secara native pada:
+**AI menulis kode Anda. FlyEnv membantu agen AI menjalankan stack Anda.**
 
-- macOS
-- Windows
-- Linux
+Untuk petunjuk penyiapan, baca [Panduan Ruang Kerja AI dan MCP di FlyEnv](/id/guide/ai-coding-workspace-mcp).
 
-## Pertanyaan Umum
+<div id="perbedaan-flyenv-dengan-stack-docker-dan-xampp"></div>
 
-**T: Apakah FlyEnv hanya untuk PHP?**
+## Perbandingan FlyEnv dengan Alat Lain {#how-flyenv-differs-from-docker-and-xampp-style-stacks}
 
-J: Tidak. FlyEnv dibuat untuk pekerjaan lokal multi-runtime, termasuk PHP, Node.js, Python, basis data, situs lokal, dan alat terkait.
+FlyEnv berfokus pada alur pengembangan native yang dapat diperluas untuk berbagai framework. Anda dapat memilih sendiri perangkat lunak yang akan dijalankan langsung di komputer.
 
-**T: Apakah FlyEnv menggantikan Docker?**
+| Model pengembangan | Fokus utama |
+| --- | --- |
+| Bundel stack tradisional | Menjalankan stack web lokal dengan sekumpulan komponen yang sudah dikenal |
+| Lingkungan berbasis kontainer | Lingkungan kontainer yang terisolasi dan dapat direproduksi, serta alur deployment |
+| FlyEnv | Mengelola runtime proyek, layanan lokal, situs, dan alat pengembangan dalam satu ruang kerja native |
 
-J: Untuk banyak alur pengembangan lokal sehari-hari, ya. Jika Anda memerlukan topologi kontainer lengkap atau orkestrasi kontainer seperti produksi, Docker tetap dapat masuk akal.
+Jika saat ini Anda menggunakan XAMPP, Laragon, MAMP, Laravel Herd, atau ServBay, FlyEnv menawarkan cara lain untuk menata dan memperluas lingkungan lokal saat kebutuhan proyek berubah.
 
-**T: Dapatkah klien coding AI terhubung ke FlyEnv?**
+FlyEnv juga bisa digunakan bersama Docker. Layanan lokal native praktis untuk banyak pekerjaan sehari-hari. Kontainer tetap berguna saat Anda memerlukan isolasi kontainer, image yang dapat direproduksi, atau lingkungan yang setara dengan target deployment.
 
-J: Ya. FlyEnv dapat mengelola CLI coding AI yang didukung secara langsung dan membuka konteks lokal melalui FlyEnv MCP Server.
+Jelajahi [halaman perbandingan](/id/compare/) atau baca [FlyEnv vs Docker & XAMPP](/id/guide/flyenv-vs-docker-xampp) untuk penjelasan lebih lengkap.
 
-## Langkah Berikutnya
+<div id="dibangun-dan-digerakkan-oleh-komunitas"></div>
 
-- [Unduh FlyEnv](/id/download)
-- Ikuti [Panduan Mulai Cepat](/id/guide/getting-started)
-- Bandingkan pendekatan di [FlyEnv vs Docker & XAMPP](/id/guide/flyenv-vs-docker-xampp)
-- Siapkan alur AI lengkap melalui [Panduan FlyEnv AI Workspace & MCP](/id/guide/ai-coding-workspace-mcp)
+## Open Source dan Lisensi Fleksibel {#built-and-driven-by-its-community}
+
+FlyEnv dikembangkan secara terbuka. Permintaan dari komunitas, laporan bug, terjemahan, dan pull request membentuk produk ini sekaligus memperluas alur kerja yang didukung.
+
+Anda dapat melihat [kode sumber di GitHub](https://github.com/xpf0000/FlyEnv), [mengusulkan fitur](https://github.com/xpf0000/FlyEnv/issues), atau [mengirim pull request](https://github.com/xpf0000/FlyEnv/pulls).
+
+Fitur inti pengembangan lokal tersedia gratis. Lisensi berbayar menghapus batasan versi gratis yang berlaku dan membuka fitur berlisensi. FlyEnv menawarkan lisensi dengan pembayaran sekali dan cara memperoleh lisensi melalui kontribusi komunitas atau berbagi konten yang memenuhi syarat.
+
+Lihat [halaman Lisensi](/id/license) untuk ketentuan dan pilihan terkini.
+
+## Pertanyaan Umum {#pertanyaan-umum}
+
+### Apakah FlyEnv hanya untuk developer PHP?
+
+Tidak. PHP adalah salah satu dari banyak runtime yang didukung. FlyEnv juga mendukung pengembangan dengan Node.js, Python, Java, Go, dan bahasa lain, beserta basis data dan layanan lokal.
+
+### Apakah saya perlu Docker untuk menggunakan FlyEnv?
+
+Tidak. Layanan native FlyEnv berjalan tanpa memerlukan Docker. Anda tetap dapat menggunakan Docker bersama FlyEnv untuk proyek yang memerlukan kontainer.
+
+### Apakah saya harus memasang semua alat yang didukung?
+
+Tidak. Pasang alat yang Anda perlukan, lalu tambahkan alat lain ketika dibutuhkan oleh proyek. Plugin opsional memungkinkan Anda memperluas ruang kerja lebih jauh.
+
+### Bisakah proyek yang berbeda menggunakan versi runtime yang berbeda?
+
+Bisa, untuk bahasa dan alur kerja yang didukung. Anda dapat memasang beberapa versi dan menentukan runtime untuk setiap proyek. Lihat [panduan runtime](/id/guide/project-level-runtime-environment) untuk rinciannya.
+
+### Bisakah saya menggunakan FlyEnv tanpa alat coding AI?
+
+Bisa. Klien coding AI, integrasi MCP, dan AI Memory bersifat opsional. Anda dapat menggunakan FlyEnv hanya sebagai lingkungan pengembangan lokal.
+
+### Apakah FlyEnv gratis dan open source?
+
+FlyEnv bersifat open source dan menyediakan fitur inti pengembangan secara gratis. Beberapa alat dan batas penggunaan yang lebih tinggi memerlukan lisensi. Ketentuan terkini tersedia di [halaman Lisensi](/id/license).
+
+<div id="langkah-berikutnya"></div>
+
+<div id="untuk-siapa-flyenv"></div>
+
+## Langkah Berikutnya {#next-steps}
+
+Pilih langkah selanjutnya sesuai dengan tujuan Anda.
+
+| Saya ingin… | Ke mana harus pergi |
+| --- | --- |
+| Memasang FlyEnv dan menyiapkan lingkungan pertama | [Unduh](/id/download) dan [Panduan Mulai Cepat](/id/guide/getting-started) |
+| Memeriksa apakah alat yang saya gunakan didukung | [Fitur](/id/features) |
+| Menjalankan aplikasi yang sudah ada | [Solusi](/id/solutions) |
+| Melihat cara kerja FlyEnv | [Demo](/id/demos) |
+| Beralih dari lingkungan pengembangan lain | [Perbandingan](/id/compare/) |
+| Memperluas ruang kerja | [Pasar Plugin](/id/features/plugin-market) |
+| Menghubungkan agen coding AI | [Panduan Ruang Kerja AI dan MCP](/id/guide/ai-coding-workspace-mcp) |
+
+Mulai dari satu proyek beserta alat yang dibutuhkannya. Seiring berkembangnya alur pengembangan, Anda dapat memperluas ruang kerja FlyEnv sesuai kebutuhan.

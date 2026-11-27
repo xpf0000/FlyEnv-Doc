@@ -1,7 +1,12 @@
 import { demos, getDemoCopy, getDemoPlatform } from '../data/demos'
 import communityPosts from '../data/community-posts.json'
 import communityPostsZh from '../data/community-posts-zh.json'
-import { getComparisonFaqs, type ComparisonFaqSlug } from '../data/comparison-faqs'
+import {
+  getPrototypeComparisonFaqs,
+  type PrototypeComparisonSlug
+} from '../data/compare/prototype-details'
+import { compareOverviewTools } from '../data/compare/prototype-index'
+import { getServBayPrototypeFaqs } from '../data/compare/servbay-prototype'
 import { solutions } from '../data/solutions'
 
 export type SeoLocale = 'en' | 'zh' | 'id' | 'es' | 'vi'
@@ -135,15 +140,6 @@ const labels = {
   }
 } satisfies Record<SeoLocale, Record<string, string>>
 
-const compareItems = [
-  { slug: 'xampp', name: 'FlyEnv vs XAMPP' },
-  { slug: 'laragon', name: 'FlyEnv vs Laragon' },
-  { slug: 'mamp', name: 'FlyEnv vs MAMP / MAMP Pro' },
-  { slug: 'herd', name: 'FlyEnv vs Laravel Herd' },
-  { slug: 'servbay', name: 'FlyEnv vs ServBay' },
-  { slug: 'docker', name: 'FlyEnv vs Docker' }
-]
-
 const demoCategoryOrder = [
   'getting-started',
   'projects',
@@ -246,10 +242,14 @@ function removeCustomSchema(head: HeadEntry[], url: string) {
 }
 
 function comparisonFaqNode(route: RouteInfo) {
-  const match = route.pagePath.match(/^compare\/(docker|herd|servbay)$/)
+  const match = route.pagePath.match(/^compare\/(laragon|servbay|herd|xampp|mamp|docker)$/)
   if (!match) return
 
-  const faqs = getComparisonFaqs(match[1] as ComparisonFaqSlug, route.locale)
+  const slug = match[1]
+  const faqs =
+    slug === 'servbay'
+      ? getServBayPrototypeFaqs(route.locale)
+      : getPrototypeComparisonFaqs(slug as PrototypeComparisonSlug, route.locale)
   return {
     '@type': 'FAQPage',
     '@id': `${route.url}#faq`,
@@ -307,8 +307,8 @@ function collectionItems(
     }))
   }
   if (route.pagePath === 'compare/index') {
-    return compareItems.map((item) => ({
-      name: item.name,
+    return compareOverviewTools.map((item) => ({
+      name: 'FlyEnv vs ' + item.name,
       url: `${prefix}/compare/${item.slug}`
     }))
   }
@@ -602,10 +602,12 @@ export function buildSeoHead({
     href: route.url
   })
   additions.push(
-    ...availableLocales.map((locale): HeadEntry => [
-      'link',
-      { rel: 'alternate', hreflang: languages[locale], href: localizedUrl(locale) }
-    ]),
+    ...availableLocales.map(
+      (locale): HeadEntry => [
+        'link',
+        { rel: 'alternate', hreflang: languages[locale], href: localizedUrl(locale) }
+      ]
+    ),
     ['link', { rel: 'alternate', hreflang: 'x-default', href: localizedUrl('en') }],
     ['link', { rel: 'describedby', href: `${host}/llms.txt` }]
   )

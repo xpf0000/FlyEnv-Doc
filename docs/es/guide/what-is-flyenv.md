@@ -1,155 +1,267 @@
 ---
-title: '¿Qué es FlyEnv? Stack Local Nativo y Espacio de Trabajo con IA'
+title: '¿Qué es FlyEnv? Un entorno de desarrollo local nativo todo en uno'
 head:
   - - meta
     - name: description
-      content: 'FlyEnv es un espacio de trabajo de escritorio nativo para runtimes locales, servicios, sitios HTTPS, CLI de programación con IA y el FlyEnv MCP Server en macOS, Windows y Linux.'
+      content: 'Descubre cómo FlyEnv reúne runtimes, servidores web, bases de datos, entornos por proyecto, complementos y herramientas de desarrollo con IA en un espacio de trabajo nativo para Windows, macOS y Linux.'
 ---
 
-# ¿Qué es FlyEnv? Stack Local Nativo, CLI de Programación con IA y Espacio de Trabajo MCP
+# ¿Qué es FlyEnv?
 
-FlyEnv es un espacio de trabajo de escritorio de código abierto para el desarrollo local nativo en Windows, macOS y Linux. Instala los runtimes y servicios que necesita tu proyecto, elige la versión de cada runtime por proyecto y usa dominios personalizados y HTTPS en tus sitios locales. Guarda los servicios en un grupo de inicio para arrancarlos juntos.
+FlyEnv es un **entorno de desarrollo local nativo** de código abierto y todo en uno para Windows, macOS y Linux.
 
-Desde el mismo espacio de trabajo puedes iniciar las CLI de programación con IA compatibles y conectarlas a los servicios, sitios y logs gestionados mediante el **FlyEnv MCP Server** integrado.
+Reúne runtimes de lenguajes, servidores web, bases de datos, servicios locales, herramientas de desarrollo y funciones de desarrollo con IA en un espacio de trabajo de escritorio que puedes ampliar.
 
-## Lo que FlyEnv Hace Realmente
+Desde un mismo lugar puedes elegir el software que necesitan tus proyectos, configurar sus entornos y organizar sus dependencias en grupos de inicio reutilizables. Para el desarrollo local del día a día, FlyEnv ejecuta los servicios directamente en tu equipo sin requerir contenedores.
 
-FlyEnv te permite instalar solo el software que necesitas y gestionarlo desde un único espacio de trabajo de escritorio nativo:
+**De las herramientas dispersas a un solo espacio de trabajo.**
 
-| Categoría de módulo | Módulos compatibles |
+[Descarga FlyEnv](/es/download) · [Guía de inicio rápido](/es/guide/getting-started) · [Ver demos](/es/demos)
+
+<div id="por-que-los-desarrolladores-lo-usan"></div>
+
+## Por qué existe FlyEnv
+
+Un entorno de desarrollo moderno suele incluir mucho más que un servidor web y una base de datos.
+
+Una aplicación web típica puede usar PHP para el backend, Node.js para el frontend, MySQL para almacenar datos, Redis como caché, Mailpit para probar el correo y Nginx para servir la aplicación. Otro proyecto en el mismo equipo podría requerir versiones de runtime y servicios completamente distintos.
+
+Cada herramienta es útil por sí sola. La dificultad está en gestionarlas juntas. Hay que instalar versiones, editar archivos de configuración, llevar un registro de los puertos, cambiar de proyecto, configurar HTTPS local y recordar qué servicios deben estar en ejecución.
+
+FlyEnv centraliza estas tareas cotidianas en una sola capa de gestión. Los lenguajes, las bases de datos y los servidores web siguen siendo los mismos. FlyEnv te ayuda a usarlos en conjunto como un entorno de desarrollo operativo.
+
+<div id="compatibilidad-de-plataformas"></div>
+
+## Cómo funciona FlyEnv
+
+Piensa en FlyEnv como un espacio de trabajo entre tus proyectos y el software que se ejecuta en tu equipo.
+
+```text
+Tus proyectos
+  Laravel · WordPress · Node.js · Python · Java · IA
+                             │
+                Espacio de trabajo de FlyEnv
+                             │
+  ┌─────────────────────────────────────────────────────┐
+  │ Entornos por proyecto                               │
+  │ Versiones de runtime · Sitios locales · HTTPS       │
+  ├─────────────────────────────────────────────────────┤
+  │ Startup Groups                                      │
+  │ Organiza e inicia las dependencias del proyecto     │
+  ├─────────────────────────────────────────────────────┤
+  │ Gestión de módulos                                  │
+  │ Instalar · Configurar · Ejecutar · Actualizar       │
+  ├──────────────────────────┬──────────────────────────┤
+  │ Catálogo de complementos │ Herramientas de IA y MCP │
+  │ Amplía el entorno        │ Conecta agentes de IA    │
+  └──────────────────────────┴──────────────────────────┘
+                             │
+                  Windows · macOS · Linux
+```
+
+*Modelo conceptual del espacio de trabajo de FlyEnv que omite los detalles de implementación.*
+
+FlyEnv se basa en cuatro principios.
+
+### Ejecuta los servicios de forma nativa
+
+FlyEnv gestiona runtimes nativos y servicios locales. Puedes trabajar directamente con sus archivos de configuración, registros y puertos de red con las herramientas que ya usas en tu sistema operativo. Este flujo funciona sin una capa de contenedores.
+
+### Instala solo lo que necesitas
+
+Puedes empezar con un entorno sencillo de PHP o Node.js y añadir bases de datos, cachés, servidores web y otras herramientas cuando un proyecto las requiera. Elige qué runtimes y servicios compatibles instalar.
+
+### Usa el runtime adecuado para cada proyecto
+
+Distintos proyectos pueden requerir distintas versiones de un lenguaje. Para los lenguajes compatibles, FlyEnv admite varias versiones instaladas y permite seleccionar el runtime por proyecto. Así reduces la necesidad de cambiar una y otra vez tu entorno global.
+
+Consulta [Runtimes por proyecto](/es/features/per-project-runtimes) y la [guía de runtimes a nivel de proyecto](/es/guide/project-level-runtime-environment).
+
+La gestión de versiones por proyecto no proporciona la seguridad ni el aislamiento del sistema de archivos propios de los contenedores.
+
+### Inicia juntas las dependencias de un proyecto
+
+Además del runtime, el entorno de un proyecto puede necesitar un servidor web, una base de datos, una caché y otros servicios en segundo plano.
+
+[Startup Groups](/es/features/startup-groups) te permite organizar los servicios gestionados en grupos reutilizables e iniciarlos o detenerlos juntos. Configura un grupo para tu proyecto y reutilízalo para ahorrarte la misma serie de operaciones manuales cada día.
+
+<div id="lo-que-flyenv-hace-realmente"></div>
+
+## Un espacio de trabajo que crece contigo {#what-flyenv-actually-does}
+
+FlyEnv puede cubrir desde un stack web local pequeño hasta un flujo de desarrollo mucho más amplio. El espacio de trabajo crece según lo que decidas instalar y usar.
+
+| Categoría | Ejemplos |
 | --- | --- |
-| Programación con IA y MCP | [FlyEnv MCP Server](https://youtu.be/frprHkD1_rQ), Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, GitHub Copilot CLI |
-| Integración y automatización con IA | Hermes Agent, [OpenClaw](https://youtu.be/j7_B-VzIyEU), [n8n](https://youtu.be/YnA1B3qmDJU), [Ollama](https://youtu.be/yPk9HQJRvb8), [CLIProxyAPI](https://youtu.be/RmSl4jgmEyI) |
-| Contenedores | Podman |
-| Túnel de red | Cloudflared, Cloudflare Tunnel |
-| Servidores web | FrankenPHP, [Apache](https://youtu.be/t7nKL45FdVk), [Nginx](https://youtu.be/zfdNZFRt3k4), [Caddy](https://youtu.be/NuaYnRiD3AY), Tomcat |
-| Bases de datos | [MySQL](https://youtu.be/uWWHAqxhVyk), [MariaDB](https://youtu.be/mvmbRi6KsgI), [PostgreSQL](https://youtu.be/5gW3WHh8_Jw), [MongoDB](https://youtu.be/wPjgwVeA6lw), [Qdrant](https://youtu.be/ahetMNLLS7s), [ClickHouse](https://youtu.be/3ePJYddWYmQ), Neo4j |
-| Servidor de correo | [Mailpit](https://youtu.be/D4MkA25Ofd0) |
-| Lenguajes de programación y runtime | .NET, Flutter, [PHP](https://youtu.be/OYP1IOoJOtI), Composer, PHP-CLI, PHP-FPM, RoadRunner, Swoole CLI, Go, [Node.js](https://youtu.be/Pt_I3NDciZw), [Python](https://youtu.be/dhy0nJYsfQQ), Java, Maven, Gradle, SDKMAN, Erlang, Ruby, Rust, Rustup, [Bun](https://youtu.be/lu68kw8_3dY), Deno, Zig |
-| Caché y cola de mensajes | [Redis](https://youtu.be/u9xjPN-VWT4), Memcached, [RabbitMQ](https://youtu.be/ymbyrr5zGkI) |
-| Gobernanza de servicios | [Consul](https://youtu.be/pa0QFgpu17w), [Etcd](https://youtu.be/xsw8BQxii10), [R-Nacos](https://youtu.be/8ceC7QqY4UA), [Temporal](https://youtu.be/E_jetPnVxBo), [Temporal CLI](https://youtu.be/80psOMuDK9I) |
-| Motor de búsqueda | [Elasticsearch](https://youtu.be/B9Eo2Y-aXWQ), [Meilisearch](https://youtu.be/vPD3lXo1vr0), [Typesense](https://youtu.be/3Uo22iqty9k), [ZincSearch](https://youtu.be/uOf2cWk3AtU) |
-| Almacenamiento de objetos | [RustFS](https://youtu.be/lCEEocXdt_M), [Minio](https://youtu.be/MJ9OQBOBXMg) |
-| Automatización y programación de tareas | Cron Jobs |
-| Utilidades | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE) |
-| Módulos personalizados | Los módulos personalizados pueden añadirse como servicios o comandos y funcionan igual que los módulos integrados. |
+| Runtimes de lenguajes | PHP, Node.js, Python, Java, Go, Rust |
+| Servidores web y sitios | Nginx, Apache, Caddy, FrankenPHP, dominios locales y HTTPS |
+| Bases de datos y servicios locales | MySQL, PostgreSQL, MariaDB, Redis, RabbitMQ, Mailpit |
+| Flujos de trabajo por proyecto | Runtimes por proyecto, Startup Groups, módulos personalizados |
+| Desarrollo con IA | CLI de programación con IA, servidor MCP, Ollama, CLIProxyAPI, complemento AI Memory |
+| Complementos opcionales | Kafka, OpenSearch, MySQL Cluster, llama.cpp, Command Shortcuts |
 
-En los módulos que ofrecen varias versiones, FlyEnv puede mantener instaladas en paralelo las versiones compatibles. Elige la versión de runtime que necesita cada proyecto.
+Estos son algunos ejemplos. Las versiones del software, la disponibilidad por plataforma y los requisitos de licencia varían según el módulo. Consulta el [resumen de funciones](/es/features) para ver la lista actual.
 
-Además de estos módulos, FlyEnv gestiona sitios locales con dominios personalizados, HTTPS/SSL, proxy inverso, logs y ajustes de runtime a nivel de sitio. También integra los clientes de programación con IA y el FlyEnv MCP Server en el mismo espacio de trabajo, dando a los clientes de IA acceso estructurado a servicios, sitios, configuraciones, logs y acciones seleccionadas.
+### Amplía tu espacio de trabajo con complementos
 
-En lugar de unir Docker, gestores de versiones, alias de shell, ediciones del archivo hosts y configuraciones separadas de clientes de IA, trabajas desde un único espacio de trabajo de escritorio local.
+La instalación de software bajo demanda y el [catálogo de complementos](/es/features/plugin-market) cubren dos necesidades distintas.
 
-## Mira las Funciones Principales de FlyEnv en 13 Minutos
+- La instalación bajo demanda te permite elegir qué runtimes y servicios quieres instalar.
+- El catálogo de complementos te permite añadir integraciones opcionales a FlyEnv, incluidos paneles de gestión específicos y herramientas especializadas.
 
-Este recorrido se centra en el flujo de trabajo de desarrollo local principal de FlyEnv: elegir los módulos que necesitas, instalar y cambiar versiones, gestionar servicios, crear grupos de arranque reutilizables, configurar sitios locales y usar las herramientas de desarrollo integradas.
+Puedes empezar con PHP, Nginx y MySQL. Más adelante, puedes añadir Node.js y Redis para una aplicación nueva o instalar Kafka, OpenSearch o AI Memory cuando los necesites.
 
-<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/TA2NA0JeGdo" title="Resumen de Funciones de FlyEnv - Desarrollo Local Nativo sin Docker" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Puedes gestionar complementos del catálogo oficial o de fuentes externas de confianza. Para instalar y actualizar complementos necesitas una licencia activa de FlyEnv. Consulta la página de cada complemento para conocer sus requisitos y las plataformas compatibles.
 
-Para las funciones de CLI de programación con IA y MCP, continúa con la [Guía de FlyEnv AI Workspace y MCP](/es/guide/ai-coding-workspace-mcp).
+**Muchas posibilidades en un espacio de trabajo sencillo.**
 
-## Por Qué los Desarrolladores lo Usan
+Puedes mantener un entorno pequeño para el uso diario y ampliarlo más adelante cuando lo necesites.
 
-| Problema habitual de desarrollo local | Solución alternativa típica | Lo que FlyEnv cambia |
-| --- | --- | --- |
-| Conflictos de versiones entre proyectos | `nvm`, `pyenv`, cambio manual de PHP, código shell a medida | Cambio de runtime a nivel de proyecto desde un solo espacio de trabajo |
-| Demasiadas herramientas locales que gestionar | Una aplicación para runtimes, otra para bases de datos, otra para sitios | Runtimes, servicios, sitios y utilidades en un solo lugar |
-| HTTPS local y dominios personalizados llevan tiempo | Configuración manual de proxy, certificados y archivo hosts | Sitios locales gestionados con dominios, SSL y logs |
-| Los clientes de IA pueden leer código pero no el contexto local real | Configuración manual, scripts o acceso amplio al shell | CLI de IA gestionados y acceso MCP al contexto local |
-| Los stacks locales centrados en contenedores resultan pesados para el trabajo diario | Docker para todo | Flujo de trabajo local nativo sin la sobrecarga de los contenedores |
+<div id="el-verdadero-poder-cuando-todo-funciona-en-conjunto"></div>
 
-## El Verdadero Poder: Cuando Todo Funciona en Conjunto
+## Un flujo de desarrollo real {#the-real-power-when-everything-works-together}
 
-Cualquier capacidad de FlyEnv es útil por sí sola. Un cambiador de versiones. Un panel de servicios. Dominios locales y SSL. Una herramienta de túneles. Gestión de CLI de programación con IA. Acceso MCP al stack local.
+Imagina una aplicación Laravel con un frontend en Vue. Su entorno local podría incluir estos componentes.
 
-Puedes encontrar versiones de esas funciones en otras herramientas. Lo que es más difícil de encontrar es **todas ellas en un solo lugar, compartiendo los mismos proyectos, sitios y flujo de trabajo**. Ahí es donde FlyEnv deja de ser "una utilidad práctica" y se convierte en "el lugar donde realmente trabajas".
+| Componente | Función en el proyecto |
+| --- | --- |
+| PHP 8.4 | Runtime del backend |
+| Node.js | Herramientas de desarrollo y compilación del frontend |
+| Nginx y PHP-FPM | Sirven la aplicación PHP |
+| MySQL | Base de datos de la aplicación |
+| Redis | Caché y colas |
+| Mailpit | Pruebas de correo en local |
+| `https://myapp.test` | URL local de la aplicación con HTTPS |
 
-Imagina un día normal:
+Esta configuración es un ejemplo. Elige las versiones y los servicios que encajen con tu proyecto.
 
-1. Instala o gestiona los runtimes y servicios que necesita tu proyecto.
-2. Deja que FlyEnv asigne las versiones correctas al proyecto actual.
-3. Ejecuta sitios locales con dominios, SSL, reglas de proxy inverso, logs y servicios dependientes desde el mismo espacio de trabajo.
-4. Lanza Claude Code, Codex u otro CLI de programación con IA compatible sobre ese mismo contexto de proyecto.
-5. Expón el stack local gestionado a través del FlyEnv MCP Server para que la IA pueda inspeccionar servicios, configuraciones, logs y acciones seleccionadas.
+Con FlyEnv, puedes preparar ese entorno en seis pasos.
 
-Lo que antes eran herramientas separadas, archivos de configuración y código shell a medida se convierte en un único flujo local continuo:
+1. Instala las versiones de software necesarias.
+2. Configura los entornos de PHP y Node.js del proyecto.
+3. Prepara la base de datos y actualiza la configuración de entorno de la aplicación.
+4. Crea un sitio local con un dominio personalizado y HTTPS.
+5. Crea un grupo en Startup Groups con los servicios gestionados.
+6. Ejecuta los comandos de configuración y desarrollo que requiera el proyecto.
 
-> **Instalar -> Configurar -> Ejecutar -> Proxy -> Túnel -> Depurar -> Conectar IA -> Publicar**
+Una vez configurado, puedes reutilizar el grupo de servicios cada vez que vuelvas al proyecto. Desde el mismo espacio de trabajo puedes acceder al sitio local, gestionar sus dependencias y consultar los registros de los servicios.
 
-Esa continuidad es la verdadera fortaleza. El ahorro de tiempo no proviene de una única función rápida. Proviene de no tener que salir constantemente del espacio de trabajo.
+Los comandos de configuración específicos de cada framework siguen siendo necesarios cuando el proyecto los requiere. FlyEnv facilita la preparación, la gestión y la reutilización del entorno de desarrollo en el que se ejecutan.
 
-## En Qué se Diferencia FlyEnv de Docker y de los Stacks Tipo XAMPP
+Lee [Cómo ejecutar Laravel en FlyEnv](/es/guide/run-laravel-use-flyenv), aprende a configurar [sitios locales con HTTPS](/es/features/local-sites-https) o explora otras [soluciones para proyectos](/es/solutions).
 
-| Enfoque | Mejor para | Desventaja frente a FlyEnv |
-| --- | --- | --- |
-| Docker Desktop | Paridad de contenedores y orquestación de contenedores multiservicio | Más configuración y más sobrecarga de contenedores para el trabajo diario con aplicaciones locales |
-| Paquetes tipo XAMPP / MAMP | Sandbox fijo y sencillo de PHP/MySQL | Soporte más limitado de múltiples versiones, múltiples runtimes y flujos de trabajo con IA |
-| FlyEnv | Desarrollo local nativo con múltiples runtimes más flujo de trabajo con IA y MCP | Menos centrado en reproducir la topología completa de contenedores que Docker |
+<div id="mira-las-funciones-principales-de-flyenv-en-13-minutos"></div>
 
-Si tu trabajo local consiste sobre todo en construir y depurar aplicaciones contra runtimes y servicios locales reales, FlyEnv está diseñado para ese camino en primer lugar.
+### Recorre las funciones principales de FlyEnv en 13 minutos {#watch-flyenv-s-core-features-in-13-minutes}
 
-## Por Qué la IA Cambia la Definición de un Entorno Local
+Este vídeo muestra cómo instalar módulos, gestionar versiones y servicios, usar Startup Groups, configurar sitios locales y aprovechar las herramientas de desarrollo de FlyEnv.
 
-Los clientes de programación con IA no solo necesitan los archivos del repositorio. También necesitan:
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #111827;">
+  <iframe src="https://www.youtube.com/embed/TA2NA0JeGdo" title="Funciones de FlyEnv - Desarrollo local nativo sin Docker" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-- la versión activa de PHP, Node.js o Python
-- las bases de datos, cachés y servicios web locales en ejecución
-- las URL de los sitios, los logs y los archivos de configuración gestionados
-- una forma controlada de inspeccionar u operar sobre ese entorno
+[Ver en YouTube](https://www.youtube.com/watch?v=TA2NA0JeGdo) · [Explorar más demos cortas](/es/demos)
 
-FlyEnv mantiene la capa de runtime y la capa de acceso de IA en el mismo lugar:
+<div id="por-que-la-ia-cambia-la-definicion-de-un-entorno-local"></div>
 
-- cambio de runtime a nivel de proyecto
-- módulos de CLI de programación con IA en el mismo espacio de trabajo
-- MCP integrado con autenticación por token, interruptores de herramientas, modos de aprobación y logs de auditoría
+## Diseñado para el desarrollo con IA {#why-ai-changes-the-definition-of-a-local-environment}
 
-Si quieres el recorrido completo de configuración de IA, lee la [Guía de FlyEnv AI Workspace y MCP](/es/guide/ai-coding-workspace-mcp).
+Los agentes de programación con IA necesitan acceder al código fuente y, en muchos casos, al contexto del entorno. Para trabajar en un proyecto real, quizá necesiten conocer sus runtimes activos, bases de datos, URL locales, estado de los servicios, configuración y registros.
 
-## Construido e Impulsado por su Comunidad
+FlyEnv incorpora estos flujos de trabajo al mismo entorno de desarrollo local. Las herramientas de IA son opcionales para el desarrollo tradicional.
 
-FlyEnv no crece solo a partir de una hoja de ruta interna. Gran parte de sus módulos, correcciones, traducciones y mejoras de documentación provienen de solicitudes de la comunidad y de pull requests directos.
+### Gestión de CLI de programación con IA
 
-Esto importa por una razón práctica: la función que echas en falta hoy puede que ya esté en camino. FlyEnv está construido sobre una arquitectura modular, lo que facilita extenderlo con nuevos runtimes, servicios, herramientas de IA e integraciones relacionadas sin reescribir toda la aplicación.
+FlyEnv te ayuda a gestionar clientes de programación compatibles como Claude Code, Codex, OpenCode y Kimi junto con tus demás herramientas de desarrollo.
 
-Así que si FlyEnv todavía no cubre una herramienta o flujo de trabajo local que necesitas, el siguiente paso está claro:
+### Servidor MCP integrado
 
-- Abre una solicitud en GitHub
-- Contribuye con un pull request
+El [servidor MCP de FlyEnv](/es/features/mcp-server) ofrece a los agentes compatibles acceso estructurado a información del entorno gestionado y a determinadas operaciones. Las herramientas disponibles y los ajustes de aprobación determinan qué puede consultar o modificar un agente.
 
-El producto se construye en público, y eso es parte de la razón por la que puede abarcar tantos escenarios de desarrollo local.
+Además de escribir código, un agente puede ayudarte a preparar un entorno, inspeccionar un servicio o diagnosticar problemas en una aplicación local.
 
-## Para Quién es FlyEnv
+### AI Memory compartida
 
-- Desarrolladores que cambian entre múltiples proyectos locales y versiones de runtime
-- Equipos que quieren entornos locales nativos sin código shell hecho a mano
-- Desarrolladores que usan Claude Code, Codex u otros clientes de IA contra servicios locales reales
-- Personas que quieren un flujo de trabajo diario más ligero que una configuración centrada en contenedores
+El complemento opcional [AI Memory](/es/features/ai-memory) ofrece a los agentes conectados un lugar persistente en el equipo para guardar y recuperar información útil entre sesiones. Puedes guardar preferencias de desarrollo, decisiones de proyecto, procedimientos de configuración y soluciones reutilizables. Las memorias globales y las de proyecto se mantienen en ámbitos separados.
 
-## Compatibilidad de Plataformas
+Un agente puede recuperar información guardada por otro cliente conectado cuando ambos usan la colección de memoria adecuada. Que se guarde o recupere información depende de las instrucciones del cliente y de las llamadas a herramientas que haga.
 
-FlyEnv se ejecuta de forma nativa en:
+**La IA escribe tu código. FlyEnv la ayuda a ejecutar tu stack.**
 
-- macOS
-- Windows
-- Linux
+Para configurarlo, consulta la [guía del espacio de trabajo con IA y MCP de FlyEnv](/es/guide/ai-coding-workspace-mcp).
 
-## Preguntas Frecuentes
+<div id="en-que-se-diferencia-flyenv-de-docker-y-de-los-stacks-tipo-xampp"></div>
 
-**P: ¿FlyEnv es solo para PHP?**
+## Cómo se compara FlyEnv con otras herramientas {#how-flyenv-differs-from-docker-and-xampp-style-stacks}
 
-R: No. FlyEnv está construido para el trabajo local con múltiples runtimes, incluidos PHP, Node.js, Python, bases de datos, sitios locales y herramientas relacionadas.
+FlyEnv se centra en un flujo de desarrollo nativo y ampliable que admite distintos frameworks y combinaciones de software. Puedes configurar el entorno sin tener que empezar por los contenedores.
 
-**P: ¿FlyEnv reemplaza a Docker?**
+| Modelo de desarrollo | Enfoque principal |
+| --- | --- |
+| Stacks tradicionales preconfigurados | Poner en marcha un stack web local con un conjunto de componentes conocidos |
+| Entornos basados en contenedores | Entornos de contenedores aislados y reproducibles, y flujos de despliegue |
+| FlyEnv | Gestionar runtimes por proyecto, servicios locales, sitios web y herramientas de desarrollo en un espacio de trabajo nativo |
 
-R: Para muchos flujos de trabajo de desarrollo local del día a día, sí. Si necesitas la topología completa de contenedores u orquestación de contenedores similar a producción, Docker puede seguir teniendo sentido.
+Si ya usas XAMPP, Laragon, MAMP, Laravel Herd o ServBay, FlyEnv te ofrece otra forma de organizar y ampliar tu entorno local a medida que cambian tus proyectos.
 
-**P: ¿Pueden los clientes de programación con IA conectarse a FlyEnv?**
+También puedes usar FlyEnv junto con Docker. Los servicios locales nativos son prácticos para muchas tareas cotidianas. Los contenedores siguen siendo útiles cuando necesitas aislamiento, imágenes reproducibles o paridad con el entorno de despliegue.
 
-R: Sí. FlyEnv puede gestionar directamente los CLI de programación con IA compatibles y exponer el contexto local a través del FlyEnv MCP Server.
+Explora las [comparativas](/es/compare/) o lee [FlyEnv vs Docker y XAMPP](/es/guide/flyenv-vs-docker-xampp) para saber más.
 
-## Próximos Pasos
+<div id="construido-e-impulsado-por-su-comunidad"></div>
 
-- [Descarga FlyEnv](/es/download)
-- Sigue la [Guía de Inicio Rápido](/es/guide/getting-started)
-- Compara los enfoques en [FlyEnv vs Docker y XAMPP](/es/guide/flyenv-vs-docker-xampp)
-- Configura el flujo de trabajo completo de IA en la [Guía de FlyEnv AI Workspace y MCP](/es/guide/ai-coding-workspace-mcp)
+## Código abierto y licencias flexibles {#built-and-driven-by-its-community}
+
+FlyEnv se desarrolla de forma abierta. Las solicitudes de la comunidad, los informes de errores, las traducciones y los pull requests ayudan a definir el producto y a ampliar los flujos de trabajo que admite.
+
+Puedes consultar el [código fuente en GitHub](https://github.com/xpf0000/FlyEnv), [solicitar una función](https://github.com/xpf0000/FlyEnv/issues) o [enviar un pull request](https://github.com/xpf0000/FlyEnv/pulls).
+
+Las funciones básicas de desarrollo local están disponibles gratis. Una licencia de pago elimina los límites aplicables de la versión gratuita y desbloquea las funciones que requieren licencia. FlyEnv ofrece licencias de pago único y opciones para obtener una licencia si tus contribuciones a la comunidad o el contenido que compartes cumplen los requisitos.
+
+Consulta la [página de licencias](/es/license) para conocer las condiciones vigentes y las opciones disponibles.
+
+## Preguntas frecuentes {#preguntas-frecuentes}
+
+### ¿FlyEnv es solo para desarrolladores de PHP?
+
+No. PHP es uno de los muchos runtimes compatibles. FlyEnv también admite flujos de desarrollo con Node.js, Python, Java, Go y otros lenguajes, además de bases de datos y servicios locales.
+
+### ¿Necesito Docker para usar FlyEnv?
+
+No. Los servicios nativos de FlyEnv funcionan sin Docker. Puedes usar Docker junto con FlyEnv en proyectos que necesiten contenedores.
+
+### ¿Tengo que instalar todas las herramientas compatibles?
+
+No. Instala lo que necesites y añade más herramientas cuando tus proyectos lo requieran. Puedes ampliar aún más el espacio de trabajo con complementos opcionales.
+
+### ¿Pueden distintos proyectos usar versiones de runtime diferentes?
+
+Sí, con los lenguajes y flujos de trabajo compatibles. Puedes instalar varias versiones y seleccionar el runtime por proyecto. Consulta la [guía de runtimes](/es/guide/project-level-runtime-environment) para más detalles.
+
+### ¿Puedo usar FlyEnv sin herramientas de programación con IA?
+
+Sí. Los clientes de programación con IA, las integraciones MCP y AI Memory son opcionales. Puedes usar FlyEnv exclusivamente como entorno de desarrollo local.
+
+### ¿FlyEnv es gratis y de código abierto?
+
+FlyEnv es de código abierto y ofrece gratis las funciones básicas de desarrollo. Algunas herramientas y límites de uso más altos requieren licencia. La [página de licencias](/es/license) explica las condiciones actuales.
+
+<div id="proximos-pasos"></div>
+
+<div id="para-quien-es-flyenv"></div>
+
+## Primeros pasos {#next-steps}
+
+Elige el paso que corresponda a lo que quieres hacer.
+
+| Quiero… | Dónde ir |
+| --- | --- |
+| Instalar FlyEnv y configurar mi primer entorno | [Descarga](/es/download) y [guía de inicio rápido](/es/guide/getting-started) |
+| Comprobar si mis herramientas son compatibles | [Funciones](/es/features) |
+| Ejecutar una aplicación existente | [Soluciones](/es/solutions) |
+| Ver el producto en acción | [Demos](/es/demos) |
+| Cambiar desde otro entorno de desarrollo | [Comparativas](/es/compare/) |
+| Ampliar mi espacio de trabajo | [Catálogo de complementos](/es/features/plugin-market) |
+| Conectar un agente de programación con IA | [Guía del espacio de trabajo con IA y MCP](/es/guide/ai-coding-workspace-mcp) |
+
+Empieza con un proyecto y las herramientas que necesita. Puedes ampliar tu espacio de trabajo en FlyEnv a medida que evolucione tu flujo de desarrollo.

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 title: 'Demo FlyEnv: Tugas, Stack, dan Alat Pengembangan Lokal'
 head:
   - - meta

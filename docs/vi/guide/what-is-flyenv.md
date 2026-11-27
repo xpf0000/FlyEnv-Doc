@@ -1,155 +1,267 @@
 ---
-title: 'FlyEnv là gì? Native Local Stack và AI Workspace'
+title: 'FlyEnv là gì? Môi trường phát triển cục bộ tất cả trong một'
 head:
   - - meta
     - name: description
-      content: 'FlyEnv là một desktop workspace native cho các runtime local, dịch vụ, site HTTPS, AI coding CLI, và FlyEnv MCP Server trên macOS, Windows, và Linux.'
+      content: 'Tìm hiểu cách FlyEnv tập hợp runtime, máy chủ web, cơ sở dữ liệu, môi trường dự án, plugin và công cụ phát triển AI vào một không gian làm việc chạy trực tiếp trên Windows, macOS và Linux.'
 ---
 
-# FlyEnv là gì? Native Local Stack, AI Coding CLI, và MCP Workspace
+# FlyEnv là gì?
 
-FlyEnv là workspace desktop mã nguồn mở để phát triển local native trên Windows, macOS và Linux. Cài runtime và dịch vụ mà dự án cần, chọn phiên bản runtime theo từng dự án và chạy site local với tên miền tùy chỉnh và HTTPS. Lưu các dịch vụ vào Startup Group để khởi động cùng nhau.
+FlyEnv là **môi trường phát triển cục bộ tất cả trong một** có mã nguồn mở, chạy trực tiếp trên Windows, macOS và Linux.
 
-Từ cùng một workspace, bạn có thể khởi chạy các CLI lập trình AI được hỗ trợ và kết nối chúng với các dịch vụ, site và log được quản lý qua **FlyEnv MCP Server** tích hợp.
+FlyEnv tập hợp runtime của các ngôn ngữ, máy chủ web, cơ sở dữ liệu, dịch vụ cục bộ, công cụ lập trình và tính năng phát triển AI vào một không gian làm việc trên máy tính có thể mở rộng.
 
-## FlyEnv thực sự làm được gì
+Bạn có thể chọn phần mềm mà từng dự án cần, cấu hình môi trường và sắp xếp các dịch vụ phụ thuộc thành những nhóm khởi động có thể dùng lại. Trong công việc phát triển cục bộ hằng ngày, FlyEnv chạy các dịch vụ trực tiếp trên máy của bạn mà không cần container.
 
-FlyEnv cho bạn cài đặt chỉ những phần mềm bạn cần và quản lý chúng từ một desktop workspace native duy nhất:
+**Tất cả công cụ trong một không gian làm việc.**
 
-| Nhóm module | Các module được hỗ trợ |
+[Tải xuống FlyEnv](/vi/download) · [Hướng dẫn bắt đầu nhanh](/vi/guide/getting-started) · [Xem video demo](/vi/demos)
+
+<div id="vi-sao-lap-trinh-vien-dung-no"></div>
+
+## Vì sao FlyEnv ra đời?
+
+Một môi trường phát triển ngày nay thường cần nhiều thành phần ngoài máy chủ web và cơ sở dữ liệu.
+
+Một ứng dụng web có thể dùng PHP cho backend, Node.js cho frontend, MySQL để lưu dữ liệu, Redis làm bộ nhớ đệm, Mailpit để kiểm thử email và Nginx để phục vụ ứng dụng. Một dự án khác trên cùng máy có thể cần những phiên bản runtime và dịch vụ hoàn toàn khác.
+
+Từng công cụ đều hữu ích. Việc khó là quản lý chúng cùng nhau, từ cài các phiên bản, sửa tệp cấu hình, theo dõi cổng, chuyển đổi giữa các dự án và thiết lập HTTPS cục bộ đến việc nhớ dịch vụ nào cần chạy.
+
+FlyEnv tập trung những việc hằng ngày này vào một lớp quản lý chung. Bạn vẫn sử dụng chính các ngôn ngữ, cơ sở dữ liệu và máy chủ web của mình, còn FlyEnv giúp chúng hoạt động cùng nhau trong một môi trường phát triển.
+
+<div id="ho-tro-nen-tang"></div>
+
+## FlyEnv hoạt động như thế nào?
+
+Hãy hình dung FlyEnv là không gian làm việc kết nối các dự án với phần mềm đang chạy trên máy của bạn.
+
+```text
+Dự án của bạn
+  Laravel · WordPress · Node.js · Python · Java · AI
+                           │
+                Không gian làm việc FlyEnv
+                           │
+  ┌─────────────────────────────────────────────────┐
+  │ Môi trường dự án                                │
+  │ Phiên bản runtime · Site cục bộ · HTTPS         │
+  ├─────────────────────────────────────────────────┤
+  │ Startup Groups                                  │
+  │ Nhóm và khởi động các dịch vụ của dự án         │
+  ├─────────────────────────────────────────────────┤
+  │ Quản lý module                                  │
+  │ Cài đặt · Cấu hình · Chạy · Cập nhật            │
+  ├───────────────────────┬─────────────────────────┤
+  │ Plugin Market         │ Công cụ AI và MCP       │
+  │ Mở rộng FlyEnv        │ Kết nối tác nhân AI     │
+  └───────────────────────┴─────────────────────────┘
+                           │
+                Windows · macOS · Linux
+```
+
+*Sơ đồ khái niệm về cách FlyEnv tổ chức không gian làm việc.*
+
+FlyEnv được xây dựng theo bốn nguyên tắc sau.
+
+### Chạy dịch vụ trực tiếp trên máy
+
+FlyEnv quản lý các runtime và dịch vụ chạy trực tiếp trên máy. Bạn có thể làm việc với tệp cấu hình, log và cổng mạng của chúng bằng các công cụ quen thuộc trên hệ điều hành của mình. Quy trình này không cần lớp container.
+
+### Chỉ cài những gì bạn cần
+
+Hãy bắt đầu với một môi trường PHP hoặc Node.js gọn nhẹ rồi bổ sung cơ sở dữ liệu, bộ nhớ đệm, máy chủ web và công cụ khác khi dự án cần. Bạn tự chọn các runtime và dịch vụ cần cài trong số những thành phần được hỗ trợ.
+
+### Dùng runtime phù hợp cho từng dự án
+
+Các dự án có thể cần những phiên bản ngôn ngữ khác nhau. FlyEnv cho phép cài song song nhiều phiên bản và chọn runtime theo từng dự án đối với các ngôn ngữ được hỗ trợ. Nhờ đó, bạn ít phải thay đổi môi trường toàn cục khi chuyển dự án.
+
+Xem [Runtime theo từng dự án](/vi/features/per-project-runtimes) và [hướng dẫn cấu hình runtime theo dự án](/vi/guide/project-level-runtime-environment).
+
+Việc chọn phiên bản theo dự án chỉ quản lý runtime. Khả năng cách ly hệ thống tệp và bảo mật ở cấp container thuộc về môi trường container.
+
+### Khởi động các dịch vụ của dự án cùng nhau
+
+Ngoài runtime, môi trường của một dự án có thể cần máy chủ web, cơ sở dữ liệu, bộ nhớ đệm và các dịch vụ chạy nền khác.
+
+Với [Startup Groups](/vi/features/startup-groups), bạn có thể gom các dịch vụ do FlyEnv quản lý thành những nhóm dùng lại được để khởi động hoặc dừng chúng cùng lúc. Chỉ cần cấu hình nhóm cho dự án một lần để dùng lại những lần sau.
+
+<div id="flyenv-thuc-su-lam-đuoc-gi"></div>
+
+## Không gian làm việc mở rộng theo nhu cầu {#what-flyenv-actually-does}
+
+FlyEnv hỗ trợ từ một stack web cục bộ nhỏ đến quy trình phát triển phức tạp hơn. Bạn có thể mở rộng không gian làm việc bằng cách cài và sử dụng những thành phần mình cần.
+
+| Danh mục | Ví dụ |
 | --- | --- |
-| AI Coding & MCP | [FlyEnv MCP Server](https://youtu.be/frprHkD1_rQ), Claude Code, Codex, OpenCode, Kimi, Antigravity CLI, GitHub Copilot CLI |
-| AI Integration & Automation | Hermes Agent, [OpenClaw](https://youtu.be/j7_B-VzIyEU), [n8n](https://youtu.be/YnA1B3qmDJU), [Ollama](https://youtu.be/yPk9HQJRvb8), [CLIProxyAPI](https://youtu.be/RmSl4jgmEyI) |
-| Containers | Podman |
-| Network Tunnel | Cloudflared, Cloudflare Tunnel |
-| Web Servers | FrankenPHP, [Apache](https://youtu.be/t7nKL45FdVk), [Nginx](https://youtu.be/zfdNZFRt3k4), [Caddy](https://youtu.be/NuaYnRiD3AY), Tomcat |
-| Databases | [MySQL](https://youtu.be/uWWHAqxhVyk), [MariaDB](https://youtu.be/mvmbRi6KsgI), [PostgreSQL](https://youtu.be/5gW3WHh8_Jw), [MongoDB](https://youtu.be/wPjgwVeA6lw), [Qdrant](https://youtu.be/ahetMNLLS7s), [ClickHouse](https://youtu.be/3ePJYddWYmQ), Neo4j |
-| Email Server | [Mailpit](https://youtu.be/D4MkA25Ofd0) |
-| Programming Languages & Runtime | .NET, Flutter, [PHP](https://youtu.be/OYP1IOoJOtI), Composer, PHP-CLI, PHP-FPM, RoadRunner, Swoole CLI, Go, [Node.js](https://youtu.be/Pt_I3NDciZw), [Python](https://youtu.be/dhy0nJYsfQQ), Java, Maven, Gradle, SDKMAN, Erlang, Ruby, Rust, Rustup, [Bun](https://youtu.be/lu68kw8_3dY), Deno, Zig |
-| Cache & Message Queue | [Redis](https://youtu.be/u9xjPN-VWT4), Memcached, [RabbitMQ](https://youtu.be/ymbyrr5zGkI) |
-| Service Governance | [Consul](https://youtu.be/pa0QFgpu17w), [Etcd](https://youtu.be/xsw8BQxii10), [R-Nacos](https://youtu.be/8ceC7QqY4UA), [Temporal](https://youtu.be/E_jetPnVxBo), [Temporal CLI](https://youtu.be/80psOMuDK9I) |
-| Search Engine | [Elasticsearch](https://youtu.be/B9Eo2Y-aXWQ), [Meilisearch](https://youtu.be/vPD3lXo1vr0), [Typesense](https://youtu.be/3Uo22iqty9k), [ZincSearch](https://youtu.be/uOf2cWk3AtU) |
-| Object Storage | [RustFS](https://youtu.be/lCEEocXdt_M), [Minio](https://youtu.be/MJ9OQBOBXMg) |
-| Automation & Scheduling | Cron Jobs |
-| Utilities | Git, MkCert, DNS Server, FTP Server, Static HTTP Server, [Numa](https://youtu.be/0qfnkr5V7eE) |
-| Custom modules | Các module tùy chỉnh có thể được thêm dưới dạng dịch vụ hay lệnh và hoạt động như các module tích hợp sẵn. |
+| Runtime của ngôn ngữ | PHP, Node.js, Python, Java, Go, Rust |
+| Máy chủ web và site | Nginx, Apache, Caddy, FrankenPHP, tên miền cục bộ và HTTPS |
+| Cơ sở dữ liệu và dịch vụ cục bộ | MySQL, PostgreSQL, MariaDB, Redis, RabbitMQ, Mailpit |
+| Quy trình phát triển dự án | Runtime theo từng dự án, Startup Groups, module tùy chỉnh |
+| Phát triển với AI | CLI lập trình AI, MCP Server, Ollama, CLIProxyAPI, plugin AI Memory |
+| Plugin tùy chọn | Kafka, OpenSearch, MySQL Cluster, llama.cpp, Command Shortcuts |
 
-Với các module có nhiều phiên bản, FlyEnv có thể cài song song các phiên bản được hỗ trợ. Hãy chọn phiên bản runtime phù hợp với từng dự án.
+Bảng trên liệt kê một số ví dụ tiêu biểu. Phiên bản phần mềm, nền tảng được hỗ trợ và yêu cầu về giấy phép tùy thuộc vào từng module. Xem [tổng quan tính năng](/vi/features) để biết danh sách hiện tại.
 
-Cùng với các module này, FlyEnv quản lý các site local với tên miền tùy chỉnh, HTTPS/SSL, reverse proxy, log, và các thiết lập runtime cấp site. Nó cũng đưa các AI coding client và FlyEnv MCP Server vào cùng một workspace, cho các AI client truy cập có cấu trúc vào các dịch vụ, site, cấu hình, log, và các hành động đã chọn được quản lý.
+### Mở rộng không gian làm việc bằng plugin
 
-Thay vì phải ghép nối Docker, các trình quản lý phiên bản, shell alias, chỉnh sửa tệp hosts, và thiết lập AI client riêng lẻ, bạn làm việc từ một desktop workspace local duy nhất.
+Bạn có thể chọn phần mềm cần cài và bổ sung các tích hợp vào FlyEnv theo hai cách.
 
-## Xem các tính năng cốt lõi của FlyEnv trong 13 phút
+- Cài đặt theo nhu cầu cho phép bạn chọn runtime và dịch vụ cần cài.
+- [Plugin Market](/vi/features/plugin-market) cho phép bạn thêm các tích hợp tùy chọn vào FlyEnv, bao gồm bảng quản lý riêng và công cụ chuyên dụng.
 
-Video hướng dẫn này tập trung vào quy trình phát triển local cốt lõi của FlyEnv: chọn các module bạn cần, cài đặt và chuyển đổi phiên bản, quản lý dịch vụ, tạo các nhóm khởi động có thể tái sử dụng, cấu hình site local, và dùng các công cụ lập trình viên tích hợp sẵn.
+Ví dụ, bạn có thể bắt đầu với PHP, Nginx và MySQL. Sau đó, bạn có thể thêm Node.js và Redis cho một ứng dụng mới hoặc cài Kafka, OpenSearch hay AI Memory khi công việc cần đến.
 
-<iframe style="width: 100%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/TA2NA0JeGdo" title="FlyEnv Feature Overview - Native Local Development Without Docker" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+Bạn có thể quản lý plugin từ danh mục chính thức hoặc các nguồn bên thứ ba đáng tin cậy. Để cài và cập nhật plugin, bạn cần giấy phép FlyEnv còn hiệu lực. Xem trang của từng plugin để biết yêu cầu và nền tảng được hỗ trợ.
 
-Về các tính năng AI coding CLI và MCP, hãy tiếp tục với [Hướng dẫn FlyEnv AI Workspace & MCP](/vi/guide/ai-coding-workspace-mcp).
+**Dùng những gì bạn cần hôm nay, bổ sung khi cần thêm.**
 
-## Vì sao lập trình viên dùng nó
+Bạn có thể giữ không gian làm việc hằng ngày gọn nhẹ và mở rộng khi nhu cầu thay đổi.
 
-| Vấn đề phát triển local phổ biến | Cách khắc phục thông thường | FlyEnv thay đổi điều gì |
-| --- | --- | --- |
-| Xung đột phiên bản giữa các dự án | `nvm`, `pyenv`, chuyển PHP thủ công, shell glue tự chế | Chuyển đổi runtime cấp dự án từ một workspace |
-| Quá nhiều công cụ local phải quản lý | Một app cho runtime, một app cho cơ sở dữ liệu, một app nữa cho site | Runtime, dịch vụ, site, và tiện ích ở cùng một nơi |
-| HTTPS local và tên miền tùy chỉnh tốn thời gian | Thiết lập proxy, chứng chỉ, và tệp hosts thủ công | Các site local được quản lý với tên miền, SSL, và log |
-| AI client đọc được code nhưng không có ngữ cảnh local thực | Cấu hình, script tự chế, hoặc quyền truy cập shell rộng | Các AI CLI được quản lý cùng quyền truy cập MCP vào ngữ cảnh local |
-| Stack local ưu tiên container thấy nặng nề cho công việc hằng ngày | Docker cho mọi thứ | Quy trình local native không có chi phí ưu tiên container |
+<div id="suc-manh-thuc-su-khi-moi-thu-van-hanh-cung-nhau"></div>
 
-## Sức mạnh thực sự: Khi mọi thứ vận hành cùng nhau
+## Ví dụ về quy trình phát triển thực tế {#the-real-power-when-everything-works-together}
 
-Bất kỳ tính năng nào của FlyEnv cũng hữu ích khi đứng một mình. Một trình chuyển phiên bản. Một bảng điều khiển dịch vụ. Tên miền local và SSL. Một công cụ tunnel. Quản lý AI coding CLI. Truy cập MCP vào local stack.
+Giả sử bạn có một ứng dụng Laravel với frontend viết bằng Vue. Môi trường cục bộ của ứng dụng có thể gồm những thành phần sau.
 
-Bạn có thể tìm thấy các phiên bản của những tính năng đó trong các công cụ khác. Điều khó tìm hơn là **tất cả chúng ở cùng một nơi, dùng chung các dự án, site, và quy trình như nhau**. Đó là nơi FlyEnv ngừng chỉ là "một tiện ích hay ho" và trở thành "nơi bạn thực sự làm việc".
+| Thành phần | Vai trò trong dự án |
+| --- | --- |
+| PHP 8.4 | Runtime cho backend |
+| Node.js | Công cụ phát triển và build frontend |
+| Nginx và PHP-FPM | Phục vụ ứng dụng PHP |
+| MySQL | Cơ sở dữ liệu của ứng dụng |
+| Redis | Bộ nhớ đệm và hàng đợi |
+| Mailpit | Kiểm thử email cục bộ |
+| `https://myapp.test` | URL cục bộ của ứng dụng có HTTPS |
 
-Hãy hình dung một ngày làm việc bình thường:
+Đây là một cấu hình minh họa. Hãy chọn phiên bản và dịch vụ phù hợp với dự án của bạn.
 
-1. Cài đặt hay quản lý các runtime và dịch vụ mà dự án của bạn cần.
-2. Để FlyEnv gắn đúng phiên bản vào dự án hiện tại.
-3. Chạy các site local với tên miền, SSL, quy tắc reverse proxy, log, và các dịch vụ phụ thuộc từ cùng một workspace.
-4. Khởi chạy Claude Code, Codex, hay một AI coding CLI được hỗ trợ khác với chính ngữ cảnh dự án đó.
-5. Mở local stack được quản lý qua FlyEnv MCP Server để AI có thể kiểm tra dịch vụ, cấu hình, log, và các hành động đã chọn.
+Bạn có thể chuẩn bị môi trường trong FlyEnv theo các bước sau.
 
-Những gì từng là các công cụ riêng lẻ, tệp cấu hình riêng, và shell glue rời rạc nay biến thành một luồng local liền mạch:
+1. Cài các phiên bản phần mềm cần thiết.
+2. Cấu hình môi trường PHP và Node.js cho dự án.
+3. Chuẩn bị cơ sở dữ liệu và cập nhật cấu hình môi trường của ứng dụng.
+4. Tạo site cục bộ với tên miền tùy chỉnh và HTTPS.
+5. Đưa các dịch vụ do FlyEnv quản lý vào một Startup Group.
+6. Chạy các lệnh thiết lập và phát triển mà dự án yêu cầu.
 
-> **Install -> Configure -> Run -> Proxy -> Tunnel -> Debug -> Connect AI -> Ship**
+Sau khi cấu hình, bạn có thể sử dụng lại nhóm dịch vụ mỗi khi quay lại dự án. Bạn có thể truy cập site cục bộ, quản lý các thành phần phụ thuộc và xem log dịch vụ từ cùng một không gian làm việc.
 
-Tính liền mạch đó chính là sức mạnh thực sự. Khoản tiết kiệm thời gian không đến từ một tính năng nhanh duy nhất. Nó đến từ việc không phải liên tục rời khỏi workspace.
+Bạn vẫn chạy các lệnh thiết lập riêng mà framework yêu cầu. FlyEnv giúp bạn chuẩn bị, quản lý và dùng lại môi trường phát triển dễ dàng hơn.
 
-## FlyEnv khác gì so với Docker và các stack kiểu XAMPP
+Xem [Cách chạy Laravel với FlyEnv](/vi/guide/run-laravel-use-flyenv), tìm hiểu về [site local và HTTPS](/vi/features/local-sites-https) hoặc khám phá các [giải pháp cho dự án khác](/vi/solutions).
 
-| Cách tiếp cận | Tốt nhất cho | Sự đánh đổi so với FlyEnv |
-| --- | --- | --- |
-| Docker Desktop | Tương đương container và điều phối nhiều dịch vụ dạng container | Nhiều bước thiết lập hơn và nhiều chi phí container hơn cho công việc ứng dụng local hằng ngày |
-| Các gói kiểu XAMPP / MAMP | Hộp cát PHP/MySQL cố định, đơn giản | Hẹp hơn về hỗ trợ multi-version, multi-runtime, và quy trình AI |
-| FlyEnv | Phát triển local multi-runtime native cộng quy trình AI và MCP | Kém tập trung hơn Docker vào việc tái lập đầy đủ topology container |
+<div id="xem-cac-tinh-nang-cot-loi-cua-flyenv-trong-13-phut"></div>
 
-Nếu công việc local của bạn chủ yếu là xây dựng và debug ứng dụng dựa trên các runtime và dịch vụ local thực tế, FlyEnv được thiết kế cho con đường đó trước tiên.
+### Xem các tính năng cốt lõi của FlyEnv trong 13 phút {#watch-flyenv-s-core-features-in-13-minutes}
 
-## Vì sao AI thay đổi định nghĩa về môi trường local
+Video giới thiệu cách cài module, quản lý phiên bản, điều khiển dịch vụ, dùng Startup Groups, thiết lập site cục bộ và sử dụng các công cụ lập trình trong FlyEnv.
 
-Các AI coding client không chỉ cần các tệp trong repository. Chúng còn cần:
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #111827;">
+  <iframe src="https://www.youtube.com/embed/TA2NA0JeGdo" title="Tổng quan tính năng FlyEnv - Phát triển cục bộ trực tiếp trên máy mà không cần Docker" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-- phiên bản PHP, Node.js, hay Python đang hoạt động
-- các cơ sở dữ liệu, bộ đệm, và dịch vụ web local đang chạy
-- URL site, log, và các tệp cấu hình được quản lý
-- một cách thức có kiểm soát để kiểm tra hay thao tác trên môi trường đó
+[Xem trên YouTube](https://www.youtube.com/watch?v=TA2NA0JeGdo) · [Xem thêm video demo ngắn](/vi/demos)
 
-FlyEnv giữ lớp runtime và lớp truy cập AI ở cùng một nơi:
+<div id="vi-sao-ai-thay-đoi-đinh-nghia-ve-moi-truong-local"></div>
 
-- chuyển đổi runtime cấp dự án
-- các module AI coding CLI trong cùng workspace
-- MCP tích hợp sẵn với xác thực token, công tắc bật/tắt công cụ, các chế độ phê duyệt, và log kiểm tra
+## Hỗ trợ quy trình phát triển với AI {#why-ai-changes-the-definition-of-a-local-environment}
 
-Nếu bạn muốn xem đầy đủ quy trình thiết lập AI, hãy đọc [Hướng dẫn FlyEnv AI Workspace & MCP](/vi/guide/ai-coding-workspace-mcp).
+Để làm việc hiệu quả trên một dự án thực tế, tác nhân lập trình AI có thể cần biết runtime nào đang hoạt động, cơ sở dữ liệu, URL cục bộ, trạng thái dịch vụ, cấu hình và log, bên cạnh quyền truy cập mã nguồn.
 
-## Được xây dựng và dẫn dắt bởi cộng đồng
+FlyEnv bổ sung các tính năng AI vào cùng không gian phát triển cục bộ. Bạn có thể dùng chúng theo nhu cầu và tiếp tục các quy trình phát triển thông thường.
 
-FlyEnv không chỉ phát triển từ một lộ trình nội bộ. Một phần lớn các module, bản sửa lỗi, bản dịch, và cải tiến tài liệu của nó đến từ các yêu cầu cộng đồng và các pull request trực tiếp.
+### Quản lý CLI lập trình AI
 
-Điều này quan trọng vì một lý do rất thực tế: tính năng bạn đang thiếu hôm nay có thể đã đang trên đường tới. FlyEnv được xây dựng dựa trên một kiến trúc module, điều này giúp việc mở rộng với các runtime, dịch vụ, công cụ AI, và tích hợp liên quan mới trở nên dễ dàng hơn mà không phải viết lại toàn bộ ứng dụng.
+FlyEnv giúp bạn quản lý các công cụ lập trình AI được hỗ trợ như Claude Code, Codex, OpenCode và Kimi trong cùng không gian với các công cụ phát triển khác.
 
-Vì vậy, nếu FlyEnv chưa bao phủ một công cụ hay quy trình local mà bạn cần, bước tiếp theo rất rõ ràng:
+### MCP Server tích hợp
 
-- Mở một yêu cầu trên GitHub
-- Đóng góp một pull request
+[FlyEnv MCP Server](/vi/features/mcp-server) cung cấp cho các tác nhân tương thích quyền truy cập có cấu trúc vào thông tin về môi trường do FlyEnv quản lý và một số thao tác được hỗ trợ. Tác nhân có thể xem hoặc thay đổi những gì tùy theo các công cụ hiện có và thiết lập phê duyệt.
 
-Sản phẩm được định hình nơi công cộng, và đó là một phần lý do vì sao nó có thể đi qua rất nhiều kịch bản phát triển local.
+Ngoài việc viết mã, tác nhân có thể giúp chuẩn bị môi trường, kiểm tra dịch vụ hoặc xử lý sự cố của ứng dụng cục bộ.
 
-## FlyEnv dành cho ai
+### AI Memory dùng chung
 
-- Các lập trình viên chuyển qua lại giữa nhiều dự án local và nhiều phiên bản runtime
-- Các nhóm muốn môi trường local native mà không cần shell glue tự chế
-- Các lập trình viên dùng Claude Code, Codex, hay AI client khác với các dịch vụ local thực
-- Những người muốn một quy trình hằng ngày nhẹ nhàng hơn so với thiết lập ưu tiên container
+[Plugin AI Memory](/vi/features/ai-memory) là tùy chọn lưu trữ lâu dài trên máy để các tác nhân đã kết nối có thể lưu và truy xuất kiến thức hữu ích qua nhiều phiên làm việc. Bạn có thể lưu tùy chọn phát triển, quyết định của dự án, quy trình thiết lập và các cách khắc phục có thể dùng lại. Bộ nhớ toàn cục và bộ nhớ dự án có phạm vi riêng.
 
-## Hỗ trợ nền tảng
+Một tác nhân có thể truy xuất thông tin do một ứng dụng đã kết nối khác lưu khi cả hai dùng đúng kho bộ nhớ. Việc lưu và truy xuất thực tế phụ thuộc vào chỉ dẫn và các lệnh gọi công cụ của ứng dụng.
 
-FlyEnv chạy native trên:
+**AI viết mã. FlyEnv giúp AI chạy stack của bạn.**
 
-- macOS
-- Windows
-- Linux
+Để biết cách thiết lập, hãy đọc [Hướng dẫn FlyEnv AI Workspace & MCP](/vi/guide/ai-coding-workspace-mcp).
 
-## Câu hỏi thường gặp
+<div id="flyenv-khac-gi-so-voi-docker-va-cac-stack-kieu-xampp"></div>
 
-**H: FlyEnv có chỉ dành cho PHP không?**
+## So sánh FlyEnv với các công cụ khác {#how-flyenv-differs-from-docker-and-xampp-style-stacks}
 
-Đ: Không. FlyEnv được xây dựng cho công việc local multi-runtime, bao gồm PHP, Node.js, Python, cơ sở dữ liệu, các site local, và các công cụ liên quan.
+FlyEnv tập trung vào quy trình phát triển chạy trực tiếp trên máy và có thể mở rộng. Bạn có thể chọn framework, phần mềm và dịch vụ phù hợp với từng dự án mà không cần thiết lập container trước.
 
-**H: FlyEnv có thay thế Docker không?**
+| Mô hình phát triển | Trọng tâm |
+| --- | --- |
+| Các gói phần mềm tích hợp truyền thống | Chạy stack web cục bộ với một bộ thành phần quen thuộc |
+| Môi trường dựa trên container | Tạo môi trường container có tính cách ly, dễ tái tạo và hỗ trợ quy trình triển khai |
+| FlyEnv | Quản lý runtime theo dự án, dịch vụ cục bộ, website và công cụ phát triển trong một không gian làm việc chạy trực tiếp trên máy |
 
-Đ: Với nhiều quy trình phát triển local hằng ngày, thì có. Nếu bạn cần topology container đầy đủ hay điều phối container giống production, Docker vẫn có thể là lựa chọn hợp lý.
+Nếu đang dùng XAMPP, Laragon, MAMP, Laravel Herd hoặc ServBay, bạn có thể dùng FlyEnv để tổ chức và mở rộng môi trường cục bộ theo nhu cầu của từng dự án.
 
-**H: Các AI coding client có thể kết nối với FlyEnv không?**
+Bạn cũng có thể dùng FlyEnv cùng với Docker. Dịch vụ chạy trực tiếp trên máy thuận tiện cho nhiều tác vụ hằng ngày. Container hữu ích khi bạn cần cách ly ở cấp container, tạo lại image một cách nhất quán hoặc giữ môi trường phát triển tương đồng với môi trường triển khai.
 
-Đ: Có. FlyEnv có thể quản lý trực tiếp các AI coding CLI được hỗ trợ và mở ngữ cảnh local qua FlyEnv MCP Server.
+Khám phá [các trang so sánh](/vi/compare/) hoặc đọc [FlyEnv so với Docker & XAMPP](/vi/guide/flyenv-vs-docker-xampp) để tìm hiểu chi tiết.
 
-## Bước tiếp theo
+<div id="đuoc-xay-dung-va-dan-dat-boi-cong-đong"></div>
 
-- [Tải xuống FlyEnv](/vi/download)
-- Làm theo [Hướng dẫn bắt đầu nhanh](/vi/guide/getting-started)
-- So sánh các cách tiếp cận trong [FlyEnv so với Docker & XAMPP](/vi/guide/flyenv-vs-docker-xampp)
-- Thiết lập quy trình AI đầy đủ trong [Hướng dẫn FlyEnv AI Workspace & MCP](/vi/guide/ai-coding-workspace-mcp)
+## Mã nguồn mở và giấy phép linh hoạt {#built-and-driven-by-its-community}
+
+FlyEnv được phát triển công khai. Đề xuất tính năng, báo cáo lỗi, bản dịch và pull request từ cộng đồng góp phần định hình sản phẩm và mở rộng các quy trình mà FlyEnv hỗ trợ.
+
+Bạn có thể xem [mã nguồn trên GitHub](https://github.com/xpf0000/FlyEnv), [đề xuất tính năng](https://github.com/xpf0000/FlyEnv/issues) hoặc [đóng góp qua pull request](https://github.com/xpf0000/FlyEnv/pulls).
+
+Các tính năng phát triển cục bộ cốt lõi được cung cấp miễn phí. Giấy phép trả phí gỡ bỏ các giới hạn áp dụng cho bản miễn phí và mở khóa những tính năng yêu cầu giấy phép. Bạn có thể mua giấy phép FlyEnv một lần hoặc nhận giấy phép thông qua đóng góp cho cộng đồng hay chia sẻ nội dung nếu đáp ứng điều kiện.
+
+Xem [trang Giấy phép](/vi/license) để biết các điều khoản và lựa chọn hiện hành.
+
+## Câu hỏi thường gặp {#cau-hoi-thuong-gap}
+
+### FlyEnv có chỉ dành cho lập trình viên PHP không?
+
+Không. PHP là một trong nhiều runtime được hỗ trợ. FlyEnv cũng hỗ trợ các quy trình phát triển với Node.js, Python, Java, Go và những ngôn ngữ khác, cùng với cơ sở dữ liệu và dịch vụ cục bộ.
+
+### Tôi có cần Docker để dùng FlyEnv không?
+
+Không. FlyEnv quản lý các dịch vụ chạy trực tiếp trên máy mà không cần Docker. Bạn vẫn có thể dùng Docker cùng với FlyEnv cho các dự án cần container.
+
+### Tôi có phải cài tất cả công cụ được hỗ trợ không?
+
+Không. Bạn chỉ cần cài những gì đang dùng và bổ sung khi dự án cần. Các plugin tùy chọn cho phép bạn mở rộng không gian làm việc.
+
+### Các dự án khác nhau có thể dùng các phiên bản runtime khác nhau không?
+
+Có, với các ngôn ngữ và quy trình được hỗ trợ. Bạn có thể cài nhiều phiên bản rồi chọn runtime cho từng dự án. Xem [hướng dẫn về runtime](/vi/guide/project-level-runtime-environment) để biết chi tiết.
+
+### Tôi có thể dùng FlyEnv mà không cần công cụ lập trình AI không?
+
+Có. Các công cụ lập trình AI, tích hợp MCP và AI Memory đều là tính năng tùy chọn. Bạn có thể dùng FlyEnv chỉ để phát triển cục bộ.
+
+### FlyEnv có miễn phí và mã nguồn mở không?
+
+FlyEnv là phần mềm mã nguồn mở và cung cấp miễn phí các tính năng phát triển cốt lõi. Một số công cụ và mức sử dụng cao hơn yêu cầu giấy phép. Xem chính sách hiện tại trên [trang Giấy phép](/vi/license).
+
+<div id="buoc-tiep-theo"></div>
+
+<div id="flyenv-danh-cho-ai"></div>
+
+## Bắt đầu sử dụng {#next-steps}
+
+Chọn bước tiếp theo phù hợp với việc bạn muốn làm.
+
+| Tôi muốn… | Xem ở đâu |
+| --- | --- |
+| Cài FlyEnv và thiết lập môi trường đầu tiên | [Tải xuống](/vi/download) và [Bắt đầu nhanh](/vi/guide/getting-started) |
+| Kiểm tra công cụ của mình có được hỗ trợ không | [Tính năng](/vi/features) |
+| Chạy một ứng dụng có sẵn | [Giải pháp](/vi/solutions) |
+| Xem FlyEnv hoạt động thực tế | [Video demo](/vi/demos) |
+| Chuyển từ một môi trường phát triển khác | [So sánh](/vi/compare/) |
+| Mở rộng không gian làm việc | [Plugin Market](/vi/features/plugin-market) |
+| Kết nối tác nhân lập trình AI | [Hướng dẫn AI Workspace & MCP](/vi/guide/ai-coding-workspace-mcp) |
+
+Hãy bắt đầu với một dự án và những công cụ mà dự án đó cần. Bạn có thể mở rộng không gian làm việc FlyEnv khi quy trình phát triển thay đổi.

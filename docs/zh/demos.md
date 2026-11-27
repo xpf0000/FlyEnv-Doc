@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 title: 'FlyEnv 演示：本地开发任务、技术栈与工具'
 head:
   - - meta

@@ -129,12 +129,209 @@ test('home download CTA and real package cards emit their own intent in all five
   }
 })
 
+test('homepage conversion links submit one event with localized target and source context', async (t) => {
+  const { page } = await openPage(t)
+  const home = '/zh/'
+  const cases = [
+    ['/zh/demos', 'demos_nav_click', 'demos', 'hero'],
+    ['/zh/features/php', 'home_feature_click', 'php', 'inline'],
+    ['/zh/features/plugin-market', 'home_feature_click', 'plugin-market', 'inline'],
+    ['/zh/features/mcp-server', 'home_feature_click', 'mcp-server', 'inline'],
+    ['/zh/features/ai-memory', 'home_feature_click', 'ai-memory', 'inline'],
+    ['/zh/solutions', 'solution_click', 'solutions', 'inline'],
+    ['/zh/compare/', 'compare_nav_click', 'compare', 'inline'],
+    ['/zh/license', 'license_nav_click', 'license', 'inline']
+  ]
+  for (const [target, event, content, position] of cases) {
+    await page.goto(origin + home)
+    await waitForView(page, home)
+    await page
+      .locator(`main a[data-analytics-surface^="new-home-"][href="${target}"]`)
+      .first()
+      .click()
+    await waitForView(page, target)
+    const [click, ...extra] = await eventPayloads(page, event)
+    assert.equal(extra.length, 0, event)
+    assert.equal(click?.source_page, home, event)
+    assert.equal(click.target_page, target, event)
+    assert.equal(click.content_id, content, event)
+    assert.equal(click.cta_position, position, event)
+    assert.equal(click.locale, 'zh', event)
+  }
+
+  await page.goto(origin + home)
+  await waitForView(page, home)
+  const demo = page.locator('main [data-analytics-surface="new-home-project-demo"]').first()
+  const id = await demo.getAttribute('data-analytics-content-id')
+  assert.ok(id)
+  await demo.click()
+  await waitForView(page, '/zh/demos')
+  const [click, ...extra] = await eventPayloads(page, 'demos_nav_click')
+  assert.equal(extra.length, 0)
+  assert.equal(click.content_id, id)
+  assert.equal(click.surface, 'demo_deep_link')
+  assert.equal(click.target_page, '/zh/demos')
+  assert.equal(click.cta_position, 'inline')
+  assert.equal(click.source_page, home)
+  assert.equal(click.locale, 'zh')
+  assert.equal(click.target, '/zh/demos')
+
+  await page.goto(origin + home)
+  await waitForView(page, home)
+  await page.locator('main [data-analytics-surface="new-home-final-cta"]').click()
+  await waitForView(page, '/zh/download')
+  const [footer, ...extraDownloads] = await eventPayloads(page, 'download_nav_click')
+  assert.equal(extraDownloads.length, 0)
+  assert.equal(footer?.content_id, 'download')
+  assert.equal(footer.cta_position, 'footer')
+  assert.equal(footer.source_page, home)
+  assert.equal(footer.target_page, '/zh/download')
+
+  await page.goto(origin + home)
+  await waitForView(page, home)
+  await page.locator('main a[data-analytics-event="home_section_click"][href="#compare"]').click()
+  await page.waitForURL(origin + home + '#compare')
+  const [jump, ...extraJumps] = await eventPayloads(page, 'home_section_click')
+  assert.equal(extraJumps.length, 0)
+  assert.equal(jump?.content_id, 'compare')
+  assert.equal(jump.target_page, home)
+  assert.equal(jump.cta_position, 'hero')
+  assert.equal((await eventPayloads(page, 'compare_nav_click')).length, 0)
+})
+
+test('localized homepages render responsive layouts and a keyboard-operable Startup Group preview', async (t) => {
+  const { page } = await openPage(t)
+  for (const prefix of locales) {
+    const home = prefix + '/'
+    for (const [width, colorScheme] of [
+      [320, 'dark'],
+      [390, 'light'],
+      [768, 'dark'],
+      [1024, 'light'],
+      [1440, 'light'],
+      [1440, 'dark']
+    ]) {
+      await page.setViewportSize({ width, height: 900 })
+      await page.emulateMedia({ colorScheme })
+      await page.goto(origin + home)
+      const main = page.locator('main.home-landing')
+      assert.equal(await main.locator('h1').count(), 1, home)
+      assert.equal(await page.locator('.VPSidebar').count(), 0, home)
+      assert.equal(
+        await page.locator('html').evaluate((html) => html.classList.contains('dark')),
+        colorScheme === 'dark'
+      )
+      assert.equal(
+        await page.evaluate((limit) => document.documentElement.scrollWidth <= limit, width),
+        true,
+        `${home} at ${width}`
+      )
+      const heroWidth = await main
+        .locator('.hero-grid')
+        .evaluate((hero) => hero.getBoundingClientRect().width)
+      assert.equal(heroWidth, Math.min(width, 1400), home)
+      const labels = await main
+        .locator('.section-label')
+        .evaluateAll((nodes) => nodes.map((node) => getComputedStyle(node).textDecorationLine))
+      assert.ok(labels.length > 0 && labels.every((line) => line === 'none'), home)
+      if (width === 390) {
+        await waitForView(page, home)
+        const start = main.locator('.hero .start-toggle')
+        const services = main.locator('.hero .svc-status')
+        assert.equal(await services.count(), 4)
+        const ready = await services.allTextContents()
+        const original = await start.innerText()
+        await start.focus()
+        await page.keyboard.press('Space')
+        assert.equal(await start.getAttribute('aria-pressed'), 'true')
+        assert.notDeepEqual(await services.allTextContents(), ready)
+        assert.notEqual(await start.innerText(), original)
+        await page.keyboard.press('Enter')
+        assert.equal(await start.getAttribute('aria-pressed'), 'false')
+        assert.deepEqual(await services.allTextContents(), ready)
+      }
+    }
+  }
+})
+
+test('the homepage tablet menu keeps language, appearance and search controls reachable', async (t) => {
+  const { page } = await openPage(t, 1024)
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto(origin + '/es/')
+  await waitForView(page, '/es/')
+  await page.locator('.VPNavBarHamburger').click()
+  const screen = page.locator('#VPNavScreen')
+  const darkMode = screen.getByRole('switch')
+  await darkMode.click()
+  await page.locator('html.dark').waitFor()
+  await screen.locator('.VPNavScreenTranslations button').click()
+  await screen.locator('a[href="/id/"]').click()
+  await waitForView(page, '/id/')
+  await screen.waitFor({ state: 'hidden' })
+  assert.equal(await page.locator('.VPNavBarSearch button').first().isVisible(), true)
+})
+
+test('localized Compare entry, Plugin Market and migration links emit scoped navigation', async (t) => {
+  const { page } = await openPage(t)
+  const prefix = '/zh'
+  const index = prefix + '/compare/'
+  await page.goto(origin + prefix + '/demos')
+  await waitForView(page, prefix + '/demos')
+  await page.locator(`.VPNav a[href="${index}"]`).click()
+  await waitForView(page, index)
+  const [entry] = await eventPayloads(page, 'compare_nav_click')
+  assert.equal(entry?.target_page, index)
+  assert.equal(entry.surface, 'primary_nav')
+
+  const market = prefix + '/features/plugin-market'
+  await page.locator('main a[data-analytics-surface="compare-plugin-market"]').first().click()
+  await waitForView(page, market)
+  const [marketEvent, ...extraMarketEvents] = await eventPayloads(
+    page,
+    'compare_plugin_market_click'
+  )
+  assert.equal(marketEvent?.source_page, index)
+  assert.equal(marketEvent.target_page, market)
+  assert.equal(extraMarketEvents.length, 0)
+
+  await page.goBack()
+  await waitForView(page, index)
+  const detail = index + 'laragon'
+  await page
+    .locator(`main a[data-analytics-surface="compare-entry"][href="${detail}"]`)
+    .first()
+    .click()
+  await waitForView(page, detail)
+  const detailEntry = (await eventPayloads(page, 'compare_nav_click')).at(-1)
+  assert.equal(detailEntry?.source_page, index)
+  assert.equal(detailEntry.target_page, detail)
+
+  const guide = prefix + '/guide/getting-started'
+  await page.locator(`main a[data-analytics-surface="compare-migration"][href="${guide}"]`).click()
+  await waitForView(page, guide)
+  const [migration, ...extraMigrations] = await eventPayloads(page, 'compare_migration_click')
+  assert.equal(migration?.source_page, detail)
+  assert.equal(migration.target_page, guide)
+  assert.equal(extraMigrations.length, 0)
+  assert.equal((await eventPayloads(page, 'guide_click')).length, 1)
+
+  await page.goto(origin + index)
+  await waitForView(page, index)
+  await page.locator('main a[data-analytics-surface="compare-hero"]').click()
+  await waitForView(page, prefix + '/download')
+  const [download, ...extraDownloads] = await eventPayloads(page, 'download_nav_click')
+  assert.equal(download?.source_page, index)
+  assert.equal(download.target_page, prefix + '/download')
+  assert.equal(download.cta_position, 'hero')
+  assert.equal(extraDownloads.length, 0)
+})
+
 test('outside download links are excluded and a trailing-slash license link emits one pair', async (t) => {
   const { page } = await openPage(t)
   const source = '/id/compare/servbay'
   await page.goto(origin + source)
   await waitForView(page, source)
-  const external = page.locator('a[href="https://www.servbay.com/download"]').first()
+  const external = page.locator('main a[href="https://www.servbay.com/download"]').first()
   await external.evaluate((node) =>
     node.addEventListener('click', (event) => event.preventDefault())
   )
@@ -142,9 +339,13 @@ test('outside download links are excluded and a trailing-slash license link emit
   assert.equal((await eventPayloads(page, 'download_click')).length, 0)
   assert.equal((await eventPayloads(page, 'download_nav_click')).length, 0)
 
-  const license = page.locator('a[href="/id/license"]').first()
+  const licenseFaq = page
+    .locator('main #faq details')
+    .filter({ has: page.locator('a[href="/id/license"]') })
+  await licenseFaq.locator('summary').click()
+  const license = licenseFaq.locator('a[href="/id/license"]')
   await license.evaluate((node) => node.setAttribute('href', '/id/license/'))
-  await license.click()
+  await page.locator('main #faq a[href="/id/license/"]').click()
   await waitForView(page, '/id/license')
   assert.equal((await eventPayloads(page, 'license_click')).length, 1)
   const [nav, ...extra] = await eventPayloads(page, 'license_nav_click')
@@ -203,7 +404,7 @@ test('localized Compare deep links open one demo, record its source and restore 
     const videoId = 'project-environment-switching'
     await page.goto(origin + source)
     await waitForView(page, source)
-    await page.locator(`a[href="${prefix}/demos?video=${videoId}"]`).click()
+    await page.locator(`main a[href="${prefix}/demos?video=${videoId}"]`).first().click()
     await waitForView(page, prefix + '/demos')
     await page.waitForFunction(
       () => document.querySelectorAll('article[data-demo-id]').length === 1
@@ -259,5 +460,130 @@ test('DNT, GPC and a direct payment return keep the tag unloaded', async (t) => 
       assert.equal(requests.includes(tagHost), false)
       assert.equal(await page.locator('h1').count(), 1)
     })
+  }
+})
+
+test('the approved Compare layouts fit all languages on mobile and dark desktop', async (t) => {
+  const { page } = await openPage(t)
+  const details = ['laragon', 'servbay', 'herd', 'xampp', 'mamp', 'docker']
+  for (const [width, colorScheme] of [
+    [320, 'light'],
+    [1440, 'dark']
+  ]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.emulateMedia({ colorScheme })
+    for (const prefix of locales) {
+      for (const slug of ['', ...details]) {
+        const path = prefix + '/compare/' + slug
+        await page.goto(origin + path)
+        const main = page.locator('main')
+        assert.equal(await main.locator('h1').count(), 1, path)
+        assert.equal(await page.locator('.VPSidebar').count(), 0, path)
+        assert.equal(
+          await page.locator('html').evaluate((html) => html.classList.contains('dark')),
+          colorScheme === 'dark',
+          path
+        )
+        assert.ok(
+          await page.evaluate((limit) => document.documentElement.scrollWidth <= limit, width),
+          path
+        )
+        assert.ok(await main.locator(`a[href="${prefix}/features/plugin-market"]`).count(), path)
+        const header = main.getByRole('table').first().getByRole('columnheader').last()
+        assert.ok(
+          await header.evaluate((node) => parseFloat(getComputedStyle(node).paddingTop) >= 12),
+          path
+        )
+        if (slug) {
+          assert.equal(await main.locator('#migration #migration-title').count(), 1, path)
+          assert.ok(await main.locator('#faq details summary').count(), path)
+        } else {
+          for (const name of details) {
+            assert.ok(
+              await main
+                .locator(
+                  `a[data-analytics-surface="compare-entry"][href="${prefix}/compare/${name}"]`
+                )
+                .count(),
+              path
+            )
+          }
+        }
+      }
+    }
+  }
+})
+
+test('Compare previews and FAQ disclosures work with the keyboard', async (t) => {
+  const { page } = await openPage(t, 390)
+  for (const [route, selector] of [
+    ['', '[data-compare-startup-toggle]'],
+    ['laragon', '[data-compare-startup]'],
+    ['servbay', '[data-startup-preview]']
+  ]) {
+    const path = '/zh/compare/' + route
+    await page.goto(origin + path)
+    await waitForView(page, path)
+    const button = page.locator(selector).first()
+    const originalLabel = await button.innerText()
+    await button.focus()
+    await page.keyboard.press('Space')
+    await page.waitForFunction(
+      ({ selector, originalLabel }) =>
+        document.querySelector(selector)?.innerText !== originalLabel,
+      { selector, originalLabel }
+    )
+    await page.keyboard.press('Enter')
+    assert.equal(await button.innerText(), originalLabel)
+    if (route) {
+      const faq = page.locator('main #faq details').first()
+      await faq.locator('summary').focus()
+      await page.keyboard.press('Enter')
+      assert.equal(await faq.evaluate((node) => node.open), true)
+    }
+  }
+})
+
+test('Demos aligns with the Solutions catalog on desktop and mobile', async (t) => {
+  const { page } = await openPage(t)
+  const contentBounds = (locator) =>
+    locator.evaluate((node) => {
+      const { left, right } = node.getBoundingClientRect()
+      return { left, right }
+    })
+
+  const columnCount = (locator) =>
+    locator.evaluate((node) => getComputedStyle(node).gridTemplateColumns.split(' ').length)
+
+  for (const prefix of locales) {
+    for (const [width, columns] of [
+      [320, 1],
+      [390, 1],
+      [640, 1],
+      [768, 2],
+      [960, 2],
+      [1024, 2],
+      [1100, 3],
+      [1440, 3],
+      [1920, 3]
+    ]) {
+      await page.setViewportSize({ width, height: 900 })
+      await page.goto(origin + prefix + '/solutions')
+      const solutions = await contentBounds(page.locator('#solutions-catalog'))
+      await page.goto(origin + prefix + '/demos')
+      const toolbar = await contentBounds(page.locator('.demos-browse-bar'))
+      const featured = page.locator('.demos-featured-grid')
+      const catalog = page.locator('.demos-grid').first()
+      const documentWidth = await page.evaluate(() => document.documentElement.scrollWidth)
+      assert.deepEqual(toolbar, solutions, `Demos toolbar in ${prefix || 'en'} at ${width}px`)
+      assert.deepEqual(
+        await contentBounds(featured),
+        solutions,
+        `Featured demos in ${prefix || 'en'} at ${width}px`
+      )
+      assert.equal(await columnCount(featured), columns, `Featured columns at ${width}px`)
+      assert.equal(await columnCount(catalog), columns, `Catalog columns at ${width}px`)
+      assert.ok(documentWidth <= width, `Demos horizontal overflow at ${width}px`)
+    }
   }
 })

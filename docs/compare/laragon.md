@@ -3,12 +3,8 @@ layout: page
 aside: false
 outline: false
 titleTemplate: false
-title: 'FlyEnv vs Laragon: Windows and Cross-Platform Local Development'
-description: 'Compare FlyEnv and Laragon across platforms, runtimes, services, local domains and project workflows.'
-head:
-  - - link
-    - rel: canonical
-      href: https://flyenv.com/compare/laragon
+title: 'FlyEnv vs Laragon — A Cross-Platform Alternative'
+description: 'Compare Laragon with FlyEnv for native, cross-platform project development.'
 ---
 
 <script setup>

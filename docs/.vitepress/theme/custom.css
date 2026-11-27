@@ -67,6 +67,10 @@
     word-break: break-all;
 }
 
+.flyenv-license-guide .vp-doc table td {
+    word-break: normal;
+}
+
 .vp-doc a.no-underline {
     text-decoration: none;
 }
@@ -108,5 +112,25 @@
 @media (min-width: 992px) {
     .live-app-block .h2 {
         font-size: 4rem;
+    }
+}
+
+.Layout:has(main.comparison-page, main.demos-library, main.home-landing) > .VPLocalNav.empty:not(.has-sidebar) {
+    display: none;
+}
+
+/* The five-language menu needs more room than VitePress's default 768px breakpoint. */
+@media (min-width: 768px) and (max-width: 1119px) {
+    :is(.flyenv-home-page, .Layout:has(main.demos-library)) :is(.VPNavBarMenu, .VPNavBarExtra) {
+        display: none;
+    }
+
+    :is(.flyenv-home-page, .Layout:has(main.demos-library)) .VPNavBarHamburger {
+        display: flex;
+        margin-inline-start: 12px;
+    }
+
+    :is(.flyenv-home-page, .Layout:has(main.demos-library)) .VPNavScreen {
+        display: block;
     }
 }

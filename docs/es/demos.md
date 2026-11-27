@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: page
 title: 'Demos de FlyEnv: stacks locales, herramientas y flujos de trabajo'
 head:
   - - meta

@@ -1,154 +1,275 @@
 ---
-description: '了解 FlyEnv 试用限制、10 美元许可证、激活流程、设备政策，以及通过社区贡献申请许可证的方法。'
+title: FlyEnv 许可证指南：购买、激活与换机迁移
+pageClass: flyenv-license-guide
+description: 了解如何获取 FlyEnv 许可证、在应用内激活、关联 GitHub 账号、将许可证转移到新设备，以及解决常见的许可证问题。
 ---
 
-# 关于 FlyEnv 许可证
+# FlyEnv 许可证指南 {#关于-flyenv-许可证}
 
-FlyEnv 许可证为需要持续使用高级功能的用户提供正式的软件授权，同时帮助独立开发工具获得长期维护。许可证制度**并不是为了阻止核心本地开发能力的使用**，而是为了让 FlyEnv 能够持续在 macOS、Windows 和 Linux 上迭代。
+FlyEnv 的核心本地开发功能可免费使用。FlyEnv Pro 许可证可解除免费版的使用限制、解锁高级工具，并支持 FlyEnv 持续开发。
 
-激活许可证后，您可以在授权设备上解除下方评估版限制。有效代码贡献和原创技术内容也可以作为许可证申请凭证。
+你可以购买许可证，也可以通过参与项目或分享原创使用体验获取。无论选择哪种方式，都可以直接在 FlyEnv 桌面应用内提交申请。
 
-## 1. 未授权版本的限制
+## 许可证一览
 
-在未激活许可证的状态下，FlyEnv 依然可用，但受到以下限制：
+| | FlyEnv 个人许可证 |
+| --- | --- |
+| 价格 | 10 美元（USD） |
+| 付款方式 | 一次性购买，无需订阅 |
+| 有效期 | 永久 |
+| 更新 | 包含 FlyEnv 后续更新 |
+| 使用设备 | 每份许可证可激活一台设备 |
+| 换机迁移 | 可通过 GitHub 登录「我的许可证」办理 |
+| 签发方式 | 人工核验并签发 |
 
-* **站点数量限制：** 最多只能创建 **3** 个本地站点。
-* **AI 功能限制：** AI 聊天辅助功能仅提供 **3天** 的试用期。
-* **屏幕截图功能限制：** 屏幕截图功能仅提供 **3天** 的试用期。
-* **图片压缩功能限制：** 图片压缩功能仅提供 **3天** 的试用期。
-* **未来限制：** 未来的新功能可能会增加额外的限制条件。
+前往[许可证页面](/zh/license)查看购买选项和当前授权政策。
 
-FlyEnv 并未限制核心运行环境功能的使用。付费许可证用于解除高级工具的评估限制，并支持 FlyEnv 在多个平台上的持续维护。
+## 快速导航
 
-## 2. 如何获取许可证？
+你想做什么？
 
-我们提供以下三种许可证申请方式。目前许可证无法自动发放，无论通过哪种方式申请，均需由人工处理与发放：
+- [获取新许可证](#_2-how-to-get-licensed)，可以购买、贡献代码或分享体验。
+- [激活许可证](#_3-request-activation-process)，适用于已购买或已准备好贡献凭证的用户。
+- [把许可证转移到另一台电脑](#transfer-to-another-device)。
+- [重装系统后重新激活](#reinstall-your-operating-system)。
+- [在多台电脑上使用 FlyEnv](#use-flyenv-on-multiple-computers)。
+- [查看免费版和 Pro 功能](#_1-evaluation-version-limitations)。
+- [解决许可证问题](#frequently-asked-questions)。
 
-### 方式 A：购买个人许可证
+<div id="_2-如何获取许可证"></div>
 
-* **许可证价格：** FlyEnv 个人许可证价格为 **10 美元**。
-* **授权范围：** 一台设备激活，可通过许可证管理进行设备迁移。
-* **高级功能：** 在授权设备上解除上方列出的评估版限制。
-* **支付处理：** Paddle 可能负责结账、税费、收据、发票以及支付相关支持。
+## 如何获取许可证 {#_2-how-to-get-licensed}
 
-购买后，请保留 Paddle 订单 ID，并在客户端申请许可证时一并提交。购买许可证同样由人工处理发放。您可以前往[许可证页面](/zh/license)购买许可证。
+**购买、贡献代码或分享体验，三种方式均可获取许可证。**
 
-![FlyEnv 许可证购买记录，客户信息已打码](https://oss.macphpstudy.com/image/assets/home/license-purchase-records.webp)
+三种方式共用同一套应用内申请与激活流程。所有申请均由人工审核后签发。
 
-### 方式 B：参与开发 (Contribute)
+<div id="方式-a-购买个人许可证"></div>
 
-* **提交 PR：** 通过 GitHub 提交 Pull Request 参与项目开发。
-* **不限大小：** 无论代码量多少，只要是积极的改进（哪怕只是修复一个翻译错误），我们都视为有效贡献。
+### 方式 A：购买个人许可证 {#option-a-purchase-a-personal-license}
 
-![FlyEnv 的 GitHub Pull Request 列表](https://oss.macphpstudy.com/image/assets/home/license-pull-requests.webp)
+1. 打开[许可证页面](/zh/license)。
+2. 通过 Paddle 完成购买，或按页面说明选择其他付款方式。
+3. 保留 Paddle 订单号或购买时使用的邮箱。使用其他付款方式时，请保留相应付款凭证。
+4. [在 FlyEnv 中提交许可证申请](#_3-request-activation-process)。
 
-### 方式 C：宣传推广 (Promote)
+通过 Paddle 购买时，结账、适用税费、收据和发票均由 Paddle 处理。遇到相关付款问题，可联系 Paddle。
 
-您可以在**任何平台**、使用**任何语言**分享您的FlyEnv使用体验。我们非常欢迎**真实、客观**的用户反馈。
+::: tip 已经付款？
+无需再次购买。付款完成后，请先在 **设置 → 许可证** 中提交购买信息，待许可证签发后再激活。
+:::
 
-为了帮助您更好地进行分享，我们整理了以下推荐平台列表：
+<div id="方式-b-参与开发-contribute"></div>
 
-**图文与社交媒体 (Social Media)：**
+### 方式 B：参与 FlyEnv 开发 {#option-b-contribute-to-the-codebase}
 
-•   **微博：https://weibo.com**
+向 [FlyEnv 开源项目](https://github.com/xpf0000/FlyEnv)提交有实际改进的 Pull Request。你可以贡献新功能、修复问题，也可以改进文档或纠正翻译。
 
-•   **小红书：https://www.xiaohongshu.com**
+当贡献已准备好接受评审时，在申请中附上 Pull Request 链接。是否符合条件由人工审核确定。
 
-•   **豆瓣：https://www.douban.com**
+<div id="方式-c-宣传推广-promote"></div>
 
-**视频与 Vlog 类 (Videos/Vlogs)：**
+### 方式 C：分享你的使用体验 {#option-c-spread-the-word-promotion}
 
-长视频平台：
+用任何语言创作关于 FlyEnv 的原创内容，在合适的平台上发布，例如：
 
-•   **Bilibili：https://www.bilibili.com**
+| 内容类型 | 平台示例 |
+| --- | --- |
+| 技术文章 | 个人博客、掘金、Dev.to、Medium、Hashnode |
+| 视频和教程 | 哔哩哔哩、抖音、YouTube、TikTok |
+| 社交媒体帖子 | 微博、小红书、X、Threads、Facebook、LinkedIn、Instagram |
+| 开发者讨论 | V2EX、Reddit 等开发者社区 |
 
-•   **西瓜视频：https://www.ixigua.com**
+项目实录、实用教程、工具对比和真实评价都可以帮助其他开发者了解 FlyEnv。无论评价好坏，均可提交审核。可在[社区页面](/zh/community)查看其他开发者的分享。
 
-•   **优酷：https://www.youku.com**
+#### 内容要求
 
-•   **腾讯视频：https://v.qq.com**
+- 发布自己创作的原创内容。转载或提交他人的作品不符合条件。
+- 请在发布后尽快提交申请。超过三个月的内容可能不再符合条件。
+- 每篇文章、每个视频或帖子只能用于申请一份许可证。已使用的链接无法再次申请。
+- 提供审核人员可以访问的链接。遵守平台规则，并在平台要求时披露许可证激励。
 
-•   **爱奇艺：https://www.iqiyi.com**
+发布后，在应用内申请表中填写内容链接和联系邮箱。
 
-短视频平台：
+<div id="_3-申请与激活流程"></div>
 
-•   **抖音：https://www.douyin.com**
+## 申请并激活许可证 {#_3-request-activation-process}
 
-•   **微信视频号 (需在微信客户端内使用)**
+购买许可证或准备好贡献凭证后，按以下步骤操作。Windows、macOS 和 Linux 的流程相同，界面可能因应用版本而略有不同。
 
-•   **快手：https://www.kuaishou.com**
+### 第 1 步：打开许可证设置
 
-**技术社区与博客 (Tech Communities & Blogs)：**
+打开 FlyEnv，选择 **设置 → 许可证**。页面顶部显示本机的激活状态。向下滚动到许可证申请区域。
 
-专业社区：
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-1.webp" alt="FlyEnv 许可证设置显示当前设备的激活状态" width="2048" height="1296"></p>
 
-•   **知乎：https://www.zhihu.com**
+### 第 2 步：填写申请信息
 
-•   **掘金：https://juejin.cn**
+在 **消息** 输入框中填写有效的联系邮箱，并提供与申请方式对应的信息。
 
-•   **V2EX：https://www.v2ex.com**
+| 申请方式 | 需要提供的信息 |
+| --- | --- |
+| 通过 Paddle 购买 | 订单号或购买、接收收据时使用的邮箱 |
+| 通过其他方式付款 | 对应的付款凭证 |
+| 代码贡献 | GitHub Pull Request 链接 |
+| 原创内容 | 已发表的文章、视频或帖子链接 |
 
-•   **CSDN：https://www.csdn.net**
+购买申请示例：
 
-•   **开源中国：https://www.oschina.net**
+```text
+联系邮箱：you@example.com
+Paddle 订单号：YOUR_ORDER_ID
+```
 
-•   **思否：https://segmentfault.com**
+社区贡献申请示例：
 
-技术博客平台：
+```text
+联系邮箱：you@example.com
+内容链接：https://example.com/my-flyenv-article
+```
 
-•   **简书：https://www.jianshu.com**
+请勿填写密码、完整银行卡号或 GitHub 访问令牌。
 
-•   **语雀：https://www.yuque.com**
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-2.webp" alt="许可证申请表中标出的消息输入框和请求许可证按钮" width="2048" height="1296"></p>
 
-•   **您的个人独立博客**
+### 第 3 步：提交申请
 
-**提交说明：**
+点击 **请求许可证**。FlyEnv 会人工审核，并在签发许可证后以邮件通知你。请确保可以查收申请时填写的邮箱。
 
-在完成推广后，请务必在FlyEnv客户端申请页面的 “消息” 输入框中，提交您发布的文章链接、视频链接、博客链接或相关内容的截图链接，作为许可证申请信息。
+审核期间无需重复提交同一申请。
 
-我们期待您宝贵的分享！
+### 第 4 步：激活许可证
 
-在此页面可以看到社区贡献记录，可作为申请许可证的参考：[社区贡献记录](../license.md)
+收到签发通知后：
 
-**补充说明：**
+1. 在提交申请的设备上，返回 FlyEnv 的 **设置 → 许可证**。
+2. 向下滚动至申请区域，点击 **刷新状态**。
+3. 查看许可证页面顶部的激活状态，确认显示 **许可证已激活**。
 
-* 在发布文章、视频或相关内容后，请尽快提交许可证申请。
-* 由于 FlyEnv 更新频繁，每个版本都会持续增加大量新特性，因此发布时间超过 **3个月** 的推广内容可能不再符合当前申请条件。
-* 请仅提交您本人原创的内容。转载、搬运或提交他人内容无法用于申请许可证。
-* 每篇文章、视频或推广内容仅可申请 **一个许可证**。
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-3.webp" alt="FlyEnv 许可证申请区域的刷新状态按钮" width="2048" height="1296"></p>
 
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-4.webp" alt="FlyEnv 激活成功后显示绿色勾号和许可证已激活状态" width="2048" height="1296"></p>
 
-## 3. 申请与激活流程
+::: info 截图说明
+部分截图来自较早版本。许可证政策和操作步骤请以本页说明为准。
+:::
 
-完成上述任一方式所需的购买、贡献或推广后，请在软件内的申请页面进行提交：
+### 第 5 步：关联 GitHub 账号
 
-1. **进入许可证申请区域：** 进入 **FlyEnv 设置 -> 许可证** 界面，滚动到最下面，找到许可证申请区域。
-![FlyEnv 许可证设置-1](https://oss.macphpstudy.com/image/flyenv-license-1.webp)
+设备激活后，在许可证页面找到 **我的许可证**。点击 GitHub 登录按钮，完成账号授权并确认许可证出现在列表中。
 
-2. **填写证明信息与邮箱：** 在“消息 (Message)”输入框中填入您的贡献证明：
-* **许可证购买者：** 请提交 Paddle 订单 ID 或收据邮件。
-* **开发者：** 请提交您的 Pull Request (PR) 链接。
-* **推广者：** 请提交您的文章、视频、博客或评论链接。
-* **通知邮箱：** 请留下可接收通知的有效邮箱地址；许可证发放后，FlyEnv 会通过邮件通知您。
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-5.webp" alt="我的许可证区域中标出的 GitHub 登录按钮" width="2048" height="1296"></p>
 
-![FlyEnv 许可证设置-2](https://oss.macphpstudy.com/image/flyenv-license-2.webp)
+::: tip 换机前请关联 GitHub
+建议激活后立即关联。如果重装系统或旧电脑无法使用，仍可通过 GitHub 账号管理许可证。
+:::
 
-3. **提交申请：** 点击 **“申请许可证 (Request License)”** 按钮。
-4. **等待人工处理与发放：** 申请通常会在 **24 小时** 内处理完毕；FlyEnv 会人工处理并发放许可证。
+<div id="_4-许可证管理与设备绑定"></div>
 
-![FlyEnv 许可证设置-3](https://oss.macphpstudy.com/image/flyenv-license-3.webp)
+## 管理许可证 {#_4-license-management-device-binding}
 
-![FlyEnv 许可证设置-4](https://oss.macphpstudy.com/image/flyenv-license-4.webp)
+FlyEnv 许可证绑定到应用识别出的设备 UUID。每份许可证同一时间可激活一台设备，并支持换机迁移。
 
-## 4. 许可证管理与设备绑定
+使用已关联的 GitHub 账号登录 **我的许可证**，即可管理设备绑定。
 
-目前的许可证政策是：购买 FlyEnv 许可证后**永久有效**，并遵循“一机一证”原则；后续可能会调整为按年订阅：
+### 转移到另一台设备 {#transfer-to-another-device}
 
-* **设备对应：** 每个计算机对应一个许可证授权。
-* **更换设备：** 如果您更换了电脑，无需重新购买。您只需授权登录**GitHub账号**，在 **“我的许可证 (My Licenses)”** 界面中：
-1. 找到旧设备的 UUID 并点击 **“解绑 (Unbind)”**。
-2. 点击 **“绑定此设备 (Bind This Device)”** 将许可证迁移至新电脑。
+更换电脑时可继续使用已有的许可证。
 
-![FlyEnv 许可证设置-5](https://oss.macphpstudy.com/image/flyenv-license-5.webp)
+1. 在新电脑上安装 FlyEnv。
+2. 打开 **设置 → 许可证 → 我的许可证**。
+3. 使用之前关联许可证的 GitHub 账号登录。
+4. 找到要迁移的许可证。如果有多份许可证，请先核对已绑定的 UUID。
+5. 打开该许可证的操作菜单，选择 **解除绑定**，释放旧设备。
+6. 对同一份许可证选择 **绑定本机**。
+7. 确认新设备显示 **许可证已激活**。如有需要，点击 **刷新状态**。
 
-![FlyEnv 许可证设置-6](https://oss.macphpstudy.com/image/flyenv-license-6.webp)
+<p><img src="https://oss.macphpstudy.com/image/flyenv-license-6.webp" alt="我的许可证列表显示多份许可证及解除绑定和绑定本机操作" width="2048" height="1296"></p>
+
+::: warning 每份许可证可激活一台设备
+迁移许可证会解除旧设备的绑定。如果要让两台电脑同时保持激活，每台电脑都需要一份许可证。
+:::
+
+### 重装操作系统 {#reinstall-your-operating-system}
+
+重装 Windows、macOS 或 Linux 可能会改变设备 UUID。如果重装后 FlyEnv 仍显示许可证已激活，无需额外操作。否则，请按[设备迁移步骤](#transfer-to-another-device)解绑旧 UUID，再绑定当前设备。
+
+如果之前未关联 GitHub 账号，且无法访问旧系统，请[联系支持](#get-help)核验许可证并协助恢复。
+
+### 在多台电脑上使用 FlyEnv {#use-flyenv-on-multiple-computers}
+
+若要同时激活多台设备，可以购买或按条件申请额外许可证。例如，可以为工作电脑和个人电脑各准备一份。
+
+### 管理多份许可证
+
+同一个 GitHub 账号可以关联多份独立的 FlyEnv 许可证。绑定或迁移其中一份时，其他许可证的绑定状态保持原样。操作前请确认选中了正确的许可证。
+
+<div id="_1-未授权版本的限制"></div>
+
+## 免费版与 Pro 功能 {#_1-evaluation-version-limitations}
+
+运行时和数据库管理、HTTPS、启动组等核心本地开发功能均可免费使用。部分功能的使用限制如下：
+
+| 功能 | 免费版 | Pro |
+| --- | --- | --- |
+| 本地站点 | 最多 3 个 | 站点数量不限 |
+| 自定义项目 | 每种运行时最多 3 个 | 项目数量不限 |
+| Cloudflare Tunnel | 1 条隧道 | 支持多条隧道 |
+| AI 助手 | 试用 3 天 | 完整使用权限 |
+| 截图工具 | 试用 3 天 | 完整使用权限 |
+| 图片优化工具 | 试用 3 天 | 完整使用权限 |
+| 插件市场 | 安装和更新插件需要有效许可证 | 可安装和更新插件 |
+
+这些限制适用于 FlyEnv 自身功能。第三方软件或服务可能有单独的条款、平台要求或费用。
+
+可选模块详见[插件市场指南](/zh/features/plugin-market)。内置 MCP Server 的用法详见 [FlyEnv AI 工作台与 MCP 指南](/zh/guide/ai-coding-workspace-mcp)。
+
+## 常见问题 {#frequently-asked-questions}
+
+### 已经付款，为什么 FlyEnv 还没激活？
+
+付款完成后，请在 FlyEnv 中[提交许可证申请](#_3-request-activation-process)。收到签发通知后，在许可证页面点击 **刷新状态**。
+
+### 许可证申请一直在等待审核，怎么办？
+
+申请由人工核验。请检查提交时使用的邮箱，包括垃圾邮件文件夹。如果怀疑申请信息有误或一直未收到回复，请提供申请信息并[联系支持](#get-help)。
+
+### 付款失败，还能获取许可证吗？
+
+请先核对订单的付款状态，确认付款成功后再提交许可证申请。如果当前付款方式在你所在地区不可用，可在[许可证页面](/zh/license)查看其他选项。
+
+### 重装系统后需要新许可证吗？
+
+可以继续使用原有许可证。如果设备 UUID 发生变化，通过已关联的 GitHub 账号将许可证迁移到当前设备即可。
+
+### 旧电脑丢失或无法使用，怎么办？
+
+如果许可证已关联 GitHub 账号，可以直接在新电脑上管理设备绑定。如果尚未关联，请联系支持协助恢复许可证。
+
+### 一份许可证能在两台电脑上使用吗？
+
+每台同时激活的电脑都需要单独的许可证。同一个 GitHub 账号可以管理多份许可证。
+
+### 已用过的文章或订单还能再次提交吗？
+
+一条已用于申请的贡献或内容链接只能对应一份许可证。订单可申请的许可证数量以实际购买数量为准。换机时，请在 **我的许可证** 中迁移已有许可证。
+
+### 许可证会过期吗？包含后续更新吗？
+
+当前个人许可证永久有效，无需续费，并包含当前授权政策下的 FlyEnv 后续更新。
+
+### 是否提供团队或教育授权？
+
+团队和教育授权可以按需求单独洽谈。请使用[许可证页面](/zh/license)上的联系方式，说明你的组织、使用场景和设备数量。
+
+## 获取帮助 {#get-help}
+
+如果上述方法仍未解决问题，请使用[许可证页面](/zh/license)上的联系方式寻求帮助。一般技术问题可在 [GitHub Issues](https://github.com/xpf0000/FlyEnv/issues)反馈。
+
+私下联系许可证支持时，请提供申请邮箱、相关订单号或贡献链接，并简要说明遇到的问题。如与问题相关，也可附上 FlyEnv 版本和当前设备的 UUID。
+
+请勿在公开的 Issue 或讨论中发布收据、个人邮箱、许可证编号或设备标识符。
+
+- [查看许可证选项](/zh/license)
+- [下载 FlyEnv](/zh/download)
+- [浏览社区贡献](/zh/community)

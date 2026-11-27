@@ -44,6 +44,47 @@ function text(html) {
     .trim()
 }
 
+test('the five homepages contain the approved sections, project links and licensing in static HTML', () => {
+  const sections = [
+    'why',
+    'stack',
+    'plugins',
+    'ai',
+    'projects',
+    'compare',
+    'developer-stories',
+    'pricing'
+  ]
+  for (const locale of locales) {
+    const prefix = locale === 'en' ? '' : '/' + locale
+    const html = readHtml(locale, 'index')
+    let previous = 0
+    for (const id of sections) {
+      const position = html.indexOf(`id="${id}"`, previous)
+      assert.ok(position > previous, `${locale} ${id} missing or out of order`)
+      previous = position
+    }
+    assert.equal((html.match(/<h1\b/g) || []).length, 1, locale)
+    assert.doesNotMatch(html, /name="robots" content="[^"]*(?:noindex|nofollow)/)
+    assert.ok(html.includes(`href="https://flyenv.com${prefix}/"`), locale)
+    assert.match(html, /data-home-free-limits/)
+    assert.match(html, /data-home-pro-benefits/)
+    assert.ok(html.includes('$0') && html.includes('$10'), locale)
+    for (const slug of ['laragon', 'xampp', 'mamp', 'herd']) {
+      assert.ok(html.includes(`href="${prefix}/compare/${slug}"`), `${locale} ${slug}`)
+    }
+    assert.equal(
+      (
+        html.match(/<a\b[^>]*\?video=[^"]*"[^>]*data-analytics-surface="new-home-project-demo"/g) ||
+        []
+      ).length,
+      3,
+      locale
+    )
+  }
+  assert.match(text(readHtml('en', 'index')), /all-in-one local development environment/i)
+})
+
 test('localized Laravel breadcrumb renders the locale home and Solutions links', () => {
   for (const locale of locales) {
     const prefix = locale === 'en' ? '' : '/' + locale
@@ -57,32 +98,14 @@ test('localized Laravel breadcrumb renders the locale home and Solutions links',
   }
 })
 
-test('Compare trial migration sections render all local copy and actionable links', () => {
-  const migrations = {
-    ...readData('compare/migrations.ts'),
-    ...readData('compare/stack-migrations.ts')
-  }
+test('Compare trial migrations expose a localized getting started link on all detail routes', () => {
   for (const slug of ['laragon', 'servbay', 'herd', 'xampp', 'mamp', 'docker']) {
-    const migration = migrations[slug + 'Migration']
     for (const locale of locales) {
       const prefix = locale === 'en' ? '' : '/' + locale
       const html = section(readHtml(locale, 'compare/' + slug), 'migration-title')
-      const copy = migration.copy[locale]
-      const guide = prefix + migration.guidePath
-      const demo = prefix + '/demos?video=' + migration.demoId
-      assert.ok(copy.steps.length >= 3, `${slug} ${locale} has too few steps`)
-      for (const part of [copy.title, copy.intro, ...copy.steps, copy.rollback]) {
-        assert.ok(
-          part?.trim() && text(html).includes(part),
-          `${slug} ${locale} is missing migration copy`
-        )
-      }
-      for (const href of [guide, demo, ...migration.sources.map((item) => item.href)]) {
-        assert.ok(
-          html.includes(`href="${href.replaceAll('&', '&amp;')}"`),
-          `${slug} ${locale}: missing ${href}`
-        )
-      }
+      const guide = prefix + '/guide/getting-started'
+      assert.ok(html.includes(`href="${guide}"`), `${slug} ${locale}: missing ${guide}`)
+      assert.match(html, /data-analytics-surface="compare-migration"/)
     }
   }
 })

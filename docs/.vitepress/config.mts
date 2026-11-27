@@ -710,22 +710,6 @@ const compareSidebarVi = [
 
 const head: any = [['link', { rel: 'icon', href: '/favicon.ico' }]]
 const socialImage = 'https://oss.macphpstudy.com/image/app-icon.png'
-const chineseCompareDescriptions: Record<string, string> = {
-  'compare/docker':
-    '深入比较 FlyEnv 原生本地运行时与 Docker 容器工作流，了解性能、隔离、HTTPS、团队协作和项目迁移差异。',
-  'compare/herd':
-    '比较 FlyEnv 与 Laravel Herd 的 PHP 运行时、Laravel 集成、项目服务、平台支持和本地开发工作流。',
-  'compare/index':
-    '对比 FlyEnv 与 XAMPP、Laragon、MAMP、Laravel Herd、ServBay 和 Docker，按项目需求选择本地开发工具。',
-  'compare/laragon':
-    '比较 FlyEnv 与 Laragon 的跨平台运行时、项目隔离、服务管理、自定义域名和本地 HTTPS 能力。',
-  'compare/mamp':
-    '比较 FlyEnv 与 MAMP / MAMP Pro 的 PHP、WordPress、运行时版本、数据库、服务和项目工作流。',
-  'compare/servbay':
-    '比较 FlyEnv 与 ServBay 的运行时、数据库、AI 工具、证书、隧道、项目服务和跨平台支持。',
-  'compare/xampp':
-    '比较 FlyEnv 与 XAMPP 的运行时、Web 服务器、数据库、本地域名、HTTPS、服务管理和项目隔离。'
-}
 if (PROD) {
   head.push(['script', { async: '', src: '/js/index.js' }])
 }
@@ -771,15 +755,12 @@ export default defineConfigWithTheme({
       const solutionSlug = localizedSolutionMatch[2]
       preferredDescription = solutionContentByLocale[solutionLocale][solutionSlug]?.summary
     }
-    const compareDescription = relativePath.startsWith('zh/')
-      ? chineseCompareDescriptions[relativePath.slice(3)]
-      : undefined
     pageData.description = resolvePageDescription({
       relativePath,
       title: String(pageData.title || 'FlyEnv'),
       currentDescription: pageData.description,
       explicitDescription: descriptionFromFrontmatter(pageData.frontmatter),
-      preferredDescription: compareDescription || preferredDescription
+      preferredDescription
     })
     return pageData
   },
@@ -837,10 +818,9 @@ export default defineConfigWithTheme({
               items: [
                 { text: 'What is FlyEnv?', link: '/guide/what-is-flyenv' },
                 // 新增：专门吃“对比类”长尾搜索词，提升转化率
-                { text: 'FlyEnv vs Docker & XAMPP', link: '/guide/flyenv-vs-docker-xampp' },
                 { text: 'Quick Start Guide', link: '/guide/getting-started' },
-                { text: 'About FlyEnv Helper', link: '/guide/about-flyenv-helper' },
-                { text: 'License & Support', link: '/guide/about-license' }
+                { text: 'License & Support', link: '/guide/about-license' },
+                { text: 'About FlyEnv Helper', link: '/guide/about-flyenv-helper' }
               ],
               collapsed: false
             },
@@ -1117,14 +1097,12 @@ export default defineConfigWithTheme({
           { text: '许可证', link: '/zh/license' }
         ],
         sidebar: {
-          '/zh/compare/': [{ text: '比较', items: compareSidebarZh, collapsed: false }],
           '/zh/features/': [...featureSidebarZh],
           '/zh/guide/': [
             {
               text: '开始使用',
               items: [
                 { text: '什么是FlyEnv?', link: '/zh/guide/what-is-flyenv' },
-                { text: 'FlyEnv vs Docker & XAMPP', link: '/zh/guide/flyenv-vs-docker-xampp' },
                 { text: '快速开始', link: '/zh/guide/getting-started' },
                 { text: '关于许可证', link: '/zh/guide/about-license' },
                 { text: '关于FlyEnv帮助程序', link: '/zh/guide/about-flyenv-helper' }
@@ -1243,17 +1221,15 @@ export default defineConfigWithTheme({
           { text: 'Lisensi', link: '/id/license' }
         ],
         sidebar: {
-          '/id/compare/': [{ text: 'Perbandingan', items: compareSidebarId, collapsed: false }],
           '/id/features/': [...featureSidebarId],
           '/id/guide/': [
             {
               text: 'Memulai',
               items: [
                 { text: 'Apa itu FlyEnv?', link: '/id/guide/what-is-flyenv' },
-                { text: 'FlyEnv vs Docker & XAMPP', link: '/id/guide/flyenv-vs-docker-xampp' },
                 { text: 'Panduan Mulai Cepat', link: '/id/guide/getting-started' },
-                { text: 'Tentang FlyEnv Helper', link: '/id/guide/about-flyenv-helper' },
-                { text: 'Lisensi & Dukungan', link: '/id/guide/about-license' }
+                { text: 'Lisensi & Dukungan', link: '/id/guide/about-license' },
+                { text: 'Tentang FlyEnv Helper', link: '/id/guide/about-flyenv-helper' }
               ],
               collapsed: false
             },
@@ -1393,17 +1369,15 @@ export default defineConfigWithTheme({
           { text: 'Licencia', link: '/es/license' }
         ],
         sidebar: {
-          '/es/compare/': [{ text: 'Comparativas', items: compareSidebarEs, collapsed: false }],
           '/es/features/': [...featureSidebarEs],
           '/es/guide/': [
             {
               text: 'Primeros pasos',
               items: [
                 { text: '¿Qué es FlyEnv?', link: '/es/guide/what-is-flyenv' },
-                { text: 'FlyEnv vs Docker & XAMPP', link: '/es/guide/flyenv-vs-docker-xampp' },
                 { text: 'Guía de inicio rápido', link: '/es/guide/getting-started' },
-                { text: 'Acerca de FlyEnv Helper', link: '/es/guide/about-flyenv-helper' },
-                { text: 'Licencia y soporte', link: '/es/guide/about-license' }
+                { text: 'Licencia y soporte', link: '/es/guide/about-license' },
+                { text: 'Acerca de FlyEnv Helper', link: '/es/guide/about-flyenv-helper' }
               ],
               collapsed: false
             },
@@ -1549,17 +1523,15 @@ export default defineConfigWithTheme({
           { text: 'Giấy phép', link: '/vi/license' }
         ],
         sidebar: {
-          '/vi/compare/': [{ text: 'So sánh', items: compareSidebarVi, collapsed: false }],
           '/vi/features/': [...featureSidebarVi],
           '/vi/guide/': [
             {
               text: 'Bắt đầu',
               items: [
                 { text: 'FlyEnv là gì?', link: '/vi/guide/what-is-flyenv' },
-                { text: 'FlyEnv vs Docker & XAMPP', link: '/vi/guide/flyenv-vs-docker-xampp' },
                 { text: 'Hướng dẫn bắt đầu nhanh', link: '/vi/guide/getting-started' },
-                { text: 'Về FlyEnv Helper', link: '/vi/guide/about-flyenv-helper' },
-                { text: 'Giấy phép & Hỗ trợ', link: '/vi/guide/about-license' }
+                { text: 'Giấy phép & Hỗ trợ', link: '/vi/guide/about-license' },
+                { text: 'Về FlyEnv Helper', link: '/vi/guide/about-flyenv-helper' }
               ],
               collapsed: false
             },
